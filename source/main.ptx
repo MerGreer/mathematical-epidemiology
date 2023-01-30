@@ -1,0 +1,983 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<pretext xml:lang="en-US">
+
+  <docinfo>
+    <macros>
+      \newcommand{\R}{\mathbb R}
+    </macros>
+
+    <latex-image-preamble>
+      \usepackage{tikz,pgfplots}
+    </latex-image-preamble>
+
+    <!-- <rename element="inlineexercise">Try it!</rename> -->
+
+    <rename element="exercises">For Further Thought</rename>
+  </docinfo>
+
+  <book xml:id="mathematical-epidemiology">
+    <title>Mathematical Epidemiology</title>
+    <subtitle>A Course for Undergraduates</subtitle>
+
+    <frontmatter xml:id="frontmatter">
+      <titlepage>
+        <author>
+          <personname>Meredith L. Greer</personname>
+          <department>Mathematics</department>
+          <institution>Bates College</institution>
+        </author>
+        <date>
+          <today />
+        </date>
+      </titlepage>
+
+      <colophon>
+
+        <!-- <website>
+          <name><copyright></copyright>
+            <c>example.org</c>
+          </name>
+          <address>https://example.org</address>
+        </website> -->
+
+        <copyright>
+          <year>2020<ndash />2023</year>
+          <holder>You</holder>
+          <shortlicense> 
+            This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+          </shortlicense>
+        </copyright>
+      </colophon>
+
+      <preface>
+        <p>
+          Welcome to Mathematical Epidemiology: A Course for Undergraduates. It so happens that this book is becoming available well after the start of the global COVID-19 outbreak. During this pandemic, mathematics, data, epidemiology, graphs, and charts began appearing in the news and other media at levels beyond what we had ever seen before. To fully appreciate and act on the information in the media, it has been helpful to know first-hand the ways models can be built, used, and misused, and to understand the underlying mathematics involved. 
+        </p>
+        <p>
+          Yet this text's origin lies not in the COVID-19 outbreak, but in the much longer history of mathematical epidemiology. The text builds on a course that has been taught since 2014, and typical students studying these topics pre-2020 had never heard of connections between mathematics and epidemiology. Nearly all students in the course, before and since 2020, have gained their first significant introduction to disease models within this course. Examples of outbreaks we study include measles, Ebola, mumps, and whooping cough. 
+        </p>
+        <p>
+          The approach used throughout this text is to dive into using, then building, disease models. We play with models and discover the ways each model responds to small and large changes. We represent the ideas of models using images, equations, words, graphs, and numbers. Each section centers on one or more activities, and as we work through these activities, we build up knowledge about how to construct and work with mathematical models of disease outbreaks.
+        </p>
+        <p>
+          <em>Who is the expected audience for this book?</em> The audience I have in mind while writing is a class of undergraduates, studying together, and checking in with their professor along the way. These students have studied at least one semester of calculus, focusing primarily on derivatives as rates of change. It helps for students to also recognize that integrals and derivatives are inverse operations, and to know that integrals sum up area under a curve (when all values on the curve are nonnegative). Some sections of this text use linear algebra, specifically matrices and eigenvalues. These sections are not required for learning from this book. Or, for students who would like to include these sections but have not studied linear algebra, there is a brief tutorial available.
+        </p>
+        <p>
+          Though undergraduates are the audience I primarily think about while writing, they are not the only audience. My goal is that anyone with some calculus background will be able to learn about mathematical epidemiology by working through these activities.
+        </p>
+        <p>
+          <em>Who can teach from this book?</em> My goal is for many teachers and professors of college-level mathematics to feel comfortable teaching from this book. There is no requirement to have taught mathematical modeling before, or to have studied mathematical epidemiology. 
+        </p>
+        <p>
+          <em>What other kinds of math will we use, besides calculus?</em> To do mathematical modeling, we use any math we need.  We typically jump into activities and then introduce new mathematical ideas whenever they are helpful. These math ideas come from differential equations, multivariable calculus, linear algebra, numerical analysis, probability, and more. If you have already studied some of these subjects, you may be able to move more quickly through some of the activities. On the other hand, if you have not yet taken full courses in these subjects, then there will be enough information contained here for you to learn what you need and keep modeling. And, perhaps, you may find that you want to learn more, and that may lead you to study additional areas of mathematics.
+        </p>
+        <p>
+          <em>What kind(s) of models will we use?</em> For most of this textbook, we use compartmental models, which can be drawn in pictures and written as ordinary differential equations. (It is OK to not know some of the terms in the previous sentence when you start: all will be explained.) Some of these models are called SIR models. We will mention other types of models, but we restrict our focus to compartmental models using ordinary differential equations so that we can fully understand the underlying math ideas, how to use the models, and how to visualize our results.
+        </p>
+        <p>
+          <em>Do all the models in this text focus only on diseases?</em> Actually, no. The style of modeling we focus on has many other applications. We will investigate several other ways to use these models, including studying the spread of rumors, political party affiliations, and viral YouTube videos.
+        </p>
+        <p>
+          Thank you for reading this introduction, and I hope you enjoy the book!
+        </p>
+        <p>
+          Meredith L. Greer
+        </p>
+      </preface>
+    </frontmatter>
+
+
+  <part xml:id="part-core-modeling-concepts">
+    <title>Core Modeling Concepts</title>
+     <chapter xml:id="chapter-">
+      <title>Prelude: Diseases in Popular News</title>
+
+    <introduction xml:id="intro-prelude">
+      <p>
+        Goals
+        <ul>
+          <li>
+            <p>
+              Read about an outbreak in a non-scientific article.
+            </p>
+          </li>
+          <li>
+            <p>
+              Begin to look for details that can turn into mathematical ideas.
+            </p>
+          </li>
+          <li>
+            <p>
+              Notice the goals and style of writing in a news or popular culture article on an outbreak, and think about how these may be different in a scientific journal article.
+            </p>
+          </li>
+          <li>
+            <p>
+              Prioritize, and build toward a habit of, full-class discussion.
+            </p>
+          </li>
+        </ul>
+      </p>
+
+      <p>
+        Disease outbreaks have been a topic of widespread discussion for a very long time. In this course, we will discuss scientific study of outbreaks, data sets collected and curated by government officials, and policy ideas for improving public health outcomes. To begin, however, we start by examining writing in news and popular culture articles about diseases.
+      </p>
+
+      </introduction>
+
+      <section xml:id="section-activity-articles-about-diseases">
+        <title>Activity: Articles About Diseases</title>
+        <p>The Washington Post is a newspaper with a corresponding website. CNN is a television station and an online news source. People magazine and the corresponding website people.com center on <q>celebrity news and human-interest stories</q><fn><url href="https://en.wikipedia.org/wiki/People_(magazine)">People magazine Wikipedia entry</url>, accessed 15 Nov 2022</fn>. In this activity, read one or more of these suggested articles, which come from the outlets described above:</p>
+
+        <ul>
+          <li>
+            <p>
+              <url href="https://www.washingtonpost.com/health/2019/08/24/tourist-infected-with-measles-visited-disneyland-other-southern-california-hotspots-mid-august/">A tourist infected with measles visited Disneyland and other Southern California hot spots in mid-August</url>, published August 24, 2019, by the Washington Post;
+            </p>
+          </li>
+          <li>
+            <p>
+              <url href="https://www.cnn.com/2022/10/26/health/rsv-immunity-gap">Pandemic <q>immunity gap</q> is probably behind surge in RSV cases, scientists say</url>, published October 28, 2022, by CNN;
+            </p>
+          </li>
+          <li>
+            <p>
+              <url href="https://people.com/health/measles-outbreak-spreads-21-states-dc/">Vaccinations a Priority as Measles Cases in the U.S. Number 107 in the First 7 Months of 2018</url>, published August 16, 2018, by People.
+            </p>
+          </li>
+        </ul>
+
+        <p>
+          While reading each article, think through the answers to as many of the following questions as you can.
+        </p>
+
+        <ol>
+          <li>
+            <p>
+              What illness is involved?
+            </p>
+          </li>
+          <li>
+            <p>
+              How does it spread?
+            </p>
+          </li>
+          <li>
+            <p>
+              How quickly does it proceed? Consider incubation time, length of sickness, etc.
+            </p>
+          </li>
+          <li>
+            <p>
+              Is it more prominent in some parts of the world than others?
+            </p>
+          </li>
+          <li>
+            <p>
+              What does the article say about vaccines, quarantines, isolation, testing, or other approaches to managing this illness?
+            </p>
+          </li>
+          <li>
+            <p>
+              What mathematical concepts can you find in your article?
+            </p>
+          </li>
+        </ol>
+
+        <p>
+          The question about mathematical concepts is very open-ended. List any ideas that seem to make sense to you.
+        </p>
+
+      </section>
+
+      <section xml:id="sec-Possible-Discussion-Themes">
+        <title>Possible Discussion Themes</title>
+        
+        <p>
+          The activity above is very open-ended. The goal of this activity is to begin discussing outbreaks as they appear in news and popular culture writing. There is no hidden <q>right answer</q> to find.
+        </p>
+        <p>
+          There are some possible themes that may arise during discussion. Below, you can find a sample of such themes. These may help to expand thoughts and discussions you are already having about the articles. Or it is possible that you discovered yet other themes, beyond those listed here, and this is wonderful!
+        </p>
+        <p>
+          <em>Theme 1.</em> The diseases in the articles are measles and RSV. Both are highly contagious and spread through coughing and sneezing.
+        </p>
+        <p>
+          <em>Theme 2.</em> The articles give different kinds of information about the ways measles and RSV can spread. Some of the articles give descriptions that let us estimate incubation period or length of sickness, and some give fewer such descriptions.
+        </p>
+        <p>
+          <em>Theme 3.</em> Some of the articles describe disease presence in the U.S. only, and some articles describe disease presence in other countries.
+        </p>
+        <p>
+          <em>Theme 4.</em> All of the articles discuss vaccination, but there is not yet a vaccine for RSV. Some alternate control measures, such as hand washing or sanitizing surfaces, appear in one or more articles.
+        </p>
+        <p>
+          <em>Theme 5.</em> The question about mathematical concepts could mean many things. There are many possible answers, including but not limited to: numbers of recent cases, lengths of time of the stages of disease, historical data about when more or fewer people have been ill in past years, or percentages of people vaccinated.
+        </p>
+      </section>
+
+      <section xml:id="sec-Follow-Up-By-Seeking-More-Precise-Data">
+        <title>Follow Up By Seeking More Precise Data</title>
+        <p>
+          For these and other diseases or outbreaks we may read about, we can add to our knowledge of underlying disease biology by gathering additional data. We will find, when modeling diseases, that it can help to know the lengths of time for each disease stage, such as incubation period, how long a person is typically sick, and how long any immunity to the disease lasts. Vaccine data is also helpful, including whether a vaccine exists at all, how effective the vaccine is on average, and what percentage of people are vaccinated against a particular disease. Some of the data we collect may depend on time or place: vaccines may be newer, or different percentages of people may be vaccinated in different locations. 
+        </p>
+        <p>
+          One place to look up data is the <url href="https://www.cdc.gov/">Centers for Disease Control and Prevention (CDC)</url>. As one example, a web search can take us to the <url href="https://www.cdc.gov/measles/index.html">CDC's information page about measles</url>. Not every disease is presented in an identical manner on the CDC's web pages, but very commonly, there is a link for Transmission and another link for Signs and Symptoms. These typically contain lots of information about how diseases spread and how long each stage takes. Such information helps us build our models.
+        </p>
+        <p>
+          Take a look at the <url href="https://www.cdc.gov/measles/transmission.html">Transmission</url> and <url href="https://www.cdc.gov/measles/symptoms/signs-symptoms.html">Signs and Symptoms</url> pages for measles at the CDC. Putting together the information on both these pages, can you construct a timeline of measles contagion in a single person? Start at the time the person is first infected. How long does it typically take for this person to begin being contagious? How long is the total time period from when they begin being contagious to when they no longer are contagious? And how do these timelines overlap, or not overlap, with when they have the typical measles rash? It is likely, for most diseases, that these timelines will involve ranges of time such as <q>3 to 5 days</q> rather than more specific amounts of time such as <q>4 days</q>. Time ranges will be helpful to us as we fine-tune our models.
+        </p>
+      </section>
+
+    
+    <exercises xml:id="exercises-prelude">
+      <statement>
+        <p>
+          Here is the first exercise
+        </p>
+      </statement>
+      <statement>
+        <p>
+          Here is the second exercise
+        </p>
+      </statement>
+    </exercises>
+
+    </chapter>
+
+    <chapter xml:id="ch-zombies-can-math-help">
+      <title>Zombies: Can Math Help?</title>
+      
+      <introduction xml:id="intro-zombies">
+      <p>
+        Goals
+        <ul>
+          <li>
+            <p>
+              Simulate an outbreak.
+            </p>
+          </li>
+          <li>
+            <p>
+              Actively observe the data that emerge from a simulation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Think through the disease spread process underlying a simulation, and consider how changes in the process can change the outcome.
+            </p>
+          </li>
+        </ul>
+      </p>
+
+      <p>
+        First things first: let's simulate an outbreak! This activity is directly inspired by the Disease Lab materials published freely online by Utah State University.<fn>Powell, Jim and Lewis, Matt, "Disease Lab" (2016). <em>Laboratory Experiences in Mathematical Biology</em>. 1.
+        <url href="https://digitalcommons.usu.edu/lemb/1">https://digitalcommons.usu.edu/lemb/1</url></fn> You can do this activity in a group or on your own. (Groups are recommended, if you are able to team up with one or more other people.) You will model humans, also called Susceptibles, as well as zombies, also called Infectious. The <url href="https://digitalcommons.usu.edu/lemb/1">Utah State University link</url> describes a hands-on way to play this game using dry erase markers and overhead projector transparencies. In this text, we primarily use a related online <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url><fn>This app was created by Gabe Nelson, Bates College Class of 2020, after campus closed due to COVID-19.</fn> to play and to generate data.
+      </p>
+
+      <p>
+        Why do we start with a simulation? First, this course requires active involvement, so we create space immediately for that involvement. Second, this simulation game can be interactive, and working with others helps us see other perspectives and adds both fun and community to learning. Third, this activity generates outbreak examples, and examples throughout this course will be one of our main ways to build toward theory and illustrate abstract concepts. Therefore, to achieve the goals for each section, we begin with activities, then use what we learned in the activities to help build our mathematical framework.
+      </p>
+
+      </introduction>
+
+
+      <section xml:id="sec-activity-zombie-game">
+        <title>Activity: Zombie Game</title>
+        
+        <p>
+          This game uses a grid of 100 hexagons to represent a space in which humans and zombies interact. Each round of game play represents one day. For each day, each human (<q>Susceptible</q>) is represented on the grid by a blue <q>X</q> on a single hexagon. Each zombie (<q>Infectious</q>) is represented by three red dots connected by red lines, meant to suggest a head and two arms, each of which can infect a human. Each zombie spreads out across three connected hexagons. Sample hex grids, both unmarked and marked, appear in <xref ref="zombie-board-graphics" />
+          <!-- Figure~\ref{fig:ZombieBoardGraphics}. -->
+        </p>
+
+        <figure width="90%" xml:id="zombie-board-graphics">
+          <caption>Blank hex grid, and sample filled-in section</caption>
+          <sidebyside widths="40% 40%" margins="auto" valign="middle">
+            <figure width="40%" xml:id="fig-standard-hex-board">
+              <caption>Full hex grid, not filled in</caption>
+              <image source="StandardHexBoard.png" width="40%"/>
+              <description>Hex grid of 100 hexagons, in a ten-by-ten arrangement</description>
+            </figure>
+            <figure width="40%" xml:id="fig-zombie-board-detail">
+              <caption>Representing humans (blue X marks) and zombies (red dots and lines, representing a head and two arms) on the hex grid</caption>
+              <image source="ZombieBoardDetail.png" width="40%"/>
+              <description>Detail of hex grid, showing placement of zombies and humans</description>
+            </figure> 
+          </sidebyside>
+        </figure>
+
+      <p>
+        To start the simulation, go to the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url>. Use the default settings at first, except to change the Human Start Count to 49, as shown in <xref ref="fig-zombie-app-49-susceptibles" />. Combining these 49 Humans with the Zombies Start Count of 1, the total population then equals 50.
+      </p>
+      <figure width="90%" xml:id="fig-zombie-app-49-susceptibles">
+        <caption>Changing <q>Human Start Count</q> to 49 in the Zombie Game App</caption>
+          <image source="ZombieApp_49Susceptibles.png" width="40%"/>
+              <description>Screen image from the Zombie Game App, showing the <q>Human Start Count</q></description>
+      </figure>
+                
+      <p>
+        To watch the outbreak unfold, day by day, first click <q>start</q>. You will see the zombies and humans placed randomly on the grid. Both a table of data, and a graph of Day 0 and Day 1 data, appear to the right. A sample Day 1 result appears in <xref ref="fig-zombie-app-one-day" />.
+      </p>
+      <figure width="100%" xml:id="fig-zombie-app-one-day">
+        <caption>Sample output for Day 1 from the Zombie Game App</caption>
+          <image source="ZombieApp_OneDay.png" width="100%"/>
+              <description>Sample output for Day 1 from the Zombie Game App, including the grid of humans and zombies, plus a table and a graph of data for days 0 and 1</description>
+      </figure>
+      <p>
+        If you began with 49 humans and 1 zombie, these will be the numbers listed for Day 0. The data for Day 1 are computed by looking at the hex grid: each human that overlaps with a zombie is a <q>New Infection</q> and moves from the <q># Humans</q> category to the <q># Zombies</q> category. This means that this number of individuals is subtracted from <q># Humans</q> and added to <q># Zombies</q>. Double check that your count of new infections matches the app's count! In <xref ref="fig-zombie-app-one-day" />, the one zombie overlaps two blue X hexes. We therefore see that on Day 1 there are two <q>New Infections</q>. We also compare Day 1 with Day 0. The two <q>New Infections</q> for Day 1 mean that the population of <q>Susceptibles</q> drops by 2, from 49 to 47, while the population of <q>Infectious</q> rises by 2, from 1 to 3.)  
+      </p>
+      <p>
+        Notice that there is randomness in how Zombies and Humans are placed on the grid, so your one-day results on the app may be different from those in <xref ref="fig-zombie-app-one-day" />.
+      </p>
+      <p>
+       When you are ready, click <q>next round</q> to see a new grid for Day 2. The table of data, and the graph, both update to include Day 2. Continue to click <q>next round</q> at your own pace, thinking through the grid, table, and graph as each step proceeds. The game ends when there are either no humans left to infect, or no zombies left to keep infecting new humans. 
+      </p>
+      <p>
+        As an alternative to make the game more interactive, the app allows you to choose your own locations for humans and zombies. To choose your own locations, under <q>Mode</q>, check <q>Hotseat</q> instead of <q>Auto</q>. The app then prompts you to place all the Humans for one day of the simulation. After all Humans are placed, the app prompts you to place your Zombies. For each Zombie, you must place the head and the arms. When this is complete, the app shows both Humans and Zombies, to indicate how many new infections have occurred. To make into a game, two people can play. One person places the Humans, <em>without their partner watching</em>. Then the partner places the Zombies, again <em>without their partner watching</em>. Then, together, the partners can see how many new infections there are, once the Human and Zombie grids are shown together. Is there any strategy that helps either the Humans or the Zombies? 
+      </p>
+      <p>
+        Try the game one or many times, on your own or with a partner. Copy several resulting data sets, as numbers and as images, so that you can look for patterns.
+      </p>
+
+      </section>
+
+      <section xml:id="sec-we-now-have-data-qualitative-musings">
+        <title>We Now Have Data: Qualitative Musings</title>
+
+        <p>
+          You have now had the chance to generate one or many data sets. Take time to examine the data, both in the form of a table and in the form of a graph. Do this with multiple data sets: in a classroom setting, different student groups can share data.
+        </p>
+        <exercise xml:id="exer-begin-zombie-app">
+          <statement>
+            Think through the following questions. Spend time trying to answer these before you move on in this book.
+            <ol>
+              <li>
+                <p>
+                  Upon viewing multiple sets of data from the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url>, what patterns do you observe?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Do you have any questions, or guesses, about what might happen in additional simulations in the app?
+                </p>
+              </li>
+              <li>
+                <p>
+                  So far, we have mostly kept the default settings in the app, and played just one version of the hands-on game, but what if we changed the rules for human<ndash />zombie interaction? Do you suspect that the outcome(s) could then be different? If so, then in what ways do you think the outcome(s) might change?
+                </p>
+              </li>
+            </ol>
+          </statement>
+          <!-- <hint>
+            <p>
+              Here are my hints
+            </p>
+          </hint> -->
+        </exercise>
+        <aside>
+          <p>
+            In this book, we work with mathematical models. As a first step toward building mathematical models, we should think through the underlying <q>rules</q> of our situation. We should also think through any outcomes of these rules. Must these rules always lead to similar outcomes? Could these same rules produce significantly different outcomes? Spending time on understanding our system is a crucial part of making sure our mathematical approaches make sense.
+          </p>
+        </aside>
+
+        <exercise>
+          <statement>
+            <p>
+              In <xref ref="exer-begin-zombie-app" />, some of the first patterns to notice may be about the shapes of the graphs of the Human and Zombie populations as time progresses forward from Day 0. Develop responses to the following questions, and explain your reasoning. (If you already thought about these as part of <xref ref="exer-begin-zombie-app" />, great work!)
+            </p>
+            <ol>
+              <li>
+                <p>
+                  What can you say about whether the size of each population (Humans and Zombies) is rising or falling?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Can a single population first rise, and later fall (or first fall, and then rise)?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If we tried this simulation many times, in what ways could your results be similar, and in what ways could your results be different?
+                </p>
+              </li>
+            </ol>
+          </statement>
+        </exercise>
+        <p>
+          There are many other things you may notice. To name just a few ideas: you may think about the speed with which each curve rises or falls. You may think about how much these speeds change when you try the game several times. You may relate a rise in one graph to a fall in the other, thinking about a sort of symmetry between the two graphs. You may think about when the rising or falling is relatively slow vs. relatively fast. These and many other observations are a valued and central part of working toward mathematical model building.
+        </p>
+        
+      </section>
+
+      <section xml:id="sec-a-first-model">
+        <title>A First Model</title>
+        
+        <p>
+          After completing a simulation, you have data for the numbers of humans and zombies during each day of the outbreak. These data can be presented as a table of values, and they can be presented as a graph. In the app, the table format for data appears as in <xref ref="fig-human-zombie-data-table" />, and the graph format for data appears as in <xref ref="fig-human-zombie-data-graph" />. 
+        </p>
+        
+        <figure width="90%" xml:id="fig-human-zombie-data-table">
+          <caption>Table of sample data from a human<ndash />zombie simulation</caption>
+          <image source="SampleHumanZombieData.png" width="80%"/>
+              <description>Sample data for a full simulation from the Zombie Game App, viewed as a table</description>
+        </figure>
+        <figure width="90%" xml:id="fig-human-zombie-data-graph">
+          <caption>Graph of sample data from a human<ndash />zombie simulation</caption>
+          <image source="SampleHumanZombieGraph.png" width="80%"/>
+              <description>Sample data for a full simulation from the Zombie Game App, viewed as a graph</description>
+        </figure>
+
+        <p>
+          As we build a model, we focus on the relatively slow changes in population sizes that happen near the beginning and end of the model. This may not happen in every simulation: for instance, sometimes zombies happen to infect a lot of humans in the last time step. However, in other simulations, one lone human may last for many days before being infected. We focus on what happens <em>on average</em>. For this model, on average, the pace of infection seems slower near the beginning and near the end of the outbreak.
+        </p>
+        <p>
+          Thinking through this more, we may notice that the pace of infection is slower when there are relatively few humans, or when there are relatively few zombies. Can you see why it makes sense that infection tends to spread less quickly when there are fewer individuals in one of the populations? Conversely, why does it make sense for infection to spread relatively rapidly when there are relatively large numbers of both humans and zombies? And finally, to take the discussion about pace of infection to a logical extreme: how fast can infection spread when there are zero humans, or when there are zero zombies?
+        </p>
+        <p>
+          Putting this all together, we can say that, on average, the change in the number of infections seems to depend on both the number of humans (Susceptibles) and the number of zombies (Infectious). One mathematical approach to writing this is to say that new cases per day are proportional to the number of Susceptibles multiplied by the number of Infectious. We can write this as follows:
+        </p>
+
+        <mdn>
+          <mrow xml:id="eq-proportionality">( \# \mbox{ New Cases}) \amp \propto (\# \mbox{ Susceptibles}) \cdot (\# \mbox{ Infectious}) </mrow>
+        </mdn>
+
+        <p>
+          To turn this into a mathematical formula, we will use a <em>system of ordinary differential equations</em>. This is a good time to mention: to read and learn from this text, there is no need to have taken a course on differential equations. To write and work with the models we use, it is sufficient to know these ideas from calculus:
+        </p>
+
+        <ul>
+          <li>
+            <p>
+              derivatives represent change;
+            </p>
+          </li>
+          <li>
+            <p>
+              an increasing graph has a positive slope and a derivative greater than zero;
+            </p>
+          </li>
+          <li>
+            <p>
+              a decreasing graph has a negative slope and a derivative less than zero; and
+            </p>
+          </li>
+          <li>
+            <p>
+              a horizontal graph (one in which the <q><m>y</m>-axis</q> value is not changing) has a slope of zero and a derivative equal to zero.
+            </p>
+          </li>
+        </ul>
+
+        <p>
+          One other helpful piece of information is the fact that a differential equation is just an equation containing a derivative. Many of the equations in calculus contain a derivative. A quick example is <m>f'(x)=3x+2</m>, which contains the derivative <m>f'(x)</m>. This means that if you have studied calculus, then you have already built significant experience using differential equations.
+        </p>
+        <p>
+          With these calculus ideas in mind, we return to our model. We will write two equations, one to represent the change in the Susceptible population and one to represent the change in the Infectious population. Our independent variable is time, which we label <m>t</m>. You may have noticed that time is the variable on the horizontal axis: this axis is labeled <q>Round</q> in the app, and it represents time in the form of days. For our dependent variables, we choose letters that correspond to their names. This makes them easier to remember, and for many people, it makes the equations easier to interpret. Therefore let <m>S = S(t)</m> represent the Susceptible population and <m>I = I(t)</m> represent the Infectious population. 
+        </p>
+        <p>
+          You may have noticed that our data show us not just total numbers of <m>S(t)</m> and <m>I(t)</m> at each time step, but also show how <m>S(t)</m> and <m>I(t)</m> change over time. The number of new infectious tells us directly how many people change, on each day, from the <m>S(t)</m> population to the <m>I(t)</m> population. We now connect <m>S(t)</m>, <m>I(t)</m>, and the number of new infections using differential equations and the proportionality relationship from <xref ref="eq-proportionality" />:
+        </p>
+
+        <mdn>
+          <mrow xml:id="eq-S-in-SImodel">\frac{dS}{dt} \amp = -\beta S I </mrow>
+          <mrow xml:id="eq-I-in-SImodel">\frac{dI}{dt} \amp = \beta S I </mrow>
+        </mdn>
+
+        <p>
+          There is a lot of calculus happening in these equations! We are also representing the <q>on average</q> observations we made earlier. Here are some of the key ideas to notice.
+        </p>
+
+        <ul>
+          <li>
+            <p>
+              The derivative term <m>dS/dt</m> represents the change in population <m>S(t)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Similarly, the derivative <m>dI/dt</m> represents the change in <m>I(t)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              In this model, individuals leaving <m>S(t)</m> go immediately into <m>I(t)</m>, which is why the same term <m>\beta S I</m> appears on the right-hand side of both equations.
+            </p>
+          </li>
+          <li>
+            <p>
+              Individuals can only leave <m>S(t)</m>, so <m>S(t)</m> decreases, and <m>dS/dt</m> is negative. We actually see the negative sign (<m>-</m>) written into the differential equation.
+            </p>
+          </li>
+          <li>
+            <p>
+              Individuals can only enter <m>I(t)</m>, so <m>I(t)</m> increases, and <m>dI/dt</m> is positive. We do not explicitly write a positive sign (<m>+</m>), but we note that there is no negative sign (<m>-</m>).
+            </p>
+          </li>
+          <li>
+            <p>
+              The values of <m>S(t)</m> and <m>I(t)</m> should never be negative. They should be either positive, or zero. This makes sense because they represent populations of individuals. This must also be true mathematically, in order for the model to make sense.
+            </p>
+          </li>
+          <li>
+            <p>
+              We represent the idea of proportionality by using the parameter <m>\beta</m>. We will experiment with different values of <m>\beta</m> to see how changing <m>\beta</m> affects the outcomes of the model.
+            </p>
+          </li>
+          <li>
+            <p>
+              The value of <m>\beta</m> must be positive. This observation is consistent with us directly seeing the negative sign (<m>-</m>) when a term is negative, and not seeing the negative sign when a term is positive. (With this observation, it could be possible for <m>\beta</m> to be 0, but if there is any outbreak and any interaction of <m>S(t)</m> with <m>I(t)</m>, then <m>\beta</m> will not be 0.)
+            </p>
+          </li>
+        </ul>
+
+        <p>
+          This model uses differential equations, which think of time as continuous, using every real value for <m>t</m> starting at <m>t=0</m>. By contrast, when we collect data from the zombie game, time is discrete, meaning that time steps forward through values such as <q>Day 0</q>, <q>Day 1</q>, <q>Day 2</q>, and so on. In this course, we mainly use differential equation models, meaning time is thought of as continuous. Continuous time may match well with our intuitive sense of how time works: time does not stop and start. However, the data we collect about disease spread will often be discrete, on time scales such as days or weeks. We will include this knowledge in our work with models.
+        </p>
+
+        <exercises xml:id="exercises-ch-zombies">
+          <exercise number="1">
+           <p>
+             Vary the zombie simulation so that zombies have only one arm. This means we represent each zombie by two connected dots, rather than three connected dots. In the app, we can change the <q># of Zombie Arms</q> from 2 to 1. Complete one or more simulations with this change. Collect and graph the simulation data. How do your results compare with the results from simulations in which zombies have two arms? Write about your results. Include your data and graphs as part of your comparison.
+            </p>
+          </exercise>
+          <exercise number="2">
+            <p>
+              What other variations can you imagine creating in this game? Describe how the game changes, and connect each game change with what it would mean in the <q>real-world</q> scenario of a zombie outbreak.
+            </p>
+              <ol>
+                <li>
+                  <p>
+                    How might your mathematical model change in order to match this change in the game? In other words, how might your differential equations change?
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    How might long-term outcomes for humans and zombies change, if at all?
+                  </p>
+                </li>
+              </ol>
+            <p>
+              Support your thoughts, to the best of your abilities, using the data and graphs you generate from simulating your changes to the game.
+            </p>
+          </exercise>
+        </exercises>
+
+      </section>
+
+
+    </chapter>
+
+    <chapter xml:id="ch-compartmental-diagrams">
+      <title>Drawing a Picture of Disease Spread: Compartmental Diagrams</title>
+
+      <introduction xml:id="intro-compartmental-diagrams">
+      <p>
+        Goals
+        <ul>
+          <li>
+            <p>
+              Begin to use compartmental diagrams.
+            </p>
+          </li>
+          <li>
+            <p>
+              Learn the rules and assumptions for drawing compartmental diagrams.
+            </p>
+          </li>
+          <li>
+            <p>
+              Connect compartmental diagrams with their corresponding systems of differential equations.
+            </p>
+          </li>
+          <li>
+            <p>
+              Begin to build new compartmental diagrams, based on variations of the human<ndash />zombie game.
+            </p>
+          </li>
+        </ul>
+      </p>
+
+      <p>
+        In <xref ref="ch-zombies-can-math-help" /> we simulated a simple outbreak. This outbreak can be modeled using the <em>system of ordinary differential equations</em> appearing in <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />. In <xref ref="ch-zombies-can-math-help" /> we made calculus-based observations of these differential equations. 
+      </p>
+
+      <md>
+        <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+        <mrow>\frac{dI}{dt} \amp = \beta S I. </mrow>
+      </md>
+
+      <p>
+        This style of model is called a <em>compartmental model</em>. We can draw its dynamics, as shown in <xref ref="fig-SI-compartmental-diagram" />. 
+      </p>
+
+      <figure xml:id="fig-SI-compartmental-diagram">
+        <caption>One possible <m>SI</m> (Susceptible, Infectious) compartmental diagram</caption>
+          <image width="50%">
+          <description>(Write this)</description>
+            <latex-image>
+            \begin{tikzpicture}
+            \draw [thick] [black] (0,0) -- (2,0);
+            \draw [thick] [black] (2,0) -- (2,2);
+            \draw [thick] [black] (2,2) -- (0,2);
+            \draw [thick] [black] (0,2) -- (0,0);
+            \node [black] at (1,1) {\Huge $S$};
+            \draw [thick] [->] (2.1,1) to (3.9,1); 
+            \node at (3,1.5) {\Large $\beta SI$};
+            \draw [thick] [black] (4,0) -- (6,0);
+            \draw [thick] [black] (6,0) -- (6,2);
+            \draw [thick] [black] (6,2) -- (4,2);
+            \draw [thick] [black] (4,2) -- (4,0);
+            \node [black] at (5,1) {\Huge $I$};
+            \end{tikzpicture}
+            </latex-image>
+           </image>
+      </figure>
+
+      <p>
+        In this text, we will regularly represent the dynamics of an outbreak using both compartmental models and systems of differential equations. When we are careful in how we draw our compartmental diagrams, we can use them interchangeably with their corresponding systems of differential equations. In this chapter, we learn the vocabulary of compartmental models, as well as ways to draw compartmental diagrams so they clearly and completely represent the information contained in their corresponding systems of differential equations.
+      </p>
+
+      </introduction>
+      
+      <section xml:id="section-compartmental-diagrams-vocabulary-and-comments">
+        <title>Compartmental Diagrams: Vocabulary and Comments</title>
+
+        <p>
+          A compartmental diagram is made up of boxes and arrows, each labeled to show what it represents. The boxes are also called <term>compartments</term>. The arrows indicate the possible ways that individuals can relocate from one compartment to another.
+        </p>
+
+        <p>
+          At any moment in time, an individual is in exactly one compartment: no more, no fewer. This means that our entire population is fully accounted for at all times because everyone appears in some compartment. We also notice that we cannot double-count individuals, as they cannot be in more than one compartment at a time.
+        </p>
+
+        <p>
+          Because we use continuous time and differential equations, we will sometimes compute non-integer values for the number of individuals in some compartments. We should think through this carefully. If, for instance, we find that at some time we have 13.6 Susceptibles and 36.4 Infectious, we are not saying that we have 13 Susceptibles, plus 36 Infectious, plus one individual who is split up to be 60% Susceptible and 40% Infectious. Instead, the differential equation model is telling us on average what happens, across many possible simulations or many possible outcomes. In computing an <q>on average</q> outcome, non-integer values are possible. If we wish to refer to actual numbers of people, we can round to the nearest integer, or use language that reflects the <q>on average</q> meaning of our model.
+        </p>
+
+        <p>
+          When we use a compartmental diagram, we should carefully define and describe all our terms. These may change in different models, so we should not assume that <m>t</m>, <m>S</m>, <m>I</m>, or other variables always have the same meaning. Time, <m>t</m>, may be measured in days, weeks, or some other unit, and we should indicate the unit. Here are possible descriptions for <m>S</m> and <m>I</m> based on the human<ndash />zombie game in <xref ref="ch-zombies-can-math-help" />: <m>S</m> stands for the Susceptible population, meaning people who do not have the zombie disease yet but could become ill with this disease, and <m>I</m> stands for the Infectious population, meaning individuals who are currently contagious and currently showing symptoms of the zombie disease. In other outbreaks, and therefore in other models, these descriptions may change. As just one example, <m>I</m> may refer to individuals who are contagious, but who may or may not be showing symptoms. The specific definitions of <m>S</m>, <m>I</m>, or other populations should always be fully stated. 
+        </p>
+
+        <p>
+          The term <m>\beta SI</m> indicates flow from <m>S</m> to <m>I</m>. We choose this term for the model in <xref ref="ch-zombies-can-math-help" /> because this flow depends on both the population <m>S</m> and the population <m>I</m>. When either population is very small, flow is relatively small. When both populations are relatively large, their product is large and therefore flow is relatively large. This sort of term is called a <em>mass action</em> term, from the Law of Mass Action in chemistry. The idea of mass action is just one way to model flow from one compartment to another; we will study other formulas for flow.
+        </p>
+
+<!-- Check verb tense, esp in next paragraph: make all present, or keep some past??? -->
+
+        <p>
+          The letters <m>S</m>, <m>I</m>, and <m>t</m> are variables in the model. The Greek letter <m>\beta</m> is a parameter. The following conventions for letters will be part of most of the models we study. 
+        <ul>
+          <li>
+            <p>
+              Time is denoted as the <em>lowercase letter</em> <m>t</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We use <em>capital letters</em> such as <m>S</m> and <m>I</m> to indicate populations of people, which are typically functions of time, so that <m>S=S(t)</m>, <m>I=I(t)</m>, and similarly for any other populations we model.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Greek letters</em> such as <m>\beta</m> represent some aspect of how rapidly a disease progresses and are called <term>parameters</term>.
+            </p>
+          </li>
+        </ul>
+             A parameter may seem to behave a bit like a variable, since it can take on different values. However, parameters play a different role than variables in our models. In a given simulation, <em>we use biological information to set all parameter values</em>. By contrast, we choose only the initial values of our variables, that is, the values when <m>t=0</m>, and then the simulation reveals the values of each variable at later points in time. For instance, in the human<ndash />zombie example, we started at <m>t=0</m> with 49 humans <m>(S(0)=49)</m> and 1 zombie <m>(I(0)=1)</m>. After that, the populations of Susceptibles and Infectious depended on the outcome of the simulation. Even the length of time for the simulation depended on how long it took the Infectious zombies to convert all the Susceptible humans.
+        </p>
+      </section>
+
+      <section xml:id="sec-activity-varying-the-human-zombie-game">
+        <title>Activity: Varying the Human<ndash />Zombie Game</title>
+
+        <p>
+          We try two variations of the human<ndash />zombie game. These are variations suggested by students in several semesters of the course on which this text is based.
+        </p>
+        <p>
+          Be sure to emphasize the <q>active</q> part of <q>activity</q>. Start each variation by thinking carefully about these questions: 
+          <ul>
+            <li>
+              <p>
+                What do you <em>expect</em> will happen? Whether you feel very certain, or somewhat uncertain, articulate the outcome that you think will occur.
+              </p>
+            </li>
+            <li>
+              <p>
+                How might your expected outcomes differ from the original model?
+              </p>
+            </li>
+            <li>
+              <p>
+                Outcomes might be measured by the table of data, by the graphs, by the timing of how infection spreads, by the numbers of survivors, or in other ways. For each of your expectations about how the outcomes may change, what support can you show for why this expectation makes sense?
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          After you have thought through how the outcomes will change in a variation, use the app to generate data. Compare the results with the ideas you had. <em>How similar or different are the actual results, compared with what you thought?</em> This thought process is not about right or wrong ideas, but instead is about building hypotheses, comparing the hypotheses with data, and developing deeper understanding of what the model shows.
+        </p>
+
+        <subsection xml:id="subsec-zombies-can-die">
+          <title>Zombies Can Die</title>
+          <p>
+            In the original game, once an individual becomes a zombie, they are always a zombie. This means no one leaves the Infectious compartment. 
+          </p>
+          <p>
+            Suppose, instead, that Zombies do not last forever. Instead, after some number of days, the Zombies die. The number of days they remain Infectious before becoming Removed can be stated in the app.
+          </p>
+          <p>
+            <em>This is the moment to think through how zombie death, and different zombie lifespans, would change the outcomes of the simulation.</em>
+          </p>
+          <p>
+            To set up this variation in the Zombie Game app, check the box for <q>Zombie Mortality</q>. A box then appears for <q>Zombie Lifespan (days)</q>, as shown in <xref ref="fig-zombie-app-mortality" />. Try setting Zombie Lifespan to 1, then 2, then 3. For each length of time, run several simulations and compare the outcomes.
+          </p>
+          <figure width="90%" xml:id="fig-zombie-app-mortality">
+          <caption>Checking the box for <q>Zombie Mortality</q> and setting a value for <q>Zombie Lifespan (days)</q></caption>
+          <image source="ZombieApp_Mortality.png" width="60%"/>
+              <description>Screen image from the Zombie Game App, showing the checked box for <q>Zombie Mortality</q> and the <q>Zombie Lifespan (days)</q> that appears</description>
+        </figure>
+
+        <!-- Edit this figure to point at "Zombie Mortality" and "Zombie Lifespan" with an arrow, or circle them, or something -->
+
+          <p>
+            What do you observe? Consider how many humans or zombies survive till the end, and consider how much these numbers vary from simulation to simulation. Consider how many days the outbreak lasts. Make note of any additional observations you have, and reach out to other people trying this experiment to see how your results compare with theirs.
+          </p>
+        </subsection>
+        
+        <subsection xml:id="subsec-introduce-an-incubation-period">
+          <title>Introduce an Incubation Period</title>
+          <p>
+            In the original game, when a human is infected, they become a zombie the very next day.
+          </p>
+          <p>
+            Suppose, instead, that humans experience an incubation period after being attacked by a zombie. During this incubation period, these individuals are neither a zombie (so not Infectious) nor Susceptible.
+          </p>
+          <p>
+            <em>This is the moment to think through how an incubation period would change the outcomes of the simulation.</em>
+          </p>
+          <p>
+            The Zombie Game app does not address this variation directly. However, as we will show by example, you can still use the app to build a data set. In this example, we will assume that the incubation period is just one day, meaning that humans who become infected spend one day in an <q>incubating</q> category before becoming zombies. 
+          </p>
+          <p>
+            We will generate a set of data, day by day. Start in the app by beginning a game with Human Start Count equal to 49 and Zombie Start Count equal to 1. Click <q>start</q> and write down the resulting number of new infections on Day 1: these are all the humans infected by our starting zombie. For instance, suppose there are two new infections from the interactions on Day 0, as circled in <xref ref="fig-zombie-SEI-Day-1" />. Then on Day 1, there should be 47 humans, 2 incubating individuals, and 1 zombie. The app says there are three zombies, but in our interpretation, 2 are incubating individuals, and 1 is a zombie. 
+          </p>
+          <figure width="90%" xml:id="fig-zombie-SEI-Day-1">
+            <caption>Determining the number of New Infections on Day 1</caption>
+            <image source="Zombie_SEI_Simulation_Day1.png" width="60%"/>
+              <description>Table of data from one day of a simulation in the human-zombie game. There are two new infections on Day 1.</description>
+          </figure>
+          <p>
+            We therefore click <q>restart</q> on the app, so that we can enter a Human Start Count of 47 and a Zombie Start Count of 1. We do not include the 2 incubating individuals, since they do not affect the number of new zombies generated from Day 1 interactions. With these settings, we run the app for one round, generating new infectious once again. An example of this is shown in <xref ref="fig-zombie-SEI-Day-2" />. 
+          </p>
+          <figure width="90%" xml:id="fig-zombie-SEI-Day-2">
+            <caption>Using the results of Day 1 to determine the number of New Infections on Day 2</caption>
+            <image source="Zombie_SEI_Simulation_Day2.png" width="60%"/>
+              <description>Table of data from one day of a simulation in the human-zombie game, using the outcome of Day 1 to determine new infections on Day 2. There is one new infection on Day 2.</description>
+          </figure>
+          <p>
+            The next step is where we begin to re-introduce the individuals who were infected on Day 0 but still incubating the zombie disease on Day 1. From <xref ref="fig-zombie-SEI-Day-2" /> we see that we should have 46 humans and 1 incubating individual on Day 2. We also have 3 zombies: the initial zombie, plus the 2 incubating individuals from Day 1. We therefore restart the model, entering a Human Start Count of 46 and a Zombie Start Count of 3. A possible outcome appears in <xref ref="fig-zombie-SEI-Day-3" />.
+          </p>
+          <figure width="90%" xml:id="fig-zombie-SEI-Day-3">
+            <caption>Using the results of Days 1 and 2, including re-introducing incubating individuals as zombies, to determine the number of New Infections on Day 3</caption>
+            <image source="Zombie_SEI_Simulation_Day3.png" width="60%"/>
+              <description>Table of data from one day of a simulation in the human-zombie game, re-introducing incubating individuals as zombies, to determine new infections on Day 3. There are four new infections on Day 3.</description>
+          </figure>
+          <p>
+            From this step, we continue until the game has ended. It can be helpful to generate a new table of data, keeping track of the numbers of each of the three types of individuals. This table can be on paper, in a spreadsheet, or in whatever other form you prefer. <xref ref="fig-zombie-SEI-Data" /> shows a sample of how the table might look.
+          </p>
+          <figure width="90%" xml:id="fig-zombie-SEI-Data">
+            <caption>A sample full data set for simulating infections in a case where there is a one day incubation period as humans transition to zombies</caption>
+            <image source="Zombie_SEI_Simulation_Data.png" width="90%"/>
+              <description>Table of data from one sample simulation where humans have a one-day incubation period before becoming zombies. For days 0 to 10, the numbers of new infections are 1, 2, 1, 4, 5, 13, 8, 9, 5, 2, 0.</description>
+          </figure>
+          <p>
+            Again, ask yourself: what do you observe? Compare this simulation with simulations having no incubation period. Consider how many days the outbreak lasts. Make note of your observations, share your ideas with others, and consider the observations of other people trying this experiment. Try the experiment with a longer incubation period, such as 2, 3, or 4 days, and observe the ways these changes affect outcomes of the model.
+          </p>
+          
+        </subsection>
+        
+      </section>
+      
+      <section xml:id="sec-from-zombie-game-variations-to-compartmental-diagrams">
+        <title>From Zombie Game Variations to Compartmental Diagrams</title>
+        
+        <p>
+          Each of the Zombie Game variations in the previous section corresponds to a compartmental diagram. In each case, we introduced a new category of individuals, beyond Susceptibles and Infectious. These new categories correspond to new compartments. 
+        </p>
+        <p>
+          For the <q>Zombies can die</q> variation in <xref ref="subsec-zombies-can-die" />, zombies leave the Infectious compartment and can no longer infect the Susceptibles. It is typical to represent these dynamics by introducing a Removed (R) compartment for the individuals who were zombies but have then died. This model then includes the S, I, and R compartments, so we call it an SIR model. A compartmental diagram representing the dynamics of the SIR model appears in <xref ref="fig-SIR-compartmental-diagram" />.
+        </p>
+
+        <figure xml:id="fig-SIR-compartmental-diagram">
+        <caption>One possible <m>SIR</m> (Susceptible, Infectious, Removed) compartmental diagram</caption>
+          <image width="70%">
+          <description>(Write this)</description>
+            <latex-image>
+            \begin{tikzpicture}
+              \draw [thick] [black] (0,0) -- (2,0);
+              \draw [thick] [black] (2,0) -- (2,2);
+              \draw [thick] [black] (2,2) -- (0,2);
+              \draw [thick] [black] (0,2) -- (0,0);
+              \node [black] at (1,1) {\Huge $S$};
+              \draw [thick] [->] (2.1,1) to (3.9,1); 
+              \node at (3,1.5) {\Large $\beta SI$};
+              \draw [thick] [black] (4,0) -- (6,0);
+              \draw [thick] [black] (6,0) -- (6,2);
+              \draw [thick] [black] (6,2) -- (4,2);
+              \draw [thick] [black] (4,2) -- (4,0);
+              \node [black] at (5,1) {\Huge $I$};
+              \draw [thick] [->] (6.1,1) to (7.9,1); 
+              \node at (7,1.5) {\Large $\gamma I$};
+              \draw [thick] [black] (8,0) -- (10,0);
+              \draw [thick] [black] (10,0) -- (10,2);
+              \draw [thick] [black] (10,2) -- (8,2);
+              \draw [thick] [black] (8,2) -- (8,0);
+              \node [black] at (9,1) {\Huge $R$};
+            \end{tikzpicture}
+            </latex-image>
+           </image>
+      </figure>
+
+      <p>
+        In this diagram, we include the S and I compartments we used previously, while also allowing the Infectious zombies to leave the I compartment and enter the R compartment, where they stay for the rest of the simulation. The mathematical formula for movement from I to R is <m>\gamma I</m>. The parameter <m>\gamma</m> (the Greek letter <em>gamma</em>) represents the rate at which individuals leave <m>I</m> and enter <m>R</m>. Larger values of <m>\gamma</m>, for instance, mean that zombies die faster.
+      </p>
+      <p>
+        Take time to think through this compartmental diagram. Does it match your sense of how individuals progress through the simulation? Are all individuals always in exactly one compartment, that is, in <em>at least one</em> compartment and also <em>no more than one</em> compartment at any given time?
+      </p>
+      <p>
+        Give some additional thought to how the differential equations look for this model. We will discuss more details about the equations, and about determining a numerical value for the parameter <m>\gamma</m>, in that section.
+      </p>
+      <p>
+        For the <q>Introduce an incubation period</q> variation in <xref ref="subsec-introduce-an-incubation-period" />, we do not include the compartment R, but we do include a compartment for individuals who are in an incubation period. A typical way to label this compartment is E, which stands for Exposed. (Notice that we already are using I for Infectious, so we cannot use I for Incubating.) The word Exposed may be misleading, since in daily life, we tend to think of being exposed to illness as meaning that a person may or may not become sick. Instead, in our model, the Exposed individuals will definitely become sick. For this reason, in this text, we will refer to the E compartment as <term>Exposed-and-incubating</term>. This model then includes the S, E, and I compartments, so we call it SEI. A compartmental diagram representing the dynamics of this simulation appears in <xref ref="fig-SEI-compartmental-diagram" />.
+      </p>
+      <figure xml:id="fig-SEI-compartmental-diagram">
+        <caption>One possible <m>SEI</m> (Susceptible, Exposed-and-incubating, Infectious) compartmental diagram</caption>
+          <image width="70%">
+          <description>(Write this)</description>
+            <latex-image>
+            \begin{tikzpicture}
+              \draw [thick] [black] (0,0) -- (2,0);
+              \draw [thick] [black] (2,0) -- (2,2);
+              \draw [thick] [black] (2,2) -- (0,2);
+              \draw [thick] [black] (0,2) -- (0,0);
+              \node [black] at (1,1) {\Huge $S$};
+              \draw [thick] [->] (2.1,1) to (3.9,1); 
+              \node at (3,1.5) {\Large $\beta SI$};
+              \draw [thick] [black] (4,0) -- (6,0);
+              \draw [thick] [black] (6,0) -- (6,2);
+              \draw [thick] [black] (6,2) -- (4,2);
+              \draw [thick] [black] (4,2) -- (4,0);
+              \node [black] at (5,1) {\Huge $E$};
+              \draw [thick] [->] (6.1,1) to (7.9,1); 
+              \node at (7,1.5) {\Large $\kappa E$};
+              \draw [thick] [black] (8,0) -- (10,0);
+              \draw [thick] [black] (10,0) -- (10,2);
+              \draw [thick] [black] (10,2) -- (8,2);
+              \draw [thick] [black] (8,2) -- (8,0);
+              \node [black] at (9,1) {\Huge $I$};
+            \end{tikzpicture}
+            </latex-image>
+           </image>
+      </figure>
+      <p>
+        In this diagram, after a human comes into contact with a zombie, the human moves out of the Susceptible compartment and into the Exposed-and-incubating compartment. The formula on the arrow from S to E is <m>\beta S I</m>, since the movement out of S depends on an interaction between S and I. The mathematical formula for movement from E to I is <m>\kappa E</m>. The parameter <m>\kappa </m> (the Greek letter <em>kappa</em>) represents the rate at which individuals leave E and enter I.
+      </p>
+
+      </section>
+
+    <exercises xml:id="exercises-ch-compartmental-diagrams">
+          <exercise number="1">
+           <p>
+              Create some exercises using Python or Mathematica. Explain about computing BEFORE this book section! Then put exercises here to compare data with SIR and SEI models. Compare outcomes with SI model: SIR allows some survivors, SEI may take longer but still everyone ends up a zombie.
+            </p>
+          </exercise>
+          <exercise number="2">
+            <p>
+              Other
+            </p>
+            <p>
+              Support 
+            </p>
+          </exercise>
+        </exercises>
+
+    </chapter>
+ 
+
+  </part>
+
+  
+    <chapter xml:id="chapter-1">
+      <title></title>
+
+      <section xml:id="section-1">
+        <title></title>
+        <p>Hello</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="chapter-2">
+      <title></title>
+
+      <section xml:id="section-2">
+        <title></title>
+        <p>Hello</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="chapter-3">
+      <title></title>
+
+      <section xml:id="section-3">
+        <title></title>
+        <p>Hello</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="chapter-4">
+      <title></title>
+
+      <section xml:id="section-4">
+        <title></title>
+        <p>Hello</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="chapter-5">
+      <title></title>
+
+      <section xml:id="section-5">
+        <title></title>
+        <p>Hello</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="chapter-6">
+      <title></title>
+
+      <section xml:id="section-6">
+        <title></title>
+        <p>Hello</p>
+      </section>
+
+    </chapter>
+
+
+    <backmatter xml:id="backmatter">
+      <title>Backmatter</title>
+
+      <colophon>
+        <p> This book was authored in <pretext />. </p>
+      </colophon>
+
+    </backmatter>
+
+  </book>
+</pretext>
