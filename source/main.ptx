@@ -312,8 +312,9 @@
       </p>
       <figure width="90%" xml:id="fig-zombie-app-49-susceptibles">
         <caption>Changing <q>Human Start Count</q> to 49 in the Zombie Game App</caption>
-          <image source="ZombieApp_49Susceptibles.png" width="40%"/>
+          <image source="ZombieApp_49Susceptibles.png" width="40%">
               <description>Screen image from the Zombie Game App, showing the <q>Human Start Count</q></description>
+          </image>
       </figure>
                 
       <p>
@@ -735,8 +736,9 @@
           </p>
           <figure width="90%" xml:id="fig-zombie-app-mortality">
           <caption>Checking the box for <q>Zombie Mortality</q> and setting a value for <q>Zombie Lifespan (days)</q></caption>
-          <image source="ZombieApp_Mortality.png" width="60%"/>
+          <image source="ZombieApp_Mortality.png" width="60%">
               <description>Screen image from the Zombie Game App, showing the checked box for <q>Zombie Mortality</q> and the <q>Zombie Lifespan (days)</q> that appears</description>
+          </image>
         </figure>
 
         <!-- Edit this figure to point at "Zombie Mortality" and "Zombie Lifespan" with an arrow, or circle them, or something -->
