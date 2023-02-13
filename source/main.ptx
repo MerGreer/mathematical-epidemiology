@@ -91,7 +91,9 @@
 
   <part xml:id="part-core-modeling-concepts">
     <title>Core Modeling Concepts</title>
-     <chapter xml:id="chapter-">
+     
+    
+    <chapter xml:id="ch-prelude-diseases-in-popular-news">
       <title>Prelude: Diseases in Popular News</title>
 
     <introduction xml:id="intro-prelude">
@@ -121,12 +123,94 @@
       </objectives>
 
       <p>
-        Disease outbreaks have been a topic of widespread discussion for a very long time. In this course, we will discuss scientific study of outbreaks, data sets collected and curated by government officials, and policy ideas for improving public health outcomes. To begin, however, we start by examining writing in news and popular culture articles about diseases.
+        Disease outbreaks have been a topic of widespread discussion for a very long time. In this course, we will discuss the scientific study of outbreaks, data sets collected and curated by government officials, and policy ideas for improving public health outcomes. To begin, however, we start by examining writing in news and popular culture articles about diseases.
       </p>
 
       </introduction>
 
-      <section xml:id="section-activity-articles-about-diseases">
+      <exploration xml:id="expl-reading-about-disease-in-the-news-and-popular-media">
+        <title>Reading about Disease in the News and Popular Media</title>
+        <introduction>
+          <p>
+            The Washington Post is a newspaper with a corresponding website. CNN is a television station and an online news source. People magazine and the corresponding website people.com center on <q>celebrity news and human-interest stories</q><fn><url href="https://en.wikipedia.org/wiki/People_(magazine)">People magazine Wikipedia entry</url>, accessed 15 Nov 2022</fn>.
+          </p>
+        </introduction>
+
+        <task>
+          <statement>
+            <p>
+              Read one or more of these suggested articles, which come from the outlets described above.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  <url href="https://www.washingtonpost.com/health/2019/08/24/tourist-infected-with-measles-visited-disneyland-other-southern-california-hotspots-mid-august/">A tourist infected with measles visited Disneyland and other Southern California hot spots in mid-August</url>, published August 24, 2019, by the Washington Post;
+                </p>
+              </li>
+              <li>
+                <p>
+                  <url href="https://www.cnn.com/2022/10/26/health/rsv-immunity-gap">Pandemic <q>immunity gap</q> is probably behind surge in RSV cases, scientists say</url>, published October 28, 2022, by CNN;
+                </p>
+              </li>
+              <li>
+                <p>
+                  <url href="https://people.com/health/measles-outbreak-spreads-21-states-dc/">Vaccinations a Priority as Measles Cases in the U.S. Number 107 in the First 7 Months of 2018</url>, published August 16, 2018, by People.
+                </p>
+              </li>
+            </ul>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              While reading each article, think through the answers to as many of the following questions as you can.
+            </p>
+            <ol>
+              <li>
+                <p>
+                  What illness is involved?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How does it spread?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How quickly does it proceed? Consider incubation time, length of sickness, etc.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is it more prominent in some parts of the world than others?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What does the article say about vaccines, quarantines, isolation, testing, or other approaches to managing this illness?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What mathematical concepts can you find in your article?
+                </p>
+              </li>
+            </ol>
+            <p>
+              The question about mathematical concepts is very open-ended. List any ideas that seem to make sense to you.
+            </p>
+          </statement>
+        </task>
+        <p>
+          hi
+        </p>
+      </exploration>
+
+   
+      
+
+      <!-- <section xml:id="section-activity-articles-about-diseases">
         <title>Activity: Articles About Diseases</title>
         <p>The Washington Post is a newspaper with a corresponding website. CNN is a television station and an online news source. People magazine and the corresponding website people.com center on <q>celebrity news and human-interest stories</q><fn><url href="https://en.wikipedia.org/wiki/People_(magazine)">People magazine Wikipedia entry</url>, accessed 15 Nov 2022</fn>. In this activity, read one or more of these suggested articles, which come from the outlets described above:</p>
 
@@ -189,13 +273,13 @@
           The question about mathematical concepts is very open-ended. List any ideas that seem to make sense to you.
         </p>
 
-      </section>
+      </section> -->
 
       <section xml:id="sec-Possible-Discussion-Themes">
         <title>Possible Discussion Themes</title>
         
         <p>
-          The activity above is very open-ended. The goal of this activity is to begin discussing outbreaks as they appear in news and popular culture writing. There is no hidden <q>right answer</q> to find.
+          <xref ref="expl-reading-about-disease-in-the-news-and-popular-media" /> is very open-ended. The goal of this exploration is to begin discussing outbreaks as they appear in news and popular culture writing. There is no hidden <q>right answer</q> to find.
         </p>
         <p>
           There are some possible themes that may arise during discussion. Below, you can find a sample of such themes. These may help to expand thoughts and discussions you are already having about the articles. Or it is possible that you discovered yet other themes, beyond those listed here, and this is wonderful!
@@ -225,23 +309,51 @@
         <p>
           One place to look up data is the <url href="https://www.cdc.gov/">Centers for Disease Control and Prevention (CDC)</url>. As one example, a web search can take us to the <url href="https://www.cdc.gov/measles/index.html">CDC's information page about measles</url>. Not every disease is presented in an identical manner on the CDC's web pages, but very commonly, there is a link for Transmission and another link for Signs and Symptoms. These typically contain lots of information about how diseases spread and how long each stage takes. Such information helps us build our models.
         </p>
-        <p>
-          Take a look at the <url href="https://www.cdc.gov/measles/transmission.html">Transmission</url> and <url href="https://www.cdc.gov/measles/symptoms/signs-symptoms.html">Signs and Symptoms</url> pages for measles at the CDC. Putting together the information on both these pages, can you construct a timeline of measles contagion in a single person? Start at the time the person is first infected. How long does it typically take for this person to begin being contagious? How long is the total time period from when they begin being contagious to when they no longer are contagious? And how do these timelines overlap, or not overlap, with when they have the typical measles rash? It is likely, for most diseases, that these timelines will involve ranges of time such as <q>3 to 5 days</q> rather than more specific amounts of time such as <q>4 days</q>. Time ranges will be helpful to us as we fine-tune our models.
-        </p>
+        <exercise>
+          <statement>
+            <p>
+              Take a look at the <url href="https://www.cdc.gov/measles/transmission.html">Transmission</url> and <url href="https://www.cdc.gov/measles/symptoms/signs-symptoms.html">Signs and Symptoms</url> pages for measles at the CDC. Putting together the information on these pages, construct a timeline of measles contagion in a single person, starting at the time the person is first infected. Include the following, and include whatever other information appears important.
+              <ol>
+                <li>
+                  <p>
+                    How long does it typically take for a person to begin being contagious?
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    How long is the total time period from when a person begins being contagious to when they no longer are contagious?
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    How does contagion overlap, or not overlap, with when a person has the typical measles rash?
+                  </p>
+                </li>
+              </ol>
+                It is likely, for most diseases, that these timelines will involve ranges of time such as <q>3 to 5 days</q> rather than more specific amounts of time such as <q>4 days</q>. Time ranges will be helpful to us as we fine-tune our models.
+            </p>
+          </statement>
+        </exercise>
+        
       </section>
 
     
-    <exercises xml:id="exercises-prelude">
-      <statement>
+    <exercises xml:id="exercises-prelude-diseases-in-popular-news">
+      <exercise number="1">
         <p>
-          Here is the first exercise
+          Look up the lengths of time for key phases of how measles unfolds. Include the length of time of any incubation period, and include how long a person is infectious with measles. There may be additional disease phases to include. Use official sources, as described in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />. Cite your sources, including links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.  
         </p>
-      </statement>
-      <statement>
+      </exercise>
+      <exercise number="2">
         <p>
-          Here is the second exercise
+          Look up the lengths of time for key phases of how RSV (respiratory syncytial virus) unfolds. Include the length of time of any incubation period, and include how long a person is infectious with measles. There may be additional disease phases to include. Use official sources, as described in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />. Cite your sources<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn>.
         </p>
-      </statement>
+      </exercise>
+      <exercise number="3">
+        <p>
+          Look up additional information about measles and RSV. How does each spread? What are governmental recommendations for people who think they may have measles or RSV? And so on: read more about each disease, and write several pieces of information that you find interesting. Does anything you find surprise you? Cite your sources.<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn>
+        </p>
+      </exercise>
     </exercises>
 
     </chapter>
@@ -250,8 +362,7 @@
       <title>Zombies: Can Math Help?</title>
       
       <introduction xml:id="intro-zombies">
-      <p>
-        Goals
+      <objectives>
         <ul>
           <li>
             <p>
@@ -269,89 +380,115 @@
             </p>
           </li>
         </ul>
-      </p>
+      </objectives>
 
       <p>
         First things first: let's simulate an outbreak! This activity is directly inspired by the Disease Lab materials published freely online by Utah State University.<fn>Powell, Jim and Lewis, Matt, "Disease Lab" (2016). <em>Laboratory Experiences in Mathematical Biology</em>. 1.
-        <url href="https://digitalcommons.usu.edu/lemb/1">https://digitalcommons.usu.edu/lemb/1</url></fn> You can do this activity in a group or on your own. (Groups are recommended, if you are able to team up with one or more other people.) You will model humans, also called Susceptibles, as well as zombies, also called Infectious. The <url href="https://digitalcommons.usu.edu/lemb/1">Utah State University link</url> describes a hands-on way to play this game using dry erase markers and overhead projector transparencies. In this text, we primarily use a related online <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url><fn>This app was created by Gabe Nelson, Bates College Class of 2020, after campus closed due to COVID-19.</fn> to play and to generate data.
+        <url href="https://digitalcommons.usu.edu/lemb/1">https://digitalcommons.usu.edu/lemb/1</url></fn> You can do this exploration in a group or on your own. (Groups are recommended, if you are able to team up with one or more other people.) You will model humans, also called Susceptibles, as well as zombies, also called Infectious. The <url href="https://digitalcommons.usu.edu/lemb/1">Utah State University link</url> describes a hands-on way to play this game using dry erase markers and overhead projector transparencies. In this text, we primarily use a related online <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url><fn>This app was created by Gabe Nelson, Bates College Class of 2020, after campus closed due to COVID-19.</fn> to play and to generate data.
       </p>
 
       <p>
-        Why do we start with a simulation? First, this course requires active involvement, so we create space immediately for that involvement. Second, this simulation game can be interactive, and working with others helps us see other perspectives and adds both fun and community to learning. Third, this activity generates outbreak examples, and examples throughout this course will be one of our main ways to build toward theory and illustrate abstract concepts. Therefore, to achieve the goals for each section, we begin with activities, then use what we learned in the activities to help build our mathematical framework.
+        Why do we start with a simulation? First, this course requires active involvement, so we create space immediately for that involvement. Second, this simulation game can be interactive, and working with others helps us see other perspectives and adds both fun and community to learning. Third, this activity generates outbreak examples, and examples throughout this course will be one of our main ways to build toward theory and illustrate abstract concepts. Therefore, to achieve the goals for each section, we typically begin with exploration activities, then use what we learned in the explorations to help build our mathematical framework.
       </p>
 
       </introduction>
 
+      <exploration xml:id="expl-activity-zombie-game">
+        <title>Zombie Game</title>
 
-      <section xml:id="sec-activity-zombie-game">
-        <title>Activity: Zombie Game</title>
-        
-        <p>
-          This game uses a grid of 100 hexagons to represent a space in which humans and zombies interact. Each round of game play represents one day. For each day, each human (<q>Susceptible</q>) is represented on the grid by a blue <q>X</q> on a single hexagon. Each zombie (<q>Infectious</q>) is represented by three red dots connected by red lines, meant to suggest a head and two arms, each of which can infect a human. Each zombie spreads out across three connected hexagons. Sample hex grids, both unmarked and marked, appear in <xref ref="zombie-board-graphics" />
-          <!-- Figure~\ref{fig:ZombieBoardGraphics}. -->
-        </p>
-
+        <introduction>
+          <p>
+            This game uses a grid of 100 hexagons to represent a space in which humans and zombies interact. Each round of game play represents one day. For each day, each human (<q>Susceptible</q>) is represented on the grid by a blue <q>X</q> on a single hexagon. Each zombie (<q>Infectious</q>) is represented by three red dots connected by red lines, meant to suggest a head and two arms, each of which can infect a human. Each zombie spreads out across three connected hexagons. Sample hex grids, both unmarked and marked, appear in <xref ref="zombie-board-graphics" />.
+          </p>
+        </introduction>
         <figure width="90%" xml:id="zombie-board-graphics">
           <caption>Blank hex grid, and sample filled-in section</caption>
           <sidebyside widths="40% 40%" margins="auto" valign="middle">
             <figure width="40%" xml:id="fig-standard-hex-board">
               <caption>Full hex grid, not filled in</caption>
-              <image source="StandardHexBoard.png" width="40%"/>
+              <image source="StandardHexBoard.png" width="40%">
               <description>Hex grid of 100 hexagons, in a ten-by-ten arrangement</description>
+              </image>
             </figure>
             <figure width="40%" xml:id="fig-zombie-board-detail">
               <caption>Representing humans (blue X marks) and zombies (red dots and lines, representing a head and two arms) on the hex grid</caption>
-              <image source="ZombieBoardDetail.png" width="40%"/>
+              <image source="ZombieBoardDetail.png" width="40%">
               <description>Detail of hex grid, showing placement of zombies and humans</description>
+              </image>
             </figure> 
           </sidebyside>
         </figure>
 
-      <p>
-        To start the simulation, go to the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url>. Use the default settings at first, except to change the Human Start Count to 49, as shown in <xref ref="fig-zombie-app-49-susceptibles" />. Combining these 49 Humans with the Zombies Start Count of 1, the total population then equals 50.
-      </p>
-      <figure width="90%" xml:id="fig-zombie-app-49-susceptibles">
-        <caption>Changing <q>Human Start Count</q> to 49 in the Zombie Game App</caption>
-          <image source="ZombieApp_49Susceptibles.png" width="40%">
-              <description>Screen image from the Zombie Game App, showing the <q>Human Start Count</q></description>
-          </image>
-      </figure>
-                
-      <p>
-        To watch the outbreak unfold, day by day, first click <q>start</q>. You will see the zombies and humans placed randomly on the grid. Both a table of data, and a graph of Day 0 and Day 1 data, appear to the right. A sample Day 1 result appears in <xref ref="fig-zombie-app-one-day" />.
-      </p>
-      <figure width="100%" xml:id="fig-zombie-app-one-day">
-        <caption>Sample output for Day 1 from the Zombie Game App</caption>
-          <image source="ZombieApp_OneDay.png" width="100%"/>
-              <description>Sample output for Day 1 from the Zombie Game App, including the grid of humans and zombies, plus a table and a graph of data for days 0 and 1</description>
-      </figure>
-      <p>
-        If you began with 49 humans and 1 zombie, these will be the numbers listed for Day 0. The data for Day 1 are computed by looking at the hex grid: each human that overlaps with a zombie is a <q>New Infection</q> and moves from the <q># Humans</q> category to the <q># Zombies</q> category. This means that this number of individuals is subtracted from <q># Humans</q> and added to <q># Zombies</q>. Double check that your count of new infections matches the app's count! In <xref ref="fig-zombie-app-one-day" />, the one zombie overlaps two blue X hexes. We therefore see that on Day 1 there are two <q>New Infections</q>. We also compare Day 1 with Day 0. The two <q>New Infections</q> for Day 1 mean that the population of <q>Susceptibles</q> drops by 2, from 49 to 47, while the population of <q>Infectious</q> rises by 2, from 1 to 3.)  
-      </p>
-      <p>
-        Notice that there is randomness in how Zombies and Humans are placed on the grid, so your one-day results on the app may be different from those in <xref ref="fig-zombie-app-one-day" />.
-      </p>
-      <p>
-       When you are ready, click <q>next round</q> to see a new grid for Day 2. The table of data, and the graph, both update to include Day 2. Continue to click <q>next round</q> at your own pace, thinking through the grid, table, and graph as each step proceeds. The game ends when there are either no humans left to infect, or no zombies left to keep infecting new humans. 
-      </p>
-      <p>
-        As an alternative to make the game more interactive, the app allows you to choose your own locations for humans and zombies. To choose your own locations, under <q>Mode</q>, check <q>Hotseat</q> instead of <q>Auto</q>. The app then prompts you to place all the Humans for one day of the simulation. After all Humans are placed, the app prompts you to place your Zombies. For each Zombie, you must place the head and the arms. When this is complete, the app shows both Humans and Zombies, to indicate how many new infections have occurred. To make into a game, two people can play. One person places the Humans, <em>without their partner watching</em>. Then the partner places the Zombies, again <em>without their partner watching</em>. Then, together, the partners can see how many new infections there are, once the Human and Zombie grids are shown together. Is there any strategy that helps either the Humans or the Zombies? 
-      </p>
-      <p>
-        Try the game one or many times, on your own or with a partner. Copy several resulting data sets, as numbers and as images, so that you can look for patterns.
-      </p>
-
-      </section>
-
+        <task>
+          <statement>
+            <p>
+              To start the simulation, go to the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url>. Use the default settings at first, except to change the Human Start Count to 49, as shown in <xref ref="fig-zombie-app-49-susceptibles" />. Combining these 49 Humans with the Zombie Start Count of 1, the total population then equals 50.
+            </p>
+            <figure width="90%" xml:id="fig-zombie-app-49-susceptibles">
+              <caption>Changing <q>Human Start Count</q> to 49 in the Zombie Game App</caption>
+                <image source="ZombieApp_49Susceptibles.png" width="40%">
+                    <description>Screen image from the Zombie Game App, showing the <q>Human Start Count</q></description>
+                </image>
+            </figure>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              To watch the outbreak unfold, day by day, first click <c>start</c>. You will see the zombies and humans placed randomly on the grid. Both a table of data, and a graph of Round 0 and Round 1 data, appear to the right. A sample Round 1 result appears in <xref ref="fig-zombie-app-one-day" />, and the table of data is shown more clearly in <xref ref="fig-human-zombie-data-day1" />. There is randomness in how Zombies and Humans are placed on the grid, so your one-day results on the app may be different.
+            </p>
+            <figure width="100%" xml:id="fig-zombie-app-one-day">
+              <caption>Sample output for Round 1 from the Zombie Game App</caption>
+                <image source="ZombieApp_OneDay.png" width="100%">
+                    <description>Sample output for Round 1 from the Zombie Game App, including the grid of humans and zombies, plus a table and a graph of data for Rounds 0 and 1</description>
+                </image>
+            </figure>
+            <figure width="50%" xml:id="fig-human-zombie-data-day1">
+              <caption>Table of sample data from Round 1 of a human<ndash />zombie simulation</caption>
+              <image source="SampleHumanZombieData_Day1.png" width="70%">
+                  <description>Sample data for one round of a simulation from the Zombie Game App, viewed as a table</description>
+              </image>
+            </figure>
+            <p>
+              If you began with 49 humans and 1 zombie, these will be the numbers listed for Round 0. The data for Round 1 are computed by looking at the hex grid: each human that overlaps with a zombie is a <q>New Infection</q> and moves from the <em># Humans</em> category to the <em># Zombies</em> category. This means that this number of individuals is subtracted from <em># Humans</em> and added to <em># Zombies</em>. Double check that your count of new infections matches the app's count! In <xref ref="fig-zombie-app-one-day" />, the one zombie overlaps two blue X hexes. We therefore see that on Round 1 there are two <em>New Infections</em>. We also compare Round 1 with Round 0. The two <em>New Infections</em> for Round 1 mean that the population of <q>Susceptibles</q> (that is, humans) drops by 2, from 49 to 47, while the population of <q>Infectious</q> (that is, zombies) rises by 2, from 1 to 3.)  
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              When you are ready, click <c>next round</c> to see a new grid for Round 2. The table of data, and the graph, both update to include Round 2. Continue to click <c>next round</c> at your own pace, thinking through the grid, table, and graph as each step proceeds. The game ends when there are either no humans left to infect, or no zombies left to keep infecting new humans. 
+             </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              As an alternative to make the game more interactive, the app allows you to choose your own locations for humans and zombies. To choose your own locations, under <em>Mode</em>, check <em>Hotseat</em> instead of <em>Auto</em>. The app then prompts you to place all the Humans for one round of the simulation. After all Humans are placed, the app prompts you to place your Zombies. For each Zombie, you must place the head and the arms. When this is complete, the app shows both Humans and Zombies, to indicate how many new infections have occurred. To make this into a game, two people can play. One person places the Humans, <em>without their partner watching</em>. Then the partner places the Zombies, again <em>without their partner watching</em>. Then, together, the partners can see how many new infections there are, once the Human and Zombie grids are shown together. Is there any strategy that helps either the Humans or the Zombies?
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Try the game one or many times, on your own or with a partner. Copy several resulting data sets, as numbers and as images, so that you can look for patterns.
+            </p>
+          </statement>
+        </task>
+      </exploration>
+      
       <section xml:id="sec-we-now-have-data-qualitative-musings">
         <title>We Now Have Data: Qualitative Musings</title>
 
         <p>
           You have now had the chance to generate one or many data sets. Take time to examine the data, both in the form of a table and in the form of a graph. Do this with multiple data sets: in a classroom setting, different student groups can share data.
         </p>
-        <exercise xml:id="exer-begin-zombie-app">
-          <statement>
-            Think through the following questions. Spend time trying to answer these before you move on in this book.
+        
+          <exercise xml:id="exer-begin-zombie-app">
+            <p>
+              Think through the following questions. Spend time trying to answer these before you continue through this book.
+            </p>
+             
             <ol>
               <li>
                 <p>
@@ -369,13 +506,8 @@
                 </p>
               </li>
             </ol>
-          </statement>
-          <!-- <hint>
-            <p>
-              Here are my hints
-            </p>
-          </hint> -->
-        </exercise>
+          </exercise>
+          
         <aside>
           <p>
             In this book, we work with mathematical models. As a first step toward building mathematical models, we should think through the underlying <q>rules</q> of our situation. We should also think through any outcomes of these rules. Must these rules always lead to similar outcomes? Could these same rules produce significantly different outcomes? Spending time on understanding our system is a crucial part of making sure our mathematical approaches make sense.
@@ -385,7 +517,7 @@
         <exercise>
           <statement>
             <p>
-              In <xref ref="exer-begin-zombie-app" />, some of the first patterns to notice may be about the shapes of the graphs of the Human and Zombie populations as time progresses forward from Day 0. Develop responses to the following questions, and explain your reasoning. (If you already thought about these as part of <xref ref="exer-begin-zombie-app" />, great work!)
+              In <xref ref="exer-begin-zombie-app" />, some of the first patterns to notice may be about the shapes of the graphs of the Human and Zombie populations as time progresses forward from Day 0. Next, develop responses to the following questions, and explain your reasoning. (If you already thought about these as part of <xref ref="exer-begin-zombie-app" />, great work!)
             </p>
             <ol>
               <li>
@@ -421,27 +553,50 @@
         
         <figure width="90%" xml:id="fig-human-zombie-data-table">
           <caption>Table of sample data from a human<ndash />zombie simulation</caption>
-          <image source="SampleHumanZombieData.png" width="80%"/>
+          <image source="SampleHumanZombieData.png" width="80%">
               <description>Sample data for a full simulation from the Zombie Game App, viewed as a table</description>
+          </image>
         </figure>
         <figure width="90%" xml:id="fig-human-zombie-data-graph">
           <caption>Graph of sample data from a human<ndash />zombie simulation</caption>
-          <image source="SampleHumanZombieGraph.png" width="80%"/>
+          <image source="SampleHumanZombieGraph.png" width="80%">
               <description>Sample data for a full simulation from the Zombie Game App, viewed as a graph</description>
+          </image>
         </figure>
 
         <p>
           As we build a model, we focus on the relatively slow changes in population sizes that happen near the beginning and end of the model. This may not happen in every simulation: for instance, sometimes zombies happen to infect a lot of humans in the last time step. However, in other simulations, one lone human may last for many days before being infected. We focus on what happens <em>on average</em>. For this model, on average, the pace of infection seems slower near the beginning and near the end of the outbreak.
         </p>
-        <p>
-          Thinking through this more, we may notice that the pace of infection is slower when there are relatively few humans, or when there are relatively few zombies. Can you see why it makes sense that infection tends to spread less quickly when there are fewer individuals in one of the populations? Conversely, why does it make sense for infection to spread relatively rapidly when there are relatively large numbers of both humans and zombies? And finally, to take the discussion about pace of infection to a logical extreme: how fast can infection spread when there are zero humans, or when there are zero zombies?
-        </p>
+        <exercise>
+          <statement>
+            <p>
+              One observation is that the pace of infection is slower when there are relatively few humans, or when there are relatively few zombies.
+            </p>
+            <ol>
+              <li>
+                <p>
+                  Can you see why it makes sense that infection tends to spread less quickly when there are fewer individuals in one of the populations?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Conversely, why does it make sense for infection to spread relatively rapidly when there are relatively large numbers of both humans and zombies?
+                </p>
+              </li>
+              <li>
+                <p>
+                  To take the discussion about pace of infection to a logical extreme: how fast can infection spread when there are zero humans, or when there are zero zombies?
+                </p>
+              </li>
+            </ol>
+          </statement>
+        </exercise>
         <p>
           Putting this all together, we can say that, on average, the change in the number of infections seems to depend on both the number of humans (Susceptibles) and the number of zombies (Infectious). One mathematical approach to writing this is to say that new cases per day are proportional to the number of Susceptibles multiplied by the number of Infectious. We can write this as follows:
         </p>
 
         <mdn>
-          <mrow xml:id="eq-proportionality">( \# \mbox{ New Cases}) \amp \propto (\# \mbox{ Susceptibles}) \cdot (\# \mbox{ Infectious}) </mrow>
+          <mrow xml:id="eq-proportionality">( \# \mbox{ New Infections}) \amp \propto (\# \mbox{ Susceptibles}) \cdot (\# \mbox{ Infectious}) </mrow>
         </mdn>
 
         <p>
@@ -466,7 +621,7 @@
           </li>
           <li>
             <p>
-              a horizontal graph (one in which the <q><m>y</m>-axis</q> value is not changing) has a slope of zero and a derivative equal to zero.
+              a horizontal graph (one in which the output value is not changing) has a slope of zero and a derivative equal to zero.
             </p>
           </li>
         </ul>
@@ -475,10 +630,10 @@
           One other helpful piece of information is the fact that a differential equation is just an equation containing a derivative. Many of the equations in calculus contain a derivative. A quick example is <m>f'(x)=3x+2</m>, which contains the derivative <m>f'(x)</m>. This means that if you have studied calculus, then you have already built significant experience using differential equations.
         </p>
         <p>
-          With these calculus ideas in mind, we return to our model. We will write two equations, one to represent the change in the Susceptible population and one to represent the change in the Infectious population. Our independent variable is time, which we label <m>t</m>. You may have noticed that time is the variable on the horizontal axis: this axis is labeled <q>Round</q> in the app, and it represents time in the form of days. For our dependent variables, we choose letters that correspond to their names. This makes them easier to remember, and for many people, it makes the equations easier to interpret. Therefore let <m>S = S(t)</m> represent the Susceptible population and <m>I = I(t)</m> represent the Infectious population. 
+          With these calculus ideas in mind, we return to our model. We will write two equations, one to represent the change in the Susceptible population and one to represent the change in the Infectious population. When we say <q>change</q>, we mean the change that happens on average if we were to run the simulation many times. Our independent variable is time, which we label <m>t</m>. You may have noticed that time is the variable on the horizontal axis: this axis is labeled <q>Round</q> in the app, and it represents time in the form of days. For our dependent variables, we choose letters that correspond to the names of each population. This makes the dependent variable meanings easier to remember, and for many people, it makes the differential equations easier to interpret. Therefore let <m>S = S(t)</m> represent the Susceptible population and <m>I = I(t)</m> represent the Infectious population. Since our populations are represented by the letters <m>S</m> and <m>I</m>, we call this model an <term>SI model</term>.
         </p>
         <p>
-          You may have noticed that our data show us not just total numbers of <m>S(t)</m> and <m>I(t)</m> at each time step, but also show how <m>S(t)</m> and <m>I(t)</m> change over time. The number of new infectious tells us directly how many people change, on each day, from the <m>S(t)</m> population to the <m>I(t)</m> population. We now connect <m>S(t)</m>, <m>I(t)</m>, and the number of new infections using differential equations and the proportionality relationship from <xref ref="eq-proportionality" />:
+          You may have noticed that our data show us not just total numbers of <m>S(t)</m> and <m>I(t)</m> at each time step, but also show how <m>S(t)</m> and <m>I(t)</m> change over time. The number of New Infections tells us precisely how many people change, on each day, from the <m>S(t)</m> population to the <m>I(t)</m> population. We now connect <m>S(t)</m>, <m>I(t)</m>, and the number of New Infections using differential equations and the proportionality relationship from <xref ref="eq-proportionality" />:
         </p>
 
         <mdn>
@@ -487,18 +642,18 @@
         </mdn>
 
         <p>
-          There is a lot of calculus happening in these equations! We are also representing the <q>on average</q> observations we made earlier. Here are some of the key ideas to notice.
+          There is a lot of calculus happening in these SI model equations! Here are some of the key ideas to notice.
         </p>
 
         <ul>
           <li>
             <p>
-              The derivative term <m>dS/dt</m> represents the change in population <m>S(t)</m>.
+              The derivative term <m>dS/dt</m> represents the change, across time, in population <m>S(t)</m>.
             </p>
           </li>
           <li>
             <p>
-              Similarly, the derivative <m>dI/dt</m> represents the change in <m>I(t)</m>.
+              Similarly, the derivative <m>dI/dt</m> represents the change, across time, in population <m>I(t)</m>.
             </p>
           </li>
           <li>
@@ -518,12 +673,12 @@
           </li>
           <li>
             <p>
-              The values of <m>S(t)</m> and <m>I(t)</m> should never be negative. They should be either positive, or zero. This makes sense because they represent populations of individuals. This must also be true mathematically, in order for the model to make sense.
+              The values of <m>S(t)</m> and <m>I(t)</m> should never be negative. They should be either positive or zero. This makes sense because they represent populations of individuals. This must also be true mathematically, in order for the model to make sense.
             </p>
           </li>
           <li>
             <p>
-              We represent the idea of proportionality by using the parameter <m>\beta</m>. We will experiment with different values of <m>\beta</m> to see how changing <m>\beta</m> affects the outcomes of the model.
+              We represent the idea of proportionality by using the parameter <m>\beta</m>. We will experiment in <xref ref="ch-simulating-models-and-visualizing-the-results" /> with different values of <m>\beta</m> to see how changing <m>\beta</m> affects the outcomes of the model.
             </p>
           </li>
           <li>
@@ -537,7 +692,43 @@
           This model uses differential equations, which think of time as continuous, using every real value for <m>t</m> starting at <m>t=0</m>. By contrast, when we collect data from the zombie game, time is discrete, meaning that time steps forward through values such as <q>Day 0</q>, <q>Day 1</q>, <q>Day 2</q>, and so on. In this course, we mainly use differential equation models, meaning time is thought of as continuous. Continuous time may match well with our intuitive sense of how time works: time does not stop and start. However, the data we collect about disease spread will often be discrete, on time scales such as days or weeks. We will include this knowledge in our work with models.
         </p>
 
-        <exercises xml:id="exercises-ch-zombies">
+        <exercise>
+          <statement>
+            <p>
+              <xref ref="fig-first-si-graph" /> shows one possible graph of the SI model, with <m>\beta</m> selected so that the graphs in <xref ref="fig-human-zombie-data-graph" /> and <xref ref="fig-first-si-graph" /> are fairly similar. Compare these two graphs, thinking through the questions below.
+            </p>
+            <figure width="90%" xml:id="fig-first-si-graph">
+              <caption>A sample graph of the SI model, drawn using Equations <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />.</caption>
+              <image source="First_SI_Graph.png" width="80%">
+                  <description>Sample SI graph, showing Susceptibles starting at 49 and dropping toward 0, and Infectious starting at 1 and rising toward 50</description>
+              </image>
+            </figure>
+            <ol>
+              <li>
+                <p>
+                  The curves in <xref ref="fig-first-si-graph" /> are smooth, whereas the graphs shown in <xref ref="fig-human-zombie-data-graph" /> are less so. Why is this?
+                </p>
+              </li>
+              <li>
+                <p>
+                  The SI model, as described in Equations <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />, provides formulas for <m>dS/dt</m> and <m>dI/dt</m>. Yet the graph in <xref ref="fig-first-si-graph" /> shows solution curves for Susceptibles and Infectious, that is, <m>S(t)</m> and <m>I(t)</m>. Describe how the formulas for <m>dS/dt</m> and <m>dI/dt</m> in the SI model correspond to the solution curves <m>S(t)</m> and <m>I(t)</m> shown in <xref ref="fig-first-si-graph" />. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Throughout the human-zombie simulation, there are exactly 50 people at all times. Explain how this feature of the simulation appears in both <xref ref="fig-human-zombie-data-graph" /> and <xref ref="fig-first-si-graph" />.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Continue to comment on comparisons, similarities, and differences between <xref ref="fig-human-zombie-data-graph" /> and <xref ref="fig-first-si-graph" />. There are no specific <q>right answers</q> here: this is open-ended exploration, building intuition and understanding for the interactions among data, graphs, and a differential equations model.
+                </p>
+              </li>
+            </ol>
+          </statement>
+        </exercise>
+
+        <exercises xml:id="exercises-ch-zombies-can-math-help">
           <exercise number="1">
            <p>
              Vary the zombie simulation so that zombies have only one arm. This means we represent each zombie by two connected dots, rather than three connected dots. In the app, we can change the <q># of Zombie Arms</q> from 2 to 1. Complete one or more simulations with this change. Collect and graph the simulation data. How do your results compare with the results from simulations in which zombies have two arms? Write about your results. Include your data and graphs as part of your comparison.
@@ -547,21 +738,44 @@
             <p>
               What other variations can you imagine creating in this game? Describe how the game changes, and connect each game change with what it would mean in the <q>real-world</q> scenario of a zombie outbreak.
             </p>
-              <ol>
-                <li>
-                  <p>
-                    How might your mathematical model change in order to match this change in the game? In other words, how might your differential equations change?
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    How might long-term outcomes for humans and zombies change, if at all?
-                  </p>
-                </li>
-              </ol>
+            <ol>
+              <li>
+                <p>
+                  How might your mathematical model change in order to match this change in the game? In other words, how might your differential equations change?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How might long-term outcomes for humans and zombies change, if at all?
+                </p>
+              </li>
+            </ol>
             <p>
               Support your thoughts, to the best of your abilities, using the data and graphs you generate from simulating your changes to the game.
             </p>
+          </exercise>
+          <exercise number="3">
+            <p>
+              Spend more time examining and thinking about the graph of the SI model, as shown in <xref ref="fig-first-si-graph" />.
+            </p>
+            <ol>
+              <li>
+                <p>
+                  Since <m>\beta</m>, <m>S</m>, and <m>I</m> cannot be negative, we recognize that <m>-\beta S I</m> must be either negative or equal to zero. Explain what these observations indicate about the Susceptibles graph in <xref ref="fig-first-si-graph" />, using Equation <xref ref="eq-S-in-SImodel" /> as part of your explanation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Since <m>\beta</m>, <m>S</m>, and <m>I</m> cannot be negative, we recognize that <m>\beta S I</m> must be either positive or equal to zero. Explain what these observations indicate about the Infectious graph in <xref ref="fig-first-si-graph" />, using Equation <xref ref="eq-I-in-SImodel" /> as part of your explanation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In <xref ref="ch-simulating-models-and-visualizing-the-results" /> we will vary the value of <m>\beta</m> in the SI model. Try to predict some of the ways in which changing <m>\beta</m> will change the outcome of the SI model. How will the solution curves in <xref ref="fig-first-si-graph" /> change as <m>\beta</m> increases? How will the solution curves in <xref ref="fig-first-si-graph" /> change as <m>\beta</m> decreases? (Though the value of <m>\beta</m> changes, your discussion should keep <m>\beta > 0</m>.)
+                </p>
+              </li>
+            </ol>
+
           </exercise>
         </exercises>
 
@@ -574,8 +788,7 @@
       <title>Drawing a Picture of Disease Spread: Compartmental Diagrams</title>
 
       <introduction xml:id="intro-compartmental-diagrams">
-      <p>
-        Goals
+      <objectives>
         <ul>
           <li>
             <p>
@@ -598,10 +811,10 @@
             </p>
           </li>
         </ul>
-      </p>
+      </objectives>
 
       <p>
-        In <xref ref="ch-zombies-can-math-help" /> we simulated a simple outbreak. This outbreak can be modeled using the <em>system of ordinary differential equations</em> appearing in <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />. In <xref ref="ch-zombies-can-math-help" /> we made calculus-based observations of these differential equations. 
+        In <xref ref="ch-zombies-can-math-help" /> we simulated a simple outbreak. This outbreak can be modeled using the <em>system of ordinary differential equations</em> appearing in <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />. In <xref ref="ch-zombies-can-math-help" /> we made calculus-based observations of these differential equations: 
       </p>
 
       <md>
@@ -613,7 +826,18 @@
         This style of model is called a <em>compartmental model</em>. We can draw its dynamics, as shown in <xref ref="fig-SI-compartmental-diagram" />. 
       </p>
 
-      <figure xml:id="fig-SI-compartmental-diagram">
+      
+
+      <p>
+        In this text, we will regularly represent the dynamics of an outbreak using both drawings of compartmental models and systems of differential equations. When we are careful in how we draw our compartmental diagrams, we can use them interchangeably with their corresponding systems of differential equations. In this chapter, we learn the vocabulary of compartmental models, as well as ways to draw compartmental diagrams so they clearly and completely represent the information contained in their corresponding systems of differential equations.
+      </p>
+
+      </introduction>
+      
+      <section xml:id="section-compartmental-diagrams-vocabulary-and-comments">
+        <title>Compartmental Diagrams: Vocabulary and Comments</title>
+
+        <figure xml:id="fig-SI-compartmental-diagram">
         <caption>One possible <m>SI</m> (Susceptible, Infectious) compartmental diagram</caption>
           <image width="50%">
           <description>(Write this)</description>
@@ -635,15 +859,6 @@
             </latex-image>
            </image>
       </figure>
-
-      <p>
-        In this text, we will regularly represent the dynamics of an outbreak using both compartmental models and systems of differential equations. When we are careful in how we draw our compartmental diagrams, we can use them interchangeably with their corresponding systems of differential equations. In this chapter, we learn the vocabulary of compartmental models, as well as ways to draw compartmental diagrams so they clearly and completely represent the information contained in their corresponding systems of differential equations.
-      </p>
-
-      </introduction>
-      
-      <section xml:id="section-compartmental-diagrams-vocabulary-and-comments">
-        <title>Compartmental Diagrams: Vocabulary and Comments</title>
 
         <p>
           A compartmental diagram is made up of boxes and arrows, each labeled to show what it represents. The boxes are also called <term>compartments</term>. The arrows indicate the possible ways that individuals can relocate from one compartment to another.
@@ -694,19 +909,22 @@
         <title>Activity: Varying the Human<ndash />Zombie Game</title>
 
         <p>
-          We try two variations of the human<ndash />zombie game. These are variations suggested by students in several semesters of the course on which this text is based.
+          In the original <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url>, once an individual becomes a zombie, they are always a zombie. This means that no one leaves the Infectious compartment. 
         </p>
         <p>
-          Be sure to emphasize the <q>active</q> part of <q>activity</q>. Start each variation by thinking carefully about these questions: 
+          Suppose, instead, that Zombies do not last forever. Instead, after some number of days, the Zombies die (again). The number of days they remain Infectious before becoming inactive can be stated in the app.
+        </p>
+        <p>
+          <em>This is the moment to think through how zombie death, and different zombie lifespans, would change the outcomes of the simulation.</em> In particular, think carefully about these questions: 
           <ul>
             <li>
               <p>
-                What do you <em>expect</em> will happen? Whether you feel very certain, or somewhat uncertain, articulate the outcome that you think will occur.
+                What do you <em>expect</em> will happen if Zombies die, that is, become inactive and unable to spread infection? Whether you feel very certain, or somewhat uncertain, articulate some outcomes that you think will occur with this game variation.
               </p>
             </li>
             <li>
               <p>
-                How might your expected outcomes differ from the original model?
+                How might your expected outcomes differ from those in the original model?
               </p>
             </li>
             <li>
@@ -717,24 +935,15 @@
           </ul>
         </p>
         <p>
-          After you have thought through how the outcomes will change in a variation, use the app to generate data. Compare the results with the ideas you had. <em>How similar or different are the actual results, compared with what you thought?</em> This thought process is not about right or wrong ideas, but instead is about building hypotheses, comparing the hypotheses with data, and developing deeper understanding of what the model shows.
+          This thought process is not about right or wrong ideas, but instead is about building hypotheses, comparing the hypotheses with data, and developing deeper understanding of what the model shows.
         </p>
-
-        <subsection xml:id="subsec-zombies-can-die">
-          <title>Zombies Can Die</title>
-          <p>
-            In the original game, once an individual becomes a zombie, they are always a zombie. This means no one leaves the Infectious compartment. 
-          </p>
-          <p>
-            Suppose, instead, that Zombies do not last forever. Instead, after some number of days, the Zombies die. The number of days they remain Infectious before becoming Removed can be stated in the app.
-          </p>
-          <p>
-            <em>This is the moment to think through how zombie death, and different zombie lifespans, would change the outcomes of the simulation.</em>
-          </p>
-          <p>
-            To set up this variation in the Zombie Game app, check the box for <q>Zombie Mortality</q>. A box then appears for <q>Zombie Lifespan (days)</q>, as shown in <xref ref="fig-zombie-app-mortality" />. Try setting Zombie Lifespan to 1, then 2, then 3. For each length of time, run several simulations and compare the outcomes.
-          </p>
-          <figure width="90%" xml:id="fig-zombie-app-mortality">
+        <p>
+          After you have thought through how the outcomes will change in a variation, use the app to generate data.  
+        </p>
+        <p>
+          To set up this variation in the Zombie Game app, check the box for <q>Zombie Mortality</q>. A box then appears for <q>Zombie Lifespan (days)</q>, as shown in <xref ref="fig-zombie-app-mortality" />. Try setting Zombie Lifespan to 1, then 2, then 3. For each length of time, run several simulations and compare the outcomes.
+        </p>
+        <figure width="90%" xml:id="fig-zombie-app-mortality">
           <caption>Checking the box for <q>Zombie Mortality</q> and setting a value for <q>Zombie Lifespan (days)</q></caption>
           <image source="ZombieApp_Mortality.png" width="60%">
               <description>Screen image from the Zombie Game App, showing the checked box for <q>Zombie Mortality</q> and the <q>Zombie Lifespan (days)</q> that appears</description>
@@ -744,72 +953,21 @@
         <!-- Edit this figure to point at "Zombie Mortality" and "Zombie Lifespan" with an arrow, or circle them, or something -->
 
           <p>
+            Compare the results with the ideas you had. <em>How similar or different are the actual results, compared with what you thought?</em>
+
             What do you observe? Consider how many humans or zombies survive till the end, and consider how much these numbers vary from simulation to simulation. Consider how many days the outbreak lasts. Make note of any additional observations you have, and reach out to other people trying this experiment to see how your results compare with theirs.
           </p>
-        </subsection>
-        
-        <subsection xml:id="subsec-introduce-an-incubation-period">
-          <title>Introduce an Incubation Period</title>
-          <p>
-            In the original game, when a human is infected, they become a zombie the very next day.
-          </p>
-          <p>
-            Suppose, instead, that humans experience an incubation period after being attacked by a zombie. During this incubation period, these individuals are neither a zombie (so not Infectious) nor Susceptible.
-          </p>
-          <p>
-            <em>This is the moment to think through how an incubation period would change the outcomes of the simulation.</em>
-          </p>
-          <p>
-            The Zombie Game app does not address this variation directly. However, as we will show by example, you can still use the app to build a data set. In this example, we will assume that the incubation period is just one day, meaning that humans who become infected spend one day in an <q>incubating</q> category before becoming zombies. 
-          </p>
-          <p>
-            We will generate a set of data, day by day. Start in the app by beginning a game with Human Start Count equal to 49 and Zombie Start Count equal to 1. Click <q>start</q> and write down the resulting number of new infections on Day 1: these are all the humans infected by our starting zombie. For instance, suppose there are two new infections from the interactions on Day 0, as circled in <xref ref="fig-zombie-SEI-Day-1" />. Then on Day 1, there should be 47 humans, 2 incubating individuals, and 1 zombie. The app says there are three zombies, but in our interpretation, 2 are incubating individuals, and 1 is a zombie. 
-          </p>
-          <figure width="90%" xml:id="fig-zombie-SEI-Day-1">
-            <caption>Determining the number of New Infections on Day 1</caption>
-            <image source="Zombie_SEI_Simulation_Day1.png" width="60%"/>
-              <description>Table of data from one day of a simulation in the human-zombie game. There are two new infections on Day 1.</description>
-          </figure>
-          <p>
-            We therefore click <q>restart</q> on the app, so that we can enter a Human Start Count of 47 and a Zombie Start Count of 1. We do not include the 2 incubating individuals, since they do not affect the number of new zombies generated from Day 1 interactions. With these settings, we run the app for one round, generating new infectious once again. An example of this is shown in <xref ref="fig-zombie-SEI-Day-2" />. 
-          </p>
-          <figure width="90%" xml:id="fig-zombie-SEI-Day-2">
-            <caption>Using the results of Day 1 to determine the number of New Infections on Day 2</caption>
-            <image source="Zombie_SEI_Simulation_Day2.png" width="60%"/>
-              <description>Table of data from one day of a simulation in the human-zombie game, using the outcome of Day 1 to determine new infections on Day 2. There is one new infection on Day 2.</description>
-          </figure>
-          <p>
-            The next step is where we begin to re-introduce the individuals who were infected on Day 0 but still incubating the zombie disease on Day 1. From <xref ref="fig-zombie-SEI-Day-2" /> we see that we should have 46 humans and 1 incubating individual on Day 2. We also have 3 zombies: the initial zombie, plus the 2 incubating individuals from Day 1. We therefore restart the model, entering a Human Start Count of 46 and a Zombie Start Count of 3. A possible outcome appears in <xref ref="fig-zombie-SEI-Day-3" />.
-          </p>
-          <figure width="90%" xml:id="fig-zombie-SEI-Day-3">
-            <caption>Using the results of Days 1 and 2, including re-introducing incubating individuals as zombies, to determine the number of New Infections on Day 3</caption>
-            <image source="Zombie_SEI_Simulation_Day3.png" width="60%"/>
-              <description>Table of data from one day of a simulation in the human-zombie game, re-introducing incubating individuals as zombies, to determine new infections on Day 3. There are four new infections on Day 3.</description>
-          </figure>
-          <p>
-            From this step, we continue until the game has ended. It can be helpful to generate a new table of data, keeping track of the numbers of each of the three types of individuals. This table can be on paper, in a spreadsheet, or in whatever other form you prefer. <xref ref="fig-zombie-SEI-Data" /> shows a sample of how the table might look.
-          </p>
-          <figure width="90%" xml:id="fig-zombie-SEI-Data">
-            <caption>A sample full data set for simulating infections in a case where there is a one day incubation period as humans transition to zombies</caption>
-            <image source="Zombie_SEI_Simulation_Data.png" width="90%"/>
-              <description>Table of data from one sample simulation where humans have a one-day incubation period before becoming zombies. For days 0 to 10, the numbers of new infections are 1, 2, 1, 4, 5, 13, 8, 9, 5, 2, 0.</description>
-          </figure>
-          <p>
-            Again, ask yourself: what do you observe? Compare this simulation with simulations having no incubation period. Consider how many days the outbreak lasts. Make note of your observations, share your ideas with others, and consider the observations of other people trying this experiment. Try the experiment with a longer incubation period, such as 2, 3, or 4 days, and observe the ways these changes affect outcomes of the model.
-          </p>
-          
-        </subsection>
         
       </section>
       
-      <section xml:id="sec-from-zombie-game-variations-to-compartmental-diagrams">
-        <title>From Zombie Game Variations to Compartmental Diagrams</title>
+      <section xml:id="sec-from-zombie-game-variation-to-compartmental-diagram">
+        <title>From Zombie Game Variation to Compartmental Diagram</title>
         
         <p>
-          Each of the Zombie Game variations in the previous section corresponds to a compartmental diagram. In each case, we introduced a new category of individuals, beyond Susceptibles and Infectious. These new categories correspond to new compartments. 
+          The Zombie Game variation in <xref ref="sec-activity-varying-the-human-zombie-game" /> can be represented by a compartmental diagram that is different from the diagram in <xref ref="fig-SI-compartmental-diagram" />. Specifically, the variation introduced a new category of individuals, beyond Susceptibles and Infectious. This new category corresponds to a new compartment. 
         </p>
         <p>
-          For the <q>Zombies can die</q> variation in <xref ref="subsec-zombies-can-die" />, zombies leave the Infectious compartment and can no longer infect the Susceptibles. It is typical to represent these dynamics by introducing a Removed (R) compartment for the individuals who were zombies but have then died. This model then includes the S, I, and R compartments, so we call it an SIR model. A compartmental diagram representing the dynamics of the SIR model appears in <xref ref="fig-SIR-compartmental-diagram" />.
+          When zombies die, they leave the Infectious compartment and can no longer infect the Susceptibles. It is typical to represent these dynamics by introducing a Removed (R) compartment for the individuals who were zombies but have then become inactive. This model then includes S, I, and R compartments, so we call it an SIR model. (We typically say each of the letters <q>S</q>, <q>I</q>, and <q>R</q> when naming this model.) A compartmental diagram representing the dynamics of this SIR model appears in <xref ref="fig-SIR-compartmental-diagram" />.
         </p>
 
         <figure xml:id="fig-SIR-compartmental-diagram">
@@ -843,16 +1001,19 @@
       </figure>
 
       <p>
-        In this diagram, we include the S and I compartments we used previously, while also allowing the Infectious zombies to leave the I compartment and enter the R compartment, where they stay for the rest of the simulation. The mathematical formula for movement from I to R is <m>\gamma I</m>. The parameter <m>\gamma</m> (the Greek letter <em>gamma</em>) represents the rate at which individuals leave <m>I</m> and enter <m>R</m>. Larger values of <m>\gamma</m>, for instance, mean that zombies die faster.
+        In this diagram, we include the S and I compartments we used previously, while also allowing the Infectious zombies to leave the I compartment and enter the R compartment, where they stay for the rest of the simulation. The mathematical formula for movement from I to R is <m>\gamma I</m>. The parameter <m>\gamma</m> (the Greek letter <em>gamma</em>) represents the rate at which individuals leave <m>I</m> and enter <m>R</m>. Larger values of <m>\gamma</m>, for instance, mean that zombies become inactive more rapidly than with smaller values of <m>\gamma</m>.
       </p>
       <p>
         Take time to think through this compartmental diagram. Does it match your sense of how individuals progress through the simulation? Are all individuals always in exactly one compartment, that is, in <em>at least one</em> compartment and also <em>no more than one</em> compartment at any given time?
       </p>
       <p>
-        Give some additional thought to how the differential equations look for this model. We will discuss more details about the equations, and about determining a numerical value for the parameter <m>\gamma</m>, in that section.
+        Give some additional thought to how the differential equations look for this model. We will discuss more details about the equations, and about determining a numerical value for the parameter <m>\gamma</m>, in (NAME THE SECTION HERE!!!!!) section.
       </p>
+
+<!-- NAME THE SECTION HERE !!!!! AS DESCRIBED IN PRIOR PARAGRAPH -->
+
       <p>
-        For the <q>Introduce an incubation period</q> variation in <xref ref="subsec-introduce-an-incubation-period" />, we do not include the compartment R, but we do include a compartment for individuals who are in an incubation period. A typical way to label this compartment is E, which stands for Exposed. (Notice that we already are using I for Infectious, so we cannot use I for Incubating.) The word Exposed may be misleading, since in daily life, we tend to think of being exposed to illness as meaning that a person may or may not become sick. Instead, in our model, the Exposed individuals will definitely become sick. For this reason, in this text, we will refer to the E compartment as <term>Exposed-and-incubating</term>. This model then includes the S, E, and I compartments, so we call it SEI. A compartmental diagram representing the dynamics of this simulation appears in <xref ref="fig-SEI-compartmental-diagram" />.
+        For the <q>Introduce an incubation period</q> variation in (subsec no longer exists), we do not include the compartment R, but we do include a compartment for individuals who are in an incubation period. A typical way to label this compartment is E, which stands for Exposed. (Notice that we already are using I for Infectious, so we cannot use I for Incubating.) The word Exposed may be misleading, since in daily life, we tend to think of being exposed to illness as meaning that a person may or may not become sick. Instead, in our model, the Exposed individuals will definitely become sick. For this reason, in this text, we will refer to the E compartment as <term>Exposed-and-incubating</term>. This model then includes the S, E, and I compartments, so we call it SEI. A compartmental diagram representing the dynamics of this simulation appears in <xref ref="fig-SEI-compartmental-diagram" />.
       </p>
       <figure xml:id="fig-SEI-compartmental-diagram">
         <caption>One possible <m>SEI</m> (Susceptible, Exposed-and-incubating, Infectious) compartmental diagram</caption>
@@ -906,11 +1067,64 @@
         </exercises>
 
     </chapter>
- 
+    
+
+    <chapter xml:id="ch-simulating-models-and-visualizing-the-results">
+      <title>Simulating Models and Visualizing the Results</title>
+
+      <section xml:id="section-gah">
+        <title></title>
+        <p>In this chapter: include Python, maybe Mathematica</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="ch-determining-parameter-values-and-initial-values">
+      <title>Determining Parameter Values and Initial Values</title>
+
+      <section xml:id="section-alt">
+        <title></title>
+        <p>In this chapter: basics on estimating gamma and other rate parameters. Allude to beta for now; say how beta is different.</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="ch-the-basic-reproduction-number-R0">
+      <title>The Basic Reproduction Number <m>\mathcal{R}_0</m></title>
+
+      <section xml:id="section-meh">
+        <title></title>
+        <p>Describe R0, give formulas for R0 for multiple models, connect with beta, play with values of beta</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="ch-application-vaccines">
+      <title>Application: Vaccines</title>
+
+      <section xml:id="section-yo">
+        <title></title>
+        <p>Vaccine ideas, herd immunity</p>
+      </section>
+
+    </chapter>
+
+    <chapter xml:id="ch-epidemic-vs-endemic-models">
+      <title>Epidemic vs. Endemic Models</title>
+
+      <section xml:id="section-ee">
+        <title></title>
+        <p>Talk about demographic effects. Emphasize here that this is why we aren't normalizing total population to 1</p>
+      </section>
+
+    </chapter>
+
 
   </part>
 
-  
+  <part xml:id="part-digging-deeper-mathematically">
+    <title>Digging Deeper Mathematically</title>
+
     <chapter xml:id="chapter-1">
       <title></title>
 
@@ -951,12 +1165,98 @@
 
     </chapter>
 
-    <chapter xml:id="chapter-5">
-      <title></title>
+    
+  
+  </part>
 
-      <section xml:id="section-5">
-        <title></title>
-        <p>Hello</p>
+  <part xml:id="part-examples-and-case-studies">
+    <title>Examples and Case Studies</title>
+
+    <chapter xml:id="ch-introducing-an-incubation-period-in-the-zombie-app">
+      <title>Introducing an Incubation Period in the Zombie App</title>
+
+      <introduction xml:id="intro-incubation-period-in-zombie-app">
+        <objectives>
+          <ul>
+            <li>
+              <p>
+                Use the zombie app in new ways to generate data for simulated outbreaks.
+              </p>
+            </li>
+            <li>
+              <p>
+                Develop hypotheses for how an incubation period will affect the timeline and outcomes of an outbreak. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Compare your hypotheses about the incubation period with data from your simulations.
+              </p>
+            </li>
+          </ul>
+        </objectives>
+  
+        <p>
+          In the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> we originally used in <xref ref="ch-zombies-can-math-help" />, when a human is infected, they become a zombie the very next day.
+        </p>
+        <p>
+          Suppose, instead, that humans experience an incubation period after being attacked by a zombie. During this incubation period, these individuals are neither a zombie (so not Infectious) nor Susceptible.
+        </p>
+        <p>
+          <em>Take a few moments to think through how an incubation period would change the outcomes of the simulation.</em> Then begin <xref ref="sec-activity-introduce-an-incubation-period" />.
+        </p>
+  
+        </introduction>
+
+
+      <section xml:id="sec-activity-introduce-an-incubation-period">
+        <title>Activity: Introduce an Incubation Period</title>
+       
+          <p>
+            In this example, we assume that after a zombie infects a human, there is a <em>one-day incubation period</em>, meaning a one-day delay, before the human becomes a zombie. While the Zombie Game App can help generate data for such an outbreak, it does not have a direct way to incorporate the incubation period. We must therefore restart the app repeatedly and keep track of our own data, as described below.
+          </p>  
+          <p>  
+            Start in <url href="https://nelsong1997.github.io/zombie_game/">the app</url> by beginning a game in which Human Start Count is set equal to 49 and Zombie Start Count is set equal to 1. Click <q>start</q> and write down the resulting number of new infections on Day 1: these are all the humans infected by our starting zombie. For instance, suppose there are two new infections from the interactions on Day 0, as circled in <xref ref="fig-zombie-SEI-Day-1" />. Then on Day 1, there should be 47 humans, 2 incubating individuals, and 1 zombie. The app says there are three zombies, but in our interpretation, 2 are incubating individuals, and 1 is a zombie. 
+          </p>
+          <figure width="90%" xml:id="fig-zombie-SEI-Day-1">
+            <caption>Determining the number of New Infections on Day 1</caption>
+            <image source="Zombie_SEI_Simulation_Day1.png" width="60%">
+              <description>Table of data from one day of a simulation in the human-zombie game. There are two new infections on Day 1.</description>
+            </image>
+          </figure>
+          <p>
+            We therefore click <q>restart</q> on the app, so that we can enter a Human Start Count of 47 and a Zombie Start Count of 1. We do not include the 2 incubating individuals, since they do not affect the number of new zombies generated from Day 1 interactions. With these settings, we run the app for one round, generating new Infectious individuals once again. An example of this is shown in <xref ref="fig-zombie-SEI-Day-2" />. 
+          </p>
+          <figure width="90%" xml:id="fig-zombie-SEI-Day-2">
+            <caption>Using the results of Day 1 to determine the number of New Infections on Day 2</caption>
+            <image source="Zombie_SEI_Simulation_Day2.png" width="60%">
+              <description>Table of data from one day of a simulation in the human-zombie game, using the outcome of Day 1 to determine new infections on Day 2. There is one new infection on Day 2.</description>
+            </image>
+          </figure>
+          <p>
+            The next step is where we begin to re-introduce the individuals who were infected on Day 0 but still incubating the zombie disease on Day 1. From <xref ref="fig-zombie-SEI-Day-2" /> we see that we should have 46 humans and 1 incubating individual on Day 2. We also have 3 zombies: the initial zombie, plus the 2 incubating individuals from Day 1. We therefore restart the model, entering a Human Start Count of 46 and a Zombie Start Count of 3. A possible outcome appears in <xref ref="fig-zombie-SEI-Day-3" />.
+          </p>
+          <figure width="90%" xml:id="fig-zombie-SEI-Day-3">
+            <caption>Using the results of Days 1 and 2, including re-introducing incubating individuals as zombies, to determine the number of New Infections on Day 3</caption>
+            <image source="Zombie_SEI_Simulation_Day3.png" width="60%">
+              <description>Table of data from one day of a simulation in the human-zombie game, re-introducing incubating individuals as zombies, to determine new infections on Day 3. There are four new infections on Day 3.</description>
+            </image>
+          </figure>
+          <p>
+            From this step, we continue until the game has ended. It helps to generate a new table of data, keeping track of the numbers of each of the three types of individuals. This table can be on paper, in a spreadsheet, or in whatever other form you prefer. <xref ref="fig-zombie-SEI-Data" /> shows a sample of how the table might look.
+          </p>
+          <figure width="90%" xml:id="fig-zombie-SEI-Data">
+            <caption>A sample full data set for simulating infections in a case where there is a one day incubation period as humans transition to zombies</caption>
+            <image source="Zombie_SEI_Simulation_Data.png" width="90%">
+              <description>Table of data from one sample simulation where humans have a one-day incubation period before becoming zombies. For days 0 to 10, the numbers of new infections are 1, 2, 1, 4, 5, 13, 8, 9, 5, 2, 0.</description>
+            </image>
+          </figure>
+          <p>
+            Ask yourself: what do you observe? Compare this simulation with simulations having no incubation period. Consider how many days the outbreak lasts. Make note of your observations, share your ideas with others, and consider the observations of other people trying this experiment. Try the experiment with a longer incubation period, such as 2, 3, or 4 days, and observe the ways these changes affect outcomes of the model.
+          </p>
+          <!-- <p>
+            INCLUDE: a question about why the total population always equals 50, and about why this column is included in the sample data set
+          </p> -->
       </section>
 
     </chapter>
@@ -971,6 +1271,7 @@
 
     </chapter>
 
+  </part>
 
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
