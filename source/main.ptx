@@ -74,7 +74,7 @@
           <em>Who can teach from this book?</em> My goal is for many teachers and professors of college-level mathematics to feel comfortable teaching from this book. There is no requirement to have taught mathematical modeling before, or to have studied mathematical epidemiology. 
         </p>
         <p>
-          <em>What other kinds of math will we use, besides calculus?</em> To do mathematical modeling, we use any math we need.  We typically jump into activities and then introduce new mathematical ideas whenever they are helpful. These math ideas come from differential equations, multivariable calculus, linear algebra, numerical analysis, probability, and more. If you have already studied some of these subjects, you may be able to move more quickly through some of the activities. On the other hand, if you have not yet taken full courses in these subjects, then there will be enough information contained here for you to learn what you need and keep modeling. And, perhaps, you may find that you want to learn more, and that may lead you to study additional areas of mathematics.
+          <em>What other kinds of math will we use, besides calculus?</em> To do mathematical modeling, we use any math we need.  We typically jump into activities and then introduce new mathematical ideas whenever they are helpful. These math ideas come from differential equations, multivariable calculus, linear algebra, numerical analysis, probability, proofs, and more. If you have already studied some of these subjects, you may be able to move more quickly through some of the activities. On the other hand, if you have not yet taken full courses in these subjects, then there will be enough information contained here for you to learn what you need and keep modeling. And, perhaps, you may find that you want to learn more, and that may lead you to study additional areas of mathematics.
         </p>
         <p>
           <em>What kind(s) of models will we use?</em> For most of this textbook, we use compartmental models, which can be drawn in pictures and written as ordinary differential equations. (It is OK to not know some of the terms in the previous sentence when you start: all will be explained.) Some of these models are called SIR models. We will mention other types of models, but we restrict our focus to compartmental models using ordinary differential equations so that we can fully understand the underlying math ideas, how to use the models, and how to visualize our results.
@@ -98,6 +98,9 @@
         </p>
         <p>
           The features of the book (Goals, Explorations, Activities, other text, For Further Thought, and any others)
+        </p>
+        <p>
+          I won't tell you how to think! There are not specific outcomes of models that I insist you find or agree on: instead, this is about the process of describing models, supporting your assumptions, doing correct mathematics, and understanding outcomes.
         </p>
 
       </preface>
@@ -128,22 +131,22 @@
         <ul>
           <li>
             <p>
-              Read about an outbreak in a non-scientific article.
+              Read about an outbreak in a non-scientific article
             </p>
           </li>
           <li>
             <p>
-              Begin to look for disease details that can turn into mathematical ideas.
+              Begin to look for disease details that can turn into mathematical ideas
             </p>
           </li>
           <li>
             <p>
-              Notice the goals and style of writing in a news or popular culture article on an outbreak, and think about how these may be different in a scientific journal article.
+              Notice the goals and style of writing in a news or popular culture article on an outbreak, and think about how these may be different in a scientific journal article
             </p>
           </li>
           <li>
             <p>
-              Prioritize, and build toward a habit of, full-class discussion.
+              Prioritize, and build toward a habit of, full-class discussion
             </p>
           </li>
         </ul>
@@ -326,22 +329,22 @@
         <ul>
           <li>
             <p>
-              Simulate an outbreak and actively observe the data that emerge.
+              Simulate an outbreak and actively observe the data that emerge
             </p>
           </li>
           <li>
             <p>
-              Think through the disease spread process underlying a simulation.
+              Think through the disease spread process underlying a simulation
             </p>
           </li>
           <li>
             <p>
-              Compare the disease spread process with a system of differential equations suggested as a possible model for this process.
+              Compare the disease spread process with a system of differential equations suggested as a possible model for this process
             </p>
           </li>
           <li>
             <p>
-              Consider how changes in the disease spread process can change the outcome.
+              Consider how changes in the disease spread process can change the outcome
             </p>
           </li>
         </ul>
@@ -758,17 +761,17 @@
           <ul>
             <li>
               <p>
-                Visualize data from the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> alongside solution curves of the SI model from <xref ref="ch-zombies-can-math-help"/>.
+                Visualize data from the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> alongside solution curves of the SI model from <xref ref="ch-zombies-can-math-help"/>
               </p>
             </li>
             <li>
               <p>
-                Use comparisons between data and our initial SI model to visually estimate the value of the parameter <m>\beta</m>.
+                Use comparisons between data and our initial SI model to visually estimate the value of the parameter <m>\beta</m>
               </p>
             </li>
             <li>
               <p>
-                Learn the <url href="https://www.python.org/">Python</url> needed for solving systems of differential equations and graphing these solutions, plus data, on a shared set of axes.
+                Learn the <url href="https://www.python.org/">Python</url> needed for solving systems of differential equations and graphing these solutions, plus data, on a shared set of axes
               </p>
             </li>
           </ul>
@@ -913,7 +916,7 @@
         <title><q>Solving</q> Differential Equations Using Graphs</title>
 
         <p>
-          Our goal in this section is to learn to use Python to create graphs similar to what we saw in <xref ref="fig-first-si-graph"/>. Such a graph starts with a system of differential equations and draws one possible <term>solution</term> to that system. The solution drawn depends on the equations themselves, the value(s) of any parameter(s), and the starting values for each population in the system, that is, the values when <m>t=0</m> of <m>S(t)</m>, <m>I(t)</m>, and any other populations being modeled.
+          Our goal in this section is to learn to use Python to create graphs similar to what we saw in <xref ref="fig-first-si-graph"/>. Such a graph starts with a system of differential equations and draws one possible <term>graphical solution</term> to that system. The graphical solution drawn depends on the equations themselves, the value(s) of any parameter(s), and the starting values for each population in the system, that is, the values when <m>t=0</m> of <m>S(t)</m>, <m>I(t)</m>, and any other populations being modeled. For now, we specify that this type of solution is a <em>graphical solution</em>, but as the book continues, we will often refer to a graphical solution as simply a <em>solution</em>.
         </p>
 
         <p>
@@ -927,7 +930,7 @@
             </p>
 
             <p>
-              <term>Solving</term> a differential equation often means finding a way to write an equivalent relationship, without including a derivative. Using this interpretation of <q>solving</q>: solve  
+              Solving a differential equation often means finding a way to write an equivalent relationship, without including a derivative. Using this interpretation of <q>solving</q>: solve  
             </p>
 
             <md>
@@ -977,11 +980,15 @@
         </p>
 
         <p>
-          Instead, our approach is to compute <em>numerical solutions</em>, which are solutions in the form of numbers. More mathematical details appear in <xref ref="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs"/>, but the main idea is that Python starts at the initial population values, then uses the system of differential equations to <q>step through</q> the full range of time, computing population values step-by-step at later times by using information about how the population values change throughout. The system of differential equations is made up of derivatives, which are rates of change, so they exactly describe how the populations change at all times <m>t</m>. The population values computed in the numerical solution can be printed, or more often, graphed, to see the results.
+          Instead, our approach is to compute <term>numerical solutions</term>, which are solutions in the form of numbers. More mathematical details appear in <xref ref="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs"/>, but the main idea is that Python starts at the initial population values, then uses the system of differential equations to <q>step through</q> the full range of time, computing population values step-by-step at later times by using information about how the population values change throughout. The system of differential equations is made up of derivatives, which are rates of change, so they exactly describe how the populations change at all times <m>t</m>. The population values computed in the numerical solution can be printed, or more often, graphed, to see the results in the form of a graphical solution.
         </p>
 
         <p>
-          Here is an outline of the process.
+          We noted earlier that graphical solutions may be called simply <em>solutions</em>. Similarly, numerical solutions are sometimes called simply <em>solutions</em>. And we have seen that formula-based solutions can be called simply <em>solutions</em>. It is important to use context to determine which kind of solution is being discussed, in this text or in other reading.
+        </p>
+
+        <p>
+          Here is an outline of the numerical solution process.
         </p>
 
         <ol>
@@ -1007,7 +1014,7 @@
           </li>
           <li>
             <p>
-              Ask Python to use all this information to numerically solve the model and plot solution curves. 
+              Ask Python to use all this information to numerically solve the model and plot graphical solution curves. 
             </p>
           </li>
         </ol>
@@ -1133,7 +1140,7 @@
           <cd>
             <cline>     sol = odeint(hz, y0, t_range)</cline>
           </cd>
-          includes multiple parts. The solution is named <c>sol</c>. The Python command <c>odeint</c> computes the solution. For <c>odeint</c> to run, it needs three things: (1) a system of differential equations <c>hz</c>, (2) initial conditions <c>y0</c> for the differential equations, and (3) a time range <c>t_range</c> across which to create the solution. Though <c>odeint</c> computes the solution, it does not show us the solution: the plots we create later show us the results. Instead, <c>odeint</c> creates lists of numbers for <m>S</m> and for <m>I</m>, at the times specified in <c>t_range</c>. (If you would like to see the numerical values computed by <c>sol</c>, include the line <c>print(sol)</c> in the block of Python code above, sometime after the line <c>sol = odeint(hz, y0, t_range)</c>. When you then evaluate the code, the list of values will appear.)
+          is a numerical solution, and it includes multiple parts. The solution is named <c>sol</c>. The Python command <c>odeint</c> computes the solution. For <c>odeint</c> to run, it needs three things: (1) a system of differential equations <c>hz</c>, (2) initial conditions <c>y0</c> for the differential equations, and (3) a time range <c>t_range</c> across which to create the solution. Though <c>odeint</c> computes the numerical solution, it does not show us the graphical solution: the plots we create later show us these results. Instead, the numerical solution created by <c>odeint</c> consists of lists of numbers for <m>S</m> and for <m>I</m>, at the times specified in <c>t_range</c>. (If you would like to see the numerical values computed by <c>sol</c>, include the line <c>print(sol)</c> in the block of Python code above, sometime after the line <c>sol = odeint(hz, y0, t_range)</c>. When you then evaluate the code, the list of values will appear.)
         </p>
 
         <p>
@@ -1142,7 +1149,7 @@
             <cline>     plt.plot(t_range, sol[:, 0], color='blue')</cline>
             <cline>     plt.plot(t_range, sol[:, 1], color='orange')</cline>
           </cd>
-          create, but do not show, the plots of solutions to the system of differential equations. For each plot, we provide the input values <c>t_range</c> and the output values from the solution <c>sol</c>. As described above, <c>sol</c> is a set of numbers which are the values of the populations <m>S(t)</m> and <m>I(t)</m> at all the times in <c>t_range</c>. The numbers in <c>sol</c> are structured into two lists, list 0 and list 1. (Python often counts things, such as lists, starting with 0 rather than starting with 1.) The syntax <c>sol[:,0]</c> describes all the <m>S(t)</m> data. The colon <c>:</c> means <q>all</q> the elements, and the <c>0</c> means list 0, which is the list containing values of <m>S(t)</m>. The syntax <c>sol[:,1]</c> describes all the <m>I(t)</m> data, with <c>:</c> again representing <q>all</q> and <c>1</c> representing list 1, which contains <m>I(t)</m> values.
+          create, but do not show, the plots of graphical solutions to the system of differential equations. For each plot, we provide the input values <c>t_range</c> and the output values from the numerical solution <c>sol</c>. As described above, <c>sol</c> is a set of numbers which are the values of the populations <m>S(t)</m> and <m>I(t)</m> at all the times in <c>t_range</c>. The numbers in <c>sol</c> are structured into two lists, list 0 and list 1. (Python often counts things, such as lists, starting with 0 rather than starting with 1.) The syntax <c>sol[:,0]</c> describes all the <m>S(t)</m> data. The colon <c>:</c> means <q>all</q> the elements, and the <c>0</c> means list 0, which is the list containing values of <m>S(t)</m>. The syntax <c>sol[:,1]</c> describes all the <m>I(t)</m> data, with <c>:</c> again representing <q>all</q> and <c>1</c> representing list 1, which contains <m>I(t)</m> values.
         </p>
 
         <p>
@@ -1359,7 +1366,7 @@ plt.show()
                   </p>
                 </li><li>
                   <p>
-                    Line 19 says <c>plt.legend()</c>. What does this mean? You can check by turning this line off, then on again. To turn it off, type <c>#</c> at the start of Line 19, and run the code again. To turn it back on, remove the <c>#</c>. Starting a line with <c>#</c> turns the line into a <term>comment</term> rather than code. This means that Python does not execute the rest of the line after the <c>#</c>.  
+                    Line 19 says <c>plt.legend()</c>. What does this mean? You can check by turning this line off, then on again. To turn it off, type <c>#</c> at the start of Line 19, and run the code again. To turn it back on, remove the <c>#</c>. Starting a line with <c>#</c> turns the line into a <em>comment</em> rather than code. This means that Python does not execute the rest of the line after the <c>#</c>.  
                   </p>
                 </li><li>
                   <p>
@@ -1543,7 +1550,7 @@ plt.show()
         </exercise>
         <exercise number="2">
           <p>
-            Open the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> and run it, creating a data set that is (hopefully) different than that in <xref ref="fig-human-zombie-data-table"/>. Use Python to plot these data points for humans and zombies. On the same set of axes, plot the solutions to the differential equations in the SI model. Adjust <m>\beta</m> so the SI model solution curves fit adequately well with the generated data points. Include a short discussion of ways in which the curves fit the data well, and ways in which the fit is not as good. 
+            Open the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> and run it, creating a data set that is (hopefully) different than that in <xref ref="fig-human-zombie-data-table"/>. Use Python to plot these data points for humans and zombies. On the same set of axes, plot the graphical solutions to the differential equations in the SI model. Adjust <m>\beta</m> so the SI model solution curves fit adequately well with the generated data points. Include a short discussion of ways in which the curves fit the data well, and ways in which the fit is not as good. 
           </p>
         </exercise>
         <exercise number="3">
@@ -1588,22 +1595,22 @@ plt.show()
         <ul>
           <li>
             <p>
-              Begin to use compartmental diagrams.
+              Begin to use compartmental diagrams
             </p>
           </li>
           <li>
             <p>
-              Learn the rules and assumptions for drawing compartmental diagrams.
+              Learn the rules and assumptions for drawing compartmental diagrams
             </p>
           </li>
           <li>
             <p>
-              Connect compartmental diagrams with their corresponding systems of differential equations.
+              Connect compartmental diagrams with their corresponding systems of differential equations
             </p>
           </li>
           <li>
             <p>
-              Build understanding of units and rate parameters in models.
+              Build understanding of units and rate parameters in models
             </p>
           </li>
         </ul>
@@ -1954,11 +1961,11 @@ plt.show()
             <p>
               In <xref ref="activity-sir-diagram-and-des"/>, we developed the following system of differential equations for the SIR model shown in <xref ref="fig-SIR-compartmental-diagram"/>:
             </p>
-            <md>
-              <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-              <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
-              <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-            </md>
+            <mdn>
+              <mrow xml:id="eq-SIR-model-S">\frac{dS}{dt} \amp = -\beta S I </mrow>
+              <mrow xml:id="eq-SIR-model-I">\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
+              <mrow xml:id="eq-SIR-model-R">\frac{dR}{dt} \amp = \gamma I. </mrow>
+            </mdn>
             <p>
               Recall that each of the variables <m>S</m>, <m>I</m>, and <m>R</m> represents some average number of individuals. This means that the units for each of <m>S</m>, <m>I</m>, and <m>R</m> are <em>population</em>.
                 <aside>
@@ -2061,17 +2068,17 @@ plt.show()
           <ul>
             <li>
               <p>
-                Develop the technique of <em>sign analysis</em> for analyzing outcomes of compartmental models.
+                Develop the technique of <em>sign analysis</em> for analyzing outcomes of compartmental models
               </p>
             </li>
             <li>
               <p>
-                Understand the relationship between a compartmental disease model, the size of the total population being modeled, and each compartment's long-term population value. 
+                Investigate relationships between a compartmental disease model, the size of the total population being modeled, and each compartment's long-term population value 
               </p>
             </li>
             <li>
               <p>
-                Introduce the basic reproduction number <m>\mathcal{R}_0</m> and its implication for outbreaks. 
+                Introduce the basic reproduction number <m>\mathcal{R}_0</m> and its implication for outbreaks 
               </p>
             </li>
           </ul>
@@ -2263,23 +2270,27 @@ plt.show()
             </p>
             <sage>
               <input>
+                #Import packages
                 import numpy as np
                 import matplotlib.pyplot as plt
                 from scipy.integrate import odeint
-                plt.cla()
+
+                plt.cla() #Clear (delete) any past plots
                 
+                #Define the system of differential equations, and call it "model"
                 def model(y, t):
-                  S, I, R = y
-                  dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I]
+                  S, I, R = y #Define y as consisting of S, I, and R, in that order
+                  dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #These formulas are the right-hand sides of the SIR model
                   return dydt
                 
-                beta = 0.03
-                gamma = 0.25
-                y0 = [75, 25, 0]
-                t_range = np.arange(0.0, 20.0, 0.1)
+                beta = 0.03 #Give a value to beta
+                gamma = 0.25 #Give a value to gamma
+                y0 = [75, 25, 0] #Set initial conditions for S, I, and R, in that order
+                t_range = np.arange(0.0, 20.0, 0.1) #Set the time range to be t=0 to t=20, with "step through" increments of 0.1 when numerically solving
                 
-                sol = odeint(model, y0, t_range)
+                sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
                 
+                # Plotting commands are below
                 plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
                 plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
                 plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
@@ -2425,23 +2436,27 @@ plt.show()
             </p>
             <sage>
               <input>
+                #Import packages
                 import numpy as np
                 import matplotlib.pyplot as plt
                 from scipy.integrate import odeint
-                plt.cla()
+
+                plt.cla() #Clear (delete) any past plots
                 
+                #Define the system of differential equations, and call it "model"
                 def model(y, t):
-                  S, I, R = y
-                  dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I]
+                  S, I, R = y #Define y as consisting of S, I, and R, in that order
+                  dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
                   return dydt
                 
-                beta = 0.01
-                gamma = 0.1
-                y0 = [1900, 100, 0]
-                t_range = np.arange(0.0, 15.0, 0.1)
+                beta = 0.01 #Give a value to beta
+                gamma = 0.1 #Give a value to gamma
+                y0 = [1900, 100, 0] #Set initial conditions for S, I, and R, in that order
+                t_range = np.arange(0.0, 15.0, 0.1) #Set the time range to be t=0 to t=15, with time steps of 0.1 when numerically solving
                 
-                sol = odeint(model, y0, t_range)
+                sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
                 
+                # Plotting commands are below
                 plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
                 plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
                 plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
@@ -2534,10 +2549,10 @@ plt.show()
           To incorporate the idea of an entirely susceptible population, we refer back to our definition of <em>total population</em> <m>N(t)</m>, which appeared in <xref ref="activity-total-population"/>. In that activity, we showed that <m>N(t)</m> remains constant in this SIR model. We can therefore write <m>N(t)</m> more simply as <m>N</m>, since the value of <m>N</m> does not change over time.
         </p>
         <p>
-          We now have all the pieces we need to assemble a formula for <m>\mathcal{R}_0</m> in our SIR model:
+          We now have all the pieces we need to assemble a formula for <m>\mathcal{R}_0</m> in the SIR model <xref ref="eq-SIR-model-S"/>, <xref ref="eq-SIR-model-I"/>, and <xref ref="eq-SIR-model-R"/>:
         </p>
         <mdn>
-          <mrow xml:id="eq-R0-sir">\mathcal{R}_0 \amp = \frac{\beta N}{\gamma}. </mrow>
+          <mrow xml:id="eq-R0-sir">\mathcal{R}_0 \amp = \frac{\beta N}{\gamma} \mbox{ for our SIR model}. </mrow>
         </mdn>
         <p>
           It is possible to compute the formula for <m>\mathcal{R}_0</m> from the equations in a compartmental model. The most common way to do this is called the Next Generation Method. Because the Next Generation Method uses partial derivatives and techniques from linear algebra, it is described in the optional sections <xref ref="ch-the-next-generation-method-using-r0-to-determine-beta"/> and <xref ref="ch-the-next-generation-method-connecting-theory-with-practice"/>. In particular, <xref ref="ch-the-next-generation-method-using-r0-to-determine-beta"/> teaches the process in a way that can be used by students who are new to matrix operations and partial derivatives: there are a few math techniques to learn, and Python does the rest. Readers who include <xref ref="ch-the-next-generation-method-using-r0-to-determine-beta"/> will be able to solve for the formula for <m>\mathcal{R}_0</m> in their own models. As an alternative, the <m>\mathcal{R}_0</m> formulas for several commonly used compartmental models are provided directly throughout this text.  
@@ -2573,7 +2588,7 @@ plt.show()
               </li>
               <li>
                 <p>
-                  In a typical outbreak, what changes to cause <m>\frac{\beta S}{\gamma}</m> to transition in sign between being positive, negative, and <m>0</m>? What is the expected order of these signs, that is, out of <m>+</m>, <m>-</m>, and <m>0</m>, which comes first, which comes second, and which comes third? Why is this the order? 
+                  In a typical outbreak, what changes to cause <m>\frac{\beta S}{\gamma}</m> to transition in sign between being positive, negative, and <m>0</m>? What is the expected order of these signs, that is, out of <m>+</m>, <m>-</m>, and <m>0</m>, which happens first in an outbreak, which happens second, and which happens third? Why is this the order? 
                 </p>
               </li>
             </ul>
@@ -2581,14 +2596,14 @@ plt.show()
               After completing the above questions, next consider the formula from <xref ref="eq-R0-sir"/>, which says that <m>\mathcal{R}_0 = \frac{\beta N}{\gamma}</m>. Use the work you have already done in this activity, along with the definition of <m>\mathcal{R}_0</m> as being the average number of new infections caused by one infectious person <em>in an otherwise entirely susceptible population</em>, to describe what <m>\mathcal{R}_0</m> tells us about the behavior of <m>I(t)</m> early in an outbreak. 
             </p>
           </statement>
-          <hint>
+          <answer>
             <p>
-              In a typical outbreak, initially, <m>dI/dt \gt 0</m>, which corresponds to <m>\frac{\beta S}{\gamma} \gt 1</m>, and the number of Infectious people is increasing. As the value of <m>S(t)</m> gets smaller, the <m>I(t)</m> curve levels out, then falls. (This can be described more fully in terms of <m>dI/dt</m> and the value of <m>\frac{\beta S}{\gamma}</m>.)
+              When <m>\frac{\beta S}{\gamma} \gt 1</m>, then <m>dI/dt \gt 0</m>, which means that the number of Infectious people is increasing. This typically happens early in an outbreak. As the outbreak continues, the value of <m>S</m> becomes smaller, so that eventually <m>\frac{\beta S}{\gamma} = 1</m> (which means <m>dI/dt = 0</m>), and then <m>\frac{\beta S}{\gamma} \lt 1</m> (which means <m>dI/dt \lt 0</m> and the number of Infectious people is decreasing).
             </p>
             <p>
               With one infectious person <em>in an otherwise entirely susceptible population</em>, it is approximately true that <m>S(t)=N</m>, that is, that the Susceptible population is essentially the entire population. Therefore, <m>\mathcal{R}_0</m> is a way of indicating what happens to the <m>I(t)</m> population <em>at the very start of an outbreak</em>. 
             </p>
-          </hint>
+          </answer>
         </activity>
 
         <p>
@@ -2655,7 +2670,7 @@ plt.show()
             </li>
             <li>
               <p>
-                Now suppose that the value of <m>\beta</m> was instead approximated to be <m>0.00001</m>. Compute the value of <m>\mathcal{R}_0</m> in this case. With this value of <m>\mathcal{R}_0</m>, what do you anticipate for the short-term and long-term outcomes of the outbreak?
+                Now suppose that the value of <m>\beta</m> was instead approximated to be <m>0.00001</m>, yet it is still true that <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> in this case. With this value of <m>\mathcal{R}_0</m>, what do you anticipate for the short-term and long-term outcomes of the outbreak?
               </p>
             </li>
             <li>
@@ -2665,61 +2680,71 @@ plt.show()
             </li>
             <li>
               <p>
-                Use the Python code shown earlier in this chapter to produce graphs of the outcomes of the SIR models in parts (a), (b), and (c) above. Write a few sentences about how well your descriptions of short-term and long-term model outcomes are supported, or not supported, by the graphs.
+                Adapt the Python code shown earlier in this chapter to produce graphs of the outcomes of the SIR models in parts (a), (b), and (c) above. Write a few sentences about how well your descriptions of short-term and long-term model outcomes are supported, or not supported, by the graphs.
               </p>
             </li>
           </ol>
         </exercise>
         <exercise number="3">
           <p>
-            Most diseases we know of have <m>\mathcal{R}_0 \gt 1</m>. This makes sense: without rising numbers of Infectious people, we do not experience an epidemic. However, in rare cases, a disease emerges for which <m>\mathcal{R}_0 \lt 1</m>. One example is MERS, which stands for Middle East Respiratory Syndrome. MERS was first identified in 2012. There is still a lot to learn about MERS, but multiple estimates indicate that the value of <m>\mathcal{R}_0</m> for MERS is less than one.
+            Most diseases we know of have <m>\mathcal{R}_0 \gt 1</m>. This makes sense: without rising numbers of Infectious people, we do not experience an epidemic. However, in rare cases, a disease emerges for which <m>\mathcal{R}_0 \lt 1</m>. One example is MERS, which stands for Middle East Respiratory Syndrome. The first identified case of MERS was in 2012. There is still a lot to learn about MERS, but multiple estimates indicate that the value of <m>\mathcal{R}_0</m> for MERS is less than one.
           </p>
           <p>
-            This activity is motivated by the existence of diseases with <m>\mathcal{R}_0 \lt 1</m>. Suppose we study a disease for which <m>\mathcal{R}_0 \approx 0.5</m> and <m>\gamma = 0.1</m>, that is, people are typically infectious for about ten days. Suppose we choose to model this disease with an SIR model similar to the models we have been using in this chapter.
+            This activity is motivated by the existence of diseases with <m>\mathcal{R}_0 \lt 1</m>. Suppose we study a disease for which <m>\mathcal{R}_0 \approx 0.5</m> and <m>\gamma = 0.1</m>, that is, people are typically infectious for about ten days. Suppose we choose to model this disease with an SIR model similar to the models we have been using in this chapter: <q>S</q> stands for Susceptible, meaning people who are not sick but can become sick; <q>I</q> stands for Infectious, meaning people who are currently able to spread the disease, and <q>R stands for</q> Removed, meaning people who are no longer able to spread the disease and are unable to become sick again. In the case of a disease similar to MERS, the Removed compartment consists of both recoveries and deaths from the disease.
           </p>
           <ol>
             <li>
               <p>
-                In an area with a population of 1000, what is the value of <m>\beta</m> for this SIR model of MERS?
+                In an area with a population of 1000, use <xref ref="eq-R0-sir"/> to solve for the value of <m>\beta</m> for this SIR model.
               </p>
             </li>
             <li>
               <p>
-                Suppose that at the start of the outbreak, 20 people have MERS. Use the Python block below to visualize the outbreak over 200 days. Notice that the Python block includes three <c>print</c> commands. These print and label the last output values stored as <c>sol</c>, that is, the output values for the last value of time <m>t</m>.  
+                Suppose that at the start of the outbreak, 20 people are Infectious. Use the Python block below to visualize the outbreak over 200 days. Notice that the Python block includes three <c>print</c> commands. These print and label the last output values stored as <c>sol</c>, that is, the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values for the last value of time <m>t</m>, namely <m>t=200</m>.  
               </p>
               <p>
                 <em>Use caution: by default, the Python block does not contain the correct value for <m>\beta</m>. Instead, replace the existing <m>\beta</m> value with the value you computed in part (a).</em>
               </p>
               <p>
-                Using the output from the <c>print</c> command, along with the visual output of the graph, describe what happens in this population that began with 20 people who had MERS. How many people, in total, had MERS during the time of this model? Discuss your response in relation to the value of <m>\mathcal{R}_0</m> for MERS in this model. 
+                 Use the graphs to describe qualitatively what happens in this population that began with 20 Infectious people. Does the curve for the <m>I(t)</m> population begin falling from the very beginning? What happens to the curves for <m>S(t)</m> and <m>R(t)</m>? 
+              </p>
+            </li>
+            <li>
+              <p>
+                Incorporate the output from the <c>print</c> command, along with the visual output of the graphs. How many people, in total, were Infectious at some point during the time of this model? How does this compare with the initial 20 cases? How do you reconcile this result with the behavior of the <m>I(t)</m> curve and with the knowledge that <m>\mathcal{R}_0 \lt 1</m> in this model?
               </p>
             </li>
           </ol> 
           <sage>
             <input>
+              #Import packages
               import numpy as np
               import matplotlib.pyplot as plt
               from scipy.integrate import odeint
-              plt.cla()
+
+              plt.cla() #Clear (delete) any past plots
               
+              #Define the system of differential equations, and call it "model"
               def model(y, t):
-                S, I, R = y
-                dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I]
+                S, I, R = y #Define y as consisting of S, I, and R, in that order
+                dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
                 return dydt
               
               #This value for beta is not correct for MERS.
               #Instead, use the value you compute in part (a).
               beta = 0.01
-              gamma = 0.1
-              y0 = [980, 20, 0]
-              t_range = np.arange(0.0, 200.0, 0.1)
+              gamma = 0.1 #Give a value to gamma
+              y0 = [980, 20, 0] #Set initial conditions for S, I, and R, in that order
+              t_range = np.arange(0.0, 200.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
               
-              sol = odeint(model, y0, t_range)
+              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
 
+              # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
               print("Long-term value of S = ", round(sol[-1,0]))
               print("Long-term value of I = ", round(sol[-1,1]))
               print("Long-term value of R = ", round(sol[-1,2]))
               
+              # Plotting commands are below
               plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
               plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
               plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
@@ -2738,11 +2763,742 @@ plt.show()
 
     </chapter>
 
+    
+    <chapter xml:id="ch-vaccines-and-isolation-in-compartmental-models">
+      <title>Vaccines and Isolation in Compartmental Models</title>
+
+      <introduction xml:id="intro-vaccines-and-isolation-in-compartmental-models">
+      <objectives>
+        <ul>
+          <li>
+            <p>
+              Explore the role of public health strategies in managing disease spread, using compartmental models
+            </p>
+          </li>
+          <li>
+            <p>
+              Strengthen understanding of the meaning of <m>\mathcal{R}_0</m>, which involves a single Infectious person in an otherwise entirely Susceptible population
+            </p>
+          </li>
+          <li>
+            <p>
+              Determine the threshold for what percentage of vaccine coverage reduces transmission enough so that the number of Infectious cases does not rise
+            </p>
+          </li>
+          <!-- <li>
+            <p>
+              Introduce a new model compartment, often called <em>Isolated</em>, to reduce disease transmission by reducing the interaction of the Infectious and Susceptible populations 
+            </p>
+          </li> -->
+        </ul>
+      </objectives>
+
+      <p>
+        In the first few chapters of this text, we have introduced the basic <q>hows</q> for compartmental modeling, as well as a few of the <q>whys</q>. Now, we explore the <q>whys</q> even further.  
+      </p>  
+
+      <p>
+        One of the most significant ways to use models is for trying and comparing possible public health strategies <em>in simulations</em> before actually carrying them out with real people. Professional-level models can be quite detailed and depend on large amounts of data, and compartmental models are just one of the many types of models implemented. In this chapter, we define and model two commonly used strategies, vaccines and isolation. 
+      </p>
+
+      <p>
+        Begin in <xref ref="expl-activity-vaccines-and-isolation"/> by adjusting a model in a particular way to reduce the occurrence of new infections.
+      </p>
+
+      </introduction>
+      
+      <exploration xml:id="expl-activity-vaccines-and-isolation">
+        <title>Reducing New Infections</title>
+        <introduction>
+          <p>
+            This exploration seeks to reduce the number of new infections by directly reducing the transmission part of the compartmental SIR model shown in <xref ref="eq-SIR-model-S"/>, <xref ref="eq-SIR-model-I"/>, and <xref ref="eq-SIR-model-R"/>. To reduce transmission, we multiply by a term <m>(1-p)</m>:  
+          </p>
+          <md>
+            <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
+            <mrow>\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I </mrow>
+            <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+          </md>
+          <p>
+            This change to the model reflects that the term <m>\beta SI</m> in the SIR model represents transmission of disease from the Infectious to the Susceptible population. To reduce transmission, we therefore change the specific term <m>\beta SI</m> by introducing the multiplier <m>(1-p)</m>. 
+          </p> 
+          <p>
+            Work through the parts below to build understanding of the term <m>(1-p)</m> and the permissible values of <m>p</m>.
+          </p>
+        </introduction>
+
+        <task>
+          <statement>
+            <p>
+              Read the Python code below. Think through the factor <m>(1-p)</m> that is multiplied by <m>\beta S I</m> in both the <m>dS/dt</m> and <m>dI/dt</m> equations. We restrict the possible values of <m>p</m> so that it must be true that <m>0 \leq p \leq 1</m>.  
+            </p>
+            <p>
+              After reading and evaluating the Python code, respond to the questions that follow.
+            </p>
+
+             <sage>
+              <input>
+                #Import packages
+                import numpy as np
+                import matplotlib.pyplot as plt
+                from scipy.integrate import odeint
+
+                plt.cla() #Clear (delete) any past plots
+                
+                #Define the system of differential equations, and call it "model"
+                def model(y, t):
+                  S, I, R = y #Define y as consisting of S, I, and R, in that order
+                  dydt = [- (1-p) * beta * S * I, (1-p) * beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+                  return dydt
+                
+                beta = 0.0004 #Give a value to beta
+                gamma = 0.1 #Give a value to gamma
+                p = 0.0 #Give a value to p
+                y0 = [1500, 500, 0] #Set initial conditions for S, I, and R, in that order
+                t_range = np.arange(0.0, 20.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+                
+                sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+                
+                # Plotting commands are below
+                plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+                plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+                plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+                plt.legend()
+                plt.grid()
+                plt.xlabel('time')
+                plt.ylabel('populations')
+                plt.show()
+              </input>
+              <output>
+              (put the graph here!!)
+              </output>
+              </sage>
+
+            <ol>
+              <li>
+                <p>
+                  Given the restriction that <m>0 \leq p \leq 1</m>, what is the range of possible values for the term <m>(1-p)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When we multiply the transmission term <m>\beta SI</m> by <m>(1-p)</m>, for viable values of <m>p</m>, what is the effect? Describe in terms of numbers, in terms of the graphical output of the Python code, and in terms of the impact on a disease outbreak.
+                </p>
+              </li>              
+            </ol>
+
+            
+          </statement>
+        </task>
+
+        <task>
+          <statement>
+            <p>
+              These questions get more specific about the value of <m>p</m>. Think logically and mathematically about your answers, and use the Python code freely to experiment with <m>p</m>. To help you build a strong sense of the role of <m>p</m> in the SIR model, you may wish to change the time range, include other information we have seen in past simulations, or make other changes to the code.
+            </p>
+          <ol>
+            <li>
+                <p>
+                  What sorts of effects do you see from the term <m>(1-p)</m> when the value of <m>p</m> is relatively small, that is, <m>p</m> is just above <m>0</m>? In contrast, what sorts of effects do you see from the term <m>(1-p)</m> when the value of <m>p</m> is relatively large, that is, <m>p</m> is just below <m>1</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What can you say about the boundary values of <m>p</m>? That is, what sorts of effects does the term <m>(1-p)</m> have on the SIR model when <m>p=0</m> or when <m>p=1</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Pulling ideas together: as the value of <m>p</m> increases from <m>0</m> to <m>1</m>, what observations can you make about the output of the SIR model?
+                </p>
+              </li>
+          </ol>
+          </statement>
+        </task>
+        
+      </exploration>
+
+      <section xml:id="section-vaccines-in-compartmental-models">
+        <title>Vaccines in Compartmental Models</title>
+
+        <p>
+          The modeling in this section focuses on <em>reducing transmission of a disease through the use of vaccines</em>. We use the multiplier <m>(1-p)</m> from <xref ref="expl-activity-vaccines-and-isolation"/>, along with the concept of <m>\mathcal{R}_0</m> from <xref ref="ch-population-values-and-the-basic-reproduction-number-R0"/>, to demonstrate the effect of vaccines on the number of people who ever become Infectious in a disease outbreak.
+        </p>
+        <p>
+          As a reminder, the <em>basic reproduction number</em> <m>\mathcal{R}_0</m> is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. This means that <m>\mathcal{R}_0</m> is not a number we can use to directly describe a population that has been vaccinated against a disease, since a vaccinated population is not entirely susceptible. Instead, we introduce an <term>effective reproduction number</term> <m>\mathcal{R}_{\text{eff}}</m>, which is the average number of new infections caused by one infectious person in a population that may not be entirely susceptible, such as a population that has had access to vaccination.
+        </p>
+        <p>
+          We cannot change the intrinsic value of <m>\mathcal{R}_0</m>, but with vaccination, we can work toward the goal of having <m>\mathcal{R}_{\text{eff}} \lt 1</m>. If <m>\mathcal{R}_{\text{eff}} \lt 1</m> in a model that includes vaccines or other public health interventions, then overall numbers of Infectious people do not rise over time. With a few lines of algebra, we can build a relationship between <m>\mathcal{R}_0</m>, <m>p</m>, and <m>\mathcal{R}_{\text{eff}}</m>. 
+        </p> 
+        <p>
+          First, we should state a definition for <m>p</m>. We define <m>p</m> to be the fraction of people vaccinated against a disease, noting that the values of <m>p</m> are therefore restricted to <m>0 \leq p \leq 1</m>, where <m>p=0</m> means no one is vaccinated, and <m>p=1</m> means <m>100\%</m> of the population is vaccinated. Initially, we will think of vaccination as being <m>100\%</m> effective. 
+          <aside>
+            <p>
+              Later, we update our models to include vaccines that are less than <m>100\%</m> effective.
+            </p>
+          </aside>
+          When the fraction <m>p</m> of people are vaccinated, the remaining fracion <m>(1-p)</m> are not vaccinated. Since <m>\mathcal{R}_0</m> refers to an entirely susceptible population, but only the fraction <m>(1-p)</m> of the population is susceptible, we see that the average number of new infections caused by one infectious person in the vaccinated population is <m>(1-p)\mathcal{R}_0</m>. In other words:
+        </p>
+        
+        <mdn>
+          <mrow xml:id="eq-Reff-define">\mathcal{R}_{\text{eff}} \amp = (1-p)\mathcal{R}_0. </mrow>
+        </mdn>
+
+        <p>
+          Our goal in the next few mathematical steps is to use <xref ref="eq-Reff-define"/> to determine a value of <m>p</m> for which <m>\mathcal{R}_{\text{eff}} \lt 1</m>. Such a value of <m>p</m> corresponds to a vaccination rate high enough that a disease cannot become an outbreak because <m>\mathcal{R}_{\text{eff}} \lt 1</m> means that the overall numbers in the population are not expected to rise. Read carefully through the following mathematical steps to see how this value of <m>p</m> is computed:
+        </p>
+        
+        <!-- <md>
+          <mrow> \text{Start with our goal:}  \amp \amp  \mathcal{R}_{\text{eff}} \amp \lt 1 </mrow>
+          <mrow> \text{Substitute:}  \amp \amp (1-p)\mathcal{R}_0 \amp \lt 1 </mrow>
+          <mrow> \text{Rearrange algebraically:}  \amp \amp \mathcal{R}_0 - p \mathcal{R}_0 \amp \lt 1 </mrow>
+          <mrow> \text{Rearrange algebraically:}  \amp \amp p \mathcal{R}_0 \amp \gt \mathcal{R}_0 - 1 </mrow>
+          <mrow> \text{Rearrange algebraically:}  \amp \amp p \amp \gt \frac{\mathcal{R}_0 - 1}{\mathcal{R}_0}. </mrow>
+        </md> -->
+
+        <md>
+          <mrow> \mathcal{R}_{\text{eff}} \amp \lt 1 </mrow>
+          <mrow> (1-p)\mathcal{R}_0 \amp \lt 1 </mrow>
+          <mrow> \mathcal{R}_0 - p \mathcal{R}_0 \amp \lt 1 </mrow>
+          <mrow> p \mathcal{R}_0 \amp \gt \mathcal{R}_0 - 1 </mrow>
+          <mrow> p \amp \gt \frac{\mathcal{R}_0 - 1}{\mathcal{R}_0} </mrow>
+          <mrow>p \amp \gt 1- \frac{1}{\mathcal{R}_0}. </mrow>
+        </md>
+
+        <p>
+          In the lines above, we started with our goal of causing <m>\mathcal{R}_{\text{eff}}</m> to be less than one. We then made a substitution using <xref ref="eq-Reff-define"/> and rearranged algebraically until we found a formula showing values of <m>p</m> that satisfied our goal. Notice that to compute the next-to-last line, we divided by <m>\mathcal{R}_0</m> without changing the direction of the inequality, which assumed that <m>\mathcal{R}_0 \gt 0</m>. This assumption makes biological sense, and is important to point out mathematically, as biology and mathematics should support each other throughout the modeling process.        
+        </p>
+
+        <p>
+          We now note a particular, special value of <m>p</m> that is the threshold between two outcomes, which makes it a <term>critical value</term>. The two outcomes are having, or not having, an outbreak. We therefore name this critical value of <m>p</m> to be <m>p_{\text{crit}}</m>:
+        </p>
+
+        <mdn>
+          <mrow xml:id="eq-pcrit">p_{\text{crit}} \amp = 1- \frac{1}{\mathcal{R}_0}. </mrow> 
+        </mdn>
+
+        <p>
+          Investigate the critical value <m>p_{\text{crit}}</m>, and the accompanying threshold between outbreak and no outbreak, in <xref ref="activity-pcrit"/>.
+        </p>
+
+        <activity xml:id="activity-pcrit">
+          <statement>
+            <p>
+              Here
+            </p>
+            <p>
+              Start    
+            </p>
+            <ul>
+              <li>
+                <p>
+                  When 
+                </p>
+              </li>
+              <li>
+                <p>
+                  In  
+                </p>
+              </li>
+            </ul>
+            <p>
+              After 
+            </p>
+          </statement>
+          <answer>
+            <p>
+              When  
+            </p>
+          </answer>
+        </activity>
+
+         <!-- While this does not mean that no one new can become sick after the initial cases, it means that the total numbers of Infectious people are not expected to rise, so people are becoming Removed faster than new people are becoming Infectious. (*** TURN THIS INTO AN EXERCISE ***) -->
+
+        <p>
+          START WITH BASICS OF P. THEN DISCUSS EFFICACY AND EFFECTIVENESS. THEN SHOW HOW TO BUILD JUST EFF/EFF INTO THE MODEL. FINALLY, MAYBE IN AN EXERCISE, INCLUDE BOTH VACCINE COVERAGE AND EFF/EFF, SIMULTANEOUSLY, IN A MODEL. (MAYBE MAKE IT AN EXERCISE TO SEE WHAT THAT FORMULA SHOULD BE???)
+        </p> 
+        
+        <p>
+          When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>.
+          <aside>
+            <p>
+              Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.              
+            </p>            
+          </aside>  
+          The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
+        </p>
+        <p>
+          Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at this <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization.
+        </p> 
+        <p>
+          Vaccine outcomes extend beyond affecting disease transmission. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can also be included in models. However, such models tend to be more detailed than those we are studying right now. For this reason, we focus only on vaccine models that show reduced transmission.
+        </p>
+        <p>
+          Putting together the ideas of efficacy and of <xref ref="expl-activity-vaccines-and-isolation"/>, we begin to see how to determine the value of the parameter <m>p</m> in the multiplier <m>(1-p)</m>. If a population is fully vaccinated against a disease<mdash/>that is, if <m>100\%</m> or very close to <m>100\%</m> of the population is vaccinated against the disease<mdash/>then 
+        </p>
+
+
+        <p>Vaccine ideas, herd immunity</p>
+
+      </section>
+
+      <section xml:id="section-isolation-in-compartmental-models">
+        <title>Isolation in Compartmental Models</title>
+        <p>Vaccine ideas, herd immunity</p>
+      </section>
+
+    </chapter>
+
+
     <chapter xml:id="ch-getting-the-answer-right-in-modeling">
       <title>Getting the Answer <q>Right</q> in Modeling</title>
 
-      <section xml:id="section-yo">
-        <title></title>
+      <introduction xml:id="intro-getting-the-answer-right-in-modeling">
+        <objectives>
+          <ul>
+            <li>
+              <p>
+                Discuss how set-up and definitions matter
+              </p>
+            </li>
+            <li>
+              <p>
+                Discuss context!!!  
+              </p>
+            </li>
+            <li>
+              <p>
+                (Compare modeling with proofs or similar?)
+              </p>
+            </li>
+          </ul>
+        </objectives>
+  
+        <!-- Put isolation HERE?!?!?! -->
+
+        <p> 
+          In this chapter, we pause and step back to consider the overall process of <term>mathematical modeling</term>. 
+        </p>
+        <p>
+          Mathematical modeling allows us to represent real-world scenarios with mathematical formulas. Models may primarily reflect what is happening in the world, giving us a mathematical way to describe what we see. Alternately, we may use models to think about how to change what is happening in the world. We can make changes mathematically, trying ideas within models, before ever trying to implement those ideas as policies or medical interventions involving actual people.  
+        </p>
+        <p>
+          PUT AN EXPLORATION ACTIVITY IN HERE???
+        </p>
+        <p>
+           Many people believe that mathematics is all about getting <q>the right answer</q>. With mathematical modeling, there may not be a <q>right answer</q>, or even a best answer. Instead, the answers we seek depend on the questions we ask, the priorities we set, the way we use models to explore these questions, and our ability to explain all these pieces of our thought process.
+        </p>
+        <p>
+          You could say that modeling consists of four components: 
+        </p>
+        <ol>
+          <li>
+            <p>
+              A <em>logical approach</em>;
+            </p>
+          </li>
+          <li>
+            <p>
+              Stated <em>priorities</em>, which relate to both goals and ethics;
+            </p>
+          </li>
+          <li>
+            <p>
+              Making <em>changes</em> to models as we gain more information, to better represent a situation, to answer different questions, or to try new scenarios;
+            </p>
+          </li>
+          <li>
+            <p>
+              Well-worded <em>explanations</em> of every decision and result.
+            </p>
+          </li>
+        </ol>
+        <p>
+          We work through each of these in the sections below.
+        </p>
+  
+        </introduction>
+
+        <section xml:id="section-the-logical-approach">
+          <title>The Logical Approach</title>
+
+          <p>
+            Throughout mathematics, we set up statements in a particular logical way. We will see that researchers follow similar principles when describing mathematical models.
+          </p>
+          <p>
+            Work through <xref ref="activity-mathematical-logic-sections"/> and <xref ref="activity-mathematical-logic-sections-advanced"/> to build familiarity with the steps of a logical mathematical explanation.
+          </p>
+
+          <activity xml:id="activity-mathematical-logic-sections">
+            <statement>              
+              <p>
+                Mathematical statements are typically structured in terms of <q>if</q> and <q>then</q> statements, such as: <q><em>If</em> the weather forecast calls for rain, <em>then</em> I will bring my raincoat.</q> There may be several <q>if</q> statements, and these are collectively called <term>hypotheses</term>. There may be many <q>then</q> statements, and these are called <term>conclusions</term>.  
+              </p>
+              <p>
+                For each of the following mathematical statements, specify which part is the <em>hypothesis</em>, that is, the <q>if</q> part of the statement. Also specify which part is the <em>conclusion</em>, that is, the <q>then</q> part.
+              </p>
+              <ol>
+                <li>
+                  <p>
+                    If a polygon has six sides and six angles, then the polygon is a hexagon.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    If we add two positive numbers <m>a</m> and <m>b</m>, the resulting number will be larger than either <m>a</m> or <m>b</m>.
+                  </p>
+                </li>
+              </ol>
+            </statement>
+            <hint>
+              <p>
+                The first statement could be described as having one hypothesis or two hypotheses, depending on whether we characterize <q>six sides and six angles</q> as a single combined idea, or we prefer to split this idea into two separate hypotheses. There could be even more hypotheses listed, such as if we want to say that having a shape be a polygon is itself a hypothesis. Any reasonable answer here is valid: there is not just one way to designate hypotheses.    
+              </p>
+              <p>
+                The second statement does not explicitly include the word <q>then</q>.   
+              </p>
+            </hint>
+          </activity>
+
+          <activity xml:id="activity-mathematical-logic-sections-advanced">
+            <statement>              
+              <p>
+                For each of the following mathematical statements, specify the <em>hypotheses</em> and the <em>conclusions</em>. There may be multiple hypotheses and/or conclusions per statement. The words <q>if</q> and/or <q>then</q> may not appear explicitly.
+              </p>
+              <p>
+                A note: you may recognize these statements, but it is completely OK if you do not recognize them. Naming the hypotheses and conclusions is possible even if the statements are unfamiliar.
+              </p>
+              <ol>
+                <li>
+                  <p>
+                    If a right triangle has legs with lengths <m>a</m> and <m>b</m>, and if the same triangle's hypotenuse has length <m>c</m>, then the equation <m>a^2+b^2=c^2</m> is true.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Suppose a function <m>f(x)</m> is continuous for <m>x</m>-values satisfying <m>a \leq x \leq b</m>. In this case, <m>f</m> takes on every value between the numbers <m>f(a)</m> and <m>f(b)</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Differentiable functions are continuous.
+                  </p>
+                </li>
+              </ol>
+            </statement>
+            <hint>
+              <ol>
+                <li>
+                  <p>
+                    This is the most straightforward of the three statements in this activity. Most responses will probably have two hypothesis statements and one conclusion. It is possible to list even more hypotheses, such as <q>a triangle is a right triangle,</q> <q>one leg of the triangle has length <m>a</m>,</q> and so on.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    This statement is roughly in <q>if-then</q> format already, with the <q>if</q> portion in the first sentence and the <q>then</q> portion in the second sentence.
+                  </p>
+                  <p>
+                    As a note: this statement is inspired by the Intermediate Value Theorem in calculus, but it is not exactly the Intermediate Value Theorem, as it does not state that we are restricting ourselves to values of <m>x</m> for which <m>a \leq x \leq b</m> when stating that <m>f</m> takes on every value between <m>f(a)</m> and <m>f(b)</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The logical structure for this statement is the same as in the rewritten statement: <q>If a function is differentiable, then that function is continuous.</q>
+                  </p>
+                </li>
+              </ol>
+            </hint>
+          </activity>
+
+          <p>
+            The statements in <xref ref="activity-mathematical-logic-sections"/> and <xref ref="activity-mathematical-logic-sections-advanced"/> are traditionally mathematical. When discussing mathematical models, the statements may look somewhat different. Practice with modeling language in <xref ref="activity-mathematical-logic-in-modeling"/>.
+          </p>
+
+          <activity xml:id="activity-mathematical-logic-in-modeling">
+            <statement>              
+              <p>
+                For each of the following paragraphs, specify the <em>hypotheses</em> and the <em>conclusions</em>. There may be multiple hypotheses and/or conclusions per paragraph. The words <q>if</q> and/or <q>then</q> may not appear explicitly.
+              </p>
+              <ol>
+                <li>
+                  <p>
+                    Suppose we use an SIR model to represent an outbreak in a population of 10,000 people. In this model, the S compartment contains the Susceptibles, that is, people who are not sick but can become sick. The I compartment contains the Infectious, that is, people who are currently able to spread the disease. The R compartment contains the Removed, that is, people who are no longer able to spread the disease and are unable to become sick again. Suppose we estimate the parameters to be <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.4</m>. If, at the start of the outbreak, ten people are Infectious and the rest are Susceptible, then by the end of the outbreak, the model suggests that <m>1071</m> will remain Susceptible, that is, <m>1071</m> people will never have become Infectious. 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Suppose we use the same SIR model equations described above, with the same initial conditions and the same value of <m>\gamma</m>. However, public health measures are implemented, so that <m>\beta</m> is estimated to fall to approximately <m>0.00005</m>. In this situation, the model suggests that <m>6257</m> people will remain Susceptible at the end of the outbreak. 
+                  </p>
+                </li>
+              </ol>
+            </statement>
+            <hint>
+              <ol>
+                <li>
+                  <p>
+                    There are many hypotheses here! Everything before the word <q>then</q> forms part of the hypotheses. The conclusion appears after <q>then</q>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The hypotheses here include most of the information from the first scenario, except with a changed value of <m>\beta</m>. The conclusion begins after <q>In this situation</q>. 
+                  </p>
+                </li>
+              </ol>
+            </hint>
+          </activity>
+
+          <p>
+            All this practice with hypotheses and conclusions leads us to a key idea. <em>When the hypotheses in a statement are not satisfied, we should not expect the conclusion in that statement to be satisfied.</em> Practice with this concept appears in <xref ref="activity-mathematical-logic-hypotheses-not-satisfied"/>.
+          </p>
+
+          <activity xml:id="activity-mathematical-logic-hypotheses-not-satisfied">
+            <statement> 
+              <p>
+                Each of the following changes a statement from an earlier activity. Based on the change, comment on what we should expect regarding the statement's conclusion. 
+              </p>             
+              <ol>
+                <li>
+                  <p>
+                    Recall the statement <q>If a polygon has six sides and six angles, then the polygon is a hexagon</q> from <xref ref="activity-mathematical-logic-sections"/>. Suppose you see a polygon that has seven sides and seven angles. Must this polygon be a hexagon?
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Recall the statement <q>Suppose a function <m>f</m> is continuous for <m>x</m>-values satisfying <m>a \leq x \leq b</m>. In this case, <m>f</m> takes on every value between the numbers <m>f(a)</m> and <m>f(b)</m></q> from <xref ref="activity-mathematical-logic-sections-advanced"/>. Suppose a function <m>g</m> is not continuous at some of the <m>x</m>-values satisfying <m>a \leq x \leq b</m>. In this case, might there be some numbers between <m>f(a)</m> and <m>f(b)</m> for which <m>f</m> does not take on the value of those numbers?
+                  </p>
+                </li>
+              </ol>
+            </statement>
+            <hint>
+              <p>
+                When any of the hypotheses are not satisfied, we should not expect the conclusion to be satisfied.
+              </p>
+            </hint>
+          </activity>
+
+          <p>
+            The sheer number of assumptions in a model is notable. We comment again that if <em>any</em> hypotheses are not satisfied, then we should not assume that the conclusions must be true. Think through this in <xref ref="activity-mathematical-logic-hypotheses-not-satisfied-model"/>.
+          </p>
+
+          <activity xml:id="activity-mathematical-logic-hypotheses-not-satisfied-model">
+            <statement>              
+              <p>
+                Recall the following from <xref ref="activity-mathematical-logic-in-modeling"/>.
+              </p>
+              <p>
+                <q>Suppose we use an SIR model to represent an outbreak in a population of 10,000 people. In this model, the S compartment contains the Susceptibles, that is, people who are not sick but can become sick. The I compartment contains the Infectious, that is, people who are currently able to spread the disease. The R compartment contains the Removed, that is, people who are no longer able to spread the disease and are unable to become sick again. Suppose we estimate the parameters to be <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.4</m>. If, at the start of the outbreak, ten people are Infectious and the rest are Susceptible, then by the end of the outbreak, the model suggests that <m>1071</m> will remain Susceptible, that is, <m>1071</m> people will never have become Infectious.</q>
+              </p>
+              <p>
+                Write at least five different ways that the hypotheses in the statement of this model may not be satisfied. In each of these cases, we should not expect the conclusion to be satisfied.
+              </p>
+            </statement>
+          </activity>
+
+          <p>
+            We have learned in this section that a model includes statements to create a very specific scenario. Whatever conclusions there may be from the model, we should expect them to occur <em>only in the scenario created by the hypotheses</em>. If any of the hypotheses change, then we should not expect any of the same conclusions to occur.
+          </p>
+          <p>
+            In mathematical statements and model scenarios: it is not completely impossible to see some of the same conclusions, even if we change the hypotheses. We are not saying that it is impossible to end up at the same conclusion. Instead, our emphasis is that we <em>should not expect</em> the conclusion to be the same. All our discussion about the model should include this logical connection between hypotheses and conclusions.
+          </p>
+          <p>
+            In addition to the purely logical relationship between the <q>ifs</q> and <q>thens</q> of model statements, there are priorities built into any model. We discuss this in <xref ref="section-priorities-where-goals-meet-ethics"/>.
+          </p>
+  
+        </section>
+
+
+        <section xml:id="section-priorities-where-goals-meet-ethics">
+          <title>Priorities: Where Goals Meet Ethics</title>
+          <p>
+            Each model is based on the priorities of the people who create the model. Recognizing this, and thinking about it from the start, makes us better modelers.
+          </p>
+          <p>
+            The word <q>priorities</q> can take on many meanings. One key priority in model building is <em>answering a question</em>. For instance, in <xref ref="ch-vaccines-and-isolation-in-compartmental-models"/> we described models that address questions about how helpful vaccines or isolation can be in preventing an outbreak or reducing the effects of an outbreak. Different questions may require different models.
+          </p>
+          <p>
+            There may be other priorities as well, and we may not realize when we start model building that we are even building in those priorities. A student project I once advised produced one very powerful example of priorities that we do not see initially. This project forms the idea behind <xref ref="activity-priorities-HIV-AIDS"/>.
+            The goal of the project was to construct a model to address how a government could best use its resources to reduce the impact of HIV/AIDS in its population. The student based their model and their data collection on professional sources, using meticulous research. When the pieces were all in place and they began to use the model to optimize spending, <em>the results of the model showed</em> that the student's priorities had not been included in the model. This new understanding led the student to revise the model to better reflect their priorities.
+          </p>
+
+          <activity xml:id="activity-priorities-HIV-AIDS">
+            <statement>              
+              <p>
+                This activity describes a process for constructing a model to address how a government can best use its resources to reduce the impact of HIV/AIDS in its population. The real-life project that inspires this activity involved an excellent student who did meticulous research in constructing their model. The student incorporated the following ideas into their model, with each of the ideas drawing from professionally published articles.
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    The model has five compartments.
+                  </p>
+                  <ul>
+                    <li>
+                      <p>
+                        The S compartment is our familiar Susceptibles compartment, for people without HIV or AIDS.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        The I compartment is for Infectious people, meaning those with HIV, who are not receiving antiretroviral therapy.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        The I' compartment is for another category of Infectious people. This compartment is for people with HIV who are receiving antiretroviral therapy.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        The A compartment is for people with AIDS who are not receiving antiretroviral therapy.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        The A' compartment is for people with AIDS who are receiving antiretroviral therapy.
+                      </p>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <p>
+                    Many modelers, at the time this student was working, indicated that patients with AIDS were typically too sick to spread the virus to others. Therefore patients with AIDS, according to models, did not contribute to new cases of HIV. The same hypothesis is part of this model: people in the I and I' compartments can cause new infections, but people in the A and A' compartments cannot.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    When people first have HIV, they are in the I compartment. If they later begin treatment, they move to the I' compartment.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    People can move back and forth between I and I', and between A and A'.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    When someone in compartment I progresses in status from HIV to AIDS, they move to compartment A. Similarly, when someone in compartment I' progresses in status from HIV to AIDS, they move to compartment A'.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    This model lasts many years, so it includes births and deaths. All births are assumed to be Susceptible. The death rates can differ from compartment to compartment.
+                  </p>
+                </li>
+              </ul>
+
+              <p>
+                This model has many more pieces than the models we have seen before. It may take some time to think through all the pieces! Begin by taking a significant amount of time to view the compartmental diagram in <xref ref="fig-ED-HIV-AIDS-model"/> and read the ideas that led to the model's development. Be sure you understand them.
+              </p>
+
+              <figure xml:id="fig-ED-HIV-AIDS-model">
+              <caption>Compartmental diagram of a model of HIV/AIDS, using descriptions instead of formulas for each arrow</caption>
+              <image width="100%">
+              <description>(Write this)</description>
+              <latex-image>
+              \begin{tikzpicture}
+                \draw [thick] [black] (2,6) -- (4,6);
+                \draw [thick] [black] (4,6) -- (4,8);
+                \draw [thick] [black] (4,8) -- (2,8);
+                \draw [thick] [black] (2,8) -- (2,6);
+                \node [black] at (3,7) {\Huge $S$};
+                \draw [thick] [black] (7,6) -- (9,6);
+                \draw [thick] [black] (9,6) -- (9,8);
+                \draw [thick] [black] (9,8) -- (7,8);
+                \draw [thick] [black] (7,8) -- (7,6);
+                \node [black] at (8,7) {\Huge $I$};
+                \draw [thick] [black] (7,2) -- (9,2);
+                \draw [thick] [black] (9,2) -- (9,4);
+                \draw [thick] [black] (9,4) -- (7,4);
+                \draw [thick] [black] (7,4) -- (7,2);
+                \node [black] at (8,3) {\Huge $I'$};
+                \draw [thick] [black] (12,6) -- (14,6);
+                \draw [thick] [black] (14,6) -- (14,8);
+                \draw [thick] [black] (14,8) -- (12,8);
+                \draw [thick] [black] (12,8) -- (12,6);
+                \node [black] at (13,7) {\Huge $A$};
+                \draw [thick] [black] (12,2) -- (14,2);
+                \draw [thick] [black] (14,2) -- (14,4);
+                \draw [thick] [black] (14,4) -- (12,4);
+                \draw [thick] [black] (12,4) -- (12,2);
+                \node [black] at (13,3) {\Huge $A'$};
+                \draw [thick] [->] (0,7.5) to (1.9,7.5); 
+                \node at (1,7.8) {births};
+                \draw [thick] [->] (1.9,6.5) to (0,6.5); 
+                \node at (1,6.2) {deaths};
+                \draw [thick] [->] (4.1,7) to (6.9,7); 
+                \node at (5.5,7.3) {transmission};
+                \node at (5.5,6.7) {due to $I$ and $I'$};
+                \draw [thick] [->] (7.75,5.9) to (7.75,4.1); 
+                \node at (6.25,5.5) {start treatment};
+                \draw [thick] [->] (8.25,4.1) to (8.25,5.9); 
+                \node at (9.75,4.5) {stop treatment};
+                \draw [thick] [->] (8,1.9) to (8,0); 
+                \node at (7.3,1) {deaths};
+                \draw [thick] [->] (8,8.1) to (8,10); 
+                \node at (7.3,9) {deaths};
+                \draw [thick] [->] (9.1,7) to (11.9,7); 
+                \node at (10.5,7.3) {HIV to AIDS};
+                \node at (10.5,6.7) {transition};
+                \draw [thick] [->] (9.1,3) to (11.9,3); 
+                \node at (10.5,3.3) {HIV to AIDS};
+                \node at (10.5,2.7) {transition};
+                \draw [thick] [->] (12.75,5.9) to (12.75,4.1); 
+                \node at (11.25,5.5) {start treatment};
+                \draw [thick] [->] (13.25,4.1) to (13.25,5.9); 
+                \node at (14.75,4.5) {stop treatment};
+                \draw [thick] [->] (13,1.9) to (13,0); 
+                \node at (12.3,1) {deaths};
+                \draw [thick] [->] (13,8.1) to (13,10);
+                \node at (12.3,9) {deaths};
+                \end{tikzpicture}
+                </latex-image>
+                </image>
+                </figure>
+
+                <p>
+                  Once you have a solid understanding of the pieces of the model, you may begin to have insight into the outcome that emerged from this model. The student working on this project did all the research needed to determine biologically reasonable parameters. When running simulations with the model, their goal was to think through government strategies for spending limited funds designated for health. They hoped to determine how those funds should be allocated, given a goal of reducing the number of new HIV infections as much as possible.
+                </p>
+                <p>
+                  Can you guess what they found?
+                </p>
+                <p>
+                  Take time to think of what the model might have indicated, regarding the answer to the student's questions about government funds. Only after thinking about it: check the Hint below to see what happened. Then spend more time, thinking about why this model gave this answer, and thinking about what would need to change in the model to give a different answer.
+                </p>
+
+
+            </statement>
+            <hint>
+              <p>
+                The model indicated that no funds at all should be spent on treating patients with AIDS: no medicines, no hospital beds, nothing. 
+              </p>
+            </hint>
+          </activity>
+
+          <p>
+            The example in <xref ref="activity-priorities-HIV-AIDS"/> is lengthy, but it provides an important insight. <em>We may think we know what questions we are answering with our models, but we should continue to interrogate our answers in relation to our goals, priorities, and ethics.</em> The outcome of the model in <xref ref="activity-priorities-HIV-AIDS"/> did not suit the goals or ethics of the student doing the project. The result from the mathematical model highlighted built-in priorities of the model that the student (and I) did not notice at first. When new infections are completely unaffected by the people in the A and A' compartments, then treating those people, or providing them any healthcare at all, is irrelevant to the goals of the model. However, leaving large numbers of people without healthcare was never the goal of this project. The model needed to be revised to account for this.
+          </p>
+
+          <p>
+            All modeling involves revision. We restructure models when we spot errors, or when we are able to access better data, or when we begin by asking some questions and then shift to different questions. Updating models is the focus of <xref ref="section-making-changes-to-models"/>.
+          </p>
+  
+  
+          
+        </section>
+
+
+        
+        <section xml:id="section-making-changes-to-models">
+          <title>Making Changes to Models</title>
+          <p>Talk about how set-up matters, definitions matter, context for any solutions is important, etc. Give some examples with different contexts/hypotheses/questions-being-asked.</p>
+  
+  
+          
+        </section>
+      
+      
+      
+        <section xml:id="section-writing-explanations-to-present-models-to-others">
+        <title>Writing Explanations to Present Models to Others</title>
         <p>Talk about how set-up matters, definitions matter, context for any solutions is important, etc. Give some examples with different contexts/hypotheses/questions-being-asked.</p>
 
 
@@ -2775,16 +3531,6 @@ plt.show()
               </latex-image>
              </image>
         </figure>
-      </section>
-
-    </chapter>
-
-    <chapter xml:id="ch-vaccines-in-compartmental-models">
-      <title>Vaccines in Compartmental Models</title>
-
-      <section xml:id="section-urga">
-        <title></title>
-        <p>Vaccine ideas, herd immunity</p>
       </section>
 
     </chapter>
@@ -2908,17 +3654,17 @@ plt.show()
           <ul>
             <li>
               <p>
-                Use the zombie app in new ways to generate data for simulated outbreaks.
+                Use the zombie app in new ways to generate data for simulated outbreaks
               </p>
             </li>
             <li>
               <p>
-                Develop hypotheses for how an incubation period will affect the timeline and outcomes of an outbreak. 
+                Develop hypotheses for how an incubation period will affect the timeline and outcomes of an outbreak 
               </p>
             </li>
             <li>
               <p>
-                Compare your hypotheses about the incubation period with data from your simulations.
+                Compare your hypotheses about the incubation period with data from your simulations
               </p>
             </li>
           </ul>
@@ -3165,6 +3911,178 @@ plt.show()
 
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
+
+      <glossary>
+        <title>Glossary of Mathematical Epidemiology Terms</title>
+
+        <headnote>
+          <p>
+            This glossary includes both definitions and, in many cases, examples along with fuller descriptions. The terms are listed in alphabetical order. At the end of each definition, a chapter number in parentheses indicates where the term first appeared in the text. The definitions and descriptions of the terms relate to their usage in the types of models described in this text: readers should know that some of the terms may have more broadly defined meanings in other mathematical contexts.
+          </p>
+          
+        </headnote>
+
+        
+        
+        <gi>
+          <title>Basic Reproduction Number</title>
+
+          <p>
+            The basic reproduction number is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. The symbol <m>\mathcal{R}_0</m>, pronounced <q>R zero</q> or <q>R nought</q>, represents the concept of the basic reproduction number, both in writing and in mathematical formulas.  (Chapter 5)
+          </p>
+
+        </gi>
+
+
+        <gi>
+          <title>Compartmental Diagram</title>
+
+          <p>
+            A compartmental diagram is an image, typically consisting of labeled boxes and arrows, that visually represents the flow of individuals through a <em>compartmental model</em>. Examples include <xref ref="fig-SI-compartmental-diagram"/> and <xref ref="fig-SIR-compartmental-diagram"/>. (Chapter 4)
+          </p>
+
+        </gi>
+
+        
+
+        <gi>
+          <title>Compartmental Model</title>
+
+          <p>
+            A compartmental model is a style of mathematical model in which the subjects of the model are grouped into categories called <em>compartments</em>. Such a model follows the overall outcomes for each compartment, but does not typically track the outcomes of smaller groups such as individuals. The compartmental models in this text use differential equations to demonstrate the interactions and rates governing how many individuals move from one group to another at specific points in time.  As one example of a compartmental model, an SIR model consists of three compartments: S, I, and R. Most often in this text, compartment S represents Susceptible individuals, compartment I represents Infectious individuals, and compartment R represents Removed individuals. (Chapter 4)
+          </p>
+
+        </gi>
+
+        
+
+        <gi>
+          <title>Compartments</title>
+
+          <p>
+            In most models within this text, individuals are placed into categories called compartments. The individuals can typically move out of some compartments and into others, and the differential equations in compartmental models are sets of rules for the ways in which individuals are able to make such moves between compartments.  (Chapter 4)
+          </p>
+
+        </gi>
+
+        <gi>
+          <title>Continuous</title>
+
+          <p>
+            We tend to think of real-world time as continuous, meaning time does not keep stopping and starting. The compartmental models we use in most of this book show continuous time. While this sense of time matches the real world, we need to think about how to reconcile it with data sets, which typically involve discrete time steps, such as days or weeks.  (Chapter 2)
+          </p>
+
+        </gi>
+
+
+        <gi>
+          <title>Discrete</title>
+
+          <p>
+            We can think of time as discrete when we describe it as separate steps, such as Day 0, Day 1, or Day 2. Many data sets we work with report data in discrete time steps, such as by day or by week. We need to think through how to reconcile discrete data sets with the continuous models we most often use in this text. (Chapter 2)
+          </p>
+
+        </gi>
+
+        
+        <gi>
+          <title>Effective Reproduction Number</title>
+
+          <p>
+            The effective reproduction number is the average number of new infections caused by one infectious person in a population that is not entirely susceptible. The most common reason for a population to not be entirely susceptible is when some of the people have some form of immunity. Reasons for immunity may include vaccination and/or some of the people in the population previously having the disease being studied. The symbol <m>\mathcal{R}_{\text{eff}}</m> represents the effective reproduction number. (Chapter 6)
+          </p>
+
+        </gi>
+
+
+
+        <gi>
+          <title>Graphical Solution</title>
+
+          <p>
+            A graphical solution to a differential equation, or system of differential equations, is a curve or curves showing the behavior of the differential equation(s), based on specific parameter values and initial conditions. When parameter values change, or when initial conditions change, the graphical solution typically changes as well. A graphical solution is often called a <em>solution</em>, and readers should use context to know whether the word <em>solution</em> refers to a graphical solution, a numerical solution, or a formula. (Chapter 3)
+          </p>
+
+        </gi>
+
+        
+        <gi>
+          <title>Initial Conditions</title>
+
+          <p>
+            Initial conditions are the starting values of the dependent variables in differential equations. Within this text, our dependent variables are typically populations such as <m>S(t)</m> or <m>I(t)</m>, and the start of solutions is usually the time <m>t=0</m>. This means the initial conditions are the values <m>S(0)</m> and <m>I(0)</m>. Initial conditions are used when computing a numerical solution: the numerical solution begins with the initial conditions and then <q>steps through</q> time, computing the later values of each dependent variable using both the earlier values and the information in the differential equations about how each dependent variable changes. (Chapter 3)
+          </p>
+
+        </gi>
+
+
+        <gi>
+          <title>Numerical Solution</title>
+
+          <p>
+            A numerical solution to a differential equation, or system of differential equations, is a set of lists of numbers that result from approximating the outcome of the differential equation(s), given specific parameter values and initial conditions. When parameter values change, or when initial conditions change, the numerical solution typically changes as well. The lists of numbers for an SIR model, for instance, typically show the values of <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> at many values of time <m>t</m> within the range of time values of interest. We may print some or all of the values in the lists, or we may use graphing to present the information in the lists. A numerical solution is often called a <em>solution</em>, and readers should use context to know whether the word <em>solution</em> refers to a graphical solution, a numerical solution, or a formula. (Chapter 3)
+          </p>
+
+        </gi>
+
+
+        
+        <gi>
+          <title>Parameters</title>
+
+          <p>
+            Parameters in a model are numbers, determined using biological information, that represent some aspect of how a disease progresses. In this text, most parameters are shown as Greek letters, such as <m>\beta</m> or <m>\gamma</m>. A few parameters in this text represent percentages, such as the percentage of a population that is vaccinated against a disease, and these parameters are typically represented by lowercase letters such as <m>p</m> or <m>q</m>. Parameters are different than variables: the variables in our models are typically the independent variable <m>t</m> for time, and dependent variables such as <m>S</m>, <m>I</m>, <m>R</m>, and others, for populations.  (Chapter 4)
+          </p>
+
+        </gi>
+
+        
+        
+        <gi>
+          <title>Rate</title>
+
+          <p>
+            A rate is, in general, a ratio between two different things. In this text, rates are parameters having units <m>1/\text{time}</m>. In a model, the rate is typically multiplied by a population such as <m>I</m> or <m>R</m> to show the flow of that population out of one compartment and into another compartment. (Chapter 4)
+          </p>
+
+        </gi>
+
+        
+        <gi>
+          <title>Sign Analysis</title>
+
+          <p>
+            The word <q>sign</q> in sign analysis refers to whether terms in differential equations are positive (<m>+</m>), negative (<m>-</m>), or zero (<m>0</m>). In sign analysis, we use these signs to build understanding of the differential equation. Often, our goal is to learn whether the solution to the differential equation is rising, falling, or level at some time <m>t</m>. This understanding may help us identify which solution curve goes with which differential equation, may show when a disease starts with an outbreak or can never experience an outbreak, and may indicate many other outcomes of models. Sign analysis is powerful because it depends only on the signs of terms, without forcing us to rely on detailed data sets that may not always be available. (Chapter 5)
+          </p>
+
+        </gi>
+
+
+
+        <gi>
+          <title>SI Model</title>
+
+          <p>
+            An SI model is a compartmental model having two compartments, labeled S and I. Most often in this text, S stands for <em>Susceptible</em> and I stands for <em>Infectious</em>, though the compartments can have other interpretations. The letters S and I are each pronounced when we say <q>SI model</q>: <q>Ess</q> <q>Eye</q> model. (Chapter 2)
+          </p>
+
+        </gi>
+
+        
+        <gi>
+          <title>Total Population</title>
+
+          <p>
+            The total population of a compartmental model is the sum of the populations in each compartment. We typically use the variable <m>N</m> to refer to total population, and we write <m>N(t)</m> to mean total population at time <m>t</m>. (Chapter 5)
+          </p>
+
+        </gi>
+
+        
+        
+
+
+      </glossary>
 
       <colophon>
         <p> This book was authored in <pretext />. </p>
