@@ -18,8 +18,8 @@
   </docinfo>
 
   <book xml:id="mathematical-epidemiology">
-    <title>Mathematical Epidemiology</title>
-    <subtitle>A Course for Undergraduates</subtitle>
+    <title>Mathematical Epidemiology and More</title>
+    <subtitle>A Course on Compartmental Models</subtitle>
 
     <frontmatter xml:id="frontmatter">
       <titlepage> 
@@ -56,7 +56,7 @@
         
         
         <p>
-          Welcome to Mathematical Epidemiology: A Course for Undergraduates. It so happens that this book is becoming available well after the start of the global COVID-19 outbreak. During this pandemic, mathematics, data, epidemiology, graphs, and charts began appearing in the news and other media at levels beyond what we had ever seen before. To fully appreciate and act on the information in the media, it has been helpful to know first-hand the ways models can be built, used, and misused, and to understand the underlying mathematics involved. 
+          Welcome to Mathematical Epidemiology and More: A Course on Compartmental Models. It so happens that this book is becoming available well after the start of the global COVID-19 outbreak. During this pandemic, mathematics, data, epidemiology, graphs, models, and charts began appearing in the news and other media at levels beyond what we had ever seen before. To fully appreciate and act on the information in the media, it has been helpful to know first-hand the ways models can be built, used, and misused, and to understand the underlying mathematics involved. 
         </p>
         <p>
           Yet this text's origin lies not in the COVID-19 outbreak, but in the much longer history of mathematical epidemiology. The text builds on a course that has been taught since 2014, and typical students studying these topics pre-2020 had never heard of connections between mathematics and epidemiology. Nearly all students in the course, before and since 2020, have gained their first significant introduction to disease models within this course. Examples of outbreaks we study include measles, Ebola, mumps, and whooping cough. 
@@ -245,7 +245,7 @@
           <xref ref="expl-reading-about-disease-in-the-news-and-popular-media" /> is very open-ended. The goal of this exploration is to begin discussing outbreaks as they appear in news and popular culture writing. There is no hidden <q>right answer</q> to find.
         </p>
         <p>
-          There are some possible themes that may arise during discussion. Below, you can find a sample of such themes. These may help to expand thoughts and discussions you are already having about the articles. Or it is possible that you discovered yet other themes, beyond those listed here, and this is wonderful!
+          There are many possible themes that may arise during discussion. Below, you can find a sample of such themes. These may help to expand thoughts and discussions you are already having about the articles. Or it is possible that you discovered yet other themes, beyond those listed here, and this is wonderful!
         </p>
         <p>
           <em>Theme 1.</em> The diseases in the articles are measles and RSV. Both are highly contagious and spread through coughing and sneezing.
@@ -298,6 +298,15 @@
           </statement>
         </activity>
         
+      </section>
+
+      <section xml:id="sec-Possible-Discussion-ALT">
+        <title>Possible Discussion ALT</title>
+
+        <p>
+          
+        </p>
+
       </section>
 
     
@@ -2765,7 +2774,7 @@ plt.show()
 
     
     <chapter xml:id="ch-vaccines-and-isolation-in-compartmental-models">
-      <title>Vaccines and Isolation in Compartmental Models</title>
+      <title>Vaccines in Compartmental Models</title>
 
       <introduction xml:id="intro-vaccines-and-isolation-in-compartmental-models">
       <objectives>
@@ -2785,6 +2794,11 @@ plt.show()
               Determine the threshold for what percentage of vaccine coverage reduces transmission enough so that the number of Infectious cases does not rise
             </p>
           </li>
+          <li>
+            <p>
+              Introduce the SEIR model, where E stands for <em>Exposed-and-incubating</em>, meaning people in the E compartment have already contracted an illness but have not yet become infectious to others
+            </p>
+          </li>
           <!-- <li>
             <p>
               Introduce a new model compartment, often called <em>Isolated</em>, to reduce disease transmission by reducing the interaction of the Infectious and Susceptible populations 
@@ -2798,7 +2812,7 @@ plt.show()
       </p>  
 
       <p>
-        One of the most significant ways to use models is for trying and comparing possible public health strategies <em>in simulations</em> before actually carrying them out with real people. Professional-level models can be quite detailed and depend on large amounts of data, and compartmental models are just one of the many types of models implemented. In this chapter, we define and model two commonly used strategies, vaccines and isolation. 
+        One of the most significant ways to use models is for trying and comparing possible public health strategies <em>in simulations</em> before actually carrying them out with real people. Professional-level models can be quite detailed and depend on large amounts of data, and compartmental models are just one of the many types of models implemented. In this chapter, we work with one commonly used strategy: vaccination. 
       </p>
 
       <p>
@@ -2924,7 +2938,7 @@ plt.show()
           The modeling in this section focuses on <em>reducing transmission of a disease through the use of vaccines</em>. We use the multiplier <m>(1-p)</m> from <xref ref="expl-activity-vaccines-and-isolation"/>, along with the concept of <m>\mathcal{R}_0</m> from <xref ref="ch-population-values-and-the-basic-reproduction-number-R0"/>, to demonstrate the effect of vaccines on the number of people who ever become Infectious in a disease outbreak.
         </p>
         <p>
-          As a reminder, the <em>basic reproduction number</em> <m>\mathcal{R}_0</m> is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. This means that <m>\mathcal{R}_0</m> is not a number we can use to directly describe a population that has been vaccinated against a disease, since a vaccinated population is not entirely susceptible. Instead, we introduce an <term>effective reproduction number</term> <m>\mathcal{R}_{\text{eff}}</m>, which is the average number of new infections caused by one infectious person in a population that may not be entirely susceptible, such as a population that has had access to vaccination.
+          As a reminder, the <em>basic reproduction number</em> <m>\mathcal{R}_0</m> is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. This means that <m>\mathcal{R}_0</m> is not a number we can use to directly describe a population that has been vaccinated against a disease, since a vaccinated population is not entirely susceptible. Instead, we introduce an <term>effective reproduction number</term> <m>\mathcal{R}_{\text{eff}}</m>, which is the average number of new infections caused by one infectious person in a population that may not be entirely susceptible, such as a population that has had access to vaccination. One way to pronounce the symbol <m>\mathcal{R}_{\text{eff}}</m> is <q>R effective</q>.
         </p>
         <p>
           We cannot change the intrinsic value of <m>\mathcal{R}_0</m>, but with vaccination, we can work toward the goal of having <m>\mathcal{R}_{\text{eff}} \lt 1</m>. If <m>\mathcal{R}_{\text{eff}} \lt 1</m> in a model that includes vaccines or other public health interventions, then overall numbers of Infectious people do not rise over time. With a few lines of algebra, we can build a relationship between <m>\mathcal{R}_0</m>, <m>p</m>, and <m>\mathcal{R}_{\text{eff}}</m>. 
@@ -2944,7 +2958,13 @@ plt.show()
         </mdn>
 
         <p>
-          Our goal in the next few mathematical steps is to use <xref ref="eq-Reff-define"/> to determine a value of <m>p</m> for which <m>\mathcal{R}_{\text{eff}} \lt 1</m>. Such a value of <m>p</m> corresponds to a vaccination rate high enough that a disease cannot become an outbreak because <m>\mathcal{R}_{\text{eff}} \lt 1</m> means that the overall numbers in the population are not expected to rise. Read carefully through the following mathematical steps to see how this value of <m>p</m> is computed:
+          Our goal in the next few mathematical steps is to use <xref ref="eq-Reff-define"/> to determine a value of <m>p</m> for which <m>\mathcal{R}_{\text{eff}} \lt 1</m>.
+          <aside>
+            <p>
+              The goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m> was set out in the 1983 paper <q>Parasitic Infections as Regulators of Animal Populations</q> by Robert M. May, published in <em>American Scientist</em> in the January-February issue. Additional details and explanation appear in the 1988 textbook <q>Mathematical Models in Biology</q> by Leah Edelstein-Keshet, published by McGraw-Hill.
+            </p>
+          </aside> 
+          Such a value of <m>p</m> corresponds to a vaccination rate high enough that a disease cannot become an outbreak because <m>\mathcal{R}_{\text{eff}} \lt 1</m> means that the overall numbers in the population are not expected to rise. Read carefully through the following mathematical steps to see how this value of <m>p</m> is computed:
         </p>
         
         <!-- <md>
@@ -2983,33 +3003,62 @@ plt.show()
         <activity xml:id="activity-pcrit">
           <statement>
             <p>
-              Here
+              In this activity, we explore <m>p_{\text{crit}}</m> through the comparison of two historically widespread diseases: smallpox and measles.
             </p>
-            <p>
-              Start    
-            </p>
-            <ul>
+            <ol>              
               <li>
                 <p>
-                  When 
+                  We begin by examining smallpox. Estimates for the value of <m>\mathcal{R}_0</m> for smallpox range from 3.5 to 6.
+                  <aside>
+                    <p>
+                      Estimates that <m>\mathcal{R}_0 \approx 3.5-6</m> come from the paper <q>Transmission potential of smallpox in contemporary populations</q> by Raymond Gani and Steve Leach, published in the journal <em>Nature</em> on 13 December 2001.
+                    </p>
+                  </aside>
+                  Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for smallpox so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Suppose that a <m>100\%</m> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a smallpox outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
                 </p>
-              </li>
+              </li>              
               <li>
                 <p>
-                  In  
+                  Next, we examine measles. Many estimates for the value of <m>\mathcal{R}_0</m> for measles range from 12 to 18.
+                  <aside>
+                    <p>
+                      The paper <q>The basic reproduction number (R0) of measles: a systematic review</q>, by Fiona M Guerra, Shelly Bolotin, Gillian Lim, Jane Heffernan, Shelley L Deeks, Ye Li, and Natasha S Crowcroft, states that <m>\mathcal{R}_0</m> is often approximated as <m>12-18</m>, while also stating that the actual range of <m>\mathcal{R}_0</m> for measles varies even more. This paper was published in <em>The Lancet Infectious Diseases</em> on 27 July 2017.
+                    </p>
+                  </aside>
+                  Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for measles so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Suppose that a <m>100\%</m> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a measles outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
+                </p>
+              </li>              
+              <li>
+                <p>
+                  Smallpox has been eliminated: the last natural occurrence was in 1977, and in 1980, the World Health Organization stated that smallpox had been globally eradicated. Measles has not been eliminated: widespread vaccination has reduced cases drastically in many parts of the world, but measles continues to circulate. Given your results in this activity about the values of <m>p_{\text{crit}}</m> for smallpox and measles, write a few sentences about how <m>\mathcal{R}_0</m> contributes toward making it more or less feasible to vaccinate enough people to eliminate a disease.   
                 </p>
               </li>
-            </ul>
-            <p>
-              After 
-            </p>
+            </ol>
+            
           </statement>
           <answer>
-            <p>
-              When  
-            </p>
+            <ol>
+              <li>
+                <p>
+                  For smallpox, <m>0.71 \lt p_{\text{crit}} \lt 0.83</m>, meaning approximately <m>71\% - 83\%</m> of people need to be vaccinated to prevent an outbreak.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For measles, <m>0.92 \lt p_{\text{crit}} \lt 0.94</m>, meaning approximately <m>92\% - 94\%</m> of people need to be vaccinated to prevent an outbreak.
+                </p>
+              </li>
+              <li>
+                <p>
+                  This is open-ended. A typical answer may state that higher values of <m>\mathcal{R}_0</m> mean we need higher levels of vaccination. Answers may also investigate the reasons why it becomes so much more difficult to achieve higher levels of vaccination, especially on a global scale.
+                </p>
+              </li>
+            </ol>
+            
           </answer>
         </activity>
+
+        <!-- Next: a whooping cough activity? Set up Python for whooping cough, compute p_crit, discuss vaccine issues over time -->
 
          <!-- While this does not mean that no one new can become sick after the initial cases, it means that the total numbers of Infectious people are not expected to rise, so people are becoming Removed faster than new people are becoming Infectious. (*** TURN THIS INTO AN EXERCISE ***) -->
 
