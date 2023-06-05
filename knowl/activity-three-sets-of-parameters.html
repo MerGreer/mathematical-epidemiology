@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.3</span><span class="period">.</span>
+</h4>
+<div class="para">Use the code below to create three different graphs of solution curves to an SIR model in which <span class="process-math">\(S(0)=75\text{,}\)</span> <span class="process-math">\(I(0)=25\text{,}\)</span> <span class="process-math">\(R(0)=0\text{,}\)</span> and <span class="process-math">\(0 \leq t \leq 20\text{.}\)</span> The first set of values for <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> appear in the code block; change the code to get the other two sets of values. It may help you to save screenshots of each of the three graphs, so you can more easily see all three at the same time.</div> <ul class="disc">
+<li><div class="para">In the first graph, let <span class="process-math">\(\beta = 0.03\)</span> and <span class="process-math">\(\gamma = 0.25\text{.}\)</span>
+</div></li>
+<li><div class="para">In the second graph, let <span class="process-math">\(\beta = 0.01\)</span> and <span class="process-math">\(\gamma = 0.4\text{.}\)</span>
+</div></li>
+<li><div class="para">In the third graph, let <span class="process-math">\(\beta = 0.005\)</span> and <span class="process-math">\(\gamma = 0.5\text{.}\)</span>
+</div></li>
+</ul> <div class="para">Then respond to the prompts below the code block.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-7"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla() #Clear (delete) any past plots
+
+#Define the system of differential equations, and call it "model"
+def model(y, t):
+  S, I, R = y #Define y as consisting of S, I, and R, in that order
+  dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #These formulas are the right-hand sides of the SIR model
+  return dydt
+
+beta = 0.03 #Give a value to beta
+gamma = 0.25 #Give a value to gamma
+y0 = [75, 25, 0] #Set initial conditions for S, I, and R, in that order
+t_range = np.arange(0.0, 20.0, 0.1) #Set the time range to be t=0 to t=20, with "step through" increments of 0.1 when numerically solving
+
+sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+# Plotting commands are below
+plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+plt.legend()
+plt.grid()
+plt.xlabel('time')
+plt.ylabel('populations')
+plt.show()
+</script></pre> <ol class="decimal">
+<li><div class="para">What observations can you make, overall, about the three graphs? Take time with this question, and think expansively, before moving on to the next questions.</div></li>
+<li><div class="para">Discuss the similarities and differences in the <span class="process-math">\(I(t)\)</span> curves in each of your three graphs. Include observations using our sign analysis from <a href="" class="xref" data-knowl="./knowl/expl-rise-and-fall-of-an-epidemic.html" title="Exploration 5.1: Rise and Fall of an Epidemic">Exploration 5.1</a>: when is <span class="process-math">\(I(t)\)</span> rising or falling, and what does this have to do with the sign (<span class="process-math">\(+\text{,}\)</span> <span class="process-math">\(-\text{,}\)</span> or <span class="process-math">\(0\)</span>) of <span class="process-math">\(dI/dt\text{?}\)</span>
+</div></li>
+<li><div class="para">Compare the long-term outcomes for <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(R(t)\)</span> across the three graphs. What do you notice about the total number of people who ever became sick in each case?</div></li>
+<li><div class="para">Explore the role that changes to <span class="process-math">\(\beta\)</span> make to the outcome in each graph. Similarly, think through how changes to <span class="process-math">\(\gamma\)</span> contribute to changes. For each parameter, decide first how you <em class="emphasis">think</em> changing the parameter will change the solution curves. Then use the code block to make several changes to that parameter, and compare what you see with what you thought you would see.</div></li>
+</ol>
+<div class="solutions"><a href="" class="hint-knowl original" data-knowl="./knowl/hint-6-hidden.html" title="Hint 5.3.1"><span class="type">Hint</span><span class="period">.</span></a></div></article><span class="incontext"><a href="ch-population-values-and-the-basic-reproduction-number-R0.html#activity-three-sets-of-parameters" class="internal">in-context</a></span>
+</body>
+</html>

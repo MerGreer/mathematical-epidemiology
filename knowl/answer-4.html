@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="answer solution-like">
+<h4 class="heading">
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">3.6.1</span><span class="period">.</span>
+</h4>
+<div class="para">One possible answer for the code is the following.</div> <div class="para"><code class="code-inline tex2jax_ignore">
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.integrate import odeint
+plt.cla()
+              
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+S_data = [49, 47, 43, 36, 20, 4, 0]
+I_data = [1, 3, 7, 14, 30, 46, 50]
+              
+def hz(y, t):
+  S, I = y
+  dydt = [-beta * S * I, beta * S * I]
+  return dydt
+              
+beta = 0.02
+y0 = [49, 1]
+t_range = np.arange(0.0, 8.0, 0.1)
+sol = odeint(hz, y0, t_range)
+plt.plot(t_steps, S_data,'o', color='blue')
+plt.plot(t_steps, I_data, '*', color='orange')
+plt.plot(t_range, sol[:, 0], color='blue')
+plt.plot(t_range, sol[:, 1], color='orange')
+plt.show()
+            </code></div> <div class="para">There are many possible answers regarding the value of <span class="process-math">\(\beta\text{.}\)</span> The key is to discuss what a good fit may look like. When the data and model do not fit perfectly, which is usually what will happen, then which aspects of the data do we most hope are represented in the model's solution curves?</div>
+</div>
+<span class="incontext"><a href="ch-visualization-graphing-model-results-and-data.html#answer-4" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.8</span><span class="period">.</span>
+</h4>
+<div class="para">Notice that the code block below includes many comments. Read through the comments: do they make sense? Would you add others?</div> <div class="para">Then evaluate the code and respond to the prompts below.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-6"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla()  #Clear (delete) any past plots
+
+#Include data from Zombie Game App
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+S_data = [49, 47, 43, 36, 20, 4, 0]
+I_data = [1, 3, 7, 14, 30, 46, 50]
+
+#Define the system of differential equations, and call it "hz"
+def hz(y, t):
+  s, i = y #Define y as consisting of s and i, in that order
+  dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
+  return dydt
+      
+beta = 0.02 #Give a value to beta
+y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
+t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+
+sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+# Plotting commands are below
+plt.plot(t_steps, S_data,'o', markersize=12, color='blue')
+plt.plot(t_steps, I_data, '*', markersize=5, color='orange')
+plt.plot(t_range, sol[:, 0], color='blue', linestyle='dashed', linewidth=2, label='S(t)')
+plt.plot(t_range, sol[:, 1], color='orange', linestyle='dotted', linewidth=3, label='I(t)')
+plt.legend()
+plt.xlabel('time')
+plt.ylabel('populations')
+plt.show()
+</script></pre> <ul class="disc">
+<li><div class="para">What do the <code class="code-inline tex2jax_ignore">linestyle</code> commands do? Include them in Lines 26 and 27, when plotting <code class="code-inline tex2jax_ignore">S_data</code> and <code class="code-inline tex2jax_ignore">I_data</code>, to connect the markers from the Zombie Game App data points with the same style lines as those that solve the SI model.</div></li>
+<li><div class="para">What do the <code class="code-inline tex2jax_ignore">markersize</code> commands do? Try different numerical values to find what you like.</div></li>
+<li><div class="para">What do the <code class="code-inline tex2jax_ignore">linewidth</code> commands do? Try different numerical values to find what you like.</div></li>
+<li><div class="para">Label the data points from the Zombie Game App so that they appear in the legend.</div></li>
+<li><div class="para">Change the label on the horizontal axis to say “time (rounds)” to make the units of time more clear.</div></li>
+</ul> </article><span class="incontext"><a href="ch-visualization-graphing-model-results-and-data.html#exer-dash-dot-comments" class="internal">in-context</a></span>
+</body>
+</html>

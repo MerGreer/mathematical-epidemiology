@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Visualization: Graphing Model Results and Data</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Epidemiology and More">
+<meta property="book:author" content="Meredith L. Greer">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="mathematical-epidemiology.html"><span class="title">Mathematical Epidemiology and More:</span> <span class="subtitle">A Course on Compartmental Models</span></a></h1>
+<p class="byline">Meredith L. Greer</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-zombies-can-math-help.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="part-core-modeling-concepts.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="ch-compartmental-diagrams.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2 parts"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="preface-overall.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li><div class="toc-item"><a href="preface-students.html" class="internal"><span class="title">To Students: How to Get the Most from This Text</span></a></div></li>
+<li><div class="toc-item"><a href="preface-instructors.html" class="internal"><span class="title">To Instructors: Ways to Use This Text</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-core-modeling-concepts.html" class="internal"><span class="codenumber">I</span> <span class="title">Core Modeling Concepts</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html" class="internal"><span class="codenumber">1</span> <span class="title">Prelude: Diseases in Popular News</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-Themes" class="internal"><span class="codenumber">1.1</span> <span class="title">Possible Discussion Themes</span></a></div></li>
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Follow-Up-By-Seeking-More-Precise-Data" class="internal"><span class="codenumber">1.2</span> <span class="title">Follow Up By Seeking More Precise Data</span></a></div></li>
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-ALT" class="internal"><span class="codenumber">1.3</span> <span class="title">Possible Discussion ALT</span></a></div></li>
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#exercises-prelude-diseases-in-popular-news" class="internal"><span class="codenumber">1.4</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-zombies-can-math-help.html" class="internal"><span class="codenumber">2</span> <span class="title">Zombies: Can Math Help?</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-zombies-can-math-help.html#sec-we-now-have-data-qualitative-musings" class="internal"><span class="codenumber">2.1</span> <span class="title">We Now Have Data: Qualitative Musings</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal"><span class="codenumber">2.2</span> <span class="title">A First Model</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-zombies-can-math-help.html#exercises-ch-zombies-can-math-help" class="internal"><span class="codenumber">2.2</span> <span class="title">For Further Thought</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html" class="internal"><span class="codenumber">3</span> <span class="title">Visualization: Graphing Model Results and Data</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#sec-solving-differential-equations-using-graphs" class="internal"><span class="codenumber">3.1</span> <span class="title">“Solving” Differential Equations Using Graphs</span></a></div></li>
+<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal"><span class="codenumber">3.2</span> <span class="title">Estimating <span class="process-math">\(\beta\)</span> and Building Visualization Skills</span></a></div></li>
+<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#exercises-visualization-graphing-model-results-and-data" class="internal"><span class="codenumber">3.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-compartmental-diagrams.html" class="internal"><span class="codenumber">4</span> <span class="title">Compartmental Diagrams</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#section-compartmental-diagrams-vocabulary-and-comments" class="internal"><span class="codenumber">4.1</span> <span class="title">Compartmental Diagrams: Vocabulary and Comments</span></a></div></li>
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal"><span class="codenumber">4.2</span> <span class="title">From Zombie Game Variation to Compartmental Diagram</span></a></div></li>
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates" class="internal"><span class="codenumber">4.3</span> <span class="title">Estimating Gamma and Other Rates</span></a></div></li>
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal"><span class="codenumber">4.4</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-population-values-and-the-basic-reproduction-number-R0.html" class="internal"><span class="codenumber">5</span> <span class="title">Population Values and the Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-population-values-and-the-basic-reproduction-number-R0.html#sec-using-calculus-to-analyze-models" class="internal"><span class="codenumber">5.1</span> <span class="title">Using Calculus to Analyze Models</span></a></div></li>
+<li><div class="toc-item"><a href="ch-population-values-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0" class="internal"><span class="codenumber">5.2</span> <span class="title">The Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="ch-population-values-and-the-basic-reproduction-number-R0.html#exercises-ch-populations-and-R0" class="internal"><span class="codenumber">5.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-vaccines-and-isolation-in-compartmental-models.html" class="internal"><span class="codenumber">6</span> <span class="title">Vaccines in Compartmental Models</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-vaccines-and-isolation-in-compartmental-models.html#section-vaccines-in-compartmental-models" class="internal"><span class="codenumber">6.1</span> <span class="title">Vaccines in Compartmental Models</span></a></div></li>
+<li><div class="toc-item"><a href="ch-vaccines-and-isolation-in-compartmental-models.html#section-isolation-in-compartmental-models" class="internal"><span class="codenumber">6.2</span> <span class="title">Isolation in Compartmental Models</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html" class="internal"><span class="codenumber">7</span> <span class="title">Getting the Answer “Right” in Modeling</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#section-the-logical-approach" class="internal"><span class="codenumber">7.1</span> <span class="title">The Logical Approach</span></a></div></li>
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#section-priorities-where-goals-meet-ethics" class="internal"><span class="codenumber">7.2</span> <span class="title">Priorities: Where Goals Meet Ethics</span></a></div></li>
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#section-making-changes-to-models" class="internal"><span class="codenumber">7.3</span> <span class="title">Making Changes to Models</span></a></div></li>
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#section-writing-explanations-to-present-models-to-others" class="internal"><span class="codenumber">7.4</span> <span class="title">Writing Explanations to Present Models to Others</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal"><span class="codenumber">8</span> <span class="title">Preparing Influenza Data to Compare With a Model</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#section-ga" class="internal"><span class="codenumber">8.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-epidemic-vs-endemic-models.html" class="internal"><span class="codenumber">9</span> <span class="title">Epidemic vs. Endemic Models</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-epidemic-vs-endemic-models.html#section-ee" class="internal"><span class="codenumber">9.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">Residual Sum of Squares: Improving a Model's Fit to Data</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#section-ra" class="internal"><span class="codenumber">10.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-akaike-information-criterion-comparing-different-models.html" class="internal"><span class="codenumber">11</span> <span class="title">Akaike Information Criterion: Comparing Different Models</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-akaike-information-criterion-comparing-different-models.html#section-ma" class="internal"><span class="codenumber">11.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-model-analysis-total-population-and-equilibrium-values.html" class="internal"><span class="codenumber">12</span> <span class="title">Model Analysis: Total Population and Equilibrium Values</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-model-analysis-total-population-and-equilibrium-values.html#section-1" class="internal"><span class="codenumber">12.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-the-next-generation-method-using-r0-to-determine-beta.html" class="internal"><span class="codenumber">13</span> <span class="title">The Next Generation Method: Using <span class="process-math">\(\mathcal{R}_0\)</span> to Determine <span class="process-math">\(\beta\)</span></span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-the-next-generation-method-using-r0-to-determine-beta.html#section-2" class="internal"><span class="codenumber">13.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-tips-on-reading-a-scientific-paper.html" class="internal"><span class="codenumber">14</span> <span class="title">Tips on Reading a Scientific Paper</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-tips-on-reading-a-scientific-paper.html#section-3a" class="internal"><span class="codenumber">14.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-the-next-generation-method-connecting-theory-with-practice.html" class="internal"><span class="codenumber">15</span> <span class="title">The Next Generation Method: Connecting Theory with Practice</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-the-next-generation-method-connecting-theory-with-practice.html#section-3" class="internal"><span class="codenumber">15.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.html" class="internal"><span class="codenumber">16</span> <span class="title">Numerical Simulations: An Overview of How Computers Turn Equations into Graphs</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.html#section-4" class="internal"><span class="codenumber">16.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-kermack-mckendrick-the-1927-paper.html" class="internal"><span class="codenumber">17</span> <span class="title">Kermack-McKendrick: the 1927 Paper</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-kermack-mckendrick-the-1927-paper.html#section-4a" class="internal"><span class="codenumber">17.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-examples-and-case-studies.html" class="internal"><span class="codenumber">III</span> <span class="title">Examples and Case Studies</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-introducing-an-incubation-period-in-the-zombie-app.html" class="internal"><span class="codenumber">18</span> <span class="title">Introducing an Incubation Period in the Zombie App</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-introducing-an-incubation-period-in-the-zombie-app.html#sec-activity-introduce-an-incubation-period" class="internal"><span class="codenumber">18.1</span> <span class="title">Activity: Introduce an Incubation Period</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html" class="internal"><span class="codenumber">19</span> <span class="title">Preparing Mumps Data to Compare with a Six-Compartment Model</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html#section-6" class="internal"><span class="codenumber">19.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-modeling-the-spread-of-a-rumor.html" class="internal"><span class="codenumber">20</span> <span class="title">Modeling the Spread of a Rumor</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-modeling-the-spread-of-a-rumor.html#section-7" class="internal"><span class="codenumber">20.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-modeling-viral-videos.html" class="internal"><span class="codenumber">21</span> <span class="title">Modeling Viral Videos</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-modeling-viral-videos.html#section-8" class="internal"><span class="codenumber">21.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-modeling-conspiracy-theories.html" class="internal"><span class="codenumber">22</span> <span class="title">Modeling Conspiracy Theories</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-modeling-conspiracy-theories.html#section-9" class="internal"><span class="codenumber">22.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-periodic-forcing.html" class="internal"><span class="codenumber">23</span> <span class="title">Periodic Forcing</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-periodic-forcing.html#section-10a" class="internal"><span class="codenumber">23.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-superspreader-events.html" class="internal"><span class="codenumber">24</span> <span class="title">Superspreader Events</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-superspreader-events.html#section-10c" class="internal"><span class="codenumber">24.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-vector-based-models-of-disease-spread.html" class="internal"><span class="codenumber">25</span> <span class="title">Vector-Based Models of Disease Spread</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-vector-based-models-of-disease-spread.html#section-10" class="internal"><span class="codenumber">25.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-modeling-spatial-variation-using-patches.html" class="internal"><span class="codenumber">26</span> <span class="title">Modeling Spatial Variation Using Patches</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-modeling-spatial-variation-using-patches.html#section-11" class="internal"><span class="codenumber">26.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-an-hiv-model-where-the-infected-are-cells-rather-than-people.html" class="internal"><span class="codenumber">27</span> <span class="title">An HIV Model Where the “Infected” are Cells Rather Than People</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-an-hiv-model-where-the-infected-are-cells-rather-than-people.html#section-10b" class="internal"><span class="codenumber">27.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-a-peek-at-agent-based-models.html" class="internal"><span class="codenumber">28</span> <span class="title">A Peek at Agent-Based Models</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-a-peek-at-agent-based-models.html#section-10d" class="internal"><span class="codenumber">28.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-connecting-with-network-models.html" class="internal"><span class="codenumber">29</span> <span class="title">Connecting with Network Models</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-connecting-with-network-models.html#section-10e" class="internal"><span class="codenumber">29.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-supplemental-materials.html" class="internal"><span class="codenumber">IV</span> <span class="title">Supplemental Materials</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-data-sets.html" class="internal"><span class="codenumber">30</span> <span class="title">Data Sets</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-data-sets.html#section-supp-aa" class="internal"><span class="codenumber">30.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-paper-assignments-and-grading-rubrics.html" class="internal"><span class="codenumber">31</span> <span class="title">Paper Assignments and Grading Rubrics</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-paper-assignments-and-grading-rubrics.html#section-supp-a" class="internal"><span class="codenumber">31.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-writing-tips-for-math-and-planning-for-peer-review.html" class="internal"><span class="codenumber">32</span> <span class="title">Writing Tips for Math, and Planning for Peer Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-writing-tips-for-math-and-planning-for-peer-review.html#section-supp-b" class="internal"><span class="codenumber">32.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-algebra-introduction.html" class="internal"><span class="codenumber">33</span> <span class="title">Linear Algebra Introduction</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-linear-algebra-introduction.html#section-supp-c" class="internal"><span class="codenumber">33.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-other-resources.html" class="internal"><span class="codenumber">34</span> <span class="title">Other Resources</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-other-resources.html#section-supp-d" class="internal"><span class="codenumber">34.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="glossary-1.html" class="internal"><span class="title">Glossary of Mathematical Epidemiology Terms</span></a></div></li>
+<li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="chapter" id="ch-visualization-graphing-model-results-and-data"><h2 class="heading">
+<span class="type">Chapter</span> <span class="codenumber">3</span> <span class="title">Visualization: Graphing Model Results and Data</span>
+</h2>
+<section class="introduction" id="intro-visualization-graphing-model-results-and-data"><article class="objectives goal-like" id="objectives-3"><h3 class="heading"><span class="type">Goals</span></h3>
+<ul class="disc">
+<li id="li-51"><div class="para" id="p-116">Visualize data from the <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-20" id="fn-20"><sup> 1 </sup></a> alongside solution curves of the SI model from <a href="ch-zombies-can-math-help.html" class="internal" title="Chapter 2: Zombies: Can Math Help?">Chapter 2</a>
+</div></li>
+<li id="li-52"><div class="para" id="p-117">Use comparisons between data and our initial SI model to visually estimate the value of the parameter <span class="process-math">\(\beta\)</span>
+</div></li>
+<li id="li-53"><div class="para" id="p-118">Learn the <a class="external" href="https://www.python.org/" target="_blank">Python</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-21" id="fn-21"><sup> 2 </sup></a> needed for solving systems of differential equations and graphing these solutions, plus data, on a shared set of axes</div></li>
+</ul></article> <div class="para" id="p-119">In <a href="ch-zombies-can-math-help.html" class="internal" title="Chapter 2: Zombies: Can Math Help?">Chapter 2</a> we simulated a simple outbreak. This outbreak can be modeled using the <em class="emphasis">system of ordinary differential equations</em> appearing in <a href="" class="xref" data-knowl="./knowl/eq-S-in-SImodel.html" title="Equation 2.2">(2.2)</a> and <a href="" class="xref" data-knowl="./knowl/eq-I-in-SImodel.html" title="Equation 2.3">(2.3)</a>. Here is the system, also called an SI model, again:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ch-zombies-can-math-help.html ./knowl/ch-zombies-can-math-help.html ./knowl/eq-S-in-SImodel.html ./knowl/eq-I-in-SImodel.html" id="md-1">
+\begin{align*}
+\frac{dS}{dt} \amp = -\beta S I \\
+\frac{dI}{dt} \amp = \beta S I. 
+\end{align*}
+</div>
+<div class="para" id="p-120">We began to explore the differences between the discrete data, collected round-by-round in the Zombie Game App, and the continuous model, which uses a system of differential equations to produce smooth curves. Here, we continue that exploration visually, by producing graphs of data and graphs of model results. We also see a first, very visual, way to estimate the value of <span class="process-math">\(\beta\)</span> in our model. (There will be other, more detailed, ways to estimate <span class="process-math">\(\beta\text{,}\)</span> as we continue in this text.) To do all this, we employ visualization tools. This text uses cells that run both Python and <a class="external" href="https://www.sagemath.org/" target="_blank">SageMath</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-22" id="fn-22"><sup> 3 </sup></a>, which “is a free open-source mathematics software system”<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-23" id="fn-23"><sup> 4 </sup></a>, for visualization. The Python code here can be used in any setting where you use Python. <aside class="aside aside-like" id="aside-1"><div class="para" id="p-121">The Python-related goal of this text is to make it as easy and intuitive as possible for readers to jump into using Python, so that we can better explore disease models. Some readers may prefer different Python syntax, or using a different program altogether, and these alternate approaches are welcome.</div></aside> </div></section><article class="exploration project-like" id="expl-creating-graphs-in-python-from-the-human-zombie-game"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Creating Graphs in Python from the Human–Zombie Game.</span>
+</h3>
+<div class="introduction" id="introduction-6"><div class="para" id="p-122">If you have never used Python before, you are in the right place! If you have used Python, you may be able to move through this chapter more quickly, but be sure to spend time to make sure you know the code you need to complete modeling tasks. In this chapter, we spend a significant amount of time reading code, viewing code output, and making changes to code, to build up enough Python knowledge to be able to generate additional graphs of data and model results. The code we practice with allows us to visualize the sample data set shown as a table in <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-table.html" title="Figure 2.5">Figure 2.5</a>.</div></div>
+<article class="task exercise-like" id="task-8"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="p-123">Read carefully through the code below, focusing your attention on lines 3–8. Click the <code class="code-inline tex2jax_ignore">Evaluate (Sage)</code> button underneath to view the output. Using the code and its output, answer the questions that follow.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-1"><script type="text/x-sage">import matplotlib.pyplot as plt
+plt.cla()
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+S_data = [49, 47, 43, 36, 20, 4, 0]
+I_data = [1, 3, 7, 14, 30, 46, 50]
+plt.plot(t_steps, S_data,'o', color='blue')
+plt.plot(t_steps, I_data, '*', color='orange')
+plt.show()
+</script></pre> <ul class="disc">
+<li id="li-54"><div class="para" id="p-124">Explain where and how in the code we enter, and label, the data from <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-table.html" title="Figure 2.5">Figure 2.5</a>.</div></li>
+<li id="li-55"><div class="para" id="p-125">Which lines of code produce the blue dots on the output graph, and what information from <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-table.html" title="Figure 2.5">Figure 2.5</a> do these dots represent?</div></li>
+<li id="li-56"><div class="para" id="p-126">Which lines of code produce the orange stars on the output graph, and what information from <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-table.html" title="Figure 2.5">Figure 2.5</a> do these dots represent?</div></li>
+</ul>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-1" id="answer-1"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-1"><div class="answer solution-like"><ul class="disc">
+<li id="li-57">
+<div class="para" id="p-127">In Line 3, we enter the time data and label it “t”. In the human–zombie game, time is listed in rounds of game play.</div>
+<div class="para" id="p-128">In Lines 4 and 5, we enter the human and zombie data, that is, Susceptible and Infectious, labeled “S_data” and “I_data”, respectively.</div>
+<div class="para" id="p-129">To enter a list of data, we type the label and the “=” sign. We then place the data inside square brackets, and we separate the data using commas. (The data, as listed, are separated by commas and also spaces. The spaces are optional.)</div>
+<div class="para" id="p-130">We are not entering the data for New Infections. Instead, we enter only the data we need for graphing the Susceptible and Infectious populations.</div>
+</li>
+<li id="li-58"><div class="para" id="p-131">Lines 3 and 4 enter the data: the inputs (time, in terms of rounds of game play, which we label on the horizontal axis and enter in Line 3) and the outputs (values of the Human population, also called the Susceptible population, which are labeled on the vertical axis and are entered in Line 4). Line 6 creates, but does not show, the plot of data from Lines 3 and 4. Line 8 shows the plot of data.</div></li>
+<li id="li-59"><div class="para" id="p-132">Lines 3 and 5 enter the data: the inputs (time, in terms of rounds of game play, which we label on the horizontal axis and enter in Line 3) and the outputs (values of the Zombie population, also called the Infectious population, which are labeled on the vertical axis and are entered in Line 5). Line 7 creates, but does not show, the plot of data from Lines 3 and 5. Line 8 shows the plot of data.</div></li>
+</ul></div></div>
+</div></article><article class="task exercise-like" id="task-9"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="p-133">Go back to the Python code and begin to play with it: make some changes. You can always start anew by refreshing the browser window. Address the following questions, and experiment freely beyond that.</div> <ul class="disc">
+<li id="li-60"><div class="para" id="p-134">What marker shapes do you like? To experiment with other shapes, see <a class="external" href="https://matplotlib.org/stable/api/markers_api.html" target="_blank">the library of marker shapes</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-25" id="fn-25"><sup> 6 </sup></a> available in the online documentation for <code class="code-inline tex2jax_ignore">matplotlib</code>.</div></li>
+<li id="li-61"><div class="para" id="p-135">Try different colors for the markers. One way to do this quickly is to go to <a class="external" href="https://matplotlib.org/stable/gallery/color/named_colors.html" target="_blank">this page about colors</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-26" id="fn-26"><sup> 7 </sup></a> from the online documentation for <code class="code-inline tex2jax_ignore">matplotlib</code>, and scroll down to the header “CSS Colors”. Replace “blue” and “orange” with colors you choose from the CSS Colors list, and view the resulting graph. (There are many other ways to choose colors in Python, and you can search online examples and documentation to learn about these.)</div></li>
+</ul></article><div class="conclusion" id="conclusion-1"><div class="para" id="p-136">The first two lines of the Python code are important, but their phrasing does not make very obvious what they do. Line 1 imports a Python package that includes commands for drawing plots. Line 2 clears any past plots, meaning any past plots should be completely gone. This makes sure that any new plot contains only what we want. Line 2 may not be needed when we very first use Python, but if we create a different plot, and then come back to this code cell and re-enter it, the other plot we created could be overlaid with this one. The “clear” command, <code class="code-inline tex2jax_ignore">plt.cla()</code>, makes sure that only our current plot appears.</div></div></article><section class="section" id="sec-solving-differential-equations-using-graphs"><h3 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">“Solving” Differential Equations Using Graphs</span>
+</h3>
+<div class="para" id="p-137">Our goal in this section is to learn to use Python to create graphs similar to what we saw in <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a>. Such a graph starts with a system of differential equations and draws one possible <dfn class="terminology">graphical solution</dfn> to that system. The graphical solution drawn depends on the equations themselves, the value(s) of any parameter(s), and the starting values for each population in the system, that is, the values when <span class="process-math">\(t=0\)</span> of <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and any other populations being modeled. For now, we specify that this type of solution is a <em class="emphasis">graphical solution</em>, but as the book continues, we will often refer to a graphical solution as simply a <em class="emphasis">solution</em>.</div>
+<div class="para" id="p-138">One thing we will <em class="emphasis">almost never</em> do is solve an entire system of differential equations in the way you may have seen in a calculus course, where we wrote the solution as a formula. (!!! Possible exception in Chapter 12 - mention this. !!!) Here is an example to remind you how it looks to determine a formula as the solution to a differential equation. Then we will discuss why we use a different approach in this text.</div>
+<article class="activity project-like" id="exer-solve-de"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-139">As we mentioned back in <a href="ch-zombies-can-math-help.html" class="internal" title="Chapter 2: Zombies: Can Math Help?">Chapter 2</a>, a differential equation is just an equation in which at least one term is a derivative. This means that an equation like <span class="process-math">\(dy/dt=\cos t + 3\)</span> is a differential equation.</div> <div class="para" id="p-140">Solving a differential equation often means finding a way to write an equivalent relationship, without including a derivative. Using this interpretation of “solving”: solve</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ch-zombies-can-math-help.html" id="md-2">
+\begin{gather*}
+\frac{dy}{dt}=\cos t + 3.
+\end{gather*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-2" id="answer-2"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-2"><div class="answer solution-like"><div class="para" id="p-141">The general solution is <span class="process-math">\(y=\sin t + 3t + C\text{,}\)</span> where <span class="process-math">\(C\)</span> can be any constant. In this case, we solved by computing the antiderivatives of both sides of the differential equation.</div></div></div>
+</div></article><article class="activity project-like" id="exer-cannot-easily-solve-de-system"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.3</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-142">Now consider the SI model:</div>
+<div class="displaymath process-math" id="md-3">
+\begin{align*}
+\frac{dS}{dt} \amp = -\beta S I \\
+\frac{dI}{dt} \amp = \beta S I. 
+\end{align*}
+</div>
+<div class="para" id="p-143">What are the challenges to solving this system of equations, where “solving” means determining formulas that do not involve derivatives for <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\text{?}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-1" id="hint-1"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-1"><div class="hint solution-like">
+<div class="para" id="p-144">There are many ways to answer this. One consideration is that each of the differential equations involves both <span class="process-math">\(S\)</span> and <span class="process-math">\(I\text{.}\)</span> This means the differential equations do not stand alone: each depends on the other. This interrelationship means we cannot just compute two separate antiderivative formulas.</div> <div class="para" id="p-145">Another consideration is that the right-hand side of the differential equation in <a href="" class="xref" data-knowl="./knowl/exer-solve-de.html" title="Activity 3.2">Activity 3.2</a> involves only <span class="process-math">\(t\text{,}\)</span> that is, only the independent variable. The dependent variable <span class="process-math">\(y\)</span> does not appear except in the derivative term <span class="process-math">\(dy/dt\text{.}\)</span> However, in the SI model system of equations, the dependent variables <span class="process-math">\(S\)</span> and <span class="process-math">\(I\)</span> appear in the derivatives <em class="emphasis">and elsewhere in the equations</em>. The antiderivative methods learned in a typical introductory Calculus course do not apply in this situation.</div> <div class="para" id="p-146">You may have thought of yet other challenges as well.</div>
+</div></div>
+</div></article><div class="para" id="p-147">As discussed in <a href="" class="xref" data-knowl="./knowl/exer-cannot-easily-solve-de-system.html" title="Activity 3.3">Activity 3.3</a>, solving a system of differential equations is challenging. As we include more than two compartments, finding solution formulas for <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and additional populations becomes yet more challenging, and is often impossible. Even when we can determine solution formulas, they are typically quite complicated to work with.</div>
+<div class="para" id="p-148">Instead, our approach is to compute <dfn class="terminology">numerical solutions</dfn>, which are solutions in the form of numbers. More mathematical details appear in <a href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.html" class="internal" title="Chapter 16: Numerical Simulations: An Overview of How Computers Turn Equations into Graphs">Chapter 16</a>, but the main idea is that Python starts at the initial population values, then uses the system of differential equations to “step through” the full range of time, computing population values step-by-step at later times by using information about how the population values change throughout. The system of differential equations is made up of derivatives, which are rates of change, so they exactly describe how the populations change at all times <span class="process-math">\(t\text{.}\)</span> The population values computed in the numerical solution can be printed, or more often, graphed, to see the results in the form of a graphical solution.</div>
+<div class="para" id="p-149">We noted earlier that graphical solutions may be called simply <em class="emphasis">solutions</em>. Similarly, numerical solutions are sometimes called simply <em class="emphasis">solutions</em>. And we have seen that formula-based solutions can be called simply <em class="emphasis">solutions</em>. It is important to use context to determine which kind of solution is being discussed, in this text or in other reading.</div>
+<div class="para" id="p-150">Here is an outline of the numerical solution process.</div>
+<ol class="decimal">
+<li id="li-62"><div class="para" id="p-151">Tell Python the formulas for the system of differential equations.</div></li>
+<li id="li-63"><div class="para" id="p-152">Tell Python which numbers to use for any parameters in the model. We select the numbers for a particular numerical solution, and we can use different numbers to create a different numerical solution.</div></li>
+<li id="li-64"><div class="para" id="p-153">Tell Python the <dfn class="terminology">initial conditions</dfn> for each population, that is, the size of each population at the starting time of the model (which is usually <span class="process-math">\(t=0\)</span>).</div></li>
+<li id="li-65"><div class="para" id="p-154">Tell Python when to start and stop the model, that is, the starting and ending values for time <span class="process-math">\(t\text{.}\)</span> Also tell Python what time steps to use as Python “steps through” from the starting to the ending time.</div></li>
+<li id="li-66"><div class="para" id="p-155">Ask Python to use all this information to numerically solve the model and plot graphical solution curves.</div></li>
+</ol>
+<div class="para" id="p-156">In <a href="" class="xref" data-knowl="./knowl/exer-first-odeint-code.html" title="Activity 3.4">Activity 3.4</a>, compare this outline with Python code.</div>
+<article class="activity project-like" id="exer-first-odeint-code"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.4</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-157">Read the Python code in the block below, and click the <code class="code-inline tex2jax_ignore">Evaluate (Sage)</code> button to view the resulting graph. Think carefully about steps 1-5 in the outline above. Which lines of code address which steps of the outline? (Notice that you may need to scroll down within the code block. Alternately, click the rectangular icon in the top right of the code block. This opens a full-screen version of the code. To return to the regular screen, click again the rectangle in the top right.)</div> <pre class="ptx-sagecell sagecell-sage" id="sage-2"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+from scipy.integrate import odeint
+plt.cla()
+
+def hz(y, t):
+  S, I = y
+  dydt = [-beta * S * I, beta * S * I]
+  return dydt
+
+beta = 0.02
+y0 = [49, 1]
+t_range = np.arange(0.0, 8.0, 0.1)
+sol = odeint(hz, y0, t_range)
+
+plt.plot(t_range, sol[:, 0], color='blue')
+plt.plot(t_range, sol[:, 1], color='orange')
+plt.show()
+</script></pre>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-3" id="answer-3"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-3"><div class="answer solution-like"><div class="para logical" id="p-158"><ol class="decimal">
+<li id="li-67"><div class="para" id="p-159">The formulas for the system of differential equations appear most directly in line 8, in order. The first formula is <code class="code-inline tex2jax_ignore">-beta * S * I</code>, and the second formula is <code class="code-inline tex2jax_ignore">beta * S * I</code>. Collectively, these are labeled <code class="code-inline tex2jax_ignore">dy/dt</code>. More generally, the lines 6–9 define the system of differential equations.</div></li>
+<li id="li-68"><div class="para" id="p-160">In line 11, we give <span class="process-math">\(\beta\)</span> the value of 0.02. This number can be changed, and the resulting numerical solution then changes accordingly.</div></li>
+<li id="li-69"><div class="para" id="p-161">In line 12, the initial conditions are set to <span class="process-math">\(S(0)=49\)</span> and <span class="process-math">\(I(0)=1\text{.}\)</span> These initial conditions are collectively labeled as <code class="code-inline tex2jax_ignore">y0</code>. The initial conditions appear in square brackets and are separated by a comma. This syntax should look familiar from line 8, when we entered the right-hand sides of the differential equations all in one command, using the same syntax.</div></li>
+<li id="li-70"><div class="para" id="p-162">The time range for this numerical solution appears in line 13, using the <code class="code-inline tex2jax_ignore">arange</code> command from the <code class="code-inline tex2jax_ignore">numpy</code> package downloaded in line 2. The code says <code class="code-inline tex2jax_ignore">t = np.arange(0.0, 8.0, 0.1)</code>. This means that time starts at <span class="process-math">\(t=0.0\)</span> and continues till <span class="process-math">\(t=8.0\text{.}\)</span> In addition, the <code class="code-inline tex2jax_ignore">0.1</code> tells Python to use a step size of 0.1 in the “step through” process for computing <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> values.</div></li>
+<li id="li-71">
+<div class="para" id="p-163">We ask in line 14 for Python to compute a solution, called <code class="code-inline tex2jax_ignore">sol</code>. To compute this solution, Python uses the command <code class="code-inline tex2jax_ignore">odeint</code> and the inputs <code class="code-inline tex2jax_ignore">hz</code> (the differential equations in the model), <code class="code-inline tex2jax_ignore">y0</code> (the initial conditions for this solution), and <code class="code-inline tex2jax_ignore">t_range</code> (the range of time across which to compute the solution).</div>
+<div class="para" id="p-164">The commands in lines 16-18 work together to create the plot we see after clicking <code class="code-inline tex2jax_ignore">Evaluate (Sage)</code>. Line 16 plots the blue <span class="process-math">\(S(t)\)</span> curve, using the time inputs <code class="code-inline tex2jax_ignore">t_range</code> and the values of <span class="process-math">\(S(t)\)</span> throughout those times, which are described as <code class="code-inline tex2jax_ignore">sol[:, 0]</code>. This means the solution <code class="code-inline tex2jax_ignore">sol</code>, at all times, which is designated by <code class="code-inline tex2jax_ignore">:</code>, in the initial position <code class="code-inline tex2jax_ignore">0</code>. Python typically starts counting with 0 rather than 1, so the <span class="process-math">\(S(t)\)</span> values are labeled as <code class="code-inline tex2jax_ignore">0</code> rather than <code class="code-inline tex2jax_ignore">1</code>.</div>
+<div class="para" id="p-165">Line 17 plots the orange <span class="process-math">\(I(t)\)</span> curve, using the time inputs <code class="code-inline tex2jax_ignore">t_range</code> and the values of <span class="process-math">\(I(t)\)</span> throughout those times, which are described as <code class="code-inline tex2jax_ignore">sol[:, 1]</code>. Python continues its counting here, with the <span class="process-math">\(I(t)\)</span> values labeled as <code class="code-inline tex2jax_ignore">1</code>.</div>
+</li>
+</ol></div></div></div>
+</div></article><div class="para" id="p-166">Here is a summary of the Python code above, with some of the commands explained in more detail.</div>
+<div class="para logical" id="p-167">
+<div class="para">In the lines</div>
+<pre class="code-display tex2jax_ignore">     import matplotlib.pyplot as plt
+     import numpy as np
+     from scipy.integrate import odeint
+</pre>
+<div class="para">we import online packages that make it possible for Python to do some of the things we are about to do. Saying we are importing “as” gives us a name, such as <code class="code-inline tex2jax_ignore">plt</code> or <code class="code-inline tex2jax_ignore">np</code>, by which to call each package and use the tools within that package.</div>
+</div>
+<div class="para logical" id="p-168">
+<div class="para">The lines</div>
+<pre class="code-display tex2jax_ignore">     def hz(y, t):
+       S, I = y
+       dydt = [-beta * S * I, beta * S * I]
+       return dydt
+</pre>
+<div class="para">define the system of differential equations, using the command <code class="code-inline tex2jax_ignore">def</code>. The system is named <code class="code-inline tex2jax_ignore">hz</code>, for “human-zombie”, and the <code class="code-inline tex2jax_ignore">(y, t)</code> means that the model depends on variables <span class="process-math">\(y\)</span> and <span class="process-math">\(t\text{.}\)</span> The line <code class="code-inline tex2jax_ignore">S, I = y</code> defines <span class="process-math">\(y\)</span> as comprising both <span class="process-math">\(S\)</span> and <span class="process-math">\(I\text{,}\)</span> in that order. This means that <span class="process-math">\(y\)</span> collectively represents all our dependent variables. Taking the derivative of <span class="process-math">\(y\text{,}\)</span> then, means taking each of the derivatives <span class="process-math">\(dS/dt\)</span> and <span class="process-math">\(dI/dt\text{.}\)</span> The formulas for these derivatives, which are on the right-hand sides of the SI model, appear in order in the line <code class="code-inline tex2jax_ignore">dydt = [-beta * S * I, beta * S * I]</code>. Finally, the line <code class="code-inline tex2jax_ignore">return dydt</code> ends the definition and says that whenever we later use the definition, we will be using the derivatives defined in <code class="code-inline tex2jax_ignore">dydt</code>.</div>
+</div>
+<div class="para" id="p-169">A quick way to think about these lines is that they define our system of differential equations and label them as <code class="code-inline tex2jax_ignore">hz</code>.</div>
+<div class="para logical" id="p-170">
+<div class="para">The lines</div>
+<pre class="code-display tex2jax_ignore">     beta = 0.02
+     y0 = [49, 1]
+     t_range = np.arange(0.0, 8.0, 0.1)
+</pre>
+<div class="para">provide values for <span class="process-math">\(\beta\text{,}\)</span> the initial conditions <span class="process-math">\(S(0)\)</span> and <span class="process-math">\(I(0)\text{,}\)</span> and <span class="process-math">\(t\text{.}\)</span> Any of these values can be changed, and the code can be run again, to produce a different numerical simulation of the same system of differential equations. Notice that the initial conditions are listed in the same order as how we defined the differential equations: <span class="process-math">\(S(0)=49\)</span> is first, and <span class="process-math">\(I(0)=1\)</span> is second.</div>
+</div>
+<div class="para logical" id="p-171">
+<div class="para">The solution of the system of differential equations</div>
+<pre class="code-display tex2jax_ignore">     sol = odeint(hz, y0, t_range)
+</pre>
+<div class="para">is a numerical solution, and it includes multiple parts. The solution is named <code class="code-inline tex2jax_ignore">sol</code>. The Python command <code class="code-inline tex2jax_ignore">odeint</code> computes the solution. For <code class="code-inline tex2jax_ignore">odeint</code> to run, it needs three things: (1) a system of differential equations <code class="code-inline tex2jax_ignore">hz</code>, (2) initial conditions <code class="code-inline tex2jax_ignore">y0</code> for the differential equations, and (3) a time range <code class="code-inline tex2jax_ignore">t_range</code> across which to create the solution. Though <code class="code-inline tex2jax_ignore">odeint</code> computes the numerical solution, it does not show us the graphical solution: the plots we create later show us these results. Instead, the numerical solution created by <code class="code-inline tex2jax_ignore">odeint</code> consists of lists of numbers for <span class="process-math">\(S\)</span> and for <span class="process-math">\(I\text{,}\)</span> at the times specified in <code class="code-inline tex2jax_ignore">t_range</code>. (If you would like to see the numerical values computed by <code class="code-inline tex2jax_ignore">sol</code>, include the line <code class="code-inline tex2jax_ignore">print(sol)</code> in the block of Python code above, sometime after the line <code class="code-inline tex2jax_ignore">sol = odeint(hz, y0, t_range)</code>. When you then evaluate the code, the list of values will appear.)</div>
+</div>
+<div class="para logical" id="p-172">
+<div class="para">The lines</div>
+<pre class="code-display tex2jax_ignore">     plt.plot(t_range, sol[:, 0], color='blue')
+     plt.plot(t_range, sol[:, 1], color='orange')
+</pre>
+<div class="para">create, but do not show, the plots of graphical solutions to the system of differential equations. For each plot, we provide the input values <code class="code-inline tex2jax_ignore">t_range</code> and the output values from the numerical solution <code class="code-inline tex2jax_ignore">sol</code>. As described above, <code class="code-inline tex2jax_ignore">sol</code> is a set of numbers which are the values of the populations <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> at all the times in <code class="code-inline tex2jax_ignore">t_range</code>. The numbers in <code class="code-inline tex2jax_ignore">sol</code> are structured into two lists, list 0 and list 1. (Python often counts things, such as lists, starting with 0 rather than starting with 1.) The syntax <code class="code-inline tex2jax_ignore">sol[:,0]</code> describes all the <span class="process-math">\(S(t)\)</span> data. The colon <code class="code-inline tex2jax_ignore">:</code> means “all” the elements, and the <code class="code-inline tex2jax_ignore">0</code> means list 0, which is the list containing values of <span class="process-math">\(S(t)\text{.}\)</span> The syntax <code class="code-inline tex2jax_ignore">sol[:,1]</code> describes all the <span class="process-math">\(I(t)\)</span> data, with <code class="code-inline tex2jax_ignore">:</code> again representing “all” and <code class="code-inline tex2jax_ignore">1</code> representing list 1, which contains <span class="process-math">\(I(t)\)</span> values.</div>
+</div>
+<div class="para" id="p-173">The lines above include colors for each graph, <code class="code-inline tex2jax_ignore">'blue'</code> for the <span class="process-math">\(S(t)\)</span> graph and <code class="code-inline tex2jax_ignore">'orange'</code> for the <span class="process-math">\(I(t)\)</span> graph. Stating colors is optional.</div>
+<div class="para logical" id="p-174">
+<div class="para">Finally,</div>
+<pre class="code-display tex2jax_ignore">     plt.show()
+</pre>
+<div class="para">shows the two plots, on a shared set of axes.</div>
+</div>
+<div class="para" id="p-175">To build further understanding of how the Python code works, it helps to make several small changes to the code. Simultaneously, we continue to build intuition for how the output graph is affected by our selected parameter values, initial conditions, time range, and more.  Try this in <a href="" class="xref" data-knowl="./knowl/exer-first-odeint-code-play-around.html" title="Activity 3.5">Activity 3.5</a>.</div>
+<article class="activity project-like" id="exer-first-odeint-code-play-around"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.5</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-176">Start with the same Python code as in <a href="" class="xref" data-knowl="./knowl/exer-first-odeint-code.html" title="Activity 3.4">Activity 3.4</a> and try various small changes to the code. Identify where and how in the code to make the changes suggested below, and discuss the effects of each change on the resulting graph. Here and elsewhere, whenever we work with Python, feel free to try your own adaptations to the code.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-3"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+from scipy.integrate import odeint
+plt.cla()
+
+def hz(y, t):
+  S, I = y
+  dydt = [-beta * S * I, beta * S * I]
+  return dydt
+
+beta = 0.02
+y0 = [49, 1]
+t_range = np.arange(0.0, 8.0, 0.1)
+sol = odeint(hz, y0, t_range)
+
+plt.plot(t_range, sol[:, 0], color='blue')
+plt.plot(t_range, sol[:, 1], color='orange')
+plt.show()
+</script></pre> <ul class="disc">
+<li id="li-72"><div class="para" id="p-177">Change the value of <span class="process-math">\(\beta\text{.}\)</span> Identify where in the Python code to make this change, and comment on how the output graph changes when <span class="process-math">\(\beta\)</span> increases or decreases. (While you can change <span class="process-math">\(\beta\)</span> to any value you like, recall that a realistic outbreak model requires <span class="process-math">\(\beta &gt; 0\text{.}\)</span>)</div></li>
+<li id="li-73"><div class="para" id="p-178">Change the initial conditions so that <span class="process-math">\(S(0) \neq 49\text{,}\)</span> <span class="process-math">\(I(0) \neq 1\text{,}\)</span> or both. Comment on how these changes affect the resulting graph. (To stay in the realm of biologically feasible outbreaks, keep <span class="process-math">\(S(0) &gt; 0\)</span> and <span class="process-math">\(I(0) &gt; 0\text{.}\)</span>)</div></li>
+<li id="li-74"><div class="para" id="p-179">Change the time range. Continue to begin at <span class="process-math">\(t=0\text{,}\)</span> but change the end time to something different than <span class="process-math">\(t=8\text{.}\)</span> Discuss reasons why a modeler may want to change the time range, and identify ways in which changing the time range causes the output graph to change.</div></li>
+<li id="li-75"><div class="para" id="p-180">Change the step size for time <span class="process-math">\(t\)</span> so that Python steps forward in increments of 1.0 instead of 0.1. Identify where in the Python code to make this change, and observe any ways in which the output graph looks different after the change.</div></li>
+</ul></article><div class="para" id="p-181">These are all the basics for numerically solving a system of differential equations. In <a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal" title="Section 3.2: Estimating \beta and Building Visualization Skills">Section 3.2</a> we create a graph in which data points and solution curves appear all on the same set of axes. Combining these plots provides a visual way to change the value of <span class="process-math">\(\beta\)</span> to improve the model's fit to data points. Then, also in <a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal" title="Section 3.2: Estimating \beta and Building Visualization Skills">Section 3.2</a>, we discuss helpful ways to visualize information on graphs, so readers can best understand the results that emerge from models.</div></section><section class="section" id="sec-estimating-beta-and-building-visualization-skills"><h3 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Estimating <span class="process-math">\(\beta\)</span> and Building Visualization Skills</span>
+</h3>
+<div class="para" id="p-182">To start, use information from the coding blocks above to create a single graph containing discrete data points for Humans and Zombies as well as continuous solution curves to the model for Susceptible and Infectious populations.</div>
+<article class="activity project-like" id="exer-combine-data-points-and-curves"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.6</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-183">Combine lines of Python code from the coding blocks shown in <a href="" class="xref" data-knowl="./knowl/expl-creating-graphs-in-python-from-the-human-zombie-game.html" title="Exploration 3.1: Creating Graphs in Python from the Human–Zombie Game">Exploration 3.1</a> and <a href="" class="xref" data-knowl="./knowl/exer-first-odeint-code.html" title="Activity 3.4">Activity 3.4</a> so that both the individual data markers from <a href="" class="xref" data-knowl="./knowl/expl-creating-graphs-in-python-from-the-human-zombie-game.html" title="Exploration 3.1: Creating Graphs in Python from the Human–Zombie Game">Exploration 3.1</a> and the smooth solution curves from <a href="" class="xref" data-knowl="./knowl/exer-first-odeint-code.html" title="Activity 3.4">Activity 3.4</a> appear on the same graph.</div> <div class="para" id="p-184">Notice before you begin: some of the same commands appear in each of the two coding blocks you are combining. You do not need to include those lines twice.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-4"><script type="text/x-sage">
+</script></pre> <div class="para" id="p-185">Once you have combined the data points and solution curves into a single graph, try different values of <span class="process-math">\(\beta\text{.}\)</span> Working visually, comparing data points with solution curves, can you identify a value of <span class="process-math">\(\beta\)</span> that you believe produces the best correspondence between data points and solution curves? Discuss your reasoning, including a description of the features of a good correspondence between data points and solution curves.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-2" id="hint-2"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-2"><div class="hint solution-like">
+<div class="para" id="p-186">If your approach creates two separate sets of axes, try again. Can you find a way to produce just one set of axes that contains both the data points from the Zombie Game App, and also the solution curves from the system of differential equations?</div> <div class="para" id="p-187">Regarding <span class="process-math">\(\beta\text{,}\)</span> we are not seeking a mathematically precise “best fit”. Instead, we are (1) visually identifying what a good fit may look like, and (2) describing the features of a good fit, <em class="emphasis">from a visual perspective</em>. The features may be somewhat subjective: there is not likely to be a perfect fit, and different readers may have different priorities regarding how a good fit “should” look.</div>
+</div></div>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-4" id="answer-4"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-4"><div class="answer solution-like">
+<div class="para" id="p-188">One possible answer for the code is the following.</div> <div class="para" id="p-189"><code class="code-inline tex2jax_ignore">
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.integrate import odeint
+plt.cla()
+              
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+S_data = [49, 47, 43, 36, 20, 4, 0]
+I_data = [1, 3, 7, 14, 30, 46, 50]
+              
+def hz(y, t):
+  S, I = y
+  dydt = [-beta * S * I, beta * S * I]
+  return dydt
+              
+beta = 0.02
+y0 = [49, 1]
+t_range = np.arange(0.0, 8.0, 0.1)
+sol = odeint(hz, y0, t_range)
+plt.plot(t_steps, S_data,'o', color='blue')
+plt.plot(t_steps, I_data, '*', color='orange')
+plt.plot(t_range, sol[:, 0], color='blue')
+plt.plot(t_range, sol[:, 1], color='orange')
+plt.show()
+            </code></div> <div class="para" id="p-190">There are many possible answers regarding the value of <span class="process-math">\(\beta\text{.}\)</span> The key is to discuss what a good fit may look like. When the data and model do not fit perfectly, which is usually what will happen, then which aspects of the data do we most hope are represented in the model's solution curves?</div>
+</div></div>
+</div></article><div class="para" id="p-191">At this point, you have worked with enough Python code to be able to graph your own data points and your own solutions to systems of differential equations that represent disease spread. Before we complete this chapter, however, we spend additional time with Python and visualization, with the goal of designing plots that best convey the information learned from models.</div>
+<div class="para" id="p-192">Each activity below invites you to learn by doing. Additionally: think through what YOU would like to see in plots. What features make it easier for you to interpret a graph? What features tell you best how to connect an image with a mathematical equation?</div>
+<article class="activity project-like" id="exer-grid-axis-labels-comments"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.7</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-193">Evaluate the code below. Use the Python code, as well as the resulting graphs, to answer the questions appearing below the code block.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-5"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+plt.cla()
+
+def model(y, t):
+  S, I = y
+  dydt = [-beta * S * I, beta * S * I]
+  return dydt
+      
+beta = 0.02
+y0 = [49, 1]
+t_range = np.arange(0.0, 8.0, 0.1)
+
+sol = odeint(model, y0, t_range)
+
+plt.plot(t_range, sol[:, 0], color='blue', label='S(t)')
+plt.plot(t_range, sol[:, 1], color='orange', label='I(t)')
+plt.legend()
+plt.xlabel('time')
+#plt.grid()
+plt.show()
+</script></pre> <ul class="disc">
+<li id="li-76"><div class="para" id="p-194">This code block includes an additional optional command in each of the lines starting with <code class="code-inline tex2jax_ignore">plt.plot</code>. This command begins with <code class="code-inline tex2jax_ignore">label</code> in each line. Where do you find these labels, <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\text{,}\)</span> on the plot produced below the code?</div></li>
+<li id="li-77"><div class="para" id="p-195">Line 19 says <code class="code-inline tex2jax_ignore">plt.legend()</code>. What does this mean? You can check by turning this line off, then on again. To turn it off, type <code class="code-inline tex2jax_ignore">#</code> at the start of Line 19, and run the code again. To turn it back on, remove the <code class="code-inline tex2jax_ignore">#</code>. Starting a line with <code class="code-inline tex2jax_ignore">#</code> turns the line into a <em class="emphasis">comment</em> rather than code. This means that Python does not execute the rest of the line after the <code class="code-inline tex2jax_ignore">#</code>.</div></li>
+<li id="li-78"><div class="para" id="p-196">Line 20 states <code class="code-inline tex2jax_ignore">plt.xlabel('time')</code>. Do you see where this label appears in the resulting plot? If so: can you figure out how to label the vertical axis as “populations”, to represent the combination of populations <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\text{?}\)</span>
+</div></li>
+<li id="li-79"><div class="para" id="p-197">Uncomment Line 21 by removing the <code class="code-inline tex2jax_ignore">#</code> symbol and evaluate the code again. How does this change the resulting plot? What advantages or disadvantages do you see in this change?</div></li>
+</ul>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-5" id="answer-5"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-5"><div class="answer solution-like"><ul class="disc">
+<li id="li-80"><div class="para" id="p-198">The labels <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> appear in the box on the graph, next to the line color of their associated plot. That is, label <span class="process-math">\(S(t)\)</span> appears next to a blue line, and <span class="process-math">\(S(t)\)</span> is plotted in blue. Label <span class="process-math">\(I(t)\)</span> appears next to an orange line, and <span class="process-math">\(I(t)\)</span> is plotted in orange.</div></li>
+<li id="li-81"><div class="para" id="p-199">The legend is the box mentioned in the previous bullet point. Legends can be very helpful when multiple plots appear on a shared set of axes.</div></li>
+<li id="li-82"><div class="para" id="p-200">The label appears below the horizontal axis. To label the vertical axis, include this new line in the code: <code class="code-inline tex2jax_ignore">plt.ylabel('populations')</code>.</div></li>
+<li id="li-83"><div class="para" id="p-201">A grid appears throughout the plot. This may be an advantage for better pinpointing what the values of <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> are at various times <span class="process-math">\(t\text{.}\)</span> It may be a disadvantage if it makes the plot seem cluttered. There may be other advantages and disadvantages.</div></li>
+</ul></div></div>
+</div></article><div class="para" id="p-202">
+<em class="emphasis">Comments</em> are mentioned in <a href="" class="xref" data-knowl="./knowl/exer-grid-axis-labels-comments.html" title="Activity 3.7">Activity 3.7</a>. In Python, comments are helpful for turning code lines on and off. One reason to do this is to troubleshoot: if code seems to not be working, turning some lines temporarily into comments can help narrow down where the problem lies. Another reason to include comments is to write notes about what is happening in the code. This is helpful if you will use this code later, or share it with other people, to make it easier for you and others to use the code in the future.</div>
+<div class="para" id="p-203">The next activity shows more detailed use of comments, along with more ways to distinguish different solution curves when we plot multiple results on a shared set of axes.</div>
+<article class="activity project-like" id="exer-dash-dot-comments"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.8</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-204">Notice that the code block below includes many comments. Read through the comments: do they make sense? Would you add others?</div> <div class="para" id="p-205">Then evaluate the code and respond to the prompts below.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-6"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla()  #Clear (delete) any past plots
+
+#Include data from Zombie Game App
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+S_data = [49, 47, 43, 36, 20, 4, 0]
+I_data = [1, 3, 7, 14, 30, 46, 50]
+
+#Define the system of differential equations, and call it "hz"
+def hz(y, t):
+  s, i = y #Define y as consisting of s and i, in that order
+  dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
+  return dydt
+      
+beta = 0.02 #Give a value to beta
+y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
+t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+
+sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+# Plotting commands are below
+plt.plot(t_steps, S_data,'o', markersize=12, color='blue')
+plt.plot(t_steps, I_data, '*', markersize=5, color='orange')
+plt.plot(t_range, sol[:, 0], color='blue', linestyle='dashed', linewidth=2, label='S(t)')
+plt.plot(t_range, sol[:, 1], color='orange', linestyle='dotted', linewidth=3, label='I(t)')
+plt.legend()
+plt.xlabel('time')
+plt.ylabel('populations')
+plt.show()
+</script></pre> <ul class="disc">
+<li id="li-84"><div class="para" id="p-206">What do the <code class="code-inline tex2jax_ignore">linestyle</code> commands do? Include them in Lines 26 and 27, when plotting <code class="code-inline tex2jax_ignore">S_data</code> and <code class="code-inline tex2jax_ignore">I_data</code>, to connect the markers from the Zombie Game App data points with the same style lines as those that solve the SI model.</div></li>
+<li id="li-85"><div class="para" id="p-207">What do the <code class="code-inline tex2jax_ignore">markersize</code> commands do? Try different numerical values to find what you like.</div></li>
+<li id="li-86"><div class="para" id="p-208">What do the <code class="code-inline tex2jax_ignore">linewidth</code> commands do? Try different numerical values to find what you like.</div></li>
+<li id="li-87"><div class="para" id="p-209">Label the data points from the Zombie Game App so that they appear in the legend.</div></li>
+<li id="li-88"><div class="para" id="p-210">Change the label on the horizontal axis to say “time (rounds)” to make the units of time more clear.</div></li>
+</ul> </article></section><section class="exercises" id="exercises-visualization-graphing-model-results-and-data"><h3 class="heading hide-type">
+<span class="type">For Further Thought</span> <span class="codenumber">3.3</span> <span class="title">For Further Thought</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-7"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="p-211">Start with the basic SI model in Python. Code for this appears in <a href="" class="xref" data-knowl="./knowl/exer-first-odeint-code.html" title="Activity 3.4">Activity 3.4</a> and <a href="" class="xref" data-knowl="./knowl/exer-first-odeint-code-play-around.html" title="Activity 3.5">Activity 3.5</a>. Change the code in the ways described below. For each change, list the original Python code, specify what updates you make, provide an image of the resulting graph, and describe in words how the resulting graph looks different as a result of the change you made. Keep the change in part (a) when you update part (b), then keep all these changes when you update part (c).</div> <ol class="lower-alpha">
+<li id="li-89"><div class="para" id="p-212">Increase <span class="process-math">\(S(0)\)</span> to 200.</div></li>
+<li id="li-90"><div class="para" id="p-213">Adjust <span class="process-math">\(\beta\)</span> so that the Susceptible population is approximately 100 on day 10. (Notice that this update requires changing more than just the value of <span class="process-math">\(\beta\text{.}\)</span>)</div></li>
+<li id="li-91"><div class="para" id="p-214">Increase <span class="process-math">\(I(0)\)</span> to 10.</div></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original has-image" data-refid="hk-hint-3" id="hint-3"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-3"><div class="hint solution-like">
+<div class="para" id="p-215">The following figures, in order, are possible results.</div> <figure class="figure figure-like" id="fig-visualize-1a"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/Visualize_HW_1a.png" class="contained" alt="Sample solution graph for setting \(S(0)\) to 200."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1<span class="period">.</span></span><span class="space"> </span>A possible outcome from setting <span class="process-math">\(S(0)=200\text{.}\)</span></figcaption></figure> <figure class="figure figure-like" id="fig-visualize-1b"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/Visualize_HW_1b.png" class="contained" alt="Sample solution graph for setting \(\beta\) so that \(S(100) \approx 10\text{.}\) The graph includes a grid, and it extends time to \(t=15\text{.}\)"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2<span class="period">.</span></span><span class="space"> </span>A possible outcome when adjusting <span class="process-math">\(\beta\)</span> so that <span class="process-math">\(S(10) \approx 100\text{.}\)</span> The graph includes a grid, and it extends time to <span class="process-math">\(t=15\text{.}\)</span></figcaption></figure> <figure class="figure figure-like" id="fig-visualize-1c"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/Visualize_HW_1c.png" class="contained" alt="Sample solution graph for setting \(I(0)\) to 10."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3<span class="period">.</span></span><span class="space"> </span>A possible outcome when setting <span class="process-math">\(I(0)=10\text{.}\)</span></figcaption></figure>
+</div></div>
+</div></article><article class="exercise exercise-like" id="exercise-8"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-216">Open the <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-27" id="fn-27"><sup> 8 </sup></a> and run it, creating a data set that is (hopefully) different than that in <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-table.html" title="Figure 2.5">Figure 2.5</a>. Use Python to plot these data points for humans and zombies. On the same set of axes, plot the graphical solutions to the differential equations in the SI model. Adjust <span class="process-math">\(\beta\)</span> so the SI model solution curves fit adequately well with the generated data points. Include a short discussion of ways in which the curves fit the data well, and ways in which the fit is not as good.</div></article><article class="exercise exercise-like" id="exercise-9"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="p-217">Look up information online about making data visualization more accessible to people who have some version of colorblindness. Read multiple sources on this topic, and use them to respond to the following questions.</div>
+<ol class="lower-alpha">
+<li id="li-92"><div class="para" id="p-218">What sorts of color palettes can work relatively well to make a graph more accessible to a colorblind individual?</div></li>
+<li id="li-93"><div class="para" id="p-219">What are some ways that data markers can be used to improve graph accessibility?</div></li>
+<li id="li-94"><div class="para" id="p-220">How can different line styles be used to improve graph accessibility?</div></li>
+<li id="li-95"><div class="para" id="p-221">What are yet additional ways you can use Python features to create graphs that are accessible to as many people as possible?</div></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-20"><div class="fn"><code class="code-inline tex2jax_ignore">nelsong1997.github.io/zombie_game/</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-21"><div class="fn"><code class="code-inline tex2jax_ignore">www.python.org/</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-22"><div class="fn"><code class="code-inline tex2jax_ignore">www.sagemath.org/</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-23"><div class="fn">
+<a class="external" href="https://www.sagemath.org/" target="_blank">https://www.sagemath.org/</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-24" id="fn-24"><sup> 5 </sup></a>
+</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-24"><div class="fn"><code class="code-inline tex2jax_ignore">www.sagemath.org/</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-25"><div class="fn"><code class="code-inline tex2jax_ignore">matplotlib.org/stable/api/markers_api.html</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-26"><div class="fn"><code class="code-inline tex2jax_ignore">matplotlib.org/stable/gallery/color/named_colors.html</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-27"><div class="fn"><code class="code-inline tex2jax_ignore">nelsong1997.github.io/zombie_game/</code></div></div>
+</div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-zombies-can-math-help.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-compartmental-diagrams.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

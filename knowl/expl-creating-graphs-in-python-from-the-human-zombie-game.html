@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exploration project-like"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Creating Graphs in Python from the Human–Zombie Game.</span>
+</h3>
+<div class="introduction"><div class="para">If you have never used Python before, you are in the right place! If you have used Python, you may be able to move through this chapter more quickly, but be sure to spend time to make sure you know the code you need to complete modeling tasks. In this chapter, we spend a significant amount of time reading code, viewing code output, and making changes to code, to build up enough Python knowledge to be able to generate additional graphs of data and model results. The code we practice with allows us to visualize the sample data set shown as a table in <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-table.html" title="Figure 2.5">Figure 2.5</a>.</div></div>
+<article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para">Read carefully through the code below, focusing your attention on lines 3–8. Click the <code class="code-inline tex2jax_ignore">Evaluate (Sage)</code> button underneath to view the output. Using the code and its output, answer the questions that follow.</div> <pre class="ptx-sagecell sagecell-sage" id="sage-1"><script type="text/x-sage">import matplotlib.pyplot as plt
+plt.cla()
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+S_data = [49, 47, 43, 36, 20, 4, 0]
+I_data = [1, 3, 7, 14, 30, 46, 50]
+plt.plot(t_steps, S_data,'o', color='blue')
+plt.plot(t_steps, I_data, '*', color='orange')
+plt.show()
+</script></pre> <ul class="disc">
+<li><div class="para">Explain where and how in the code we enter, and label, the data from <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-table.html" title="Figure 2.5">Figure 2.5</a>.</div></li>
+<li><div class="para">Which lines of code produce the blue dots on the output graph, and what information from <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-table.html" title="Figure 2.5">Figure 2.5</a> do these dots represent?</div></li>
+<li><div class="para">Which lines of code produce the orange stars on the output graph, and what information from <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-table.html" title="Figure 2.5">Figure 2.5</a> do these dots represent?</div></li>
+</ul>
+<div class="solutions"><a href="" class="answer-knowl original" data-knowl="./knowl/answer-1-hidden.html" title="Answer 3.1.a.1"><span class="type">Answer</span><span class="period">.</span></a></div></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para">Go back to the Python code and begin to play with it: make some changes. You can always start anew by refreshing the browser window. Address the following questions, and experiment freely beyond that.</div> <ul class="disc">
+<li><div class="para">What marker shapes do you like? To experiment with other shapes, see <a class="external" href="https://matplotlib.org/stable/api/markers_api.html" target="_blank">the library of marker shapes</a><a href="" class="fn-knowl original" data-knowl="./knowl/fn-25-hidden.html" title="Footnote 3.6"><sup> 6 </sup></a> available in the online documentation for <code class="code-inline tex2jax_ignore">matplotlib</code>.</div></li>
+<li><div class="para">Try different colors for the markers. One way to do this quickly is to go to <a class="external" href="https://matplotlib.org/stable/gallery/color/named_colors.html" target="_blank">this page about colors</a><a href="" class="fn-knowl original" data-knowl="./knowl/fn-26-hidden.html" title="Footnote 3.7"><sup> 7 </sup></a> from the online documentation for <code class="code-inline tex2jax_ignore">matplotlib</code>, and scroll down to the header “CSS Colors”. Replace “blue” and “orange” with colors you choose from the CSS Colors list, and view the resulting graph. (There are many other ways to choose colors in Python, and you can search online examples and documentation to learn about these.)</div></li>
+</ul></article><div class="conclusion"><div class="para">The first two lines of the Python code are important, but their phrasing does not make very obvious what they do. Line 1 imports a Python package that includes commands for drawing plots. Line 2 clears any past plots, meaning any past plots should be completely gone. This makes sure that any new plot contains only what we want. Line 2 may not be needed when we very first use Python, but if we create a different plot, and then come back to this code cell and re-enter it, the other plot we created could be overlaid with this one. The “clear” command, <code class="code-inline tex2jax_ignore">plt.cla()</code>, makes sure that only our current plot appears.</div></div></article><span class="incontext"><a href="ch-visualization-graphing-model-results-and-data.html#expl-creating-graphs-in-python-from-the-human-zombie-game" class="internal">in-context</a></span>
+</body>
+</html>

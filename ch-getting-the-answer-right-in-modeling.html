@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Getting the Answer "Right" in Modeling</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Epidemiology and More">
+<meta property="book:author" content="Meredith L. Greer">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="mathematical-epidemiology.html"><span class="title">Mathematical Epidemiology and More:</span> <span class="subtitle">A Course on Compartmental Models</span></a></h1>
+<p class="byline">Meredith L. Greer</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-vaccines-and-isolation-in-compartmental-models.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="part-core-modeling-concepts.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="ch-preparing-influenza-data-to-compare-with-a-model.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2 parts"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="preface-overall.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li><div class="toc-item"><a href="preface-students.html" class="internal"><span class="title">To Students: How to Get the Most from This Text</span></a></div></li>
+<li><div class="toc-item"><a href="preface-instructors.html" class="internal"><span class="title">To Instructors: Ways to Use This Text</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-core-modeling-concepts.html" class="internal"><span class="codenumber">I</span> <span class="title">Core Modeling Concepts</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html" class="internal"><span class="codenumber">1</span> <span class="title">Prelude: Diseases in Popular News</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-Themes" class="internal"><span class="codenumber">1.1</span> <span class="title">Possible Discussion Themes</span></a></div></li>
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Follow-Up-By-Seeking-More-Precise-Data" class="internal"><span class="codenumber">1.2</span> <span class="title">Follow Up By Seeking More Precise Data</span></a></div></li>
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-ALT" class="internal"><span class="codenumber">1.3</span> <span class="title">Possible Discussion ALT</span></a></div></li>
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#exercises-prelude-diseases-in-popular-news" class="internal"><span class="codenumber">1.4</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-zombies-can-math-help.html" class="internal"><span class="codenumber">2</span> <span class="title">Zombies: Can Math Help?</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-zombies-can-math-help.html#sec-we-now-have-data-qualitative-musings" class="internal"><span class="codenumber">2.1</span> <span class="title">We Now Have Data: Qualitative Musings</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal"><span class="codenumber">2.2</span> <span class="title">A First Model</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-zombies-can-math-help.html#exercises-ch-zombies-can-math-help" class="internal"><span class="codenumber">2.2</span> <span class="title">For Further Thought</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html" class="internal"><span class="codenumber">3</span> <span class="title">Visualization: Graphing Model Results and Data</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#sec-solving-differential-equations-using-graphs" class="internal"><span class="codenumber">3.1</span> <span class="title">“Solving” Differential Equations Using Graphs</span></a></div></li>
+<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal"><span class="codenumber">3.2</span> <span class="title">Estimating <span class="process-math">\(\beta\)</span> and Building Visualization Skills</span></a></div></li>
+<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#exercises-visualization-graphing-model-results-and-data" class="internal"><span class="codenumber">3.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-compartmental-diagrams.html" class="internal"><span class="codenumber">4</span> <span class="title">Compartmental Diagrams</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#section-compartmental-diagrams-vocabulary-and-comments" class="internal"><span class="codenumber">4.1</span> <span class="title">Compartmental Diagrams: Vocabulary and Comments</span></a></div></li>
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal"><span class="codenumber">4.2</span> <span class="title">From Zombie Game Variation to Compartmental Diagram</span></a></div></li>
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates" class="internal"><span class="codenumber">4.3</span> <span class="title">Estimating Gamma and Other Rates</span></a></div></li>
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal"><span class="codenumber">4.4</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-population-values-and-the-basic-reproduction-number-R0.html" class="internal"><span class="codenumber">5</span> <span class="title">Population Values and the Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-population-values-and-the-basic-reproduction-number-R0.html#sec-using-calculus-to-analyze-models" class="internal"><span class="codenumber">5.1</span> <span class="title">Using Calculus to Analyze Models</span></a></div></li>
+<li><div class="toc-item"><a href="ch-population-values-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0" class="internal"><span class="codenumber">5.2</span> <span class="title">The Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="ch-population-values-and-the-basic-reproduction-number-R0.html#exercises-ch-populations-and-R0" class="internal"><span class="codenumber">5.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-vaccines-and-isolation-in-compartmental-models.html" class="internal"><span class="codenumber">6</span> <span class="title">Vaccines in Compartmental Models</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-vaccines-and-isolation-in-compartmental-models.html#section-vaccines-in-compartmental-models" class="internal"><span class="codenumber">6.1</span> <span class="title">Vaccines in Compartmental Models</span></a></div></li>
+<li><div class="toc-item"><a href="ch-vaccines-and-isolation-in-compartmental-models.html#section-isolation-in-compartmental-models" class="internal"><span class="codenumber">6.2</span> <span class="title">Isolation in Compartmental Models</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html" class="internal"><span class="codenumber">7</span> <span class="title">Getting the Answer “Right” in Modeling</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#section-the-logical-approach" class="internal"><span class="codenumber">7.1</span> <span class="title">The Logical Approach</span></a></div></li>
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#section-priorities-where-goals-meet-ethics" class="internal"><span class="codenumber">7.2</span> <span class="title">Priorities: Where Goals Meet Ethics</span></a></div></li>
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#section-making-changes-to-models" class="internal"><span class="codenumber">7.3</span> <span class="title">Making Changes to Models</span></a></div></li>
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#section-writing-explanations-to-present-models-to-others" class="internal"><span class="codenumber">7.4</span> <span class="title">Writing Explanations to Present Models to Others</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal"><span class="codenumber">8</span> <span class="title">Preparing Influenza Data to Compare With a Model</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#section-ga" class="internal"><span class="codenumber">8.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-epidemic-vs-endemic-models.html" class="internal"><span class="codenumber">9</span> <span class="title">Epidemic vs. Endemic Models</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-epidemic-vs-endemic-models.html#section-ee" class="internal"><span class="codenumber">9.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">Residual Sum of Squares: Improving a Model's Fit to Data</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#section-ra" class="internal"><span class="codenumber">10.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-akaike-information-criterion-comparing-different-models.html" class="internal"><span class="codenumber">11</span> <span class="title">Akaike Information Criterion: Comparing Different Models</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-akaike-information-criterion-comparing-different-models.html#section-ma" class="internal"><span class="codenumber">11.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-model-analysis-total-population-and-equilibrium-values.html" class="internal"><span class="codenumber">12</span> <span class="title">Model Analysis: Total Population and Equilibrium Values</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-model-analysis-total-population-and-equilibrium-values.html#section-1" class="internal"><span class="codenumber">12.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-the-next-generation-method-using-r0-to-determine-beta.html" class="internal"><span class="codenumber">13</span> <span class="title">The Next Generation Method: Using <span class="process-math">\(\mathcal{R}_0\)</span> to Determine <span class="process-math">\(\beta\)</span></span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-the-next-generation-method-using-r0-to-determine-beta.html#section-2" class="internal"><span class="codenumber">13.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-tips-on-reading-a-scientific-paper.html" class="internal"><span class="codenumber">14</span> <span class="title">Tips on Reading a Scientific Paper</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-tips-on-reading-a-scientific-paper.html#section-3a" class="internal"><span class="codenumber">14.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-the-next-generation-method-connecting-theory-with-practice.html" class="internal"><span class="codenumber">15</span> <span class="title">The Next Generation Method: Connecting Theory with Practice</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-the-next-generation-method-connecting-theory-with-practice.html#section-3" class="internal"><span class="codenumber">15.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.html" class="internal"><span class="codenumber">16</span> <span class="title">Numerical Simulations: An Overview of How Computers Turn Equations into Graphs</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.html#section-4" class="internal"><span class="codenumber">16.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-kermack-mckendrick-the-1927-paper.html" class="internal"><span class="codenumber">17</span> <span class="title">Kermack-McKendrick: the 1927 Paper</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-kermack-mckendrick-the-1927-paper.html#section-4a" class="internal"><span class="codenumber">17.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-examples-and-case-studies.html" class="internal"><span class="codenumber">III</span> <span class="title">Examples and Case Studies</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-introducing-an-incubation-period-in-the-zombie-app.html" class="internal"><span class="codenumber">18</span> <span class="title">Introducing an Incubation Period in the Zombie App</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-introducing-an-incubation-period-in-the-zombie-app.html#sec-activity-introduce-an-incubation-period" class="internal"><span class="codenumber">18.1</span> <span class="title">Activity: Introduce an Incubation Period</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html" class="internal"><span class="codenumber">19</span> <span class="title">Preparing Mumps Data to Compare with a Six-Compartment Model</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html#section-6" class="internal"><span class="codenumber">19.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-modeling-the-spread-of-a-rumor.html" class="internal"><span class="codenumber">20</span> <span class="title">Modeling the Spread of a Rumor</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-modeling-the-spread-of-a-rumor.html#section-7" class="internal"><span class="codenumber">20.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-modeling-viral-videos.html" class="internal"><span class="codenumber">21</span> <span class="title">Modeling Viral Videos</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-modeling-viral-videos.html#section-8" class="internal"><span class="codenumber">21.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-modeling-conspiracy-theories.html" class="internal"><span class="codenumber">22</span> <span class="title">Modeling Conspiracy Theories</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-modeling-conspiracy-theories.html#section-9" class="internal"><span class="codenumber">22.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-periodic-forcing.html" class="internal"><span class="codenumber">23</span> <span class="title">Periodic Forcing</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-periodic-forcing.html#section-10a" class="internal"><span class="codenumber">23.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-superspreader-events.html" class="internal"><span class="codenumber">24</span> <span class="title">Superspreader Events</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-superspreader-events.html#section-10c" class="internal"><span class="codenumber">24.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-vector-based-models-of-disease-spread.html" class="internal"><span class="codenumber">25</span> <span class="title">Vector-Based Models of Disease Spread</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-vector-based-models-of-disease-spread.html#section-10" class="internal"><span class="codenumber">25.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-modeling-spatial-variation-using-patches.html" class="internal"><span class="codenumber">26</span> <span class="title">Modeling Spatial Variation Using Patches</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-modeling-spatial-variation-using-patches.html#section-11" class="internal"><span class="codenumber">26.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-an-hiv-model-where-the-infected-are-cells-rather-than-people.html" class="internal"><span class="codenumber">27</span> <span class="title">An HIV Model Where the “Infected” are Cells Rather Than People</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-an-hiv-model-where-the-infected-are-cells-rather-than-people.html#section-10b" class="internal"><span class="codenumber">27.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-a-peek-at-agent-based-models.html" class="internal"><span class="codenumber">28</span> <span class="title">A Peek at Agent-Based Models</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-a-peek-at-agent-based-models.html#section-10d" class="internal"><span class="codenumber">28.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-connecting-with-network-models.html" class="internal"><span class="codenumber">29</span> <span class="title">Connecting with Network Models</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-connecting-with-network-models.html#section-10e" class="internal"><span class="codenumber">29.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-supplemental-materials.html" class="internal"><span class="codenumber">IV</span> <span class="title">Supplemental Materials</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-data-sets.html" class="internal"><span class="codenumber">30</span> <span class="title">Data Sets</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-data-sets.html#section-supp-aa" class="internal"><span class="codenumber">30.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-paper-assignments-and-grading-rubrics.html" class="internal"><span class="codenumber">31</span> <span class="title">Paper Assignments and Grading Rubrics</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-paper-assignments-and-grading-rubrics.html#section-supp-a" class="internal"><span class="codenumber">31.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-writing-tips-for-math-and-planning-for-peer-review.html" class="internal"><span class="codenumber">32</span> <span class="title">Writing Tips for Math, and Planning for Peer Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-writing-tips-for-math-and-planning-for-peer-review.html#section-supp-b" class="internal"><span class="codenumber">32.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-linear-algebra-introduction.html" class="internal"><span class="codenumber">33</span> <span class="title">Linear Algebra Introduction</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-linear-algebra-introduction.html#section-supp-c" class="internal"><span class="codenumber">33.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-other-resources.html" class="internal"><span class="codenumber">34</span> <span class="title">Other Resources</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-other-resources.html#section-supp-d" class="internal"><span class="codenumber">34.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="glossary-1.html" class="internal"><span class="title">Glossary of Mathematical Epidemiology Terms</span></a></div></li>
+<li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-getting-the-answer-right-in-modeling"><h2 class="heading">
+<span class="type">Chapter</span> <span class="codenumber">7</span> <span class="title">Getting the Answer “Right” in Modeling</span>
+</h2>
+<section class="introduction" id="intro-getting-the-answer-right-in-modeling"><article class="objectives goal-like" id="objectives-7"><h3 class="heading"><span class="type">Goals</span></h3>
+<ul class="disc">
+<li id="li-179"><div class="para" id="p-449">Discuss how set-up and definitions matter</div></li>
+<li id="li-180"><div class="para" id="p-450">Discuss context!!!</div></li>
+<li id="li-181"><div class="para" id="p-451">(Compare modeling with proofs or similar?)</div></li>
+</ul></article>  <div class="para" id="p-452">In this chapter, we pause and step back to consider the overall process of <dfn class="terminology">mathematical modeling</dfn>.</div> <div class="para" id="p-453">Mathematical modeling allows us to represent real-world scenarios with mathematical formulas. Models may primarily reflect what is happening in the world, giving us a mathematical way to describe what we see. Alternately, we may use models to think about how to change what is happening in the world. We can make changes mathematically, trying ideas within models, before ever trying to implement those ideas as policies or medical interventions involving actual people.</div> <div class="para" id="p-454">PUT AN EXPLORATION ACTIVITY IN HERE???</div> <div class="para" id="p-455">Many people believe that mathematics is all about getting “the right answer”. With mathematical modeling, there may not be a “right answer”, or even a best answer. Instead, the answers we seek depend on the questions we ask, the priorities we set, the way we use models to explore these questions, and our ability to explain all these pieces of our thought process.</div> <div class="para" id="p-456">You could say that modeling consists of four components:</div> <ol class="decimal">
+<li id="li-182"><div class="para" id="p-457">A <em class="emphasis">logical approach</em>;</div></li>
+<li id="li-183"><div class="para" id="p-458">Stated <em class="emphasis">priorities</em>, which relate to both goals and ethics;</div></li>
+<li id="li-184"><div class="para" id="p-459">Making <em class="emphasis">changes</em> to models as we gain more information, to better represent a situation, to answer different questions, or to try new scenarios;</div></li>
+<li id="li-185"><div class="para" id="p-460">Well-worded <em class="emphasis">explanations</em> of every decision and result.</div></li>
+</ol> <div class="para" id="p-461">We work through each of these in the sections below.</div></section><section class="section" id="section-the-logical-approach"><h3 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7.1</span> <span class="title">The Logical Approach</span>
+</h3>
+<div class="para" id="p-462">Throughout mathematics, we set up statements in a particular logical way. We will see that researchers follow similar principles when describing mathematical models.</div>
+<div class="para" id="p-463">Work through <a href="" class="xref" data-knowl="./knowl/activity-mathematical-logic-sections.html" title="Activity 7.1">Activity 7.1</a> and <a href="" class="xref" data-knowl="./knowl/activity-mathematical-logic-sections-advanced.html" title="Activity 7.2">Activity 7.2</a> to build familiarity with the steps of a logical mathematical explanation.</div>
+<article class="activity project-like" id="activity-mathematical-logic-sections"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.1</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-464">Mathematical statements are typically structured in terms of “if” and “then” statements, such as: “<em class="emphasis">If</em> the weather forecast calls for rain, <em class="emphasis">then</em> I will bring my raincoat.” There may be several “if” statements, and these are collectively called <dfn class="terminology">hypotheses</dfn>. There may be many “then” statements, and these are called <dfn class="terminology">conclusions</dfn>.</div> <div class="para" id="p-465">For each of the following mathematical statements, specify which part is the <em class="emphasis">hypothesis</em>, that is, the “if” part of the statement. Also specify which part is the <em class="emphasis">conclusion</em>, that is, the “then” part.</div> <ol class="decimal">
+<li id="li-186"><div class="para" id="p-466">If a polygon has six sides and six angles, then the polygon is a hexagon.</div></li>
+<li id="li-187"><div class="para" id="p-467">If we add two positive numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> the resulting number will be larger than either <span class="process-math">\(a\)</span> or <span class="process-math">\(b\text{.}\)</span>
+</div></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-8" id="hint-8"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-8"><div class="hint solution-like">
+<div class="para" id="p-468">The first statement could be described as having one hypothesis or two hypotheses, depending on whether we characterize “six sides and six angles” as a single combined idea, or we prefer to split this idea into two separate hypotheses. There could be even more hypotheses listed, such as if we want to say that having a shape be a polygon is itself a hypothesis. Any reasonable answer here is valid: there is not just one way to designate hypotheses.</div> <div class="para" id="p-469">The second statement does not explicitly include the word “then”.</div>
+</div></div>
+</div></article><article class="activity project-like" id="activity-mathematical-logic-sections-advanced"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.2</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-470">For each of the following mathematical statements, specify the <em class="emphasis">hypotheses</em> and the <em class="emphasis">conclusions</em>. There may be multiple hypotheses and/or conclusions per statement. The words “if” and/or “then” may not appear explicitly.</div> <div class="para" id="p-471">A note: you may recognize these statements, but it is completely OK if you do not recognize them. Naming the hypotheses and conclusions is possible even if the statements are unfamiliar.</div> <ol class="decimal">
+<li id="li-188"><div class="para" id="p-472">If a right triangle has legs with lengths <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> and if the same triangle's hypotenuse has length <span class="process-math">\(c\text{,}\)</span> then the equation <span class="process-math">\(a^2+b^2=c^2\)</span> is true.</div></li>
+<li id="li-189"><div class="para" id="p-473">Suppose a function <span class="process-math">\(f(x)\)</span> is continuous for <span class="process-math">\(x\)</span>-values satisfying <span class="process-math">\(a \leq x \leq b\text{.}\)</span> In this case, <span class="process-math">\(f\)</span> takes on every value between the numbers <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(f(b)\text{.}\)</span>
+</div></li>
+<li id="li-190"><div class="para" id="p-474">Differentiable functions are continuous.</div></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-9" id="hint-9"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-9"><div class="hint solution-like"><ol class="decimal">
+<li id="li-191"><div class="para" id="p-475">This is the most straightforward of the three statements in this activity. Most responses will probably have two hypothesis statements and one conclusion. It is possible to list even more hypotheses, such as “a triangle is a right triangle,” “one leg of the triangle has length <span class="process-math">\(a\text{,}\)</span>” and so on.</div></li>
+<li id="li-192">
+<div class="para" id="p-476">This statement is roughly in “if-then” format already, with the “if” portion in the first sentence and the “then” portion in the second sentence.</div>
+<div class="para" id="p-477">As a note: this statement is inspired by the Intermediate Value Theorem in calculus, but it is not exactly the Intermediate Value Theorem, as it does not state that we are restricting ourselves to values of <span class="process-math">\(x\)</span> for which <span class="process-math">\(a \leq x \leq b\)</span> when stating that <span class="process-math">\(f\)</span> takes on every value between <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(f(b)\text{.}\)</span>
+</div>
+</li>
+<li id="li-193"><div class="para" id="p-478">The logical structure for this statement is the same as in the rewritten statement: “If a function is differentiable, then that function is continuous.”</div></li>
+</ol></div></div>
+</div></article><div class="para" id="p-479">The statements in <a href="" class="xref" data-knowl="./knowl/activity-mathematical-logic-sections.html" title="Activity 7.1">Activity 7.1</a> and <a href="" class="xref" data-knowl="./knowl/activity-mathematical-logic-sections-advanced.html" title="Activity 7.2">Activity 7.2</a> are traditionally mathematical. When discussing mathematical models, the statements may look somewhat different. Practice with modeling language in <a href="" class="xref" data-knowl="./knowl/activity-mathematical-logic-in-modeling.html" title="Activity 7.3">Activity 7.3</a>.</div>
+<article class="activity project-like" id="activity-mathematical-logic-in-modeling"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.3</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-480">For each of the following paragraphs, specify the <em class="emphasis">hypotheses</em> and the <em class="emphasis">conclusions</em>. There may be multiple hypotheses and/or conclusions per paragraph. The words “if” and/or “then” may not appear explicitly.</div> <ol class="decimal">
+<li id="li-194"><div class="para" id="p-481">Suppose we use an SIR model to represent an outbreak in a population of 10,000 people. In this model, the S compartment contains the Susceptibles, that is, people who are not sick but can become sick. The I compartment contains the Infectious, that is, people who are currently able to spread the disease. The R compartment contains the Removed, that is, people who are no longer able to spread the disease and are unable to become sick again. Suppose we estimate the parameters to be <span class="process-math">\(\beta \approx 0.0001\)</span> and <span class="process-math">\(\gamma \approx 0.4\text{.}\)</span> If, at the start of the outbreak, ten people are Infectious and the rest are Susceptible, then by the end of the outbreak, the model suggests that <span class="process-math">\(1071\)</span> will remain Susceptible, that is, <span class="process-math">\(1071\)</span> people will never have become Infectious.</div></li>
+<li id="li-195"><div class="para" id="p-482">Suppose we use the same SIR model equations described above, with the same initial conditions and the same value of <span class="process-math">\(\gamma\text{.}\)</span> However, public health measures are implemented, so that <span class="process-math">\(\beta\)</span> is estimated to fall to approximately <span class="process-math">\(0.00005\text{.}\)</span> In this situation, the model suggests that <span class="process-math">\(6257\)</span> people will remain Susceptible at the end of the outbreak.</div></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-10" id="hint-10"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-10"><div class="hint solution-like"><ol class="decimal">
+<li id="li-196"><div class="para" id="p-483">There are many hypotheses here! Everything before the word “then” forms part of the hypotheses. The conclusion appears after “then”.</div></li>
+<li id="li-197"><div class="para" id="p-484">The hypotheses here include most of the information from the first scenario, except with a changed value of <span class="process-math">\(\beta\text{.}\)</span> The conclusion begins after “In this situation”.</div></li>
+</ol></div></div>
+</div></article><div class="para" id="p-485">All this practice with hypotheses and conclusions leads us to a key idea. <em class="emphasis">When the hypotheses in a statement are not satisfied, we should not expect the conclusion in that statement to be satisfied.</em> Practice with this concept appears in <a href="" class="xref" data-knowl="./knowl/activity-mathematical-logic-hypotheses-not-satisfied.html" title="Activity 7.4">Activity 7.4</a>.</div>
+<article class="activity project-like" id="activity-mathematical-logic-hypotheses-not-satisfied"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-486">Each of the following changes a statement from an earlier activity. Based on the change, comment on what we should expect regarding the statement's conclusion.</div> <ol class="decimal">
+<li id="li-198"><div class="para" id="p-487">Recall the statement “If a polygon has six sides and six angles, then the polygon is a hexagon” from <a href="" class="xref" data-knowl="./knowl/activity-mathematical-logic-sections.html" title="Activity 7.1">Activity 7.1</a>. Suppose you see a polygon that has seven sides and seven angles. Must this polygon be a hexagon?</div></li>
+<li id="li-199"><div class="para" id="p-488">Recall the statement “Suppose a function <span class="process-math">\(f\)</span> is continuous for <span class="process-math">\(x\)</span>-values satisfying <span class="process-math">\(a \leq x \leq b\text{.}\)</span> In this case, <span class="process-math">\(f\)</span> takes on every value between the numbers <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(f(b)\)</span>” from <a href="" class="xref" data-knowl="./knowl/activity-mathematical-logic-sections-advanced.html" title="Activity 7.2">Activity 7.2</a>. Suppose a function <span class="process-math">\(g\)</span> is not continuous at some of the <span class="process-math">\(x\)</span>-values satisfying <span class="process-math">\(a \leq x \leq b\text{.}\)</span> In this case, might there be some numbers between <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(f(b)\)</span> for which <span class="process-math">\(f\)</span> does not take on the value of those numbers?</div></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-11" id="hint-11"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-11"><div class="hint solution-like"><div class="para" id="p-489">When any of the hypotheses are not satisfied, we should not expect the conclusion to be satisfied.</div></div></div>
+</div></article><div class="para" id="p-490">The sheer number of assumptions in a model is notable. We comment again that if <em class="emphasis">any</em> hypotheses are not satisfied, then we should not assume that the conclusions must be true. Think through this in <a href="" class="xref" data-knowl="./knowl/activity-mathematical-logic-hypotheses-not-satisfied-model.html" title="Activity 7.5">Activity 7.5</a>.</div>
+<article class="activity project-like" id="activity-mathematical-logic-hypotheses-not-satisfied-model"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.5</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-491">Recall the following from <a href="" class="xref" data-knowl="./knowl/activity-mathematical-logic-in-modeling.html" title="Activity 7.3">Activity 7.3</a>.</div> <div class="para" id="p-492">“Suppose we use an SIR model to represent an outbreak in a population of 10,000 people. In this model, the S compartment contains the Susceptibles, that is, people who are not sick but can become sick. The I compartment contains the Infectious, that is, people who are currently able to spread the disease. The R compartment contains the Removed, that is, people who are no longer able to spread the disease and are unable to become sick again. Suppose we estimate the parameters to be <span class="process-math">\(\beta \approx 0.0001\)</span> and <span class="process-math">\(\gamma \approx 0.4\text{.}\)</span> If, at the start of the outbreak, ten people are Infectious and the rest are Susceptible, then by the end of the outbreak, the model suggests that <span class="process-math">\(1071\)</span> will remain Susceptible, that is, <span class="process-math">\(1071\)</span> people will never have become Infectious.”</div> <div class="para" id="p-493">Write at least five different ways that the hypotheses in the statement of this model may not be satisfied. In each of these cases, we should not expect the conclusion to be satisfied.</div></article><div class="para" id="p-494">We have learned in this section that a model includes statements to create a very specific scenario. Whatever conclusions there may be from the model, we should expect them to occur <em class="emphasis">only in the scenario created by the hypotheses</em>. If any of the hypotheses change, then we should not expect any of the same conclusions to occur.</div>
+<div class="para" id="p-495">In mathematical statements and model scenarios: it is not completely impossible to see some of the same conclusions, even if we change the hypotheses. We are not saying that it is impossible to end up at the same conclusion. Instead, our emphasis is that we <em class="emphasis">should not expect</em> the conclusion to be the same. All our discussion about the model should include this logical connection between hypotheses and conclusions.</div>
+<div class="para" id="p-496">In addition to the purely logical relationship between the “ifs” and “thens” of model statements, there are priorities built into any model. We discuss this in <a href="ch-getting-the-answer-right-in-modeling.html#section-priorities-where-goals-meet-ethics" class="internal" title="Section 7.2: Priorities: Where Goals Meet Ethics">Section 7.2</a>.</div></section><section class="section" id="section-priorities-where-goals-meet-ethics"><h3 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7.2</span> <span class="title">Priorities: Where Goals Meet Ethics</span>
+</h3>
+<div class="para" id="p-497">Each model is based on the priorities of the people who create the model. Recognizing this, and thinking about it from the start, makes us better modelers.</div>
+<div class="para" id="p-498">The word “priorities” can take on many meanings. One key priority in model building is <em class="emphasis">answering a question</em>. For instance, in <a href="ch-vaccines-and-isolation-in-compartmental-models.html" class="internal" title="Chapter 6: Vaccines in Compartmental Models">Chapter 6</a> we described models that address questions about how helpful vaccines or isolation can be in preventing an outbreak or reducing the effects of an outbreak. Different questions may require different models.</div>
+<div class="para" id="p-499">There may be other priorities as well, and we may not realize when we start model building that we are even building in those priorities. A student project I once advised produced one very powerful example of priorities that we do not see initially. This project forms the idea behind <a href="" class="xref" data-knowl="./knowl/activity-priorities-HIV-AIDS.html" title="Activity 7.6">Activity 7.6</a>. The goal of the project was to construct a model to address how a government could best use its resources to reduce the impact of HIV/AIDS in its population. The student based their model and their data collection on professional sources, using meticulous research. When the pieces were all in place and they began to use the model to optimize spending, <em class="emphasis">the results of the model showed</em> that the student's priorities had not been included in the model. This new understanding led the student to revise the model to better reflect their priorities.</div>
+<article class="activity project-like" id="activity-priorities-HIV-AIDS"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.6</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-500">This activity describes a process for constructing a model to address how a government can best use its resources to reduce the impact of HIV/AIDS in its population. The real-life project that inspires this activity involved an excellent student who did meticulous research in constructing their model. The student incorporated the following ideas into their model, with each of the ideas drawing from professionally published articles.</div> <ul class="disc">
+<li id="li-200">
+<div class="para" id="p-501">The model has five compartments.</div>
+<ul class="circle">
+<li id="li-201"><div class="para" id="p-502">The S compartment is our familiar Susceptibles compartment, for people without HIV or AIDS.</div></li>
+<li id="li-202"><div class="para" id="p-503">The I compartment is for Infectious people, meaning those with HIV, who are not receiving antiretroviral therapy.</div></li>
+<li id="li-203"><div class="para" id="p-504">The I' compartment is for another category of Infectious people. This compartment is for people with HIV who are receiving antiretroviral therapy.</div></li>
+<li id="li-204"><div class="para" id="p-505">The A compartment is for people with AIDS who are not receiving antiretroviral therapy.</div></li>
+<li id="li-205"><div class="para" id="p-506">The A' compartment is for people with AIDS who are receiving antiretroviral therapy.</div></li>
+</ul>
+</li>
+<li id="li-206"><div class="para" id="p-507">Many modelers, at the time this student was working, indicated that patients with AIDS were typically too sick to spread the virus to others. Therefore patients with AIDS, according to models, did not contribute to new cases of HIV. The same hypothesis is part of this model: people in the I and I' compartments can cause new infections, but people in the A and A' compartments cannot.</div></li>
+<li id="li-207"><div class="para" id="p-508">When people first have HIV, they are in the I compartment. If they later begin treatment, they move to the I' compartment.</div></li>
+<li id="li-208"><div class="para" id="p-509">People can move back and forth between I and I', and between A and A'.</div></li>
+<li id="li-209"><div class="para" id="p-510">When someone in compartment I progresses in status from HIV to AIDS, they move to compartment A. Similarly, when someone in compartment I' progresses in status from HIV to AIDS, they move to compartment A'.</div></li>
+<li id="li-210"><div class="para" id="p-511">This model lasts many years, so it includes births and deaths. All births are assumed to be Susceptible. The death rates can differ from compartment to compartment.</div></li>
+</ul> <div class="para" id="p-512">This model has many more pieces than the models we have seen before. It may take some time to think through all the pieces! Begin by taking a significant amount of time to view the compartmental diagram in <a href="" class="xref" data-knowl="./knowl/fig-ED-HIV-AIDS-model.html" title="Figure 7.1">Figure 7.1</a> and read the ideas that led to the model's development. Be sure you understand them.</div> <figure class="figure figure-like" id="fig-ED-HIV-AIDS-model"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/latex-image/image-16.svg" role="img" class="contained" alt="(Write this)"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1<span class="period">.</span></span><span class="space"> </span>Compartmental diagram of a model of HIV/AIDS, using descriptions instead of formulas for each arrow</figcaption></figure> <div class="para" id="p-513">Once you have a solid understanding of the pieces of the model, you may begin to have insight into the outcome that emerged from this model. The student working on this project did all the research needed to determine biologically reasonable parameters. When running simulations with the model, their goal was to think through government strategies for spending limited funds designated for health. They hoped to determine how those funds should be allocated, given a goal of reducing the number of new HIV infections as much as possible.</div> <div class="para" id="p-514">Can you guess what they found?</div> <div class="para" id="p-515">Take time to think of what the model might have indicated, regarding the answer to the student's questions about government funds. Only after thinking about it: check the Hint below to see what happened. Then spend more time, thinking about why this model gave this answer, and thinking about what would need to change in the model to give a different answer.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-12" id="hint-12"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-12"><div class="hint solution-like"><div class="para" id="p-516">The model indicated that no funds at all should be spent on treating patients with AIDS: no medicines, no hospital beds, nothing.</div></div></div>
+</div></article><div class="para" id="p-517">The example in <a href="" class="xref" data-knowl="./knowl/activity-priorities-HIV-AIDS.html" title="Activity 7.6">Activity 7.6</a> is lengthy, but it provides an important insight. <em class="emphasis">We may think we know what questions we are answering with our models, but we should continue to interrogate our answers in relation to our goals, priorities, and ethics.</em> The outcome of the model in <a href="" class="xref" data-knowl="./knowl/activity-priorities-HIV-AIDS.html" title="Activity 7.6">Activity 7.6</a> did not suit the goals or ethics of the student doing the project. The result from the mathematical model highlighted built-in priorities of the model that the student (and I) did not notice at first. When new infections are completely unaffected by the people in the A and A' compartments, then treating those people, or providing them any healthcare at all, is irrelevant to the goals of the model. However, leaving large numbers of people without healthcare was never the goal of this project. The model needed to be revised to account for this.</div>
+<div class="para" id="p-518">All modeling involves revision. We restructure models when we spot errors, or when we are able to access better data, or when we begin by asking some questions and then shift to different questions. Updating models is the focus of <a href="ch-getting-the-answer-right-in-modeling.html#section-making-changes-to-models" class="internal" title="Section 7.3: Making Changes to Models">Section 7.3</a>.</div></section><section class="section" id="section-making-changes-to-models"><h3 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7.3</span> <span class="title">Making Changes to Models</span>
+</h3>
+<div class="para" id="p-519">Talk about how set-up matters, definitions matter, context for any solutions is important, etc. Give some examples with different contexts/hypotheses/questions-being-asked.</div></section><section class="section" id="section-writing-explanations-to-present-models-to-others"><h3 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7.4</span> <span class="title">Writing Explanations to Present Models to Others</span>
+</h3>
+<div class="para" id="p-520">Talk about how set-up matters, definitions matter, context for any solutions is important, etc. Give some examples with different contexts/hypotheses/questions-being-asked.</div>
+<figure class="figure figure-like" id="fig-SEI-compartmental-diagram"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/image-17.svg" role="img" class="contained" alt="(Write this)"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2<span class="period">.</span></span><span class="space"> </span>One possible <span class="process-math">\(SEI\)</span> (Susceptible, Exposed-and-incubating, Infectious) compartmental diagram</figcaption></figure></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-vaccines-and-isolation-in-compartmental-models.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-preparing-influenza-data-to-compare-with-a-model.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>
