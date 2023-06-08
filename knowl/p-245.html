@@ -12,7 +12,7 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Because our models use continuous time and differential equations, we will sometimes compute non-integer values for the number of individuals in some compartments. We should think through this carefully. If, for instance, we find that at some time we have 13.6 Susceptibles and 36.4 Infectious, we are not saying that we have 13 Susceptibles, plus 36 Infectious, plus one individual who is split up to be 60% Susceptible and 40% Infectious. Instead, the differential equation model is telling us on average what happens, across many possible simulations or many possible outcomes. In computing an <em class="emphasis">on average</em> outcome, non-integer values are possible. If we wish to refer to actual numbers of people, we can round to the nearest integer, or use language that reflects the <em class="emphasis">on average</em> meaning of our model.</div>
+<div class="para">When we say “mutually distinct”, we mean that at any moment in time, an individual is in exactly one compartment: no more, no fewer. This means our entire population is fully accounted for at all times because everyone appears in some compartment. We also notice that we cannot double-count individuals, as they cannot be in more than one compartment at a time.</div>
 <span class="incontext"><a href="ch-compartmental-diagrams.html#p-245" class="internal">in-context</a></span>
 </body>
 </html>

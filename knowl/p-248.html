@@ -12,18 +12,7 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">The letters <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> and <span class="process-math">\(t\)</span> are variables in the model. The Greek letter <span class="process-math">\(\beta\)</span> is a parameter. We use the following conventions for letters in most of the models we study:</div>
-<ul class="disc">
-<li><div class="para">Time is denoted as the <em class="emphasis">lowercase letter</em> <span class="process-math">\(t\text{.}\)</span>
-</div></li>
-<li><div class="para">We use <em class="emphasis">capital letters</em> such as <span class="process-math">\(S\)</span> and <span class="process-math">\(I\)</span> to indicate populations of people, which are typically functions of time, so that <span class="process-math">\(S=S(t)\text{,}\)</span> <span class="process-math">\(I=I(t)\text{.}\)</span>
-</div></li>
-<li><div class="para">
-<em class="emphasis">Greek letters</em> such as <span class="process-math">\(\beta\)</span> represent some aspect of how a disease progresses and are called <dfn class="terminology">parameters</dfn>.</div></li>
-</ul>
-<div class="para">A parameter may seem to behave a bit like a variable, since it can take on different values. However, parameters play a different role than variables in our models. In a given simulation, <em class="emphasis">we use biological information to set all parameter values</em>. By contrast, we choose only the initial values of our variables, that is, the values when <span class="process-math">\(t=0\text{,}\)</span> and then the simulation reveals the values of each variable at later points in time. For instance, in the human–zombie example, we start at <span class="process-math">\(t=0\)</span> with 49 humans and 1 zombie. Writing this in mathematical terms: <span class="process-math">\(S(0)=49\)</span> and <span class="process-math">\(I(0)=1\text{.}\)</span> After <span class="process-math">\(t=0\text{,}\)</span> the populations of Susceptibles and Infectious depend on the outcome of the simulation. Even the length of time for the simulation depends on how long it takes the Infectious zombies to convert all the Susceptible humans.</div>
-</div>
+<div class="para">The term <span class="process-math">\(\beta SI\)</span> indicates flow from <span class="process-math">\(S\)</span> to <span class="process-math">\(I\text{.}\)</span> This term indicates that the flow depends on both the population <span class="process-math">\(S\)</span> and the population <span class="process-math">\(I\text{.}\)</span> When either population is very small, flow is relatively small. When both populations are relatively large, their product is large and therefore flow is relatively large. This sort of term is called a <em class="emphasis">mass action</em> term, from the Law of Mass Action in chemistry. The idea of mass action is just one way to model flow from one compartment to another; we will study other formulas for flow.</div>
 <span class="incontext"><a href="ch-compartmental-diagrams.html#p-248" class="internal">in-context</a></span>
 </body>
 </html>

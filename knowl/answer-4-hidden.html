@@ -11,7 +11,9 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math"><div class="answer solution-like">
-<div class="para">One possible answer for the code is the following.</div> <div class="para"><code class="code-inline tex2jax_ignore">
+<div class="para logical">
+<div class="para">One possible answer for the code is the following.</div>
+<pre class="code-display tex2jax_ignore">
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.integrate import odeint
@@ -35,6 +37,7 @@ plt.plot(t_steps, I_data, '*', color='orange')
 plt.plot(t_range, sol[:, 0], color='blue')
 plt.plot(t_range, sol[:, 1], color='orange')
 plt.show()
-            </code></div> <div class="para">There are many possible answers regarding the value of <span class="process-math">\(\beta\text{.}\)</span> The key is to discuss what a good fit may look like. When the data and model do not fit perfectly, which is usually what will happen, then which aspects of the data do we most hope are represented in the model's solution curves?</div>
+          </pre>
+</div> <div class="para">There are many possible answers regarding the value of <span class="process-math">\(\beta\text{.}\)</span> The key is to discuss what a good fit may look like. When the data and model do not fit perfectly, which is usually what will happen, then which aspects of the data do we most hope are represented in the model's solution curves?</div>
 </div></body>
 </html>
