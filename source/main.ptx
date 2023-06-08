@@ -94,13 +94,22 @@
         <title>To Students: How to Get the Most from This Text</title>
         
         <p>
-          Active learning. Goals, Explorations, Activities, For Further Thought, asides, live links, use links to open images where you are (rather than need to jump back in the text), Python code
+          Dear students working from this text: I hope you enjoy and learn a lot from these pages! My plan when writing has been to encourage active learning. This means that there are relatively few written explanations, along with lots of chances for you to try things on your own or with other students. The book is also filled with applications to real outbreaks and examples inspired by outbreaks, as well as applications to ideas that do not involve epidemics at all, but that can be represented by similar mathematics as what we use to study diseases. The types of mathematical models used in this text are used currently in the world, by people making decisions about public policy and for other wide-reaching goals, and I want you to emerge from using this text with a strong sense of what these models can, and cannot, tell us.
         </p>
         <p>
-          The features of the book (Goals, Explorations, Activities, other text, For Further Thought, and any others)
+          The chapters in this text are typically structured in a consistent way. The <em>Goals</em> of the chapter appear at the very start. After a brief introduction, an <em>Exploration</em> activity asks you to engage with questions that motivate the rest of the chapter. The sections within the chapter include some reading for you to do, and <em>Activities</em> appear frequently. It is best if you do these activities when they appear: later reading will assume you have already completed them. Some activities include hints or answers, and you will learn the most by completing as much of the activity as you can before checking the hints or reading the answers. At the end of each chapter, there are questions <em>For Further Thought</em> that provide deeper insights or additional examples of the chapter's ideas. 
         </p>
         <p>
-          I won't tell you how to think! There are not specific outcomes of models that I insist you find or agree on: instead, this is about the process of describing models, supporting your assumptions, doing correct mathematics, and understanding outcomes.
+          There are footnotes in this book, appearing as a raised number.<fn>Here is an example of a footnote!</fn> In the web version of the book, clicking on the raised number shows the footnote in a box that opens below the paragraph. The web version of the book also contains live links. Some of the links, such as to chapters, take you to different pages of the book. Other links, such as to figures or equations that we saw earlier in the text, open a box showing these figures or equations directly where you are reading, so that you can see them without jumping from webpage to webpage. You will also see Python code boxes in this text, with a button after that says <c>Evaluate (Sage)</c>. In the web version of this text, you can click on this button and evaluate the code directly within the book.  
+        </p>
+        <p>
+          For readers using an electronic PDF of this book, or a printed version, many things are similar to the web version, but the live links to equations and figures will lead to the original location of those items within the text, rather than opening them within a box within the page you are reading. The Python code will not run directly, which requires you to set up some way to run Python on your computer. There are many ways to do this. Suggestions include (and are not limited to): copying the code directly into the box at the top of the page at <url href="https://sagecell.sagemath.org/">sagecell.sagemath.org</url>, using Google Colab at <url href="https://colab.research.google.com/">colab.research.google.com</url>, or downloading an installation of Python directly from <url href="https://www.python.org/">python.org</url>.
+        </p>
+        <p>
+          Last but not least: I will not tell you how to think. Mathematical modeling involves setting priorities and incorporating personal values, and each person gets to decide these for themselves.  This book focuses on the processes of developing and describing models, stating and supporting your assumptions, and understanding and explaining your model's outcomes. The mathematics certainly needs to be correct, and all the processes should be done carefully, but priorities and values are personal.
+        </p>
+        <p>
+          Thank you for reading! 
         </p>
 
       </preface>
@@ -360,7 +369,7 @@
       </objectives>
 
       <p>
-        First things first: let's simulate an outbreak! This activity is directly inspired by the Disease Lab materials published freely online by Utah State University.<fn>Powell, Jim and Lewis, Matt, "Disease Lab" (2016). <em>Laboratory Experiences in Mathematical Biology</em>. 1.
+        First things first: let's simulate an outbreak! This activity is directly inspired by the Disease Lab materials published freely online by Utah State University.<fn>Powell, Jim and Lewis, Matt, <q>Disease Lab</q> (2016). <em>Laboratory Experiences in Mathematical Biology</em>. 1.
         <url href="https://digitalcommons.usu.edu/lemb/1">https://digitalcommons.usu.edu/lemb/1</url></fn> You can do this exploration in a group or on your own. (Groups are recommended, if you are able to team up with one or more other people.) You will model humans, also called Susceptibles, as well as zombies, also called Infectious. The <url href="https://digitalcommons.usu.edu/lemb/1">Utah State University link</url> describes a hands-on way to play this game using dry erase markers and overhead projector transparencies. In this text, we primarily use a related online <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url><fn>This app was created by Gabe Nelson, Bates College Class of 2020, after campus closed due to COVID-19.</fn> to play and to generate data.
       </p>
 
@@ -796,13 +805,7 @@
         </md>
   
         <p>
-          We began to explore the differences between the discrete data, collected round-by-round in the Zombie Game App, and the continuous model, which uses a system of differential equations to produce smooth curves. Here, we continue that exploration visually, by producing graphs of data and graphs of model results. We also see a first, very visual, way to estimate the value of <m>\beta</m> in our model. (There will be other, more detailed, ways to estimate <m>\beta</m>, as we continue in this text.) To do all this, we employ visualization tools. This text uses cells that run both Python and <url href="https://www.sagemath.org/">SageMath</url>, which <q>is a free open-source mathematics software system</q><fn><url href="https://www.sagemath.org/">https://www.sagemath.org/</url></fn>, for visualization. The Python code here can be used in any setting where you use Python.
-          <aside>
-            <p>
-              The Python-related goal of this text is to make it as easy and intuitive as possible for readers to jump into using Python, so that we can better explore disease models. Some readers may prefer different Python syntax, or using a different program altogether, and these alternate approaches are welcome. 
-            </p>
-            
-          </aside> 
+          We began to explore the differences between the discrete data, collected round-by-round in the Zombie Game App, and the continuous model, which uses a system of differential equations to produce smooth curves. Here, we continue that exploration visually, by producing graphs of data and graphs of model results. We also see a first, very visual, way to estimate the value of <m>\beta</m> in our model. (There will be other, more detailed, ways to estimate <m>\beta</m>, as we continue in this text.) To do all this, we employ visualization tools. This text uses cells that run both Python and <url href="https://www.sagemath.org/">SageMath</url>, which <q>is a free open-source mathematics software system</q><fn><url href="https://www.sagemath.org/">https://www.sagemath.org/</url></fn>, for visualization. The Python code here can be used in any setting where you use Python.<fn>The Python-related goal of this text is to make it as easy and intuitive as possible for readers to jump into using Python, so that we can better explore disease models. Some readers may prefer different Python syntax, or using a different program altogether, and these alternate approaches are welcome.</fn> 
           
           <!-- Other options include Python and Mathematica, with files for each available at (provide on GitHub???). -->
         </p>
@@ -835,7 +838,7 @@
                 plt.show()
               </input>
               <output>
-              (put the graph here!!)
+              
               </output>
               </sage>
             <ul>
@@ -1061,7 +1064,7 @@
               plt.show()
             </input>
             <output>
-            (put the graph here!!)
+             
             </output>
             </sage>
         </statement>
@@ -1206,7 +1209,7 @@
               plt.show()
             </input>
             <output>
-            (put the graph here!!)
+            
             </output>
             </sage>
 
@@ -1266,7 +1269,7 @@
               
             </input>
             <output>
-            (put the graph here!!)
+            
             </output>
             </sage>
 
@@ -1288,9 +1291,9 @@
         <answer>
           <p>
             One possible answer for the code is the following.
-          </p>
-          <p>
-            <c>
+          
+
+          <cd>
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.integrate import odeint
@@ -1314,7 +1317,7 @@ plt.plot(t_steps, I_data, '*', color='orange')
 plt.plot(t_range, sol[:, 0], color='blue')
 plt.plot(t_range, sol[:, 1], color='orange')
 plt.show()
-            </c>
+          </cd>
           </p>
           <p>
             There are many possible answers regarding the value of <m>\beta</m>. The key is to discuss what a good fit may look like. When the data and model do not fit perfectly, which is usually what will happen, then which aspects of the data do we most hope are represented in the model's solution curves?
@@ -1364,7 +1367,7 @@ plt.show()
 
               </input>
               <output>
-              (put the graph here!!)
+              
               </output>
               </sage>
 
@@ -1469,7 +1472,7 @@ plt.show()
                 plt.show()
               </input>
               <output>
-              (put the graph here!!)
+              
               </output>
               </sage>
               
@@ -1809,12 +1812,7 @@ plt.show()
           The Zombie Game variation in <xref ref="expl-activity-varying-the-human-zombie-game" /> introduces a new category of individuals, beyond Susceptibles and Infectious. This new category corresponds to a new compartment, compared with <xref ref="fig-SI-compartmental-diagram" />, in the model's compartmental diagram. 
         </p>
         <p>
-          When zombies die, they leave the Infectious compartment and can no longer infect the Susceptibles. It is typical to represent these dynamics by introducing a Removed (R) compartment for the individuals who were zombies but have then become inactive. Our model then includes S, I, and R compartments, so we call it an SIR model.
-          <aside>
-            <p>
-              We typically say each of the letters in SIR when naming this model aloud. That is, we refer to the <q>S</q> <q>I</q> <q>R</q> model, not the <q>sir</q> model. 
-            </p>
-          </aside>  A compartmental diagram representing the dynamics of this SIR model appears in <xref ref="fig-SIR-compartmental-diagram" />.
+          When zombies die, they leave the Infectious compartment and can no longer infect the Susceptibles. It is typical to represent these dynamics by introducing a Removed (R) compartment for the individuals who were zombies but have then become inactive. Our model then includes S, I, and R compartments, so we call it an SIR model.<fn>We typically say each of the letters in SIR when naming this model aloud. That is, we refer to the <q>S</q> <q>I</q> <q>R</q> model, not the <q>sir</q> model.</fn>  A compartmental diagram representing the dynamics of this SIR model appears in <xref ref="fig-SIR-compartmental-diagram" />.
         </p>
 
         <figure xml:id="fig-SIR-compartmental-diagram">
@@ -1976,13 +1974,7 @@ plt.show()
               <mrow xml:id="eq-SIR-model-R">\frac{dR}{dt} \amp = \gamma I. </mrow>
             </mdn>
             <p>
-              Recall that each of the variables <m>S</m>, <m>I</m>, and <m>R</m> represents some average number of individuals. This means that the units for each of <m>S</m>, <m>I</m>, and <m>R</m> are <em>population</em>.
-                <aside>
-                  <p>
-                    Alternately, we could call these units <em>people</em> or <em>individuals</em>.
-                  </p>                  
-                </aside>  
-              We also just saw from the discussion of <xref ref="eq-gamma-estimate"/> that the units of <m>\gamma</m> are <m>1/\mbox{time}</m>. 
+              Recall that each of the variables <m>S</m>, <m>I</m>, and <m>R</m> represents some average number of individuals. This means that the units for each of <m>S</m>, <m>I</m>, and <m>R</m> are <em>population</em>.<fn>Alternately, we could call these units <em>people</em> or <em>individuals</em>.</fn> We also just saw from the discussion of <xref ref="eq-gamma-estimate"/> that the units of <m>\gamma</m> are <m>1/\mbox{time}</m>. 
             </p>
             <ol>
               <li>
@@ -2310,7 +2302,7 @@ plt.show()
                 plt.show()
               </input>
               <output>
-              (put the graph here!!)
+              
               </output>
               </sage>
 
@@ -2476,7 +2468,7 @@ plt.show()
                 plt.show()
               </input>
               <output>
-              (put the graph here!!)
+              
               </output>
               </sage>
 
@@ -2764,7 +2756,7 @@ plt.show()
               plt.show()
             </input>
             <output>
-            (put the graph here!!)
+            
             </output>
             </sage>
         </exercise>
@@ -2883,7 +2875,7 @@ plt.show()
                 plt.show()
               </input>
               <output>
-              (put the graph here!!)
+              
               </output>
               </sage>
 
@@ -2944,12 +2936,7 @@ plt.show()
           We cannot change the intrinsic value of <m>\mathcal{R}_0</m>, but with vaccination, we can work toward the goal of having <m>\mathcal{R}_{\text{eff}} \lt 1</m>. If <m>\mathcal{R}_{\text{eff}} \lt 1</m> in a model that includes vaccines or other public health interventions, then overall numbers of Infectious people do not rise over time. With a few lines of algebra, we can build a relationship between <m>\mathcal{R}_0</m>, <m>p</m>, and <m>\mathcal{R}_{\text{eff}}</m>. 
         </p> 
         <p>
-          First, we should state a definition for <m>p</m>. We define <m>p</m> to be the fraction of people vaccinated against a disease, noting that the values of <m>p</m> are therefore restricted to <m>0 \leq p \leq 1</m>, where <m>p=0</m> means no one is vaccinated, and <m>p=1</m> means <m>100\%</m> of the population is vaccinated. Initially, we will think of vaccination as being <m>100\%</m> effective. 
-          <aside>
-            <p>
-              Later, we update our models to include vaccines that are less than <m>100\%</m> effective.
-            </p>
-          </aside>
+          First, we should state a definition for <m>p</m>. We define <m>p</m> to be the fraction of people vaccinated against a disease, noting that the values of <m>p</m> are therefore restricted to <m>0 \leq p \leq 1</m>, where <m>p=0</m> means no one is vaccinated, and <m>p=1</m> means <m>100\%</m> of the population is vaccinated. Initially, we will think of vaccination as being <m>100\%</m> effective.<fn>Later, we update our models to include vaccines that are less than <m>100\%</m> effective.</fn>
           When the fraction <m>p</m> of people are vaccinated, the remaining fracion <m>(1-p)</m> are not vaccinated. Since <m>\mathcal{R}_0</m> refers to an entirely susceptible population, but only the fraction <m>(1-p)</m> of the population is susceptible, we see that the average number of new infections caused by one infectious person in the vaccinated population is <m>(1-p)\mathcal{R}_0</m>. In other words:
         </p>
         
@@ -2958,13 +2945,7 @@ plt.show()
         </mdn>
 
         <p>
-          Our goal in the next few mathematical steps is to use <xref ref="eq-Reff-define"/> to determine a value of <m>p</m> for which <m>\mathcal{R}_{\text{eff}} \lt 1</m>.
-          <aside>
-            <p>
-              The goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m> was set out in the 1983 paper <q>Parasitic Infections as Regulators of Animal Populations</q> by Robert M. May, published in <em>American Scientist</em> in the January-February issue. Additional details and explanation appear in the 1988 textbook <q>Mathematical Models in Biology</q> by Leah Edelstein-Keshet, published by McGraw-Hill.
-            </p>
-          </aside> 
-          Such a value of <m>p</m> corresponds to a vaccination rate high enough that a disease cannot become an outbreak because <m>\mathcal{R}_{\text{eff}} \lt 1</m> means that the overall numbers in the population are not expected to rise. Read carefully through the following mathematical steps to see how this value of <m>p</m> is computed:
+          Our goal in the next few mathematical steps is to use <xref ref="eq-Reff-define"/> to determine a value of <m>p</m> for which <m>\mathcal{R}_{\text{eff}} \lt 1</m>.<fn>The goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m> was set out in the 1983 paper  <q>Parasitic Infections as Regulators of Animal Populations</q> by Robert M. May, published in <em>American Scientist</em> in the January-February issue. Additional details and explanation appear in the 1988 textbook <q>Mathematical Models in Biology</q> by Leah Edelstein-Keshet, published by McGraw-Hill.</fn> Such a value of <m>p</m> corresponds to a vaccination rate high enough that a disease cannot become an outbreak because <m>\mathcal{R}_{\text{eff}} \lt 1</m> means that the overall numbers in the population are not expected to rise. Read carefully through the following mathematical steps to see how this value of <m>p</m> is computed:
         </p>
         
         <!-- <md>
@@ -3008,24 +2989,12 @@ plt.show()
             <ol>              
               <li>
                 <p>
-                  We begin by examining smallpox. Estimates for the value of <m>\mathcal{R}_0</m> for smallpox range from 3.5 to 6.
-                  <aside>
-                    <p>
-                      Estimates that <m>\mathcal{R}_0 \approx 3.5-6</m> come from the paper <q>Transmission potential of smallpox in contemporary populations</q> by Raymond Gani and Steve Leach, published in the journal <em>Nature</em> on 13 December 2001.
-                    </p>
-                  </aside>
-                  Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for smallpox so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Suppose that a <m>100\%</m> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a smallpox outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
+                  We begin by examining smallpox. Estimates for the value of <m>\mathcal{R}_0</m> for smallpox range from 3.5 to 6.<fn>Estimates that <m>\mathcal{R}_0 \approx 3.5-6</m> come from the paper <q>Transmission potential of smallpox in contemporary populations</q> by Raymond Gani and Steve Leach, published in the journal <em>Nature</em> on 13 December 2001.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for smallpox so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Suppose that a <m>100\%</m> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a smallpox outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
                 </p>
               </li>              
               <li>
                 <p>
-                  Next, we examine measles. Many estimates for the value of <m>\mathcal{R}_0</m> for measles range from 12 to 18.
-                  <aside>
-                    <p>
-                      The paper <q>The basic reproduction number (R0) of measles: a systematic review</q>, by Fiona M Guerra, Shelly Bolotin, Gillian Lim, Jane Heffernan, Shelley L Deeks, Ye Li, and Natasha S Crowcroft, states that <m>\mathcal{R}_0</m> is often approximated as <m>12-18</m>, while also stating that the actual range of <m>\mathcal{R}_0</m> for measles varies even more. This paper was published in <em>The Lancet Infectious Diseases</em> on 27 July 2017.
-                    </p>
-                  </aside>
-                  Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for measles so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Suppose that a <m>100\%</m> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a measles outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
+                  Next, we examine measles. Many estimates for the value of <m>\mathcal{R}_0</m> for measles range from 12 to 18.<fn>The paper <q>The basic reproduction number (R0) of measles: a systematic review</q>, by Fiona M Guerra, Shelly Bolotin, Gillian Lim, Jane Heffernan, Shelley L Deeks, Ye Li, and Natasha S Crowcroft, states that <m>\mathcal{R}_0</m> is often approximated as <m>12-18</m>, while also stating that the actual range of <m>\mathcal{R}_0</m> for measles varies even more. This paper was published in <em>The Lancet Infectious Diseases</em> on 27 July 2017.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for measles so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Suppose that a <m>100\%</m> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a measles outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
                 </p>
               </li>              
               <li>
@@ -3067,13 +3036,7 @@ plt.show()
         </p> 
         
         <p>
-          When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>.
-          <aside>
-            <p>
-              Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.              
-            </p>            
-          </aside>  
-          The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
+          When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>.<fn>Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.</fn> The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
         </p>
         <p>
           Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at this <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization.
