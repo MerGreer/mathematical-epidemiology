@@ -51,6 +51,13 @@
         </copyright>
       </colophon>
 
+      <acknowledgement>
+        <p>
+          Thanks to
+        </p>
+
+      </acknowledgement>
+
       <preface xml:id="preface-overall">
         <title>Preface</title>
         
@@ -94,16 +101,44 @@
         <title>To Students: How to Get the Most from This Text</title>
         
         <p>
-          Dear students working from this text: I hope you enjoy and learn a lot from these pages! My plan when writing has been to encourage active learning. This means that there are relatively few written explanations, along with lots of chances for you to try things on your own or with other students. The book is also filled with applications to real outbreaks and examples inspired by outbreaks, as well as applications to ideas that do not involve epidemics at all, but that can be represented by similar mathematics as what we use to study diseases. The types of mathematical models used in this text are used currently in the world, by people making decisions about public policy and for other wide-reaching goals, and I want you to emerge from using this text with a strong sense of what these models can, and cannot, tell us.
+          Dear students working from this text: I hope you enjoy and learn a lot from these pages! My plan when writing has been to encourage active learning. This means that written explanations are kept to a minimum, and there are lots of chances for you to try things on your own or with other students. The book is filled with applications to real outbreaks; examples inspired by outbreaks; and applications to ideas that do not involve epidemics at all, but that can be represented by similar mathematics as what we use to study diseases. The types of mathematical models studied in this text are used currently in the world, by people making decisions about public policy and for other wide-reaching goals, and I want you to emerge from using this text with a strong sense of what these models can, and cannot, tell us.
         </p>
         <p>
-          The chapters in this text are typically structured in a consistent way. The <em>Goals</em> of the chapter appear at the very start. After a brief introduction, an <em>Exploration</em> activity asks you to engage with questions that motivate the rest of the chapter. The sections within the chapter include some reading for you to do, and <em>Activities</em> appear frequently. It is best if you do these activities when they appear: later reading will assume you have already completed them. Some activities include hints or answers, and you will learn the most by completing as much of the activity as you can before checking the hints or reading the answers. At the end of each chapter, there are questions <em>For Further Thought</em> that provide deeper insights or additional examples of the chapter's ideas. 
+          The chapters in this text are typically structured in a consistent way.     
+        </p>
+        <ul>
+          <li>
+            <p>
+              The <em>Goals</em> of the chapter appear at the very start.
+            </p>
+          </li>
+          <li>
+            <p>
+              After a brief introduction, an <em>Exploration</em> activity asks you to engage with questions that motivate the rest of the chapter.
+            </p>
+          </li>
+          <li>
+            <p>
+              The sections within the chapter include some reading for you to do, and <em>Activities</em> appear frequently. It is best if you do these activities when they appear: many activities contain new information, rather than just examples, and later reading will assume you have already completed the activities. Some activities include hints or answers, and you will learn the most by completing as much of the activity as you can before checking the hints or reading the answers.
+            </p>
+          </li>
+          <li>
+            <p>
+              At the end of each chapter, there are questions <em>For Further Thought</em> that provide deeper insights or additional examples of the chapter's ideas.
+            </p>
+          </li>
+        </ul>
+        <p>
+          The <xref ref="glossary-of-terms"/> near the end of the book includes descriptions of key terms, along with the chapter in which each term first appears.
         </p>
         <p>
-          There are footnotes in this book, appearing as a raised number.<fn>Here is an example of a footnote!</fn> In the web version of the book, clicking on the raised number shows the footnote in a box that opens below the paragraph. The web version of the book also contains live links. Some of the links, such as to chapters, take you to different pages of the book. Other links, such as to figures or equations that we saw earlier in the text, open a box showing these figures or equations directly where you are reading, so that you can see them without jumping from webpage to webpage. You will also see Python code boxes in this text, with a button after that says <c>Evaluate (Sage)</c>. In the web version of this text, you can click on this button and evaluate the code directly within the book.  
+          There are footnotes in this book, appearing as a raised number.<fn>Here is an example of a footnote!</fn> In the web version of the book, clicking on the raised number shows the footnote in a box that opens below the paragraph. The web version of the book also contains live links. Some of the links, such as to chapters, take you to different pages of the book. Other links, such as to figures or equations that we saw earlier in the text, open a box showing these figures or equations directly where you are reading, so that you can see them without jumping from webpage to webpage. You will also see Python code boxes in this text, with a button after that says <c>Evaluate (Sage)</c>. In the web version of this text, you can click on the <c>Evaluate (Sage)</c> button to evaluate the code directly within the book.  
         </p>
         <p>
-          For readers using an electronic PDF of this book, or a printed version, many things are similar to the web version, but the live links to equations and figures will lead to the original location of those items within the text, rather than opening them within a box within the page you are reading. The Python code will not run directly, which requires you to set up some way to run Python on your computer. There are many ways to do this. Suggestions include (and are not limited to): copying the code directly into the box at the top of the page at <url href="https://sagecell.sagemath.org/">sagecell.sagemath.org</url>, using Google Colab at <url href="https://colab.research.google.com/">colab.research.google.com</url>, or downloading an installation of Python directly from <url href="https://www.python.org/">python.org</url>.
+          For readers using an electronic PDF of this book, many things are similar to the web version, but the live links to equations and figures will lead to the original location of those items within the text, rather than opening them within a box within the page you are reading. 
+        </p>
+        <p>          
+          For anyone not using the web version of this text, the Python code will not run directly, which requires you to set up some way to run Python on your computer. There are many ways to do this. Suggestions include (and are not limited to): copying the code directly into the box at the top of the page at <url href="https://sagecell.sagemath.org/">sagecell.sagemath.org</url>, using Google Colab at <url href="https://colab.research.google.com/">colab.research.google.com</url>, or downloading an installation of Python directly from <url href="https://www.python.org/">python.org</url>.
         </p>
         <p>
           Last but not least: I will not tell you how to think. Mathematical modeling involves setting priorities and incorporating personal values, and each person gets to decide these for themselves.  This book focuses on the processes of developing and describing models, stating and supporting your assumptions, and understanding and explaining your model's outcomes. The mathematics certainly needs to be correct, and all the processes should be done carefully, but priorities and values are personal.
@@ -1752,7 +1787,7 @@ plt.show()
         
       </exploration>
       
-      <section xml:id="section-compartmental-diagrams-vocabulary-and-comments">
+      <section xml:id="sec-compartmental-diagrams-vocabulary-and-comments">
         <title>Compartmental Diagrams: Vocabulary and Comments</title>
 
         <p>
@@ -1812,7 +1847,7 @@ plt.show()
           The Zombie Game variation in <xref ref="expl-activity-varying-the-human-zombie-game" /> introduces a new category of individuals, beyond Susceptibles and Infectious. This new category corresponds to a new compartment, compared with <xref ref="fig-SI-compartmental-diagram" />, in the model's compartmental diagram. 
         </p>
         <p>
-          When zombies die, they leave the Infectious compartment and can no longer infect the Susceptibles. It is typical to represent these dynamics by introducing a Removed (R) compartment for the individuals who were zombies but have then become inactive. Our model then includes S, I, and R compartments, so we call it an SIR model.<fn>We typically say each of the letters in SIR when naming this model aloud. That is, we refer to the <q>S</q> <q>I</q> <q>R</q> model, not the <q>sir</q> model.</fn>  A compartmental diagram representing the dynamics of this SIR model appears in <xref ref="fig-SIR-compartmental-diagram" />.
+          When zombies die, they leave the Infectious compartment and can no longer infect the Susceptibles. It is typical to represent these dynamics by introducing a Removed (R) compartment for the individuals who were zombies but have then become inactive. Our model then includes S, I, and R compartments, so we call it an <term>SIR model</term>.<fn>We typically say each of the letters in SIR when naming this model aloud. That is, we refer to the <q>S</q> <q>I</q> <q>R</q> model, not the <q>sir</q> model.</fn>  A compartmental diagram representing the dynamics of this SIR model appears in <xref ref="fig-SIR-compartmental-diagram" />.
         </p>
 
         <figure xml:id="fig-SIR-compartmental-diagram">
@@ -2765,10 +2800,10 @@ plt.show()
     </chapter>
 
     
-    <chapter xml:id="ch-vaccines-and-isolation-in-compartmental-models">
+    <chapter xml:id="ch-vaccines-in-compartmental-models">
       <title>Vaccines in Compartmental Models</title>
 
-      <introduction xml:id="intro-vaccines-and-isolation-in-compartmental-models">
+      <introduction xml:id="intro-vaccines-in-compartmental-models">
       <objectives>
         <ul>
           <li>
@@ -2923,7 +2958,7 @@ plt.show()
         
       </exploration>
 
-      <section xml:id="section-vaccines-in-compartmental-models">
+      <section xml:id="sec-vaccines-in-compartmental-models">
         <title>Vaccines in Compartmental Models</title>
 
         <p>
@@ -3027,37 +3062,489 @@ plt.show()
           </answer>
         </activity>
 
+        <p>
+          The investigations of <xref ref="activity-pcrit"/> asked you to compute values of <m>p_{\text{crit}}</m> for specific diseases. Another aspect of <m>p_{\text{crit}}</m> is that achieving this critical vaccination level means only that the infection curve, that is, the <m>I(t)</m> curve, falls from the beginning rather than rising first. However, this does not mean that there are no new infections after the initial cases. Explore this further in <xref ref="activity-pcrit2"/>.
+        </p>
+
+        <activity xml:id="activity-pcrit2">
+          <statement>
+            <p>
+              This activity focuses on understanding long-term model outcomes, with an emphasis on <m>p_{\text{crit}}</m>, the critical vaccine coverage value defined in <xref ref="eq-pcrit"/>. Another emphasis is on adjusting our Python code in order to make sure its output truly demonstrates the answers to the questions we are asking. 
+            </p>
+            <p> 
+              We use the following SIR model with a term <m>(1-p)</m> to indicate the unvaccinated fraction of people:  
+            </p>
+            <md>
+              <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
+              <mrow>\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I </mrow>
+              <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+            </md>
+            <p>
+              In the default Python code shown below, <m>\beta = 0.0003</m>, <m>\gamma = 0.3</m>, <m>p=0</m>, the initial population values are <m>S(0)=2900</m>, <m>I(0)=100</m>, and <m>R(0)=0</m>, and time runs from <m>t=0</m> to <m>t=25</m> days. Begin by running the code, and then work through the steps below to make specific changes to the model.
+            </p>
+
+            <sage>
+              <input>
+                #Import packages
+                import numpy as np
+                import matplotlib.pyplot as plt
+                from scipy.integrate import odeint
+
+                plt.cla() #Clear (delete) any past plots
+                
+                #Define the system of differential equations, and call it "model"
+                def model(y, t):
+                  S, I, R = y #Define y as consisting of S, I, and R, in that order
+                  dydt = [- (1-p) * beta * S * I, (1-p) * beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+                  return dydt
+                
+                beta = 0.0003 #Give a value to beta
+                gamma = 0.3 #Give a value to gamma
+                p = 0.0 #Give a value to p
+                y0 = [2900, 100, 0] #Set initial conditions for S, I, and R, in that order
+                t_range = np.arange(0.0, 25.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+                
+                sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+                
+                # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+                print("Long-term value of S = ", round(sol[-1,0]))
+                print("Long-term value of I = ", round(sol[-1,1]))
+                print("Long-term value of R = ", round(sol[-1,2]))
+
+
+                # Plotting commands are below
+                plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+                plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+                plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+                plt.legend()
+                plt.grid()
+                plt.xlabel('time')
+                plt.ylabel('populations')
+                plt.show()
+              </input>
+              <output>
+              
+              </output>
+            </sage>
+
+            <ol>              
+              <li>
+                <p>
+                  How many people have had this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment must have been sick at some time, so the long-term value of <m>R(t)</m> provides the answer. Also notice that we need to make sure to run the model long enough that <m>I(t)</m> reaches <m>0</m>. Only then will <m>R(t)</m> be evaluated at a large enough value of <m>t</m> for us to know the total number of people who become ill. 
+                </p>
+              </li>              
+              <li>
+                <p>
+                  Compute the value <m>p_{\text{crit}}</m> for this model, showing your work. Then run the model using the value you computed for <m>p_{\text{crit}}</m> and re-answer the question above: how many people get the illness at some point in time, according to this model, when <m>p=p_{\text{crit}}</m>? 
+                </p>
+              </li>              
+              <li>
+                <p>
+                  Compare your answer above, regarding how many people get the illness at some time in the situation when <m>p=p_{\text{crit}}</m>, with the initial number of Infectious people in the model. How many people must have gotten the illness sometime after the original Infectious people? Notice that this means that even when <m>\mathcal{R}_{\text{eff}} \approx 1</m>, a significant number of additional people can contract the illness being studied. However, the Infectious population curve <m>I(t)</m> does not rise: it instead appears as level or decreasing.
+                </p>
+              </li>
+              <li>
+                <p>
+                  We may want to see for ourselves, or demonstrate to others, that the Infectious curve is truly not rising when <m>p=p_{\text{crit}}</m>. The default graph in the Python code for this activity is not the most helpful to us because <m>S(0)</m> is so large relative to <m>I(0)</m>, which makes it challenging to see the details of the curvature of the <m>I(t)</m> curve. To see <em>just</em> the <m>I(t)</m> curve, then, we can comment out the lines of code that show the <m>S(t)</m> and <m>R(t)</m> curves. Do this: comment out those lines, and produce a graph showing just the <m>I(t)</m> curve.
+                </p>
+              </li>
+            </ol>
+            
+          </statement>
+          <answer>
+            <ol>
+              <li>
+                <p>
+                  The default model says the long-term value of <m>R(t)</m> is <m>2802</m>, but at <m>t=25</m>, there are still people in the <m>I(t)</m> compartment. Use a larger value of <m>t</m> to find that <m>2829</m> people have the illness at some time during the outbreak. (State, and show, how large you made your value of <m>t</m>.) 
+                </p>
+              </li>
+              <li>
+                <p>
+                  The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>. Approximating this as <m>0.67</m> and setting a large enough value of <m>t</m> leads to the conclusion that <m>692</m> total people have the illness at some time.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The answer above said that <m>692</m> people had the illness at some time, and we used the value <m>I(0)=100</m>. This means that after the initial <m>100</m> people, another <m>592</m> got the illness. (For readers who approximated <m>0.\overline{6}</m> differently than <m>0.67</m>, your answers may vary somewhat.) 
+                </p>
+              </li>
+              <li>
+                <p>
+                  The first and third lines after <q>#Plotting commands are below</q> should be commented out, that is, the symbol <q>#</q> should be placed at the start of each of these lines. Then run the code block again to produce just the <m>I(t)</m> graph. 
+                </p>
+              </li>
+            </ol>
+            
+          </answer>
+        </activity>
+             
+        <p>
+          We now pause our modeling for a moment to provide some extra vocabulary and commentary on vaccines. When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>.<fn>Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.</fn> The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
+        </p>
+        <p>
+          Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at the <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization.
+        </p> 
+        <p>
+          Vaccine outcomes extend beyond affecting disease transmission. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can be included in models, however such models tend to be more detailed than those we are studying right now. For this reason, this chapter focuses only on vaccine models that show reduced transmission.
+        </p>
+        <p>
+          Much of this section has focused on vaccines, which are a valuable element of compartmental models. Another important aspect of disease spread is the incubation period of an illness. The SEIR model, described in <xref ref="sec-the-seir-model"/>, incorporates this incubation period.           
+        </p>
+
+
+      </section>
+
+      <section xml:id="sec-the-seir-model">
+        <title>The SEIR Model</title>
+
+        <p>
+          We introduce here the <term>SEIR model</term>. The new compartment, E, stands for <em>Exposed-and-incubating</em>. The population <m>E(t)</m> therefore represents people who have contracted an illness, but who are not yet infectious. As the name <q>SEIR</q> suggests, this model has four compartments. 
+        </p>
+        <p>
+          Now that we have worked with the SI and SIR models, you may well have ideas in mind for how the SEIR model should look. Try these out in <xref ref="activity-seir-model-intro"/>.
+        </p>
+
+        <activity xml:id="activity-seir-model-intro">
+          <statement>
+            <p>
+              How do you believe the SEIR model should appear? Demonstrate your ideas for this activity: 
+            </p>
+            
+            <ol>              
+              <li>
+                <p>
+                  Draw the SEIR model as a compartmental diagram. Carefully label each compartment and each arrow. Do not include vaccination in this model.
+                </p>
+              </li>              
+              <li>
+                <p>
+                  Write the differential equations of the SEIR model. Do not include vaccination.
+                </p>
+              </li>              
+              <li>
+                <p>
+                  Compare the compartmental diagram you drew with the differential equations you wrote. Are they compatible with each other? That is, do they describe the same model, with the same flow of people through compartments? 
+                </p>
+              </li>
+            </ol>
+            
+          </statement>
+          <answer>
+            <ol>
+              <li>
+                <p>
+                  One possible compartmental diagram appears below. 
+                </p>
+                <figure xml:id="fig-SEIR-model">
+                <caption>Compartmental diagram of a model of HIV/AIDS, using descriptions instead of formulas for each arrow</caption>
+                <image width="100%">
+                <description>(Write this)</description>
+                <latex-image>
+                \begin{tikzpicture}
+                  \draw [thick] [black] (0,0) -- (2,0);
+                  \draw [thick] [black] (2,0) -- (2,2);
+                  \draw [thick] [black] (2,2) -- (0,2);
+                  \draw [thick] [black] (0,2) -- (0,0);
+                  \node [black] at (1,1) {\Huge $S$};
+                  \draw [thick] [->] (2.1,1) to (3.9,1); 
+                  \node at (3,1.5) {\Large $\beta SI$};
+                  \draw [thick] [black] (4,0) -- (6,0);
+                  \draw [thick] [black] (6,0) -- (6,2);
+                  \draw [thick] [black] (6,2) -- (4,2);
+                  \draw [thick] [black] (4,2) -- (4,0);
+                  \node [black] at (5,1) {\Huge $E$};
+                  \draw [thick] [->] (6.1,1) to (7.9,1); 
+                  \node at (7,1.5) {\Large $\kappa E$};
+                  \draw [thick] [black] (8,0) -- (10,0);
+                  \draw [thick] [black] (10,0) -- (10,2);
+                  \draw [thick] [black] (10,2) -- (8,2);
+                  \draw [thick] [black] (8,2) -- (8,0);
+                  \node [black] at (9,1) {\Huge $I$};
+                  \draw [thick] [->] (10.1,1) to (11.9,1); 
+                  \node at (11,1.5) {\Large $\gamma I$};
+                  \draw [thick] [black] (12,0) -- (14,0);
+                  \draw [thick] [black] (14,0) -- (14,2);
+                  \draw [thick] [black] (14,2) -- (12,2);
+                  \draw [thick] [black] (12,2) -- (12,0);
+                  \node [black] at (13,1) {\Huge $R$};
+                \end{tikzpicture}
+                </latex-image>
+                </image>
+                </figure>
+                <p>
+                  One key aspect of this diagram is that the term <m>\beta SI</m> appears on the arrow from <m>S</m> to <m>E</m>. In the SIR model, the arrow from <m>S</m> to <m>I</m> involved exactly the compartments at its beginning and end, but with the SEIR model, there is a different pattern.
+                </p>
+                <p>
+                  Notice the arrow labeled <m>\kappa E</m>. The flow out of the E compartment depends only on the population <m>E(t)</m> and the amount of time typically spent as Exposed-and-incubating, similar to how the flow out of the I compartment in the SIR and SEIR models depends only on the population <m>I(t)</m> and the amount of time spent as Infectious. An important comment here is that this answer key uses the parameter <m>\kappa</m> for the rate governing the flow out of the E compartment, but there is no reason at all that you should have chosen the Greek letter <m>\kappa</m> for this rate! Whatever letter you chose, as long as it is not a letter already in use elsewhere in the model, is an excellent choice.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The following differential equations represent the SEIR model:
+                </p>
+                <md>
+                  <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+                  <mrow>\frac{dE}{dt} \amp =  \beta S I - \kappa E </mrow>
+                  <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+                  <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+                </md>
+                <p>
+                  Your answer should look similar, but you may have selected a different parameter instead of <m>\kappa</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Your answers for the first two parts should definitely be compatible. If they are not, whether in this activity or ever in your modeling career, then that is a time to re-evaluate your work. This is one of many ways we can double-check our modeling work: when we describe a model in different formats, such as in a diagram and by means of equations, the different formats should agree with each other. 
+                </p>
+              </li>
+            </ol>
+            
+          </answer>
+        </activity>
+
+        <p>
+          Now that you have built an SEIR model in <xref ref="activity-seir-model-intro"/>, you can explore its compartmental diagram and differential equations. Your goals include envisioning how solutions should look, understanding how the value of the new parameter <m>\kappa</m> affects solutions, and simply playing around with the equations and different parameter values so that you can build your intuition for the SEIR model.          
+        </p>
+
+        <p>
+          Begin these investigations in <xref ref="activity-seir-model-play-with-kappa"/>. 
+        </p>
+
+        <activity xml:id="activity-seir-model-play-with-kappa">
+          <statement>
+            <p>
+              This activity provides a venue for you to play with the SEIR model. Begin by thinking through how you expect SEIR solution curves to appear, and then use Python code to create these solutions and see how they respond to changing parameters.  
+            </p>
+            
+            <ol>              
+              <li>
+                <p>
+                  Do a brief sign analysis of the SEIR model. Is it possible for the <m>S(t)</m>, <m>I(t)</m>, or <m>R(t)</m> curves in the SEIR model to behave in any ways that are fundamentally different than how these curves behave in the SIR model? In particular: within <xref ref="sec-using-calculus-to-analyze-models"/> we discussed the ways these three curves in the SIR model could fall, or rise and fall, or rise. Can these curves behave any differently in the SEIR model? And what does sign analysis tell you about how the <m>E(t)</m> model can possibly behave? 
+                </p>
+              </li>              
+              <li>
+                <p>
+                  Run the Python code below, and observe the curve <m>E(t)</m>. Does it behave the way you predicted in the first part of this Activity? (It should.) 
+                </p>
+                <p>
+                  Next, make a note of the long-term number of people who become sick in this model. Then make <m>\kappa</m> larger and note the newly computed long-term number of people who become sick in the model. Try this for multiple values of <m>\kappa</m>. What pattern(s) do you observe?  
+                </p>
+              </li>
+              <li>
+                <p>
+                  Continue the Python investigation of different values of <m>\kappa</m>. Start with <m>\kappa = 0.1</m>, then run the model with <m>\kappa = 0.2</m>, <m>\kappa = 0.3</m>, and so on, up to <m>\kappa = 1.0</m>. Describe how the <m>E(t)</m> curve changes as <m>\kappa</m> goes through these changes. Notice that you can focus in on the <m>E(t)</m> curve by commenting out the other three solution curves, similarly to how we did in <xref ref="activity-pcrit2"/>.
+                </p>
+              </li> 
+            </ol>
+
+            <sage>
+              <input>
+                #Import packages
+                import numpy as np
+                import matplotlib.pyplot as plt
+                from scipy.integrate import odeint
+
+                plt.cla() #Clear (delete) any past plots
+
+                #Define the system of differential equations, and call it "model"
+                def model(y, t):
+                  S, E, I, R = y #Define y as consisting of S, E, I, and R, in that order
+                  dydt = [- beta * S * I, beta * S * I - kappa * E, kappa * E - gamma * I, gamma * I] #Provide the right-hand sides of the SEIR model
+                  return dydt
+
+                beta = 0.0004 #Give a value to beta
+                kappa = 0.33 #Give a value to kappa
+                gamma = 0.2 #Give a value to gamma
+                y0 = [1997, 0, 3, 0] #Set initial conditions for S, E, I, and R, in that order
+                t_range = np.arange(0.0, 80.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+
+                sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+                # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+                print("Long-term value of S = ", round(sol[-1,0]))
+                print("Long-term value of E = ", round(sol[-1,1]))
+                print("Long-term value of I = ", round(sol[-1,2]))
+                print("Long-term value of R = ", round(sol[-1,3]))
+
+                # Plotting commands are below
+                plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+                plt.plot(t_range, sol[:, 1], color='magenta', linestyle='dotted', linewidth=2, label='E(t)')
+                plt.plot(t_range, sol[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+                plt.plot(t_range, sol[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+                plt.legend()
+                plt.grid()
+                plt.xlabel('time')
+                plt.ylabel('populations')
+                plt.show()
+              </input>
+              <output>
+              
+              </output>
+            </sage>
+            
+          </statement>
+          <answer>
+            <ol>
+              <li>
+                <p>
+                  As in the SIR model: the <m>S(t)</m> curve can only fall or remain level. The <m>I(t)</m> curve can both rise and fall, and can remain level. The <m>R(t)</m> curve can only rise or remain level. 
+                </p>
+                <p>
+                  Sign analysis of the SEIR model shows that the <m>E(t)</m> curve has the possibilities of both rising and falling, as well as remaining level.
+                </p>
+              </li>
+              <li>
+                <p>
+                  You should observe that regardless of the value of <m>\kappa</m>, the long-term value of <m>R(t)</m> is 1960, given the other default values in the Python code. There are many additional observations you can make about the dynamics of how the population reaches its long-term values, and the next part of this Activity addresses several such observations.
+                </p>
+              </li>
+              <li>
+                <p>
+                  As <m>\kappa</m> increases, the <m>E(t)</m> curve tends to reach lower and lower peak values, and these peak values occur at earlier times <m>t</m>. Sample <m>E(t)</m> curves, with their <m>\kappa</m> values, appear in the graph below.
+                </p>
+                <figure width="90%" xml:id="fig-SEIR-Ecurve-varying-kappa">
+                <caption>Possible <m>E(t)</m> curves for the SEIR model, with <m>\kappa</m> varying</caption>
+                <image source="SEIR_Ecurve_varying_kappa.png" width="90%">
+                    <description>Solution curves for the E compartment in the SEIR model, each with a different value of kappa, ranging from kappa = 0.1 to kappa = 1.0. As kappa increases, the curves have lower peaks, and the peaks occur at earlier times</description>
+                </image>
+              </figure>
+              </li>
+            </ol>
+            
+          </answer>
+        </activity>
+
+      </section>
+
+    
+
+        <!-- In addition to including vaccines in models, it is often important to include the incubation period of an illness, especially if we want to see how well our model connects with data on an outbreak. 
+          We therefore introduce the E compartment, where E stands for <em>Exposed-and-incubating</em>. The population <m>E(t)</m> therefore represents people who have contracted an illness, but who are not yet infectious. -->
+        
         <!-- Next: a whooping cough activity? Set up Python for whooping cough, compute p_crit, discuss vaccine issues over time -->
 
-         <!-- While this does not mean that no one new can become sick after the initial cases, it means that the total numbers of Infectious people are not expected to rise, so people are becoming Removed faster than new people are becoming Infectious. (*** TURN THIS INTO AN EXERCISE ***) -->
-
-        <p>
-          START WITH BASICS OF P. THEN DISCUSS EFFICACY AND EFFECTIVENESS. THEN SHOW HOW TO BUILD JUST EFF/EFF INTO THE MODEL. FINALLY, MAYBE IN AN EXERCISE, INCLUDE BOTH VACCINE COVERAGE AND EFF/EFF, SIMULTANEOUSLY, IN A MODEL. (MAYBE MAKE IT AN EXERCISE TO SEE WHAT THAT FORMULA SHOULD BE???)
+        <!-- <p>
+          SHOW HOW TO BUILD JUST EFF/EFF INTO THE MODEL. FINALLY, MAYBE IN AN EXERCISE, INCLUDE BOTH VACCINE COVERAGE AND EFF/EFF, SIMULTANEOUSLY, IN A MODEL. (MAYBE MAKE IT AN EXERCISE TO SEE WHAT THAT FORMULA SHOULD BE???)
         </p> 
-        
+
         <p>
-          When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>.<fn>Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.</fn> The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
-        </p>
-        <p>
-          Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at this <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization.
-        </p> 
-        <p>
-          Vaccine outcomes extend beyond affecting disease transmission. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can also be included in models. However, such models tend to be more detailed than those we are studying right now. For this reason, we focus only on vaccine models that show reduced transmission.
-        </p>
-        <p>
-          Putting together the ideas of efficacy and of <xref ref="expl-activity-vaccines-and-isolation"/>, we begin to see how to determine the value of the parameter <m>p</m> in the multiplier <m>(1-p)</m>. If a population is fully vaccinated against a disease<mdash/>that is, if <m>100\%</m> or very close to <m>100\%</m> of the population is vaccinated against the disease<mdash/>then 
-        </p>
+          We will examine a simplified model of whooping cough, which is also known as pertussis. Whooping cough is highly contagious and can spread for two to three weeks after coughing begins.  
+        </p> -->
 
 
-        <p>Vaccine ideas, herd immunity</p>
 
-      </section>
 
-      <section xml:id="section-isolation-in-compartmental-models">
-        <title>Isolation in Compartmental Models</title>
-        <p>Vaccine ideas, herd immunity</p>
-      </section>
+      <exercises xml:id="exercises-ch-vaccines">
+        <exercise number="1">
+          <p>
+            The formula in <xref ref="eq-gamma-estimate"/> showed how to connect the parameter <m>\gamma</m> with the length of time a typical individual spends in compartment I, that is, how to connect <m>\gamma</m> with the length of time a person is typically infectious. Use analogous reasoning to explain how to estimate the value of the parameter <m>\kappa</m> from data on a disease, and to explain what <m>\kappa</m> really means in terms of stage(s) of disease.
+          </p>          
+        </exercise>
+        <exercise number="2">
+          <p>
+            Imagine a new outbreak occurs in a small town of 5000 people. Let us suppose it makes sense to model this outbreak with an SIR model, where the compartments are Susceptible (people who are not sick but can become sick), Infectious (people who are currently able to spread the disease), and Removed (people who are no longer able to spread the disease and are unable to become sick again). At the start of the outbreak, a single person is Infectious, and the rest of the people are Susceptible.
+          </p>
+          <ol>
+            <li>
+              <p>
+                Suppose that, in the early days of the outbreak, researchers estimate <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> for this model. Then, based on the value of <m>\mathcal{R}_0</m> you compute, answer: what do you think will happen in the short term and in the long term of this outbreak?
+              </p>
+            </li>
+            <li>
+              <p>
+                Now suppose that the value of <m>\beta</m> was instead approximated to be <m>0.00001</m>, yet it is still true that <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> in this case. With this value of <m>\mathcal{R}_0</m>, what do you anticipate for the short-term and long-term outcomes of the outbreak?
+              </p>
+            </li>
+            <li>
+              <p>
+                Now suppose this outbreak occurs in a town of 1000 people, with <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> for the SIR model in this smaller town. Use this value of <m>\mathcal{R}_0</m> to describe what you think will happen in the short term and in the long term of this outbreak.
+              </p>
+            </li>
+            <li>
+              <p>
+                Adapt the Python code shown earlier in this chapter to produce graphs of the outcomes of the SIR models in parts (a), (b), and (c) above. Write a few sentences about how well your descriptions of short-term and long-term model outcomes are supported, or not supported, by the graphs.
+              </p>
+            </li>
+          </ol>
+        </exercise>
+        <exercise number="3">
+          <p>
+            Most diseases we know of have <m>\mathcal{R}_0 \gt 1</m>. This makes sense: without rising numbers of Infectious people, we do not experience an epidemic. However, in rare cases, a disease emerges for which <m>\mathcal{R}_0 \lt 1</m>. One example is MERS, which stands for Middle East Respiratory Syndrome. The first identified case of MERS was in 2012. There is still a lot to learn about MERS, but multiple estimates indicate that the value of <m>\mathcal{R}_0</m> for MERS is less than one.
+          </p>
+          <p>
+            This activity is motivated by the existence of diseases with <m>\mathcal{R}_0 \lt 1</m>. Suppose we study a disease for which <m>\mathcal{R}_0 \approx 0.5</m> and <m>\gamma = 0.1</m>, that is, people are typically infectious for about ten days. Suppose we choose to model this disease with an SIR model similar to the models we have been using in this chapter: <q>S</q> stands for Susceptible, meaning people who are not sick but can become sick; <q>I</q> stands for Infectious, meaning people who are currently able to spread the disease, and <q>R stands for</q> Removed, meaning people who are no longer able to spread the disease and are unable to become sick again. In the case of a disease similar to MERS, the Removed compartment consists of both recoveries and deaths from the disease.
+          </p>
+          <ol>
+            <li>
+              <p>
+                In an area with a population of 1000, use <xref ref="eq-R0-sir"/> to solve for the value of <m>\beta</m> for this SIR model.
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose that at the start of the outbreak, 20 people are Infectious. Use the Python block below to visualize the outbreak over 200 days. Notice that the Python block includes three <c>print</c> commands. These print and label the last output values stored as <c>sol</c>, that is, the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values for the last value of time <m>t</m>, namely <m>t=200</m>.  
+              </p>
+              <p>
+                <em>Use caution: by default, the Python block does not contain the correct value for <m>\beta</m>. Instead, replace the existing <m>\beta</m> value with the value you computed in part (a).</em>
+              </p>
+              <p>
+                 Use the graphs to describe qualitatively what happens in this population that began with 20 Infectious people. Does the curve for the <m>I(t)</m> population begin falling from the very beginning? What happens to the curves for <m>S(t)</m> and <m>R(t)</m>? 
+              </p>
+            </li>
+            <li>
+              <p>
+                Incorporate the output from the <c>print</c> command, along with the visual output of the graphs. How many people, in total, were Infectious at some point during the time of this model? How does this compare with the initial 20 cases? How do you reconcile this result with the behavior of the <m>I(t)</m> curve and with the knowledge that <m>\mathcal{R}_0 \lt 1</m> in this model?
+              </p>
+            </li>
+          </ol> 
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
 
+              plt.cla() #Clear (delete) any past plots
+              
+              #Define the system of differential equations, and call it "model"
+              def model(y, t):
+                S, I, R = y #Define y as consisting of S, I, and R, in that order
+                dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+                return dydt
+              
+              #This value for beta is not correct for MERS.
+              #Instead, use the value you compute in part (a).
+              beta = 0.01
+              gamma = 0.1 #Give a value to gamma
+              y0 = [980, 20, 0] #Set initial conditions for S, I, and R, in that order
+              t_range = np.arange(0.0, 200.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+              
+              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+              # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+              print("Long-term value of S = ", round(sol[-1,0]))
+              print("Long-term value of I = ", round(sol[-1,1]))
+              print("Long-term value of R = ", round(sol[-1,2]))
+              
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.grid()
+              plt.xlabel('time')
+              plt.ylabel('populations')
+              plt.show()
+            </input>
+            <output>
+            
+            </output>
+            </sage>
+        </exercise>
+      </exercises>
+
+
+    
     </chapter>
 
 
@@ -3130,7 +3617,7 @@ plt.show()
   
         </introduction>
 
-        <section xml:id="section-the-logical-approach">
+        <section xml:id="sec-the-logical-approach">
           <title>The Logical Approach</title>
 
           <p>
@@ -3313,13 +3800,13 @@ plt.show()
             In mathematical statements and model scenarios: it is not completely impossible to see some of the same conclusions, even if we change the hypotheses. We are not saying that it is impossible to end up at the same conclusion. Instead, our emphasis is that we <em>should not expect</em> the conclusion to be the same. All our discussion about the model should include this logical connection between hypotheses and conclusions.
           </p>
           <p>
-            In addition to the purely logical relationship between the <q>ifs</q> and <q>thens</q> of model statements, there are priorities built into any model. We discuss this in <xref ref="section-priorities-where-goals-meet-ethics"/>.
+            In addition to the purely logical relationship between the <q>ifs</q> and <q>thens</q> of model statements, there are priorities built into any model. We discuss this in <xref ref="sec-priorities-where-goals-meet-ethics"/>.
           </p>
   
         </section>
 
 
-        <section xml:id="section-priorities-where-goals-meet-ethics">
+        <section xml:id="sec-priorities-where-goals-meet-ethics">
           <title>Priorities: Where Goals Meet Ethics</title>
           <p>
             Each model is based on the priorities of the people who create the model. Recognizing this, and thinking about it from the start, makes us better modelers.
@@ -3490,7 +3977,7 @@ plt.show()
           </p>
 
           <p>
-            All modeling involves revision. We restructure models when we spot errors, or when we are able to access better data, or when we begin by asking some questions and then shift to different questions. Updating models is the focus of <xref ref="section-making-changes-to-models"/>.
+            All modeling involves revision. We restructure models when we spot errors, or when we are able to access better data, or when we begin by asking some questions and then shift to different questions. Updating models is the focus of <xref ref="sec-making-changes-to-models"/>.
           </p>
   
   
@@ -3499,7 +3986,7 @@ plt.show()
 
 
         
-        <section xml:id="section-making-changes-to-models">
+        <section xml:id="sec-making-changes-to-models">
           <title>Making Changes to Models</title>
           <p>Talk about how set-up matters, definitions matter, context for any solutions is important, etc. Give some examples with different contexts/hypotheses/questions-being-asked.</p>
   
@@ -3509,7 +3996,7 @@ plt.show()
       
       
       
-        <section xml:id="section-writing-explanations-to-present-models-to-others">
+        <section xml:id="sec-writing-explanations-to-present-models-to-others">
         <title>Writing Explanations to Present Models to Others</title>
         <p>Talk about how set-up matters, definitions matter, context for any solutions is important, etc. Give some examples with different contexts/hypotheses/questions-being-asked.</p>
 
@@ -3550,7 +4037,7 @@ plt.show()
     <chapter xml:id="ch-preparing-influenza-data-to-compare-with-a-model">
       <title>Preparing Influenza Data to Compare With a Model</title>
 
-      <section xml:id="section-ga">
+      <section xml:id="sec-ga">
         <title></title>
         <p>Use Bates flu data. Discuss converting from New Cases to S, I, R and possibly other compartments. Also discuss different time scales (here or elsewhere): converting data and parameters between days, weeks, months, years.</p>
       </section>
@@ -3560,9 +4047,9 @@ plt.show()
     <chapter xml:id="ch-epidemic-vs-endemic-models">
       <title>Epidemic vs. Endemic Models</title>
 
-      <section xml:id="section-ee">
+      <section xml:id="sec-ee">
         <title></title>
-        <p>Talk about demographic effects. Emphasize here that this is why we aren't normalizing total population to 1</p>
+        <p>Talk about demographic effects. Emphasize here that this is why we aren't normalizing total population to 1. Also: put herd immunity in this chapter.</p>
       </section>
 
     </chapter>
@@ -3570,7 +4057,7 @@ plt.show()
     <chapter xml:id="ch-residual-sum-of-squares-improving-a-models-fit-to-data">
       <title>Residual Sum of Squares: Improving a Model's Fit to Data</title>
 
-      <section xml:id="section-ra">
+      <section xml:id="sec-ra">
         <title></title>
         <p>Use Bates flu data? Introduce RSS. Discuss improving model fit and show how to do it. Emphasize (!!!!!!!) biological suitability of parameter choices, noise in data, etc. Consider developing a range of very good parameters, rather than imagining there is some set of "best" parameters.</p>
       </section>
@@ -3580,7 +4067,7 @@ plt.show()
     <chapter xml:id="ch-akaike-information-criterion-comparing-different-models">
       <title>Akaike Information Criterion: Comparing Different Models</title>
 
-      <section xml:id="section-ma">
+      <section xml:id="sec-ma">
         <title></title>
         <p>Use Bates flu data? Introduce AICc. Discuss comparing models and why we might want to do so. Discuss overfitting, Occam's Razor.</p>
       </section>
@@ -3596,7 +4083,7 @@ plt.show()
     <chapter xml:id="ch-model-analysis-total-population-and-equilibrium-values">
       <title>Model Analysis: Total Population and Equilibrium Values</title>
 
-      <section xml:id="section-1">
+      <section xml:id="sec-1">
         <title></title>
         <p>Talk about summing models to understand total population (often = 0). Discuss solving for equilibrium values in some models. Refer to disease-free equilibrium in ALL models.</p>
       </section>
@@ -3606,7 +4093,7 @@ plt.show()
     <chapter xml:id="ch-the-next-generation-method-using-r0-to-determine-beta">
       <title>The Next Generation Method: Using <m>\mathcal{R}_0</m> to Determine <m>\beta</m></title>
 
-      <section xml:id="section-2">
+      <section xml:id="sec-2">
         <title></title>
         <p>Show how to use the NGM and how to use the results to determine beta</p>
       </section>
@@ -3616,7 +4103,7 @@ plt.show()
     <chapter xml:id="ch-tips-on-reading-a-scientific-paper">
       <title>Tips on Reading a Scientific Paper</title>
 
-      <section xml:id="section-3a">
+      <section xml:id="sec-3a">
         <title></title>
         <p>The Maddie/Maddy talk! Turn into a chapter and give them credit</p>
       </section>
@@ -3626,7 +4113,7 @@ plt.show()
     <chapter xml:id="ch-the-next-generation-method-connecting-theory-with-practice">
       <title>The Next Generation Method: Connecting Theory with Practice</title>
 
-      <section xml:id="section-3">
+      <section xml:id="sec-3">
         <title></title>
         <p>Provide more behind-the-scenes details of the NGM, including what different terms mean in the F, V^(-1), and F V^(-1) matrices</p>
       </section>
@@ -3636,7 +4123,7 @@ plt.show()
     <chapter xml:id="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs">
       <title>Numerical Simulations: An Overview of How Computers Turn Equations into Graphs</title>
 
-      <section xml:id="section-4">
+      <section xml:id="sec-4">
         <title></title>
         <p>Show some basics of Euler's Method, including activities for students to try on their own. Allude to other methods. Provide some outside reading (?).</p>
       </section>
@@ -3646,7 +4133,7 @@ plt.show()
     <chapter xml:id="ch-kermack-mckendrick-the-1927-paper">
       <title>Kermack-McKendrick: the 1927 Paper</title>
 
-      <section xml:id="section-4a">
+      <section xml:id="sec-4a">
         <title></title>
         <p>Discuss the 1927 paper, including similarities and differences with the SIR and similar models we use today.</p>
       </section>
@@ -3750,7 +4237,7 @@ plt.show()
     <chapter xml:id="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model">
       <title>Preparing Mumps Data to Compare with a Six-Compartment Model</title>
 
-      <section xml:id="section-6">
+      <section xml:id="sec-6">
         <title></title>
         <p>Mumps data and SEIJAR model (and SEIR model)</p>
       </section>
@@ -3760,7 +4247,7 @@ plt.show()
     <chapter xml:id="ch-modeling-the-spread-of-a-rumor">
       <title>Modeling the Spread of a Rumor</title>
 
-      <section xml:id="section-7">
+      <section xml:id="sec-7">
         <title></title>
         <p>Rumor - use multiple references, and write up our "own" model here</p>
       </section>
@@ -3770,7 +4257,7 @@ plt.show()
     <chapter xml:id="ch-modeling-viral-videos">
       <title>Modeling Viral Videos</title>
 
-      <section xml:id="section-8">
+      <section xml:id="sec-8">
         <title></title>
         <p>References??? Show how to develop this</p>
       </section>
@@ -3780,7 +4267,7 @@ plt.show()
     <chapter xml:id="ch-modeling-conspiracy-theories">
       <title>Modeling Conspiracy Theories</title>
 
-      <section xml:id="section-9">
+      <section xml:id="sec-9">
         <title></title>
         <p>Stuff with Steph and FBI! And... other refs available yet?</p>
       </section>
@@ -3790,7 +4277,7 @@ plt.show()
     <chapter xml:id="ch-periodic-forcing">
       <title>Periodic Forcing</title>
 
-      <section xml:id="section-10a">
+      <section xml:id="sec-10a">
         <title></title>
         <p>Measles in NYC or London!!! Etc. Discuss how it looks in the data, and how it can be modeled, and show some solutions.</p>
       </section>
@@ -3800,7 +4287,7 @@ plt.show()
     <chapter xml:id="ch-superspreader-events">
       <title>Superspreader Events</title>
 
-      <section xml:id="section-10c">
+      <section xml:id="sec-10c">
         <title></title>
         <p>Discuss COVID and other cases where superspreaders matter. How do these ideas fit with compartmental models?</p>
       </section>
@@ -3810,7 +4297,7 @@ plt.show()
     <chapter xml:id="ch-vector-based-models-of-disease-spread">
       <title>Vector-Based Models of Disease Spread</title>
 
-      <section xml:id="section-10">
+      <section xml:id="sec-10">
         <title></title>
         <p>Perhaps dengue, chikungunya, etc.</p>
       </section>
@@ -3820,7 +4307,7 @@ plt.show()
     <chapter xml:id="ch-modeling-spatial-variation-using-patches">
       <title>Modeling Spatial Variation Using Patches</title>
 
-      <section xml:id="section-11">
+      <section xml:id="sec-11">
         <title></title>
         <p>Pauline paper mentioned at Vandy talk?</p>
       </section>
@@ -3830,7 +4317,7 @@ plt.show()
     <chapter xml:id="ch-an-hiv-model-where-the-infected-are-cells-rather-than-people">
       <title>An HIV Model Where the <q>Infected</q> are Cells Rather Than People</title>
 
-      <section xml:id="section-10b">
+      <section xml:id="sec-10b">
         <title></title>
         <p>The compartments are stages of cell infection</p>
       </section>
@@ -3840,7 +4327,7 @@ plt.show()
     <chapter xml:id="ch-a-peek-at-agent-based-models">
       <title>A Peek at Agent-Based Models</title>
 
-      <section xml:id="section-10d">
+      <section xml:id="sec-10d">
         <title></title>
         <p>Show relationships between compartmental models and ABMs</p>
       </section>
@@ -3850,7 +4337,7 @@ plt.show()
     <chapter xml:id="ch-connecting-with-network-models">
       <title>Connecting with Network Models</title>
 
-      <section xml:id="section-10e">
+      <section xml:id="sec-10e">
         <title></title>
         <p>Show relationships between basic compartmental models and network models</p>
       </section>
@@ -3866,7 +4353,7 @@ plt.show()
     <chapter xml:id="ch-data-sets">
       <title>Data Sets</title>
 
-      <section xml:id="section-supp-aa">
+      <section xml:id="sec-supp-aa">
         <title></title>
         <p>Include various data sets (or split these up elsewhere).</p>
       </section>
@@ -3876,7 +4363,7 @@ plt.show()
     <chapter xml:id="ch-paper-assignments-and-grading-rubrics">
       <title>Paper Assignments and Grading Rubrics</title>
 
-      <section xml:id="section-supp-a">
+      <section xml:id="sec-supp-a">
         <title></title>
         <p>Include paper assignments and rubrics. Possibly split this into separate chapters.</p>
       </section>
@@ -3886,7 +4373,7 @@ plt.show()
     <chapter xml:id="ch-writing-tips-for-math-and-planning-for-peer-review">
       <title>Writing Tips for Math, and Planning for Peer Review</title>
 
-      <section xml:id="section-supp-b">
+      <section xml:id="sec-supp-b">
         <title></title>
         <p>Take presentations I've given about mathematical writing, and include those ideas here. Seek additional references on this topic. Include materials I share with students about peer review, and describe WHY and HOW peer review is so great.</p>
       </section>
@@ -3897,7 +4384,7 @@ plt.show()
     <chapter xml:id="ch-linear-algebra-introduction">
       <title>Linear Algebra Introduction</title>
 
-      <section xml:id="section-supp-c">
+      <section xml:id="sec-supp-c">
         <title></title>
         <p>Just-in-time linear algebra for Next Generation Method etc.</p>
       </section>
@@ -3908,7 +4395,7 @@ plt.show()
     <chapter xml:id="ch-other-resources">
       <title>Other Resources</title>
 
-      <section xml:id="section-supp-d">
+      <section xml:id="sec-supp-d">
         <title></title>
         <p>Annotated bibliography</p>
       </section>
@@ -3924,175 +4411,172 @@ plt.show()
     <backmatter xml:id="backmatter">
       <title>Backmatter</title>
 
-      <glossary>
+      <glossary xml:id="glossary-of-terms">
         <title>Glossary of Mathematical Epidemiology Terms</title>
 
         <headnote>
           <p>
             This glossary includes both definitions and, in many cases, examples along with fuller descriptions. The terms are listed in alphabetical order. At the end of each definition, a chapter number in parentheses indicates where the term first appeared in the text. The definitions and descriptions of the terms relate to their usage in the types of models described in this text: readers should know that some of the terms may have more broadly defined meanings in other mathematical contexts.
           </p>
-          
         </headnote>
 
         
         
         <gi>
           <title>Basic Reproduction Number</title>
-
           <p>
             The basic reproduction number is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. The symbol <m>\mathcal{R}_0</m>, pronounced <q>R zero</q> or <q>R nought</q>, represents the concept of the basic reproduction number, both in writing and in mathematical formulas.  (Chapter 5)
           </p>
-
         </gi>
 
 
         <gi>
           <title>Compartmental Diagram</title>
-
           <p>
             A compartmental diagram is an image, typically consisting of labeled boxes and arrows, that visually represents the flow of individuals through a <em>compartmental model</em>. Examples include <xref ref="fig-SI-compartmental-diagram"/> and <xref ref="fig-SIR-compartmental-diagram"/>. (Chapter 4)
           </p>
-
         </gi>
 
         
 
         <gi>
           <title>Compartmental Model</title>
-
           <p>
             A compartmental model is a style of mathematical model in which the subjects of the model are grouped into categories called <em>compartments</em>. Such a model follows the overall outcomes for each compartment, but does not typically track the outcomes of smaller groups such as individuals. The compartmental models in this text use differential equations to demonstrate the interactions and rates governing how many individuals move from one group to another at specific points in time.  As one example of a compartmental model, an SIR model consists of three compartments: S, I, and R. Most often in this text, compartment S represents Susceptible individuals, compartment I represents Infectious individuals, and compartment R represents Removed individuals. (Chapter 4)
           </p>
-
         </gi>
 
         
 
         <gi>
           <title>Compartments</title>
-
           <p>
             In most models within this text, individuals are placed into categories called compartments. The individuals can typically move out of some compartments and into others, and the differential equations in compartmental models are sets of rules for the ways in which individuals are able to make such moves between compartments.  (Chapter 4)
           </p>
-
         </gi>
 
         <gi>
           <title>Continuous</title>
-
           <p>
             We tend to think of real-world time as continuous, meaning time does not keep stopping and starting. The compartmental models we use in most of this book show continuous time. While this sense of time matches the real world, we need to think about how to reconcile it with data sets, which typically involve discrete time steps, such as days or weeks.  (Chapter 2)
           </p>
-
         </gi>
 
 
         <gi>
           <title>Discrete</title>
-
           <p>
             We can think of time as discrete when we describe it as separate steps, such as Day 0, Day 1, or Day 2. Many data sets we work with report data in discrete time steps, such as by day or by week. We need to think through how to reconcile discrete data sets with the continuous models we most often use in this text. (Chapter 2)
           </p>
+        </gi>
+        
 
+        <gi>
+          <title>Effective Reproduction Number</title>
+          <p>
+            The effective reproduction number is the average number of new infections caused by one infectious person in a population that is not entirely susceptible. The most common reason for a population to not be entirely susceptible is when some of the people have some form of immunity. Reasons for immunity may include vaccination and/or some of the people in the population previously having the disease being studied. The symbol <m>\mathcal{R}_{\text{eff}}</m> represents the effective reproduction number. (Chapter 6)
+          </p>
+        </gi>
+
+
+        <gi>
+          <title>Effectiveness</title>
+          <p>
+            A measure of how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease, <em>in real-world conditions</em>. For instance, if after a vaccine has been released to the public <m>90\%</m> fewer vaccinated people get the virus than do those who are unvaccinated, then the vaccine is said to have an effectiveness of <m>90\%</m>. (Chapter 6)
+          </p>
+        </gi>
+        
+
+        <gi>
+          <title>Efficacy</title>
+          <p>
+            A measure of how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease, <em>in a clinical trial</em>. For instance, if in trials <m>70\%</m> fewer people in the vaccinated group get a virus than do those in the unvaccinated group, then the vaccine is said to have an efficacy of <m>70\%</m>.  (Chapter 6)
+          </p>
         </gi>
 
         
         <gi>
-          <title>Effective Reproduction Number</title>
-
-          <p>
-            The effective reproduction number is the average number of new infections caused by one infectious person in a population that is not entirely susceptible. The most common reason for a population to not be entirely susceptible is when some of the people have some form of immunity. Reasons for immunity may include vaccination and/or some of the people in the population previously having the disease being studied. The symbol <m>\mathcal{R}_{\text{eff}}</m> represents the effective reproduction number. (Chapter 6)
-          </p>
-
-        </gi>
-
-
-
-        <gi>
           <title>Graphical Solution</title>
-
           <p>
             A graphical solution to a differential equation, or system of differential equations, is a curve or curves showing the behavior of the differential equation(s), based on specific parameter values and initial conditions. When parameter values change, or when initial conditions change, the graphical solution typically changes as well. A graphical solution is often called a <em>solution</em>, and readers should use context to know whether the word <em>solution</em> refers to a graphical solution, a numerical solution, or a formula. (Chapter 3)
           </p>
-
         </gi>
 
         
         <gi>
           <title>Initial Conditions</title>
-
           <p>
             Initial conditions are the starting values of the dependent variables in differential equations. Within this text, our dependent variables are typically populations such as <m>S(t)</m> or <m>I(t)</m>, and the start of solutions is usually the time <m>t=0</m>. This means the initial conditions are the values <m>S(0)</m> and <m>I(0)</m>. Initial conditions are used when computing a numerical solution: the numerical solution begins with the initial conditions and then <q>steps through</q> time, computing the later values of each dependent variable using both the earlier values and the information in the differential equations about how each dependent variable changes. (Chapter 3)
           </p>
-
         </gi>
 
 
         <gi>
           <title>Numerical Solution</title>
-
           <p>
             A numerical solution to a differential equation, or system of differential equations, is a set of lists of numbers that result from approximating the outcome of the differential equation(s), given specific parameter values and initial conditions. When parameter values change, or when initial conditions change, the numerical solution typically changes as well. The lists of numbers for an SIR model, for instance, typically show the values of <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> at many values of time <m>t</m> within the range of time values of interest. We may print some or all of the values in the lists, or we may use graphing to present the information in the lists. A numerical solution is often called a <em>solution</em>, and readers should use context to know whether the word <em>solution</em> refers to a graphical solution, a numerical solution, or a formula. (Chapter 3)
           </p>
-
         </gi>
 
 
         
         <gi>
           <title>Parameters</title>
-
           <p>
             Parameters in a model are numbers, determined using biological information, that represent some aspect of how a disease progresses. In this text, most parameters are shown as Greek letters, such as <m>\beta</m> or <m>\gamma</m>. A few parameters in this text represent percentages, such as the percentage of a population that is vaccinated against a disease, and these parameters are typically represented by lowercase letters such as <m>p</m> or <m>q</m>. Parameters are different than variables: the variables in our models are typically the independent variable <m>t</m> for time, and dependent variables such as <m>S</m>, <m>I</m>, <m>R</m>, and others, for populations.  (Chapter 4)
           </p>
-
         </gi>
 
         
         
         <gi>
           <title>Rate</title>
-
           <p>
             A rate is, in general, a ratio between two different things. In this text, rates are parameters having units <m>1/\text{time}</m>. In a model, the rate is typically multiplied by a population such as <m>I</m> or <m>R</m> to show the flow of that population out of one compartment and into another compartment. (Chapter 4)
           </p>
-
         </gi>
 
         
         <gi>
           <title>Sign Analysis</title>
-
           <p>
             The word <q>sign</q> in sign analysis refers to whether terms in differential equations are positive (<m>+</m>), negative (<m>-</m>), or zero (<m>0</m>). In sign analysis, we use these signs to build understanding of the differential equation. Often, our goal is to learn whether the solution to the differential equation is rising, falling, or level at some time <m>t</m>. This understanding may help us identify which solution curve goes with which differential equation, may show when a disease starts with an outbreak or can never experience an outbreak, and may indicate many other outcomes of models. Sign analysis is powerful because it depends only on the signs of terms, without forcing us to rely on detailed data sets that may not always be available. (Chapter 5)
           </p>
-
         </gi>
-
 
 
         <gi>
           <title>SI Model</title>
-
           <p>
             An SI model is a compartmental model having two compartments, labeled S and I. Most often in this text, S stands for <em>Susceptible</em> and I stands for <em>Infectious</em>, though the compartments can have other interpretations. The letters S and I are each pronounced when we say <q>SI model</q>: <q>Ess</q> <q>Eye</q> model. (Chapter 2)
           </p>
+        </gi>
 
+
+        <gi>
+          <title>SEIR Model</title>
+          <p>
+            An SEIR model is a compartmental model having four compartments, labeled S, E, I, and R. Most often in this text, S stands for <em>Susceptible</em>, E stands for <em>Exposed-and-incubating</em>, I stands for <em>Infectious</em>, and R stands for <em>Removed</em>, though the compartments can have other interpretations. The letters S, E, I, and R are each pronounced when we say <q>SEIR model</q>: <q>Ess</q> <q>Eee</q> <q>Eye</q> <q>Arr</q> model. (Chapter 6)
+          </p>
+        </gi>
+
+
+        <gi>
+          <title>SIR Model</title>
+          <p>
+            An SIR model is a compartmental model having three compartments, labeled S, I, and R. Most often in this text, S stands for <em>Susceptible</em>, I stands for <em>Infectious</em>, and R stands for <em>Removed</em>, though the compartments can have other interpretations. The letters S, I, and R are each pronounced when we say <q>SIR model</q>: <q>Ess</q> <q>Eye</q> <q>Arr</q> model. (Chapter 4)
+          </p>
         </gi>
 
         
         <gi>
           <title>Total Population</title>
-
           <p>
             The total population of a compartmental model is the sum of the populations in each compartment. We typically use the variable <m>N</m> to refer to total population, and we write <m>N(t)</m> to mean total population at time <m>t</m>. (Chapter 5)
           </p>
-
         </gi>
-
         
-        
-
+      
 
       </glossary>
 
