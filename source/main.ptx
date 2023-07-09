@@ -156,7 +156,7 @@
           Full-semester, shorter module, independent research, possibly other options for length of time spent with the text. Paths through, with and without linear algebra. Active learning. Grading. Setting up papers, HW, other assessments. Using new data sets.
         </p>
         <p>
-          The features of the book (Goals, Explorations, Activities, other text, For Further Thought, and any others)
+          The features of the book (Goals, Explorations, Activities, other text, For Further Thought, and any others). Important to include <q>For Further Thought</q> as part of the learning of the book: these aren't just examples of what came earlier, but are also more in-depth and can include new content.
         </p>
 
       </preface>
@@ -2731,7 +2731,7 @@ plt.show()
           <ol>
             <li>
               <p>
-                In an area with a population of 1000, use <xref ref="eq-R0-sir"/> to solve for the value of <m>\beta</m> for this SIR model.
+                In an area with a population of 1000, rearrange <xref ref="eq-R0-sir"/> to solve for the value of <m>\beta</m> for this SIR model.
               </p>
             </li>
             <li>
@@ -2843,12 +2843,12 @@ plt.show()
       </p>
 
       <p>
-        Begin in <xref ref="expl-activity-vaccines-and-isolation"/> by adjusting a model in a particular way to reduce the occurrence of new infections.
+        Begin in <xref ref="expl-activity-vaccines"/> by adjusting a model in a particular way to reduce the occurrence of new infections.
       </p>
 
       </introduction>
       
-      <exploration xml:id="expl-activity-vaccines-and-isolation">
+      <exploration xml:id="expl-activity-vaccines">
         <title>Reducing New Infections</title>
         <introduction>
           <p>
@@ -2962,7 +2962,7 @@ plt.show()
         <title>Vaccines in Compartmental Models</title>
 
         <p>
-          The modeling in this section focuses on <em>reducing transmission of a disease through the use of vaccines</em>. We use the multiplier <m>(1-p)</m> from <xref ref="expl-activity-vaccines-and-isolation"/>, along with the concept of <m>\mathcal{R}_0</m> from <xref ref="ch-population-values-and-the-basic-reproduction-number-R0"/>, to demonstrate the effect of vaccines on the number of people who ever become Infectious in a disease outbreak.
+          The modeling in this section focuses on <em>reducing transmission of a disease through the use of vaccines</em>. We use the multiplier <m>(1-p)</m> from <xref ref="expl-activity-vaccines"/>, along with the concept of <m>\mathcal{R}_0</m> from <xref ref="ch-population-values-and-the-basic-reproduction-number-R0"/>, to demonstrate the effect of vaccines on the number of people who ever become Infectious in a disease outbreak.
         </p>
         <p>
           As a reminder, the <em>basic reproduction number</em> <m>\mathcal{R}_0</m> is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. This means that <m>\mathcal{R}_0</m> is not a number we can use to directly describe a population that has been vaccinated against a disease, since a vaccinated population is not entirely susceptible. Instead, we introduce an <term>effective reproduction number</term> <m>\mathcal{R}_{\text{eff}}</m>, which is the average number of new infections caused by one infectious person in a population that may not be entirely susceptible, such as a population that has had access to vaccination. One way to pronounce the symbol <m>\mathcal{R}_{\text{eff}}</m> is <q>R effective</q>.
@@ -2972,7 +2972,7 @@ plt.show()
         </p> 
         <p>
           First, we should state a definition for <m>p</m>. We define <m>p</m> to be the fraction of people vaccinated against a disease, noting that the values of <m>p</m> are therefore restricted to <m>0 \leq p \leq 1</m>, where <m>p=0</m> means no one is vaccinated, and <m>p=1</m> means <m>100\%</m> of the population is vaccinated. Initially, we will think of vaccination as being <m>100\%</m> effective.<fn>Later, we update our models to include vaccines that are less than <m>100\%</m> effective.</fn>
-          When the fraction <m>p</m> of people are vaccinated, the remaining fracion <m>(1-p)</m> are not vaccinated. Since <m>\mathcal{R}_0</m> refers to an entirely susceptible population, but only the fraction <m>(1-p)</m> of the population is susceptible, we see that the average number of new infections caused by one infectious person in the vaccinated population is <m>(1-p)\mathcal{R}_0</m>. In other words:
+          When the fraction <m>p</m> of people are vaccinated, the remaining fraction <m>(1-p)</m> are not vaccinated. Since <m>\mathcal{R}_0</m> refers to an entirely susceptible population, but only the fraction <m>(1-p)</m> of the population is susceptible, we see that the average number of new infections caused by one infectious person in the vaccinated population is <m>(1-p)\mathcal{R}_0</m>. In other words:
         </p>
         
         <mdn>
@@ -3414,12 +3414,23 @@ plt.show()
           </answer>
         </activity>
 
+        <p>
+          For readers including <xref ref="ch-the-next-generation-method-using-r0-to-determine-beta"/> on computing <m>\mathcal{R}_0</m>, you may wish to try the steps for computing <m>\mathcal{R}_0</m> in the SEIR model. The answer appears below, yet this is a great time to test yourself. Completing the steps and confirming your results below lets you gain practice now, before perhaps trying to compute <m>\mathcal{R}_0</m> on a future model where no answer is given. 
+        </p>
+        <p>
+          The resulting <m>\mathcal{R}_0</m> formula is:
+          <mdn>
+          <mrow xml:id="eq-R0-seir">\mathcal{R}_0 \amp = \frac{\beta N}{\gamma} \mbox{ for our SEIR model}. </mrow>
+        </mdn>
+        </p>
+        
+
+        <p>
+          Now that we have discussed public health intervention in the form of vaccines, as well as SI, SIR, and SEIR models, we have learned enough to be able to mathematically model the primary dynamics of many disease outbreaks. <em>These ideas are the core of this course.</em> In <xref ref="ch-getting-the-answer-right-in-modeling"/> we will think through the big ideas inherent in mathematical modeling. The remaining chapters in <xref ref="part-core-modeling-concepts"/> focus on connecting data with models and working with two additional ways to significantly extend our use of compartmental models: endemic disease, in <xref ref="ch-epidemic-vs-endemic-models"/>, and modeling ideas other than diseases, in <xref ref="ch-modeling-the-spread-of-a-rumor"/>.
+        </p>
+
       </section>
 
-    
-
-        <!-- In addition to including vaccines in models, it is often important to include the incubation period of an illness, especially if we want to see how well our model connects with data on an outbreak. 
-          We therefore introduce the E compartment, where E stands for <em>Exposed-and-incubating</em>. The population <m>E(t)</m> therefore represents people who have contracted an illness, but who are not yet infectious. -->
         
         <!-- Next: a whooping cough activity? Set up Python for whooping cough, compute p_crit, discuss vaccine issues over time -->
 
@@ -3437,109 +3448,168 @@ plt.show()
       <exercises xml:id="exercises-ch-vaccines">
         <exercise number="1">
           <p>
-            The formula in <xref ref="eq-gamma-estimate"/> showed how to connect the parameter <m>\gamma</m> with the length of time a typical individual spends in compartment I, that is, how to connect <m>\gamma</m> with the length of time a person is typically infectious. Use analogous reasoning to explain how to estimate the value of the parameter <m>\kappa</m> from data on a disease, and to explain what <m>\kappa</m> really means in terms of stage(s) of disease.
+            The formula in <xref ref="eq-gamma-estimate"/> showed how to connect the parameter <m>\gamma</m> with the length of time a typical individual spends in compartment I, that is, how to connect <m>\gamma</m> with the length of time a person is typically infectious. Now use analogous reasoning, along with the SEIR model as shown in the answer to <xref ref="activity-seir-model-intro"/>, to explain how to estimate the value of the parameter <m>\kappa</m> from data on a disease, and to explain what <m>\kappa</m> really means in the SEIR model in terms of stage(s) of disease.
           </p>          
         </exercise>
         <exercise number="2">
           <p>
-            Imagine a new outbreak occurs in a small town of 5000 people. Let us suppose it makes sense to model this outbreak with an SIR model, where the compartments are Susceptible (people who are not sick but can become sick), Infectious (people who are currently able to spread the disease), and Removed (people who are no longer able to spread the disease and are unable to become sick again). At the start of the outbreak, a single person is Infectious, and the rest of the people are Susceptible.
+            In this exercise, we set up a compartmental model for whooping cough, also called pertussis, in a fictional town having 10,000 residents. We use information from the <url href="https://www.health.ny.gov/publications/2171/">New York State Pertussis or Whooping Cough Fact Sheet</url>. The fact sheet says that the first stage of pertussis, in which symptoms are similar to those of a cold, lasts one to two weeks. Stage two, which includes the severe cough that gave pertussis the name <q>whooping cough</q>, lasts one to two months. The fact sheet also says that pertussis is contagious from the time cold symptoms appear until about three weeks after severe cough starts. The incubation period for pertussis is most often seven to ten days: the incubation period can sometimes be longer, but we focus on the most common lengths of time.  
           </p>
           <ol>
             <li>
               <p>
-                Suppose that, in the early days of the outbreak, researchers estimate <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> for this model. Then, based on the value of <m>\mathcal{R}_0</m> you compute, answer: what do you think will happen in the short term and in the long term of this outbreak?
+                Begin with the SEIR model below. Determine as many parameter values as you can, using the information described from the fact sheet. In this model, assume that time is measured in days. It is appropriate for some parameter values to be a range of numbers, rather than a single number, since the fact sheet information includes ranges of time.
+              </p>
+              <md>
+                  <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+                  <mrow>\frac{dE}{dt} \amp =  \beta S I - \kappa E </mrow>
+                  <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+                  <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+              </md>
+            </li>
+            <li>
+              <p>
+                You should now have determined the range of values for all parameters except <m>\beta</m>. Here is extra information: the value of <m>\mathcal{R}_0</m> for pertussis has been estimated at anywhere from 5.5 to 17, depending on the outbreak in which <m>\mathcal{R}_0</m> was measured.<fn>A nice summary of studies of <m>\mathcal{R}_0</m> for pertussis appears in <q>Pertussis: Microbiology, Disease, Treatment, and Prevention</q> by Paul E. Kilgore, Abdulbaset M. Salim, Marcus J. Zervos, Heinz-Josef Schmitt, published in <em>Clinical Microbiology Reviews</em> in on March 30, 2016.</fn> Use this range of values of <m>\mathcal{R}_0</m>, along with the parameters you already determined and the formula in <xref ref="eq-R0-seir"/> for <m>\mathcal{R}_0</m>, to solve for <m>\beta</m>.
               </p>
             </li>
             <li>
               <p>
-                Now suppose that the value of <m>\beta</m> was instead approximated to be <m>0.00001</m>, yet it is still true that <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> in this case. With this value of <m>\mathcal{R}_0</m>, what do you anticipate for the short-term and long-term outcomes of the outbreak?
-              </p>
-            </li>
-            <li>
-              <p>
-                Now suppose this outbreak occurs in a town of 1000 people, with <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> for the SIR model in this smaller town. Use this value of <m>\mathcal{R}_0</m> to describe what you think will happen in the short term and in the long term of this outbreak.
-              </p>
-            </li>
-            <li>
-              <p>
-                Adapt the Python code shown earlier in this chapter to produce graphs of the outcomes of the SIR models in parts (a), (b), and (c) above. Write a few sentences about how well your descriptions of short-term and long-term model outcomes are supported, or not supported, by the graphs.
+                Run the Python code below, making sure to first include different values from the parameter ranges you have computed for <m>\mathcal{R}_0</m>, <m>\kappa</m>, and <m>\gamma</m>. Notice that the code will compute the appropriate value of <m>\beta</m>, using the total population of 10,000 and the values you assign to <m>\mathcal{R}_0</m> and <m>\gamma</m>. Write your observations about the outcomes of the model. As we usually do: feel free to adjust the length of time the model runs, or to show just one or two solution curves at a time, or to otherwise alter the code so that you can best see and comment on the results of the model.
               </p>
             </li>
           </ol>
+          <sage>
+              <input>
+                #Import packages
+                import numpy as np
+                import matplotlib.pyplot as plt
+                from scipy.integrate import odeint
+
+                plt.cla() #Clear (delete) any past plots
+
+                #Define the system of differential equations, and call it "model"
+                def model(y, t):
+                  S, E, I, R = y #Define y as consisting of S, E, I, and R, in that order
+                  dydt = [- beta * S * I, beta * S * I - kappa * E, kappa * E - gamma * I, gamma * I] #Provide the right-hand sides of the SEIR model
+                  return dydt
+
+                # The parameter values below are set to 0.0. Enter the values you have computed to see how the model proceeds
+                R0 = 0.0 #Give a value to R0
+                kappa = 0.0 #Give a value to kappa
+                gamma = 0.0 #Give a value to gamma
+                S_init = 9995 #Give an initial value to population S
+                E_init = 0 #Give an initial value to population E
+                I_init = 5 #Give an initial value to population I
+                R_init = 0 #Give an initial value to population R
+                beta = R0 * gamma / (S_init + E_init + I_init + R_init) #Solve for beta, using the R0 formula
+                y0 = [S_init, E_init, I_init, R_init] #Put initial conditions for S, E, I, and R into "y0" for use below in "odeint"
+
+                # The time range below is set for one year. Make it longer or shorter, as needed, to better see the full dynamics of the model
+                t_range = np.arange(0.0, 365.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+
+                sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+                # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+                print("Long-term value of S = ", round(sol[-1,0]))
+                print("Long-term value of E = ", round(sol[-1,1]))
+                print("Long-term value of I = ", round(sol[-1,2]))
+                print("Long-term value of R = ", round(sol[-1,3]))
+
+                # Plotting commands are below
+                plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+                plt.plot(t_range, sol[:, 1], color='magenta', linestyle='dotted', linewidth=2, label='E(t)')
+                plt.plot(t_range, sol[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+                plt.plot(t_range, sol[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+                plt.legend()
+                plt.grid()
+                plt.xlabel('time')
+                plt.ylabel('populations')
+                plt.show()
+              </input>
+              <output>
+              
+              </output>
+            </sage>
         </exercise>
+
+        <!-- Notes to me: kappa is between 1/10 and 1/7. Gamma is between 1/35 and 1/28.  -->
+
         <exercise number="3">
           <p>
-            Most diseases we know of have <m>\mathcal{R}_0 \gt 1</m>. This makes sense: without rising numbers of Infectious people, we do not experience an epidemic. However, in rare cases, a disease emerges for which <m>\mathcal{R}_0 \lt 1</m>. One example is MERS, which stands for Middle East Respiratory Syndrome. The first identified case of MERS was in 2012. There is still a lot to learn about MERS, but multiple estimates indicate that the value of <m>\mathcal{R}_0</m> for MERS is less than one.
-          </p>
-          <p>
-            This activity is motivated by the existence of diseases with <m>\mathcal{R}_0 \lt 1</m>. Suppose we study a disease for which <m>\mathcal{R}_0 \approx 0.5</m> and <m>\gamma = 0.1</m>, that is, people are typically infectious for about ten days. Suppose we choose to model this disease with an SIR model similar to the models we have been using in this chapter: <q>S</q> stands for Susceptible, meaning people who are not sick but can become sick; <q>I</q> stands for Infectious, meaning people who are currently able to spread the disease, and <q>R stands for</q> Removed, meaning people who are no longer able to spread the disease and are unable to become sick again. In the case of a disease similar to MERS, the Removed compartment consists of both recoveries and deaths from the disease.
-          </p>
+            Redo the above exercise, but convert the time unit to <em>weeks</em> instead of <em>days</em>. To make this change, do the following. 
+          </p>   
           <ol>
             <li>
               <p>
-                In an area with a population of 1000, use <xref ref="eq-R0-sir"/> to solve for the value of <m>\beta</m> for this SIR model.
+                Compute the number of weeks for the incubation period of pertussis. This should be <m>\mbox{(the number of days of the incubation period)} / 7</m>. When you then compute <m>\kappa</m>, you should obtain a value equal to <m>7 * \mbox{(the value you obtained in the previous exercise)}</m>.
               </p>
             </li>
             <li>
               <p>
-                Suppose that at the start of the outbreak, 20 people are Infectious. Use the Python block below to visualize the outbreak over 200 days. Notice that the Python block includes three <c>print</c> commands. These print and label the last output values stored as <c>sol</c>, that is, the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values for the last value of time <m>t</m>, namely <m>t=200</m>.  
-              </p>
-              <p>
-                <em>Use caution: by default, the Python block does not contain the correct value for <m>\beta</m>. Instead, replace the existing <m>\beta</m> value with the value you computed in part (a).</em>
-              </p>
-              <p>
-                 Use the graphs to describe qualitatively what happens in this population that began with 20 Infectious people. Does the curve for the <m>I(t)</m> population begin falling from the very beginning? What happens to the curves for <m>S(t)</m> and <m>R(t)</m>? 
+                Similarly, the value of <m>\gamma</m> in this exercise should be <m>7 * \mbox{(the value you obtained in the previous exercise)}</m>.
               </p>
             </li>
             <li>
               <p>
-                Incorporate the output from the <c>print</c> command, along with the visual output of the graphs. How many people, in total, were Infectious at some point during the time of this model? How does this compare with the initial 20 cases? How do you reconcile this result with the behavior of the <m>I(t)</m> curve and with the knowledge that <m>\mathcal{R}_0 \lt 1</m> in this model?
+                For the graphs to appear the same, the horizontal axis should be adjusted. To be precise, the length of the new time axis should equal <m>\mbox{(the length of the time axis in the previous exercise) } / 7</m>. To be close, use the nearest number of weeks. For instance, the default time length in the previous exercise is 365 days, which is one year. One year has approximately, but not exactly, 52 weeks. Using 52 weeks in this exercise will give a very similar graph to the 365-day graph from the previous exercise. 
               </p>
             </li>
           </ol> 
-          <sage>
-            <input>
-              #Import packages
-              import numpy as np
-              import matplotlib.pyplot as plt
-              from scipy.integrate import odeint
+          <p>
+            Explain mathematically why the unit conversions described in parts (a.), (b.), and (c.) are the correct conversions for converting the model's time scale from days to weeks. Show graphs from both this exercise and the previous exercise to demonstrate that the model results are the same when we convert the units of time. For better clarity: update the label for the time axis in each graph to say <q>days</q> or <q>weeks</q> instead of <q>time</q>, to make clear which time unit is being used in the graph.
+          </p>      
+        </exercise>
 
-              plt.cla() #Clear (delete) any past plots
-              
-              #Define the system of differential equations, and call it "model"
-              def model(y, t):
-                S, I, R = y #Define y as consisting of S, I, and R, in that order
-                dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
-                return dydt
-              
-              #This value for beta is not correct for MERS.
-              #Instead, use the value you compute in part (a).
-              beta = 0.01
-              gamma = 0.1 #Give a value to gamma
-              y0 = [980, 20, 0] #Set initial conditions for S, I, and R, in that order
-              t_range = np.arange(0.0, 200.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
-              
-              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+        <exercise number="4">
+          <p>
+            Now update the pertussis model to include vaccine. Include the multiplier <m>(1-p)</m> where appropriate, adapting our work from <xref ref="expl-activity-vaccines"/> and <xref ref="activity-pcrit2"/> to the SEIR model.
+          </p>   
+          <ol>
+            <li>
+              <p>
+                Compute <m>p_{\text{crit}}</m> for pertussis, using the information that <m>\mathcal{R}_0</m> for pertussis can be between 5.5 and 17, depending on the outbreak. (We referenced this earlier in this <em>For Further Thought</em> section.) Your results for <m>p_{\text{crit}}</m> will be a range of values.
+              </p>
+            </li>
+            <li>
+              <p>
+                Adapt the Python code from the second exercise to run the model with a vaccine level at least as large as <m>p_{\text{crit}}</m>. Adjust the time scale, show just some of the solution curve graphs, or make any other changes needed, to best see the long-term outcome of the model. Write your observations of the outcomes of this model, and compare and contrast with the no-vaccine model.
+              </p>
+            </li>
+            <li>
+              <p>
+                Do some online research to determine the percentage of children in your area, or percentage of all people in your area, who are vaccinated against pertussis. <q>Your area</q> can refer to your city, state, province, country, or whatever other region you choose. Run the Python code again, using this percentage for vaccination, and citing the resources in which you found the percentage. Adjust the code as needed so you can best see the results, and describe your findings.
+              </p>
+            </li>
+            <li>
+              <p>
+                In approximately 2019, researchers found that the whooping cough vaccine had become less effective over time, for a variety of reasons. They investigated the reasons and made changes. Read about this in from at least three sources, including general news sources as well as government-led websites, and report on your findings.
+              </p>
+            </li>
+          </ol>       
+        </exercise>
 
-              # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
-              print("Long-term value of S = ", round(sol[-1,0]))
-              print("Long-term value of I = ", round(sol[-1,1]))
-              print("Long-term value of R = ", round(sol[-1,2]))
-              
-              # Plotting commands are below
-              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
-              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
-              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
-              plt.legend()
-              plt.grid()
-              plt.xlabel('time')
-              plt.ylabel('populations')
-              plt.show()
-            </input>
-            <output>
-            
-            </output>
-            </sage>
+        <exercise number="5">
+          <p>
+            We make one more update to the pertussis model, addressing vaccine efficacy. Our inclusion of the multiplier <m>(1-p)</m> assumed that vaccination had <m>100 \%</m> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <m>80-85\%</m> efficacy.<fn>This range of vaccine efficacy level comes from the <url href="https://www.cdc.gov/vaccines/pubs/pinkbook/pert.html">Centers for Disease Control and Prevention</url>. The range is specific to the DTaP vaccine, in Europe and the Americas, in studies in or after 1991.</fn>
+          </p>   
+          <ol>
+            <li>
+              <p>
+                Rewrite your model as below, where <m>p</m> remains the percentage of people vaccinated, and <m>q</m> is the efficacy percentage. We require that <m>0 \leq p \leq 1</m> and <m>0 \leq q \leq 1</m>. Explain in words why the way the model is written, and the ranges for <m>p</m> and <m>q</m>, make sense. In your explanation, include <q>edge cases</q>, that is, describe what happens when <m>p=0</m>, <m>p=1</m>, <m>q=0</m>, and <m>q=1</m>. Also describe what happens as <m>p</m> increases from <m>0</m> to <m>1</m>, and what happens as <m>q</m> increases from <m>0</m> to <m>1</m>.
+              </p>
+              <md>
+                  <mrow>\frac{dS}{dt} \amp = - (1-p)(1-q) \beta S I </mrow>
+                  <mrow>\frac{dE}{dt} \amp =  (1-p)(1-q) \beta S I - \kappa E </mrow>
+                  <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+                  <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+              </md>
+            </li>
+            <li>
+              <p>
+                Use the Python code from the second exercise to incorporate vaccine efficacy. Use logic, as well as results from your code, to explain how vaccine efficacy below <m>100\%</m> can make it more challenging to achieve the goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m>. In your explanation, you may wish to use the information that <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective.
+              </p>
+            </li>
+          </ol>       
         </exercise>
       </exercises>
 
@@ -3812,7 +3882,7 @@ plt.show()
             Each model is based on the priorities of the people who create the model. Recognizing this, and thinking about it from the start, makes us better modelers.
           </p>
           <p>
-            The word <q>priorities</q> can take on many meanings. One key priority in model building is <em>answering a question</em>. For instance, in <xref ref="ch-vaccines-and-isolation-in-compartmental-models"/> we described models that address questions about how helpful vaccines or isolation can be in preventing an outbreak or reducing the effects of an outbreak. Different questions may require different models.
+            The word <q>priorities</q> can take on many meanings. One key priority in model building is <em>answering a question</em>. For instance, in <xref ref="ch-vaccines-in-compartmental-models"/> we described models that address questions about how helpful vaccines or isolation can be in preventing an outbreak or reducing the effects of an outbreak. Different questions may require different models.
           </p>
           <p>
             There may be other priorities as well, and we may not realize when we start model building that we are even building in those priorities. A student project I once advised produced one very powerful example of priorities that we do not see initially. This project forms the idea behind <xref ref="activity-priorities-HIV-AIDS"/>.
@@ -4074,13 +4144,25 @@ plt.show()
 
     </chapter>
 
+  
+    <chapter xml:id="ch-modeling-the-spread-of-a-rumor">
+      <title>Modeling the Spread of a Rumor</title>
+
+      <section xml:id="sec-7">
+        <title></title>
+        <p>Rumor - use multiple references, and write up our "own" model here</p>
+      </section>
+
+    </chapter>
+
+
 
   </part>
 
   <part xml:id="part-digging-deeper-mathematically">
     <title>Digging Deeper Mathematically</title>
 
-    <chapter xml:id="ch-model-analysis-total-population-and-equilibrium-values">
+    <!-- <chapter xml:id="ch-model-analysis-total-population-and-equilibrium-values">
       <title>Model Analysis: Total Population and Equilibrium Values</title>
 
       <section xml:id="sec-1">
@@ -4088,14 +4170,15 @@ plt.show()
         <p>Talk about summing models to understand total population (often = 0). Discuss solving for equilibrium values in some models. Refer to disease-free equilibrium in ALL models.</p>
       </section>
 
-    </chapter>
+    </chapter> -->
 
     <chapter xml:id="ch-the-next-generation-method-using-r0-to-determine-beta">
       <title>The Next Generation Method: Using <m>\mathcal{R}_0</m> to Determine <m>\beta</m></title>
 
       <section xml:id="sec-2">
         <title></title>
-        <p>Show how to use the NGM and how to use the results to determine beta</p>
+        <!-- <p>Change the title??? To focus on linear algebra???</p>
+        <p>Show how to use the NGM and how to use the results to determine beta</p> -->
       </section>
 
     </chapter>
@@ -4105,17 +4188,17 @@ plt.show()
 
       <section xml:id="sec-3a">
         <title></title>
-        <p>The Maddie/Maddy talk! Turn into a chapter and give them credit</p>
+        <!-- <p>The Maddie/Maddy talk! Turn into a chapter and give them credit</p> -->
       </section>
 
     </chapter>
     
     <chapter xml:id="ch-the-next-generation-method-connecting-theory-with-practice">
-      <title>The Next Generation Method: Connecting Theory with Practice</title>
+      <title>The Next Generation Method: Underlying Theory</title>
 
       <section xml:id="sec-3">
         <title></title>
-        <p>Provide more behind-the-scenes details of the NGM, including what different terms mean in the F, V^(-1), and F V^(-1) matrices</p>
+        <!-- <p>Provide more behind-the-scenes details of the NGM, including what different terms mean in the F, V^(-1), and F V^(-1) matrices</p> -->
       </section>
 
     </chapter>
@@ -4125,7 +4208,7 @@ plt.show()
 
       <section xml:id="sec-4">
         <title></title>
-        <p>Show some basics of Euler's Method, including activities for students to try on their own. Allude to other methods. Provide some outside reading (?).</p>
+        <!-- <p>Show some basics of Euler's Method, including activities for students to try on their own. Allude to other methods. Provide some outside reading (?).</p> -->
       </section>
      
     </chapter>
@@ -4135,7 +4218,7 @@ plt.show()
 
       <section xml:id="sec-4a">
         <title></title>
-        <p>Discuss the 1927 paper, including similarities and differences with the SIR and similar models we use today.</p>
+        <!-- <p>Discuss the 1927 paper, including similarities and differences with the SIR and similar models we use today.</p> -->
       </section>
      
     </chapter>
@@ -4145,10 +4228,10 @@ plt.show()
   <part xml:id="part-examples-and-case-studies">
     <title>Examples and Case Studies</title>
 
-    <chapter xml:id="ch-introducing-an-incubation-period-in-the-zombie-app">
-      <title>Introducing an Incubation Period in the Zombie App</title>
+    <!-- <chapter xml:id="ch-introducing-an-incubation-period-in-the-zombie-app">
+      <title>Introducing an Incubation Period in the Zombie App</title> -->
 
-      <introduction xml:id="intro-incubation-period-in-zombie-app">
+      <!-- <introduction xml:id="intro-incubation-period-in-zombie-app">
         <objectives>
           <ul>
             <li>
@@ -4167,9 +4250,9 @@ plt.show()
               </p>
             </li>
           </ul>
-        </objectives>
+        </objectives> -->
   
-        <p>
+        <!-- <p>
           In the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> we originally used in <xref ref="ch-zombies-can-math-help" />, when a human is infected, they become a zombie the very next day.
         </p>
         <p>
@@ -4179,10 +4262,10 @@ plt.show()
           <em>Take a few moments to think through how an incubation period would change the outcomes of the simulation.</em> Then begin <xref ref="sec-activity-introduce-an-incubation-period" />.
         </p>
   
-        </introduction>
+        </introduction> -->
 
 
-      <section xml:id="sec-activity-introduce-an-incubation-period">
+      <!-- <section xml:id="sec-activity-introduce-an-incubation-period">
         <title>Activity: Introduce an Incubation Period</title>
        
           <p>
@@ -4226,13 +4309,13 @@ plt.show()
           </figure>
           <p>
             Ask yourself: what do you observe? Compare this simulation with simulations having no incubation period. Consider how many days the outbreak lasts. Make note of your observations, share your ideas with others, and consider the observations of other people trying this experiment. Try the experiment with a longer incubation period, such as 2, 3, or 4 days, and observe the ways these changes affect outcomes of the model.
-          </p>
+          </p> -->
           <!-- <p>
             INCLUDE: a question about why the total population always equals 50, and about why this column is included in the sample data set
           </p> -->
-      </section>
+      <!-- </section>
 
-    </chapter>
+    </chapter> -->
     
     <chapter xml:id="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model">
       <title>Preparing Mumps Data to Compare with a Six-Compartment Model</title>
@@ -4244,17 +4327,7 @@ plt.show()
 
     </chapter>
 
-    <chapter xml:id="ch-modeling-the-spread-of-a-rumor">
-      <title>Modeling the Spread of a Rumor</title>
-
-      <section xml:id="sec-7">
-        <title></title>
-        <p>Rumor - use multiple references, and write up our "own" model here</p>
-      </section>
-
-    </chapter>
-
-    <chapter xml:id="ch-modeling-viral-videos">
+    <!-- <chapter xml:id="ch-modeling-viral-videos">
       <title>Modeling Viral Videos</title>
 
       <section xml:id="sec-8">
@@ -4342,7 +4415,7 @@ plt.show()
         <p>Show relationships between basic compartmental models and network models</p>
       </section>
 
-    </chapter>
+    </chapter> -->
 
   </part>
 
@@ -4350,7 +4423,7 @@ plt.show()
   <part xml:id="part-supplemental-materials">
     <title>Supplemental Materials</title>
 
-    <chapter xml:id="ch-data-sets">
+    <!-- <chapter xml:id="ch-data-sets">
       <title>Data Sets</title>
 
       <section xml:id="sec-supp-aa">
@@ -4358,14 +4431,14 @@ plt.show()
         <p>Include various data sets (or split these up elsewhere).</p>
       </section>
 
-    </chapter>
+    </chapter> -->
     
     <chapter xml:id="ch-paper-assignments-and-grading-rubrics">
       <title>Paper Assignments and Grading Rubrics</title>
 
       <section xml:id="sec-supp-a">
         <title></title>
-        <p>Include paper assignments and rubrics. Possibly split this into separate chapters.</p>
+        <!-- <p>Include paper assignments and rubrics. Possibly split this into separate chapters.</p> -->
       </section>
 
     </chapter>
@@ -4375,13 +4448,13 @@ plt.show()
 
       <section xml:id="sec-supp-b">
         <title></title>
-        <p>Take presentations I've given about mathematical writing, and include those ideas here. Seek additional references on this topic. Include materials I share with students about peer review, and describe WHY and HOW peer review is so great.</p>
+        <!-- <p>Take presentations I've given about mathematical writing, and include those ideas here. Seek additional references on this topic. Include materials I share with students about peer review, and describe WHY and HOW peer review is so great.</p> -->
       </section>
 
     </chapter>
 
     
-    <chapter xml:id="ch-linear-algebra-introduction">
+    <!-- <chapter xml:id="ch-linear-algebra-introduction">
       <title>Linear Algebra Introduction</title>
 
       <section xml:id="sec-supp-c">
@@ -4389,10 +4462,10 @@ plt.show()
         <p>Just-in-time linear algebra for Next Generation Method etc.</p>
       </section>
 
-    </chapter>
+    </chapter> -->
 
 
-    <chapter xml:id="ch-other-resources">
+    <!-- <chapter xml:id="ch-other-resources">
       <title>Other Resources</title>
 
       <section xml:id="sec-supp-d">
@@ -4400,7 +4473,7 @@ plt.show()
         <p>Annotated bibliography</p>
       </section>
 
-    </chapter>
+    </chapter> -->
 
 
 
