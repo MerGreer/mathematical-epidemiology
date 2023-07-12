@@ -1987,8 +1987,17 @@ plt.show()
           We begin to see in <xref ref="activity-understanding-gamma-pt2"/> that we can understand <m>\gamma</m> intuitively in relationship to how long an individual is in the I compartment. A compartmental model does not track individuals directly, and the responses in <xref ref="activity-understanding-gamma-pt2"/> do not suggest that every individual in an outbreak is sick for a precise amount of time that is shown by <m>\gamma</m>. Instead, the relationship between <m>\gamma</m> and length of time in compartment I shows how long <em>on average</em> individuals stay in compartment I. We can write this relationship mathematically:
         </p>
         <mdn>
-          <mrow xml:id="eq-gamma-estimate">\frac{1}{\gamma} \amp \approx \mbox{length of time an individual spends in compartment I.} </mrow>
+          <mrow xml:id="eq-gamma-estimate">\frac{1}{\gamma} \amp \approx \mbox{average length of time an individual spends in compartment I.} </mrow>
         </mdn>
+        <p>
+          Another way to phrase this, when being in the I compartment corresponds to a person being infectious, is:
+        </p>
+        <mdn>
+          <mrow xml:id="eq-gamma-estimate-2">\frac{1}{\gamma} \amp \approx \mbox{average length of time an individual is infectious.} </mrow>
+        </mdn>
+        <p>
+          In <xref ref="exercises-ch-compartmental-diagrams"/> we use the ideas in <xref ref="eq-gamma-estimate"/> and <xref ref="eq-gamma-estimate-2"/> to estimate <m>\gamma</m> for specific outbreaks.
+        </p>
         <p>
           Notice that <m>1/\gamma</m> is an amount of time. This means that the units of <m>\gamma</m> are <m>1/\mbox{time}</m>. This observation corresponds with <m>\gamma</m> being a <term>rate</term>.
         </p>
@@ -2065,7 +2074,7 @@ plt.show()
           </answer>
         </activity>
         <p>
-          After completing <xref ref="activity-introducing-units"/>, we recognize that in our SIR model, the units of <m>\beta</m> are not <m>1/\mbox{time}</m>. Therefore <m>\beta</m> is not a rate, and we cannot estimate the value of <m>\beta</m> similarly to how we estimate the value of <m>\gamma</m>. Indeed, estimating the value of <m>\beta</m> will require different methods. In <xref ref="ch-visualization-graphing-model-results-and-data"/> we discuss estimating <m>\beta</m> visually by comparing our model with data. In later chapters, we discuss other approaches to estimating <m>\beta</m>. 
+          After completing <xref ref="activity-introducing-units"/>, we recognize that in our SIR model, the units of <m>\beta</m> are not <m>1/\mbox{time}</m>. Therefore <m>\beta</m> is not a rate, and we cannot estimate the value of <m>\beta</m> similarly to how we estimate the value of <m>\gamma</m>. Indeed, estimating the value of <m>\beta</m> will require different methods. In <xref ref="ch-visualization-graphing-model-results-and-data"/> we discuss estimating <m>\beta</m> visually by comparing our model with data. In <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/> and <xref ref="ch-vaccines-and-incubation-periods"/> we introduce another way to estimate <m>\beta</m>, using other parameter values we know, along with a formula involving an epidemiological concept known as the <term>basic reproduction number</term>. 
         </p>
 
         <!-- COME BACK HERE AND SAY MORE ABOUT WHERE AND HOW WE ESTIMATE BETA!!! -->
@@ -2096,10 +2105,10 @@ plt.show()
     
 
       
-    <chapter xml:id="ch-population-values-and-the-basic-reproduction-number-R0">
-      <title>Population Values and the Basic Reproduction Number <m>\mathcal{R}_0</m></title>
+    <chapter xml:id="ch-model-analysis-and-the-basic-reproduction-number-R0">
+      <title>Model Analysis and the Basic Reproduction Number <m>\mathcal{R}_0</m></title>
 
-      <introduction xml:id="intro-population-values-and-the-basic-reproduction-number-R0">
+      <introduction xml:id="intro-model-analysis-and-the-basic-reproduction-number-R0">
         <objectives>
           <ul>
             <li>
@@ -2800,10 +2809,10 @@ plt.show()
     </chapter>
 
     
-    <chapter xml:id="ch-vaccines-in-compartmental-models">
-      <title>Vaccines in Compartmental Models</title>
+    <chapter xml:id="ch-vaccines-and-incubation-periods">
+      <title>Vaccines and Incubation Periods</title>
 
-      <introduction xml:id="intro-vaccines-in-compartmental-models">
+      <introduction xml:id="intro-vaccines-and-incubation-periods">
       <objectives>
         <ul>
           <li>
@@ -2962,7 +2971,7 @@ plt.show()
         <title>Vaccines in Compartmental Models</title>
 
         <p>
-          The modeling in this section focuses on <em>reducing transmission of a disease through the use of vaccines</em>. We use the multiplier <m>(1-p)</m> from <xref ref="expl-activity-vaccines"/>, along with the concept of <m>\mathcal{R}_0</m> from <xref ref="ch-population-values-and-the-basic-reproduction-number-R0"/>, to demonstrate the effect of vaccines on the number of people who ever become Infectious in a disease outbreak.
+          The modeling in this section focuses on <em>reducing transmission of a disease through the use of vaccines</em>. We use the multiplier <m>(1-p)</m> from <xref ref="expl-activity-vaccines"/>, along with the concept of <m>\mathcal{R}_0</m> from <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>, to demonstrate the effect of vaccines on the number of people who ever become Infectious in a disease outbreak.
         </p>
         <p>
           As a reminder, the <em>basic reproduction number</em> <m>\mathcal{R}_0</m> is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. This means that <m>\mathcal{R}_0</m> is not a number we can use to directly describe a population that has been vaccinated against a disease, since a vaccinated population is not entirely susceptible. Instead, we introduce an <term>effective reproduction number</term> <m>\mathcal{R}_{\text{eff}}</m>, which is the average number of new infections caused by one infectious person in a population that may not be entirely susceptible, such as a population that has had access to vaccination. One way to pronounce the symbol <m>\mathcal{R}_{\text{eff}}</m> is <q>R effective</q>.
@@ -2971,7 +2980,7 @@ plt.show()
           We cannot change the intrinsic value of <m>\mathcal{R}_0</m>, but with vaccination, we can work toward the goal of having <m>\mathcal{R}_{\text{eff}} \lt 1</m>. If <m>\mathcal{R}_{\text{eff}} \lt 1</m> in a model that includes vaccines or other public health interventions, then overall numbers of Infectious people do not rise over time. With a few lines of algebra, we can build a relationship between <m>\mathcal{R}_0</m>, <m>p</m>, and <m>\mathcal{R}_{\text{eff}}</m>. 
         </p> 
         <p>
-          First, we should state a definition for <m>p</m>. We define <m>p</m> to be the fraction of people vaccinated against a disease, noting that the values of <m>p</m> are therefore restricted to <m>0 \leq p \leq 1</m>, where <m>p=0</m> means no one is vaccinated, and <m>p=1</m> means <m>100\%</m> of the population is vaccinated. Initially, we will think of vaccination as being <m>100\%</m> effective.<fn>Later, we update our models to include vaccines that are less than <m>100\%</m> effective.</fn>
+          First, we should state a definition for <m>p</m>. We define <m>p</m> to be the fraction of people vaccinated against a disease, noting that the values of <m>p</m> are therefore restricted to <m>0 \leq p \leq 1</m>, where <m>p=0</m> means no one is vaccinated, and <m>p=1</m> means <m>100\%</m> of the population is vaccinated. Initially, we will think of vaccination as being <m>100\%</m> effective.<fn>In the last exercise of <xref ref="exercises-ch-vaccines"/>, we update our models to include vaccines that are less than <m>100\%</m> effective.</fn>
           When the fraction <m>p</m> of people are vaccinated, the remaining fraction <m>(1-p)</m> are not vaccinated. Since <m>\mathcal{R}_0</m> refers to an entirely susceptible population, but only the fraction <m>(1-p)</m> of the population is susceptible, we see that the average number of new infections caused by one infectious person in the vaccinated population is <m>(1-p)\mathcal{R}_0</m>. In other words:
         </p>
         
@@ -3188,14 +3197,14 @@ plt.show()
           Vaccine outcomes extend beyond affecting disease transmission. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can be included in models, however such models tend to be more detailed than those we are studying right now. For this reason, this chapter focuses only on vaccine models that show reduced transmission.
         </p>
         <p>
-          Much of this section has focused on vaccines, which are a valuable element of compartmental models. Another important aspect of disease spread is the incubation period of an illness. The SEIR model, described in <xref ref="sec-the-seir-model"/>, incorporates this incubation period.           
+          Much of this section has focused on vaccines, which are a valuable element of compartmental models. Another important aspect of disease spread is the incubation period of an illness. The SEIR model, described in <xref ref="sec-including-an-incubation-period-the-seir-model"/>, incorporates this incubation period.           
         </p>
 
 
       </section>
 
-      <section xml:id="sec-the-seir-model">
-        <title>The SEIR Model</title>
+      <section xml:id="sec-including-an-incubation-period-the-seir-model">
+        <title>Including an Incubation Period: The SEIR Model</title>
 
         <p>
           We introduce here the <term>SEIR model</term>. The new compartment, E, stands for <em>Exposed-and-incubating</em>. The population <m>E(t)</m> therefore represents people who have contracted an illness, but who are not yet infectious. As the name <q>SEIR</q> suggests, this model has four compartments. 
@@ -3303,11 +3312,20 @@ plt.show()
         </activity>
 
         <p>
-          Now that you have built an SEIR model in <xref ref="activity-seir-model-intro"/>, you can explore its compartmental diagram and differential equations. Your goals include envisioning how solutions should look, understanding how the value of the new parameter <m>\kappa</m> affects solutions, and simply playing around with the equations and different parameter values so that you can build your intuition for the SEIR model.          
+          Now that you have built an SEIR model in <xref ref="activity-seir-model-intro"/>, you can explore its compartmental diagram and differential equations. To start, notice that we can estimate the value of <m>\kappa</m> similarly to how we estimated the value of <m>\gamma</m> in <xref ref="eq-gamma-estimate"/> and <xref ref="eq-gamma-estimate-2"/>, using the average incubation time for a disease:         
         </p>
+        <mdn>
+          <mrow xml:id="eq-kappa-estimate">\frac{1}{\kappa} \amp \approx \mbox{average length of time an individual spends in compartment E} </mrow>
+        </mdn>
+        <p>
+          or:
+        </p>
+        <mdn>
+          <mrow xml:id="eq-kappa-estimate-2">\frac{1}{\kappa} \amp \approx \mbox{average incubation time for a disease.} </mrow>
+        </mdn>
 
         <p>
-          Begin these investigations in <xref ref="activity-seir-model-play-with-kappa"/>. 
+          Next, it is helpful with the newly introduced SEIR model to envision how solutions should look, understand how the value of the new parameter <m>\kappa</m> affects solutions, and simply play around with the equations and different parameter values so that you can build your intuition for this model. Begin these investigations in <xref ref="activity-seir-model-play-with-kappa"/>. 
         </p>
 
         <activity xml:id="activity-seir-model-play-with-kappa">
@@ -3419,46 +3437,23 @@ plt.show()
         </p>
         <p>
           The resulting <m>\mathcal{R}_0</m> formula is:
-          <mdn>
+        </p>
+        <mdn>
           <mrow xml:id="eq-R0-seir">\mathcal{R}_0 \amp = \frac{\beta N}{\gamma} \mbox{ for our SEIR model}. </mrow>
         </mdn>
-        </p>
-        
-
         <p>
-          Now that we have discussed public health intervention in the form of vaccines, as well as SI, SIR, and SEIR models, we have learned enough to be able to mathematically model the primary dynamics of many disease outbreaks. <em>These ideas are the core of this course.</em> In <xref ref="ch-getting-the-answer-right-in-modeling"/> we will think through the big ideas inherent in mathematical modeling. The remaining chapters in <xref ref="part-core-modeling-concepts"/> focus on connecting data with models and working with two additional ways to significantly extend our use of compartmental models: endemic disease, in <xref ref="ch-epidemic-vs-endemic-models"/>, and modeling ideas other than diseases, in <xref ref="ch-modeling-the-spread-of-a-rumor"/>.
+          The formula in <xref ref="eq-R0-seir"/> can be rearranged in order to use information about <m>\mathcal{R}_0</m>, <m>\gamma</m>, and <m>N</m> to compute a reasonable range of <m>\beta</m> values in a model. We have seen how to estimate <m>\gamma</m> and <m>\kappa</m> in <xref ref="eq-gamma-estimate"/>, <xref ref="eq-gamma-estimate-2"/>, <xref ref="eq-kappa-estimate"/>, and <xref ref="eq-kappa-estimate"/>. We therefore have the ability to determine the parameter values for an SEIR model of a specific outbreak. Try this in <xref ref="activity-seir-model-pertussis-setup"/>.
         </p>
 
-      </section>
-
-        
-        <!-- Next: a whooping cough activity? Set up Python for whooping cough, compute p_crit, discuss vaccine issues over time -->
-
-        <!-- <p>
-          SHOW HOW TO BUILD JUST EFF/EFF INTO THE MODEL. FINALLY, MAYBE IN AN EXERCISE, INCLUDE BOTH VACCINE COVERAGE AND EFF/EFF, SIMULTANEOUSLY, IN A MODEL. (MAYBE MAKE IT AN EXERCISE TO SEE WHAT THAT FORMULA SHOULD BE???)
-        </p> 
-
-        <p>
-          We will examine a simplified model of whooping cough, which is also known as pertussis. Whooping cough is highly contagious and can spread for two to three weeks after coughing begins.  
-        </p> -->
-
-
-
-
-      <exercises xml:id="exercises-ch-vaccines">
-        <exercise number="1">
-          <p>
-            The formula in <xref ref="eq-gamma-estimate"/> showed how to connect the parameter <m>\gamma</m> with the length of time a typical individual spends in compartment I, that is, how to connect <m>\gamma</m> with the length of time a person is typically infectious. Now use analogous reasoning, along with the SEIR model as shown in the answer to <xref ref="activity-seir-model-intro"/>, to explain how to estimate the value of the parameter <m>\kappa</m> from data on a disease, and to explain what <m>\kappa</m> really means in the SEIR model in terms of stage(s) of disease.
-          </p>          
-        </exercise>
-        <exercise number="2">
-          <p>
-            In this exercise, we set up a compartmental model for whooping cough, also called pertussis, in a fictional town having 10,000 residents. We use information from the <url href="https://www.health.ny.gov/publications/2171/">New York State Pertussis or Whooping Cough Fact Sheet</url>. The fact sheet says that the first stage of pertussis, in which symptoms are similar to those of a cold, lasts one to two weeks. Stage two, which includes the severe cough that gave pertussis the name <q>whooping cough</q>, lasts one to two months. The fact sheet also says that pertussis is contagious from the time cold symptoms appear until about three weeks after severe cough starts. The incubation period for pertussis is most often seven to ten days: the incubation period can sometimes be longer, but we focus on the most common lengths of time.  
+        <activity xml:id="activity-seir-model-pertussis-setup">
+          <statement>
+            <p>
+            We are now ready to set up a compartmental model for whooping cough, also called pertussis, in a fictional town having 10,000 residents, using information from the <url href="https://www.health.ny.gov/publications/2171/">New York State Pertussis or Whooping Cough Fact Sheet</url>. The fact sheet says that the first stage of pertussis, in which symptoms are similar to those of a cold, lasts one to two weeks. Stage two, which includes the severe cough that gave pertussis the name <q>whooping cough</q>, lasts one to two months. The fact sheet also says that pertussis is contagious from the time cold symptoms appear until about three weeks after severe cough starts. The incubation period for pertussis is most often seven to ten days: the incubation period can sometimes be longer, but we focus on the most common lengths of time. We will not include the use of antibiotics in this model. 
           </p>
           <ol>
             <li>
               <p>
-                Begin with the SEIR model below. Determine as many parameter values as you can, using the information described from the fact sheet. In this model, assume that time is measured in days. It is appropriate for some parameter values to be a range of numbers, rather than a single number, since the fact sheet information includes ranges of time.
+                Use the SEIR model below. Determine as many parameter values as you can, using the information described from the fact sheet. In this model, assume that time is measured in days. It is appropriate for some parameter values to be a range of numbers, rather than a single number, since the fact sheet information includes ranges of time.
               </p>
               <md>
                   <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
@@ -3474,10 +3469,11 @@ plt.show()
             </li>
             <li>
               <p>
-                Run the Python code below, making sure to first include different values from the parameter ranges you have computed for <m>\mathcal{R}_0</m>, <m>\kappa</m>, and <m>\gamma</m>. Notice that the code will compute the appropriate value of <m>\beta</m>, using the total population of 10,000 and the values you assign to <m>\mathcal{R}_0</m> and <m>\gamma</m>. Write your observations about the outcomes of the model. As we usually do: feel free to adjust the length of time the model runs, or to show just one or two solution curves at a time, or to otherwise alter the code so that you can best see and comment on the results of the model.
+                Run the Python code below, making sure to first enter the values from the parameter ranges you have computed for <m>\mathcal{R}_0</m>, <m>\kappa</m>, and <m>\gamma</m>. (These parameter values are set to 0 in the code, so visualizing the model requires you entering the values you determine.) Notice that the code will compute the appropriate value of <m>\beta</m>, using the total population of 10,000 and the values you assign to <m>\mathcal{R}_0</m> and <m>\gamma</m>. Make observations about the outcomes of the model. Be sure to adjust the length of time the model runs, or to show just one or two solution curves at a time, or to otherwise alter the code so that you can best see and comment on the results of the model.
               </p>
             </li>
           </ol>
+
           <sage>
               <input>
                 #Import packages
@@ -3530,13 +3526,45 @@ plt.show()
               
               </output>
             </sage>
-        </exercise>
+                       
+          </statement>
+          <answer>
+            <ol>
+              <li>
+                <p>
+                  The incubation period is usually 7 to 10 days, so <m>\kappa</m> is in the range <m>\frac{1}{10}- \frac{1}{7}</m>. (The incubation period can be shorter or longer, and if you included this information, you will have a wider range of values for <m>\kappa</m>. This is also valid.)
+                </p>
+                <p>
+                  Pertussis begins to be contagious when cold symptoms appear, and the phase for cold symptoms is one to two weeks. Pertussis is most contagious for up to three weeks after the intense coughing phase begins. Adding these phases together, pertussis is contagious, or most contagious, for four to five weeks, meaning 28 to 35 days. So <m>\gamma</m> is in the range <m>\frac{1}{35}- \frac{1}{28}</m>. (Saying <q>up to</q> three weeks suggests people may not be contagious the full three weeks. And pertussis may be contagious, at a lower level, more than three weeks after severe cough begins. You may have built either of these facts into your answer, which may lead to a different answer.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Rearranging <xref ref="eq-R0-seir"/> leads to <m>\beta = \gamma \mathcal{R}_0 / N</m>. Using the range of values <m>5.5 \leq \mathcal{R}_0 \leq 17</m> and <m>\frac{1}{35} \leq \gamma \leq \frac{1}{28}</m>, along with <m>N = 10,000</m>, gives the range of values <m>0.000157 \leq \beta \leq 0.000607</m>. Your range of <m>\beta</m> values should be based on the parameter values you determined.
+                </p>
+              </li>
+              <li>
+                <p>
+                  This is open-ended. Make as many observations as you can.
+                </p>
+              </li>
+            </ol>
+            
+          </answer>
+        </activity>
+        
 
-        <!-- Notes to me: kappa is between 1/10 and 1/7. Gamma is between 1/35 and 1/28.  -->
+        <p>
+          Now that we have discussed public health intervention in the form of vaccines, as well as SI, SIR, and SEIR models, we have learned enough to be able to mathematically model the primary dynamics of many disease outbreaks. <em>These ideas are the core of this course.</em> In <xref ref="ch-getting-the-answer-right-in-modeling"/> we will think through the big ideas inherent in mathematical modeling. The remaining chapters in <xref ref="part-core-modeling-concepts"/> focus on connecting data with models and working with two additional ways to significantly extend our use of compartmental models: endemic disease, in <xref ref="ch-epidemic-vs-endemic-models"/>, and modeling ideas other than diseases, in <xref ref="ch-modeling-the-spread-of-a-rumor"/>.
+        </p>
 
-        <exercise number="3">
+      </section>
+
+
+      <exercises xml:id="exercises-ch-vaccines">
+         <exercise number="1">
           <p>
-            Redo the above exercise, but convert the time unit to <em>weeks</em> instead of <em>days</em>. To make this change, do the following. 
+            Redo <xref ref="activity-seir-model-pertussis-setup"/>, but convert the time unit to <em>weeks</em> instead of <em>days</em>. To make this change, do the following. 
           </p>   
           <ol>
             <li>
@@ -3557,17 +3585,17 @@ plt.show()
           </ol> 
           <p>
             Explain mathematically why the unit conversions described in parts (a.), (b.), and (c.) are the correct conversions for converting the model's time scale from days to weeks. Show graphs from both this exercise and the previous exercise to demonstrate that the model results are the same when we convert the units of time. For better clarity: update the label for the time axis in each graph to say <q>days</q> or <q>weeks</q> instead of <q>time</q>, to make clear which time unit is being used in the graph.
-          </p>      
+          </p>        
         </exercise>
 
-        <exercise number="4">
+        <exercise number="2">
           <p>
-            Now update the pertussis model to include vaccine. Include the multiplier <m>(1-p)</m> where appropriate, adapting our work from <xref ref="expl-activity-vaccines"/> and <xref ref="activity-pcrit2"/> to the SEIR model.
+            Update <xref ref="activity-seir-model-pertussis-setup"/> to include vaccine. Include the multiplier <m>(1-p)</m> where appropriate, adapting our work from <xref ref="expl-activity-vaccines"/> and <xref ref="activity-pcrit2"/> to the SEIR model.
           </p>   
           <ol>
             <li>
               <p>
-                Compute <m>p_{\text{crit}}</m> for pertussis, using the information that <m>\mathcal{R}_0</m> for pertussis can be between 5.5 and 17, depending on the outbreak. (We referenced this earlier in this <em>For Further Thought</em> section.) Your results for <m>p_{\text{crit}}</m> will be a range of values.
+                Compute <m>p_{\text{crit}}</m> for pertussis, using the information that <m>\mathcal{R}_0</m> for pertussis can be between 5.5 and 17, depending on the outbreak. Your results for <m>p_{\text{crit}}</m> will be a range of values.
               </p>
             </li>
             <li>
@@ -3585,12 +3613,12 @@ plt.show()
                 In approximately 2019, researchers found that the whooping cough vaccine had become less effective over time, for a variety of reasons. They investigated the reasons and made changes. Read about this in from at least three sources, including general news sources as well as government-led websites, and report on your findings.
               </p>
             </li>
-          </ol>       
+          </ol>   
         </exercise>
 
-        <exercise number="5">
+        <exercise number="3">
           <p>
-            We make one more update to the pertussis model, addressing vaccine efficacy. Our inclusion of the multiplier <m>(1-p)</m> assumed that vaccination had <m>100 \%</m> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <m>80-85\%</m> efficacy.<fn>This range of vaccine efficacy level comes from the <url href="https://www.cdc.gov/vaccines/pubs/pinkbook/pert.html">Centers for Disease Control and Prevention</url>. The range is specific to the DTaP vaccine, in Europe and the Americas, in studies in or after 1991.</fn>
+            We make one more update to the pertussis model in <xref ref="activity-seir-model-pertussis-setup"/>, addressing vaccine efficacy. Our inclusion of the multiplier <m>(1-p)</m> assumed that vaccination had <m>100 \%</m> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <m>80-85\%</m> efficacy.<fn>This range of vaccine efficacy level comes from the <url href="https://www.cdc.gov/vaccines/pubs/pinkbook/pert.html">Centers for Disease Control and Prevention</url>. The range is specific to the DTaP vaccine, in Europe and the Americas, in studies in or after 1991.</fn>
           </p>   
           <ol>
             <li>
@@ -3606,10 +3634,10 @@ plt.show()
             </li>
             <li>
               <p>
-                Use the Python code from the second exercise to incorporate vaccine efficacy. Use logic, as well as results from your code, to explain how vaccine efficacy below <m>100\%</m> can make it more challenging to achieve the goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m>. In your explanation, you may wish to use the information that <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective.
+                Use the Python code from <xref ref="activity-seir-model-pertussis-setup"/> to incorporate vaccine efficacy. Use logic, as well as results from your code, to explain how vaccine efficacy below <m>100\%</m> can make it more challenging to achieve the goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m>. In your explanation, you may wish to use the information that <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective.
               </p>
             </li>
-          </ol>       
+          </ol>     
         </exercise>
       </exercises>
 
@@ -3882,7 +3910,7 @@ plt.show()
             Each model is based on the priorities of the people who create the model. Recognizing this, and thinking about it from the start, makes us better modelers.
           </p>
           <p>
-            The word <q>priorities</q> can take on many meanings. One key priority in model building is <em>answering a question</em>. For instance, in <xref ref="ch-vaccines-in-compartmental-models"/> we described models that address questions about how helpful vaccines or isolation can be in preventing an outbreak or reducing the effects of an outbreak. Different questions may require different models.
+            The word <q>priorities</q> can take on many meanings. One key priority in model building is <em>answering a question</em>. For instance, in <xref ref="ch-vaccines-and-incubation-periods"/> we described models that address questions about how helpful vaccines or isolation can be in preventing an outbreak or reducing the effects of an outbreak. Different questions may require different models.
           </p>
           <p>
             There may be other priorities as well, and we may not realize when we start model building that we are even building in those priorities. A student project I once advised produced one very powerful example of priorities that we do not see initially. This project forms the idea behind <xref ref="activity-priorities-HIV-AIDS"/>.
@@ -4498,7 +4526,7 @@ plt.show()
         <gi>
           <title>Basic Reproduction Number</title>
           <p>
-            The basic reproduction number is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. The symbol <m>\mathcal{R}_0</m>, pronounced <q>R zero</q> or <q>R nought</q>, represents the concept of the basic reproduction number, both in writing and in mathematical formulas.  (Chapter 5)
+            The basic reproduction number is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. The symbol <m>\mathcal{R}_0</m>, pronounced <q>R zero</q> or <q>R nought</q>, represents the concept of the basic reproduction number, both in writing and in mathematical formulas.  (Defined in Chapter 5, with a very brief mention at the end of Chapter 4)
           </p>
         </gi>
 
