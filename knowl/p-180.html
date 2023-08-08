@@ -11,8 +11,15 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Change the initial conditions so that <span class="process-math">\(S(0) \neq 49\text{,}\)</span> <span class="process-math">\(I(0) \neq 1\text{,}\)</span> or both. Comment on how these changes affect the resulting graph. (To stay in the realm of biologically feasible outbreaks, keep <span class="process-math">\(S(0) &gt; 0\)</span> and <span class="process-math">\(I(0) &gt; 0\text{.}\)</span>)</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">The lines</div>
+<pre class="code-display tex2jax_ignore">     beta = 0.02
+     y0 = [49, 1]
+     t_range = np.arange(0.0, 8.0, 0.1)
+</pre>
+<div class="para">provide values for <span class="process-math">\(\beta\text{,}\)</span> the initial conditions <span class="process-math">\(S(0)\)</span> and <span class="process-math">\(I(0)\text{,}\)</span> and <span class="process-math">\(t\text{.}\)</span> Any of these values can be changed, and the code can be run again, to produce a different numerical simulation of the same system of differential equations. Notice that the initial conditions are listed in the same order as how we defined the differential equations: <span class="process-math">\(S(0)=49\)</span> is first, and <span class="process-math">\(I(0)=1\)</span> is second.</div>
+</div>
 <span class="incontext"><a href="ch-visualization-graphing-model-results-and-data.html#p-180" class="internal">in-context</a></span>
 </body>
 </html>

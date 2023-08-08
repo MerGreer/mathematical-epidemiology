@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.7</span><span class="period">.</span>
+</h4>
+<div class="para">For this activity, we use an SEIR model in which the compartment definitions may differ from what we have seen before. For each question below, part of the response includes clarifying the definitions of compartments. Here are comments on each compartment, where terms such as “could”, “may”, and “in some cases” indicate aspects of compartment definitions that change, depending on how we define the compartments in a specific model.</div> <ul class="disc">
+<li><div class="para">Susceptibles (S) are people who have not yet become sick, and who can become sick. The Susceptibles could, in some cases, include people who have been vaccinated and therefore have less chance of becoming sick.</div></li>
+<li><div class="para">The Exposed-and-incubating (E) compartment includes people who have gotten the COVID-19 virus but not yet become infectious, and this class may include people with and without vaccination.</div></li>
+<li><div class="para">The Infectious (I) compartment includes people who are currently infectious, regardless of the severity of their symptoms, and in some cases, people in the Infectious compartment are also assumed to be interacting with Susceptibles.</div></li>
+<li><div class="para">The Removed (R) compartment may consist of people who have recovered from COVID, died from COVID, or entirely isolated themselves from others, so that they cannot spread COVID at all.</div></li>
+</ul> <div class="para">The equations for the SEIR model are below. Use these to answer the questions that follow the equations.</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{dS}{dt} \amp = - \beta S I \\
+\frac{dE}{dt} \amp =  \beta S I - \kappa E \\
+\frac{dI}{dt} \amp =  \kappa E - \gamma I \\
+\frac{dR}{dt} \amp = \gamma I. 
+\end{align*}
+</div> <ol class="decimal">
+<li><div class="para">How would you define each compartment in the very early stages of COVID, when most people did not yet know this was a new disease, and no public health measures had yet been instituted to try to contain the outbreak?</div></li>
+<li><div class="para">Early public health measures aimed to “flatten the curve”. The idea was that, even without vaccines or COVID-specific medicines, we could slow the spread of the outbreak by having people stay distant from each other. Which parameter(s) in the SEIR model are most affected when people maintain physical distance from each other? Try changing the parameter(s) you have chosen in the Python block and compare your results with the original result.</div></li>
+<li><div class="para">Creating COVID vaccines was a goal.<a href="" class="fn-knowl original" data-knowl="./knowl/fn-50-hidden.html" title="Footnote 7.1"><sup> 1 </sup></a> The plan was for vaccines to address COVID in multiple ways; we will address two such ways here. One way was for people to be less likely to get COVID. Another way was to reduce the severity or length of time ill for people who did get COVID. For each of these ways of addressing COVID: which compartments and/or parameters in the SEIR model are affected? Prepare before-and-after versions of the model and describe the differences in the outcomes you see.</div></li>
+</ol>
+<div class="solutions"><a href="" class="hint-knowl original" data-knowl="./knowl/hint-12-hidden.html" title="Hint 7.7.1"><span class="type">Hint</span><span class="period">.</span></a></div></article><span class="incontext"><a href="ch-getting-the-answer-right-in-modeling.html#activity-changing-models-COVID" class="internal">in-context</a></span>
+</body>
+</html>

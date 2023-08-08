@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Glossary of Mathematical Epidemiology Terms</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Epidemiology and More">
+<meta property="book:author" content="Meredith L. Greer">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="mathematical-epidemiology.html"><span class="title">Mathematical Epidemiology and More:</span> <span class="subtitle">A Course on Compartmental Models</span></a></h1>
+<p class="byline">Meredith L. Greer</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="backmatter.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="backmatter.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="colophon-2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2 parts"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement-1.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li><div class="toc-item"><a href="preface-overall.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li><div class="toc-item"><a href="preface-students.html" class="internal"><span class="title">To Students: How to Get the Most from This Text</span></a></div></li>
+<li><div class="toc-item"><a href="preface-instructors.html" class="internal"><span class="title">* To Instructors: Ways to Use This Text</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-core-modeling-concepts.html" class="internal"><span class="codenumber">I</span> <span class="title">Core Modeling Concepts</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html" class="internal"><span class="codenumber">1</span> <span class="title">Prelude: Diseases in Popular News</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-Themes" class="internal"><span class="codenumber">1.1</span> <span class="title">Possible Discussion Themes</span></a></div></li>
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Follow-Up-By-Seeking-More-Precise-Data" class="internal"><span class="codenumber">1.2</span> <span class="title">Follow Up By Seeking More Precise Data</span></a></div></li>
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-ALT" class="internal"><span class="codenumber">1.3</span> <span class="title">Possible Discussion ALT</span></a></div></li>
+<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#exercises-prelude-diseases-in-popular-news" class="internal"><span class="codenumber">1.4</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-zombies-can-math-help.html" class="internal"><span class="codenumber">2</span> <span class="title">Zombies: Can Math Help?</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-zombies-can-math-help.html#sec-we-now-have-data-qualitative-musings" class="internal"><span class="codenumber">2.1</span> <span class="title">We Now Have Data: Qualitative Musings</span></a></div></li>
+<li>
+<div class="toc-item"><a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal"><span class="codenumber">2.2</span> <span class="title">A First Model</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-zombies-can-math-help.html#exercises-ch-zombies-can-math-help" class="internal"><span class="codenumber">2.2</span> <span class="title">For Further Thought</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html" class="internal"><span class="codenumber">3</span> <span class="title">Visualization: Graphing Model Results and Data</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#sec-solving-differential-equations-using-graphs" class="internal"><span class="codenumber">3.1</span> <span class="title">“Solving” Differential Equations Using Graphs</span></a></div></li>
+<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal"><span class="codenumber">3.2</span> <span class="title">Estimating <span class="process-math">\(\beta\)</span> and Building Visualization Skills</span></a></div></li>
+<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#exercises-visualization-graphing-model-results-and-data" class="internal"><span class="codenumber">3.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-compartmental-diagrams.html" class="internal"><span class="codenumber">4</span> <span class="title">Compartmental Diagrams</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-compartmental-diagrams-vocabulary-and-comments" class="internal"><span class="codenumber">4.1</span> <span class="title">Compartmental Diagrams: Vocabulary and Comments</span></a></div></li>
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal"><span class="codenumber">4.2</span> <span class="title">From Zombie Game Variation to Compartmental Diagram</span></a></div></li>
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates" class="internal"><span class="codenumber">4.3</span> <span class="title">Estimating Gamma and Other Rates</span></a></div></li>
+<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal"><span class="codenumber">4.4</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal"><span class="codenumber">5</span> <span class="title">Model Analysis and the Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-using-calculus-to-analyze-models" class="internal"><span class="codenumber">5.1</span> <span class="title">Using Calculus to Analyze Models</span></a></div></li>
+<li><div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0" class="internal"><span class="codenumber">5.2</span> <span class="title">The Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#exercises-ch-populations-and-R0" class="internal"><span class="codenumber">5.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html" class="internal"><span class="codenumber">6</span> <span class="title">Vaccines and Incubation Periods</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html#sec-vaccines-in-compartmental-models" class="internal"><span class="codenumber">6.1</span> <span class="title">Vaccines in Compartmental Models</span></a></div></li>
+<li><div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html#sec-including-an-incubation-period-the-seir-model" class="internal"><span class="codenumber">6.2</span> <span class="title">Including an Incubation Period: The SEIR Model</span></a></div></li>
+<li><div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html#exercises-ch-vaccines" class="internal"><span class="codenumber">6.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html" class="internal"><span class="codenumber">7</span> <span class="title">Getting the Answer “Right” in Modeling</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-the-logical-approach" class="internal"><span class="codenumber">7.1</span> <span class="title">The Logical Approach</span></a></div></li>
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-priorities-where-goals-meet-ethics" class="internal"><span class="codenumber">7.2</span> <span class="title">Priorities: Where Goals Meet Ethics</span></a></div></li>
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-making-changes-to-models" class="internal"><span class="codenumber">7.3</span> <span class="title">Making Changes to Models</span></a></div></li>
+<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-writing-explanations-to-present-models-to-others" class="internal"><span class="codenumber">7.4</span> <span class="title">Writing Explanations to Present Models to Others</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal"><span class="codenumber">8</span> <span class="title">* Preparing Influenza Data to Compare With a Model</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-ga" class="internal"><span class="codenumber">8.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-epidemic-vs-endemic-models.html" class="internal"><span class="codenumber">9</span> <span class="title">* Epidemic vs. Endemic Models</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-epidemic-vs-endemic-models.html#sec-ee" class="internal"><span class="codenumber">9.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">* Residual Sum of Squares: Improving a Model's Fit to Data</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-ra" class="internal"><span class="codenumber">10.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-akaike-information-criterion-comparing-different-models.html" class="internal"><span class="codenumber">11</span> <span class="title">* Akaike Information Criterion: Comparing Different Models</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-akaike-information-criterion-comparing-different-models.html#sec-ma" class="internal"><span class="codenumber">11.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-modeling-the-spread-of-a-rumor.html" class="internal"><span class="codenumber">12</span> <span class="title">* Modeling the Spread of a Rumor</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-modeling-the-spread-of-a-rumor.html#sec-7" class="internal"><span class="codenumber">12.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-the-next-generation-method-using-r0-to-determine-beta.html" class="internal"><span class="codenumber">13</span> <span class="title">* The Next Generation Method: Using <span class="process-math">\(\mathcal{R}_0\)</span> to Determine <span class="process-math">\(\beta\)</span></span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-the-next-generation-method-using-r0-to-determine-beta.html#sec-2" class="internal"><span class="codenumber">13.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-tips-on-reading-a-scientific-paper.html" class="internal"><span class="codenumber">14</span> <span class="title">* Tips on Reading a Scientific Paper</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-tips-on-reading-a-scientific-paper.html#sec-3a" class="internal"><span class="codenumber">14.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-the-next-generation-method-connecting-theory-with-practice.html" class="internal"><span class="codenumber">15</span> <span class="title">* The Next Generation Method: Underlying Theory</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-the-next-generation-method-connecting-theory-with-practice.html#sec-3" class="internal"><span class="codenumber">15.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.html" class="internal"><span class="codenumber">16</span> <span class="title">* Numerical Simulations: An Overview of How Computers Turn Equations into Graphs</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.html#sec-4" class="internal"><span class="codenumber">16.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-kermack-mckendrick-the-1927-paper.html" class="internal"><span class="codenumber">17</span> <span class="title">* Kermack-McKendrick: the 1927 Paper</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-kermack-mckendrick-the-1927-paper.html#sec-4a" class="internal"><span class="codenumber">17.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-examples-and-case-studies.html" class="internal"><span class="codenumber">III</span> <span class="title">Examples and Case Studies</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html" class="internal"><span class="codenumber">18</span> <span class="title">* Preparing Mumps Data to Compare with a Six-Compartment Model</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html#sec-6" class="internal"><span class="codenumber">18.1</span> <span class="title"></span></a></div></li></ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-supplemental-materials.html" class="internal"><span class="codenumber">IV</span> <span class="title">Supplemental Materials</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-paper-assignments-and-grading-rubrics.html" class="internal"><span class="codenumber">19</span> <span class="title">* Paper Assignments and Grading Rubrics</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-paper-assignments-and-grading-rubrics.html#sec-supp-a" class="internal"><span class="codenumber">19.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-writing-tips-for-math-and-planning-for-peer-review.html" class="internal"><span class="codenumber">20</span> <span class="title">* Writing Tips for Math, and Planning for Peer Review</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="ch-writing-tips-for-math-and-planning-for-peer-review.html#sec-supp-b" class="internal"><span class="codenumber">20.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural">
+<li class="active"><div class="toc-item"><a href="glossary-of-terms.html" class="internal"><span class="title">Glossary of Mathematical Epidemiology Terms</span></a></div></li>
+<li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="glossary" id="glossary-of-terms"><h2 class="heading hide-type">
+<span class="type">Glossary</span> <span class="codenumber"></span> <span class="title">Glossary of Mathematical Epidemiology Terms</span>
+</h2>
+<section class="headnote" id="headnote-1"><div class="para" id="p-599">This glossary includes both definitions and, in many cases, examples along with fuller descriptions. The terms are listed in alphabetical order. At the end of each definition, a chapter number in parentheses indicates where the term first appeared in the text. The definitions and descriptions of the terms relate to their usage in the types of models described in this text: readers should know that some of the terms may have more broadly defined meanings in other mathematical contexts.</div></section><dl class="glossary">
+<dt id="gi-1">Basic Reproduction Number</dt>
+<dd> <div class="para" id="p-600">The basic reproduction number is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. The symbol <span class="process-math">\(\mathcal{R}_0\text{,}\)</span> pronounced “R zero” or “R nought”, represents the concept of the basic reproduction number, both in writing and in mathematical formulas.  (Defined in Chapter 5, with a very brief mention at the end of Chapter 4)</div>
+</dd>
+<dt id="gi-2">Compartmental Diagram</dt>
+<dd> <div class="para" id="p-601">A compartmental diagram is an image, typically consisting of labeled boxes and arrows, that visually represents the flow of individuals through a <em class="emphasis">compartmental model</em>. Examples include <a href="" class="xref" data-knowl="./knowl/fig-SI-compartmental-diagram.html" title="Figure 4.1">Figure 4.1</a> and <a href="" class="xref" data-knowl="./knowl/fig-SIR-compartmental-diagram.html" title="Figure 4.3">Figure 4.3</a>. (Chapter 4)</div>
+</dd>
+<dt id="gi-3">Compartmental Model</dt>
+<dd> <div class="para" id="p-602">A compartmental model is a style of mathematical model in which the subjects of the model are grouped into categories called <em class="emphasis">compartments</em>. Such a model follows the overall outcomes for each compartment, but does not typically track the outcomes of smaller groups such as individuals. The compartmental models in this text use differential equations to demonstrate the interactions and rates governing how many individuals move from one group to another at specific points in time.  As one example of a compartmental model, an SIR model consists of three compartments: S, I, and R. Most often in this text, compartment S represents Susceptible individuals, compartment I represents Infectious individuals, and compartment R represents Removed individuals. (Chapter 4)</div>
+</dd>
+<dt id="gi-4">Compartments</dt>
+<dd> <div class="para" id="p-603">In most models within this text, individuals are placed into categories called compartments. The individuals can typically move out of some compartments and into others, and the differential equations in compartmental models are sets of rules for the ways in which individuals are able to make such moves between compartments.  (Chapter 4)</div>
+</dd>
+<dt id="gi-5">Continuous</dt>
+<dd> <div class="para" id="p-604">We tend to think of real-world time as continuous, meaning time does not keep stopping and starting. The compartmental models we use in most of this book show continuous time. While this sense of time matches the real world, we need to think about how to reconcile it with data sets, which typically involve discrete time steps, such as days or weeks.  (Chapter 2)</div>
+</dd>
+<dt id="gi-6">Discrete</dt>
+<dd> <div class="para" id="p-605">We can think of time as discrete when we describe it as separate steps, such as Day 0, Day 1, or Day 2. Many data sets we work with report data in discrete time steps, such as by day or by week. We need to think through how to reconcile discrete data sets with the continuous models we most often use in this text. (Chapter 2)</div>
+</dd>
+<dt id="gi-7">Effective Reproduction Number</dt>
+<dd> <div class="para" id="p-606">The effective reproduction number is the average number of new infections caused by one infectious person in a population that is not entirely susceptible. The most common reason for a population to not be entirely susceptible is when some of the people have some form of immunity. Reasons for immunity may include vaccination and/or some of the people in the population previously having the disease being studied. The symbol <span class="process-math">\(\mathcal{R}_{\text{eff}}\)</span> represents the effective reproduction number. (Chapter 6)</div>
+</dd>
+<dt id="gi-8">Effectiveness</dt>
+<dd> <div class="para" id="p-607">A measure of how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease, <em class="emphasis">in real-world conditions</em>. For instance, if after a vaccine has been released to the public <span class="process-math">\(90\%\)</span> fewer vaccinated people get the virus than do those who are unvaccinated, then the vaccine is said to have an effectiveness of <span class="process-math">\(90\%\text{.}\)</span> (Chapter 6)</div>
+</dd>
+<dt id="gi-9">Efficacy</dt>
+<dd> <div class="para" id="p-608">A measure of how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease, <em class="emphasis">in a clinical trial</em>. For instance, if in trials <span class="process-math">\(70\%\)</span> fewer people in the vaccinated group get a virus than do those in the unvaccinated group, then the vaccine is said to have an efficacy of <span class="process-math">\(70\%\text{.}\)</span>  (Chapter 6)</div>
+</dd>
+<dt id="gi-10">Graphical Solution</dt>
+<dd> <div class="para" id="p-609">A graphical solution to a differential equation, or system of differential equations, is a curve or curves showing the behavior of the differential equation(s), based on specific parameter values and initial conditions. When parameter values change, or when initial conditions change, the graphical solution typically changes as well. A graphical solution is often called a <em class="emphasis">solution</em>, and readers should use context to know whether the word <em class="emphasis">solution</em> refers to a graphical solution, a numerical solution, or a formula. (Chapter 3)</div>
+</dd>
+<dt id="gi-11">Initial Conditions</dt>
+<dd> <div class="para" id="p-610">Initial conditions are the starting values of the dependent variables in differential equations. Within this text, our dependent variables are typically populations such as <span class="process-math">\(S(t)\)</span> or <span class="process-math">\(I(t)\text{,}\)</span> and the start of solutions is usually the time <span class="process-math">\(t=0\text{.}\)</span> This means the initial conditions are the values <span class="process-math">\(S(0)\)</span> and <span class="process-math">\(I(0)\text{.}\)</span> Initial conditions are used when computing a numerical solution: the numerical solution begins with the initial conditions and then “steps through” time, computing the later values of each dependent variable using both the earlier values and the information in the differential equations about how each dependent variable changes. (Chapter 3)</div>
+</dd>
+<dt id="gi-12">Mathematical Modeling</dt>
+<dd> <div class="para" id="p-611">Mathematical modeling is a process by which we represent real-world dynamics using mathematical formulas. In this text, we typically use differential equations in our models. The process of mathematical modeling can require many steps, such as choosing which equations to use, comparing the results of a model with data, updating a model as needed to respond to different goals, and considering multiple models to best answer the questions we are asking. (Chapter 7)</div>
+</dd>
+<dt id="gi-13">Numerical Solution</dt>
+<dd> <div class="para" id="p-612">A numerical solution to a differential equation, or system of differential equations, is a set of lists of numbers that result from approximating the outcome of the differential equation(s), given specific parameter values and initial conditions. When parameter values change, or when initial conditions change, the numerical solution typically changes as well. The lists of numbers for an SIR model, for instance, typically show the values of <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and <span class="process-math">\(R(t)\)</span> at many values of time <span class="process-math">\(t\)</span> within the range of time values of interest. We may print some or all of the values in the lists, or we may use graphing to present the information in the lists. A numerical solution is often called a <em class="emphasis">solution</em>, and readers should use context to know whether the word <em class="emphasis">solution</em> refers to a graphical solution, a numerical solution, or a formula. (Chapter 3)</div>
+</dd>
+<dt id="gi-14">Parameters</dt>
+<dd> <div class="para" id="p-613">Parameters in a model are numbers, determined using biological information, that represent some aspect of how a disease progresses. In this text, most parameters are shown as Greek letters, such as <span class="process-math">\(\beta\)</span> or <span class="process-math">\(\gamma\text{.}\)</span> A few parameters in this text represent percentages, such as the percentage of a population that is vaccinated against a disease, and these parameters are typically represented by lowercase letters such as <span class="process-math">\(p\)</span> or <span class="process-math">\(q\text{.}\)</span> Parameters are different than variables: the variables in our models are typically the independent variable <span class="process-math">\(t\)</span> for time, and dependent variables such as <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> <span class="process-math">\(R\text{,}\)</span> and others, for populations.  (Chapter 4)</div>
+</dd>
+<dt id="gi-15">Rate</dt>
+<dd> <div class="para" id="p-614">A rate is, in general, a ratio between two different things. In this text, rates are parameters having units <span class="process-math">\(1/\text{time}\text{.}\)</span> In a model, the rate is typically multiplied by a population such as <span class="process-math">\(I\)</span> or <span class="process-math">\(R\)</span> to show the flow of that population out of one compartment and into another compartment. (Chapter 4)</div>
+</dd>
+<dt id="gi-16">Sign Analysis</dt>
+<dd> <div class="para" id="p-615">The word “sign” in sign analysis refers to whether terms in differential equations are positive (<span class="process-math">\(+\)</span>), negative (<span class="process-math">\(-\)</span>), or zero (<span class="process-math">\(0\)</span>). In sign analysis, we use these signs to build understanding of the differential equation. Often, our goal is to learn whether the solution to the differential equation is rising, falling, or level at some time <span class="process-math">\(t\text{.}\)</span> This understanding may help us identify which solution curve goes with which differential equation, may show when a disease starts with an outbreak or can never experience an outbreak, and may indicate many other outcomes of models. Sign analysis is powerful because it depends only on the signs of terms, without forcing us to rely on detailed data sets that may not always be available. (Chapter 5)</div>
+</dd>
+<dt id="gi-17">SI Model</dt>
+<dd> <div class="para" id="p-616">An SI model is a compartmental model having two compartments, labeled S and I. Most often in this text, S stands for <em class="emphasis">Susceptible</em> and I stands for <em class="emphasis">Infectious</em>, though the compartments can have other interpretations. The letters S and I are each pronounced when we say “SI model”: “Ess” “Eye” model. (Chapter 2)</div>
+</dd>
+<dt id="gi-18">SEIR Model</dt>
+<dd> <div class="para" id="p-617">An SEIR model is a compartmental model having four compartments, labeled S, E, I, and R. Most often in this text, S stands for <em class="emphasis">Susceptible</em>, E stands for <em class="emphasis">Exposed-and-incubating</em>, I stands for <em class="emphasis">Infectious</em>, and R stands for <em class="emphasis">Removed</em>, though the compartments can have other interpretations. The letters S, E, I, and R are each pronounced when we say “SEIR model”: “Ess” “Eee” “Eye” “Arr” model. (Chapter 6)</div>
+</dd>
+<dt id="gi-19">SIR Model</dt>
+<dd> <div class="para" id="p-618">An SIR model is a compartmental model having three compartments, labeled S, I, and R. Most often in this text, S stands for <em class="emphasis">Susceptible</em>, I stands for <em class="emphasis">Infectious</em>, and R stands for <em class="emphasis">Removed</em>, though the compartments can have other interpretations. The letters S, I, and R are each pronounced when we say “SIR model”: “Ess” “Eye” “Arr” model. (Chapter 4)</div>
+</dd>
+<dt id="gi-20">Total Population</dt>
+<dd> <div class="para" id="p-619">The total population of a compartmental model is the sum of the populations in each compartment. We typically use the variable <span class="process-math">\(N\)</span> to refer to total population, and we write <span class="process-math">\(N(t)\)</span> to mean total population at time <span class="process-math">\(t\text{.}\)</span> (Chapter 5)</div>
+</dd>
+</dl></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="backmatter.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="colophon-2.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

@@ -24,7 +24,7 @@ sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
 <div class="para">Most diseases we know of have <span class="process-math">\(\mathcal{R}_0 \gt 1\text{.}\)</span> This makes sense: without rising numbers of Infectious people, we do not experience an epidemic. However, in rare cases, a disease emerges for which <span class="process-math">\(\mathcal{R}_0 \lt 1\text{.}\)</span> One example is MERS, which stands for Middle East Respiratory Syndrome. The first identified case of MERS was in 2012. There is still a lot to learn about MERS, but multiple estimates indicate that the value of <span class="process-math">\(\mathcal{R}_0\)</span> for MERS is less than one.</div>
 <div class="para">This activity is motivated by the existence of diseases with <span class="process-math">\(\mathcal{R}_0 \lt 1\text{.}\)</span> Suppose we study a disease for which <span class="process-math">\(\mathcal{R}_0 \approx 0.5\)</span> and <span class="process-math">\(\gamma = 0.1\text{,}\)</span> that is, people are typically infectious for about ten days. Suppose we choose to model this disease with an SIR model similar to the models we have been using in this chapter: “S” stands for Susceptible, meaning people who are not sick but can become sick; “I” stands for Infectious, meaning people who are currently able to spread the disease, and “R stands for” Removed, meaning people who are no longer able to spread the disease and are unable to become sick again. In the case of a disease similar to MERS, the Removed compartment consists of both recoveries and deaths from the disease.</div>
 <ol class="lower-alpha">
-<li><div class="para">In an area with a population of 1000, use <a href="" class="xref" data-knowl="./knowl/eq-R0-sir.html" title="Equation 5.1">(5.1)</a> to solve for the value of <span class="process-math">\(\beta\)</span> for this SIR model.</div></li>
+<li><div class="para">In an area with a population of 1000, rearrange <a href="" class="xref" data-knowl="./knowl/eq-R0-sir.html" title="Equation 5.1">(5.1)</a> to solve for the value of <span class="process-math">\(\beta\)</span> for this SIR model.</div></li>
 <li>
 <div class="para">Suppose that at the start of the outbreak, 20 people are Infectious. Use the Python block below to visualize the outbreak over 200 days. Notice that the Python block includes three <code class="code-inline tex2jax_ignore">print</code> commands. These print and label the last output values stored as <code class="code-inline tex2jax_ignore">sol</code>, that is, the <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and <span class="process-math">\(R(t)\)</span> values for the last value of time <span class="process-math">\(t\text{,}\)</span> namely <span class="process-math">\(t=200\text{.}\)</span>
 </div>
@@ -70,6 +70,6 @@ plt.grid()
 plt.xlabel('time')
 plt.ylabel('populations')
 plt.show()
-</script></pre></article><span class="incontext"><a href="ch-population-values-and-the-basic-reproduction-number-R0.html#exercise-15" class="internal">in-context</a></span>
+</script></pre></article><span class="incontext"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#exercise-15" class="internal">in-context</a></span>
 </body>
 </html>
