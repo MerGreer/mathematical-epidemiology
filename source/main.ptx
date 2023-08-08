@@ -150,7 +150,7 @@
       </preface>
 
       <preface xml:id="preface-instructors">
-        <title>To Instructors: Ways to Use This Text</title>
+        <title>* To Instructors: Ways to Use This Text</title>
         
         <p>
           Full-semester, shorter module, independent research, possibly other options for length of time spent with the text. Paths through, with and without linear algebra. Active learning. Grading. Setting up papers, HW, other assessments. Using new data sets.
@@ -197,10 +197,8 @@
       </objectives>
 
       <p>
-        Disease outbreaks have been a topic of widespread discussion for a very long time. In this course, we will discuss the scientific study of outbreaks, data sets collected and curated by government officials, and policy ideas for improving public health outcomes. To begin, however, we start by examining writing in news and popular culture articles about diseases.
+        Disease outbreaks have been a topic of widespread discussion for a very long time. In this course, we will discuss the scientific study of outbreaks, data sets collected and curated by government officials, and policy ideas for improving public health outcomes. To begin, however, we examine writing in news and popular culture articles about diseases, starting in <xref ref="expl-reading-about-disease-in-the-news-and-popular-media"/>.
       </p>
-
-      </introduction>
 
       <exploration xml:id="expl-reading-about-disease-in-the-news-and-popular-media">
         <title>Reading about Disease in the News and Popular Media</title>
@@ -280,6 +278,8 @@
           hi
         </p>
       </exploration>
+
+    </introduction>
 
 
       <section xml:id="sec-Possible-Discussion-Themes">
@@ -404,15 +404,13 @@
       </objectives>
 
       <p>
-        First things first: let's simulate an outbreak! This activity is directly inspired by the Disease Lab materials published freely online by Utah State University.<fn>Powell, Jim and Lewis, Matt, <q>Disease Lab</q> (2016). <em>Laboratory Experiences in Mathematical Biology</em>. 1.
+        First things first: let's simulate an outbreak! The simulations in this text, starting with <xref ref="expl-activity-zombie-game"/>, are directly inspired by the Disease Lab materials published freely online by Utah State University.<fn>Jim Powell and Matt Lewis, <q>Disease Lab</q> (2016). <em>Laboratory Experiences in Mathematical Biology</em>. 1.
         <url href="https://digitalcommons.usu.edu/lemb/1">https://digitalcommons.usu.edu/lemb/1</url></fn> You can do this exploration in a group or on your own. (Groups are recommended, if you are able to team up with one or more other people.) You will model humans, also called Susceptibles, as well as zombies, also called Infectious. The <url href="https://digitalcommons.usu.edu/lemb/1">Utah State University link</url> describes a hands-on way to play this game using dry erase markers and overhead projector transparencies. In this text, we primarily use a related online <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url><fn>This app was created by Gabe Nelson, Bates College Class of 2020, after campus closed due to COVID-19.</fn> to play and to generate data.
       </p>
 
       <p>
         Why do we start with a simulation? First, this course requires active involvement, so we create space immediately for that involvement. Second, this simulation game can be interactive, and working with others helps us see other perspectives and adds both fun and community to learning. Third, though we mostly work with real-life outbreaks in this textbook, we also purposely diverge from reality to think through hypothetical outcomes, and zombies are one way to think creatively about disease spread. Fourth, this activity generates outbreak examples, and examples throughout this course are one of our main ways to build toward theory and illustrate abstract concepts. Therefore, to achieve the goals for each section, we usually begin with exploration activities, then use what we learned in the explorations to help build our mathematical framework.
       </p>
-
-      </introduction>
 
       <exploration xml:id="expl-activity-zombie-game">
         <title>Zombie Game</title>
@@ -497,6 +495,8 @@
           </statement>
         </task>
       </exploration>
+
+    </introduction>
       
       <section xml:id="sec-we-now-have-data-qualitative-musings">
         <title>We Now Have Data: Qualitative Musings</title>
@@ -840,12 +840,16 @@
         </md>
   
         <p>
-          We began to explore the differences between the discrete data, collected round-by-round in the Zombie Game App, and the continuous model, which uses a system of differential equations to produce smooth curves. Here, we continue that exploration visually, by producing graphs of data and graphs of model results. We also see a first, very visual, way to estimate the value of <m>\beta</m> in our model. (There will be other, more detailed, ways to estimate <m>\beta</m>, as we continue in this text.) To do all this, we employ visualization tools. This text uses cells that run both Python and <url href="https://www.sagemath.org/">SageMath</url>, which <q>is a free open-source mathematics software system</q><fn><url href="https://www.sagemath.org/">https://www.sagemath.org/</url></fn>, for visualization. The Python code here can be used in any setting where you use Python.<fn>The Python-related goal of this text is to make it as easy and intuitive as possible for readers to jump into using Python, so that we can better explore disease models. Some readers may prefer different Python syntax, or using a different program altogether, and these alternate approaches are welcome.</fn> 
+          We began to explore the differences between the discrete data, collected round-by-round in the Zombie Game App, and the continuous model, which uses a system of differential equations to produce smooth curves. In this chapter, we continue that exploration visually, by producing graphs of data and graphs of model results. We also see a first, very visual, way to estimate the value of <m>\beta</m> in our model. (There will be other, more detailed, ways to estimate <m>\beta</m>, as we continue in this text.) To do all this, we employ visualization tools. This text uses cells that run both Python and <url href="https://www.sagemath.org/">SageMath</url>, which <q>is a free open-source mathematics software system</q><fn><url href="https://www.sagemath.org/">https://www.sagemath.org/</url></fn>, for visualization. The Python code here can be used in any setting where you use Python.<fn>The Python-related goal of this text is to make it as easy and intuitive as possible for readers to jump into using Python, so that we can better explore disease models. Some readers may prefer different Python syntax, or using a different program altogether, and these alternate approaches are welcome.</fn> 
           
           <!-- Other options include Python and Mathematica, with files for each available at (provide on GitHub???). -->
         </p>
 
-      </introduction>
+        <p>
+          Begin by reading and seeking to understand the Python code in <xref ref="expl-creating-graphs-in-python-from-the-human-zombie-game"/>. In addition to thinking through what the Python code does, this textbook focuses attention on producing output that best showcases our modeling results and that is readable by a wide audience.
+        </p>
+
+      
 
       
       <exploration xml:id="expl-creating-graphs-in-python-from-the-human-zombie-game">
@@ -953,11 +957,8 @@
 
       </exploration>
 
+    </introduction>
 
-      <!-- <section xml:id="sec-what-does-it-mean-to-solve-a-differential-equation">
-        <title>What Does it Mean to Solve a Differential Equation?</title>
-        
-      </section> -->
 
       <section xml:id="sec-solving-differential-equations-using-graphs">
         <title><q>Solving</q> Differential Equations Using Graphs</title>
@@ -967,7 +968,7 @@
         </p>
 
         <p>
-          One thing we will <em>almost never</em> do is solve an entire system of differential equations in the way you may have seen in a calculus course, where we wrote the solution as a formula. (!!! Possible exception in Chapter 12 - mention this. !!!) Here is an example to remind you how it looks to determine a formula as the solution to a differential equation. Then we will discuss why we use a different approach in this text.
+          One thing we will <em>almost never</em> do is solve an entire system of differential equations in the way you may have seen in a calculus course, where we wrote the solution as a formula. To remind you how this often looks in calculus class<mdash/>that is, how it looks to solve by writing the solution of a differential equation as a formula<mdash/>we show an example in <xref ref="exer-solve-de"/>. Then <xref ref="exer-cannot-easily-solve-de-system"/> begins the discussion about why we use a different approach in this text.
         </p>
         
         <activity xml:id="exer-solve-de">
@@ -1703,10 +1704,8 @@ plt.show()
         In this text, we regularly represent the dynamics of an outbreak using both compartmental model drawings and systems of differential equations. When we are careful in how we draw our compartmental diagrams, we can use these diagrams interchangeably with their corresponding systems of differential equations. In this chapter, we learn the vocabulary of compartmental models, as well as ways to draw compartmental diagrams so they clearly and completely represent the information contained in their corresponding systems of differential equations.
       </p>
       <p>
-        We begin by trying a different version of the human<ndash/>zombie game. We then ask you to use the intuition you are building to think through how the compartmental diagram should look for this human<ndash/>zombie game variation. After that, we discuss more details about compartmental diagrams. <em>You are strongly encouraged to try to build your own compartmental diagram before moving on to the text's discussion of the details.</em>
+        We begin in <xref ref="expl-activity-varying-the-human-zombie-game"/> by trying a different version of the human<ndash/>zombie game. We then ask you to use the intuition you are building to think through how the compartmental diagram should look for this human<ndash/>zombie game variation. After that, we discuss more details about compartmental diagrams. <em>You are strongly encouraged to try to build your own compartmental diagram before moving on to the text's discussion of the details.</em>
       </p>
-
-      </introduction>
       
       <exploration xml:id="expl-activity-varying-the-human-zombie-game">
         <title>Varying the Human<ndash />Zombie Game</title>
@@ -1786,6 +1785,8 @@ plt.show()
         </task>
         
       </exploration>
+
+    </introduction>
       
       <section xml:id="sec-compartmental-diagrams-vocabulary-and-comments">
         <title>Compartmental Diagrams: Vocabulary and Comments</title>
@@ -2138,8 +2139,6 @@ plt.show()
         <p>
           Our starting point, using a combination of visual and equation-based understanding, begins in <xref ref="expl-rise-and-fall-of-an-epidemic"/>.
         </p>
-  
-        </introduction>
         
         <exploration xml:id="expl-rise-and-fall-of-an-epidemic">
           <title>Rise and Fall of an Epidemic</title>
@@ -2203,6 +2202,8 @@ plt.show()
           </task> 
           
         </exploration>
+
+      </introduction>
 
       <section xml:id="sec-using-calculus-to-analyze-models">
         <title>Using Calculus to Analyze Models</title>
@@ -2854,8 +2855,6 @@ plt.show()
       <p>
         Begin in <xref ref="expl-activity-vaccines"/> by adjusting a model in a particular way to reduce the occurrence of new infections.
       </p>
-
-      </introduction>
       
       <exploration xml:id="expl-activity-vaccines">
         <title>Reducing New Infections</title>
@@ -2966,6 +2965,8 @@ plt.show()
         </task>
         
       </exploration>
+
+    </introduction>
 
       <section xml:id="sec-vaccines-in-compartmental-models">
         <title>Vaccines in Compartmental Models</title>
@@ -3654,35 +3655,73 @@ plt.show()
           <ul>
             <li>
               <p>
-                Discuss how set-up and definitions matter
+                Appreciate that mathematical models by themselves are not <q>right</q> or <q>wrong</q>, but instead depend on logically addressing specific questions 
               </p>
             </li>
             <li>
               <p>
-                Discuss context!!!  
+                Recognize that mathematical models reflect ethics and priorities, and that modelers should consider their ethics and priorities while constructing models
               </p>
             </li>
             <li>
               <p>
-                (Compare modeling with proofs or similar?)
+                Embrace the process of updating models based on new data, different questions being asked, or for many other reasons
+              </p>
+            </li>
+            <li>
+              <p>
+                Commit to explaining models and their results clearly, using carefully chosen graphs and words
               </p>
             </li>
           </ul>
         </objectives>
   
-        <!-- Put isolation HERE?!?!?! -->
-
         <p> 
           In this chapter, we pause and step back to consider the overall process of <term>mathematical modeling</term>. 
         </p>
         <p>
           Mathematical modeling allows us to represent real-world scenarios with mathematical formulas. Models may primarily reflect what is happening in the world, giving us a mathematical way to describe what we see. Alternately, we may use models to think about how to change what is happening in the world. We can make changes mathematically, trying ideas within models, before ever trying to implement those ideas as policies or medical interventions involving actual people.  
         </p>
+        <exploration xml:id="expl-activity-getting-the-answer-right">
+          <title>Which Model(s) to Use?</title>
+          <introduction>
+            <p>
+              So far, we have worked with the SI, SIR, and SEIR models. We have shown how to include vaccines in a model. And for those who completed the last exercise of <xref ref="exercises-ch-vaccines"/>, we showed how to include vaccines along with their efficacy or effectiveness. Now, think through choosing from these models for different scenarios. 
+            </p>
+          </introduction>
+  
+          <task>
+            <statement>
+              <p>
+                Which model(s) would you choose to work with if you wanted to include a term such as <m>(1-p)</m> to indicate vaccination? Why? 
+              </p>
+            </statement>
+          </task>  
+          <task>
+            <statement>
+              <p>
+                Which model(s) would allow you to change the length of time someone is Infectious, perhaps to test the outcome of a medication that reduces the length of time a person can infect others? Why does your choice of model(s) make sense? 
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                Which model(s) would you use if you had an Infectious compartment in which individuals would always stay Infectious? Why? 
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                Which model(s) would allow you to change the time scale from days to weeks? How would you know this is possible? 
+              </p>
+            </statement>
+          </task>
+          
+        </exploration>
         <p>
-          PUT AN EXPLORATION ACTIVITY IN HERE???
-        </p>
-        <p>
-           Many people believe that mathematics is all about getting <q>the right answer</q>. With mathematical modeling, there may not be a <q>right answer</q>, or even a best answer. Instead, the answers we seek depend on the questions we ask, the priorities we set, the way we use models to explore these questions, and our ability to explain all these pieces of our thought process.
+           Many people believe that mathematics is all about getting <q>the right answer</q>. With mathematical modeling, there may not be a <q>right answer</q>, or even a best answer. For instance, in <xref ref="expl-activity-getting-the-answer-right"/> there may be multiple reasonable answers to some of the questions. In modeling, the answers we seek depend on the questions we ask, the priorities we set, the way we use models to explore these questions, and our ability to explain all these pieces of our thought process.
         </p>
         <p>
           You could say that modeling consists of four components: 
@@ -3700,7 +3739,7 @@ plt.show()
           </li>
           <li>
             <p>
-              Making <em>changes</em> to models as we gain more information, to better represent a situation, to answer different questions, or to try new scenarios;
+              Making <em>changes</em> to models as we gain more information, to better represent a situation, to answer different questions, or to try alternate scenarios;
             </p>
           </li>
           <li>
@@ -3710,7 +3749,7 @@ plt.show()
           </li>
         </ol>
         <p>
-          We work through each of these in the sections below.
+          We work through each of these in the sections below. We then use these ideas throughout the textbook.
         </p>
   
         </introduction>
@@ -3722,13 +3761,16 @@ plt.show()
             Throughout mathematics, we set up statements in a particular logical way. We will see that researchers follow similar principles when describing mathematical models.
           </p>
           <p>
-            Work through <xref ref="activity-mathematical-logic-sections"/> and <xref ref="activity-mathematical-logic-sections-advanced"/> to build familiarity with the steps of a logical mathematical explanation.
+             The structure of mathematical statements typically involves <q>if</q> and <q>then</q> statements, such as: <q><em>If</em> a polygon has six sides and six angles, <em>then</em> the polygon is a hexagon.</q> The <q>if</q> statements are called <em>assumptions</em>. The <q>then</q> statements are called <em>conclusions</em>. A mathematical statement may include multiple assumptions and/or multiple conclusions. The words <q>if</q> and <q>then</q> are not always included, so we as readers may need to think carefully about which parts of a mathematical statement are the assumptions and which parts are the conclusions.
+          </p> 
+          <p>
+            Work through <xref ref="activity-mathematical-logic-sections"/> to build familiarity with identifying the assumptions and conclusions in mathematical statements.
           </p>
 
-          <activity xml:id="activity-mathematical-logic-sections">
+          <!-- <activity xml:id="activity-mathematical-logic-sections">
             <statement>              
               <p>
-                Mathematical statements are typically structured in terms of <q>if</q> and <q>then</q> statements, such as: <q><em>If</em> the weather forecast calls for rain, <em>then</em> I will bring my raincoat.</q> There may be several <q>if</q> statements, and these are collectively called <term>hypotheses</term>. There may be many <q>then</q> statements, and these are called <term>conclusions</term>.  
+                Mathematical statements are typically structured in terms of <q>if</q> and <q>then</q> statements, such as: <q><em>If</em> the weather forecast calls for rain, <em>then</em> I will bring my raincoat.</q> There may be several <q>if</q> statements, and these are collectively called <term>assumptions</term>. There may be many <q>then</q> statements, and these are called <term>conclusions</term>.  
               </p>
               <p>
                 For each of the following mathematical statements, specify which part is the <em>hypothesis</em>, that is, the <q>if</q> part of the statement. Also specify which part is the <em>conclusion</em>, that is, the <q>then</q> part.
@@ -3748,21 +3790,22 @@ plt.show()
             </statement>
             <hint>
               <p>
-                The first statement could be described as having one hypothesis or two hypotheses, depending on whether we characterize <q>six sides and six angles</q> as a single combined idea, or we prefer to split this idea into two separate hypotheses. There could be even more hypotheses listed, such as if we want to say that having a shape be a polygon is itself a hypothesis. Any reasonable answer here is valid: there is not just one way to designate hypotheses.    
+                The first statement could be described as having one hypothesis or two assumptions, depending on whether we characterize <q>six sides and six angles</q> as a single combined idea, or we prefer to split this idea into two separate assumptions. There could be even more assumptions listed, such as if we want to say that having a shape be a polygon is itself a hypothesis. Any reasonable answer here is valid: there is not just one way to designate assumptions.    
               </p>
               <p>
                 The second statement does not explicitly include the word <q>then</q>.   
               </p>
             </hint>
-          </activity>
+          </activity> -->
 
-          <activity xml:id="activity-mathematical-logic-sections-advanced">
-            <statement>              
+          <activity xml:id="activity-mathematical-logic-sections">
+            <statement> 
+                          
               <p>
-                For each of the following mathematical statements, specify the <em>hypotheses</em> and the <em>conclusions</em>. There may be multiple hypotheses and/or conclusions per statement. The words <q>if</q> and/or <q>then</q> may not appear explicitly.
+                For each of the following mathematical statements, specify the <em>assumptions</em> and the <em>conclusions</em>. There may be multiple assumptions and/or conclusions per statement. The words <q>if</q> and/or <q>then</q> may not appear explicitly. If cases when these words do not appear, it may help to rewrite the mathematical statement in a way that has the same logical meaning, yet that includes <q>if</q> and <q>then</q> in appropriate parts of the statement.
               </p>
               <p>
-                A note: you may recognize these statements, but it is completely OK if you do not recognize them. Naming the hypotheses and conclusions is possible even if the statements are unfamiliar.
+                A note: you may recognize these statements, but it is completely OK if you do not recognize them. Naming the assumptions and conclusions is possible even if the statements are unfamiliar.
               </p>
               <ol>
                 <li>
@@ -3786,7 +3829,7 @@ plt.show()
               <ol>
                 <li>
                   <p>
-                    This is the most straightforward of the three statements in this activity. Most responses will probably have two hypothesis statements and one conclusion. It is possible to list even more hypotheses, such as <q>a triangle is a right triangle,</q> <q>one leg of the triangle has length <m>a</m>,</q> and so on.
+                    This is the most straightforward of the three statements in this activity. Most responses will probably have two hypothesis statements and one conclusion. It is possible to list even more assumptions, such as <q>a triangle is a right triangle,</q> <q>one leg of the triangle has length <m>a</m>,</q> and so on.
                   </p>
                 </li>
                 <li>
@@ -3807,13 +3850,13 @@ plt.show()
           </activity>
 
           <p>
-            The statements in <xref ref="activity-mathematical-logic-sections"/> and <xref ref="activity-mathematical-logic-sections-advanced"/> are traditionally mathematical. When discussing mathematical models, the statements may look somewhat different. Practice with modeling language in <xref ref="activity-mathematical-logic-in-modeling"/>.
+            The statements in <xref ref="activity-mathematical-logic-sections"/> are traditionally mathematical. When discussing mathematical models, the statements may look somewhat different. Practice with modeling language in <xref ref="activity-mathematical-logic-in-modeling"/>.
           </p>
 
           <activity xml:id="activity-mathematical-logic-in-modeling">
             <statement>              
               <p>
-                For each of the following paragraphs, specify the <em>hypotheses</em> and the <em>conclusions</em>. There may be multiple hypotheses and/or conclusions per paragraph. The words <q>if</q> and/or <q>then</q> may not appear explicitly.
+                For each of the following paragraphs, specify the <em>assumptions</em> and the <em>conclusions</em>. There may be multiple assumptions and/or conclusions per paragraph. The words <q>if</q> and/or <q>then</q> may not appear explicitly.
               </p>
               <ol>
                 <li>
@@ -3832,12 +3875,12 @@ plt.show()
               <ol>
                 <li>
                   <p>
-                    There are many hypotheses here! Everything before the word <q>then</q> forms part of the hypotheses. The conclusion appears after <q>then</q>.
+                    There are many assumptions here! Everything before the word <q>then</q> forms part of the assumptions. The conclusion appears after <q>then</q>.
                   </p>
                 </li>
                 <li>
                   <p>
-                    The hypotheses here include most of the information from the first scenario, except with a changed value of <m>\beta</m>. The conclusion begins after <q>In this situation</q>. 
+                    The assumptions here include most of the information from the first scenario, except with a changed value of <m>\beta</m>. The conclusion begins after <q>In this situation</q>. 
                   </p>
                 </li>
               </ol>
@@ -3845,39 +3888,39 @@ plt.show()
           </activity>
 
           <p>
-            All this practice with hypotheses and conclusions leads us to a key idea. <em>When the hypotheses in a statement are not satisfied, we should not expect the conclusion in that statement to be satisfied.</em> Practice with this concept appears in <xref ref="activity-mathematical-logic-hypotheses-not-satisfied"/>.
+            All this practice with assumptions and conclusions leads us to a key idea. <em>When the assumptions in a statement are not all satisfied, we should not expect the conclusion in that statement to be satisfied.</em> Practice with this concept appears in <xref ref="activity-mathematical-logic-assumptions-not-satisfied"/>.
           </p>
 
-          <activity xml:id="activity-mathematical-logic-hypotheses-not-satisfied">
+          <activity xml:id="activity-mathematical-logic-assumptions-not-satisfied">
             <statement> 
               <p>
-                Each of the following changes a statement from an earlier activity. Based on the change, comment on what we should expect regarding the statement's conclusion. 
+                Each of the following changes a statement from <xref ref="activity-mathematical-logic-sections"/>. Based on the change, comment on what we should expect regarding the statement's conclusion. 
               </p>             
               <ol>
                 <li>
                   <p>
-                    Recall the statement <q>If a polygon has six sides and six angles, then the polygon is a hexagon</q> from <xref ref="activity-mathematical-logic-sections"/>. Suppose you see a polygon that has seven sides and seven angles. Must this polygon be a hexagon?
+                    Recall the statement <q>Suppose a function <m>f</m> is continuous for <m>x</m>-values satisfying <m>a \leq x \leq b</m>. In this case, <m>f</m> takes on every value between the numbers <m>f(a)</m> and <m>f(b)</m></q>. Suppose a function <m>g</m> is not continuous at some of the <m>x</m>-values satisfying <m>a \leq x \leq b</m>. In this case, might there be some numbers between <m>f(a)</m> and <m>f(b)</m> for which <m>f</m> does not take on the value of those numbers?
                   </p>
                 </li>
                 <li>
                   <p>
-                    Recall the statement <q>Suppose a function <m>f</m> is continuous for <m>x</m>-values satisfying <m>a \leq x \leq b</m>. In this case, <m>f</m> takes on every value between the numbers <m>f(a)</m> and <m>f(b)</m></q> from <xref ref="activity-mathematical-logic-sections-advanced"/>. Suppose a function <m>g</m> is not continuous at some of the <m>x</m>-values satisfying <m>a \leq x \leq b</m>. In this case, might there be some numbers between <m>f(a)</m> and <m>f(b)</m> for which <m>f</m> does not take on the value of those numbers?
+                    Recall the statement <q>Differentiable functions are continuous</q>. Suppose a function is differentiable at all points except at <m>x=0</m>. Must this function be continuous everywhere? Explain in terms of mathematical logic, and if possible, provide one or more examples of functions that demonstrate that when an assumption is not satisfied, then the conclusion may not be satisfied.
                   </p>
                 </li>
               </ol>
             </statement>
             <hint>
               <p>
-                When any of the hypotheses are not satisfied, we should not expect the conclusion to be satisfied.
+                When any of the assumptions are not satisfied, we should not expect the conclusion to be satisfied.
               </p>
             </hint>
           </activity>
 
           <p>
-            The sheer number of assumptions in a model is notable. We comment again that if <em>any</em> hypotheses are not satisfied, then we should not assume that the conclusions must be true. Think through this in <xref ref="activity-mathematical-logic-hypotheses-not-satisfied-model"/>.
+            The sheer number of assumptions in a model is notable. We comment again that if <em>any</em> assumptions are not satisfied, then we should not assume that the conclusions must be true. Think through this in <xref ref="activity-mathematical-logic-assumptions-not-satisfied-model"/>.
           </p>
 
-          <activity xml:id="activity-mathematical-logic-hypotheses-not-satisfied-model">
+          <activity xml:id="activity-mathematical-logic-assumptions-not-satisfied-model">
             <statement>              
               <p>
                 Recall the following from <xref ref="activity-mathematical-logic-in-modeling"/>.
@@ -3886,16 +3929,16 @@ plt.show()
                 <q>Suppose we use an SIR model to represent an outbreak in a population of 10,000 people. In this model, the S compartment contains the Susceptibles, that is, people who are not sick but can become sick. The I compartment contains the Infectious, that is, people who are currently able to spread the disease. The R compartment contains the Removed, that is, people who are no longer able to spread the disease and are unable to become sick again. Suppose we estimate the parameters to be <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.4</m>. If, at the start of the outbreak, ten people are Infectious and the rest are Susceptible, then by the end of the outbreak, the model suggests that <m>1071</m> will remain Susceptible, that is, <m>1071</m> people will never have become Infectious.</q>
               </p>
               <p>
-                Write at least five different ways that the hypotheses in the statement of this model may not be satisfied. In each of these cases, we should not expect the conclusion to be satisfied.
+                Write at least five different ways that the assumptions in the statement of this model may not be satisfied. In each of these cases, we should not expect the conclusion to be satisfied.
               </p>
             </statement>
           </activity>
 
           <p>
-            We have learned in this section that a model includes statements to create a very specific scenario. Whatever conclusions there may be from the model, we should expect them to occur <em>only in the scenario created by the hypotheses</em>. If any of the hypotheses change, then we should not expect any of the same conclusions to occur.
+            We have learned in this section that a model includes statements to create a very specific scenario. Whatever conclusions there may be from the model, we should expect them to occur <em>only in the scenario created by the assumptions</em>. If any of the assumptions change, then we should not expect any of the same conclusions to occur.
           </p>
           <p>
-            In mathematical statements and model scenarios: it is not completely impossible to see some of the same conclusions, even if we change the hypotheses. We are not saying that it is impossible to end up at the same conclusion. Instead, our emphasis is that we <em>should not expect</em> the conclusion to be the same. All our discussion about the model should include this logical connection between hypotheses and conclusions.
+            In mathematical statements and model scenarios: it is not completely impossible to see some of the same conclusions, even if we change the assumptions. We are not saying that it is impossible to end up at the same conclusion. Instead, our emphasis is that we <em>should not expect</em> the conclusion to be the same. All our discussion about the model should include this logical connection between assumptions and conclusions.
           </p>
           <p>
             In addition to the purely logical relationship between the <q>ifs</q> and <q>thens</q> of model statements, there are priorities built into any model. We discuss this in <xref ref="sec-priorities-where-goals-meet-ethics"/>.
@@ -3913,19 +3956,18 @@ plt.show()
             The word <q>priorities</q> can take on many meanings. One key priority in model building is <em>answering a question</em>. For instance, in <xref ref="ch-vaccines-and-incubation-periods"/> we described models that address questions about how helpful vaccines or isolation can be in preventing an outbreak or reducing the effects of an outbreak. Different questions may require different models.
           </p>
           <p>
-            There may be other priorities as well, and we may not realize when we start model building that we are even building in those priorities. A student project I once advised produced one very powerful example of priorities that we do not see initially. This project forms the idea behind <xref ref="activity-priorities-HIV-AIDS"/>.
-            The goal of the project was to construct a model to address how a government could best use its resources to reduce the impact of HIV/AIDS in its population. The student based their model and their data collection on professional sources, using meticulous research. When the pieces were all in place and they began to use the model to optimize spending, <em>the results of the model showed</em> that the student's priorities had not been included in the model. This new understanding led the student to revise the model to better reflect their priorities.
+            There may be other priorities as well, and we may not even realize when we start model building that we are incorporating those priorities. A student project I once advised produced one very powerful example of priorities that we do not see initially. This project forms the idea behind <xref ref="activity-priorities-HIV-AIDS"/>. Though this student put tremendous thought and research into creating their model, <em>the results of the model showed</em> that the student's priorities had not been properly built into the model. This new understanding led the student to revise the model to better include their priorities.
           </p>
 
           <activity xml:id="activity-priorities-HIV-AIDS">
             <statement>              
               <p>
-                This activity describes a process for constructing a model to address how a government can best use its resources to reduce the impact of HIV/AIDS in its population. The real-life project that inspires this activity involved an excellent student who did meticulous research in constructing their model. The student incorporated the following ideas into their model, with each of the ideas drawing from professionally published articles.
+                This activity describes a process for constructing a model to address how a government can best use its resources to reduce the impact of HIV/AIDS in its population. The real-life project that inspires this activity involved an excellent student who did meticulous research in constructing their model. The model shown below is a simplification of the model this student produced, yet still includes the key ideas.
               </p>
               <ul>
                 <li>
                   <p>
-                    The model has five compartments.
+                    This model has three compartments and is similar in structure to an SIR model. However, the compartments here have the initials S, I, and A.
                   </p>
                   <ul>
                     <li>
@@ -3935,132 +3977,101 @@ plt.show()
                     </li>
                     <li>
                       <p>
-                        The I compartment is for Infectious people, meaning those with HIV, who are not receiving antiretroviral therapy.
+                        The I compartment is for Infectious people, meaning those with HIV.
                       </p>
                     </li>
                     <li>
                       <p>
-                        The I' compartment is for another category of Infectious people. This compartment is for people with HIV who are receiving antiretroviral therapy.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        The A compartment is for people with AIDS who are not receiving antiretroviral therapy.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        The A' compartment is for people with AIDS who are receiving antiretroviral therapy.
+                        The A compartment is for people with AIDS.
                       </p>
                     </li>
                   </ul>
                 </li>
                 <li>
                   <p>
-                    Many modelers, at the time this student was working, indicated that patients with AIDS were typically too sick to spread the virus to others. Therefore patients with AIDS, according to models, did not contribute to new cases of HIV. The same hypothesis is part of this model: people in the I and I' compartments can cause new infections, but people in the A and A' compartments cannot.
+                    Many modelers, at the time this student was working, indicated that patients with AIDS were typically too sick to spread the virus to others. Therefore patients with AIDS, according to models, did not contribute to new cases of HIV. The same hypothesis is part of this model: people in the I compartment can cause new infections, but people in the A compartment cannot.
                   </p>
                 </li>
                 <li>
                   <p>
-                    When people first have HIV, they are in the I compartment. If they later begin treatment, they move to the I' compartment.
+                    When someone in compartment I progresses in status from HIV to AIDS, they move to compartment A. 
                   </p>
                 </li>
                 <li>
                   <p>
-                    People can move back and forth between I and I', and between A and A'.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    When someone in compartment I progresses in status from HIV to AIDS, they move to compartment A. Similarly, when someone in compartment I' progresses in status from HIV to AIDS, they move to compartment A'.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    This model lasts many years, so it includes births and deaths. All births are assumed to be Susceptible. The death rates can differ from compartment to compartment.
+                    This model lasts many years, so it includes births and deaths. All births are assumed to be Susceptible, and births occur at a constant rate <m>\Pi</m>. The death rates can differ from compartment to compartment. The death rates are labeled <m>\mu _S</m> for compartment S, <m>\mu _I</m> for compartment I, and <m>\mu _A</m> for compartment A. 
                   </p>
                 </li>
               </ul>
 
               <p>
-                This model has many more pieces than the models we have seen before. It may take some time to think through all the pieces! Begin by taking a significant amount of time to view the compartmental diagram in <xref ref="fig-ED-HIV-AIDS-model"/> and read the ideas that led to the model's development. Be sure you understand them.
+                The compartmental diagram for this model appears in <xref ref="fig-SIA-compartmental-diagram"/>.
               </p>
 
-              <figure xml:id="fig-ED-HIV-AIDS-model">
-              <caption>Compartmental diagram of a model of HIV/AIDS, using descriptions instead of formulas for each arrow</caption>
-              <image width="100%">
-              <description>(Write this)</description>
-              <latex-image>
-              \begin{tikzpicture}
-                \draw [thick] [black] (2,6) -- (4,6);
-                \draw [thick] [black] (4,6) -- (4,8);
-                \draw [thick] [black] (4,8) -- (2,8);
-                \draw [thick] [black] (2,8) -- (2,6);
-                \node [black] at (3,7) {\Huge $S$};
-                \draw [thick] [black] (7,6) -- (9,6);
-                \draw [thick] [black] (9,6) -- (9,8);
-                \draw [thick] [black] (9,8) -- (7,8);
-                \draw [thick] [black] (7,8) -- (7,6);
-                \node [black] at (8,7) {\Huge $I$};
-                \draw [thick] [black] (7,2) -- (9,2);
-                \draw [thick] [black] (9,2) -- (9,4);
-                \draw [thick] [black] (9,4) -- (7,4);
-                \draw [thick] [black] (7,4) -- (7,2);
-                \node [black] at (8,3) {\Huge $I'$};
-                \draw [thick] [black] (12,6) -- (14,6);
-                \draw [thick] [black] (14,6) -- (14,8);
-                \draw [thick] [black] (14,8) -- (12,8);
-                \draw [thick] [black] (12,8) -- (12,6);
-                \node [black] at (13,7) {\Huge $A$};
-                \draw [thick] [black] (12,2) -- (14,2);
-                \draw [thick] [black] (14,2) -- (14,4);
-                \draw [thick] [black] (14,4) -- (12,4);
-                \draw [thick] [black] (12,4) -- (12,2);
-                \node [black] at (13,3) {\Huge $A'$};
-                \draw [thick] [->] (0,7.5) to (1.9,7.5); 
-                \node at (1,7.8) {births};
-                \draw [thick] [->] (1.9,6.5) to (0,6.5); 
-                \node at (1,6.2) {deaths};
-                \draw [thick] [->] (4.1,7) to (6.9,7); 
-                \node at (5.5,7.3) {transmission};
-                \node at (5.5,6.7) {due to $I$ and $I'$};
-                \draw [thick] [->] (7.75,5.9) to (7.75,4.1); 
-                \node at (6.25,5.5) {start treatment};
-                \draw [thick] [->] (8.25,4.1) to (8.25,5.9); 
-                \node at (9.75,4.5) {stop treatment};
-                \draw [thick] [->] (8,1.9) to (8,0); 
-                \node at (7.3,1) {deaths};
-                \draw [thick] [->] (8,8.1) to (8,10); 
-                \node at (7.3,9) {deaths};
-                \draw [thick] [->] (9.1,7) to (11.9,7); 
-                \node at (10.5,7.3) {HIV to AIDS};
-                \node at (10.5,6.7) {transition};
-                \draw [thick] [->] (9.1,3) to (11.9,3); 
-                \node at (10.5,3.3) {HIV to AIDS};
-                \node at (10.5,2.7) {transition};
-                \draw [thick] [->] (12.75,5.9) to (12.75,4.1); 
-                \node at (11.25,5.5) {start treatment};
-                \draw [thick] [->] (13.25,4.1) to (13.25,5.9); 
-                \node at (14.75,4.5) {stop treatment};
-                \draw [thick] [->] (13,1.9) to (13,0); 
-                \node at (12.3,1) {deaths};
-                \draw [thick] [->] (13,8.1) to (13,10);
-                \node at (12.3,9) {deaths};
-                \end{tikzpicture}
-                </latex-image>
-                </image>
-                </figure>
+              <figure xml:id="fig-SIA-compartmental-diagram">
+                <caption>An SIA diagram for HIV and AIDS, with births and deaths included</caption>
+                  <image width="70%">
+                  <description>(Write this)</description>
+                    <latex-image>
+                      \begin{tikzpicture}
+                        \draw [thick] [->] (-1.9,1) to (-0.1,1);
+                        \node at (-1,1.5) {\Large $\Pi$};
+                        \draw [thick] [black] (0,0) -- (2,0);
+                        \draw [thick] [black] (2,0) -- (2,2);
+                        \draw [thick] [black] (2,2) -- (0,2);
+                        \draw [thick] [black] (0,2) -- (0,0);
+                        \node [black] at (1,1) {\Huge $S$};
+                        \draw [thick] [->] (2.1,1) to (3.9,1); 
+                        \node at (3,1.5) {\Large $\beta SI$};
+                        \draw [thick] [->] (1,-0.1) to (1,-1.9);
+                        \node at (1.75,-1) {\Large $\mu _S S$};
+                        \draw [thick] [black] (4,0) -- (6,0);
+                        \draw [thick] [black] (6,0) -- (6,2);
+                        \draw [thick] [black] (6,2) -- (4,2);
+                        \draw [thick] [black] (4,2) -- (4,0);
+                        \node [black] at (5,1) {\Huge $I$};
+                        \draw [thick] [->] (6.1,1) to (7.9,1); 
+                        \node at (7,1.5) {\Large $\gamma I$};
+                        \draw [thick] [->] (5,-0.1) to (5,-1.9);
+                        \node at (5.75,-1) {\Large $\mu _I I$};
+                        \draw [thick] [black] (8,0) -- (10,0);
+                        \draw [thick] [black] (10,0) -- (10,2);
+                        \draw [thick] [black] (10,2) -- (8,2);
+                        \draw [thick] [black] (8,2) -- (8,0);
+                        \node [black] at (9,1) {\Huge $A$};
+                        \draw [thick] [->] (9,-0.1) to (9,-1.9);
+                        \node at (9.75,-1) {\Large $\mu _A A$};
+                      \end{tikzpicture}
+                    </latex-image>
+                   </image>
+              </figure>
 
-                <p>
-                  Once you have a solid understanding of the pieces of the model, you may begin to have insight into the outcome that emerged from this model. The student working on this project did all the research needed to determine biologically reasonable parameters. When running simulations with the model, their goal was to think through government strategies for spending limited funds designated for health. They hoped to determine how those funds should be allocated, given a goal of reducing the number of new HIV infections as much as possible.
-                </p>
-                <p>
-                  Can you guess what they found?
-                </p>
-                <p>
-                  Take time to think of what the model might have indicated, regarding the answer to the student's questions about government funds. Only after thinking about it: check the Hint below to see what happened. Then spend more time, thinking about why this model gave this answer, and thinking about what would need to change in the model to give a different answer.
-                </p>
+              <p>
+                This model has more pieces than the models we have seen before. It may take some time to think through these pieces! <em>Begin by taking a significant amount of time to view the compartmental diagram in <xref ref="fig-SIA-compartmental-diagram"/> and read the ideas that led to the model's development. Be sure you understand them.</em> Then respond to the following questions.
+              </p>
 
+              <ol>
+                <li>
+                  <p>
+                    The student project that inspired this Activity examined government strategies for spending limited funds designated for public health. Write about at least four ways government funds could be used to address health-related issues connected with HIV and AIDS. Include funding for HIV/AIDS prevention as well as funding for the care of those who are sick. 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    This student project had a goal of determining how government funds should be allocated, given a goal of reducing the number of new HIV infections as much as possible. For each way you described how government funds could be used, do your best to indicate how those funds would affect the model in <xref ref="fig-SIA-compartmental-diagram"/>. For example, the number of people in a compartment could be affected, or one of the rate parameters could be increased or decreased. Explain your reasoning.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Given a fixed amount of funding, and a goal of decreasing new HIV infections as much as possible, the results of this student project prescribed a very stark allocation of funding. Thinking through all the ways you thought funding could be used, and thinking about the stated goal of decreasing new HIV infections: can you guess what this student project found in its results?
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <em>Only after making a guess at the previous question:</em> check the Hint below to see what happened in this student's project. Then consider carefully why this approach to modeling produced this answer, and give some examples of what would need to change in the modeling process in order to give a different answer.
+                  </p>
+                </li>
+              </ol>
 
             </statement>
             <hint>
@@ -4071,11 +4082,15 @@ plt.show()
           </activity>
 
           <p>
-            The example in <xref ref="activity-priorities-HIV-AIDS"/> is lengthy, but it provides an important insight. <em>We may think we know what questions we are answering with our models, but we should continue to interrogate our answers in relation to our goals, priorities, and ethics.</em> The outcome of the model in <xref ref="activity-priorities-HIV-AIDS"/> did not suit the goals or ethics of the student doing the project. The result from the mathematical model highlighted built-in priorities of the model that the student (and I) did not notice at first. When new infections are completely unaffected by the people in the A and A' compartments, then treating those people, or providing them any healthcare at all, is irrelevant to the goals of the model. However, leaving large numbers of people without healthcare was never the goal of this project. The model needed to be revised to account for this.
+            The example in <xref ref="activity-priorities-HIV-AIDS"/> provides an important insight: <em>We may think we know what questions we are answering with our models, but we should continue to interrogate our answers in relation to our goals, priorities, and ethics.</em> The outcome of the model in <xref ref="activity-priorities-HIV-AIDS"/> did not fit the goals or ethics of the student doing the project. The result from the mathematical model highlighted built-in priorities of the model that the student (and I) did not notice at first. When new infections are completely unaffected by the people in the A compartment, then treating those people, or providing them any healthcare at all, is irrelevant to the goals of the model. However, leaving large numbers of people without healthcare was never the goal of this project. The model needed to be revised to account for this.
           </p>
 
           <p>
-            All modeling involves revision. We restructure models when we spot errors, or when we are able to access better data, or when we begin by asking some questions and then shift to different questions. Updating models is the focus of <xref ref="sec-making-changes-to-models"/>.
+            You may have noticed that the example in <xref ref="activity-priorities-HIV-AIDS"/> provides yet another important insight: <em>The results of a model may draw attention to assumptions we had not realized we were making.</em> Many researchers producing HIV/AIDS models were using models in which patients with AIDS did not contribute to new cases of HIV, so we used the same assumption. However, this led to a model whose outcome indicated that an optimal allocation of funds meant AIDS patients would receive no healthcare. This made brute logical sense, but it showed that we needed to update the model to have an expectation of healthcare for AIDS patients. <em>Models help us see situations in a new light. Even when a model's results are not what we hoped for, the process of modeling often improves our understanding of the system we are studying.</em>
+          </p>
+
+          <p>
+            We have just seen an example in which updating a model was crucial. More generally, the process of modeling nearly always involves revision. We restructure models when we spot errors, or when we are able to access better data, or when we begin by asking some questions and then shift to different questions. Updating models is the focus of <xref ref="sec-making-changes-to-models"/>.
           </p>
   
   
@@ -4086,7 +4101,76 @@ plt.show()
         
         <section xml:id="sec-making-changes-to-models">
           <title>Making Changes to Models</title>
-          <p>Talk about how set-up matters, definitions matter, context for any solutions is important, etc. Give some examples with different contexts/hypotheses/questions-being-asked.</p>
+          <p>
+            The setup of a model matters. Definitions of compartments and rate parameters matter. Initial conditions, such as initial numbers of people in the population of each compartment, matter. All aspects of a model should reflect our priorities and goals, as described in <xref ref="sec-priorities-where-goals-meet-ethics"/>, and should fit together logically, as described in <xref ref="sec-the-logical-approach"/>. We endeavor to get all these model details right on the first try, incorporating research into the disease being modeled and the populations involved in the outbreak. Yet the act of building and using a model often shows us more details to consider, such as what was described in <xref ref="activity-priorities-HIV-AIDS"/>. Other changes to models may be motivated by asking different questions, gathering new data, updating information about an outbreak, or many other reasons. <em>Making changes to models is a central part of the modeling process</em>.  
+          </p>
+          <p>
+            When COVID-19 first emerged, people had lots of questions, and data were being updated all the time. This was a disease that was truly new, and mathematical models were (and still are) a way to build understanding. Work through <xref ref="activity-changing-models-COVID"/> to address some of the questions people immediately had about COVID-19.
+          </p>
+          <activity xml:id="activity-changing-models-COVID">
+            <statement>              
+              <p>
+                For this activity, we use an SEIR model in which the compartment definitions may differ from what we have seen before. For each question below, part of the response includes clarifying the definitions of compartments. Here are comments on each compartment, where terms such as <q>could</q>, <q>may</q>, and <q>in some cases</q> indicate aspects of compartment definitions that change, depending on how we define the compartments in a specific model.
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    Susceptibles (S) are people who have not yet become sick, and who can become sick. The Susceptibles could, in some cases, include people who have been vaccinated and therefore have less chance of becoming sick.  
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The Exposed-and-incubating (E) compartment includes people who have gotten the COVID-19 virus but not yet become infectious, and this class may include people with and without vaccination. 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The Infectious (I) compartment includes people who are currently infectious, regardless of the severity of their symptoms, and in some cases, people in the Infectious compartment are also assumed to be interacting with Susceptibles. 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The Removed (R) compartment may consist of people who have recovered from COVID, died from COVID, or entirely isolated themselves from others, so that they cannot spread COVID at all.
+                  </p>
+                </li>
+              </ul>
+              <p>
+                The equations for the SEIR model are below. Use these to answer the questions that follow the equations.
+              </p>
+              <md>
+                <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+                <mrow>\frac{dE}{dt} \amp =  \beta S I - \kappa E </mrow>
+                <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+                <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+              </md>
+
+              <!-- Include here a Python block. Write it so that there is both a default model and a changed model, with both sets of results shown on the same axes. -->
+              
+              <ol>
+                <li>
+                  <p>
+                    How would you define each compartment in the very early stages of COVID, when most people did not yet know this was a new disease, and no public health measures had yet been instituted to try to contain the outbreak?  
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Early public health measures aimed to <q>flatten the curve</q>. The idea was that, even without vaccines or COVID-specific medicines, we could slow the spread of the outbreak by having people stay distant from each other. Which parameter(s) in the SEIR model are most affected when people maintain physical distance from each other? Try changing the parameter(s) you have chosen in the Python block and compare your results with the original result. 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Creating COVID vaccines was a goal.<fn>In some parts of the world, there has been significant controversy about the use of vaccines. This book does not require readers to have any one opinion about vaccine usage. Questions about vaccines, here and elsewhere, can be addressed using models, and yet other questions about vaccines, including concerns, can also be modeled. Readers may wish to do just that, building models that represent different vaccine-based outcomes and using those models to determine outcomes and dynamics of COVID, with and without vaccines.</fn> The plan was for vaccines to address COVID in multiple ways; we will address two such ways here. One way was for people to be less likely to get COVID. Another way was to reduce the severity or length of time ill for people who did get COVID. For each of these ways of addressing COVID: which compartments and/or parameters in the SEIR model are affected? Prepare before-and-after versions of the model and describe the differences in the outcomes you see.
+                  </p>
+                </li>
+              </ol>
+
+            </statement>
+            <hint>
+              <p>
+                Deciding still on hints  
+              </p>
+            </hint>
+          </activity>
   
   
           
@@ -4096,44 +4180,16 @@ plt.show()
       
         <section xml:id="sec-writing-explanations-to-present-models-to-others">
         <title>Writing Explanations to Present Models to Others</title>
-        <p>Talk about how set-up matters, definitions matter, context for any solutions is important, etc. Give some examples with different contexts/hypotheses/questions-being-asked.</p>
+        <p>Talk about how set-up matters, definitions matter, context for any solutions is important, etc. Give some examples with different contexts/assumptions/questions-being-asked.</p>
 
 
-        <figure xml:id="fig-SEI-compartmental-diagram">
-          <caption>One possible <m>SEI</m> (Susceptible, Exposed-and-incubating, Infectious) compartmental diagram</caption>
-            <image width="70%">
-            <description>(Write this)</description>
-              <latex-image>
-              \begin{tikzpicture}
-                \draw [thick] [black] (0,0) -- (2,0);
-                \draw [thick] [black] (2,0) -- (2,2);
-                \draw [thick] [black] (2,2) -- (0,2);
-                \draw [thick] [black] (0,2) -- (0,0);
-                \node [black] at (1,1) {\Huge $S$};
-                \draw [thick] [->] (2.1,1) to (3.9,1); 
-                \node at (3,1.5) {\Large $\beta SI$};
-                \draw [thick] [black] (4,0) -- (6,0);
-                \draw [thick] [black] (6,0) -- (6,2);
-                \draw [thick] [black] (6,2) -- (4,2);
-                \draw [thick] [black] (4,2) -- (4,0);
-                \node [black] at (5,1) {\Huge $E$};
-                \draw [thick] [->] (6.1,1) to (7.9,1); 
-                \node at (7,1.5) {\Large $\kappa E$};
-                \draw [thick] [black] (8,0) -- (10,0);
-                \draw [thick] [black] (10,0) -- (10,2);
-                \draw [thick] [black] (10,2) -- (8,2);
-                \draw [thick] [black] (8,2) -- (8,0);
-                \node [black] at (9,1) {\Huge $I$};
-              \end{tikzpicture}
-              </latex-image>
-             </image>
-        </figure>
+        
       </section>
 
     </chapter>
 
     <chapter xml:id="ch-preparing-influenza-data-to-compare-with-a-model">
-      <title>Preparing Influenza Data to Compare With a Model</title>
+      <title>* Preparing Influenza Data to Compare With a Model</title>
 
       <section xml:id="sec-ga">
         <title></title>
@@ -4143,7 +4199,7 @@ plt.show()
     </chapter>
 
     <chapter xml:id="ch-epidemic-vs-endemic-models">
-      <title>Epidemic vs. Endemic Models</title>
+      <title>* Epidemic vs. Endemic Models</title>
 
       <section xml:id="sec-ee">
         <title></title>
@@ -4153,7 +4209,7 @@ plt.show()
     </chapter>
 
     <chapter xml:id="ch-residual-sum-of-squares-improving-a-models-fit-to-data">
-      <title>Residual Sum of Squares: Improving a Model's Fit to Data</title>
+      <title>* Residual Sum of Squares: Improving a Model's Fit to Data</title>
 
       <section xml:id="sec-ra">
         <title></title>
@@ -4163,7 +4219,7 @@ plt.show()
     </chapter>
 
     <chapter xml:id="ch-akaike-information-criterion-comparing-different-models">
-      <title>Akaike Information Criterion: Comparing Different Models</title>
+      <title>* Akaike Information Criterion: Comparing Different Models</title>
 
       <section xml:id="sec-ma">
         <title></title>
@@ -4174,7 +4230,7 @@ plt.show()
 
   
     <chapter xml:id="ch-modeling-the-spread-of-a-rumor">
-      <title>Modeling the Spread of a Rumor</title>
+      <title>* Modeling the Spread of a Rumor</title>
 
       <section xml:id="sec-7">
         <title></title>
@@ -4201,7 +4257,7 @@ plt.show()
     </chapter> -->
 
     <chapter xml:id="ch-the-next-generation-method-using-r0-to-determine-beta">
-      <title>The Next Generation Method: Using <m>\mathcal{R}_0</m> to Determine <m>\beta</m></title>
+      <title>* The Next Generation Method: Using <m>\mathcal{R}_0</m> to Determine <m>\beta</m></title>
 
       <section xml:id="sec-2">
         <title></title>
@@ -4212,7 +4268,7 @@ plt.show()
     </chapter>
 
     <chapter xml:id="ch-tips-on-reading-a-scientific-paper">
-      <title>Tips on Reading a Scientific Paper</title>
+      <title>* Tips on Reading a Scientific Paper</title>
 
       <section xml:id="sec-3a">
         <title></title>
@@ -4222,7 +4278,7 @@ plt.show()
     </chapter>
     
     <chapter xml:id="ch-the-next-generation-method-connecting-theory-with-practice">
-      <title>The Next Generation Method: Underlying Theory</title>
+      <title>* The Next Generation Method: Underlying Theory</title>
 
       <section xml:id="sec-3">
         <title></title>
@@ -4232,7 +4288,7 @@ plt.show()
     </chapter>
 
     <chapter xml:id="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs">
-      <title>Numerical Simulations: An Overview of How Computers Turn Equations into Graphs</title>
+      <title>* Numerical Simulations: An Overview of How Computers Turn Equations into Graphs</title>
 
       <section xml:id="sec-4">
         <title></title>
@@ -4242,7 +4298,7 @@ plt.show()
     </chapter>
 
     <chapter xml:id="ch-kermack-mckendrick-the-1927-paper">
-      <title>Kermack-McKendrick: the 1927 Paper</title>
+      <title>* Kermack-McKendrick: the 1927 Paper</title>
 
       <section xml:id="sec-4a">
         <title></title>
@@ -4346,7 +4402,7 @@ plt.show()
     </chapter> -->
     
     <chapter xml:id="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model">
-      <title>Preparing Mumps Data to Compare with a Six-Compartment Model</title>
+      <title>* Preparing Mumps Data to Compare with a Six-Compartment Model</title>
 
       <section xml:id="sec-6">
         <title></title>
@@ -4462,7 +4518,7 @@ plt.show()
     </chapter> -->
     
     <chapter xml:id="ch-paper-assignments-and-grading-rubrics">
-      <title>Paper Assignments and Grading Rubrics</title>
+      <title>* Paper Assignments and Grading Rubrics</title>
 
       <section xml:id="sec-supp-a">
         <title></title>
@@ -4472,7 +4528,7 @@ plt.show()
     </chapter>
 
     <chapter xml:id="ch-writing-tips-for-math-and-planning-for-peer-review">
-      <title>Writing Tips for Math, and Planning for Peer Review</title>
+      <title>* Writing Tips for Math, and Planning for Peer Review</title>
 
       <section xml:id="sec-supp-b">
         <title></title>
@@ -4611,6 +4667,14 @@ plt.show()
           </p>
         </gi>
 
+        
+        <gi>
+          <title>Mathematical Modeling</title>
+          <p>
+            Mathematical modeling is a process by which we represent real-world dynamics using mathematical formulas. In this text, we typically use differential equations in our models. The process of mathematical modeling can require many steps, such as choosing which equations to use, comparing the results of a model with data, updating a model as needed to respond to different goals, and considering multiple models to best answer the questions we are asking. (Chapter 7)
+          </p>
+        </gi>
+
 
         <gi>
           <title>Numerical Solution</title>
@@ -4688,4 +4752,8 @@ plt.show()
     </backmatter>
 
   </book>
+
+
+  
+
 </pretext>
