@@ -12,24 +12,12 @@
 </head>
 <body class="ignore-math">
 <article class="exercise exercise-like"><h4 class="heading">
-<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">5<span class="period">.</span></span>
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">2<span class="period">.</span></span>
 </h4>
-<div class="para">We make one more update to the pertussis model, addressing vaccine efficacy. Our inclusion of the multiplier <span class="process-math">\((1-p)\)</span> assumed that vaccination had <span class="process-math">\(100 \%\)</span> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <span class="process-math">\(80-85\%\)</span> efficacy.<a href="" class="fn-knowl original" data-knowl="./knowl/fn-48-hidden.html" title="Footnote 6.9"><sup> 9 </sup></a>
-</div>
+<div class="para">Update</div>
 <ol class="lower-alpha">
-<li>
-<div class="para">Rewrite your model as below, where <span class="process-math">\(p\)</span> remains the percentage of people vaccinated, and <span class="process-math">\(q\)</span> is the efficacy percentage. We require that <span class="process-math">\(0 \leq p \leq 1\)</span> and <span class="process-math">\(0 \leq q \leq 1\text{.}\)</span> Explain in words why the way the model is written, and the ranges for <span class="process-math">\(p\)</span> and <span class="process-math">\(q\text{,}\)</span> make sense. In your explanation, include “edge cases”, that is, describe what happens when <span class="process-math">\(p=0\text{,}\)</span> <span class="process-math">\(p=1\text{,}\)</span> <span class="process-math">\(q=0\text{,}\)</span> and <span class="process-math">\(q=1\text{.}\)</span> Also describe what happens as <span class="process-math">\(p\)</span> increases from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{,}\)</span> and what happens as <span class="process-math">\(q\)</span> increases from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{.}\)</span>
-</div>
-<div class="displaymath process-math">
-\begin{align*}
-\frac{dS}{dt} \amp = - (1-p)(1-q) \beta S I \\
-\frac{dE}{dt} \amp =  (1-p)(1-q) \beta S I - \kappa E \\
-\frac{dI}{dt} \amp =  \kappa E - \gamma I \\
-\frac{dR}{dt} \amp = \gamma I. 
-\end{align*}
-</div>
-</li>
-<li><div class="para">Use the Python code from the second exercise to incorporate vaccine efficacy. Use logic, as well as results from your code, to explain how vaccine efficacy below <span class="process-math">\(100\%\)</span> can make it more challenging to achieve the goal of <span class="process-math">\(\mathcal{R}_{\text{eff}} \lt 1\text{.}\)</span> In your explanation, you may wish to use the information that <a href="" class="xref" data-knowl="./knowl/eq-Reff-define.html" title="Equation 6.1">(6.1)</a> used the assumption that vaccine was <span class="process-math">\(100\%\)</span> effective.</div></li>
-</ol></article><span class="incontext"><a href="ch-vaccines-in-compartmental-models.html#exercise-20" class="internal">in-context</a></span>
+<li><div class="para">Compute</div></li>
+<li><div class="para">Adapt</div></li>
+</ol></article><span class="incontext"><a href="ch-getting-the-answer-right-in-modeling.html#exercise-20" class="internal">in-context</a></span>
 </body>
 </html>

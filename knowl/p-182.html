@@ -12,13 +12,7 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">The lines</div>
-<pre class="code-display tex2jax_ignore">     plt.plot(t_range, sol[:, 0], color='blue')
-     plt.plot(t_range, sol[:, 1], color='orange')
-</pre>
-<div class="para">create, but do not show, the plots of graphical solutions to the system of differential equations. For each plot, we provide the input values <code class="code-inline tex2jax_ignore">t_range</code> and the output values from the numerical solution <code class="code-inline tex2jax_ignore">sol</code>. As described above, <code class="code-inline tex2jax_ignore">sol</code> is a set of numbers which are the values of the populations <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> at all the times in <code class="code-inline tex2jax_ignore">t_range</code>. The numbers in <code class="code-inline tex2jax_ignore">sol</code> are structured into two lists, list 0 and list 1. (Python often counts things, such as lists, starting with 0 rather than starting with 1.) The syntax <code class="code-inline tex2jax_ignore">sol[:,0]</code> describes all the <span class="process-math">\(S(t)\)</span> data. The colon <code class="code-inline tex2jax_ignore">:</code> means “all” the elements, and the <code class="code-inline tex2jax_ignore">0</code> means list 0, which is the list containing values of <span class="process-math">\(S(t)\text{.}\)</span> The syntax <code class="code-inline tex2jax_ignore">sol[:,1]</code> describes all the <span class="process-math">\(I(t)\)</span> data, with <code class="code-inline tex2jax_ignore">:</code> again representing “all” and <code class="code-inline tex2jax_ignore">1</code> representing list 1, which contains <span class="process-math">\(I(t)\)</span> values.</div>
-</div>
+<div class="para">To build further understanding of how the Python code works, it helps to make several small changes to the code. Simultaneously, we continue to build intuition for how the output graph is affected by our selected parameter values, initial conditions, time range, and more.  Try this in <a href="" class="xref" data-knowl="./knowl/exer-first-odeint-code-play-around.html" title="Activity 3.5">Activity 3.5</a>.</div>
 <span class="incontext"><a href="ch-visualization-graphing-model-results-and-data.html#p-182" class="internal">in-context</a></span>
 </body>
 </html>

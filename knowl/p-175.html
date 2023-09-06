@@ -11,8 +11,16 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Line 17 plots the orange <span class="process-math">\(I(t)\)</span> curve, using the time inputs <code class="code-inline tex2jax_ignore">t_range</code> and the values of <span class="process-math">\(I(t)\)</span> throughout those times, which are described as <code class="code-inline tex2jax_ignore">sol[:, 1]</code>. Python continues its counting here, with the <span class="process-math">\(I(t)\)</span> values labeled as <code class="code-inline tex2jax_ignore">1</code>.</div>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">The lines</div>
+<pre class="code-display tex2jax_ignore">     def hz(y, t):
+       S, I = y
+       dydt = [-beta * S * I, beta * S * I]
+       return dydt
+</pre>
+<div class="para">define the system of differential equations, using the command <code class="code-inline tex2jax_ignore">def</code>. The system is named <code class="code-inline tex2jax_ignore">hz</code>, for “human-zombie”, and the <code class="code-inline tex2jax_ignore">(y, t)</code> means that the model depends on variables <span class="process-math">\(y\)</span> and <span class="process-math">\(t\text{.}\)</span> The line <code class="code-inline tex2jax_ignore">S, I = y</code> defines <span class="process-math">\(y\)</span> as comprising both <span class="process-math">\(S\)</span> and <span class="process-math">\(I\text{,}\)</span> in that order. This means that <span class="process-math">\(y\)</span> collectively represents all our dependent variables. Taking the derivative of <span class="process-math">\(y\text{,}\)</span> then, means taking each of the derivatives <span class="process-math">\(dS/dt\)</span> and <span class="process-math">\(dI/dt\text{.}\)</span> The formulas for these derivatives, which are on the right-hand sides of the SI model, appear in order in the line <code class="code-inline tex2jax_ignore">dydt = [-beta * S * I, beta * S * I]</code>. Finally, the line <code class="code-inline tex2jax_ignore">return dydt</code> ends the definition and says that whenever we later use the definition, we will be using the derivatives defined in <code class="code-inline tex2jax_ignore">dydt</code>.</div>
+</div>
 <span class="incontext"><a href="ch-visualization-graphing-model-results-and-data.html#p-175" class="internal">in-context</a></span>
 </body>
 </html>

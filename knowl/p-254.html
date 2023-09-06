@@ -12,7 +12,18 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">Because our models use continuous time and differential equations, we will sometimes compute non-integer values for the number of individuals in some compartments. We should think through this carefully. If, for instance, we find that at some time we have 13.6 Susceptibles and 36.4 Infectious, we are not saying that we have 13 Susceptibles, plus 36 Infectious, plus one individual who is split up to be 60% Susceptible and 40% Infectious. Instead, the differential equation model is telling us on average what happens, across many possible simulations or many possible outcomes. In computing an <em class="emphasis">on average</em> outcome, non-integer values are possible. If we wish to refer to actual numbers of people, we can round to the nearest integer, or use language that reflects the <em class="emphasis">on average</em> meaning of our model.</div>
+<div class="para logical">
+<div class="para">The letters <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> and <span class="process-math">\(t\)</span> are variables in the model. The Greek letter <span class="process-math">\(\beta\)</span> is a parameter. We use the following conventions for letters in most of the models we study:</div>
+<ul class="disc">
+<li><div class="para">Time is denoted as the <em class="emphasis">lowercase letter</em> <span class="process-math">\(t\text{.}\)</span>
+</div></li>
+<li><div class="para">We use <em class="emphasis">capital letters</em> such as <span class="process-math">\(S\)</span> and <span class="process-math">\(I\)</span> to indicate populations of people, which are typically functions of time, so that <span class="process-math">\(S=S(t)\text{,}\)</span> <span class="process-math">\(I=I(t)\text{.}\)</span>
+</div></li>
+<li><div class="para">
+<em class="emphasis">Greek letters</em> such as <span class="process-math">\(\beta\)</span> represent some aspect of how a disease progresses and are called <dfn class="terminology">parameters</dfn>.</div></li>
+</ul>
+<div class="para">A parameter may seem to behave a bit like a variable, since it can take on different values. However, parameters play a different role than variables in our models. In a given simulation, <em class="emphasis">we use biological information to set all parameter values</em>. By contrast, we choose only the initial values of our variables, that is, the values when <span class="process-math">\(t=0\text{,}\)</span> and then the simulation reveals the values of each variable at later points in time. For instance, in the human–zombie example, we start at <span class="process-math">\(t=0\)</span> with 49 humans and 1 zombie. Writing this in mathematical terms: <span class="process-math">\(S(0)=49\)</span> and <span class="process-math">\(I(0)=1\text{.}\)</span> After <span class="process-math">\(t=0\text{,}\)</span> the populations of Susceptibles and Infectious depend on the outcome of the simulation. Even the length of time for the simulation depends on how long it takes the Infectious zombies to convert all the Susceptible humans.</div>
+</div>
 <span class="incontext"><a href="ch-compartmental-diagrams.html#p-254" class="internal">in-context</a></span>
 </body>
 </html>
