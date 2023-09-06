@@ -149,7 +149,7 @@
 
       </preface>
 
-      <preface xml:id="preface-instructors">
+      <!-- <preface xml:id="preface-instructors">
         <title>* To Instructors: Ways to Use This Text</title>
         
         <p>
@@ -159,7 +159,7 @@
           The features of the book (Goals, Explorations, Activities, other text, For Further Thought, and any others). Important to include <q>For Further Thought</q> as part of the learning of the book: these aren't just examples of what came earlier, but are also more in-depth and can include new content.
         </p>
 
-      </preface>
+      </preface> -->
     </frontmatter>
 
 
@@ -344,14 +344,7 @@
         
       </section>
 
-      <section xml:id="sec-Possible-Discussion-ALT">
-        <title>Possible Discussion ALT</title>
-
-        <p>
-          
-        </p>
-
-      </section>
+      
 
     
     <exercises xml:id="exercises-prelude-diseases-in-popular-news">
@@ -2849,7 +2842,7 @@ plt.show()
       </p>  
 
       <p>
-        One of the most significant ways to use models is for trying and comparing possible public health strategies <em>in simulations</em> before actually carrying them out with real people. Professional-level models can be quite detailed and depend on large amounts of data, and compartmental models are just one of the many types of models implemented. In this chapter, we work with one commonly used strategy: vaccination. 
+        One of the most significant ways to use models is for trying and comparing possible public health strategies <em>in simulations</em> before actually carrying them out with real people. Professional-level models can be quite detailed and depend on large amounts of data, and compartmental models are just one of the many types of models implemented. In this chapter, we work with one commonly used strategy: vaccination<fn>Vaccination is a widely used public health strategy. Yet the author of this text recognizes that reader thoughts on vaccines may vary for many reasons. As mentioned way back in the <q>To Students</q> preface, <q>I will not tell you how to think.</q> Instead, the goal of showing vaccines in models is to demonstrate some of the ways we can use models to try different scenarios. Readers can and should continue to think about their own ethics and experiences when interpreting and discussing models</fn>. 
       </p>
 
       <p>
@@ -3170,7 +3163,7 @@ plt.show()
               </li>
               <li>
                 <p>
-                  The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>. Approximating this as <m>0.67</m> and setting a large enough value of <m>t</m> leads to the conclusion that <m>692</m> total people have the illness at some time.
+                  The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>, using <xref ref="eq-R0-sir"/> to compute <m>\mathcal{R}_0</m> and then <xref ref="eq-pcrit"/> to compute <m>p_{\text{crit}}</m>. Approximating <m>p_{\text{crit}}</m> as <m>0.67</m> and setting a large enough value of <m>t</m> leads to the conclusion that <m>692</m> total people have the illness at some time.
                 </p>
               </li>
               <li>
@@ -3744,7 +3737,7 @@ plt.show()
           </li>
           <li>
             <p>
-              Well-worded <em>explanations</em> of every decision and result.
+              Well-constructed <em>explanations</em> of every decision and result.
             </p>
           </li>
         </ol>
@@ -4102,15 +4095,15 @@ plt.show()
         <section xml:id="sec-making-changes-to-models">
           <title>Making Changes to Models</title>
           <p>
-            The setup of a model matters. Definitions of compartments and rate parameters matter. Initial conditions, such as initial numbers of people in the population of each compartment, matter. All aspects of a model should reflect our priorities and goals, as described in <xref ref="sec-priorities-where-goals-meet-ethics"/>, and should fit together logically, as described in <xref ref="sec-the-logical-approach"/>. We endeavor to get all these model details right on the first try, incorporating research into the disease being modeled and the populations involved in the outbreak. Yet the act of building and using a model often shows us more details to consider, such as what was described in <xref ref="activity-priorities-HIV-AIDS"/>. Other changes to models may be motivated by asking different questions, gathering new data, updating information about an outbreak, or many other reasons. <em>Making changes to models is a central part of the modeling process</em>.  
+            The setup of a model matters. Definitions of compartments and rate parameters matter. Initial conditions, such as initial numbers of people in the population of each compartment, matter. All aspects of a model should reflect our priorities and goals, as described in <xref ref="sec-priorities-where-goals-meet-ethics"/>, and should fit together logically, as described in <xref ref="sec-the-logical-approach"/>. We may endeavor to get all these model details right on the first try, incorporating research into the disease being modeled and the populations involved in the outbreak. Yet the act of building and using a model often shows us more details to consider, such as what was described in <xref ref="activity-priorities-HIV-AIDS"/>. Other changes to models may be motivated by asking different questions, gathering new data, updating information about an outbreak, or many other reasons. <em>Making changes to models is a central part of the modeling process</em>.  
           </p>
           <p>
-            When COVID-19 first emerged, people had lots of questions, and data were being updated all the time. This was a disease that was truly new, and mathematical models were (and still are) a way to build understanding. Work through <xref ref="activity-changing-models-COVID"/> to address some of the questions people immediately had about COVID-19.
+            When COVID-19 first emerged, people had lots of questions, and data were being updated all the time. This was a disease that was truly new, and mathematical models were (and still are) a way to build understanding. Work through <xref ref="activity-changing-models-COVID-19"/> to address some of the questions people immediately had about COVID-19. Importantly: the models in <xref ref="activity-changing-models-COVID-19"/> are inspired by the questions circulating early in the COVID-19 outbreak, but different regions throughout the world experienced COVID-19 in different ways, and the models here are not meant to address every circumstance. In other words: <em>the models here cannot fully and accurately represent early COVID-19</em>, as worldwide outbreaks were more complex. However, by considering public health interventions and changing models to examine the outcomes of these interventions, we learn more about how such interventions affect the trajectory of an outbreak. 
           </p>
-          <activity xml:id="activity-changing-models-COVID">
+          <activity xml:id="activity-changing-models-COVID-19">
             <statement>              
               <p>
-                For this activity, we use an SEIR model in which the compartment definitions may differ from what we have seen before. For each question below, part of the response includes clarifying the definitions of compartments. Here are comments on each compartment, where terms such as <q>could</q>, <q>may</q>, and <q>in some cases</q> indicate aspects of compartment definitions that change, depending on how we define the compartments in a specific model.
+                For this activity, we model a simplified version of early COVID-19 using an SEIR model in which the compartment definitions may differ from what we have seen before. For each question below, part of the response includes clarifying the definitions of compartments. Here are comments on each compartment, where terms such as <q>could</q>, <q>may</q>, and <q>in some cases</q> indicate aspects of compartment definitions that change, depending on how we define the compartments in a specific model.
               </p>
               <ul>
                 <li>
@@ -4130,12 +4123,18 @@ plt.show()
                 </li>
                 <li>
                   <p>
-                    The Removed (R) compartment may consist of people who have recovered from COVID, died from COVID, or entirely isolated themselves from others, so that they cannot spread COVID at all.
+                    The Removed (R) compartment may consist of people who have recovered from COVID-19, died from COVID-19, or entirely isolated themselves from others, so that they cannot spread COVID-19 at all.
                   </p>
                 </li>
               </ul>
               <p>
-                The equations for the SEIR model are below. Use these to answer the questions that follow the equations.
+                The equations for the SEIR model are below. Use these, along with the Python code block, to answer the questions that follow.  
+              </p>
+              <p>
+                For questions 2, 3, and possibly 4, first <em>imagine how changes to initial population values or parameter values can change outcomes in the model</em>. That is, truly think through this in your mind, and write down your thoughts, before proceeding with changes. For reference, the values in the original model are based very loosely on Lombardy, Italy, in early 2020. The total population was approximately ten million. The value of <m>\mathcal{R}_0</m> was estimated to be <m>2.6-3.3</m>, and <m>\kappa</m> is estimated at about <m>1/6.5</m>.<fn>These estimates come from the paper <q>The early phase of the COVID-19 epidemic in Lombardy, Italy</q> by many researchers, published in the journal <em>Epidemics</em> in December 2021.</fn> The value of <m>\gamma</m> is <m>1/14</m>, indicating an average of two weeks of being infectious. This is based on many reports suggesting that most people were infectious for one to two weeks, but that some people were infectious for much longer. There was vast variation on how early COVID-19 affected people, which is part of the reason we need to consider changes and updates to models.
+              </p>
+              <p>
+                Next, try your changes in Python, creating before-and-after graphs. The code block includes sections titled <q>original model</q> and <q>your changes to the model</q>: scroll through to the <q>your changes to the model</q> version to make updates. Then go to the <q>plotting commands</q> section to choose the compartments for which you would like to show graphs; the default is to show I(t) for both the original and updated versions. Notice that if you were to show all four compartments, before and after, there would be eight total curves, which can be complicated for a reader to understand. Instead, prioritize the graphs that best illustrate your findings, probably showing no more than two or four total graphs at a time. 
               </p>
               <md>
                 <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
@@ -4144,31 +4143,134 @@ plt.show()
                 <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
               </md>
 
-              <!-- Include here a Python block. Write it so that there is both a default model and a changed model, with both sets of results shown on the same axes. -->
+              <sage>
+                <input>
+                  #Import packages
+                  import numpy as np
+                  import matplotlib.pyplot as plt
+                  from scipy.integrate import odeint
+                  
+                  plt.cla() #Clear (delete) any past plots
+                  t_range = np.arange(0.0, 49.1, 0.1) #The time range for both models stays the same, to make comparisons easier
+                  
+                  #------------------ORIGINAL MODEL------------------
+
+                  #Define the system of differential equations for the ORIGINAL conditions, and call it "model_1". All variables and parameters have "_1" to indicate this is the first version of the model
+                  def model_1(y_1, t_1):
+                    S_1, E_1, I_1, R_1 = y_1 #Define y as consisting of S, E, I, and R, in that order, each with the "_1" to show this is for the model with original conditions
+                    dydt_1 = [- beta_1 * S_1 * I_1, beta_1 * S_1 * I_1 - kappa_1 * E_1, kappa_1 * E_1 - gamma_1 * I_1, gamma_1 * I_1] #Provide the right-hand sides of the SEIR model
+                    return dydt_1
+
+                  #All values below are for the original conditions for the model
+                  beta_1 = 2.1 * 10^(-8) #Give a value to beta
+                  kappa_1 = 0.154 #Give a value to kappa
+                  gamma_1 = 0.0714 #Give a value to gamma
+                  total_population_1 = 10000000 #Give a total population here, and use it later to compute the initial S population
+                  E_init_1 = 10 #Give an initial value to population E
+                  I_init_1 = 20 #Give an initial value to population I
+                  R_init_1 = 0 #Give an initial value to population R
+                  S_init_1 = total_population_1 - E_init_1 - I_init_1 - R_init_1 #Solve for the initial population value for S, using total_population and initial population values for E, I, and R
+                  R0_1 = beta_1 * (total_population_1) / gamma_1 #Compute the value of R0
+                  print("R0_1 = ", R0_1) #Print the value of R0, to confirm that our parameter values correspond to a reasonable R0 value
+                  y0_1 = [S_init_1, E_init_1, I_init_1, R_init_1] #Put initial conditions for S, E, I, and R into "y0_1" for use below in "odeint"
+                  
+                  sol_1 = odeint(model_1, y0_1, t_range) #Give the name "sol_1" to the lists of numerical values in this original solution, and give "odeint" the information needed to solve
+                  
+                  #------------------YOUR CHANGES TO THE MODEL------------------
+                  
+                  #Define the system of differential equations for YOUR CHANGES TO THE MODEL, and call it "model_2". All variables and parameters have "_2" to indicate this is the second version of the model
+                  def model_2(y_2, t_2):
+                    S_2, E_2, I_2, R_2 = y_2 #Define y as consisting of S, E, I, and R, in that order, each with the "_2" to show this is for the model with original conditions
+                    dydt_2 = [- beta_2 * S_2 * I_2, beta_2 * S_2 * I_2 - kappa_2 * E_2, kappa_2 * E_2 - gamma_2 * I_2, gamma_2 * I_2] #Provide the right-hand sides of the SEIR model
+                    return dydt_2
+                  #These are the original conditions for the model. Make changes to think through public health interventions
+                  beta_2 = 2.1 * 10^(-8) #Give a value to beta
+                  kappa_2 = 0.154 #Give a value to kappa
+                  gamma_2 = 0.0714 #Give a value to gamma
+                  total_population_2 = 10000000 #Give a total population here, and use it later to compute the initial S population
+                  E_init_2 = 10 #Give an initial value to population E
+                  I_init_2 = 20 #Give an initial value to population I
+                  R_init_2 = 0 #Give an initial value to population R
+                  S_init_2 = total_population_2 - E_init_2 - I_init_2 - R_init_2 #Solve for the initial population value for S, using total_population and initial population values for E, I, and R
+                  R0_2 = beta_2 * (total_population_2) / gamma_2 #Compute the value of R0
+                  print("R0_2 = ", R0_2) #Print the value of R0, to confirm that your parameter values correspond to a reasonable R0 value
+                  y0_2 = [S_init_2, E_init_2, I_init_2, R_init_2] #Put initial conditions for S, E, I, and R into "y0_2" for use below in "odeint"
+                  
+                  sol_2 = odeint(model_2, y0_2, t_range) #Give the name "sol_2" to the lists of numerical values in this updated solution, and give "odeint" the information needed to solve
+                  
+                  #------------------PLOTTING COMMANDS------------------
+                  
+                  #Comment out, or include, whichever commands best demonstrate your story
+                  #The default is to show I(t) in both models
+                  #The defauls is also for all updated model curves to appear as unbroken black curves
+                  #If you are showing more than one compartment, in both models, it will help to change the color and/or style for the updated model so the curves are distinct 
+                  
+                  #plt.plot(t_range, sol_1[:, 0], color='blue', linewidth=2, label='S(t) original')
+                  #plt.plot(t_range, sol_1[:, 1], color='magenta', linestyle='dotted', linewidth=2, label='E(t) original')
+                  plt.plot(t_range, sol_1[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t) original')
+                  #plt.plot(t_range, sol_1[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t) original')
+                  #plt.plot(t_range, sol_2[:, 0], color='black', linewidth=2, label='S(t) updated')
+                  #plt.plot(t_range, sol_2[:, 1], color='black', linewidth=2, label='E(t) updated')
+                  plt.plot(t_range, sol_2[:, 2], color='black', linewidth=2, label='I(t) updated')
+                  #plt.plot(t_range, sol_2[:, 3], color='black', linewidth=2, label='R(t) updated'
+                  plt.legend()
+                  plt.grid()
+                  plt.xlabel('time')
+                  plt.ylabel('populations')
+                  plt.show()
+                </input>
+                <output>
+                
+                </output>
+              </sage>
               
               <ol>
                 <li>
                   <p>
-                    How would you define each compartment in the very early stages of COVID, when most people did not yet know this was a new disease, and no public health measures had yet been instituted to try to contain the outbreak?  
+                    How would you define each compartment in the very early stages of COVID-19, when most people did not yet know this was a new disease, and no public health measures had yet been instituted to try to contain the outbreak?  
                   </p>
                 </li>
                 <li>
                   <p>
-                    Early public health measures aimed to <q>flatten the curve</q>. The idea was that, even without vaccines or COVID-specific medicines, we could slow the spread of the outbreak by having people stay distant from each other. Which parameter(s) in the SEIR model are most affected when people maintain physical distance from each other? Try changing the parameter(s) you have chosen in the Python block and compare your results with the original result. 
+                    Early public health measures aimed to <q>flatten the curve</q>. The idea was that, even without vaccines or COVID-19-specific medicines, we could slow the spread of the outbreak by having people stay distant from each other. Which parameter(s) in the SEIR model are most affected when people maintain physical distance from each other? Try changing the parameter(s) you have chosen in the Python block and compare your results with the original result. 
                   </p>
                 </li>
                 <li>
                   <p>
-                    Creating COVID vaccines was a goal.<fn>In some parts of the world, there has been significant controversy about the use of vaccines. This book does not require readers to have any one opinion about vaccine usage. Questions about vaccines, here and elsewhere, can be addressed using models, and yet other questions about vaccines, including concerns, can also be modeled. Readers may wish to do just that, building models that represent different vaccine-based outcomes and using those models to determine outcomes and dynamics of COVID, with and without vaccines.</fn> The plan was for vaccines to address COVID in multiple ways; we will address two such ways here. One way was for people to be less likely to get COVID. Another way was to reduce the severity or length of time ill for people who did get COVID. For each of these ways of addressing COVID: which compartments and/or parameters in the SEIR model are affected? Prepare before-and-after versions of the model and describe the differences in the outcomes you see.
+                    Creating COVID-19 vaccines was an early goal, one that people were modeling long before vaccines became available.<fn>In some parts of the world, there has been significant controversy about the use of vaccines for COVID-19. This book does not require readers to have any one opinion about vaccine usage. We use models to address questions about vaccines, and readers are invited to do the same, building models that represent different vaccine-based outcomes and using those models to determine outcomes and dynamics of COVID-19, with and without vaccines.</fn> The plan was for vaccines to address COVID-19 in multiple ways; we will address two such ways here. One way was for people to be less likely to get COVID-19. Another way was to reduce the severity or length of time ill for people who did get COVID-19. For each of these ways of addressing COVID-19: which compartments and/or parameters in the SEIR model are affected? Prepare before-and-after versions of the model, carefully defining each compartment and parameter in the before model and again in the after model. Then use the Python graph to generate graphs comparing the outcomes before and after vaccines. 
+                  </p>
+                </li>                
+                <li>
+                  <p>
+                    Do more open-ended exploration. How else can we use the SEIR model to address questions about the early spread of an outbreak? State questions of your own, explain what changes you are making to the model to answer your questions, and show your results. Include explanations and interpretations of your results. 
                   </p>
                 </li>
               </ol>
 
             </statement>
             <hint>
-              <p>
-                Deciding still on hints  
-              </p>
+              <ol>
+                <li>
+                  <p>
+                    These are likely the traditional definitions we have used previously for the SEIR model. There is always room for flexibility, though, when different answers are accompanied by logical explanations.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Flattening the curve, social distancing, and other terms predominantly reduce the parameter <m>\beta</m>. Other changes to the model may also represent some aspects of flattening the curve. 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The effect of people being less likely to get COVID-19 is usually modeled by reducing <m>\beta</m>. Reducing the severity or time ill typically increases gamma, which also has the meaning of reducing the average time in the Infectious compartment, as shown in <xref ref="eq-gamma-estimate"/> and <xref ref="eq-gamma-estimate-2"/>. Other answers are possible.
+                  </p>
+                </li>                
+                <li>
+                  <p>
+                    Be expansive and creative here, explain all your reasoning, and create graphs and/or bring in yet other evidence to demonstrate your findings. 
+                  </p>
+                </li>
+              </ol>
             </hint>
           </activity>
   
@@ -4180,11 +4282,232 @@ plt.show()
       
         <section xml:id="sec-writing-explanations-to-present-models-to-others">
         <title>Writing Explanations to Present Models to Others</title>
-        <p>Talk about how set-up matters, definitions matter, context for any solutions is important, etc. Give some examples with different contexts/assumptions/questions-being-asked.</p>
+        
+        <p>
+          Doing mathematical work, and presenting that mathematical work, are two related yet different tasks. Moreover, mathematical work is just one part of the bigger process of building a model, justifying the assumptions within the model, determining the possible outcomes of the model, and explaining the possible solutions and outcomes of the model. In this section, we discuss the presentation of modeling results through careful writing and organization. 
+        </p>
+        <p>
+          Students who take a course in modeling sometimes come from a mathematical background in which explanations are sparse. A question such as <q>What is the value of <m>3</m> times <m>5~</m>?</q> may not require any explanation. (A more fun question might be, <q>What are two different ways to demonstrate that <m>3</m> times <m>5</m> equals <m>15~</m>?</q>. How would your approach to responding change if the question were phrased this way?) My experience teaching a variety of math courses is that students have not always experienced the value of explanation, prior to a modeling course. We address this directly so that each student's models make the most sense, and the impacts of each model are as meaningful and powerful as they can be. 
+        </p>
+        <p>
+          We have discussed writing and presentation already in this text, and we will continue to do so throughout. Notably, <xref ref="ch-writing-tips-for-math-and-planning-for-peer-review"/> focuses entirely on writing, specifically when writing mathematics and writing about mathematical models. Within this chapter, our focus is on unifying these four components of modeling: a logical approach, clearly stated priorities, making any appropriate changes to a model, and constructing meaningful explanations of the results of our models. Try this in <xref ref="activity-writing-explanations-to-present-models"/>.
+        </p>
+
+        <activity xml:id="activity-writing-explanations-to-present-models">
+          <statement>              
+            <p>
+              Imagine a residential college campus experiences an outbreak of flu, which is also called influenza. The incubation period for influenza is usually one to four days, and most often about two days. People tend to be sick with influenza for a few days to less than two weeks, and in most people, less than one week<fn>Facts on incubation period and period of contagion are shown in the CDC's <em>Key Facts About Influenza</em> page: <url href="https://www.cdc.gov/flu/about/keyfacts.htm"></url>.</fn>. The value of <m>\mathcal{R}_0</m> for influenza is typically between 1 and 2<fn>This summary of <m>\mathcal{R}_0</m> values comes from the Virginia Department of Health (<url href="https://www.vdh.virginia.gov/coronavirus/2022/01/07/covid-19-and-influenza-surveillance"></url>), and many other research articles and websites report on <m>\mathcal{R}_0</m> estimates.</fn>, and many people in a population tend to have some immunity or protection from influenza, either because they have been sick with a related strain of influenza in the past, or because they have received an influenza vaccine, or for both reasons.
+            </p>
+            <ol>
+              <li>
+                <p>
+                  Decide on a model that you would use for an influenza outbreak on the campus you are imagining. Write out your reasons for the modeling decisions you make. Ideas to consider include: which compartmental model? How many people are involved, and what are the initial numbers of people in each compartment? What are the parameter values? What ranges of values may be possible for initial values and parameter values? There may be yet other aspects of your model to describe and explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Ask some questions of your model. Two sample questions are, <q>What happens if the campus vastly increases its number and distribution of hand sanitizing stations?</q> and <q>How much do the model's results change as the initial number of infectious people changes?</q>. There are many other questions you can ask. Use Python code blocks from elsewhere in the text to answer your questions. Select a code block that includes the type of model you are using (such as SIR, SEIR, and possibly vaccination) and make whatever changes you need. 
+                </p>
+                <p>
+                  Once you have addressed each question, write about your results. Include information about what question you asked and why it was a reasonable question, given the outbreak being studied. In addition to writing your response using words, incorporate other evidence, such as graphs and long-term values of Susceptibles or other compartments. Think throughout about structuring your response logically; indicating your priorities; explaining the change you made and why you made it; and explaining what happened when you made that change.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Creating COVID-19 vaccines was an early goal, one that people were modeling long before vaccines became available.<fn>In some parts of the world, there has been significant controversy about the use of vaccines for COVID-19. This book does not require readers to have any one opinion about vaccine usage. We use models to address questions about vaccines, and readers are invited to do the same, building models that represent different vaccine-based outcomes and using those models to determine outcomes and dynamics of COVID-19, with and without vaccines.</fn> The plan was for vaccines to address COVID-19 in multiple ways; we will address two such ways here. One way was for people to be less likely to get COVID-19. Another way was to reduce the severity or length of time ill for people who did get COVID-19. For each of these ways of addressing COVID-19: which compartments and/or parameters in the SEIR model are affected? Prepare before-and-after versions of the model, carefully defining each compartment and parameter in the before model and again in the after model. Then use the Python graph to generate graphs comparing the outcomes before and after vaccines. 
+                </p>
+              </li>                
+              <li>
+                <p>
+                  Do more open-ended exploration. How else can we use the SEIR model to address questions about the early spread of an outbreak? State questions of your own, explain what changes you are making to the model to answer your questions, and show your results. Include explanations and interpretations of your results. 
+                </p>
+              </li>
+            </ol>
+            <ul>
+              <li>
+                <p>
+                  Susceptibles (S) are people who have not yet become sick, and who can become sick. The Susceptibles could, in some cases, include people who have been vaccinated and therefore have less chance of becoming sick.  
+                </p>
+              </li>
+              <li>
+                <p>
+                  The Exposed-and-incubating (E) compartment includes people who have gotten the COVID-19 virus but not yet become infectious, and this class may include people with and without vaccination. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  The Infectious (I) compartment includes people who are currently infectious, regardless of the severity of their symptoms, and in some cases, people in the Infectious compartment are also assumed to be interacting with Susceptibles. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  The Removed (R) compartment may consist of people who have recovered from COVID-19, died from COVID-19, or entirely isolated themselves from others, so that they cannot spread COVID-19 at all.
+                </p>
+              </li>
+            </ul>
+            <p>
+              The equations for the SEIR model are below. Use these, along with the Python code block, to answer the questions that follow.  
+            </p>
+            <p>
+              For questions 2, 3, and possibly 4, first <em>imagine how changes to initial population values or parameter values can change outcomes in the model</em>. That is, truly think through this in your mind, and write down your thoughts, before proceeding with changes. For reference, the values in the original model are based very loosely on Lombardy, Italy, in early 2020. The total population was approximately ten million. The value of <m>\mathcal{R}_0</m> was estimated to be <m>2.6-3.3</m>, and <m>\kappa</m> is estimated at about <m>1/6.5</m>.<fn>These estimates come from the paper <q>The early phase of the COVID-19 epidemic in Lombardy, Italy</q> by many researchers, published in the journal <em>Epidemics</em> in December 2021.</fn> The value of <m>\gamma</m> is <m>1/14</m>, indicating an average of two weeks of being infectious. This is based on many reports suggesting that most people were infectious for one to two weeks, but that some people were infectious for much longer. There was vast variation on how early COVID-19 affected people, which is part of the reason we need to consider changes and updates to models.
+            </p>
+            <p>
+              Next, try your changes in Python, creating before-and-after graphs. The code block includes sections titled <q>original model</q> and <q>your changes to the model</q>: scroll through to the <q>your changes to the model</q> version to make updates. Then go to the <q>plotting commands</q> section to choose the compartments for which you would like to show graphs; the default is to show I(t) for both the original and updated versions. Notice that if you were to show all four compartments, before and after, there would be eight total curves, which can be complicated for a reader to understand. Instead, prioritize the graphs that best illustrate your findings, probably showing no more than two or four total graphs at a time. 
+            </p>
+            <md>
+              <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+              <mrow>\frac{dE}{dt} \amp =  \beta S I - \kappa E </mrow>
+              <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+              <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+            </md>
+
+            <sage>
+              <input>
+                #Import packages
+                import numpy as np
+                import matplotlib.pyplot as plt
+                from scipy.integrate import odeint
+                
+                plt.cla() #Clear (delete) any past plots
+                t_range = np.arange(0.0, 49.1, 0.1) #The time range for both models stays the same, to make comparisons easier
+                
+                #------------------ORIGINAL MODEL------------------
+
+                #Define the system of differential equations for the ORIGINAL conditions, and call it "model_1". All variables and parameters have "_1" to indicate this is the first version of the model
+                def model_1(y_1, t_1):
+                  S_1, E_1, I_1, R_1 = y_1 #Define y as consisting of S, E, I, and R, in that order, each with the "_1" to show this is for the model with original conditions
+                  dydt_1 = [- beta_1 * S_1 * I_1, beta_1 * S_1 * I_1 - kappa_1 * E_1, kappa_1 * E_1 - gamma_1 * I_1, gamma_1 * I_1] #Provide the right-hand sides of the SEIR model
+                  return dydt_1
+
+                #All values below are for the original conditions for the model
+                beta_1 = 2.1 * 10^(-8) #Give a value to beta
+                kappa_1 = 0.154 #Give a value to kappa
+                gamma_1 = 0.0714 #Give a value to gamma
+                total_population_1 = 10000000 #Give a total population here, and use it later to compute the initial S population
+                E_init_1 = 10 #Give an initial value to population E
+                I_init_1 = 20 #Give an initial value to population I
+                R_init_1 = 0 #Give an initial value to population R
+                S_init_1 = total_population_1 - E_init_1 - I_init_1 - R_init_1 #Solve for the initial population value for S, using total_population and initial population values for E, I, and R
+                R0_1 = beta_1 * (total_population_1) / gamma_1 #Compute the value of R0
+                print("R0_1 = ", R0_1) #Print the value of R0, to confirm that our parameter values correspond to a reasonable R0 value
+                y0_1 = [S_init_1, E_init_1, I_init_1, R_init_1] #Put initial conditions for S, E, I, and R into "y0_1" for use below in "odeint"
+                
+                sol_1 = odeint(model_1, y0_1, t_range) #Give the name "sol_1" to the lists of numerical values in this original solution, and give "odeint" the information needed to solve
+                
+                #------------------YOUR CHANGES TO THE MODEL------------------
+                
+                #Define the system of differential equations for YOUR CHANGES TO THE MODEL, and call it "model_2". All variables and parameters have "_2" to indicate this is the second version of the model
+                def model_2(y_2, t_2):
+                  S_2, E_2, I_2, R_2 = y_2 #Define y as consisting of S, E, I, and R, in that order, each with the "_2" to show this is for the model with original conditions
+                  dydt_2 = [- beta_2 * S_2 * I_2, beta_2 * S_2 * I_2 - kappa_2 * E_2, kappa_2 * E_2 - gamma_2 * I_2, gamma_2 * I_2] #Provide the right-hand sides of the SEIR model
+                  return dydt_2
+                #These are the original conditions for the model. Make changes to think through public health interventions
+                beta_2 = 2.1 * 10^(-8) #Give a value to beta
+                kappa_2 = 0.154 #Give a value to kappa
+                gamma_2 = 0.0714 #Give a value to gamma
+                total_population_2 = 10000000 #Give a total population here, and use it later to compute the initial S population
+                E_init_2 = 10 #Give an initial value to population E
+                I_init_2 = 20 #Give an initial value to population I
+                R_init_2 = 0 #Give an initial value to population R
+                S_init_2 = total_population_2 - E_init_2 - I_init_2 - R_init_2 #Solve for the initial population value for S, using total_population and initial population values for E, I, and R
+                R0_2 = beta_2 * (total_population_2) / gamma_2 #Compute the value of R0
+                print("R0_2 = ", R0_2) #Print the value of R0, to confirm that your parameter values correspond to a reasonable R0 value
+                y0_2 = [S_init_2, E_init_2, I_init_2, R_init_2] #Put initial conditions for S, E, I, and R into "y0_2" for use below in "odeint"
+                
+                sol_2 = odeint(model_2, y0_2, t_range) #Give the name "sol_2" to the lists of numerical values in this updated solution, and give "odeint" the information needed to solve
+                
+                #------------------PLOTTING COMMANDS------------------
+                
+                #Comment out, or include, whichever commands best demonstrate your story
+                #The default is to show I(t) in both models
+                #The defauls is also for all updated model curves to appear as unbroken black curves
+                #If you are showing more than one compartment, in both models, it will help to change the color and/or style for the updated model so the curves are distinct 
+                
+                #plt.plot(t_range, sol_1[:, 0], color='blue', linewidth=2, label='S(t) original')
+                #plt.plot(t_range, sol_1[:, 1], color='magenta', linestyle='dotted', linewidth=2, label='E(t) original')
+                plt.plot(t_range, sol_1[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t) original')
+                #plt.plot(t_range, sol_1[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t) original')
+                #plt.plot(t_range, sol_2[:, 0], color='black', linewidth=2, label='S(t) updated')
+                #plt.plot(t_range, sol_2[:, 1], color='black', linewidth=2, label='E(t) updated')
+                plt.plot(t_range, sol_2[:, 2], color='black', linewidth=2, label='I(t) updated')
+                #plt.plot(t_range, sol_2[:, 3], color='black', linewidth=2, label='R(t) updated'
+                plt.legend()
+                plt.grid()
+                plt.xlabel('time')
+                plt.ylabel('populations')
+                plt.show()
+              </input>
+              <output>
+              
+              </output>
+            </sage>
+            
+            
+
+          </statement>
+          <hint>
+            <ol>
+              <li>
+                <p>
+                  These are likely the traditional definitions we have used previously for the SEIR model. There is always room for flexibility, though, when different answers are accompanied by logical explanations.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Flattening the curve, social distancing, and other terms predominantly reduce the parameter <m>\beta</m>. Other changes to the model may also represent some aspects of flattening the curve. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  The effect of people being less likely to get COVID-19 is usually modeled by reducing <m>\beta</m>. Reducing the severity or time ill typically increases gamma, which also has the meaning of reducing the average time in the Infectious compartment, as shown in <xref ref="eq-gamma-estimate"/> and <xref ref="eq-gamma-estimate-2"/>. Other answers are possible.
+                </p>
+              </li>                
+              <li>
+                <p>
+                  Be expansive and creative here, explain all your reasoning, and create graphs and/or bring in yet other evidence to demonstrate your findings. 
+                </p>
+              </li>
+            </ol>
+          </hint>
+        </activity>
 
 
         
       </section>
+
+      <exercises xml:id="exercises-ch-get-answer-right-in-modeling">
+        <exercise number="1">
+         <p>
+           Redo  
+         </p>   
+               
+       </exercise>
+
+       <exercise number="2">
+         <p>
+           Update 
+         </p>   
+         <ol>
+           <li>
+             <p>
+               Compute 
+             </p>
+           </li>
+           <li>
+             <p>
+               Adapt 
+             </p>
+           </li>
+         </ol>   
+       </exercise>
+
+       <exercise number="3">
+         <p>
+           We 
+         </p>   
+             
+       </exercise>
+     </exercises>
 
     </chapter>
 
@@ -4277,13 +4600,13 @@ plt.show()
 
     </chapter>
     
-    <chapter xml:id="ch-the-next-generation-method-connecting-theory-with-practice">
+    <!-- <chapter xml:id="ch-the-next-generation-method-connecting-theory-with-practice">
       <title>* The Next Generation Method: Underlying Theory</title>
 
       <section xml:id="sec-3">
-        <title></title>
+        <title></title> -->
         <!-- <p>Provide more behind-the-scenes details of the NGM, including what different terms mean in the F, V^(-1), and F V^(-1) matrices</p> -->
-      </section>
+      <!-- </section>
 
     </chapter>
 
@@ -4291,9 +4614,9 @@ plt.show()
       <title>* Numerical Simulations: An Overview of How Computers Turn Equations into Graphs</title>
 
       <section xml:id="sec-4">
-        <title></title>
+        <title></title> -->
         <!-- <p>Show some basics of Euler's Method, including activities for students to try on their own. Allude to other methods. Provide some outside reading (?).</p> -->
-      </section>
+      <!-- </section>
      
     </chapter>
 
@@ -4301,11 +4624,11 @@ plt.show()
       <title>* Kermack-McKendrick: the 1927 Paper</title>
 
       <section xml:id="sec-4a">
-        <title></title>
+        <title></title> -->
         <!-- <p>Discuss the 1927 paper, including similarities and differences with the SIR and similar models we use today.</p> -->
-      </section>
+      <!-- </section>
      
-    </chapter>
+    </chapter> -->
   
   </part>
 
@@ -4446,7 +4769,7 @@ plt.show()
 
       <section xml:id="sec-10c">
         <title></title>
-        <p>Discuss COVID and other cases where superspreaders matter. How do these ideas fit with compartmental models?</p>
+        <p>Discuss COVID-19 and other cases where superspreaders matter. How do these ideas fit with compartmental models?</p>
       </section>
 
     </chapter>
@@ -4504,8 +4827,8 @@ plt.show()
   </part>
 
 
-  <part xml:id="part-supplemental-materials">
-    <title>Supplemental Materials</title>
+  <!-- <part xml:id="part-supplemental-materials">
+    <title>Supplemental Materials</title> -->
 
     <!-- <chapter xml:id="ch-data-sets">
       <title>Data Sets</title>
@@ -4517,13 +4840,13 @@ plt.show()
 
     </chapter> -->
     
-    <chapter xml:id="ch-paper-assignments-and-grading-rubrics">
+    <!-- <chapter xml:id="ch-paper-assignments-and-grading-rubrics">
       <title>* Paper Assignments and Grading Rubrics</title>
 
       <section xml:id="sec-supp-a">
-        <title></title>
+        <title></title> -->
         <!-- <p>Include paper assignments and rubrics. Possibly split this into separate chapters.</p> -->
-      </section>
+      <!-- </section>
 
     </chapter>
 
@@ -4531,11 +4854,11 @@ plt.show()
       <title>* Writing Tips for Math, and Planning for Peer Review</title>
 
       <section xml:id="sec-supp-b">
-        <title></title>
+        <title></title> -->
         <!-- <p>Take presentations I've given about mathematical writing, and include those ideas here. Seek additional references on this topic. Include materials I share with students about peer review, and describe WHY and HOW peer review is so great.</p> -->
-      </section>
+      <!-- </section>
 
-    </chapter>
+    </chapter> -->
 
     
     <!-- <chapter xml:id="ch-linear-algebra-introduction">
@@ -4561,7 +4884,7 @@ plt.show()
 
 
 
-  </part>
+  <!-- </part> -->
 
 
 
