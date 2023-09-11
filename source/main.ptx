@@ -744,6 +744,9 @@
           </statement>
         </activity>
 
+        
+      </section>
+
         <exercises xml:id="exercises-ch-zombies-can-math-help">
           <exercise number="1">
            <p>
@@ -791,11 +794,9 @@
                 </p>
               </li>
             </ol>
-
           </exercise>
         </exercises>
 
-      </section>
 
 
     </chapter>
@@ -1023,7 +1024,9 @@
         </p>
 
         <p>
-          Instead, our approach is to compute <term>numerical solutions</term>, which are solutions in the form of numbers. More mathematical details appear in <xref ref="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs"/>, but the main idea is that Python starts at the initial population values, then uses the system of differential equations to <q>step through</q> the full range of time, computing population values step-by-step at later times by using information about how the population values change throughout. The system of differential equations is made up of derivatives, which are rates of change, so they exactly describe how the populations change at all times <m>t</m>. The population values computed in the numerical solution can be printed, or more often, graphed, to see the results in the form of a graphical solution.
+          Instead, our approach is to compute <term>numerical solutions</term>, which are solutions in the form of numbers. 
+          <!-- More mathematical details appear in <xref ref="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs"/>, but  -->
+          The main idea is that Python starts at the initial population values, then uses the system of differential equations to <q>step through</q> the full range of time, computing population values step-by-step at later times by using information about how the population values change throughout. The system of differential equations is made up of derivatives, which are rates of change, so they exactly describe how the populations change at all times <m>t</m>. The population values computed in the numerical solution can be printed, or more often, graphed, to see the results in the form of a graphical solution.
         </p>
 
         <p>
