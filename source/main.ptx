@@ -357,7 +357,7 @@
       </exercise>
       <exercise number="2">
         <p>
-          Look up the lengths of time for key phases of how RSV (respiratory syncytial virus) unfolds. Include the length of time of any incubation period, and include how long a person is infectious with measles. There may be additional disease phases to include. Use official sources, as described in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />. Cite your sources<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn>.
+          Look up the lengths of time for key phases of how RSV (respiratory syncytial virus) unfolds. Include the length of time of any incubation period, and include how long a person is infectious with RSV. There may be additional disease phases to include. Use official sources, as described in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />. Cite your sources<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn>.
         </p>
       </exercise>
       <exercise number="3">
@@ -750,7 +750,7 @@
         <exercises xml:id="exercises-ch-zombies-can-math-help">
           <exercise number="1">
            <p>
-             Vary the zombie simulation so that zombies have only one arm. In this case, the app represents each zombie by two connected dots, rather than three connected dots. We can change the <q># of Zombie Arms</q> in the app from 2 to 1. Complete one or more simulations with this change. Collect and graph the simulation data. How do your results compare with the results from simulations in which zombies have two arms? Write about your results. Include your data and graphs as part of your comparison.
+             Vary the zombie simulation so that zombies have only one arm. In this case, the app represents each zombie by two connected dots, rather than three connected dots. We can change the <q># of Zombie Arms</q> in the app from 2 to 1. Complete one or more simulations with this change. Collect and graph the simulation data. How do your results compare with the results from simulations in which zombies have two arms? Write about your results. Include graphs and tables of data, in the style of <xref ref="fig-human-zombie-data-graph"/> and <xref ref="fig-human-zombie-data-table"/>, as part of your comparison.
             </p>
           </exercise>
           <exercise number="2">
@@ -1601,7 +1601,7 @@ plt.show()
         </exercise>
         <exercise number="3">
           <p>
-            Look up information online about making data visualization more accessible to people who have some version of colorblindness. Read multiple sources on this topic, and use them to respond to the following questions.  
+            Look up information online about making data visualization more accessible to people who have some version of colorblindness. Read multiple sources on this topic, and use them to respond to the following questions. Cite your sources, including links to any web pages, the title of each web page used, the name of the publisher of each web page, and the date you most recently accessed the web page.
           </p>
           <ol>
             <li>
@@ -2599,7 +2599,7 @@ plt.show()
           <mrow xml:id="eq-R0-sir">\mathcal{R}_0 \amp = \frac{\beta N}{\gamma} \mbox{ for our SIR model}. </mrow>
         </mdn>
         <p>
-          It is possible to compute the formula for <m>\mathcal{R}_0</m> from the equations in a compartmental model. The most common way to do this is called the Next Generation Method. Because the Next Generation Method uses partial derivatives and techniques from linear algebra, it is described in the optional sections <xref ref="ch-the-next-generation-method-using-r0-to-determine-beta"/> and <xref ref="ch-the-next-generation-method-connecting-theory-with-practice"/>. In particular, <xref ref="ch-the-next-generation-method-using-r0-to-determine-beta"/> teaches the process in a way that can be used by students who are new to matrix operations and partial derivatives: there are a few math techniques to learn, and Python does the rest. Readers who include <xref ref="ch-the-next-generation-method-using-r0-to-determine-beta"/> will be able to solve for the formula for <m>\mathcal{R}_0</m> in their own models. As an alternative, the <m>\mathcal{R}_0</m> formulas for several commonly used compartmental models are provided directly throughout this text.  
+          It is possible to compute the formula for <m>\mathcal{R}_0</m> from the equations in a compartmental model. The most common way to do this is called the Next Generation Method. Because the Next Generation Method uses partial derivatives and techniques from linear algebra, it is described in the optional sections <xref ref="ch-the-next-generation-method"/> and <xref ref="ch-the-next-generation-method-connecting-theory-with-practice"/>. In particular, <xref ref="ch-the-next-generation-method"/> teaches the process in a way that can be used by students who are new to matrix operations and partial derivatives: there are a few math techniques to learn, and Python does the rest. Readers who include <xref ref="ch-the-next-generation-method"/> will be able to solve for the formula for <m>\mathcal{R}_0</m> in their own models. As an alternative, the <m>\mathcal{R}_0</m> formulas for several commonly used compartmental models are provided directly throughout this text.  
         </p>
         <p>
           The numerical value of the <m>\mathcal{R}_0</m> formula relates closely to the trajectory of an outbreak. Investigate this in <xref ref="activity-r0-less-than-1"/>.
@@ -3432,7 +3432,7 @@ plt.show()
         </activity>
 
         <p>
-          For readers including <xref ref="ch-the-next-generation-method-using-r0-to-determine-beta"/> on computing <m>\mathcal{R}_0</m>, you may wish to try the steps for computing <m>\mathcal{R}_0</m> in the SEIR model. The answer appears below, yet this is a great time to test yourself. Completing the steps and confirming your results below lets you gain practice now, before perhaps trying to compute <m>\mathcal{R}_0</m> on a future model where no answer is given. 
+          For readers including <xref ref="ch-the-next-generation-method"/> on computing <m>\mathcal{R}_0</m>, you may wish to try the steps for computing <m>\mathcal{R}_0</m> in the SEIR model. The answer appears below, yet this is a great time to test yourself. Completing the steps and confirming your results below lets you gain practice now, before perhaps trying to compute <m>\mathcal{R}_0</m> on a future model where no answer is given. 
         </p>
         <p>
           The resulting <m>\mathcal{R}_0</m> formula is:
@@ -4584,13 +4584,99 @@ plt.show()
 
     </chapter> -->
 
-    <chapter xml:id="ch-the-next-generation-method-using-r0-to-determine-beta">
-      <title>* The Next Generation Method: Using <m>\mathcal{R}_0</m> to Determine <m>\beta</m></title>
+    <chapter xml:id="ch-the-next-generation-method">
+      <title>* The Next Generation Method</title>
 
       <section xml:id="sec-2">
-        <title></title>
+        <title>Python Code for the Next Generation Method</title>
         <!-- <p>Change the title??? To focus on linear algebra???</p>
         <p>Show how to use the NGM and how to use the results to determine beta</p> -->
+
+        <p>
+          The code block below produces the eigenvalues for the SEIR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix.
+        </p>
+
+        <p>
+          Spend some time looking through the code. Be sure you see how and where matrices are entered. You can use similar code for other compartmental models, and the only parts you need to change are the <m>F</m> and <m>V</m> matrices.
+        </p>
+
+        <sage>
+          <input>
+            from sympy import * 
+            init_printing(use_unicode=True)
+            
+            N = Symbol('N') 
+            gamma = Symbol('gamma')
+            beta = Symbol('beta')
+            kappa = Symbol('kappa')
+             
+            # The F matrix of partial derivatives
+            F = Matrix([[0, beta * N], [0, 0]])
+            print("F = ", F)
+            
+            # The V matrix of partial derivatives
+            V = Matrix([[kappa, 0], [-kappa, gamma]])
+            print("V = ", V)
+            
+            # Computing V inverse and the Next Generation matrix
+            Vinv = V**-1
+            print("V inverse = ", Vinv)
+            FVinv = F * Vinv
+            print("Next Gen Matrix = ", FVinv)
+            
+            # Calculating eigenvalues
+            
+            R0eval = FVinv.eigenvals()
+            print("The eigenvalues and their multiplicities are: ", R0eval)
+          </input>
+          <output>
+          
+          </output>
+          </sage>
+
+
+          <p>
+            The code block below produces the eigenvalues for the SLIAR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>3\times 3</m> matrix. Comparing this code with the previous code may help show how similar the code is when computing the Next Generation matrix for different models, as well as showing what to change for a different model.
+          </p>
+  
+          <sage>
+            <input>
+              from sympy import * 
+              init_printing(use_unicode=True)
+              
+              N = Symbol('N') 
+              gamma = Symbol('gamma')
+              beta = Symbol('beta')
+              kappa = Symbol('kappa')
+              alpha = Symbol('alpha')
+              delta = Symbol('delta')
+              eta = Symbol('eta')
+              p = Symbol('p')
+
+               
+              # The F matrix of partial derivatives
+              F = Matrix([[0, beta * N, beta * N * delta], [0, 0, 0], [0, 0, 0]])
+              print("F = ", F)
+              
+              # The V matrix of partial derivatives
+              V = Matrix([[kappa, 0, 0], [-p * kappa, alpha, 0], [-(1-p) * kappa, 0, eta]])
+              print("V = ", V)
+              
+              # Computing V inverse and the Next Generation matrix
+              Vinv = V**-1
+              print("V inverse = ", Vinv)
+              FVinv = F * Vinv
+              print("Next Gen Matrix = ", FVinv)
+              
+              # Calculating eigenvalues
+              
+              R0eval = FVinv.eigenvals()
+              print("The eigenvalues and their multiplicities are: ", R0eval)
+            </input>
+            <output>
+            
+            </output>
+            </sage>
       </section>
 
     </chapter>
