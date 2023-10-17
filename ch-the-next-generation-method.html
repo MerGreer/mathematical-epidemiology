@@ -8,7 +8,7 @@
 <html lang="en-US">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Digging Deeper Mathematically</title>
+<title>* The Next Generation Method</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -196,7 +196,7 @@ sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
 <span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
 </ol>
 </li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-modeling-the-spread-of-a-rumor.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="mathematical-epidemiology.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="ch-the-next-generation-method.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="part-digging-deeper-mathematically.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="part-digging-deeper-mathematically.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="ch-tips-on-reading-a-scientific-paper.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
 <input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
@@ -299,10 +299,10 @@ sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
 </li>
 </ul>
 </li>
-<li class="active">
+<li>
 <div class="toc-item"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
 <ul class="structural">
-<li>
+<li class="active">
 <div class="toc-item"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">13</span> <span class="title">* The Next Generation Method</span></a></div>
 <ul class="structural"><li><div class="toc-item"><a href="ch-the-next-generation-method.html#sec-2" class="internal"><span class="codenumber">13.1</span> <span class="title">Python Code for the Next Generation Method</span></a></div></li></ul>
 </li>
@@ -324,15 +324,76 @@ sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
 <ul class="structural"><li><div class="toc-item"><a href="glossary-of-terms.html" class="internal"><span class="title">Glossary of Mathematical Epidemiology Terms</span></a></div></li></ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="part" id="part-digging-deeper-mathematically"><h2 class="heading hide-type">
-<span class="type">Part</span> <span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-the-next-generation-method"><h2 class="heading">
+<span class="type">Chapter</span> <span class="codenumber">13</span> <span class="title">* The Next Generation Method</span>
 </h2>
-<nav class="summary-links"><ul>
-<li><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">13</span> <span class="title">* The Next Generation Method</span></a></li>
-<li><a href="ch-tips-on-reading-a-scientific-paper.html" class="internal"><span class="codenumber">14</span> <span class="title">* Tips on Reading a Scientific Paper</span></a></li>
-</ul></nav></section></div>
+<section class="section" id="sec-2"><h3 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">13.1</span> <span class="title">Python Code for the Next Generation Method</span>
+</h3>
+<div class="para" id="p-625">The code block below produces the eigenvalues for the SEIR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <span class="process-math">\(2\times 2\)</span> matrix.</div>
+<div class="para" id="p-626">Spend some time looking through the code. Be sure you see how and where matrices are entered. You can use similar code for other compartmental models, and the only parts you need to change are the <span class="process-math">\(F\)</span> and <span class="process-math">\(V\)</span> matrices.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-16"><script type="text/x-sage">from sympy import * 
+init_printing(use_unicode=True)
+
+N = Symbol('N') 
+gamma = Symbol('gamma')
+beta = Symbol('beta')
+kappa = Symbol('kappa')
+ 
+# The F matrix of partial derivatives
+F = Matrix([[0, beta * N], [0, 0]])
+print("F = ", F)
+
+# The V matrix of partial derivatives
+V = Matrix([[kappa, 0], [-kappa, gamma]])
+print("V = ", V)
+
+# Computing V inverse and the Next Generation matrix
+Vinv = V**-1
+print("V inverse = ", Vinv)
+FVinv = F * Vinv
+print("Next Gen Matrix = ", FVinv)
+
+# Calculating eigenvalues
+
+R0eval = FVinv.eigenvals()
+print("The eigenvalues and their multiplicities are: ", R0eval)
+</script></pre>
+<div class="para" id="p-627">The code block below produces the eigenvalues for the SLIAR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <span class="process-math">\(3\times 3\)</span> matrix. Comparing this code with the previous code may help show how similar the code is when computing the Next Generation matrix for different models, as well as showing what to change for a different model.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-17"><script type="text/x-sage">from sympy import * 
+init_printing(use_unicode=True)
+
+N = Symbol('N') 
+gamma = Symbol('gamma')
+beta = Symbol('beta')
+kappa = Symbol('kappa')
+alpha = Symbol('alpha')
+delta = Symbol('delta')
+eta = Symbol('eta')
+p = Symbol('p')
+
+ 
+# The F matrix of partial derivatives
+F = Matrix([[0, beta * N, beta * N * delta], [0, 0, 0], [0, 0, 0]])
+print("F = ", F)
+
+# The V matrix of partial derivatives
+V = Matrix([[kappa, 0, 0], [-p * kappa, alpha, 0], [-(1-p) * kappa, 0, eta]])
+print("V = ", V)
+
+# Computing V inverse and the Next Generation matrix
+Vinv = V**-1
+print("V inverse = ", Vinv)
+FVinv = F * Vinv
+print("Next Gen Matrix = ", FVinv)
+
+# Calculating eigenvalues
+
+R0eval = FVinv.eigenvals()
+print("The eigenvalues and their multiplicities are: ", R0eval)
+</script></pre></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="ch-modeling-the-spread-of-a-rumor.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-the-next-generation-method.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="part-digging-deeper-mathematically.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-tips-on-reading-a-scientific-paper.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
 <div class="ptx-page-footer">
