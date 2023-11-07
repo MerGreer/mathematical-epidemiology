@@ -4520,8 +4520,98 @@ plt.show()
       <title>* Preparing Influenza Data to Compare With a Model</title>
 
       <section xml:id="sec-ga">
-        <title></title>
-        <p>Use Bates flu data. Discuss converting from New Cases to S, I, R and possibly other compartments. Also discuss different time scales (here or elsewhere): converting data and parameters between days, weeks, months, years.</p>
+        <title>Starter Example Comparing Data with a Model: Zombie Data</title>
+        <!-- <p>Use Bates flu data. Discuss converting from New Cases to S, I, R and possibly other compartments. Also discuss different time scales (here or elsewhere): converting data and parameters between days, weeks, months, years.</p> -->
+        <p>
+          Suppose you have data to compare against your model. Which set of parameters is best? We start by revisiting the type of graph and data we saw with our (relatively simple) early-semester zombie models. Read through the following and make sure you understand what is happening in each command. 
+        </p>
+
+        <sage>
+          <input>
+            #Import packages
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from scipy.integrate import odeint
+            
+            plt.cla()  #Clear (delete) any past plots
+
+            #Include data from Zombie Game App
+            t_steps = [0, 1, 2, 3, 4, 5, 6]
+            S_data = [49, 48, 46, 40, 28, 10, 0]
+            
+            #Define the system of differential equations, and call it "hz"
+            def hz(y, t):
+              s, i = y #Define y as consisting of s and i, in that order
+              dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
+              return dydt
+                  
+            beta = 0.03 #Give a value to beta
+            y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
+            t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+            
+            sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+            
+            # Plotting commands are below
+            plt.plot(t_steps, S_data,'o', markersize=4, color='blue')
+            plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+            plt.legend()
+            plt.xlabel('time')
+            plt.ylabel('population')
+            plt.show()
+          </input>
+          <output>
+          
+          </output>
+          </sage>
+
+        </section>
+
+        <section xml:id="sec-gz">
+          <title>Using RSS</title>
+
+          <p>
+            One way to compare data with a graph is by computing the Residual Sum of Squares. (There will be an explanation during class time.) Within a single model, this is a good option. Read the code block below to see how we can do this in Python.
+          </p>
+
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+              
+              plt.cla()  #Clear (delete) any past plots
+              
+              #Include data from Zombie Game App
+              t_steps = [0, 1, 2, 3, 4, 5, 6]
+              S_data = [49, 48, 46, 40, 28, 10, 0]
+              
+              #Define the system of differential equations, and call it "hz"
+              def hz(y, t):
+                s, i = y #Define y as consisting of s and i, in that order
+                dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
+                return dydt
+                
+              beta = 0.03 #Give a value to beta
+              y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
+              t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+               
+              sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+              
+              RSS = 0
+
+              for x in range(0,7):
+                  RSS = RSS + (S_data[x] - sol[0 + 10 * x, 0])**2
+                  print(RSS)
+
+              print("RSS = ", RSS)
+            </input>
+            <output>
+            
+            </output>
+            </sage>
+
+        
       </section>
 
     </chapter>
