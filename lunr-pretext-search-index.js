@@ -889,7 +889,7 @@ var ptx_lunr_docs = [
   "type": "Chapter",
   "number": "8",
   "title": "* Preparing Influenza Data to Compare With a Model",
-  "body": " * Preparing Influenza Data to Compare With a Model    Use Bates flu data. Discuss converting from New Cases to S, I, R and possibly other compartments. Also discuss different time scales (here or elsewhere): converting data and parameters between days, weeks, months, years.   "
+  "body": " * Preparing Influenza Data to Compare With a Model   Starter Example Comparing Data with a Model: Zombie Data   Suppose you have data to compare against your model. Which set of parameters is best? We start by revisiting the type of graph and data we saw with our (relatively simple) early-semester zombie models. Read through the following and make sure you understand what is happening in each command.     Using RSS  One way to compare data with a graph is by computing the Residual Sum of Squares. (There will be an explanation during class time.) Within a single model, this is a good option. Read the code block below to see how we can do this in Python.    "
 },
 {
   "id": "ch-epidemic-vs-endemic-models",

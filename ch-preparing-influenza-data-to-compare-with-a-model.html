@@ -57,7 +57,13 @@ window.MathJax = {
     )}
   },
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
 <script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -273,7 +279,10 @@ window.MathJax = {
 </li>
 <li class="active">
 <div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal"><span class="codenumber">8</span> <span class="title">* Preparing Influenza Data to Compare With a Model</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-ga" class="internal"><span class="codenumber">8.1</span> <span class="title"></span></a></div></li></ul>
+<ul class="structural">
+<li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-ga" class="internal"><span class="codenumber">8.1</span> <span class="title">Starter Example Comparing Data with a Model: Zombie Data</span></a></div></li>
+<li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gz" class="internal"><span class="codenumber">8.2</span> <span class="title">Using RSS</span></a></div></li>
+</ul>
 </li>
 <li>
 <div class="toc-item"><a href="ch-epidemic-vs-endemic-models.html" class="internal"><span class="codenumber">9</span> <span class="title">* Epidemic vs. Endemic Models</span></a></div>
@@ -322,9 +331,74 @@ window.MathJax = {
 <span class="type">Chapter</span> <span class="codenumber">8</span> <span class="title">* Preparing Influenza Data to Compare With a Model</span>
 </h2>
 <section class="section" id="sec-ga"><h3 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">8.1</span> <span class="title"></span>
+<span class="type">Section</span> <span class="codenumber">8.1</span> <span class="title">Starter Example Comparing Data with a Model: Zombie Data</span>
 </h3>
-<div class="para" id="p-620">Use Bates flu data. Discuss converting from New Cases to S, I, R and possibly other compartments. Also discuss different time scales (here or elsewhere): converting data and parameters between days, weeks, months, years.</div></section></section></div>
+<div class="para" id="p-620">Suppose you have data to compare against your model. Which set of parameters is best? We start by revisiting the type of graph and data we saw with our (relatively simple) early-semester zombie models. Read through the following and make sure you understand what is happening in each command.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-16"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla()  #Clear (delete) any past plots
+
+#Include data from Zombie Game App
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+S_data = [49, 48, 46, 40, 28, 10, 0]
+
+#Define the system of differential equations, and call it "hz"
+def hz(y, t):
+  s, i = y #Define y as consisting of s and i, in that order
+  dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
+  return dydt
+      
+beta = 0.03 #Give a value to beta
+y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
+t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+
+sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+# Plotting commands are below
+plt.plot(t_steps, S_data,'o', markersize=4, color='blue')
+plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+plt.legend()
+plt.xlabel('time')
+plt.ylabel('population')
+plt.show()
+</script></pre></section><section class="section" id="sec-gz"><h3 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">8.2</span> <span class="title">Using RSS</span>
+</h3>
+<div class="para" id="p-621">One way to compare data with a graph is by computing the Residual Sum of Squares. (There will be an explanation during class time.) Within a single model, this is a good option. Read the code block below to see how we can do this in Python.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-17"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla()  #Clear (delete) any past plots
+
+#Include data from Zombie Game App
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+S_data = [49, 48, 46, 40, 28, 10, 0]
+
+#Define the system of differential equations, and call it "hz"
+def hz(y, t):
+  s, i = y #Define y as consisting of s and i, in that order
+  dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
+  return dydt
+  
+beta = 0.03 #Give a value to beta
+y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
+t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+ 
+sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+RSS = 0
+
+for x in range(0,7):
+    RSS = RSS + (S_data[x] - sol[0 + 10 * x, 0])**2
+    print(RSS)
+
+print("RSS = ", RSS)
+</script></pre></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="ch-getting-the-answer-right-in-modeling.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-epidemic-vs-endemic-models.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
