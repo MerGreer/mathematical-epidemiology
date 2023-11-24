@@ -403,6 +403,7 @@ print("RSS = ", RSS)
 <span class="type">Section</span> <span class="codenumber">8.3</span> <span class="title">Influenza Data and RSS</span>
 </h3>
 <div class="para" id="p-622">Now try computing RSS using the influenza prevalence data. The data are already written into the code block below. Time 0 is the same as October 6.</div>
+<div class="para" id="p-623">Notice in the line <code class="code-inline tex2jax_ignore">RSS = RSS + (I_prevalence_data[x] - sol[0 + 10 * x, 1])**2</code> that instead of writing <code class="code-inline tex2jax_ignore">sol[0 + 10 * x, 0]</code> we write <code class="code-inline tex2jax_ignore">sol[0 + 10 * x, 1]</code>. Changing the <code class="code-inline tex2jax_ignore">0</code> to a <code class="code-inline tex2jax_ignore">1</code> tells Python to use the next column of model values from the array of S, I, and R values, that is, to use column 1 of Infectious values rather than column 0 of Susceptible values. It is important to choose the correct column of model values when comparing with data values.</div>
 <pre class="ptx-sagecell sagecell-sage" id="sage-18"><script type="text/x-sage">#Import packages
 import numpy as np
 import matplotlib.pyplot as plt
@@ -439,7 +440,7 @@ plt.show()
 RSS = 0
 
 for x in range(0,20):
-    RSS = RSS + (I_prevalence_data[x] - sol[0 + 10 * x, 0])**2
+    RSS = RSS + (I_prevalence_data[x] - sol[0 + 10 * x, 1])**2
     #print(RSS) #Uncomment this command to see in-between RSS calculations
 
 print("RSS = ", RSS)
