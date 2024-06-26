@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.7</span><span class="period">.</span>
+</h4>
+<div class="para">Evaluate the code below. Use the Python code, as well as the resulting graphs, to answer the questions appearing below the code block.</div> <pre id="exer-grid-axis-labels-comments-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+plt.cla()
+
+def model(y, t):
+  S, I = y
+  dydt = [-beta * S * I, beta * S * I]
+  return dydt
+      
+beta = 0.02
+y0 = [49, 1]
+t_range = np.arange(0.0, 8.0, 0.1)
+
+sol = odeint(model, y0, t_range)
+
+plt.plot(t_range, sol[:, 0], color='blue', label='S(t)')
+plt.plot(t_range, sol[:, 1], color='orange', label='I(t)')
+plt.legend()
+plt.xlabel('time')
+#plt.grid()
+plt.show()
+</script></pre> <ul class="disc">
+<li><div class="para">This code block includes an additional optional command in each of the lines starting with <code class="code-inline tex2jax_ignore">plt.plot</code>. This command begins with <code class="code-inline tex2jax_ignore">label</code> in each line. Where do you find these labels, <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\text{,}\)</span> on the plot produced below the code?</div></li>
+<li><div class="para">Line 19 says <code class="code-inline tex2jax_ignore">plt.legend()</code>. What does this mean? You can check by turning this line off, then on again. To turn it off, type <code class="code-inline tex2jax_ignore">#</code> at the start of Line 19, and run the code again. To turn it back on, remove the <code class="code-inline tex2jax_ignore">#</code>. Starting a line with <code class="code-inline tex2jax_ignore">#</code> turns the line into a <em class="emphasis">comment</em> rather than code. This means that Python does not execute the rest of the line after the <code class="code-inline tex2jax_ignore">#</code>.</div></li>
+<li><div class="para">Line 20 states <code class="code-inline tex2jax_ignore">plt.xlabel('time')</code>. Do you see where this label appears in the resulting plot? If so: can you figure out how to label the vertical axis as “populations”, to represent the combination of populations <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\text{?}\)</span>
+</div></li>
+<li><div class="para">Uncomment Line 21 by removing the <code class="code-inline tex2jax_ignore">#</code> symbol and evaluate the code again. How does this change the resulting plot? What advantages or disadvantages do you see in this change?</div></li>
+</ul>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ul class="disc">
+<li><div class="para">The labels <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> appear in the box on the graph, next to the line color of their associated plot. That is, label <span class="process-math">\(S(t)\)</span> appears next to a blue line, and <span class="process-math">\(S(t)\)</span> is plotted in blue. Label <span class="process-math">\(I(t)\)</span> appears next to an orange line, and <span class="process-math">\(I(t)\)</span> is plotted in orange.</div></li>
+<li><div class="para">The legend is the box mentioned in the previous bullet point. Legends can be very helpful when multiple plots appear on a shared set of axes.</div></li>
+<li><div class="para">The label appears below the horizontal axis. To label the vertical axis, include this new line in the code: <code class="code-inline tex2jax_ignore">plt.ylabel('populations')</code>.</div></li>
+<li><div class="para">A grid appears throughout the plot. This may be an advantage for better pinpointing what the values of <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> are at various times <span class="process-math">\(t\text{.}\)</span> It may be a disadvantage if it makes the plot seem cluttered. There may be other advantages and disadvantages.</div></li>
+</ul></div></details></div></article><span class="incontext"><a class="internal" href="ch-visualization-graphing-model-results-and-data.html#exer-grid-axis-labels-comments">in-context</a></span>
+</body>
+</html>

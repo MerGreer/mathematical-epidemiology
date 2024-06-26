@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.5</span><span class="period">.</span>
+</h4>
+<div class="para">Start with the same Python code as in <a href="ch-visualization-graphing-model-results-and-data.html#exer-first-odeint-code" class="xref" data-knowl="./knowl/xref/exer-first-odeint-code.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 3.4">Activity 3.4</a> and try various small changes to the code. Identify where and how in the code to make the changes suggested below, and discuss the effects of each change on the resulting graph. Here and elsewhere, whenever we work with Python, feel free to try your own adaptations to the code.</div> <pre id="exer-first-odeint-code-play-around-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+from scipy.integrate import odeint
+plt.cla()
+
+def hz(y, t):
+  S, I = y
+  dydt = [-beta * S * I, beta * S * I]
+  return dydt
+
+beta = 0.02
+y0 = [49, 1]
+t_range = np.arange(0.0, 8.0, 0.1)
+sol = odeint(hz, y0, t_range)
+
+plt.plot(t_range, sol[:, 0], color='blue')
+plt.plot(t_range, sol[:, 1], color='orange')
+plt.show()
+</script></pre> <ul class="disc">
+<li><div class="para">Change the value of <span class="process-math">\(\beta\text{.}\)</span> Identify where in the Python code to make this change, and comment on how the output graph changes when <span class="process-math">\(\beta\)</span> increases or decreases. (While you can change <span class="process-math">\(\beta\)</span> to any value you like, recall that a realistic outbreak model requires <span class="process-math">\(\beta &gt; 0\text{.}\)</span>)</div></li>
+<li><div class="para">Change the initial conditions so that <span class="process-math">\(S(0) \neq 49\text{,}\)</span> <span class="process-math">\(I(0) \neq 1\text{,}\)</span> or both. Comment on how these changes affect the resulting graph. (To stay in the realm of biologically feasible outbreaks, keep <span class="process-math">\(S(0) &gt; 0\)</span> and <span class="process-math">\(I(0) &gt; 0\text{.}\)</span>)</div></li>
+<li><div class="para">Change the time range. Continue to begin at <span class="process-math">\(t=0\text{,}\)</span> but change the end time to something different than <span class="process-math">\(t=8\text{.}\)</span> Discuss reasons why a modeler may want to change the time range, and identify ways in which changing the time range causes the output graph to change.</div></li>
+<li><div class="para">Change the step size for time <span class="process-math">\(t\)</span> so that Python steps forward in increments of 1.0 instead of 0.1. Identify where in the Python code to make this change, and observe any ways in which the output graph looks different after the change.</div></li>
+</ul></article><span class="incontext"><a class="internal" href="ch-visualization-graphing-model-results-and-data.html#exer-first-odeint-code-play-around">in-context</a></span>
+</body>
+</html>

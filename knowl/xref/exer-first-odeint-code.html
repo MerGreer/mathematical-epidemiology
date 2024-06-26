@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.4</span><span class="period">.</span>
+</h4>
+<div class="para">Read the Python code in the block below, and click the <code class="code-inline tex2jax_ignore">Evaluate (Sage)</code> button to view the resulting graph. Think carefully about steps 1-5 in the outline above. Which lines of code address which steps of the outline? (Notice that you may need to scroll down within the code block. Alternately, click the rectangular icon in the top right of the code block. This opens a full-screen version of the code. To return to the regular screen, click again the rectangle in the top right.)</div> <pre id="exer-first-odeint-code-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import matplotlib.pyplot as plt
+import numpy as np
+from scipy.integrate import odeint
+plt.cla()
+
+def hz(y, t):
+  S, I = y
+  dydt = [-beta * S * I, beta * S * I]
+  return dydt
+
+beta = 0.02
+y0 = [49, 1]
+t_range = np.arange(0.0, 8.0, 0.1)
+sol = odeint(hz, y0, t_range)
+
+plt.plot(t_range, sol[:, 0], color='blue')
+plt.plot(t_range, sol[:, 1], color='orange')
+plt.show()
+</script></pre>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical"><ol class="decimal">
+<li><div class="para">The formulas for the system of differential equations appear most directly in line 8, in order. The first formula is <code class="code-inline tex2jax_ignore">-beta * S * I</code>, and the second formula is <code class="code-inline tex2jax_ignore">beta * S * I</code>. Collectively, these are labeled <code class="code-inline tex2jax_ignore">dy/dt</code>. More generally, the lines 6–9 define the system of differential equations.</div></li>
+<li><div class="para">In line 11, we give <span class="process-math">\(\beta\)</span> the value of 0.02. This number can be changed, and the resulting numerical solution then changes accordingly.</div></li>
+<li><div class="para">In line 12, the initial conditions are set to <span class="process-math">\(S(0)=49\)</span> and <span class="process-math">\(I(0)=1\text{.}\)</span> These initial conditions are collectively labeled as <code class="code-inline tex2jax_ignore">y0</code>. The initial conditions appear in square brackets and are separated by a comma. This syntax should look familiar from line 8, when we entered the right-hand sides of the differential equations all in one command, using the same syntax.</div></li>
+<li><div class="para">The time range for this numerical solution appears in line 13, using the <code class="code-inline tex2jax_ignore">arange</code> command from the <code class="code-inline tex2jax_ignore">numpy</code> package downloaded in line 2. The code says <code class="code-inline tex2jax_ignore">t = np.arange(0.0, 8.0, 0.1)</code>. This means that time starts at <span class="process-math">\(t=0.0\)</span> and continues till <span class="process-math">\(t=8.0\text{.}\)</span> In addition, the <code class="code-inline tex2jax_ignore">0.1</code> tells Python to use a step size of 0.1 in the “step through” process for computing <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> values.</div></li>
+<li>
+<div class="para">We ask in line 14 for Python to compute a solution, called <code class="code-inline tex2jax_ignore">sol</code>. To compute this solution, Python uses the command <code class="code-inline tex2jax_ignore">odeint</code> and the inputs <code class="code-inline tex2jax_ignore">hz</code> (the differential equations in the model), <code class="code-inline tex2jax_ignore">y0</code> (the initial conditions for this solution), and <code class="code-inline tex2jax_ignore">t_range</code> (the range of time across which to compute the solution).</div>
+<div class="para">The commands in lines 16-18 work together to create the plot we see after clicking <code class="code-inline tex2jax_ignore">Evaluate (Sage)</code>. Line 16 plots the blue <span class="process-math">\(S(t)\)</span> curve, using the time inputs <code class="code-inline tex2jax_ignore">t_range</code> and the values of <span class="process-math">\(S(t)\)</span> throughout those times, which are described as <code class="code-inline tex2jax_ignore">sol[:, 0]</code>. This means the solution <code class="code-inline tex2jax_ignore">sol</code>, at all times, which is designated by <code class="code-inline tex2jax_ignore">:</code>, in the initial position <code class="code-inline tex2jax_ignore">0</code>. Python typically starts counting with 0 rather than 1, so the <span class="process-math">\(S(t)\)</span> values are labeled as <code class="code-inline tex2jax_ignore">0</code> rather than <code class="code-inline tex2jax_ignore">1</code>.</div>
+<div class="para">Line 17 plots the orange <span class="process-math">\(I(t)\)</span> curve, using the time inputs <code class="code-inline tex2jax_ignore">t_range</code> and the values of <span class="process-math">\(I(t)\)</span> throughout those times, which are described as <code class="code-inline tex2jax_ignore">sol[:, 1]</code>. Python continues its counting here, with the <span class="process-math">\(I(t)\)</span> values labeled as <code class="code-inline tex2jax_ignore">1</code>.</div>
+</li>
+</ol></div></div></details></div></article><span class="incontext"><a class="internal" href="ch-visualization-graphing-model-results-and-data.html#exer-first-odeint-code">in-context</a></span>
+</body>
+</html>

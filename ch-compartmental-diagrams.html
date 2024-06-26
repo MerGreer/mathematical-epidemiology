@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Compartmental Diagrams</title>
@@ -14,20 +14,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Mathematical Epidemiology and More">
 <meta property="book:author" content="Meredith L. Greer">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -37,162 +55,75 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
 <h1 class="heading"><a href="mathematical-epidemiology.html"><span class="title">Mathematical Epidemiology and More:</span> <span class="subtitle">A Course on Compartmental Models</span></a></h1>
 <p class="byline">Meredith L. Greer</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
-</h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
-<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden avatar">
-<li data-val="You!" tabindex="-1">
-<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
-<li data-val="😺" tabindex="-1">
-<span id="the😺" class="avatarcheck"></span>😺</li>
-<li data-val="👤" tabindex="-1">
-<span id="the👤" class="avatarcheck"></span>👤</li>
-<li data-val="👽" tabindex="-1">
-<span id="the👽" class="avatarcheck"></span>👽</li>
-<li data-val="🐶" tabindex="-1">
-<span id="the🐶" class="avatarcheck"></span>🐶</li>
-<li data-val="🐼" tabindex="-1">
-<span id="the🐼" class="avatarcheck"></span>🐼</li>
-<li data-val="🌈" tabindex="-1">
-<span id="the🌈" class="avatarcheck"></span>🌈</li>
-</ol>
-</li>
-<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden fontfamily">
-<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
-<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
-</li>
-<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
-<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
-</li>
-</ol>
-</li>
-<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden fonts">
-<li>Size</li>
-<li><span id="thesize">12</span></li>
-<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
-<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
-<li>Width</li>
-<li><span id="thewdth">100</span></li>
-<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
-<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
-<li>Weight</li>
-<li><span id="thewght">400</span></li>
-<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
-<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
-<li>Letter spacing</li>
-<li>
-<span id="thelspace">0</span><span class="byunits">/200</span>
-</li>
-<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
-<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
-<li>Word spacing</li>
-<li>
-<span id="thewspace">0</span><span class="byunits">/50</span>
-</li>
-<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
-<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
-<li>Line Spacing</li>
-<li>
-<span id="theheight">135</span><span class="byunits">/100</span>
-</li>
-<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
-<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
-</ol>
-</li>
-<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden atmosphere">
-<li data-val="default" tabindex="-1">
-<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
-<li data-val="pastel" tabindex="-1">
-<span id="thepastel" class="atmospherecheck"></span>pastel</li>
-<li data-val="darktwilight" tabindex="-1">
-<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
-<li data-val="dark" tabindex="-1">
-<span id="thedark" class="atmospherecheck"></span>dark</li>
-<li data-val="darkmidnight" tabindex="-1">
-<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
-</ol>
-</li>
-<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden ruler">
-<li data-val="none" tabindex="-1">
-<span id="thenone" class="rulercheck">✔️</span>none</li>
-<li data-val="underline" tabindex="-1">
-<span id="theunderline" class="rulercheck"></span>underline</li>
-<li data-val="lunderline" tabindex="-1">
-<span id="thelunderline" class="rulercheck"></span>L-underline</li>
-<li data-val="greybar" tabindex="-1">
-<span id="thegreybar" class="rulercheck"></span>grey bar</li>
-<li data-val="lightbox" tabindex="-1">
-<span id="thelightbox" class="rulercheck"></span>light box</li>
-<li data-val="sunrise" tabindex="-1">
-<span id="thesunrise" class="rulercheck"></span>sunrise</li>
-<li data-val="sunriseunderline" tabindex="-1">
-<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
-<li class="moveQ">Motion by:</li>
-<li data-val="mouse" tabindex="-1">
-<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
-<li data-val="arrow" tabindex="-1">
-<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
-<li data-val="eye" tabindex="-1">
-<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
-</ol>
-</li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-visualization-graphing-model-results-and-data.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="part-core-modeling-concepts.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
-</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-visualization-graphing-model-results-and-data.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part-core-modeling-concepts.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -200,210 +131,210 @@ window.MathJax = {
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2 parts"><ul class="structural">
-<li>
-<div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
-<li><div class="toc-item"><a href="preface-overall.html" class="internal"><span class="title">Preface</span></a></div></li>
-<li><div class="toc-item"><a href="preface-students.html" class="internal"><span class="title">To Students: How to Get the Most from This Text</span></a></div></li>
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 parts"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="frontmatter-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-overall.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-students.html" class="internal"><span class="title">To Students: How to Get the Most from This Text</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="part-core-modeling-concepts.html" class="internal"><span class="codenumber">I</span> <span class="title">Core Modeling Concepts</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html" class="internal"><span class="codenumber">1</span> <span class="title">Prelude: Diseases in Popular News</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-Themes" class="internal"><span class="codenumber">1.1</span> <span class="title">Possible Discussion Themes</span></a></div></li>
-<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Follow-Up-By-Seeking-More-Precise-Data" class="internal"><span class="codenumber">1.2</span> <span class="title">Follow Up By Seeking More Precise Data</span></a></div></li>
-<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#exercises-prelude-diseases-in-popular-news" class="internal"><span class="codenumber">1.3</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="part-core-modeling-concepts.html" class="internal"><span class="codenumber">I</span> <span class="title">Core Modeling Concepts</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html" class="internal"><span class="codenumber">1</span> <span class="title">Prelude: Diseases in Popular News</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-Themes" class="internal"><span class="codenumber">1.1</span> <span class="title">Possible Discussion Themes</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#sec-Follow-Up-By-Seeking-More-Precise-Data" class="internal"><span class="codenumber">1.2</span> <span class="title">Follow Up By Seeking More Precise Data</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#exercises-prelude-diseases-in-popular-news" class="internal"><span class="codenumber">1.3</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-zombies-can-math-help.html" class="internal"><span class="codenumber">2</span> <span class="title">Zombies: Can Math Help?</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-zombies-can-math-help.html#sec-we-now-have-data-qualitative-musings" class="internal"><span class="codenumber">2.1</span> <span class="title">We Now Have Data: Qualitative Musings</span></a></div></li>
-<li><div class="toc-item"><a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal"><span class="codenumber">2.2</span> <span class="title">A First Model</span></a></div></li>
-<li><div class="toc-item"><a href="ch-zombies-can-math-help.html#exercises-ch-zombies-can-math-help" class="internal"><span class="codenumber">2.3</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-zombies-can-math-help.html" class="internal"><span class="codenumber">2</span> <span class="title">Zombies: Can Math Help?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#sec-we-now-have-data-qualitative-musings" class="internal"><span class="codenumber">2.1</span> <span class="title">We Now Have Data: Qualitative Musings</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal"><span class="codenumber">2.2</span> <span class="title">A First Model</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#exercises-ch-zombies-can-math-help" class="internal"><span class="codenumber">2.3</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html" class="internal"><span class="codenumber">3</span> <span class="title">Visualization: Graphing Model Results and Data</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#sec-solving-differential-equations-using-graphs" class="internal"><span class="codenumber">3.1</span> <span class="title">“Solving” Differential Equations Using Graphs</span></a></div></li>
-<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal"><span class="codenumber">3.2</span> <span class="title">Estimating <span class="process-math">\(\beta\)</span> and Building Visualization Skills</span></a></div></li>
-<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#exercises-visualization-graphing-model-results-and-data" class="internal"><span class="codenumber">3.3</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html" class="internal"><span class="codenumber">3</span> <span class="title">Visualization: Graphing Model Results and Data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#sec-solving-differential-equations-using-graphs" class="internal"><span class="codenumber">3.1</span> <span class="title">“Solving” Differential Equations Using Graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal"><span class="codenumber">3.2</span> <span class="title">Estimating <span class="process-math">\(\beta\)</span> and Building Visualization Skills</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#exercises-visualization-graphing-model-results-and-data" class="internal"><span class="codenumber">3.3</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li class="active">
-<div class="toc-item"><a href="ch-compartmental-diagrams.html" class="internal"><span class="codenumber">4</span> <span class="title">Compartmental Diagrams</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-compartmental-diagrams-vocabulary-and-comments" class="internal"><span class="codenumber">4.1</span> <span class="title">Compartmental Diagrams: Vocabulary and Comments</span></a></div></li>
-<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal"><span class="codenumber">4.2</span> <span class="title">From Zombie Game Variation to Compartmental Diagram</span></a></div></li>
-<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates" class="internal"><span class="codenumber">4.3</span> <span class="title">Estimating Gamma and Other Rates</span></a></div></li>
-<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal"><span class="codenumber">4.4</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter active">
+<div class="toc-title-box"><a href="ch-compartmental-diagrams.html" class="internal"><span class="codenumber">4</span> <span class="title">Compartmental Diagrams</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-compartmental-diagrams-vocabulary-and-comments" class="internal"><span class="codenumber">4.1</span> <span class="title">Compartmental Diagrams: Vocabulary and Comments</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal"><span class="codenumber">4.2</span> <span class="title">From Zombie Game Variation to Compartmental Diagram</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates" class="internal"><span class="codenumber">4.3</span> <span class="title">Estimating Gamma and Other Rates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal"><span class="codenumber">4.4</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal"><span class="codenumber">5</span> <span class="title">Model Analysis and the Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-using-calculus-to-analyze-models" class="internal"><span class="codenumber">5.1</span> <span class="title">Using Calculus to Analyze Models</span></a></div></li>
-<li><div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0" class="internal"><span class="codenumber">5.2</span> <span class="title">The Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div></li>
-<li><div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#exercises-ch-populations-and-R0" class="internal"><span class="codenumber">5.3</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal"><span class="codenumber">5</span> <span class="title">Model Analysis and the Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-using-calculus-to-analyze-models" class="internal"><span class="codenumber">5.1</span> <span class="title">Using Calculus to Analyze Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0" class="internal"><span class="codenumber">5.2</span> <span class="title">The Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#exercises-ch-populations-and-R0" class="internal"><span class="codenumber">5.3</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html" class="internal"><span class="codenumber">6</span> <span class="title">Vaccines and Incubation Periods</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html#sec-vaccines-in-compartmental-models" class="internal"><span class="codenumber">6.1</span> <span class="title">Vaccines in Compartmental Models</span></a></div></li>
-<li><div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html#sec-including-an-incubation-period-the-seir-model" class="internal"><span class="codenumber">6.2</span> <span class="title">Including an Incubation Period: The SEIR Model</span></a></div></li>
-<li><div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html#exercises-ch-vaccines" class="internal"><span class="codenumber">6.3</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-vaccines-and-incubation-periods.html" class="internal"><span class="codenumber">6</span> <span class="title">Vaccines and Incubation Periods</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines-and-incubation-periods.html#sec-vaccines-in-compartmental-models" class="internal"><span class="codenumber">6.1</span> <span class="title">Vaccines in Compartmental Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines-and-incubation-periods.html#sec-including-an-incubation-period-the-seir-model" class="internal"><span class="codenumber">6.2</span> <span class="title">Including an Incubation Period: The SEIR Model</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-vaccines-and-incubation-periods.html#exercises-ch-vaccines" class="internal"><span class="codenumber">6.3</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html" class="internal"><span class="codenumber">7</span> <span class="title">Getting the Answer “Right” in Modeling</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-the-logical-approach" class="internal"><span class="codenumber">7.1</span> <span class="title">The Logical Approach</span></a></div></li>
-<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-priorities-where-goals-meet-ethics" class="internal"><span class="codenumber">7.2</span> <span class="title">Priorities: Where Goals Meet Ethics</span></a></div></li>
-<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-making-changes-to-models" class="internal"><span class="codenumber">7.3</span> <span class="title">Making Changes to Models</span></a></div></li>
-<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-writing-explanations-to-present-models-to-others" class="internal"><span class="codenumber">7.4</span> <span class="title">Writing Explanations to Present Models to Others</span></a></div></li>
-<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#exercises-ch-get-answer-right-in-modeling" class="internal"><span class="codenumber">7.5</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html" class="internal"><span class="codenumber">7</span> <span class="title">Getting the Answer “Right” in Modeling</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html#sec-the-logical-approach" class="internal"><span class="codenumber">7.1</span> <span class="title">The Logical Approach</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html#sec-priorities-where-goals-meet-ethics" class="internal"><span class="codenumber">7.2</span> <span class="title">Priorities: Where Goals Meet Ethics</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html#sec-making-changes-to-models" class="internal"><span class="codenumber">7.3</span> <span class="title">Making Changes to Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html#sec-writing-explanations-to-present-models-to-others" class="internal"><span class="codenumber">7.4</span> <span class="title">Writing Explanations to Present Models to Others</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html#exercises-ch-get-answer-right-in-modeling" class="internal"><span class="codenumber">7.5</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal"><span class="codenumber">8</span> <span class="title">* Preparing Influenza Data to Compare With a Model</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-ga" class="internal"><span class="codenumber">8.1</span> <span class="title">Starter Example Comparing Data with a Model: Zombie Data</span></a></div></li>
-<li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gz" class="internal"><span class="codenumber">8.2</span> <span class="title">Using RSS</span></a></div></li>
-<li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gx" class="internal"><span class="codenumber">8.3</span> <span class="title">Influenza Data and RSS</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal"><span class="codenumber">8</span> <span class="title">* Preparing Influenza Data to Compare With a Model</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-ga" class="internal"><span class="codenumber">8.1</span> <span class="title">Starter Example Comparing Data with a Model: Zombie Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gz" class="internal"><span class="codenumber">8.2</span> <span class="title">Using RSS</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gx" class="internal"><span class="codenumber">8.3</span> <span class="title">Influenza Data and RSS</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-epidemic-vs-endemic-models.html" class="internal"><span class="codenumber">9</span> <span class="title">* Epidemic vs. Endemic Models</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-epidemic-vs-endemic-models.html#sec-ee" class="internal"><span class="codenumber">9.1</span> <span class="title"></span></a></div></li></ul>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-epidemic-vs-endemic-models.html" class="internal"><span class="codenumber">9</span> <span class="title">* Epidemic vs. Endemic Models</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-epidemic-vs-endemic-models.html#sec-ee" class="internal"><span class="codenumber">9.1</span> <span class="title"></span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">* Residual Sum of Squares: Improving a Model's Fit to Data</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-ra" class="internal"><span class="codenumber">10.1</span> <span class="title"></span></a></div></li></ul>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">* Residual Sum of Squares: Improving a Model’s Fit to Data</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-ra" class="internal"><span class="codenumber">10.1</span> <span class="title"></span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-akaike-information-criterion-comparing-different-models.html" class="internal"><span class="codenumber">11</span> <span class="title">* Akaike Information Criterion: Comparing Different Models</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-akaike-information-criterion-comparing-different-models.html#sec-ma" class="internal"><span class="codenumber">11.1</span> <span class="title"></span></a></div></li></ul>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-akaike-information-criterion-comparing-different-models.html" class="internal"><span class="codenumber">11</span> <span class="title">* Akaike Information Criterion: Comparing Different Models</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-akaike-information-criterion-comparing-different-models.html#sec-ma" class="internal"><span class="codenumber">11.1</span> <span class="title"></span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-modeling-the-spread-of-a-rumor.html" class="internal"><span class="codenumber">12</span> <span class="title">* Modeling the Spread of a Rumor</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-modeling-the-spread-of-a-rumor.html#sec-7" class="internal"><span class="codenumber">12.1</span> <span class="title"></span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">13</span> <span class="title">* The Next Generation Method</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-the-next-generation-method.html#sec-2" class="internal"><span class="codenumber">13.1</span> <span class="title">Python Code for the Next Generation Method</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="ch-tips-on-reading-a-scientific-paper.html" class="internal"><span class="codenumber">14</span> <span class="title">* Tips on Reading a Scientific Paper</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-tips-on-reading-a-scientific-paper.html#sec-3a" class="internal"><span class="codenumber">14.1</span> <span class="title"></span></a></div></li></ul>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-modeling-the-spread-of-a-rumor.html" class="internal"><span class="codenumber">12</span> <span class="title">* Modeling the Spread of a Rumor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-modeling-the-spread-of-a-rumor.html#sec-7" class="internal"><span class="codenumber">12.1</span> <span class="title"></span></a></div></li></ul>
 </li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="part-examples-and-case-studies.html" class="internal"><span class="codenumber">III</span> <span class="title">Examples and Case Studies</span></a></div>
-<ul class="structural"><li>
-<div class="toc-item"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html" class="internal"><span class="codenumber">15</span> <span class="title">* Preparing Mumps Data to Compare with a Six-Compartment Model</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html#sec-6" class="internal"><span class="codenumber">15.1</span> <span class="title"></span></a></div></li></ul>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">13</span> <span class="title">* The Next Generation Method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-the-next-generation-method.html#sec-2" class="internal"><span class="codenumber">13.1</span> <span class="title">Python Code for the Next Generation Method</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-tips-on-reading-a-scientific-paper.html" class="internal"><span class="codenumber">14</span> <span class="title">* Tips on Reading a Scientific Paper</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-tips-on-reading-a-scientific-paper.html#sec-3a" class="internal"><span class="codenumber">14.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-examples-and-case-studies.html" class="internal"><span class="codenumber">III</span> <span class="title">Examples and Case Studies</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html" class="internal"><span class="codenumber">15</span> <span class="title">* Preparing Mumps Data to Compare with a Six-Compartment Model</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html#sec-6" class="internal"><span class="codenumber">15.1</span> <span class="title"></span></a></div></li></ul>
 </li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="glossary-of-terms.html" class="internal"><span class="title">Glossary of Mathematical Epidemiology Terms</span></a></div></li></ul>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="glossary-of-terms.html" class="internal"><span class="title">Glossary of Mathematical Epidemiology Terms</span></a></div></li></ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content">
-<section class="chapter" id="ch-compartmental-diagrams"><h2 class="heading">
-<span class="type">Chapter</span> <span class="codenumber">4</span> <span class="title">Compartmental Diagrams</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-compartmental-diagrams"><h2 class="heading">
+<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">4</span><span class="space"> </span><span class="title">Compartmental Diagrams</span>
 </h2>
-<section class="introduction" id="intro-compartmental-diagrams"><article class="objectives goal-like" id="objectives-4"><h3 class="heading"><span class="type">Goals</span></h3>
+<section class="introduction" id="intro-compartmental-diagrams"><article class="objectives goal-like" id="intro-compartmental-diagrams-1"><h3 class="heading"><span class="type">Goals</span></h3>
 <ul class="disc">
-<li id="li-100"><div class="para" id="p-228">Begin to use compartmental diagrams</div></li>
-<li id="li-101"><div class="para" id="p-229">Learn the rules and assumptions for drawing compartmental diagrams</div></li>
-<li id="li-102"><div class="para" id="p-230">Connect compartmental diagrams with their corresponding systems of differential equations</div></li>
-<li id="li-103"><div class="para" id="p-231">Build understanding of units and rate parameters in models</div></li>
-</ul></article> <div class="para" id="p-232">In <a href="ch-zombies-can-math-help.html" class="internal" title="Chapter 2: Zombies: Can Math Help?">Chapter 2</a> we simulated a simple outbreak. This outbreak can be modeled using the <em class="emphasis">system of ordinary differential equations</em> appearing in <a href="" class="xref" data-knowl="./knowl/eq-S-in-SImodel.html" title="Equation 2.2">(2.2)</a> and <a href="" class="xref" data-knowl="./knowl/eq-I-in-SImodel.html" title="Equation 2.3">(2.3)</a>. Here is the system again:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/ch-zombies-can-math-help.html ./knowl/eq-S-in-SImodel.html ./knowl/eq-I-in-SImodel.html ./knowl/ch-zombies-can-math-help.html ./knowl/fig-SI-compartmental-diagram.html ./knowl/expl-activity-varying-the-human-zombie-game.html ./knowl/fig-zombie-app-mortality.html ./knowl/fig-zombie-app-mortality.html ./knowl/fig-SI-compartmental-diagram.html" id="md-4">
+<li id="intro-compartmental-diagrams-1-1-1"><div class="para" id="intro-compartmental-diagrams-1-1-1-1">Begin to use compartmental diagrams</div></li>
+<li id="intro-compartmental-diagrams-1-1-2"><div class="para" id="intro-compartmental-diagrams-1-1-2-1">Learn the rules and assumptions for drawing compartmental diagrams</div></li>
+<li id="intro-compartmental-diagrams-1-1-3"><div class="para" id="intro-compartmental-diagrams-1-1-3-1">Connect compartmental diagrams with their corresponding systems of differential equations</div></li>
+<li id="intro-compartmental-diagrams-1-1-4"><div class="para" id="intro-compartmental-diagrams-1-1-4-1">Build understanding of units and rate parameters in models</div></li>
+</ul></article> <div class="para" id="intro-compartmental-diagrams-2">In <a href="ch-zombies-can-math-help.html" class="internal" title="Chapter 2: Zombies: Can Math Help?">Chapter 2</a> we simulated a simple outbreak. This outbreak can be modeled using the <em class="emphasis">system of ordinary differential equations</em> appearing in <a href="ch-zombies-can-math-help.html#sec-a-first-model-14" class="xref" data-knowl="./knowl/xref/eq-S-in-SImodel.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.2">(2.2)</a> and <a href="ch-zombies-can-math-help.html#sec-a-first-model-14" class="xref" data-knowl="./knowl/xref/eq-I-in-SImodel.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>. Here is the system again:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ch-zombies-can-math-help.html ./knowl/xref/eq-S-in-SImodel.html ./knowl/xref/eq-I-in-SImodel.html ./knowl/xref/ch-zombies-can-math-help.html ./knowl/xref/fig-SI-compartmental-diagram.html ./knowl/xref/expl-activity-varying-the-human-zombie-game.html ./knowl/xref/fig-zombie-app-mortality.html ./knowl/xref/fig-zombie-app-mortality.html ./knowl/xref/fig-SI-compartmental-diagram.html" id="intro-compartmental-diagrams-3">
 \begin{align*}
 \frac{dS}{dt} \amp = -\beta S I \\
 \frac{dI}{dt} \amp = \beta S I. 
 \end{align*}
 </div>
-<div class="para" id="p-233">This style of model is called a <dfn class="terminology">compartmental model</dfn> because the individuals in our model are designated by categories called <dfn class="terminology">compartments</dfn>; in this case, the compartments are “Susceptibles” and “Infectious”. In <a href="ch-zombies-can-math-help.html" class="internal" title="Chapter 2: Zombies: Can Math Help?">Chapter 2</a> we made calculus-based observations of the differential equations in this model. We can draw the dynamics of the model in a <dfn class="terminology">compartmental diagram</dfn>, as shown in <a href="" class="xref" data-knowl="./knowl/fig-SI-compartmental-diagram.html" title="Figure 4.1">Figure 4.1</a>.</div> <figure class="figure figure-like" id="fig-SI-compartmental-diagram"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/image-12.svg" role="img" class="contained" alt="(Write this)"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1<span class="period">.</span></span><span class="space"> </span>The compartmental diagram for one possible SI model, where “S”stands for “Susceptible” and “I” stands for “Infectious”</figcaption></figure> <div class="para" id="p-234">In this text, we regularly represent the dynamics of an outbreak using both compartmental model drawings and systems of differential equations. When we are careful in how we draw our compartmental diagrams, we can use these diagrams interchangeably with their corresponding systems of differential equations. In this chapter, we learn the vocabulary of compartmental models, as well as ways to draw compartmental diagrams so they clearly and completely represent the information contained in their corresponding systems of differential equations.</div> <div class="para" id="p-235">We begin in <a href="" class="xref" data-knowl="./knowl/expl-activity-varying-the-human-zombie-game.html" title="Exploration 4.1: Varying the Human–Zombie Game">Exploration 4.1</a> by trying a different version of the human–zombie game. We then ask you to use the intuition you are building to think through how the compartmental diagram should look for this human–zombie game variation. After that, we discuss more details about compartmental diagrams. <em class="emphasis">You are strongly encouraged to try to build your own compartmental diagram before moving on to the text's discussion of the details.</em>
+<div class="para" id="intro-compartmental-diagrams-4">This style of model is called a <dfn class="terminology">compartmental model</dfn> because the individuals in our model are designated by categories called <dfn class="terminology">compartments</dfn>; in this case, the compartments are “Susceptibles” and “Infectious”. In <a href="ch-zombies-can-math-help.html" class="internal" title="Chapter 2: Zombies: Can Math Help?">Chapter 2</a> we made calculus-based observations of the differential equations in this model. We can draw the dynamics of the model in a <dfn class="terminology">compartmental diagram</dfn>, as shown in <a href="ch-compartmental-diagrams.html#fig-SI-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SI-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.1">Figure 4.1</a>.</div> <figure class="figure figure-like" id="fig-SI-compartmental-diagram"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/fig-SI-compartmental-diagram-2.svg" role="img" class="contained" alt="(Write this)"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1<span class="period">.</span></span><span class="space"> </span>The compartmental diagram for one possible SI model, where “S”stands for “Susceptible” and “I” stands for “Infectious”</figcaption></figure> <div class="para" id="intro-compartmental-diagrams-6">In this text, we regularly represent the dynamics of an outbreak using both compartmental model drawings and systems of differential equations. When we are careful in how we draw our compartmental diagrams, we can use these diagrams interchangeably with their corresponding systems of differential equations. In this chapter, we learn the vocabulary of compartmental models, as well as ways to draw compartmental diagrams so they clearly and completely represent the information contained in their corresponding systems of differential equations.</div> <div class="para" id="intro-compartmental-diagrams-7">We begin in <a href="ch-compartmental-diagrams.html#expl-activity-varying-the-human-zombie-game" class="xref" data-knowl="./knowl/xref/expl-activity-varying-the-human-zombie-game.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 4.1: Varying the Human–Zombie Game">Exploration 4.1</a> by trying a different version of the human–zombie game. We then ask you to use the intuition you are building to think through how the compartmental diagram should look for this human–zombie game variation. After that, we discuss more details about compartmental diagrams. <em class="emphasis">You are strongly encouraged to try to build your own compartmental diagram before moving on to the text’s discussion of the details.</em>
 </div> <article class="exploration project-like" id="expl-activity-varying-the-human-zombie-game"><h3 class="heading">
 <span class="type">Exploration</span><span class="space"> </span><span class="codenumber">4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Varying the Human–Zombie Game.</span>
 </h3>
-<div class="introduction" id="introduction-8">
-<div class="para" id="p-236">In the original <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-33" id="fn-33"><sup> 1 </sup></a>, once an individual becomes a zombie, they are always a zombie. This means that no one leaves the Infectious compartment.</div> <div class="para" id="p-237">Suppose, instead, that zombies do not last forever. Instead, after some number of days, the zombies die (again), or in other words, the zombies become inactive. The number of days they remain Infectious before becoming inactive can be stated in the app.</div>
+<div class="introduction" id="expl-activity-varying-the-human-zombie-game-2">
+<div class="para" id="expl-activity-varying-the-human-zombie-game-2-1">In the original <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a><details class="ptx-footnote" aria-live="polite" id="expl-activity-varying-the-human-zombie-game-2-1-2"><summary class="ptx-footnote__number" title="Footnote 4.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="expl-activity-varying-the-human-zombie-game-2-1-2"><code class="code-inline tex2jax_ignore">nelsong1997.github.io/zombie_game/</code></div></details>, once an individual becomes a zombie, they are always a zombie. This means that no one leaves the Infectious compartment.</div> <div class="para" id="expl-activity-varying-the-human-zombie-game-2-2">Suppose, instead, that zombies do not last forever. Instead, after some number of days, the zombies die (again), or in other words, the zombies become inactive. The number of days they remain Infectious before becoming inactive can be stated in the app.</div>
 </div>
-<article class="task exercise-like" id="task-10"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="para" id="p-238">
+<article class="task exercise-like" id="expl-activity-varying-the-human-zombie-game-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="expl-activity-varying-the-human-zombie-game-3-1-1">
 <em class="emphasis">Before trying this scenario in the app</em>, think through how zombie death, and different zombie lifespans, would change the outcomes of the simulation. In particular, think carefully about these questions:</div> <ul class="disc">
-<li id="li-104"><div class="para" id="p-239">What do you <em class="emphasis">expect</em> will happen if Zombies die, that is, they become inactive and unable to spread infection? Whether you feel very certain, or somewhat uncertain, articulate some outcomes that you think will occur with this game variation.</div></li>
-<li id="li-105"><div class="para" id="p-240">How might your expected outcomes differ from those in the original model?</div></li>
-<li id="li-106"><div class="para" id="p-241">Outcomes might be measured by the table of data, by the graphs, by the timing of how infection spreads, by the numbers of survivors, or in other ways. For each of your expectations about how the outcomes may change, what support can you show for why this expectation makes sense?</div></li>
-</ul> <div class="para" id="p-242">This exercise is not about right or wrong ideas, but instead is about building hypotheses, comparing the hypotheses with data, and developing deeper understanding of what the model shows.</div></article><article class="task exercise-like" id="task-11"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="para" id="p-243">After you have thought through how the outcomes will change in a variation, use the app to generate data.</div> <div class="para" id="p-244">To set up this variation in the Zombie Game app, check the box for “Zombie Mortality”, shown by the lower red arrow in  <a href="" class="xref" data-knowl="./knowl/fig-zombie-app-mortality.html" title="Figure 4.2">Figure 4.2</a>. A box then appears for “Zombie Lifespan (days)”, shown by the upper red arrow in <a href="" class="xref" data-knowl="./knowl/fig-zombie-app-mortality.html" title="Figure 4.2">Figure 4.2</a>. Try setting Zombie Lifespan to 1, then 2, then 3. For each length of time, run several simulations, save your data sets, and compare the outcomes.</div> <figure class="figure figure-like" id="fig-zombie-app-mortality"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/ZombieApp_Mortality.png" class="contained" alt="Screen image from the Zombie Game App, showing the checked box for “Zombie Mortality” and the “Zombie Lifespan (days)” that appears"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2<span class="period">.</span></span><span class="space"> </span>Checking the box for “Zombie Mortality” and setting a value for “Zombie Lifespan (days)”</figcaption></figure></article><article class="task exercise-like" id="task-12"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<div class="para" id="p-245">Compare the results with the ideas you generated in part (a). <em class="emphasis">How similar or different are the actual results, compared with what you thought?</em>
-</div></article><article class="task exercise-like" id="task-13"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<div class="para" id="p-246">What else do you observe? Consider how many humans or zombies survive till the end, and consider how much these numbers vary from simulation to simulation. Consider how many days the outbreak lasts. Make note of any additional observations you have, and reach out to other people trying this experiment to see how your results compare with theirs.</div></article><article class="task exercise-like" id="task-14"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<div class="para" id="p-247">
-<em class="emphasis">Before moving on to the next section</em>, use your intuition to draw a possible compartmental diagram for the outbreak you just simulated in this Exploration. The only compartmental diagram we have seen so far is in <a href="" class="xref" data-knowl="./knowl/fig-SI-compartmental-diagram.html" title="Figure 4.1">Figure 4.1</a>: use this diagram as an example, and make changes to match your simulation.</div></article></article></section><section class="section" id="sec-compartmental-diagrams-vocabulary-and-comments"><h3 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">4.1</span> <span class="title">Compartmental Diagrams: Vocabulary and Comments</span>
+<li id="expl-activity-varying-the-human-zombie-game-3-1-2-1"><div class="para" id="expl-activity-varying-the-human-zombie-game-3-1-2-1-1">What do you <em class="emphasis">expect</em> will happen if Zombies die, that is, they become inactive and unable to spread infection? Whether you feel very certain, or somewhat uncertain, articulate some outcomes that you think will occur with this game variation.</div></li>
+<li id="expl-activity-varying-the-human-zombie-game-3-1-2-2"><div class="para" id="expl-activity-varying-the-human-zombie-game-3-1-2-2-1">How might your expected outcomes differ from those in the original model?</div></li>
+<li id="expl-activity-varying-the-human-zombie-game-3-1-2-3"><div class="para" id="expl-activity-varying-the-human-zombie-game-3-1-2-3-1">Outcomes might be measured by the table of data, by the graphs, by the timing of how infection spreads, by the numbers of survivors, or in other ways. For each of your expectations about how the outcomes may change, what support can you show for why this expectation makes sense?</div></li>
+</ul> <div class="para" id="expl-activity-varying-the-human-zombie-game-3-1-3">This exercise is not about right or wrong ideas, but instead is about building hypotheses, comparing the hypotheses with data, and developing deeper understanding of what the model shows.</div></article><article class="task exercise-like" id="expl-activity-varying-the-human-zombie-game-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="expl-activity-varying-the-human-zombie-game-4-1-1">After you have thought through how the outcomes will change in a variation, use the app to generate data.</div> <div class="para" id="expl-activity-varying-the-human-zombie-game-4-1-2">To set up this variation in the Zombie Game app, check the box for “Zombie Mortality”, shown by the lower red arrow in  <a href="ch-compartmental-diagrams.html#fig-zombie-app-mortality" class="xref" data-knowl="./knowl/xref/fig-zombie-app-mortality.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.2">Figure 4.2</a>. A box then appears for “Zombie Lifespan (days)”, shown by the upper red arrow in <a href="ch-compartmental-diagrams.html#fig-zombie-app-mortality" class="xref" data-knowl="./knowl/xref/fig-zombie-app-mortality.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.2">Figure 4.2</a>. Try setting Zombie Lifespan to 1, then 2, then 3. For each length of time, run several simulations, save your data sets, and compare the outcomes.</div> <figure class="figure figure-like" id="fig-zombie-app-mortality"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;">
+<img src="external/ZombieApp_Mortality.png" class="contained" alt="described in detail following the image" aria-describedby="fig-zombie-app-mortality-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-zombie-app-mortality-2-description">Screen image from the Zombie Game App, showing the checked box for “Zombie Mortality” and the “Zombie Lifespan (days)” that appears</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2<span class="period">.</span></span><span class="space"> </span>Checking the box for “Zombie Mortality” and setting a value for “Zombie Lifespan (days)”</figcaption></figure></article><article class="task exercise-like" id="expl-activity-varying-the-human-zombie-game-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="expl-activity-varying-the-human-zombie-game-5-1-1">Compare the results with the ideas you generated in part (a). <em class="emphasis">How similar or different are the actual results, compared with what you thought?</em>
+</div></article><article class="task exercise-like" id="expl-activity-varying-the-human-zombie-game-6"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="expl-activity-varying-the-human-zombie-game-6-1-1">What else do you observe? Consider how many humans or zombies survive till the end, and consider how much these numbers vary from simulation to simulation. Consider how many days the outbreak lasts. Make note of any additional observations you have, and reach out to other people trying this experiment to see how your results compare with theirs.</div></article><article class="task exercise-like" id="expl-activity-varying-the-human-zombie-game-7"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="expl-activity-varying-the-human-zombie-game-7-1-1">
+<em class="emphasis">Before moving on to the next section</em>, use your intuition to draw a possible compartmental diagram for the outbreak you just simulated in this Exploration. The only compartmental diagram we have seen so far is in <a href="ch-compartmental-diagrams.html#fig-SI-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SI-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.1">Figure 4.1</a>: use this diagram as an example, and make changes to match your simulation.</div></article></article></section><section class="section" id="sec-compartmental-diagrams-vocabulary-and-comments"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.1</span><span class="space"> </span><span class="title">Compartmental Diagrams: Vocabulary and Comments</span>
 </h3>
-<div class="para" id="p-248">In this section, we give a general description of compartmental diagrams. As you read, check in with the intuition you have been building: do these ideas fit with your understanding so far? Soon, in <a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal" title="Section 4.2: From Zombie Game Variation to Compartmental Diagram">Section 4.2</a>, we will connect these general ideas about compartmental diagrams with the specific model you constructed in <a href="" class="xref" data-knowl="./knowl/expl-activity-varying-the-human-zombie-game.html" title="Exploration 4.1: Varying the Human–Zombie Game">Exploration 4.1</a>.</div>
-<div class="para" id="p-249">A compartmental diagram is made up of boxes and arrows, each labeled to show what it represents. The boxes are called <dfn class="terminology">compartments</dfn> and represent mutually distinct groups of individuals. The arrows indicate the possible ways that individuals can relocate from one compartment to another.</div>
-<div class="para" id="p-250">When we say “mutually distinct”, we mean that at any moment in time, an individual is in exactly one compartment: no more, no fewer. This means our entire population is fully accounted for at all times because everyone appears in some compartment. We also notice that we cannot double-count individuals, as they cannot be in more than one compartment at a time.</div>
-<div class="para" id="p-251">Because our models use continuous time and differential equations, we will sometimes compute non-integer values for the number of individuals in some compartments. We should think through this carefully. If, for instance, we find that at some time we have 13.6 Susceptibles and 36.4 Infectious, we are not saying that we have 13 Susceptibles, plus 36 Infectious, plus one individual who is split up to be 60% Susceptible and 40% Infectious. Instead, the differential equation model is telling us on average what happens, across many possible simulations or many possible outcomes. In computing an <em class="emphasis">on average</em> outcome, non-integer values are possible. If we wish to refer to actual numbers of people, we can round to the nearest integer, or use language that reflects the <em class="emphasis">on average</em> meaning of our model.</div>
-<div class="para" id="p-252">When we use a compartmental diagram, we should carefully define and describe all our terms. The definitions and descriptions may change in different models, so we should not assume that <span class="process-math">\(t\text{,}\)</span> <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> or other variables always have the same meaning. Time, <span class="process-math">\(t\text{,}\)</span> may be measured in days, weeks, or some other unit, and we should indicate the unit. Here are possible descriptions for <span class="process-math">\(S\)</span> and <span class="process-math">\(I\)</span> based on the human–zombie game in <a href="ch-zombies-can-math-help.html" class="internal" title="Chapter 2: Zombies: Can Math Help?">Chapter 2</a>: <span class="process-math">\(S\)</span> stands for the Susceptible population, meaning people who do not have the zombie disease yet but could become ill with this disease, and <span class="process-math">\(I\)</span> stands for the Infectious population, meaning individuals who are currently contagious and currently showing symptoms of the zombie disease. In other outbreaks, and therefore in other models, these descriptions may change. As just one example, <span class="process-math">\(I\)</span> in a different model may refer to individuals who are Infectious in the sense that they are contagious, but they may or may not be showing symptoms. Modelers should fully state the specific definitions of <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> or other populations, in their models.</div>
-<div class="para" id="p-253">The term <span class="process-math">\(\beta SI\)</span> indicates flow from <span class="process-math">\(S\)</span> to <span class="process-math">\(I\text{.}\)</span> This term indicates that the flow depends on both the population <span class="process-math">\(S\)</span> and the population <span class="process-math">\(I\text{.}\)</span> When either population is very small, flow is relatively small. When both populations are relatively large, their product is large and therefore flow is relatively large. This sort of term is called a <em class="emphasis">mass action</em> term, from the Law of Mass Action in chemistry. The idea of mass action is just one way to model flow from one compartment to another; we will study other formulas for flow.</div>
-<div class="para logical" id="p-254">
+<div class="para" id="sec-compartmental-diagrams-vocabulary-and-comments-2">In this section, we give a general description of compartmental diagrams. As you read, check in with the intuition you have been building: do these ideas fit with your understanding so far? Soon, in <a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal" title="Section 4.2: From Zombie Game Variation to Compartmental Diagram">Section 4.2</a>, we will connect these general ideas about compartmental diagrams with the specific model you constructed in <a href="ch-compartmental-diagrams.html#expl-activity-varying-the-human-zombie-game" class="xref" data-knowl="./knowl/xref/expl-activity-varying-the-human-zombie-game.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 4.1: Varying the Human–Zombie Game">Exploration 4.1</a>.</div>
+<div class="para" id="sec-compartmental-diagrams-vocabulary-and-comments-3">A compartmental diagram is made up of boxes and arrows, each labeled to show what it represents. The boxes are called <dfn class="terminology">compartments</dfn> and represent mutually distinct groups of individuals. The arrows indicate the possible ways that individuals can relocate from one compartment to another.</div>
+<div class="para" id="sec-compartmental-diagrams-vocabulary-and-comments-4">When we say “mutually distinct”, we mean that at any moment in time, an individual is in exactly one compartment: no more, no fewer. This means our entire population is fully accounted for at all times because everyone appears in some compartment. We also notice that we cannot double-count individuals, as they cannot be in more than one compartment at a time.</div>
+<div class="para" id="sec-compartmental-diagrams-vocabulary-and-comments-5">Because our models use continuous time and differential equations, we will sometimes compute non-integer values for the number of individuals in some compartments. We should think through this carefully. If, for instance, we find that at some time we have 13.6 Susceptibles and 36.4 Infectious, we are not saying that we have 13 Susceptibles, plus 36 Infectious, plus one individual who is split up to be 60% Susceptible and 40% Infectious. Instead, the differential equation model is telling us on average what happens, across many possible simulations or many possible outcomes. In computing an <em class="emphasis">on average</em> outcome, non-integer values are possible. If we wish to refer to actual numbers of people, we can round to the nearest integer, or use language that reflects the <em class="emphasis">on average</em> meaning of our model.</div>
+<div class="para" id="sec-compartmental-diagrams-vocabulary-and-comments-6">When we use a compartmental diagram, we should carefully define and describe all our terms. The definitions and descriptions may change in different models, so we should not assume that <span class="process-math">\(t\text{,}\)</span> <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> or other variables always have the same meaning. Time, <span class="process-math">\(t\text{,}\)</span> may be measured in days, weeks, or some other unit, and we should indicate the unit. Here are possible descriptions for <span class="process-math">\(S\)</span> and <span class="process-math">\(I\)</span> based on the human–zombie game in <a href="ch-zombies-can-math-help.html" class="internal" title="Chapter 2: Zombies: Can Math Help?">Chapter 2</a>: <span class="process-math">\(S\)</span> stands for the Susceptible population, meaning people who do not have the zombie disease yet but could become ill with this disease, and <span class="process-math">\(I\)</span> stands for the Infectious population, meaning individuals who are currently contagious and currently showing symptoms of the zombie disease. In other outbreaks, and therefore in other models, these descriptions may change. As just one example, <span class="process-math">\(I\)</span> in a different model may refer to individuals who are Infectious in the sense that they are contagious, but they may or may not be showing symptoms. Modelers should fully state the specific definitions of <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> or other populations, in their models.</div>
+<div class="para" id="sec-compartmental-diagrams-vocabulary-and-comments-7">The term <span class="process-math">\(\beta SI\)</span> indicates flow from <span class="process-math">\(S\)</span> to <span class="process-math">\(I\text{.}\)</span> This term indicates that the flow depends on both the population <span class="process-math">\(S\)</span> and the population <span class="process-math">\(I\text{.}\)</span> When either population is very small, flow is relatively small. When both populations are relatively large, their product is large and therefore flow is relatively large. This sort of term is called a <em class="emphasis">mass action</em> term, from the Law of Mass Action in chemistry. The idea of mass action is just one way to model flow from one compartment to another; we will study other formulas for flow.</div>
+<div class="para logical" id="sec-compartmental-diagrams-vocabulary-and-comments-8">
 <div class="para">The letters <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> and <span class="process-math">\(t\)</span> are variables in the model. The Greek letter <span class="process-math">\(\beta\)</span> is a parameter. We use the following conventions for letters in most of the models we study:</div>
 <ul class="disc">
-<li id="li-107"><div class="para" id="p-255">Time is denoted as the <em class="emphasis">lowercase letter</em> <span class="process-math">\(t\text{.}\)</span>
+<li id="sec-compartmental-diagrams-vocabulary-and-comments-8-5-1"><div class="para" id="sec-compartmental-diagrams-vocabulary-and-comments-8-5-1-1">Time is denoted as the <em class="emphasis">lowercase letter</em> <span class="process-math">\(t\text{.}\)</span>
 </div></li>
-<li id="li-108"><div class="para" id="p-256">We use <em class="emphasis">capital letters</em> such as <span class="process-math">\(S\)</span> and <span class="process-math">\(I\)</span> to indicate populations of people, which are typically functions of time, so that <span class="process-math">\(S=S(t)\text{,}\)</span> <span class="process-math">\(I=I(t)\text{.}\)</span>
+<li id="sec-compartmental-diagrams-vocabulary-and-comments-8-5-2"><div class="para" id="sec-compartmental-diagrams-vocabulary-and-comments-8-5-2-1">We use <em class="emphasis">capital letters</em> such as <span class="process-math">\(S\)</span> and <span class="process-math">\(I\)</span> to indicate populations of people, which are typically functions of time, so that <span class="process-math">\(S=S(t)\text{,}\)</span> <span class="process-math">\(I=I(t)\text{.}\)</span>
 </div></li>
-<li id="li-109"><div class="para" id="p-257">
+<li id="sec-compartmental-diagrams-vocabulary-and-comments-8-5-3"><div class="para" id="sec-compartmental-diagrams-vocabulary-and-comments-8-5-3-1">
 <em class="emphasis">Greek letters</em> such as <span class="process-math">\(\beta\)</span> represent some aspect of how a disease progresses and are called <dfn class="terminology">parameters</dfn>.</div></li>
 </ul>
 <div class="para">A parameter may seem to behave a bit like a variable, since it can take on different values. However, parameters play a different role than variables in our models. In a given simulation, <em class="emphasis">we use biological information to set all parameter values</em>. By contrast, we choose only the initial values of our variables, that is, the values when <span class="process-math">\(t=0\text{,}\)</span> and then the simulation reveals the values of each variable at later points in time. For instance, in the human–zombie example, we start at <span class="process-math">\(t=0\)</span> with 49 humans and 1 zombie. Writing this in mathematical terms: <span class="process-math">\(S(0)=49\)</span> and <span class="process-math">\(I(0)=1\text{.}\)</span> After <span class="process-math">\(t=0\text{,}\)</span> the populations of Susceptibles and Infectious depend on the outcome of the simulation. Even the length of time for the simulation depends on how long it takes the Infectious zombies to convert all the Susceptible humans.</div>
 </div></section><section class="section" id="sec-from-zombie-game-variation-to-compartmental-diagram"><h3 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">From Zombie Game Variation to Compartmental Diagram</span>
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.2</span><span class="space"> </span><span class="title">From Zombie Game Variation to Compartmental Diagram</span>
 </h3>
-<div class="para" id="p-258">The Zombie Game variation in <a href="" class="xref" data-knowl="./knowl/expl-activity-varying-the-human-zombie-game.html" title="Exploration 4.1: Varying the Human–Zombie Game">Exploration 4.1</a> introduces a new category of individuals, beyond Susceptibles and Infectious. This new category corresponds to a new compartment, compared with <a href="" class="xref" data-knowl="./knowl/fig-SI-compartmental-diagram.html" title="Figure 4.1">Figure 4.1</a>, in the model's compartmental diagram.</div>
-<div class="para" id="p-259">When zombies die, they leave the Infectious compartment and can no longer infect the Susceptibles. It is typical to represent these dynamics by introducing a Removed (R) compartment for the individuals who were zombies but have then become inactive. Our model then includes S, I, and R compartments, so we call it an <dfn class="terminology">SIR model</dfn>.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-34" id="fn-34"><sup> 2 </sup></a>  A compartmental diagram representing the dynamics of this SIR model appears in <a href="" class="xref" data-knowl="./knowl/fig-SIR-compartmental-diagram.html" title="Figure 4.3">Figure 4.3</a>.</div>
-<figure class="figure figure-like" id="fig-SIR-compartmental-diagram"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/image-14.svg" role="img" class="contained" alt="(Write this)"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3<span class="period">.</span></span><span class="space"> </span>One possible <span class="process-math">\(SIR\)</span> (Susceptible, Infectious, Removed) compartmental diagram</figcaption></figure><div class="para" id="p-260">In this diagram, we include the S and I compartments used previously, while also allowing the Infectious zombies to leave the I compartment and enter the R compartment, where they stay for the rest of the simulation. The mathematical formula for movement from I to R is <span class="process-math">\(\gamma I\text{.}\)</span> The parameter <span class="process-math">\(\gamma\)</span> (the Greek letter <em class="emphasis">gamma</em>) represents the rate at which individuals leave <span class="process-math">\(I\)</span> and enter <span class="process-math">\(R\text{.}\)</span> Larger values of <span class="process-math">\(\gamma\text{,}\)</span> for instance, mean that zombies become inactive more rapidly than with smaller values of <span class="process-math">\(\gamma\text{.}\)</span> This formula indicates that neither Susceptibles nor Removed individuals influence movement from I to R: instead, only the number of Infectious people, and a rate based on how long they remain zombies, determine this movement between compartments.</div>
+<div class="para" id="sec-from-zombie-game-variation-to-compartmental-diagram-2">The Zombie Game variation in <a href="ch-compartmental-diagrams.html#expl-activity-varying-the-human-zombie-game" class="xref" data-knowl="./knowl/xref/expl-activity-varying-the-human-zombie-game.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 4.1: Varying the Human–Zombie Game">Exploration 4.1</a> introduces a new category of individuals, beyond Susceptibles and Infectious. This new category corresponds to a new compartment, compared with <a href="ch-compartmental-diagrams.html#fig-SI-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SI-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.1">Figure 4.1</a>, in the model’s compartmental diagram.</div>
+<div class="para" id="sec-from-zombie-game-variation-to-compartmental-diagram-3">When zombies die, they leave the Infectious compartment and can no longer infect the Susceptibles. It is typical to represent these dynamics by introducing a Removed (R) compartment for the individuals who were zombies but have then become inactive. Our model then includes S, I, and R compartments, so we call it an <dfn class="terminology">SIR model</dfn>.<details class="ptx-footnote" aria-live="polite" id="sec-from-zombie-game-variation-to-compartmental-diagram-3-2"><summary class="ptx-footnote__number" title="Footnote 4.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec-from-zombie-game-variation-to-compartmental-diagram-3-2">We typically say each of the letters in SIR when naming this model aloud. That is, we refer to the “S” “I” “R” model, not the “sir” model.</div></details>  A compartmental diagram representing the dynamics of this SIR model appears in <a href="ch-compartmental-diagrams.html#fig-SIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3">Figure 4.3</a>.</div>
+<figure class="figure figure-like" id="fig-SIR-compartmental-diagram"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig-SIR-compartmental-diagram-2.svg" role="img" class="contained" alt="(Write this)"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3<span class="period">.</span></span><span class="space"> </span>One possible <span class="process-math">\(SIR\)</span> (Susceptible, Infectious, Removed) compartmental diagram</figcaption></figure><div class="para" id="sec-from-zombie-game-variation-to-compartmental-diagram-5">In this diagram, we include the S and I compartments used previously, while also allowing the Infectious zombies to leave the I compartment and enter the R compartment, where they stay for the rest of the simulation. The mathematical formula for movement from I to R is <span class="process-math">\(\gamma I\text{.}\)</span> The parameter <span class="process-math">\(\gamma\)</span> (the Greek letter <em class="emphasis">gamma</em>) represents the rate at which individuals leave <span class="process-math">\(I\)</span> and enter <span class="process-math">\(R\text{.}\)</span> Larger values of <span class="process-math">\(\gamma\text{,}\)</span> for instance, mean that zombies become inactive more rapidly than with smaller values of <span class="process-math">\(\gamma\text{.}\)</span> This formula indicates that neither Susceptibles nor Removed individuals influence movement from I to R: instead, only the number of Infectious people, and a rate based on how long they remain zombies, determine this movement between compartments.</div>
 <article class="activity project-like" id="activity-sir-diagram-and-des"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-261">Take time to think through the compartmental diagram in <a href="" class="xref" data-knowl="./knowl/fig-SIR-compartmental-diagram.html" title="Figure 4.3">Figure 4.3</a>.</div> <ol class="decimal">
-<li id="li-110"><div class="para" id="p-262">Does <a href="" class="xref" data-knowl="./knowl/fig-SIR-compartmental-diagram.html" title="Figure 4.3">Figure 4.3</a> match your sense of how individuals progress through the simulation? Are all individuals always in exactly one compartment, that is, in <em class="emphasis">at least one</em> compartment and also <em class="emphasis">no more than one</em> compartment at any given time?</div></li>
-<li id="li-111"><div class="para" id="p-263">Using the information in the compartmental diagram, write the differential equations for this SIR model.</div></li>
+<div class="para" id="activity-sir-diagram-and-des-1-1">Take time to think through the compartmental diagram in <a href="ch-compartmental-diagrams.html#fig-SIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3">Figure 4.3</a>.</div> <ol class="decimal">
+<li id="activity-sir-diagram-and-des-1-2-1"><div class="para" id="activity-sir-diagram-and-des-1-2-1-1">Does <a href="ch-compartmental-diagrams.html#fig-SIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3">Figure 4.3</a> match your sense of how individuals progress through the simulation? Are all individuals always in exactly one compartment, that is, in <em class="emphasis">at least one</em> compartment and also <em class="emphasis">no more than one</em> compartment at any given time?</div></li>
+<li id="activity-sir-diagram-and-des-1-2-2"><div class="para" id="activity-sir-diagram-and-des-1-2-2-1">Using the information in the compartmental diagram, write the differential equations for this SIR model.</div></li>
 </ol>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-4" id="hint-4"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-4"><div class="hint solution-like"><ol class="decimal">
-<li id="li-112"><div class="para" id="p-264">Have you considered whether all individuals must pass through all three compartments?</div></li>
-<li id="li-113"><div class="para" id="p-265">We saw in <a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal" title="Section 2.2: A First Model">Section 2.2</a> that the term named on an arrow appears twice in the differential equations: once as a negative term, in the equation for the compartment the arrow is exiting, and once as a positive term, in the equation for the compartment the arrow is entering.</div></li>
-</ol></div></div>
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-6" id="answer-6"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-6"><div class="answer solution-like"><ol class="decimal">
-<li id="li-114"><div class="para" id="p-266">It should be true that individuals are in exactly one compartment at a time, but with all claims such as this, you should convince yourself or else ask questions about it. It should also be true that individuals cannot progress in any order other than what the compartmental diagram shows. However, in some simulations, some individuals may not leave compartment S. By contrast, with <a href="" class="xref" data-knowl="./knowl/expl-activity-zombie-game.html" title="Exploration 2.1: Zombie Game">Exploration 2.1</a> and the SI model, all individuals progress from the S compartment to the I compartment.</div></li>
-<li id="li-115"><div class="para logical" id="p-267">
+<details id="activity-sir-diagram-and-des-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><ol class="decimal">
+<li id="activity-sir-diagram-and-des-2-1-1"><div class="para" id="activity-sir-diagram-and-des-2-1-1-1">Have you considered whether all individuals must pass through all three compartments?</div></li>
+<li id="activity-sir-diagram-and-des-2-1-2"><div class="para" id="activity-sir-diagram-and-des-2-1-2-1">We saw in <a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal" title="Section 2.2: A First Model">Section 2.2</a> that the term named on an arrow appears twice in the differential equations: once as a negative term, in the equation for the compartment the arrow is exiting, and once as a positive term, in the equation for the compartment the arrow is entering.</div></li>
+</ol></div></details><details id="activity-sir-diagram-and-des-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ol class="decimal">
+<li id="activity-sir-diagram-and-des-3-1-1"><div class="para" id="activity-sir-diagram-and-des-3-1-1-1">It should be true that individuals are in exactly one compartment at a time, but with all claims such as this, you should convince yourself or else ask questions about it. It should also be true that individuals cannot progress in any order other than what the compartmental diagram shows. However, in some simulations, some individuals may not leave compartment S. By contrast, with <a href="ch-zombies-can-math-help.html#expl-activity-zombie-game" class="xref" data-knowl="./knowl/xref/expl-activity-zombie-game.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 2.1: Zombie Game">Exploration 2.1</a> and the SI model, all individuals progress from the S compartment to the I compartment.</div></li>
+<li id="activity-sir-diagram-and-des-3-1-2"><div class="para logical" id="activity-sir-diagram-and-des-3-1-2-1">
 <div class="para">The differential equations for this SIR model are:</div>
-<div class="displaymath process-math" id="md-5">
+<div class="displaymath process-math" id="activity-sir-diagram-and-des-3-1-2-1-1">
 \begin{align*}
 \frac{dS}{dt} \amp = -\beta S I \\
 \frac{dI}{dt} \amp = \beta S I - \gamma I \\
@@ -411,100 +342,86 @@ window.MathJax = {
 \end{align*}
 </div>
 </div></li>
-</ol></div></div>
+</ol></div></details>
 </div></article></section><section class="section" id="sec-estimating-gamma-and-other-rates"><h3 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">4.3</span> <span class="title">Estimating Gamma and Other Rates</span>
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.3</span><span class="space"> </span><span class="title">Estimating Gamma and Other Rates</span>
 </h3>
-<div class="para" id="p-268">Consider an SIR model as represented in <a href="" class="xref" data-knowl="./knowl/fig-SIR-compartmental-diagram.html" title="Figure 4.3">Figure 4.3</a>. Let us think about what the values of <span class="process-math">\(\gamma\)</span> should be.</div>
+<div class="para" id="sec-estimating-gamma-and-other-rates-2">Consider an SIR model as represented in <a href="ch-compartmental-diagrams.html#fig-SIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3">Figure 4.3</a>. Let us think about what the values of <span class="process-math">\(\gamma\)</span> should be.</div>
 <article class="activity project-like" id="activity-understanding-gamma-pt1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-269">What would it mean if <span class="process-math">\(\gamma =1\text{,}\)</span> <span class="process-math">\(\gamma =0.5\text{,}\)</span> or <span class="process-math">\(\gamma =0.25\text{?}\)</span> Specifically: what fraction of the members of the I compartment leaves I <em class="emphasis">within one time step</em> for each of these values of <span class="process-math">\(\gamma\text{?}\)</span> Similarly, what percentage of the members of the I compartment leaves I <em class="emphasis">within one time step</em> for each value of <span class="process-math">\(\gamma\text{?}\)</span>
+<div class="para" id="activity-understanding-gamma-pt1-1-1">What would it mean if <span class="process-math">\(\gamma =1\text{,}\)</span> <span class="process-math">\(\gamma =0.5\text{,}\)</span> or <span class="process-math">\(\gamma =0.25\text{?}\)</span> Specifically: what fraction of the members of the I compartment leaves I <em class="emphasis">within one time step</em> for each of these values of <span class="process-math">\(\gamma\text{?}\)</span> Similarly, what percentage of the members of the I compartment leaves I <em class="emphasis">within one time step</em> for each value of <span class="process-math">\(\gamma\text{?}\)</span>
 </div>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-7" id="answer-7"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-7"><div class="answer solution-like"><div class="para" id="p-270">If <span class="process-math">\(\gamma =1\text{,}\)</span> then all members of compartment I, that is, <span class="process-math">\(100\%\)</span> of the members, leave I at each time step. If <span class="process-math">\(\gamma =0.5\text{,}\)</span> then half the members, that is, <span class="process-math">\(50\%\text{,}\)</span> leave I at each time step. And if <span class="process-math">\(\gamma =0.25\text{,}\)</span> then one-quarter of the members, that is, <span class="process-math">\(25\%\text{,}\)</span> leave I at each time step.</div></div></div>
-</div></article><article class="activity project-like" id="activity-understanding-gamma-pt2"><h4 class="heading">
+<div class="solutions"><details id="activity-understanding-gamma-pt1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="activity-understanding-gamma-pt1-2-1">If <span class="process-math">\(\gamma =1\text{,}\)</span> then all members of compartment I, that is, <span class="process-math">\(100\%\)</span> of the members, leave I at each time step. If <span class="process-math">\(\gamma =0.5\text{,}\)</span> then half the members, that is, <span class="process-math">\(50\%\text{,}\)</span> leave I at each time step. And if <span class="process-math">\(\gamma =0.25\text{,}\)</span> then one-quarter of the members, that is, <span class="process-math">\(25\%\text{,}\)</span> leave I at each time step.</div></div></details></div></article><article class="activity project-like" id="activity-understanding-gamma-pt2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-271">Using what you learned in <a href="" class="xref" data-knowl="./knowl/activity-understanding-gamma-pt1.html" title="Activity 4.3">Activity 4.3</a>, think further about <span class="process-math">\(\gamma =1\text{,}\)</span> <span class="process-math">\(\gamma =0.5\text{,}\)</span> or <span class="process-math">\(\gamma =0.25\text{.}\)</span> For each of these values of <span class="process-math">\(\gamma\text{,}\)</span> how long does a typical individual remain in compartment I before leaving for compartment R?</div>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-8" id="answer-8"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-8"><div class="answer solution-like"><div class="para" id="p-272">If <span class="process-math">\(\gamma =1\text{,}\)</span> then all members of compartment I leave at each time step, so a typical individual stays in I for one time step. If <span class="process-math">\(\gamma =0.5\text{,}\)</span> then half the members of I leave at each time step, so a typical individual stays in I for approximately two time steps. And if <span class="process-math">\(\gamma =0.25\text{,}\)</span> then one-quarter of the members of I leave at each time step, so a typical individual stays in I for approximately four time steps.</div></div></div>
-</div></article><div class="para" id="p-273">We begin to see in <a href="" class="xref" data-knowl="./knowl/activity-understanding-gamma-pt2.html" title="Activity 4.4">Activity 4.4</a> that we can understand <span class="process-math">\(\gamma\)</span> intuitively in relationship to how long an individual is in the I compartment. A compartmental model does not track individuals directly, and the responses in <a href="" class="xref" data-knowl="./knowl/activity-understanding-gamma-pt2.html" title="Activity 4.4">Activity 4.4</a> do not suggest that every individual in an outbreak is sick for a precise amount of time that is shown by <span class="process-math">\(\gamma\text{.}\)</span> Instead, the relationship between <span class="process-math">\(\gamma\)</span> and length of time in compartment I shows how long <em class="emphasis">on average</em> individuals stay in compartment I. We can write this relationship mathematically:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-SIR-compartmental-diagram.html ./knowl/activity-understanding-gamma-pt1.html ./knowl/activity-understanding-gamma-pt2.html ./knowl/activity-understanding-gamma-pt2.html ./knowl/exercises-ch-compartmental-diagrams.html ./knowl/eq-gamma-estimate.html ./knowl/eq-gamma-estimate-2.html ./knowl/eq-gamma-estimate.html ./knowl/activity-introducing-units.html ./knowl/activity-sir-diagram-and-des.html ./knowl/fig-SIR-compartmental-diagram.html ./knowl/eq-gamma-estimate.html ./knowl/activity-introducing-units.html ./knowl/ch-visualization-graphing-model-results-and-data.html ./knowl/ch-model-analysis-and-the-basic-reproduction-number-R0.html ./knowl/ch-vaccines-and-incubation-periods.html" id="mdn-3">
+<div class="para" id="activity-understanding-gamma-pt2-1-1">Using what you learned in <a href="ch-compartmental-diagrams.html#activity-understanding-gamma-pt1" class="xref" data-knowl="./knowl/xref/activity-understanding-gamma-pt1.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.3">Activity 4.3</a>, think further about <span class="process-math">\(\gamma =1\text{,}\)</span> <span class="process-math">\(\gamma =0.5\text{,}\)</span> or <span class="process-math">\(\gamma =0.25\text{.}\)</span> For each of these values of <span class="process-math">\(\gamma\text{,}\)</span> how long does a typical individual remain in compartment I before leaving for compartment R?</div>
+<div class="solutions"><details id="activity-understanding-gamma-pt2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="activity-understanding-gamma-pt2-2-1">If <span class="process-math">\(\gamma =1\text{,}\)</span> then all members of compartment I leave at each time step, so a typical individual stays in I for one time step. If <span class="process-math">\(\gamma =0.5\text{,}\)</span> then half the members of I leave at each time step, so a typical individual stays in I for approximately two time steps. And if <span class="process-math">\(\gamma =0.25\text{,}\)</span> then one-quarter of the members of I leave at each time step, so a typical individual stays in I for approximately four time steps.</div></div></details></div></article><div class="para" id="sec-estimating-gamma-and-other-rates-5">We begin to see in <a href="ch-compartmental-diagrams.html#activity-understanding-gamma-pt2" class="xref" data-knowl="./knowl/xref/activity-understanding-gamma-pt2.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.4">Activity 4.4</a> that we can understand <span class="process-math">\(\gamma\)</span> intuitively in relationship to how long an individual is in the I compartment. A compartmental model does not track individuals directly, and the responses in <a href="ch-compartmental-diagrams.html#activity-understanding-gamma-pt2" class="xref" data-knowl="./knowl/xref/activity-understanding-gamma-pt2.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.4">Activity 4.4</a> do not suggest that every individual in an outbreak is sick for a precise amount of time that is shown by <span class="process-math">\(\gamma\text{.}\)</span> Instead, the relationship between <span class="process-math">\(\gamma\)</span> and length of time in compartment I shows how long <em class="emphasis">on average</em> individuals stay in compartment I. We can write this relationship mathematically:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-SIR-compartmental-diagram.html ./knowl/xref/activity-understanding-gamma-pt1.html ./knowl/xref/activity-understanding-gamma-pt2.html ./knowl/xref/activity-understanding-gamma-pt2.html ./knowl/xref/exercises-ch-compartmental-diagrams.html ./knowl/xref/eq-gamma-estimate.html ./knowl/xref/eq-gamma-estimate-2.html ./knowl/xref/eq-gamma-estimate.html ./knowl/xref/activity-introducing-units.html ./knowl/xref/activity-sir-diagram-and-des.html ./knowl/xref/fig-SIR-compartmental-diagram.html ./knowl/xref/eq-gamma-estimate.html ./knowl/xref/activity-introducing-units.html ./knowl/xref/ch-visualization-graphing-model-results-and-data.html ./knowl/xref/ch-model-analysis-and-the-basic-reproduction-number-R0.html ./knowl/xref/ch-vaccines-and-incubation-periods.html" id="sec-estimating-gamma-and-other-rates-6">
 \begin{align}
 \frac{1}{\gamma} \amp \approx \mbox{average length of time an individual spends in compartment I.} \tag{4.1}
 \end{align}
 </div>
-<div class="para" id="p-274">Another way to phrase this, when being in the I compartment corresponds to a person being infectious, is:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-SIR-compartmental-diagram.html ./knowl/activity-understanding-gamma-pt1.html ./knowl/activity-understanding-gamma-pt2.html ./knowl/activity-understanding-gamma-pt2.html ./knowl/exercises-ch-compartmental-diagrams.html ./knowl/eq-gamma-estimate.html ./knowl/eq-gamma-estimate-2.html ./knowl/eq-gamma-estimate.html ./knowl/activity-introducing-units.html ./knowl/activity-sir-diagram-and-des.html ./knowl/fig-SIR-compartmental-diagram.html ./knowl/eq-gamma-estimate.html ./knowl/activity-introducing-units.html ./knowl/ch-visualization-graphing-model-results-and-data.html ./knowl/ch-model-analysis-and-the-basic-reproduction-number-R0.html ./knowl/ch-vaccines-and-incubation-periods.html" id="mdn-4">
+<div class="para" id="sec-estimating-gamma-and-other-rates-7">Another way to phrase this, when being in the I compartment corresponds to a person being infectious, is:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-SIR-compartmental-diagram.html ./knowl/xref/activity-understanding-gamma-pt1.html ./knowl/xref/activity-understanding-gamma-pt2.html ./knowl/xref/activity-understanding-gamma-pt2.html ./knowl/xref/exercises-ch-compartmental-diagrams.html ./knowl/xref/eq-gamma-estimate.html ./knowl/xref/eq-gamma-estimate-2.html ./knowl/xref/eq-gamma-estimate.html ./knowl/xref/activity-introducing-units.html ./knowl/xref/activity-sir-diagram-and-des.html ./knowl/xref/fig-SIR-compartmental-diagram.html ./knowl/xref/eq-gamma-estimate.html ./knowl/xref/activity-introducing-units.html ./knowl/xref/ch-visualization-graphing-model-results-and-data.html ./knowl/xref/ch-model-analysis-and-the-basic-reproduction-number-R0.html ./knowl/xref/ch-vaccines-and-incubation-periods.html" id="sec-estimating-gamma-and-other-rates-8">
 \begin{align}
 \frac{1}{\gamma} \amp \approx \mbox{average length of time an individual is infectious.} \tag{4.2}
 \end{align}
 </div>
-<div class="para" id="p-275">In <a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal" title="For Further Thought 4.4">For Further Thought 4.4</a> we use the ideas in <a href="" class="xref" data-knowl="./knowl/eq-gamma-estimate.html" title="Equation 4.1">(4.1)</a> and <a href="" class="xref" data-knowl="./knowl/eq-gamma-estimate-2.html" title="Equation 4.2">(4.2)</a> to estimate <span class="process-math">\(\gamma\)</span> for specific outbreaks.</div>
-<div class="para" id="p-276">Notice that <span class="process-math">\(1/\gamma\)</span> is an amount of time. This means that the units of <span class="process-math">\(\gamma\)</span> are <span class="process-math">\(1/\mbox{time}\text{.}\)</span> This observation corresponds with <span class="process-math">\(\gamma\)</span> being a <dfn class="terminology">rate</dfn>.</div>
-<div class="para" id="p-277">Many, but not all, of the parameters in the models in this text are rates. Usually, when a parameter in a compartmental model is a rate, we can estimate its value in a similar way to how we estimate <span class="process-math">\(\gamma\)</span> in <a href="" class="xref" data-knowl="./knowl/eq-gamma-estimate.html" title="Equation 4.1">(4.1)</a>.</div>
-<div class="para" id="p-278">In particular, notice that <span class="process-math">\(\beta\)</span> in our model can not be a rate. We see this when we recognize that each term in a model equation must have the same units: otherwise, we cannot set terms equal to each other, or add or subtract terms. Explore how this works in <a href="" class="xref" data-knowl="./knowl/activity-introducing-units.html" title="Activity 4.5">Activity 4.5</a>.</div>
+<div class="para" id="sec-estimating-gamma-and-other-rates-9">In <a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal" title="For Further Thought 4.4">For Further Thought 4.4</a> we use the ideas in <a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates-6" class="xref" data-knowl="./knowl/xref/eq-gamma-estimate.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.1">(4.1)</a> and <a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates-8" class="xref" data-knowl="./knowl/xref/eq-gamma-estimate-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.2">(4.2)</a> to estimate <span class="process-math">\(\gamma\)</span> for specific outbreaks.</div>
+<div class="para" id="sec-estimating-gamma-and-other-rates-10">Notice that <span class="process-math">\(1/\gamma\)</span> is an amount of time. This means that the units of <span class="process-math">\(\gamma\)</span> are <span class="process-math">\(1/\mbox{time}\text{.}\)</span> This observation corresponds with <span class="process-math">\(\gamma\)</span> being a <dfn class="terminology">rate</dfn>.</div>
+<div class="para" id="sec-estimating-gamma-and-other-rates-11">Many, but not all, of the parameters in the models in this text are rates. Usually, when a parameter in a compartmental model is a rate, we can estimate its value in a similar way to how we estimate <span class="process-math">\(\gamma\)</span> in <a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates-6" class="xref" data-knowl="./knowl/xref/eq-gamma-estimate.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.1">(4.1)</a>.</div>
+<div class="para" id="sec-estimating-gamma-and-other-rates-12">In particular, notice that <span class="process-math">\(\beta\)</span> in our model can not be a rate. We see this when we recognize that each term in a model equation must have the same units: otherwise, we cannot set terms equal to each other, or add or subtract terms. Explore how this works in <a href="ch-compartmental-diagrams.html#activity-introducing-units" class="xref" data-knowl="./knowl/xref/activity-introducing-units.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.5">Activity 4.5</a>.</div>
 <article class="activity project-like" id="activity-introducing-units"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.5</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-279">In <a href="" class="xref" data-knowl="./knowl/activity-sir-diagram-and-des.html" title="Activity 4.2">Activity 4.2</a>, we developed the following system of differential equations for the SIR model shown in <a href="" class="xref" data-knowl="./knowl/fig-SIR-compartmental-diagram.html" title="Figure 4.3">Figure 4.3</a>:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/activity-sir-diagram-and-des.html ./knowl/fig-SIR-compartmental-diagram.html ./knowl/eq-gamma-estimate.html" id="mdn-5">
+<div class="para" id="activity-introducing-units-1-1">In <a href="ch-compartmental-diagrams.html#activity-sir-diagram-and-des" class="xref" data-knowl="./knowl/xref/activity-sir-diagram-and-des.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.2">Activity 4.2</a>, we developed the following system of differential equations for the SIR model shown in <a href="ch-compartmental-diagrams.html#fig-SIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3">Figure 4.3</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/activity-sir-diagram-and-des.html ./knowl/xref/fig-SIR-compartmental-diagram.html ./knowl/xref/eq-gamma-estimate.html" id="activity-introducing-units-1-2">
 \begin{align}
 \frac{dS}{dt} \amp = -\beta S I \tag{4.3}\\
 \frac{dI}{dt} \amp = \beta S I - \gamma I \tag{4.4}\\
 \frac{dR}{dt} \amp = \gamma I. \tag{4.5}
 \end{align}
 </div>
-<div class="para" id="p-280">Recall that each of the variables <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> and <span class="process-math">\(R\)</span> represents some average number of individuals. This means that the units for each of <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> and <span class="process-math">\(R\)</span> are <em class="emphasis">population</em>.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-35" id="fn-35"><sup> 3 </sup></a> We also just saw from the discussion of <a href="" class="xref" data-knowl="./knowl/eq-gamma-estimate.html" title="Equation 4.1">(4.1)</a> that the units of <span class="process-math">\(\gamma\)</span> are <span class="process-math">\(1/\mbox{time}\text{.}\)</span>
+<div class="para" id="activity-introducing-units-1-3">Recall that each of the variables <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> and <span class="process-math">\(R\)</span> represents some average number of individuals. This means that the units for each of <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> and <span class="process-math">\(R\)</span> are <em class="emphasis">population</em>.<details class="ptx-footnote" aria-live="polite" id="activity-introducing-units-1-3-8"><summary class="ptx-footnote__number" title="Footnote 4.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="activity-introducing-units-1-3-8">Alternately, we could call these units <em class="emphasis">people</em> or <em class="emphasis">individuals</em>.</div></details> We also just saw from the discussion of <a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates-6" class="xref" data-knowl="./knowl/xref/eq-gamma-estimate.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.1">(4.1)</a> that the units of <span class="process-math">\(\gamma\)</span> are <span class="process-math">\(1/\mbox{time}\text{.}\)</span>
 </div> <ol class="decimal">
-<li id="li-116"><div class="para" id="p-281">Consider the equation <span class="process-math">\(\frac{dR}{dt} = \gamma I\)</span> from the SIR model. What are the units of the term <span class="process-math">\(\frac{dR}{dt}\)</span> on the left-hand side, and what are the units of the term <span class="process-math">\(\gamma I\)</span> on the right-hand side? Can you confirm that these two terms have the same units?</div></li>
-<li id="li-117"><div class="para" id="p-282">Next, consider the equation <span class="process-math">\(\frac{dI}{dt} = \beta S I - \gamma I\)</span> from the SIR model. Start by using the first part of this activity to determine the units of <span class="process-math">\(\frac{dI}{dt}\)</span> and <span class="process-math">\(\gamma I\text{.}\)</span> Next, in order for the units to be the same for all three terms, what should the units be for <span class="process-math">\(\beta S I\text{?}\)</span> Finally, knowing the units of <span class="process-math">\(\beta S I\text{,}\)</span> what must be the units for <span class="process-math">\(\beta\text{?}\)</span>
+<li id="activity-introducing-units-1-4-1"><div class="para" id="activity-introducing-units-1-4-1-1">Consider the equation <span class="process-math">\(\frac{dR}{dt} = \gamma I\)</span> from the SIR model. What are the units of the term <span class="process-math">\(\frac{dR}{dt}\)</span> on the left-hand side, and what are the units of the term <span class="process-math">\(\gamma I\)</span> on the right-hand side? Can you confirm that these two terms have the same units?</div></li>
+<li id="activity-introducing-units-1-4-2"><div class="para" id="activity-introducing-units-1-4-2-1">Next, consider the equation <span class="process-math">\(\frac{dI}{dt} = \beta S I - \gamma I\)</span> from the SIR model. Start by using the first part of this activity to determine the units of <span class="process-math">\(\frac{dI}{dt}\)</span> and <span class="process-math">\(\gamma I\text{.}\)</span> Next, in order for the units to be the same for all three terms, what should the units be for <span class="process-math">\(\beta S I\text{?}\)</span> Finally, knowing the units of <span class="process-math">\(\beta S I\text{,}\)</span> what must be the units for <span class="process-math">\(\beta\text{?}\)</span>
 </div></li>
-<li id="li-118"><div class="para" id="p-283">Use your results from the first two parts of this activity to confirm that the units are the same on both sides of the equation <span class="process-math">\(\frac{dS}{dt} = -\beta S I\)</span> in the SIR model.</div></li>
+<li id="activity-introducing-units-1-4-3"><div class="para" id="activity-introducing-units-1-4-3-1">Use your results from the first two parts of this activity to confirm that the units are the same on both sides of the equation <span class="process-math">\(\frac{dS}{dt} = -\beta S I\)</span> in the SIR model.</div></li>
 </ol>
-<div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-9" id="answer-9"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-9"><div class="answer solution-like"><ol class="decimal">
-<li id="li-119">
-<div class="para" id="p-284">The term <span class="process-math">\(\frac{dR}{dt}\)</span> has units <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\)</span> because the units of <span class="process-math">\(R\)</span> in the numerator are <em class="emphasis">population</em> and the units of <span class="process-math">\(t\)</span> in the denominator are <em class="emphasis">time</em>.</div>
-<div class="para" id="p-285">The term <span class="process-math">\(\gamma I\)</span> has units <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\)</span> because <span class="process-math">\(\gamma\)</span> has units <span class="process-math">\(1/\mbox{time}\)</span> and <span class="process-math">\(I\)</span> has units (population).</div>
-<div class="para" id="p-286">Both sides have the same units, namely <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\text{.}\)</span>
+<div class="solutions"><details id="activity-introducing-units-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ol class="decimal">
+<li id="activity-introducing-units-2-1-1">
+<div class="para" id="activity-introducing-units-2-1-1-1">The term <span class="process-math">\(\frac{dR}{dt}\)</span> has units <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\)</span> because the units of <span class="process-math">\(R\)</span> in the numerator are <em class="emphasis">population</em> and the units of <span class="process-math">\(t\)</span> in the denominator are <em class="emphasis">time</em>.</div>
+<div class="para" id="activity-introducing-units-2-1-1-2">The term <span class="process-math">\(\gamma I\)</span> has units <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\)</span> because <span class="process-math">\(\gamma\)</span> has units <span class="process-math">\(1/\mbox{time}\)</span> and <span class="process-math">\(I\)</span> has units (population).</div>
+<div class="para" id="activity-introducing-units-2-1-1-3">Both sides have the same units, namely <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\text{.}\)</span>
 </div>
 </li>
-<li id="li-120">
-<div class="para" id="p-287">The terms <span class="process-math">\(\frac{dI}{dt}\)</span> and <span class="process-math">\(\gamma I\)</span> have units <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\text{,}\)</span> for similar reasons to those described in the first part of this activity.</div>
-<div class="para" id="p-288">The term <span class="process-math">\(\beta S I\)</span> should therefore also have units <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\text{.}\)</span> Since there are two populations, <span class="process-math">\(S\)</span> and <span class="process-math">\(I\text{,}\)</span> multiplied in the numerator, this means that <span class="process-math">\(\beta\)</span> must have units <span class="process-math">\(1/(\mbox{population} \cdot \mbox{time})\text{.}\)</span>
+<li id="activity-introducing-units-2-1-2">
+<div class="para" id="activity-introducing-units-2-1-2-1">The terms <span class="process-math">\(\frac{dI}{dt}\)</span> and <span class="process-math">\(\gamma I\)</span> have units <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\text{,}\)</span> for similar reasons to those described in the first part of this activity.</div>
+<div class="para" id="activity-introducing-units-2-1-2-2">The term <span class="process-math">\(\beta S I\)</span> should therefore also have units <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\text{.}\)</span> Since there are two populations, <span class="process-math">\(S\)</span> and <span class="process-math">\(I\text{,}\)</span> multiplied in the numerator, this means that <span class="process-math">\(\beta\)</span> must have units <span class="process-math">\(1/(\mbox{population} \cdot \mbox{time})\text{.}\)</span>
 </div>
 </li>
-<li id="li-121">
-<div class="para" id="p-289">The term <span class="process-math">\(\frac{dS}{dt}\)</span> has units <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\text{,}\)</span> for similar reasons to those described in the first part of this activity.</div>
-<div class="para" id="p-290">Within the term <span class="process-math">\(-\beta S I\text{,}\)</span> we saw in the second part of this activity that <span class="process-math">\(\beta\)</span> has units <span class="process-math">\(1/(\mbox{population} \cdot \mbox{time})\text{.}\)</span> Both <span class="process-math">\(S\)</span> and <span class="process-math">\(I\)</span> have units (population). Multiplying together the three terms <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(S\text{,}\)</span> and <span class="process-math">\(I\text{,}\)</span> the resulting units are <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\text{.}\)</span>
+<li id="activity-introducing-units-2-1-3">
+<div class="para" id="activity-introducing-units-2-1-3-1">The term <span class="process-math">\(\frac{dS}{dt}\)</span> has units <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\text{,}\)</span> for similar reasons to those described in the first part of this activity.</div>
+<div class="para" id="activity-introducing-units-2-1-3-2">Within the term <span class="process-math">\(-\beta S I\text{,}\)</span> we saw in the second part of this activity that <span class="process-math">\(\beta\)</span> has units <span class="process-math">\(1/(\mbox{population} \cdot \mbox{time})\text{.}\)</span> Both <span class="process-math">\(S\)</span> and <span class="process-math">\(I\)</span> have units (population). Multiplying together the three terms <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(S\text{,}\)</span> and <span class="process-math">\(I\text{,}\)</span> the resulting units are <span class="process-math">\(\mbox{(population)} / \mbox{(time)}\text{.}\)</span>
 </div>
-<div class="para" id="p-291">These observations confirm that the units are the same on both sides of the equation <span class="process-math">\(\frac{dS}{dt} = -\beta S I\text{.}\)</span>
+<div class="para" id="activity-introducing-units-2-1-3-3">These observations confirm that the units are the same on both sides of the equation <span class="process-math">\(\frac{dS}{dt} = -\beta S I\text{.}\)</span>
 </div>
 </li>
-</ol></div></div>
-</div></article><div class="para" id="p-292">After completing <a href="" class="xref" data-knowl="./knowl/activity-introducing-units.html" title="Activity 4.5">Activity 4.5</a>, we recognize that in our SIR model, the units of <span class="process-math">\(\beta\)</span> are not <span class="process-math">\(1/\mbox{time}\text{.}\)</span> Therefore <span class="process-math">\(\beta\)</span> is not a rate, and we cannot estimate the value of <span class="process-math">\(\beta\)</span> similarly to how we estimate the value of <span class="process-math">\(\gamma\text{.}\)</span> Indeed, estimating the value of <span class="process-math">\(\beta\)</span> will require different methods. In <a href="ch-visualization-graphing-model-results-and-data.html" class="internal" title="Chapter 3: Visualization: Graphing Model Results and Data">Chapter 3</a> we discuss estimating <span class="process-math">\(\beta\)</span> visually by comparing our model with data. In <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal" title="Chapter 5: Model Analysis and the Basic Reproduction Number \mathcal{R}_0">Chapter 5</a> and <a href="ch-vaccines-and-incubation-periods.html" class="internal" title="Chapter 6: Vaccines and Incubation Periods">Chapter 6</a> we introduce another way to estimate <span class="process-math">\(\beta\text{,}\)</span> using other parameter values we know, along with a formula involving an epidemiological concept known as the <dfn class="terminology">basic reproduction number</dfn>.</div></section><section class="exercises" id="exercises-ch-compartmental-diagrams"><h3 class="heading hide-type">
-<span class="type">For Further Thought</span> <span class="codenumber">4.4</span> <span class="title">For Further Thought</span>
+</ol></div></details></div></article><div class="para" id="sec-estimating-gamma-and-other-rates-14">After completing <a href="ch-compartmental-diagrams.html#activity-introducing-units" class="xref" data-knowl="./knowl/xref/activity-introducing-units.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.5">Activity 4.5</a>, we recognize that in our SIR model, the units of <span class="process-math">\(\beta\)</span> are not <span class="process-math">\(1/\mbox{time}\text{.}\)</span> Therefore <span class="process-math">\(\beta\)</span> is not a rate, and we cannot estimate the value of <span class="process-math">\(\beta\)</span> similarly to how we estimate the value of <span class="process-math">\(\gamma\text{.}\)</span> Indeed, estimating the value of <span class="process-math">\(\beta\)</span> will require different methods. In <a href="ch-visualization-graphing-model-results-and-data.html" class="internal" title="Chapter 3: Visualization: Graphing Model Results and Data">Chapter 3</a> we discuss estimating <span class="process-math">\(\beta\)</span> visually by comparing our model with data. In <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal" title="Chapter 5: Model Analysis and the Basic Reproduction Number \mathcal{R}_0">Chapter 5</a> and <a href="ch-vaccines-and-incubation-periods.html" class="internal" title="Chapter 6: Vaccines and Incubation Periods">Chapter 6</a> we introduce another way to estimate <span class="process-math">\(\beta\text{,}\)</span> using other parameter values we know, along with a formula involving an epidemiological concept known as the <dfn class="terminology">basic reproduction number</dfn>.</div></section><section class="exercises" id="exercises-ch-compartmental-diagrams"><h3 class="heading hide-type">
+<span class="type">For Further Thought</span><span class="space"> </span><span class="codenumber">4.4</span><span class="space"> </span><span class="title">For Further Thought</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-10"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="p-293">Use the ideas and website suggestions of <a href="ch-prelude-diseases-in-popular-news.html" class="internal" title="Chapter 1: Prelude: Diseases in Popular News">Chapter 1</a> to determine how long individuals are infectious with measles. Cite your source(s).<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-36" id="fn-36"><sup> 4 </sup></a> Then suppose you are creating an SIR model for the spread of measles. What value would you use for <span class="process-math">\(\gamma\text{?}\)</span> Explain your reasoning.</div></article><article class="exercise exercise-like" id="exercise-11"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para" id="p-294">Compare your response to exercise 1 in <a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal" title="For Further Thought 4.4">For Further Thought 4.4</a> with <a class="external" href="https://people.com/health/measles-outbreak-spreads-21-states-dc/" target="_blank">this article on measles</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-37" id="fn-37"><sup> 5 </sup></a> from <a href="ch-prelude-diseases-in-popular-news.html" class="internal" title="Chapter 1: Prelude: Diseases in Popular News">Chapter 1</a>. What are the similarities, and the differences, between how the CDC and People magazine describe how long measles is infectious?</div></article><article class="exercise exercise-like" id="exercise-12"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para" id="p-295">Use the ideas and website suggestions of <a href="ch-prelude-diseases-in-popular-news.html" class="internal" title="Chapter 1: Prelude: Diseases in Popular News">Chapter 1</a> to determine how long individuals are infectious with RSV. Cite your source(s).<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-38" id="fn-38"><sup> 6 </sup></a> Then suppose you are creating an SIR model for the spread of RSV. What value would you use for <span class="process-math">\(\gamma\text{?}\)</span> Explain your reasoning.</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-33"><div class="fn"><code class="code-inline tex2jax_ignore">nelsong1997.github.io/zombie_game/</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-34"><div class="fn">We typically say each of the letters in SIR when naming this model aloud. That is, we refer to the “S” “I” “R” model, not the “sir” model.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-35"><div class="fn">Alternately, we could call these units <em class="emphasis">people</em> or <em class="emphasis">individuals</em>.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-36"><div class="fn">Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-37"><div class="fn"><code class="code-inline tex2jax_ignore">people.com/health/measles-outbreak-spreads-21-states-dc/</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-38"><div class="fn">Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</div></div>
-</div>
+<article class="exercise exercise-like" id="exercises-ch-compartmental-diagrams-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-compartmental-diagrams-1-1">Use the ideas and website suggestions of <a href="ch-prelude-diseases-in-popular-news.html" class="internal" title="Chapter 1: Prelude: Diseases in Popular News">Chapter 1</a> to determine how long individuals are infectious with measles. Cite your source(s).<details class="ptx-footnote" aria-live="polite" id="exercises-ch-compartmental-diagrams-1-1-2"><summary class="ptx-footnote__number" title="Footnote 4.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="exercises-ch-compartmental-diagrams-1-1-2">Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</div></details> Then suppose you are creating an SIR model for the spread of measles. What value would you use for <span class="process-math">\(\gamma\text{?}\)</span> Explain your reasoning.</div></article><article class="exercise exercise-like" id="exercises-ch-compartmental-diagrams-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-compartmental-diagrams-2-1">Compare your response to exercise 1 in <a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal" title="For Further Thought 4.4">For Further Thought 4.4</a> with <a class="external" href="https://people.com/health/measles-outbreak-spreads-21-states-dc/" target="_blank">this article on measles</a><details class="ptx-footnote" aria-live="polite" id="exercises-ch-compartmental-diagrams-2-1-3"><summary class="ptx-footnote__number" title="Footnote 4.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="exercises-ch-compartmental-diagrams-2-1-3"><code class="code-inline tex2jax_ignore">people.com/health/measles-outbreak-spreads-21-states-dc/</code></div></details> from <a href="ch-prelude-diseases-in-popular-news.html" class="internal" title="Chapter 1: Prelude: Diseases in Popular News">Chapter 1</a>. What are the similarities, and the differences, between how the CDC and People magazine describe how long measles is infectious?</div></article><article class="exercise exercise-like" id="exercises-ch-compartmental-diagrams-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-compartmental-diagrams-3-1">Use the ideas and website suggestions of <a href="ch-prelude-diseases-in-popular-news.html" class="internal" title="Chapter 1: Prelude: Diseases in Popular News">Chapter 1</a> to determine how long individuals are infectious with RSV. Cite your source(s).<details class="ptx-footnote" aria-live="polite" id="exercises-ch-compartmental-diagrams-3-1-2"><summary class="ptx-footnote__number" title="Footnote 4.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="exercises-ch-compartmental-diagrams-3-1-2">Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</div></details> Then suppose you are creating an SIR model for the spread of RSV. What value would you use for <span class="process-math">\(\gamma\text{?}\)</span> Explain your reasoning.</div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="ch-visualization-graphing-model-results-and-data.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="ch-visualization-graphing-model-results-and-data.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
-<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>

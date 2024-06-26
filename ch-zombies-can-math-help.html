@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Zombies: Can Math Help?</title>
@@ -14,20 +14,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Mathematical Epidemiology and More">
 <meta property="book:author" content="Meredith L. Greer">
-<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -37,162 +55,75 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
 </head>
 <body class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href=""></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
 <h1 class="heading"><a href="mathematical-epidemiology.html"><span class="title">Mathematical Epidemiology and More:</span> <span class="subtitle">A Course on Compartmental Models</span></a></h1>
 <p class="byline">Meredith L. Greer</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
-</h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
-<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden avatar">
-<li data-val="You!" tabindex="-1">
-<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
-<li data-val="😺" tabindex="-1">
-<span id="the😺" class="avatarcheck"></span>😺</li>
-<li data-val="👤" tabindex="-1">
-<span id="the👤" class="avatarcheck"></span>👤</li>
-<li data-val="👽" tabindex="-1">
-<span id="the👽" class="avatarcheck"></span>👽</li>
-<li data-val="🐶" tabindex="-1">
-<span id="the🐶" class="avatarcheck"></span>🐶</li>
-<li data-val="🐼" tabindex="-1">
-<span id="the🐼" class="avatarcheck"></span>🐼</li>
-<li data-val="🌈" tabindex="-1">
-<span id="the🌈" class="avatarcheck"></span>🌈</li>
-</ol>
-</li>
-<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden fontfamily">
-<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
-<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
-</li>
-<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
-<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
-</li>
-</ol>
-</li>
-<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden fonts">
-<li>Size</li>
-<li><span id="thesize">12</span></li>
-<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
-<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
-<li>Width</li>
-<li><span id="thewdth">100</span></li>
-<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
-<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
-<li>Weight</li>
-<li><span id="thewght">400</span></li>
-<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
-<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
-<li>Letter spacing</li>
-<li>
-<span id="thelspace">0</span><span class="byunits">/200</span>
-</li>
-<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
-<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
-<li>Word spacing</li>
-<li>
-<span id="thewspace">0</span><span class="byunits">/50</span>
-</li>
-<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
-<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
-<li>Line Spacing</li>
-<li>
-<span id="theheight">135</span><span class="byunits">/100</span>
-</li>
-<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
-<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
-</ol>
-</li>
-<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden atmosphere">
-<li data-val="default" tabindex="-1">
-<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
-<li data-val="pastel" tabindex="-1">
-<span id="thepastel" class="atmospherecheck"></span>pastel</li>
-<li data-val="darktwilight" tabindex="-1">
-<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
-<li data-val="dark" tabindex="-1">
-<span id="thedark" class="atmospherecheck"></span>dark</li>
-<li data-val="darkmidnight" tabindex="-1">
-<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
-</ol>
-</li>
-<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
-<ol class="hidden ruler">
-<li data-val="none" tabindex="-1">
-<span id="thenone" class="rulercheck">✔️</span>none</li>
-<li data-val="underline" tabindex="-1">
-<span id="theunderline" class="rulercheck"></span>underline</li>
-<li data-val="lunderline" tabindex="-1">
-<span id="thelunderline" class="rulercheck"></span>L-underline</li>
-<li data-val="greybar" tabindex="-1">
-<span id="thegreybar" class="rulercheck"></span>grey bar</li>
-<li data-val="lightbox" tabindex="-1">
-<span id="thelightbox" class="rulercheck"></span>light box</li>
-<li data-val="sunrise" tabindex="-1">
-<span id="thesunrise" class="rulercheck"></span>sunrise</li>
-<li data-val="sunriseunderline" tabindex="-1">
-<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
-<li class="moveQ">Motion by:</li>
-<li data-val="mouse" tabindex="-1">
-<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
-<li data-val="arrow" tabindex="-1">
-<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
-<li data-val="eye" tabindex="-1">
-<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
-</ol>
-</li>
-</ol></div></button><span class="treebuttons"><a class="previous-button button" href="ch-prelude-diseases-in-popular-news.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="part-core-modeling-concepts.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="ch-visualization-graphing-model-results-and-data.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
-</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-prelude-diseases-in-popular-news.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part-core-modeling-concepts.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-visualization-graphing-model-results-and-data.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
 \newcommand{\amp}{&amp;}
@@ -200,262 +131,254 @@ window.MathJax = {
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2 parts"><ul class="structural">
-<li>
-<div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
-<li><div class="toc-item"><a href="preface-overall.html" class="internal"><span class="title">Preface</span></a></div></li>
-<li><div class="toc-item"><a href="preface-students.html" class="internal"><span class="title">To Students: How to Get the Most from This Text</span></a></div></li>
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 parts"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="frontmatter-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-overall.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-students.html" class="internal"><span class="title">To Students: How to Get the Most from This Text</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="part-core-modeling-concepts.html" class="internal"><span class="codenumber">I</span> <span class="title">Core Modeling Concepts</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html" class="internal"><span class="codenumber">1</span> <span class="title">Prelude: Diseases in Popular News</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-Themes" class="internal"><span class="codenumber">1.1</span> <span class="title">Possible Discussion Themes</span></a></div></li>
-<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#sec-Follow-Up-By-Seeking-More-Precise-Data" class="internal"><span class="codenumber">1.2</span> <span class="title">Follow Up By Seeking More Precise Data</span></a></div></li>
-<li><div class="toc-item"><a href="ch-prelude-diseases-in-popular-news.html#exercises-prelude-diseases-in-popular-news" class="internal"><span class="codenumber">1.3</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="part-core-modeling-concepts.html" class="internal"><span class="codenumber">I</span> <span class="title">Core Modeling Concepts</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html" class="internal"><span class="codenumber">1</span> <span class="title">Prelude: Diseases in Popular News</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-Themes" class="internal"><span class="codenumber">1.1</span> <span class="title">Possible Discussion Themes</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#sec-Follow-Up-By-Seeking-More-Precise-Data" class="internal"><span class="codenumber">1.2</span> <span class="title">Follow Up By Seeking More Precise Data</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#exercises-prelude-diseases-in-popular-news" class="internal"><span class="codenumber">1.3</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li class="active">
-<div class="toc-item"><a href="ch-zombies-can-math-help.html" class="internal"><span class="codenumber">2</span> <span class="title">Zombies: Can Math Help?</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-zombies-can-math-help.html#sec-we-now-have-data-qualitative-musings" class="internal"><span class="codenumber">2.1</span> <span class="title">We Now Have Data: Qualitative Musings</span></a></div></li>
-<li><div class="toc-item"><a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal"><span class="codenumber">2.2</span> <span class="title">A First Model</span></a></div></li>
-<li><div class="toc-item"><a href="ch-zombies-can-math-help.html#exercises-ch-zombies-can-math-help" class="internal"><span class="codenumber">2.3</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter active">
+<div class="toc-title-box"><a href="ch-zombies-can-math-help.html" class="internal"><span class="codenumber">2</span> <span class="title">Zombies: Can Math Help?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#sec-we-now-have-data-qualitative-musings" class="internal"><span class="codenumber">2.1</span> <span class="title">We Now Have Data: Qualitative Musings</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal"><span class="codenumber">2.2</span> <span class="title">A First Model</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#exercises-ch-zombies-can-math-help" class="internal"><span class="codenumber">2.3</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html" class="internal"><span class="codenumber">3</span> <span class="title">Visualization: Graphing Model Results and Data</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#sec-solving-differential-equations-using-graphs" class="internal"><span class="codenumber">3.1</span> <span class="title">“Solving” Differential Equations Using Graphs</span></a></div></li>
-<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal"><span class="codenumber">3.2</span> <span class="title">Estimating <span class="process-math">\(\beta\)</span> and Building Visualization Skills</span></a></div></li>
-<li><div class="toc-item"><a href="ch-visualization-graphing-model-results-and-data.html#exercises-visualization-graphing-model-results-and-data" class="internal"><span class="codenumber">3.3</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html" class="internal"><span class="codenumber">3</span> <span class="title">Visualization: Graphing Model Results and Data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#sec-solving-differential-equations-using-graphs" class="internal"><span class="codenumber">3.1</span> <span class="title">“Solving” Differential Equations Using Graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal"><span class="codenumber">3.2</span> <span class="title">Estimating <span class="process-math">\(\beta\)</span> and Building Visualization Skills</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#exercises-visualization-graphing-model-results-and-data" class="internal"><span class="codenumber">3.3</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-compartmental-diagrams.html" class="internal"><span class="codenumber">4</span> <span class="title">Compartmental Diagrams</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-compartmental-diagrams-vocabulary-and-comments" class="internal"><span class="codenumber">4.1</span> <span class="title">Compartmental Diagrams: Vocabulary and Comments</span></a></div></li>
-<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal"><span class="codenumber">4.2</span> <span class="title">From Zombie Game Variation to Compartmental Diagram</span></a></div></li>
-<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates" class="internal"><span class="codenumber">4.3</span> <span class="title">Estimating Gamma and Other Rates</span></a></div></li>
-<li><div class="toc-item"><a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal"><span class="codenumber">4.4</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-compartmental-diagrams.html" class="internal"><span class="codenumber">4</span> <span class="title">Compartmental Diagrams</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-compartmental-diagrams-vocabulary-and-comments" class="internal"><span class="codenumber">4.1</span> <span class="title">Compartmental Diagrams: Vocabulary and Comments</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal"><span class="codenumber">4.2</span> <span class="title">From Zombie Game Variation to Compartmental Diagram</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates" class="internal"><span class="codenumber">4.3</span> <span class="title">Estimating Gamma and Other Rates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal"><span class="codenumber">4.4</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal"><span class="codenumber">5</span> <span class="title">Model Analysis and the Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-using-calculus-to-analyze-models" class="internal"><span class="codenumber">5.1</span> <span class="title">Using Calculus to Analyze Models</span></a></div></li>
-<li><div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0" class="internal"><span class="codenumber">5.2</span> <span class="title">The Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div></li>
-<li><div class="toc-item"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#exercises-ch-populations-and-R0" class="internal"><span class="codenumber">5.3</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal"><span class="codenumber">5</span> <span class="title">Model Analysis and the Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-using-calculus-to-analyze-models" class="internal"><span class="codenumber">5.1</span> <span class="title">Using Calculus to Analyze Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0" class="internal"><span class="codenumber">5.2</span> <span class="title">The Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#exercises-ch-populations-and-R0" class="internal"><span class="codenumber">5.3</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html" class="internal"><span class="codenumber">6</span> <span class="title">Vaccines and Incubation Periods</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html#sec-vaccines-in-compartmental-models" class="internal"><span class="codenumber">6.1</span> <span class="title">Vaccines in Compartmental Models</span></a></div></li>
-<li><div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html#sec-including-an-incubation-period-the-seir-model" class="internal"><span class="codenumber">6.2</span> <span class="title">Including an Incubation Period: The SEIR Model</span></a></div></li>
-<li><div class="toc-item"><a href="ch-vaccines-and-incubation-periods.html#exercises-ch-vaccines" class="internal"><span class="codenumber">6.3</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-vaccines-and-incubation-periods.html" class="internal"><span class="codenumber">6</span> <span class="title">Vaccines and Incubation Periods</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines-and-incubation-periods.html#sec-vaccines-in-compartmental-models" class="internal"><span class="codenumber">6.1</span> <span class="title">Vaccines in Compartmental Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines-and-incubation-periods.html#sec-including-an-incubation-period-the-seir-model" class="internal"><span class="codenumber">6.2</span> <span class="title">Including an Incubation Period: The SEIR Model</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-vaccines-and-incubation-periods.html#exercises-ch-vaccines" class="internal"><span class="codenumber">6.3</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html" class="internal"><span class="codenumber">7</span> <span class="title">Getting the Answer “Right” in Modeling</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-the-logical-approach" class="internal"><span class="codenumber">7.1</span> <span class="title">The Logical Approach</span></a></div></li>
-<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-priorities-where-goals-meet-ethics" class="internal"><span class="codenumber">7.2</span> <span class="title">Priorities: Where Goals Meet Ethics</span></a></div></li>
-<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-making-changes-to-models" class="internal"><span class="codenumber">7.3</span> <span class="title">Making Changes to Models</span></a></div></li>
-<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#sec-writing-explanations-to-present-models-to-others" class="internal"><span class="codenumber">7.4</span> <span class="title">Writing Explanations to Present Models to Others</span></a></div></li>
-<li><div class="toc-item"><a href="ch-getting-the-answer-right-in-modeling.html#exercises-ch-get-answer-right-in-modeling" class="internal"><span class="codenumber">7.5</span> <span class="title">For Further Thought</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html" class="internal"><span class="codenumber">7</span> <span class="title">Getting the Answer “Right” in Modeling</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html#sec-the-logical-approach" class="internal"><span class="codenumber">7.1</span> <span class="title">The Logical Approach</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html#sec-priorities-where-goals-meet-ethics" class="internal"><span class="codenumber">7.2</span> <span class="title">Priorities: Where Goals Meet Ethics</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html#sec-making-changes-to-models" class="internal"><span class="codenumber">7.3</span> <span class="title">Making Changes to Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html#sec-writing-explanations-to-present-models-to-others" class="internal"><span class="codenumber">7.4</span> <span class="title">Writing Explanations to Present Models to Others</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-getting-the-answer-right-in-modeling.html#exercises-ch-get-answer-right-in-modeling" class="internal"><span class="codenumber">7.5</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal"><span class="codenumber">8</span> <span class="title">* Preparing Influenza Data to Compare With a Model</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-ga" class="internal"><span class="codenumber">8.1</span> <span class="title">Starter Example Comparing Data with a Model: Zombie Data</span></a></div></li>
-<li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gz" class="internal"><span class="codenumber">8.2</span> <span class="title">Using RSS</span></a></div></li>
-<li><div class="toc-item"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gx" class="internal"><span class="codenumber">8.3</span> <span class="title">Influenza Data and RSS</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal"><span class="codenumber">8</span> <span class="title">* Preparing Influenza Data to Compare With a Model</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-ga" class="internal"><span class="codenumber">8.1</span> <span class="title">Starter Example Comparing Data with a Model: Zombie Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gz" class="internal"><span class="codenumber">8.2</span> <span class="title">Using RSS</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gx" class="internal"><span class="codenumber">8.3</span> <span class="title">Influenza Data and RSS</span></a></div></li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-epidemic-vs-endemic-models.html" class="internal"><span class="codenumber">9</span> <span class="title">* Epidemic vs. Endemic Models</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-epidemic-vs-endemic-models.html#sec-ee" class="internal"><span class="codenumber">9.1</span> <span class="title"></span></a></div></li></ul>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-epidemic-vs-endemic-models.html" class="internal"><span class="codenumber">9</span> <span class="title">* Epidemic vs. Endemic Models</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-epidemic-vs-endemic-models.html#sec-ee" class="internal"><span class="codenumber">9.1</span> <span class="title"></span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">* Residual Sum of Squares: Improving a Model's Fit to Data</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-ra" class="internal"><span class="codenumber">10.1</span> <span class="title"></span></a></div></li></ul>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">* Residual Sum of Squares: Improving a Model’s Fit to Data</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-ra" class="internal"><span class="codenumber">10.1</span> <span class="title"></span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-akaike-information-criterion-comparing-different-models.html" class="internal"><span class="codenumber">11</span> <span class="title">* Akaike Information Criterion: Comparing Different Models</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-akaike-information-criterion-comparing-different-models.html#sec-ma" class="internal"><span class="codenumber">11.1</span> <span class="title"></span></a></div></li></ul>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-akaike-information-criterion-comparing-different-models.html" class="internal"><span class="codenumber">11</span> <span class="title">* Akaike Information Criterion: Comparing Different Models</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-akaike-information-criterion-comparing-different-models.html#sec-ma" class="internal"><span class="codenumber">11.1</span> <span class="title"></span></a></div></li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="ch-modeling-the-spread-of-a-rumor.html" class="internal"><span class="codenumber">12</span> <span class="title">* Modeling the Spread of a Rumor</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-modeling-the-spread-of-a-rumor.html#sec-7" class="internal"><span class="codenumber">12.1</span> <span class="title"></span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">13</span> <span class="title">* The Next Generation Method</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-the-next-generation-method.html#sec-2" class="internal"><span class="codenumber">13.1</span> <span class="title">Python Code for the Next Generation Method</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="ch-tips-on-reading-a-scientific-paper.html" class="internal"><span class="codenumber">14</span> <span class="title">* Tips on Reading a Scientific Paper</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-tips-on-reading-a-scientific-paper.html#sec-3a" class="internal"><span class="codenumber">14.1</span> <span class="title"></span></a></div></li></ul>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-modeling-the-spread-of-a-rumor.html" class="internal"><span class="codenumber">12</span> <span class="title">* Modeling the Spread of a Rumor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-modeling-the-spread-of-a-rumor.html#sec-7" class="internal"><span class="codenumber">12.1</span> <span class="title"></span></a></div></li></ul>
 </li>
 </ul>
 </li>
-<li>
-<div class="toc-item"><a href="part-examples-and-case-studies.html" class="internal"><span class="codenumber">III</span> <span class="title">Examples and Case Studies</span></a></div>
-<ul class="structural"><li>
-<div class="toc-item"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html" class="internal"><span class="codenumber">15</span> <span class="title">* Preparing Mumps Data to Compare with a Six-Compartment Model</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html#sec-6" class="internal"><span class="codenumber">15.1</span> <span class="title"></span></a></div></li></ul>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">13</span> <span class="title">* The Next Generation Method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-the-next-generation-method.html#sec-2" class="internal"><span class="codenumber">13.1</span> <span class="title">Python Code for the Next Generation Method</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-tips-on-reading-a-scientific-paper.html" class="internal"><span class="codenumber">14</span> <span class="title">* Tips on Reading a Scientific Paper</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-tips-on-reading-a-scientific-paper.html#sec-3a" class="internal"><span class="codenumber">14.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-examples-and-case-studies.html" class="internal"><span class="codenumber">III</span> <span class="title">Examples and Case Studies</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html" class="internal"><span class="codenumber">15</span> <span class="title">* Preparing Mumps Data to Compare with a Six-Compartment Model</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html#sec-6" class="internal"><span class="codenumber">15.1</span> <span class="title"></span></a></div></li></ul>
 </li></ul>
 </li>
-<li>
-<div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="glossary-of-terms.html" class="internal"><span class="title">Glossary of Mathematical Epidemiology Terms</span></a></div></li></ul>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="glossary-of-terms.html" class="internal"><span class="title">Glossary of Mathematical Epidemiology Terms</span></a></div></li></ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content">
-<section class="chapter" id="ch-zombies-can-math-help"><h2 class="heading">
-<span class="type">Chapter</span> <span class="codenumber">2</span> <span class="title">Zombies: Can Math Help?</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-zombies-can-math-help"><h2 class="heading">
+<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">2</span><span class="space"> </span><span class="title">Zombies: Can Math Help?</span>
 </h2>
-<section class="introduction" id="intro-zombies"><article class="objectives goal-like" id="objectives-2"><h3 class="heading"><span class="type">Goals</span></h3>
+<section class="introduction" id="intro-zombies"><article class="objectives goal-like" id="intro-zombies-1"><h3 class="heading"><span class="type">Goals</span></h3>
 <ul class="disc">
-<li id="li-21"><div class="para" id="p-60">Simulate an outbreak and actively observe the data that emerge</div></li>
-<li id="li-22"><div class="para" id="p-61">Think through the disease spread process underlying a simulation</div></li>
-<li id="li-23"><div class="para" id="p-62">Compare the disease spread process with a system of differential equations suggested as a possible model for this process</div></li>
-<li id="li-24"><div class="para" id="p-63">Consider how changes in the disease spread process can change the outcome</div></li>
-</ul></article> <div class="para" id="p-64">First things first: let's simulate an outbreak! The simulations in this text, starting with <a href="" class="xref" data-knowl="./knowl/expl-activity-zombie-game.html" title="Exploration 2.1: Zombie Game">Exploration 2.1</a>, are directly inspired by the Disease Lab materials published freely online by Utah State University.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-17" id="fn-17"><sup> 1 </sup></a> You can do this exploration in a group or on your own. (Groups are recommended, if you are able to team up with one or more other people.) You will model humans, also called Susceptibles, as well as zombies, also called Infectious. The <a class="external" href="https://digitalcommons.usu.edu/lemb/1" target="_blank">Utah State University link</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-19" id="fn-19"><sup> 3 </sup></a> describes a hands-on way to play this game using dry erase markers and overhead projector transparencies. In this text, we primarily use a related online <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-20" id="fn-20"><sup> 4 </sup></a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-21" id="fn-21"><sup> 5 </sup></a> to play and to generate data.</div> <div class="para" id="p-65">Why do we start with a simulation? First, this course requires active involvement, so we create space immediately for that involvement. Second, this simulation game can be interactive, and working with others helps us see other perspectives and adds both fun and community to learning. Third, though we mostly work with real-life outbreaks in this textbook, we also purposely diverge from reality to think through hypothetical outcomes, and zombies are one way to think creatively about disease spread. Fourth, this activity generates outbreak examples, and examples throughout this course are one of our main ways to build toward theory and illustrate abstract concepts. Therefore, to achieve the goals for each section, we usually begin with exploration activities, then use what we learned in the explorations to help build our mathematical framework.</div> <article class="exploration project-like" id="expl-activity-zombie-game"><h3 class="heading">
+<li id="intro-zombies-1-1-1"><div class="para" id="intro-zombies-1-1-1-1">Simulate an outbreak and actively observe the data that emerge</div></li>
+<li id="intro-zombies-1-1-2"><div class="para" id="intro-zombies-1-1-2-1">Think through the disease spread process underlying a simulation</div></li>
+<li id="intro-zombies-1-1-3"><div class="para" id="intro-zombies-1-1-3-1">Compare the disease spread process with a system of differential equations suggested as a possible model for this process</div></li>
+<li id="intro-zombies-1-1-4"><div class="para" id="intro-zombies-1-1-4-1">Consider how changes in the disease spread process can change the outcome</div></li>
+</ul></article> <div class="para" id="intro-zombies-2">First things first: let’s simulate an outbreak! The simulations in this text, starting with <a href="ch-zombies-can-math-help.html#expl-activity-zombie-game" class="xref" data-knowl="./knowl/xref/expl-activity-zombie-game.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 2.1: Zombie Game">Exploration 2.1</a>, are directly inspired by the Disease Lab materials published freely online by Utah State University.<details class="ptx-footnote" aria-live="polite" id="intro-zombies-2-2"><summary class="ptx-footnote__number" title="Footnote 2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="intro-zombies-2-2">Jim Powell and Matt Lewis, “Disease Lab” (2016). <em class="emphasis">Laboratory Experiences in Mathematical Biology</em>. 1. <a class="external" href="https://digitalcommons.usu.edu/lemb/1" target="_blank">https://digitalcommons.usu.edu/lemb/1</a>
+</div></details> You can do this exploration in a group or on your own. (Groups are recommended, if you are able to team up with one or more other people.) You will model humans, also called Susceptibles, as well as zombies, also called Infectious. The <a class="external" href="https://digitalcommons.usu.edu/lemb/1" target="_blank">Utah State University link</a><details class="ptx-footnote" aria-live="polite" id="intro-zombies-2-4"><summary class="ptx-footnote__number" title="Footnote 2.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="intro-zombies-2-4"><code class="code-inline tex2jax_ignore">digitalcommons.usu.edu/lemb/1</code></div></details> describes a hands-on way to play this game using dry erase markers and overhead projector transparencies. In this text, we primarily use a related online <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a><details class="ptx-footnote" aria-live="polite" id="intro-zombies-2-6"><summary class="ptx-footnote__number" title="Footnote 2.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="intro-zombies-2-6"><code class="code-inline tex2jax_ignore">nelsong1997.github.io/zombie_game/</code></div></details><details class="ptx-footnote" aria-live="polite" id="intro-zombies-2-7"><summary class="ptx-footnote__number" title="Footnote 2.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="intro-zombies-2-7">This app was created by Gabe Nelson, Bates College Class of 2020, after campus closed due to COVID-19.</div></details> to play and to generate data.</div> <div class="para" id="intro-zombies-3">Why do we start with a simulation? First, this course requires active involvement, so we create space immediately for that involvement. Second, this simulation game can be interactive, and working with others helps us see other perspectives and adds both fun and community to learning. Third, though we mostly work with real-life outbreaks in this textbook, we also purposely diverge from reality to think through hypothetical outcomes, and zombies are one way to think creatively about disease spread. Fourth, this activity generates outbreak examples, and examples throughout this course are one of our main ways to build toward theory and illustrate abstract concepts. Therefore, to achieve the goals for each section, we usually begin with exploration activities, then use what we learned in the explorations to help build our mathematical framework.</div> <article class="exploration project-like" id="expl-activity-zombie-game"><h3 class="heading">
 <span class="type">Exploration</span><span class="space"> </span><span class="codenumber">2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Zombie Game.</span>
 </h3>
-<div class="introduction" id="introduction-4"><div class="para" id="p-66">This game uses a grid of 100 hexagons to represent a space in which humans and zombies interact. Each round of game play represents one day. For each day, each human (“Susceptible”) is represented on the grid by a blue “X” on a single hexagon. Each zombie (“Infectious”) is represented by three red dots connected by red lines, meant to suggest a head and two arms, each of which can infect a human. Each zombie spreads out across three connected hexagons. Sample hex grids, both unmarked and marked, appear in <a href="" class="xref" data-knowl="./knowl/zombie-board-graphics.html" title="Figure 2.1">Figure 2.1</a>.</div></div>
-<article class="task exercise-like" id="task-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="para" id="p-67">To start the simulation, go to the <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-22" id="fn-22"><sup> 6 </sup></a>. Use the default settings at first, except to change the Human Start Count to 49, as shown in <a href="" class="xref" data-knowl="./knowl/fig-zombie-app-49-susceptibles.html" title="Figure 2.2">Figure 2.2</a>. Combining these 49 Humans with the Zombie Start Count of 1, the total population then equals 50.</div> <figure class="figure figure-like" id="fig-zombie-app-49-susceptibles"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/ZombieApp_49Susceptibles.png" class="contained" alt="Screen image from the Zombie Game App, showing the “Human Start Count”"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2<span class="period">.</span></span><span class="space"> </span>Changing “Human Start Count” to 49 in the Zombie Game App</figcaption></figure></article><article class="task exercise-like" id="task-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="para" id="p-68">To watch the outbreak unfold, day by day, first click <code class="code-inline tex2jax_ignore">start</code>. You will see the zombies and humans placed randomly on the grid. Both a table of data, and a graph of Round 0 and Round 1 data, appear to the right. A sample Round 1 result appears in <a href="" class="xref" data-knowl="./knowl/fig-zombie-app-one-day.html" title="Figure 2.3">Figure 2.3</a>, and the table of data is shown more clearly in <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-day1.html" title="Figure 2.4">Figure 2.4</a>. There is randomness in how Zombies and Humans are placed on the grid, so your one-day results on the app may be different.</div> <figure class="figure figure-like" id="fig-zombie-app-one-day"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ZombieApp_OneDay.png" class="contained" alt="Sample output for Round 1 from the Zombie Game App, including the grid of humans and zombies, plus a table and a graph of data for Rounds 0 and 1"></div>
+<div class="introduction" id="expl-activity-zombie-game-2"><div class="para" id="expl-activity-zombie-game-2-1">This game uses a grid of 100 hexagons to represent a space in which humans and zombies interact. Each round of game play represents one day. For each day, each human (“Susceptible”) is represented on the grid by a blue “X” on a single hexagon. Each zombie (“Infectious”) is represented by three red dots connected by red lines, meant to suggest a head and two arms, each of which can infect a human. Each zombie spreads out across three connected hexagons. Sample hex grids, both unmarked and marked, appear in <a href="ch-zombies-can-math-help.html#zombie-board-graphics" class="xref" data-knowl="./knowl/xref/zombie-board-graphics.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.1">Figure 2.1</a>.</div></div>
+<article class="task exercise-like" id="expl-activity-zombie-game-4"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="expl-activity-zombie-game-4-1-1">To start the simulation, go to the <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a><details class="ptx-footnote" aria-live="polite" id="expl-activity-zombie-game-4-1-1-2"><summary class="ptx-footnote__number" title="Footnote 2.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="expl-activity-zombie-game-4-1-1-2"><code class="code-inline tex2jax_ignore">nelsong1997.github.io/zombie_game/</code></div></details>. Use the default settings at first, except to change the Human Start Count to 49, as shown in <a href="ch-zombies-can-math-help.html#fig-zombie-app-49-susceptibles" class="xref" data-knowl="./knowl/xref/fig-zombie-app-49-susceptibles.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.2">Figure 2.2</a>. Combining these 49 Humans with the Zombie Start Count of 1, the total population then equals 50.</div> <figure class="figure figure-like" id="fig-zombie-app-49-susceptibles"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;">
+<img src="external/ZombieApp_49Susceptibles.png" class="contained" alt="described in detail following the image" aria-describedby="fig-zombie-app-49-susceptibles-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-zombie-app-49-susceptibles-2-description">Screen image from the Zombie Game App, showing the “Human Start Count”</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2<span class="period">.</span></span><span class="space"> </span>Changing “Human Start Count” to 49 in the Zombie Game App</figcaption></figure></article><article class="task exercise-like" id="expl-activity-zombie-game-5"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="expl-activity-zombie-game-5-1-1">To watch the outbreak unfold, day by day, first click <code class="code-inline tex2jax_ignore">start</code>. You will see the zombies and humans placed randomly on the grid. Both a table of data, and a graph of Round 0 and Round 1 data, appear to the right. A sample Round 1 result appears in <a href="ch-zombies-can-math-help.html#fig-zombie-app-one-day" class="xref" data-knowl="./knowl/xref/fig-zombie-app-one-day.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.3">Figure 2.3</a>, and the table of data is shown more clearly in <a href="ch-zombies-can-math-help.html#fig-human-zombie-data-day1" class="xref" data-knowl="./knowl/xref/fig-human-zombie-data-day1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.4">Figure 2.4</a>. There is randomness in how Zombies and Humans are placed on the grid, so your one-day results on the app may be different.</div> <figure class="figure figure-like" id="fig-zombie-app-one-day"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/ZombieApp_OneDay.png" class="contained" alt="Sample output for Round 1 from the Zombie Game App, including the grid of humans and zombies, plus a table and a graph of data for Rounds 0 and 1"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.3<span class="period">.</span></span><span class="space"> </span>Sample output for Round 1 from the Zombie Game App</figcaption></figure> <figure class="figure figure-like" id="fig-human-zombie-data-day1"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/SampleHumanZombieData_Day1.png" class="contained" alt="Sample data for one round of a simulation from the Zombie Game App, viewed as a table"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4<span class="period">.</span></span><span class="space"> </span>Table of sample data from Round 1 of a human–zombie simulation</figcaption></figure> <div class="para" id="p-69">If you began with 49 humans and 1 zombie, these will be the numbers listed for Round 0. The data for Round 1 are computed by looking at the hex grid: each human that overlaps with a zombie is a “New Infection” and moves from the <em class="emphasis"># Humans</em> category to the <em class="emphasis"># Zombies</em> category. This means that this number of individuals is subtracted from <em class="emphasis"># Humans</em> and added to <em class="emphasis"># Zombies</em>. Double check that your count of new infections matches the app's count! In <a href="" class="xref" data-knowl="./knowl/fig-zombie-app-one-day.html" title="Figure 2.3">Figure 2.3</a>, the one zombie overlaps two blue X hexes. We therefore see that on Round 1 there are two <em class="emphasis">New Infections</em>. We also compare Round 1 with Round 0. The two <em class="emphasis">New Infections</em> for Round 1 mean that the population of “Susceptibles” (that is, humans) drops by 2, from 49 to 47, while the population of “Infectious” (that is, zombies) rises by 2, from 1 to 3.)</div></article><article class="task exercise-like" id="task-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<div class="para" id="p-70">When you are ready, click <code class="code-inline tex2jax_ignore">next round</code> to see a new grid for Round 2. The table of data, and the graph, both update to include Round 2. Continue to click <code class="code-inline tex2jax_ignore">next round</code> at your own pace, thinking through the grid, table, and graph as each step proceeds. The game ends when there are either no humans left to infect, or no zombies left to keep infecting new humans.</div></article><article class="task exercise-like" id="task-6"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<div class="para" id="p-71">As an alternative to make the game more interactive, the app allows you to choose your own locations for humans and zombies. To choose your own locations, under <em class="emphasis">Mode</em>, check <em class="emphasis">Hotseat</em> instead of <em class="emphasis">Auto</em>. The app then prompts you to place all the Humans for one round of the simulation. After all Humans are placed, the app prompts you to place your Zombies. For each Zombie, you must place the head and the arms. When this is complete, the app shows both Humans and Zombies, to indicate how many new infections have occurred. To make this into a game, two people can play. One person places the Humans, <em class="emphasis">without their partner watching</em>. Then the partner places the Zombies, again <em class="emphasis">without their partner watching</em>. Then, together, the partners can see how many new infections there are, once the Human and Zombie grids are shown together. Is there any strategy that helps either the Humans or the Zombies?</div></article><article class="task exercise-like" id="task-7"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<div class="para" id="p-72">Try the game one or many times, on your own or with a partner. Copy several resulting data sets, as numbers and as images, so that you can look for patterns.</div></article></article></section><section class="section" id="sec-we-now-have-data-qualitative-musings"><h3 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">2.1</span> <span class="title">We Now Have Data: Qualitative Musings</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4<span class="period">.</span></span><span class="space"> </span>Table of sample data from Round 1 of a human–zombie simulation</figcaption></figure> <div class="para" id="expl-activity-zombie-game-5-1-4">If you began with 49 humans and 1 zombie, these will be the numbers listed for Round 0. The data for Round 1 are computed by looking at the hex grid: each human that overlaps with a zombie is a “New Infection” and moves from the <em class="emphasis"># Humans</em> category to the <em class="emphasis"># Zombies</em> category. This means that this number of individuals is subtracted from <em class="emphasis"># Humans</em> and added to <em class="emphasis"># Zombies</em>. Double check that your count of new infections matches the app’s count! In <a href="ch-zombies-can-math-help.html#fig-zombie-app-one-day" class="xref" data-knowl="./knowl/xref/fig-zombie-app-one-day.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.3">Figure 2.3</a>, the one zombie overlaps two blue X hexes. We therefore see that on Round 1 there are two <em class="emphasis">New Infections</em>. We also compare Round 1 with Round 0. The two <em class="emphasis">New Infections</em> for Round 1 mean that the population of “Susceptibles” (that is, humans) drops by 2, from 49 to 47, while the population of “Infectious” (that is, zombies) rises by 2, from 1 to 3.)</div></article><article class="task exercise-like" id="expl-activity-zombie-game-6"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="expl-activity-zombie-game-6-1-1">When you are ready, click <code class="code-inline tex2jax_ignore">next round</code> to see a new grid for Round 2. The table of data, and the graph, both update to include Round 2. Continue to click <code class="code-inline tex2jax_ignore">next round</code> at your own pace, thinking through the grid, table, and graph as each step proceeds. The game ends when there are either no humans left to infect, or no zombies left to keep infecting new humans.</div></article><article class="task exercise-like" id="expl-activity-zombie-game-7"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="expl-activity-zombie-game-7-1-1">As an alternative to make the game more interactive, the app allows you to choose your own locations for humans and zombies. To choose your own locations, under <em class="emphasis">Mode</em>, check <em class="emphasis">Hotseat</em> instead of <em class="emphasis">Auto</em>. The app then prompts you to place all the Humans for one round of the simulation. After all Humans are placed, the app prompts you to place your Zombies. For each Zombie, you must place the head and the arms. When this is complete, the app shows both Humans and Zombies, to indicate how many new infections have occurred. To make this into a game, two people can play. One person places the Humans, <em class="emphasis">without their partner watching</em>. Then the partner places the Zombies, again <em class="emphasis">without their partner watching</em>. Then, together, the partners can see how many new infections there are, once the Human and Zombie grids are shown together. Is there any strategy that helps either the Humans or the Zombies?</div></article><article class="task exercise-like" id="expl-activity-zombie-game-8"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="expl-activity-zombie-game-8-1-1">Try the game one or many times, on your own or with a partner. Copy several resulting data sets, as numbers and as images, so that you can look for patterns.</div></article></article></section><section class="section" id="sec-we-now-have-data-qualitative-musings"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.1</span><span class="space"> </span><span class="title">We Now Have Data: Qualitative Musings</span>
 </h3>
-<div class="para" id="p-73">You have now had the chance to generate one or many data sets. Take time to examine the data, both in the form of a table and in the form of a graph. Do this with multiple data sets: in a classroom setting, different student groups can share data.</div>
+<div class="para" id="sec-we-now-have-data-qualitative-musings-2">You have now had the chance to generate one or many data sets. Take time to examine the data, both in the form of a table and in the form of a graph. Do this with multiple data sets: in a classroom setting, different student groups can share data.</div>
 <article class="activity project-like" id="exer-begin-zombie-app"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-74">Think through the following questions. Spend time trying to answer these before you continue through this book.</div> <ol class="decimal">
-<li id="li-25"><div class="para" id="p-75">Upon viewing multiple sets of data from the <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-23" id="fn-23"><sup> 7 </sup></a>, what patterns do you observe?</div></li>
-<li id="li-26"><div class="para" id="p-76">Do you have any questions, or guesses, about what might happen in additional simulations in the app?</div></li>
-<li id="li-27"><div class="para" id="p-77">So far, we have mostly kept the default settings in the app, and played just one version of the hands-on game, but what if we changed the rules for human–zombie interaction? Do you suspect that the outcome(s) could then be different? If so, then in what ways do you think the outcome(s) might change?</div></li>
-</ol></article><div class="para" id="p-78">In this book, we work with mathematical models. As a first step toward building mathematical models, we should think through the underlying “rules” of our situation. We should also think through any outcomes of these rules. Must these rules always lead to similar outcomes? Could these same rules produce significantly different outcomes? Spending time on understanding our system is a crucial part of making sure our mathematical approaches make sense.</div>
-<article class="activity project-like" id="activity-3"><h4 class="heading">
+<div class="para" id="exer-begin-zombie-app-1-1">Think through the following questions. Spend time trying to answer these before you continue through this book.</div> <ol class="decimal">
+<li id="exer-begin-zombie-app-1-2-1"><div class="para" id="exer-begin-zombie-app-1-2-1-1">Upon viewing multiple sets of data from the <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a><details class="ptx-footnote" aria-live="polite" id="exer-begin-zombie-app-1-2-1-1-2"><summary class="ptx-footnote__number" title="Footnote 2.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="exer-begin-zombie-app-1-2-1-1-2"><code class="code-inline tex2jax_ignore">nelsong1997.github.io/zombie_game/</code></div></details>, what patterns do you observe?</div></li>
+<li id="exer-begin-zombie-app-1-2-2"><div class="para" id="exer-begin-zombie-app-1-2-2-1">Do you have any questions, or guesses, about what might happen in additional simulations in the app?</div></li>
+<li id="exer-begin-zombie-app-1-2-3"><div class="para" id="exer-begin-zombie-app-1-2-3-1">So far, we have mostly kept the default settings in the app, and played just one version of the hands-on game, but what if we changed the rules for human–zombie interaction? Do you suspect that the outcome(s) could then be different? If so, then in what ways do you think the outcome(s) might change?</div></li>
+</ol></article><div class="para" id="sec-we-now-have-data-qualitative-musings-4">In this book, we work with mathematical models. As a first step toward building mathematical models, we should think through the underlying “rules” of our situation. We should also think through any outcomes of these rules. Must these rules always lead to similar outcomes? Could these same rules produce significantly different outcomes? Spending time on understanding our system is a crucial part of making sure our mathematical approaches make sense.</div>
+<article class="activity project-like" id="sec-we-now-have-data-qualitative-musings-5"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-79">In <a href="" class="xref" data-knowl="./knowl/exer-begin-zombie-app.html" title="Activity 2.2">Activity 2.2</a>, some of the first patterns to notice may be about the shapes of the graphs of the Human and Zombie populations as time progresses forward from Day 0. Next, develop responses to the following questions, and explain your reasoning. (If you already thought about these as part of <a href="" class="xref" data-knowl="./knowl/exer-begin-zombie-app.html" title="Activity 2.2">Activity 2.2</a>, great work!)</div> <ol class="decimal">
-<li id="li-28"><div class="para" id="p-80">What can you say about whether the size of each population (Humans and Zombies) is rising or falling?</div></li>
-<li id="li-29"><div class="para" id="p-81">Can a single population first rise, and later fall (or first fall, and then rise)?</div></li>
-<li id="li-30"><div class="para" id="p-82">If we tried this simulation many times, in what ways could your results be similar, and in what ways could your results be different?</div></li>
-</ol></article><div class="para" id="p-83">There are many other things you may notice. To name just a few ideas: you may think about the speed with which each curve rises or falls. You may think about how much these speeds change when you try the game several times. You may relate a rise in one graph to a fall in the other, thinking about a sort of symmetry between the two graphs. You may think about when the rising or falling is relatively slow vs. relatively fast. These and many other observations are a valued and central part of working toward mathematical model building.</div></section><section class="section" id="sec-a-first-model"><h3 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">A First Model</span>
+<div class="para" id="sec-we-now-have-data-qualitative-musings-5-1-1">In <a href="ch-zombies-can-math-help.html#exer-begin-zombie-app" class="xref" data-knowl="./knowl/xref/exer-begin-zombie-app.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 2.2">Activity 2.2</a>, some of the first patterns to notice may be about the shapes of the graphs of the Human and Zombie populations as time progresses forward from Day 0. Next, develop responses to the following questions, and explain your reasoning. (If you already thought about these as part of <a href="ch-zombies-can-math-help.html#exer-begin-zombie-app" class="xref" data-knowl="./knowl/xref/exer-begin-zombie-app.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 2.2">Activity 2.2</a>, great work!)</div> <ol class="decimal">
+<li id="sec-we-now-have-data-qualitative-musings-5-1-2-1"><div class="para" id="sec-we-now-have-data-qualitative-musings-5-1-2-1-1">What can you say about whether the size of each population (Humans and Zombies) is rising or falling?</div></li>
+<li id="sec-we-now-have-data-qualitative-musings-5-1-2-2"><div class="para" id="sec-we-now-have-data-qualitative-musings-5-1-2-2-1">Can a single population first rise, and later fall (or first fall, and then rise)?</div></li>
+<li id="sec-we-now-have-data-qualitative-musings-5-1-2-3"><div class="para" id="sec-we-now-have-data-qualitative-musings-5-1-2-3-1">If we tried this simulation many times, in what ways could your results be similar, and in what ways could your results be different?</div></li>
+</ol></article><div class="para" id="sec-we-now-have-data-qualitative-musings-6">There are many other things you may notice. To name just a few ideas: you may think about the speed with which each curve rises or falls. You may think about how much these speeds change when you try the game several times. You may relate a rise in one graph to a fall in the other, thinking about a sort of symmetry between the two graphs. You may think about when the rising or falling is relatively slow vs. relatively fast. These and many other observations are a valued and central part of working toward mathematical model building.</div></section><section class="section" id="sec-a-first-model"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.2</span><span class="space"> </span><span class="title">A First Model</span>
 </h3>
-<div class="para" id="p-84">After completing a simulation, you have data for the numbers of humans and zombies during each day of the outbreak. These data can be presented as a table of values, and they can be presented as a graph. In the app, the table format for data appears as in <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-table.html" title="Figure 2.5">Figure 2.5</a>, and the graph format for data appears as in <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-graph.html" title="Figure 2.6">Figure 2.6</a>.</div>
+<div class="para" id="sec-a-first-model-2">After completing a simulation, you have data for the numbers of humans and zombies during each day of the outbreak. These data can be presented as a table of values, and they can be presented as a graph. In the app, the table format for data appears as in <a href="ch-zombies-can-math-help.html#fig-human-zombie-data-table" class="xref" data-knowl="./knowl/xref/fig-human-zombie-data-table.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.5">Figure 2.5</a>, and the graph format for data appears as in <a href="ch-zombies-can-math-help.html#fig-human-zombie-data-graph" class="xref" data-knowl="./knowl/xref/fig-human-zombie-data-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6">Figure 2.6</a>.</div>
 <figure class="figure figure-like" id="fig-human-zombie-data-table"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/SampleHumanZombieData.png" class="contained" alt="Sample data for a full simulation from the Zombie Game App, viewed as a table"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5<span class="period">.</span></span><span class="space"> </span>Table of sample data from a human–zombie simulation</figcaption></figure><figure class="figure figure-like" id="fig-human-zombie-data-graph"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/SampleHumanZombieGraph.png" class="contained" alt="Sample data for a full simulation from the Zombie Game App, viewed as a graph"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6<span class="period">.</span></span><span class="space"> </span>Graph of sample data from a human–zombie simulation</figcaption></figure><div class="para" id="p-85">As we build a model, we focus on the relatively slow changes in population sizes that happen near the beginning and end of the model. This may not happen in every simulation: for instance, sometimes zombies happen to infect a lot of humans in the last time step. However, in other simulations, one lone human may last for many days before being infected. We focus on what happens <em class="emphasis">on average</em>. For this model, on average, the pace of infection seems slower near the beginning and near the end of the outbreak.</div>
-<article class="activity project-like" id="activity-4"><h4 class="heading">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6<span class="period">.</span></span><span class="space"> </span>Graph of sample data from a human–zombie simulation</figcaption></figure><div class="para" id="sec-a-first-model-5">As we build a model, we focus on the relatively slow changes in population sizes that happen near the beginning and end of the model. This may not happen in every simulation: for instance, sometimes zombies happen to infect a lot of humans in the last time step. However, in other simulations, one lone human may last for many days before being infected. We focus on what happens <em class="emphasis">on average</em>. For this model, on average, the pace of infection seems slower near the beginning and near the end of the outbreak.</div>
+<article class="activity project-like" id="sec-a-first-model-6"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-86">One observation is that the pace of infection is slower when there are relatively few humans, or when there are relatively few zombies.</div> <ol class="decimal">
-<li id="li-31"><div class="para" id="p-87">Can you see why it makes sense that infection tends to spread less quickly when there are fewer individuals in one of the populations?</div></li>
-<li id="li-32"><div class="para" id="p-88">Conversely, why does it make sense for infection to spread relatively rapidly when there are relatively large numbers of both humans and zombies?</div></li>
-<li id="li-33"><div class="para" id="p-89">To take the discussion about pace of infection to a logical extreme: how fast can infection spread when there are zero humans, or when there are zero zombies?</div></li>
-</ol></article><div class="para" id="p-90">Putting this all together, we can say that, on average, the change in the number of infections seems to depend on both the number of humans (Susceptibles) and the number of zombies (Infectious). One mathematical approach to writing this is to say that new cases per day are proportional to the number of Susceptibles multiplied by the number of Infectious. We can write this as follows:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-human-zombie-data-table.html ./knowl/fig-human-zombie-data-graph.html ./knowl/eq-proportionality.html ./knowl/ch-visualization-graphing-model-results-and-data.html ./knowl/fig-first-si-graph.html ./knowl/fig-human-zombie-data-graph.html ./knowl/fig-first-si-graph.html ./knowl/eq-S-in-SImodel.html ./knowl/eq-I-in-SImodel.html ./knowl/fig-first-si-graph.html ./knowl/fig-human-zombie-data-graph.html ./knowl/eq-S-in-SImodel.html ./knowl/eq-I-in-SImodel.html ./knowl/fig-first-si-graph.html ./knowl/fig-first-si-graph.html ./knowl/fig-human-zombie-data-graph.html ./knowl/fig-first-si-graph.html ./knowl/fig-human-zombie-data-graph.html ./knowl/fig-first-si-graph.html" id="mdn-1">
+<div class="para" id="sec-a-first-model-6-1-1">One observation is that the pace of infection is slower when there are relatively few humans, or when there are relatively few zombies.</div> <ol class="decimal">
+<li id="sec-a-first-model-6-1-2-1"><div class="para" id="sec-a-first-model-6-1-2-1-1">Can you see why it makes sense that infection tends to spread less quickly when there are fewer individuals in one of the populations?</div></li>
+<li id="sec-a-first-model-6-1-2-2"><div class="para" id="sec-a-first-model-6-1-2-2-1">Conversely, why does it make sense for infection to spread relatively rapidly when there are relatively large numbers of both humans and zombies?</div></li>
+<li id="sec-a-first-model-6-1-2-3"><div class="para" id="sec-a-first-model-6-1-2-3-1">To take the discussion about pace of infection to a logical extreme: how fast can infection spread when there are zero humans, or when there are zero zombies?</div></li>
+</ol></article><div class="para" id="sec-a-first-model-7">Putting this all together, we can say that, on average, the change in the number of infections seems to depend on both the number of humans (Susceptibles) and the number of zombies (Infectious). One mathematical approach to writing this is to say that new cases per day are proportional to the number of Susceptibles multiplied by the number of Infectious. We can write this as follows:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-human-zombie-data-table.html ./knowl/xref/fig-human-zombie-data-graph.html ./knowl/xref/eq-proportionality.html ./knowl/xref/ch-visualization-graphing-model-results-and-data.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/fig-human-zombie-data-graph.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/eq-S-in-SImodel.html ./knowl/xref/eq-I-in-SImodel.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/fig-human-zombie-data-graph.html ./knowl/xref/eq-S-in-SImodel.html ./knowl/xref/eq-I-in-SImodel.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/fig-human-zombie-data-graph.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/fig-human-zombie-data-graph.html ./knowl/xref/fig-first-si-graph.html" id="sec-a-first-model-8">
 \begin{align}
 ( \# \mbox{ New Infections}) \amp \propto (\# \mbox{ Susceptibles}) \cdot (\# \mbox{ Infectious}) \tag{2.1}
 \end{align}
 </div>
-<div class="para" id="p-91">To turn this into a mathematical formula, we will use a <em class="emphasis">system of ordinary differential equations</em>. This is a good time to mention: to read and learn from this text, there is no need to have taken a course on differential equations. To write and work with the models we use, it is sufficient to know these ideas from calculus:</div>
+<div class="para" id="sec-a-first-model-9">To turn this into a mathematical formula, we will use a <em class="emphasis">system of ordinary differential equations</em>. This is a good time to mention: to read and learn from this text, there is no need to have taken a course on differential equations. To write and work with the models we use, it is sufficient to know these ideas from calculus:</div>
 <ul class="disc">
-<li id="li-34"><div class="para" id="p-92">derivatives represent change;</div></li>
-<li id="li-35"><div class="para" id="p-93">an increasing graph has a positive slope and a derivative greater than zero;</div></li>
-<li id="li-36"><div class="para" id="p-94">a decreasing graph has a negative slope and a derivative less than zero; and</div></li>
-<li id="li-37"><div class="para" id="p-95">a horizontal graph (one in which the output value is not changing) has a slope of zero and a derivative equal to zero.</div></li>
+<li id="sec-a-first-model-10-1"><div class="para" id="sec-a-first-model-10-1-1">derivatives represent change;</div></li>
+<li id="sec-a-first-model-10-2"><div class="para" id="sec-a-first-model-10-2-1">an increasing graph has a positive slope and a derivative greater than zero;</div></li>
+<li id="sec-a-first-model-10-3"><div class="para" id="sec-a-first-model-10-3-1">a decreasing graph has a negative slope and a derivative less than zero; and</div></li>
+<li id="sec-a-first-model-10-4"><div class="para" id="sec-a-first-model-10-4-1">a horizontal graph (one in which the output value is not changing) has a slope of zero and a derivative equal to zero.</div></li>
 </ul>
-<div class="para" id="p-96">One other helpful piece of information is the fact that a differential equation is just an equation containing a derivative. Many of the equations in calculus contain a derivative. A quick example is <span class="process-math">\(f'(x)=3x+2\text{,}\)</span> which contains the derivative <span class="process-math">\(f'(x)\text{.}\)</span> This means that if you have studied calculus, then you have already built significant experience using differential equations.</div>
-<div class="para" id="p-97">With these calculus ideas in mind, we return to our model. We will write two equations, one to represent the change in the Susceptible population and one to represent the change in the Infectious population. When we say “change”, we mean the change that happens on average if we were to run the simulation many times. Our independent variable is time, which we label <span class="process-math">\(t\text{.}\)</span> You may have noticed that time is the variable on the horizontal axis: this axis is labeled “Round” in the app, and it represents time in the form of days. For our dependent variables, we choose letters that correspond to the names of each population. This makes the dependent variable meanings easier to remember, and for many people, it makes the differential equations easier to interpret. Therefore let <span class="process-math">\(S = S(t)\)</span> represent the Susceptible population and <span class="process-math">\(I = I(t)\)</span> represent the Infectious population. Since our populations are represented by the letters <span class="process-math">\(S\)</span> and <span class="process-math">\(I\text{,}\)</span> we call this model an <dfn class="terminology">SI model</dfn>. We say the names of each of the first two letters when saying “SI model” aloud, that is, we say “S” “I” “model”.</div>
-<div class="para" id="p-98">You may have noticed that our data show us not just total numbers of <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> at each time step, but also show how <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> change over time. The number of New Infections tells us precisely how many people change, on each day, from the <span class="process-math">\(S(t)\)</span> population to the <span class="process-math">\(I(t)\)</span> population. We now connect <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and the number of New Infections using differential equations and the proportionality relationship from <a href="" class="xref" data-knowl="./knowl/eq-proportionality.html" title="Equation 2.1">(2.1)</a>:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-human-zombie-data-table.html ./knowl/fig-human-zombie-data-graph.html ./knowl/eq-proportionality.html ./knowl/ch-visualization-graphing-model-results-and-data.html ./knowl/fig-first-si-graph.html ./knowl/fig-human-zombie-data-graph.html ./knowl/fig-first-si-graph.html ./knowl/eq-S-in-SImodel.html ./knowl/eq-I-in-SImodel.html ./knowl/fig-first-si-graph.html ./knowl/fig-human-zombie-data-graph.html ./knowl/eq-S-in-SImodel.html ./knowl/eq-I-in-SImodel.html ./knowl/fig-first-si-graph.html ./knowl/fig-first-si-graph.html ./knowl/fig-human-zombie-data-graph.html ./knowl/fig-first-si-graph.html ./knowl/fig-human-zombie-data-graph.html ./knowl/fig-first-si-graph.html" id="mdn-2">
+<div class="para" id="sec-a-first-model-11">One other helpful piece of information is the fact that a differential equation is just an equation containing a derivative. Many of the equations in calculus contain a derivative. A quick example is <span class="process-math">\(f'(x)=3x+2\text{,}\)</span> which contains the derivative <span class="process-math">\(f'(x)\text{.}\)</span> This means that if you have studied calculus, then you have already built significant experience using differential equations.</div>
+<div class="para" id="sec-a-first-model-12">With these calculus ideas in mind, we return to our model. We will write two equations, one to represent the change in the Susceptible population and one to represent the change in the Infectious population. When we say “change”, we mean the change that happens on average if we were to run the simulation many times. Our independent variable is time, which we label <span class="process-math">\(t\text{.}\)</span> You may have noticed that time is the variable on the horizontal axis: this axis is labeled “Round” in the app, and it represents time in the form of days. For our dependent variables, we choose letters that correspond to the names of each population. This makes the dependent variable meanings easier to remember, and for many people, it makes the differential equations easier to interpret. Therefore let <span class="process-math">\(S = S(t)\)</span> represent the Susceptible population and <span class="process-math">\(I = I(t)\)</span> represent the Infectious population. Since our populations are represented by the letters <span class="process-math">\(S\)</span> and <span class="process-math">\(I\text{,}\)</span> we call this model an <dfn class="terminology">SI model</dfn>. We say the names of each of the first two letters when saying “SI model” aloud, that is, we say “S” “I” “model”.</div>
+<div class="para" id="sec-a-first-model-13">You may have noticed that our data show us not just total numbers of <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> at each time step, but also show how <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> change over time. The number of New Infections tells us precisely how many people change, on each day, from the <span class="process-math">\(S(t)\)</span> population to the <span class="process-math">\(I(t)\)</span> population. We now connect <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and the number of New Infections using differential equations and the proportionality relationship from <a href="ch-zombies-can-math-help.html#sec-a-first-model-8" class="xref" data-knowl="./knowl/xref/eq-proportionality.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.1">(2.1)</a>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-human-zombie-data-table.html ./knowl/xref/fig-human-zombie-data-graph.html ./knowl/xref/eq-proportionality.html ./knowl/xref/ch-visualization-graphing-model-results-and-data.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/fig-human-zombie-data-graph.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/eq-S-in-SImodel.html ./knowl/xref/eq-I-in-SImodel.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/fig-human-zombie-data-graph.html ./knowl/xref/eq-S-in-SImodel.html ./knowl/xref/eq-I-in-SImodel.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/fig-human-zombie-data-graph.html ./knowl/xref/fig-first-si-graph.html ./knowl/xref/fig-human-zombie-data-graph.html ./knowl/xref/fig-first-si-graph.html" id="sec-a-first-model-14">
 \begin{align}
 \frac{dS}{dt} \amp = -\beta S I \tag{2.2}\\
 \frac{dI}{dt} \amp = \beta S I \tag{2.3}
 \end{align}
 </div>
-<div class="para" id="p-99">There is a lot of calculus happening in these SI model equations! Here are some of the key ideas to notice.</div>
+<div class="para" id="sec-a-first-model-15">There is a lot of calculus happening in these SI model equations! Here are some of the key ideas to notice.</div>
 <ul class="disc">
-<li id="li-38"><div class="para" id="p-100">The derivative term <span class="process-math">\(dS/dt\)</span> represents the change, across time, in population <span class="process-math">\(S(t)\text{.}\)</span>
+<li id="sec-a-first-model-16-1"><div class="para" id="sec-a-first-model-16-1-1">The derivative term <span class="process-math">\(dS/dt\)</span> represents the change, across time, in population <span class="process-math">\(S(t)\text{.}\)</span>
 </div></li>
-<li id="li-39"><div class="para" id="p-101">Similarly, the derivative <span class="process-math">\(dI/dt\)</span> represents the change, across time, in population <span class="process-math">\(I(t)\text{.}\)</span>
+<li id="sec-a-first-model-16-2"><div class="para" id="sec-a-first-model-16-2-1">Similarly, the derivative <span class="process-math">\(dI/dt\)</span> represents the change, across time, in population <span class="process-math">\(I(t)\text{.}\)</span>
 </div></li>
-<li id="li-40"><div class="para" id="p-102">In this model, individuals leaving <span class="process-math">\(S(t)\)</span> go immediately into <span class="process-math">\(I(t)\text{,}\)</span> which is why the same term <span class="process-math">\(\beta S I\)</span> appears on the right-hand side of both equations.</div></li>
-<li id="li-41"><div class="para" id="p-103">Individuals can only leave <span class="process-math">\(S(t)\text{,}\)</span> so <span class="process-math">\(S(t)\)</span> decreases, and <span class="process-math">\(dS/dt\)</span> is negative. We actually see the negative sign (<span class="process-math">\(-\)</span>) written into the differential equation.</div></li>
-<li id="li-42"><div class="para" id="p-104">Individuals can only enter <span class="process-math">\(I(t)\text{,}\)</span> so <span class="process-math">\(I(t)\)</span> increases, and <span class="process-math">\(dI/dt\)</span> is positive. We do not explicitly write a positive sign (<span class="process-math">\(+\)</span>), but we note that there is no negative sign (<span class="process-math">\(-\)</span>).</div></li>
-<li id="li-43"><div class="para" id="p-105">The values of <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> should never be negative. They should be either positive or zero. This makes sense because they represent populations of individuals. This must also be true mathematically, in order for the model to make sense.</div></li>
-<li id="li-44"><div class="para" id="p-106">We represent the idea of proportionality by using the parameter <span class="process-math">\(\beta\text{.}\)</span> We will experiment in <a href="ch-visualization-graphing-model-results-and-data.html" class="internal" title="Chapter 3: Visualization: Graphing Model Results and Data">Chapter 3</a> with different values of <span class="process-math">\(\beta\)</span> to see how changing <span class="process-math">\(\beta\)</span> affects the outcomes of the model.</div></li>
-<li id="li-45"><div class="para" id="p-107">The value of <span class="process-math">\(\beta\)</span> must be positive. This observation is consistent with us directly seeing the negative sign (<span class="process-math">\(-\)</span>) when a term is negative, and not seeing the negative sign when a term is positive. (With this observation, it could be possible for <span class="process-math">\(\beta\)</span> to be 0, but if there is any outbreak and any interaction of <span class="process-math">\(S(t)\)</span> with <span class="process-math">\(I(t)\text{,}\)</span> then <span class="process-math">\(\beta\)</span> will not be 0.)</div></li>
+<li id="sec-a-first-model-16-3"><div class="para" id="sec-a-first-model-16-3-1">In this model, individuals leaving <span class="process-math">\(S(t)\)</span> go immediately into <span class="process-math">\(I(t)\text{,}\)</span> which is why the same term <span class="process-math">\(\beta S I\)</span> appears on the right-hand side of both equations.</div></li>
+<li id="sec-a-first-model-16-4"><div class="para" id="sec-a-first-model-16-4-1">Individuals can only leave <span class="process-math">\(S(t)\text{,}\)</span> so <span class="process-math">\(S(t)\)</span> decreases, and <span class="process-math">\(dS/dt\)</span> is negative. We actually see the negative sign (<span class="process-math">\(-\)</span>) written into the differential equation.</div></li>
+<li id="sec-a-first-model-16-5"><div class="para" id="sec-a-first-model-16-5-1">Individuals can only enter <span class="process-math">\(I(t)\text{,}\)</span> so <span class="process-math">\(I(t)\)</span> increases, and <span class="process-math">\(dI/dt\)</span> is positive. We do not explicitly write a positive sign (<span class="process-math">\(+\)</span>), but we note that there is no negative sign (<span class="process-math">\(-\)</span>).</div></li>
+<li id="sec-a-first-model-16-6"><div class="para" id="sec-a-first-model-16-6-1">The values of <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> should never be negative. They should be either positive or zero. This makes sense because they represent populations of individuals. This must also be true mathematically, in order for the model to make sense.</div></li>
+<li id="sec-a-first-model-16-7"><div class="para" id="sec-a-first-model-16-7-1">We represent the idea of proportionality by using the parameter <span class="process-math">\(\beta\text{.}\)</span> We will experiment in <a href="ch-visualization-graphing-model-results-and-data.html" class="internal" title="Chapter 3: Visualization: Graphing Model Results and Data">Chapter 3</a> with different values of <span class="process-math">\(\beta\)</span> to see how changing <span class="process-math">\(\beta\)</span> affects the outcomes of the model.</div></li>
+<li id="sec-a-first-model-16-8"><div class="para" id="sec-a-first-model-16-8-1">The value of <span class="process-math">\(\beta\)</span> must be positive. This observation is consistent with us directly seeing the negative sign (<span class="process-math">\(-\)</span>) when a term is negative, and not seeing the negative sign when a term is positive. (With this observation, it could be possible for <span class="process-math">\(\beta\)</span> to be 0, but if there is any outbreak and any interaction of <span class="process-math">\(S(t)\)</span> with <span class="process-math">\(I(t)\text{,}\)</span> then <span class="process-math">\(\beta\)</span> will not be 0.)</div></li>
 </ul>
-<div class="para" id="p-108">This model uses differential equations, which think of time as continuous, using every real value for <span class="process-math">\(t\)</span> starting at <span class="process-math">\(t=0\text{.}\)</span> By contrast, when we collect data from the zombie game, time is <dfn class="terminology">discrete</dfn>, meaning that time steps forward through values such as “Day 0”, “Day 1”, “Day 2”, and so on. In this course, we mainly use differential equation models, meaning time is thought of as <dfn class="terminology">continuous</dfn>. Continuous time may match well with our intuitive sense of how time works: time does not stop and start. However, the data we collect about disease spread will often be discrete, on time scales such as days or weeks. We will include this knowledge in our work with models.</div>
-<article class="activity project-like" id="activity-5"><h4 class="heading">
+<div class="para" id="sec-a-first-model-17">This model uses differential equations, which think of time as continuous, using every real value for <span class="process-math">\(t\)</span> starting at <span class="process-math">\(t=0\text{.}\)</span> By contrast, when we collect data from the zombie game, time is <dfn class="terminology">discrete</dfn>, meaning that time steps forward through values such as “Day 0”, “Day 1”, “Day 2”, and so on. In this course, we mainly use differential equation models, meaning time is thought of as <dfn class="terminology">continuous</dfn>. Continuous time may match well with our intuitive sense of how time works: time does not stop and start. However, the data we collect about disease spread will often be discrete, on time scales such as days or weeks. We will include this knowledge in our work with models.</div>
+<article class="activity project-like" id="sec-a-first-model-18"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.5</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-109">
-<a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a> shows one possible graph of the SI model, with <span class="process-math">\(\beta\)</span> selected so that the graphs in <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-graph.html" title="Figure 2.6">Figure 2.6</a> and <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a> are fairly similar. Compare these two graphs, thinking through the questions below.</div> <figure class="figure figure-like" id="fig-first-si-graph"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/First_SI_Graph.png" class="contained" alt="Sample SI graph, showing Susceptibles starting at 49 and dropping toward 0, and Infectious starting at 1 and rising toward 50"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.7<span class="period">.</span></span><span class="space"> </span>A sample graph of the SI model, drawn using Equations <a href="" class="xref" data-knowl="./knowl/eq-S-in-SImodel.html" title="Equation 2.2">(2.2)</a> and <a href="" class="xref" data-knowl="./knowl/eq-I-in-SImodel.html" title="Equation 2.3">(2.3)</a>.</figcaption></figure> <ol class="decimal">
-<li id="li-46"><div class="para" id="p-110">The curves in <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a> are smooth, whereas the graphs shown in <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-graph.html" title="Figure 2.6">Figure 2.6</a> are less so. Why is this?</div></li>
-<li id="li-47"><div class="para" id="p-111">The SI model, as described in Equations <a href="" class="xref" data-knowl="./knowl/eq-S-in-SImodel.html" title="Equation 2.2">(2.2)</a> and <a href="" class="xref" data-knowl="./knowl/eq-I-in-SImodel.html" title="Equation 2.3">(2.3)</a>, provides formulas for <span class="process-math">\(dS/dt\)</span> and <span class="process-math">\(dI/dt\text{.}\)</span> Yet the graph in <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a> shows solution curves for Susceptibles and Infectious, that is, <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\text{.}\)</span> Describe how the formulas for <span class="process-math">\(dS/dt\)</span> and <span class="process-math">\(dI/dt\)</span> in the SI model correspond to the solution curves <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> shown in <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a>.</div></li>
-<li id="li-48"><div class="para" id="p-112">Throughout the human-zombie simulation, there are exactly 50 people at all times. Explain how this feature of the simulation appears in both <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-graph.html" title="Figure 2.6">Figure 2.6</a> and <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a>.</div></li>
-<li id="li-49"><div class="para" id="p-113">Continue to comment on comparisons, similarities, and differences between <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-graph.html" title="Figure 2.6">Figure 2.6</a> and <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a>. There are no specific “right answers” here: this is open-ended exploration, building intuition and understanding for the interactions among data, graphs, and a differential equations model.</div></li>
+<div class="para" id="sec-a-first-model-18-1-1">
+<a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a> shows one possible graph of the SI model, with <span class="process-math">\(\beta\)</span> selected so that the graphs in <a href="ch-zombies-can-math-help.html#fig-human-zombie-data-graph" class="xref" data-knowl="./knowl/xref/fig-human-zombie-data-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6">Figure 2.6</a> and <a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a> are fairly similar. Compare these two graphs, thinking through the questions below.</div> <figure class="figure figure-like" id="fig-first-si-graph"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/First_SI_Graph.png" class="contained" alt="Sample SI graph, showing Susceptibles starting at 49 and dropping toward 0, and Infectious starting at 1 and rising toward 50"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.7<span class="period">.</span></span><span class="space"> </span>A sample graph of the SI model, drawn using Equations <a href="ch-zombies-can-math-help.html#sec-a-first-model-14" class="xref" data-knowl="./knowl/xref/eq-S-in-SImodel.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.2">(2.2)</a> and <a href="ch-zombies-can-math-help.html#sec-a-first-model-14" class="xref" data-knowl="./knowl/xref/eq-I-in-SImodel.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>.</figcaption></figure> <ol class="decimal">
+<li id="sec-a-first-model-18-1-3-1"><div class="para" id="sec-a-first-model-18-1-3-1-1">The curves in <a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a> are smooth, whereas the graphs shown in <a href="ch-zombies-can-math-help.html#fig-human-zombie-data-graph" class="xref" data-knowl="./knowl/xref/fig-human-zombie-data-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6">Figure 2.6</a> are less so. Why is this?</div></li>
+<li id="sec-a-first-model-18-1-3-2"><div class="para" id="sec-a-first-model-18-1-3-2-1">The SI model, as described in Equations <a href="ch-zombies-can-math-help.html#sec-a-first-model-14" class="xref" data-knowl="./knowl/xref/eq-S-in-SImodel.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.2">(2.2)</a> and <a href="ch-zombies-can-math-help.html#sec-a-first-model-14" class="xref" data-knowl="./knowl/xref/eq-I-in-SImodel.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a>, provides formulas for <span class="process-math">\(dS/dt\)</span> and <span class="process-math">\(dI/dt\text{.}\)</span> Yet the graph in <a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a> shows solution curves for Susceptibles and Infectious, that is, <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\text{.}\)</span> Describe how the formulas for <span class="process-math">\(dS/dt\)</span> and <span class="process-math">\(dI/dt\)</span> in the SI model correspond to the solution curves <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> shown in <a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a>.</div></li>
+<li id="sec-a-first-model-18-1-3-3"><div class="para" id="sec-a-first-model-18-1-3-3-1">Throughout the human-zombie simulation, there are exactly 50 people at all times. Explain how this feature of the simulation appears in both <a href="ch-zombies-can-math-help.html#fig-human-zombie-data-graph" class="xref" data-knowl="./knowl/xref/fig-human-zombie-data-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6">Figure 2.6</a> and <a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a>.</div></li>
+<li id="sec-a-first-model-18-1-3-4"><div class="para" id="sec-a-first-model-18-1-3-4-1">Continue to comment on comparisons, similarities, and differences between <a href="ch-zombies-can-math-help.html#fig-human-zombie-data-graph" class="xref" data-knowl="./knowl/xref/fig-human-zombie-data-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6">Figure 2.6</a> and <a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a>. There are no specific “right answers” here: this is open-ended exploration, building intuition and understanding for the interactions among data, graphs, and a differential equations model.</div></li>
 </ol></article></section><section class="exercises" id="exercises-ch-zombies-can-math-help"><h3 class="heading hide-type">
-<span class="type">For Further Thought</span> <span class="codenumber">2.3</span> <span class="title">For Further Thought</span>
+<span class="type">For Further Thought</span><span class="space"> </span><span class="codenumber">2.3</span><span class="space"> </span><span class="title">For Further Thought</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-4"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="p-114">Vary the zombie simulation so that zombies have only one arm. In this case, the app represents each zombie by two connected dots, rather than three connected dots. We can change the “# of Zombie Arms” in the app from 2 to 1. Complete one or more simulations with this change. Collect and graph the simulation data. How do your results compare with the results from simulations in which zombies have two arms? Write about your results. Include graphs and tables of data, in the style of <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-graph.html" title="Figure 2.6">Figure 2.6</a> and <a href="" class="xref" data-knowl="./knowl/fig-human-zombie-data-table.html" title="Figure 2.5">Figure 2.5</a>, as part of your comparison.</div></article><article class="exercise exercise-like" id="exercise-5"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para" id="p-115">What other variations can you imagine creating in this game? Describe how the game changes, and connect each game change with what it would mean in the “real-world” scenario of a zombie outbreak.</div>
+<article class="exercise exercise-like" id="exercises-ch-zombies-can-math-help-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-zombies-can-math-help-1-1">Vary the zombie simulation so that zombies have only one arm. In this case, the app represents each zombie by two connected dots, rather than three connected dots. We can change the “# of Zombie Arms” in the app from 2 to 1. Complete one or more simulations with this change. Collect and graph the simulation data. How do your results compare with the results from simulations in which zombies have two arms? Write about your results. Include graphs and tables of data, in the style of <a href="ch-zombies-can-math-help.html#fig-human-zombie-data-graph" class="xref" data-knowl="./knowl/xref/fig-human-zombie-data-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.6">Figure 2.6</a> and <a href="ch-zombies-can-math-help.html#fig-human-zombie-data-table" class="xref" data-knowl="./knowl/xref/fig-human-zombie-data-table.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.5">Figure 2.5</a>, as part of your comparison.</div></article><article class="exercise exercise-like" id="exercises-ch-zombies-can-math-help-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-zombies-can-math-help-2-1">What other variations can you imagine creating in this game? Describe how the game changes, and connect each game change with what it would mean in the “real-world” scenario of a zombie outbreak.</div>
 <ol class="lower-alpha">
-<li id="li-50"><div class="para" id="p-116">How might your mathematical model change in order to match this change in the game? In other words, how might your differential equations change?</div></li>
-<li id="li-51"><div class="para" id="p-117">How might long-term outcomes for humans and zombies change, if at all?</div></li>
+<li id="exercises-ch-zombies-can-math-help-2-2-1"><div class="para" id="exercises-ch-zombies-can-math-help-2-2-1-1">How might your mathematical model change in order to match this change in the game? In other words, how might your differential equations change?</div></li>
+<li id="exercises-ch-zombies-can-math-help-2-2-2"><div class="para" id="exercises-ch-zombies-can-math-help-2-2-2-1">How might long-term outcomes for humans and zombies change, if at all?</div></li>
 </ol>
-<div class="para" id="p-118">Support your thoughts, to the best of your abilities, using the data and graphs you generate from simulating your changes to the game.</div></article><article class="exercise exercise-like" id="exercise-6"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para" id="p-119">Spend more time examining and thinking about the graph of the SI model, as shown in <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a>.</div>
+<div class="para" id="exercises-ch-zombies-can-math-help-2-3">Support your thoughts, to the best of your abilities, using the data and graphs you generate from simulating your changes to the game.</div></article><article class="exercise exercise-like" id="exercises-ch-zombies-can-math-help-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-zombies-can-math-help-3-1">Spend more time examining and thinking about the graph of the SI model, as shown in <a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a>.</div>
 <ol class="lower-alpha">
-<li id="li-52"><div class="para" id="p-120">Since <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(S\text{,}\)</span> and <span class="process-math">\(I\)</span> cannot be negative, we recognize that <span class="process-math">\(-\beta S I\)</span> must be either negative or equal to zero. Explain what these observations indicate about the Susceptibles graph in <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a>, using Equation <a href="" class="xref" data-knowl="./knowl/eq-S-in-SImodel.html" title="Equation 2.2">(2.2)</a> as part of your explanation.</div></li>
-<li id="li-53"><div class="para" id="p-121">Since <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(S\text{,}\)</span> and <span class="process-math">\(I\)</span> cannot be negative, we recognize that <span class="process-math">\(\beta S I\)</span> must be either positive or equal to zero. Explain what these observations indicate about the Infectious graph in <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a>, using Equation <a href="" class="xref" data-knowl="./knowl/eq-I-in-SImodel.html" title="Equation 2.3">(2.3)</a> as part of your explanation.</div></li>
-<li id="li-54"><div class="para" id="p-122">In <a href="ch-visualization-graphing-model-results-and-data.html" class="internal" title="Chapter 3: Visualization: Graphing Model Results and Data">Chapter 3</a> we will vary the value of <span class="process-math">\(\beta\)</span> in the SI model. Try to predict some of the ways in which changing <span class="process-math">\(\beta\)</span> will change the outcome of the SI model. How will the solution curves in <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a> change as <span class="process-math">\(\beta\)</span> increases? How will the solution curves in <a href="" class="xref" data-knowl="./knowl/fig-first-si-graph.html" title="Figure 2.7">Figure 2.7</a> change as <span class="process-math">\(\beta\)</span> decreases? (Though the value of <span class="process-math">\(\beta\)</span> changes, your discussion should keep <span class="process-math">\(\beta &gt; 0\text{.}\)</span>)</div></li>
-</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-17"><div class="fn">Jim Powell and Matt Lewis, “Disease Lab” (2016). <em class="emphasis">Laboratory Experiences in Mathematical Biology</em>. 1. <a class="external" href="https://digitalcommons.usu.edu/lemb/1" target="_blank">https://digitalcommons.usu.edu/lemb/1</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-18" id="fn-18"><sup> 2 </sup></a>
-</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-18"><div class="fn"><code class="code-inline tex2jax_ignore">digitalcommons.usu.edu/lemb/1</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-19"><div class="fn"><code class="code-inline tex2jax_ignore">digitalcommons.usu.edu/lemb/1</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-20"><div class="fn"><code class="code-inline tex2jax_ignore">nelsong1997.github.io/zombie_game/</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-21"><div class="fn">This app was created by Gabe Nelson, Bates College Class of 2020, after campus closed due to COVID-19.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-22"><div class="fn"><code class="code-inline tex2jax_ignore">nelsong1997.github.io/zombie_game/</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-23"><div class="fn"><code class="code-inline tex2jax_ignore">nelsong1997.github.io/zombie_game/</code></div></div>
-</div>
+<li id="exercises-ch-zombies-can-math-help-3-2-1"><div class="para" id="exercises-ch-zombies-can-math-help-3-2-1-1">Since <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(S\text{,}\)</span> and <span class="process-math">\(I\)</span> cannot be negative, we recognize that <span class="process-math">\(-\beta S I\)</span> must be either negative or equal to zero. Explain what these observations indicate about the Susceptibles graph in <a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a>, using Equation <a href="ch-zombies-can-math-help.html#sec-a-first-model-14" class="xref" data-knowl="./knowl/xref/eq-S-in-SImodel.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.2">(2.2)</a> as part of your explanation.</div></li>
+<li id="exercises-ch-zombies-can-math-help-3-2-2"><div class="para" id="exercises-ch-zombies-can-math-help-3-2-2-1">Since <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(S\text{,}\)</span> and <span class="process-math">\(I\)</span> cannot be negative, we recognize that <span class="process-math">\(\beta S I\)</span> must be either positive or equal to zero. Explain what these observations indicate about the Infectious graph in <a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a>, using Equation <a href="ch-zombies-can-math-help.html#sec-a-first-model-14" class="xref" data-knowl="./knowl/xref/eq-I-in-SImodel.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 2.3">(2.3)</a> as part of your explanation.</div></li>
+<li id="exercises-ch-zombies-can-math-help-3-2-3"><div class="para" id="exercises-ch-zombies-can-math-help-3-2-3-1">In <a href="ch-visualization-graphing-model-results-and-data.html" class="internal" title="Chapter 3: Visualization: Graphing Model Results and Data">Chapter 3</a> we will vary the value of <span class="process-math">\(\beta\)</span> in the SI model. Try to predict some of the ways in which changing <span class="process-math">\(\beta\)</span> will change the outcome of the SI model. How will the solution curves in <a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a> change as <span class="process-math">\(\beta\)</span> increases? How will the solution curves in <a href="ch-zombies-can-math-help.html#fig-first-si-graph" class="xref" data-knowl="./knowl/xref/fig-first-si-graph.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 2.7">Figure 2.7</a> change as <span class="process-math">\(\beta\)</span> decreases? (Though the value of <span class="process-math">\(\beta\)</span> changes, your discussion should keep <span class="process-math">\(\beta &gt; 0\text{.}\)</span>)</div></li>
+</ol></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="ch-prelude-diseases-in-popular-news.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-visualization-graphing-model-results-and-data.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+<a class="previous-button button" href="ch-prelude-diseases-in-popular-news.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-visualization-graphing-model-results-and-data.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
-<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
 </div>
 </body>
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.3</span><span class="period">.</span>
+</h4>
+<div class="para">Use the code below to create three different graphs of solution curves to an SIR model in which <span class="process-math">\(S(0)=75\text{,}\)</span> <span class="process-math">\(I(0)=25\text{,}\)</span> <span class="process-math">\(R(0)=0\text{,}\)</span> and <span class="process-math">\(0 \leq t \leq 20\text{.}\)</span> The first set of values for <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> appear in the code block; change the code to get the other two sets of values. It may help you to save screenshots of each of the three graphs, so you can more easily see all three at the same time.</div> <ul class="disc">
+<li><div class="para">In the first graph, let <span class="process-math">\(\beta = 0.03\)</span> and <span class="process-math">\(\gamma = 0.25\text{.}\)</span>
+</div></li>
+<li><div class="para">In the second graph, let <span class="process-math">\(\beta = 0.01\)</span> and <span class="process-math">\(\gamma = 0.4\text{.}\)</span>
+</div></li>
+<li><div class="para">In the third graph, let <span class="process-math">\(\beta = 0.005\)</span> and <span class="process-math">\(\gamma = 0.5\text{.}\)</span>
+</div></li>
+</ul> <div class="para">Then respond to the prompts below the code block.</div> <pre id="activity-three-sets-of-parameters-1-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla() #Clear (delete) any past plots
+
+#Define the system of differential equations, and call it "model"
+def model(y, t):
+  S, I, R = y #Define y as consisting of S, I, and R, in that order
+  dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #These formulas are the right-hand sides of the SIR model
+  return dydt
+
+beta = 0.03 #Give a value to beta
+gamma = 0.25 #Give a value to gamma
+y0 = [75, 25, 0] #Set initial conditions for S, I, and R, in that order
+t_range = np.arange(0.0, 20.0, 0.1) #Set the time range to be t=0 to t=20, with "step through" increments of 0.1 when numerically solving
+
+sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+# Plotting commands are below
+plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+plt.legend()
+plt.grid()
+plt.xlabel('time')
+plt.ylabel('populations')
+plt.show()
+</script></pre> <ol class="decimal">
+<li><div class="para">What observations can you make, overall, about the three graphs? Take time with this question, and think expansively, before moving on to the next questions.</div></li>
+<li><div class="para">Discuss the similarities and differences in the <span class="process-math">\(I(t)\)</span> curves in each of your three graphs. Include observations using our sign analysis from <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#expl-rise-and-fall-of-an-epidemic" class="xref" data-knowl="./knowl/xref/expl-rise-and-fall-of-an-epidemic.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 5.1: Rise and Fall of an Epidemic">Exploration 5.1</a>: when is <span class="process-math">\(I(t)\)</span> rising or falling, and what does this have to do with the sign (<span class="process-math">\(+\text{,}\)</span> <span class="process-math">\(-\text{,}\)</span> or <span class="process-math">\(0\)</span>) of <span class="process-math">\(dI/dt\text{?}\)</span>
+</div></li>
+<li><div class="para">Compare the long-term outcomes for <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(R(t)\)</span> across the three graphs. What do you notice about the total number of people who ever became sick in each case?</div></li>
+<li><div class="para">Explore the role that changes to <span class="process-math">\(\beta\)</span> make to the outcome in each graph. Similarly, think through how changes to <span class="process-math">\(\gamma\)</span> contribute to changes. For each parameter, decide first how you <em class="emphasis">think</em> changing the parameter will change the solution curves. Then use the code block to make several changes to that parameter, and compare what you see with what you thought you would see.</div></li>
+</ol>
+<div class="solutions"><details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><ol class="decimal">
+<li><div class="para">This is open-ended.</div></li>
+<li>
+<div class="para">In the first two graphs, <span class="process-math">\(I(t)\)</span> rises, then falls. For a sign analysis, first write out the differential equation for <span class="process-math">\(dI/dt\text{.}\)</span> Then substitute in the values of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> and the initial values <span class="process-math">\(S(0)=75\)</span> and <span class="process-math">\(I(0)=25\)</span> to see that <span class="process-math">\(\beta S I - \gamma I \gt 0\text{.}\)</span> Yet <span class="process-math">\(S(t)\)</span> decreases rapidly, until <span class="process-math">\(\beta S I - \gamma I \lt 0\text{,}\)</span> and at this time the <span class="process-math">\(I(t)\)</span> curve falls.</div>
+<div class="para">In the third graph, the <span class="process-math">\(I(t)\)</span> graph has a negative slope from the very beginning. A sign analysis shows why this makes sense, based on the initial value of <span class="process-math">\(dI/dt\text{.}\)</span>
+</div>
+</li>
+<li>
+<div class="para">In the first graph, everyone eventually gets sick. The long-term value of <span class="process-math">\(S(t)\)</span> appears to be <span class="process-math">\(0\)</span> and the long-term value of <span class="process-math">\(R(t)\)</span> appears to be <span class="process-math">\(100\text{,}\)</span> which is the total population.</div>
+<div class="para">In the second graph, not everyone gets sick in the outbreak. The <span class="process-math">\(S(t)\)</span> curve appears to level out at a value of approximately <span class="process-math">\(8\text{.}\)</span> Extending <code class="code-inline tex2jax_ignore">t_range</code> beyond <span class="process-math">\(t=20\)</span> can help for confirming this.</div>
+<div class="para">In the third graph, quite a few people avoid illness. Estimates for long-term values of <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(R(t)\)</span> can confirm this.</div>
+</li>
+<li><div class="para">There is much to say here. In general, increasing <span class="process-math">\(\beta\)</span> makes more people become sick, and makes infection happen more rapidly. Decreasing <span class="process-math">\(\gamma\)</span> leads to more infections. The <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and <span class="process-math">\(R(t)\)</span> graphs are all affected by these changes, and the answer to this prompt should include descriptions of these changes.</div></li>
+</ol></div></details></div></article><span class="incontext"><a class="internal" href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#activity-three-sets-of-parameters">in-context</a></span>
+</body>
+</html>
