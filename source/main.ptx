@@ -3615,7 +3615,7 @@ plt.show()
           </ol>   
         </exercise>
 
-        <exercise number="3">
+        <!-- <exercise number="3">
           <p>
             We make one more update to the pertussis model in <xref ref="activity-seir-model-pertussis-setup"/>, addressing vaccine efficacy. Our inclusion of the multiplier <m>(1-p)</m> assumed that vaccination had <m>100 \%</m> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <m>80-85\%</m> efficacy.<fn>This range of vaccine efficacy level comes from the <url href="https://www.cdc.gov/vaccines/pubs/pinkbook/pert.html">Centers for Disease Control and Prevention</url>. The range is specific to the DTaP vaccine, in Europe and the Americas, in studies in or after 1991.</fn>
           </p>   
@@ -3637,7 +3637,7 @@ plt.show()
               </p>
             </li>
           </ol>     
-        </exercise>
+        </exercise> -->
       </exercises>
 
 
