@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Vaccines</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Epidemiology and More">
+<meta property="book:author" content="Meredith L. Greer">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="mathematical-epidemiology.html"><span class="title">Mathematical Epidemiology and More:</span> <span class="subtitle">A Course on Compartmental Models</span></a></h1>
+<p class="byline">Meredith L. Greer</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part-core-modeling-concepts.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-incubation-periods.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 parts"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="frontmatter-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-overall.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-students.html" class="internal"><span class="title">To Students: How to Get the Most from This Text</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="part-core-modeling-concepts.html" class="internal"><span class="codenumber">I</span> <span class="title">Core Modeling Concepts</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html" class="internal"><span class="codenumber">1</span> <span class="title">Prelude: Diseases in Popular News</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-Themes" class="internal"><span class="codenumber">1.1</span> <span class="title">Possible Discussion Themes</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#sec-Follow-Up-By-Seeking-More-Precise-Data" class="internal"><span class="codenumber">1.2</span> <span class="title">Follow Up By Seeking More Precise Data</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#exercises-prelude-diseases-in-popular-news" class="internal"><span class="codenumber">1.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-zombies-can-math-help.html" class="internal"><span class="codenumber">2</span> <span class="title">Zombies: Can Math Help?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#sec-we-now-have-data-qualitative-musings" class="internal"><span class="codenumber">2.1</span> <span class="title">We Now Have Data: Qualitative Musings</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal"><span class="codenumber">2.2</span> <span class="title">A First Model</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#exercises-ch-zombies-can-math-help" class="internal"><span class="codenumber">2.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html" class="internal"><span class="codenumber">3</span> <span class="title">Visualization: Graphing Model Results and Data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#sec-solving-differential-equations-using-graphs" class="internal"><span class="codenumber">3.1</span> <span class="title">“Solving” Differential Equations Using Graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal"><span class="codenumber">3.2</span> <span class="title">Estimating <span class="process-math">\(\beta\)</span> and Building Visualization Skills</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#exercises-visualization-graphing-model-results-and-data" class="internal"><span class="codenumber">3.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-compartmental-diagrams.html" class="internal"><span class="codenumber">4</span> <span class="title">Compartmental Diagrams</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-compartmental-diagrams-vocabulary-and-comments" class="internal"><span class="codenumber">4.1</span> <span class="title">Compartmental Diagrams: Vocabulary and Comments</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal"><span class="codenumber">4.2</span> <span class="title">From Zombie Game Variation to Compartmental Diagram</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates" class="internal"><span class="codenumber">4.3</span> <span class="title">Estimating Gamma and Other Rates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal"><span class="codenumber">4.4</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal"><span class="codenumber">5</span> <span class="title">Model Analysis and the Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-using-calculus-to-analyze-models" class="internal"><span class="codenumber">5.1</span> <span class="title">Using Calculus to Analyze Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0" class="internal"><span class="codenumber">5.2</span> <span class="title">The Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#exercises-ch-populations-and-R0" class="internal"><span class="codenumber">5.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter active">
+<div class="toc-title-box"><a href="ch-vaccines.html" class="internal"><span class="codenumber">6</span> <span class="title">Vaccines</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines.html#sec-determining-a-threshold-vaccine-level" class="internal"><span class="codenumber">6.1</span> <span class="title">Determining a Threshold Vaccine Level</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines.html#sec-how-vaccination-level-affects-long-term-outcomes" class="internal"><span class="codenumber">6.2</span> <span class="title">How Vaccination Level Affects Long Term Outcomes</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-vaccines.html#exercises-ch-vaccines" class="internal"><span class="codenumber">6.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incubation-periods.html" class="internal"><span class="codenumber">7</span> <span class="title">Incubation Periods</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-incubation-periods.html#sec-including-an-incubation-period-the-seir-model" class="internal"><span class="codenumber">7.1</span> <span class="title">Including an Incubation Period: The SEIR Model</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-incubation-periods.html#exercises-ch-incubation-period" class="internal"><span class="codenumber">7.2</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal"><span class="codenumber">8</span> <span class="title">* Preparing Influenza Data to Compare With a Model</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-ga" class="internal"><span class="codenumber">8.1</span> <span class="title">Starter Example Comparing Data with a Model: Zombie Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gz" class="internal"><span class="codenumber">8.2</span> <span class="title">Using RSS</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gx" class="internal"><span class="codenumber">8.3</span> <span class="title">Influenza Data and RSS</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-epidemic-vs-endemic-models.html" class="internal"><span class="codenumber">9</span> <span class="title">* Epidemic vs. Endemic Models</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-epidemic-vs-endemic-models.html#sec-ee" class="internal"><span class="codenumber">9.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">* Residual Sum of Squares: Improving a Model’s Fit to Data</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-ra" class="internal"><span class="codenumber">10.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-akaike-information-criterion-comparing-different-models.html" class="internal"><span class="codenumber">11</span> <span class="title">* Akaike Information Criterion: Comparing Different Models</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-akaike-information-criterion-comparing-different-models.html#sec-ma" class="internal"><span class="codenumber">11.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-modeling-the-spread-of-a-rumor.html" class="internal"><span class="codenumber">12</span> <span class="title">* Modeling the Spread of a Rumor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-modeling-the-spread-of-a-rumor.html#sec-7" class="internal"><span class="codenumber">12.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">13</span> <span class="title">* The Next Generation Method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-the-next-generation-method.html#sec-2" class="internal"><span class="codenumber">13.1</span> <span class="title">Python Code for the Next Generation Method</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-tips-on-reading-a-scientific-paper.html" class="internal"><span class="codenumber">14</span> <span class="title">* Tips on Reading a Scientific Paper</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-tips-on-reading-a-scientific-paper.html#sec-3a" class="internal"><span class="codenumber">14.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-examples-and-case-studies.html" class="internal"><span class="codenumber">III</span> <span class="title">Examples and Case Studies</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html" class="internal"><span class="codenumber">15</span> <span class="title">* Preparing Mumps Data to Compare with a Six-Compartment Model</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html#sec-6" class="internal"><span class="codenumber">15.1</span> <span class="title"></span></a></div></li></ul>
+</li></ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="glossary-of-terms.html" class="internal"><span class="title">Glossary of Mathematical Epidemiology Terms</span></a></div></li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-vaccines"><h2 class="heading">
+<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">6</span><span class="space"> </span><span class="title">Vaccines</span>
+</h2>
+<section class="introduction" id="intro-vaccines"><article class="objectives goal-like" id="intro-vaccines-1"><h3 class="heading"><span class="type">Goals</span></h3>
+<ul class="disc">
+<li id="intro-vaccines-1-1-1"><div class="para" id="intro-vaccines-1-1-1-1">Explore the role of public health strategies in managing disease spread, using compartmental models</div></li>
+<li id="intro-vaccines-1-1-2"><div class="para" id="intro-vaccines-1-1-2-1">Strengthen understanding of the meaning of <span class="process-math">\(\mathcal{R}_0\text{,}\)</span> which involves a single Infectious person in an otherwise entirely Susceptible population</div></li>
+<li id="intro-vaccines-1-1-3"><div class="para" id="intro-vaccines-1-1-3-1">Determine the threshold for what percentage of vaccine coverage reduces transmission enough so that the number of Infectious cases does not rise</div></li>
+</ul></article> <div class="para" id="intro-vaccines-2">In the first few chapters of this text, we have introduced the basic “hows” for compartmental modeling, as well as a few of the “whys”. Now, we explore the “whys” even further.</div> <div class="para" id="intro-vaccines-3">One of the most significant ways to use models is for trying and comparing possible public health strategies <em class="emphasis">in simulations</em> before actually carrying them out with real people. Professional-level models can be quite detailed and depend on large amounts of data, and compartmental models are just one of the many types of models implemented. In this chapter, we work with one commonly used strategy: vaccination<details class="ptx-footnote" aria-live="polite" id="intro-vaccines-3-2"><summary class="ptx-footnote__number" title="Footnote 6.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="intro-vaccines-3-2">Vaccination is a widely used public health strategy. Yet the author of this text recognizes that reader thoughts on vaccines may vary for many reasons. As mentioned way back in the “To Students” preface, “I will not tell you how to think.” Instead, the goal of showing vaccines in models is to demonstrate some of the ways we can use models to try different scenarios. Readers can and should continue to think about their own ethics and experiences when interpreting and discussing models</div></details>.</div> <div class="para" id="intro-vaccines-4">Begin in <a href="ch-vaccines.html#expl-activity-vaccines" class="xref" data-knowl="./knowl/xref/expl-activity-vaccines.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 6.1: Reducing New Infections">Exploration 6.1</a> by adjusting a model in a particular way to reduce the occurrence of new infections.</div> <article class="exploration project-like" id="expl-activity-vaccines"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">6.1</span><span class="period">.</span><span class="space"> </span><span class="title">Reducing New Infections.</span>
+</h3>
+<div class="introduction" id="expl-activity-vaccines-2">
+<div class="para" id="expl-activity-vaccines-2-1">This exploration seeks to reduce the number of new infections by directly reducing the transmission part of the compartmental SIR model shown in <a href="ch-compartmental-diagrams.html#activity-introducing-units-1-2" class="xref" data-knowl="./knowl/xref/eq-SIR-model-S.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.3">(4.3)</a>, <a href="ch-compartmental-diagrams.html#activity-introducing-units-1-2" class="xref" data-knowl="./knowl/xref/eq-SIR-model-I.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.4">(4.4)</a>, and <a href="ch-compartmental-diagrams.html#activity-introducing-units-1-2" class="xref" data-knowl="./knowl/xref/eq-SIR-model-R.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.5">(4.5)</a>. To reduce transmission, we multiply by a term <span class="process-math">\((1-p)\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-SIR-model-S.html ./knowl/xref/eq-SIR-model-I.html ./knowl/xref/eq-SIR-model-R.html" id="expl-activity-vaccines-2-2">
+\begin{align*}
+\frac{dS}{dt} \amp = - (1-p) \beta S I \\
+\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I \\
+\frac{dR}{dt} \amp = \gamma I. 
+\end{align*}
+</div>
+<div class="para" id="expl-activity-vaccines-2-3">This change to the model reflects that the term <span class="process-math">\(\beta SI\)</span> in the SIR model represents transmission of disease from the Infectious to the Susceptible population. To reduce transmission, we therefore change the specific term <span class="process-math">\(\beta SI\)</span> by introducing the multiplier <span class="process-math">\((1-p)\text{.}\)</span>
+</div> <div class="para" id="expl-activity-vaccines-2-4">Work through the parts below to build understanding of the term <span class="process-math">\((1-p)\)</span> and the permissible values of <span class="process-math">\(p\text{.}\)</span>
+</div>
+</div>
+<article class="task exercise-like" id="expl-activity-vaccines-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="expl-activity-vaccines-3-1-1">Read the Python code below. Think through the factor <span class="process-math">\((1-p)\)</span> that is multiplied by <span class="process-math">\(\beta S I\)</span> in both the <span class="process-math">\(dS/dt\)</span> and <span class="process-math">\(dI/dt\)</span> equations. We restrict the possible values of <span class="process-math">\(p\)</span> so that it must be true that <span class="process-math">\(0 \leq p \leq 1\text{.}\)</span>
+</div> <div class="para" id="expl-activity-vaccines-3-1-2">After reading and evaluating the Python code, respond to the questions that follow.</div> <pre id="expl-activity-vaccines-3-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla() #Clear (delete) any past plots
+
+#Define the system of differential equations, and call it "model"
+def model(y, t):
+  S, I, R = y #Define y as consisting of S, I, and R, in that order
+  dydt = [- (1-p) * beta * S * I, (1-p) * beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+  return dydt
+
+beta = 0.0004 #Give a value to beta
+gamma = 0.1 #Give a value to gamma
+p = 0.0 #Give a value to p
+y0 = [1500, 500, 0] #Set initial conditions for S, I, and R, in that order
+t_range = np.arange(0.0, 20.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+
+sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+# Plotting commands are below
+plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+plt.legend()
+plt.grid()
+plt.xlabel('time')
+plt.ylabel('populations')
+plt.show()
+</script></pre> <ol class="decimal">
+<li id="expl-activity-vaccines-3-1-4-1"><div class="para" id="expl-activity-vaccines-3-1-4-1-1">Given the restriction that <span class="process-math">\(0 \leq p \leq 1\text{,}\)</span> what is the range of possible values for the term <span class="process-math">\((1-p)\text{?}\)</span>
+</div></li>
+<li id="expl-activity-vaccines-3-1-4-2"><div class="para" id="expl-activity-vaccines-3-1-4-2-1">When we multiply the transmission term <span class="process-math">\(\beta SI\)</span> by <span class="process-math">\((1-p)\text{,}\)</span> for viable values of <span class="process-math">\(p\text{,}\)</span> what is the effect? Describe in terms of numbers, in terms of the graphical output of the Python code, and in terms of the impact on a disease outbreak.</div></li>
+</ol></article><article class="task exercise-like" id="expl-activity-vaccines-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="expl-activity-vaccines-4-1-1">These questions get more specific about the value of <span class="process-math">\(p\text{.}\)</span> Think logically and mathematically about your answers, and use the Python code freely to experiment with <span class="process-math">\(p\text{.}\)</span> To help you build a strong sense of the role of <span class="process-math">\(p\)</span> in the SIR model, you may wish to change the time range, include other information we have seen in past simulations, or make other changes to the code.</div> <ol class="decimal">
+<li id="expl-activity-vaccines-4-1-2-1"><div class="para" id="expl-activity-vaccines-4-1-2-1-1">What sorts of effects do you see from the term <span class="process-math">\((1-p)\)</span> when the value of <span class="process-math">\(p\)</span> is relatively small, that is, <span class="process-math">\(p\)</span> is just above <span class="process-math">\(0\text{?}\)</span> In contrast, what sorts of effects do you see from the term <span class="process-math">\((1-p)\)</span> when the value of <span class="process-math">\(p\)</span> is relatively large, that is, <span class="process-math">\(p\)</span> is just below <span class="process-math">\(1\text{?}\)</span>
+</div></li>
+<li id="expl-activity-vaccines-4-1-2-2"><div class="para" id="expl-activity-vaccines-4-1-2-2-1">What can you say about the boundary values of <span class="process-math">\(p\text{?}\)</span> That is, what sorts of effects does the term <span class="process-math">\((1-p)\)</span> have on the SIR model when <span class="process-math">\(p=0\)</span> or when <span class="process-math">\(p=1\text{?}\)</span>
+</div></li>
+<li id="expl-activity-vaccines-4-1-2-3"><div class="para" id="expl-activity-vaccines-4-1-2-3-1">Pulling ideas together: as the value of <span class="process-math">\(p\)</span> increases from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{,}\)</span> what observations can you make about the output of the SIR model?</div></li>
+</ol></article></article></section><section class="section" id="sec-determining-a-threshold-vaccine-level"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">6.1</span><span class="space"> </span><span class="title">Determining a Threshold Vaccine Level</span>
+</h3>
+<div class="para" id="sec-determining-a-threshold-vaccine-level-2">The modeling in this section focuses on <em class="emphasis">reducing transmission of a disease through the use of vaccines</em>. We use the multiplier <span class="process-math">\((1-p)\)</span> from <a href="ch-vaccines.html#expl-activity-vaccines" class="xref" data-knowl="./knowl/xref/expl-activity-vaccines.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 6.1: Reducing New Infections">Exploration 6.1</a>, along with the concept of <span class="process-math">\(\mathcal{R}_0\)</span> from <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal" title="Chapter 5: Model Analysis and the Basic Reproduction Number \mathcal{R}_0">Chapter 5</a>, to demonstrate the effect of vaccines on the number of people who ever become Infectious in a disease outbreak.</div>
+<div class="para" id="sec-determining-a-threshold-vaccine-level-3">As a reminder, the <em class="emphasis">basic reproduction number</em> <span class="process-math">\(\mathcal{R}_0\)</span> is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. This means that <span class="process-math">\(\mathcal{R}_0\)</span> is not a number we can use to directly describe a population that has been vaccinated against a disease, since a vaccinated population is not entirely susceptible. Instead, we introduce an <dfn class="terminology">effective reproduction number</dfn> <span class="process-math">\(\mathcal{R}_{\text{eff}}\text{,}\)</span> which is the average number of new infections caused by one infectious person in a population that may not be entirely susceptible, such as a population that has had access to vaccination. One way to pronounce the symbol <span class="process-math">\(\mathcal{R}_{\text{eff}}\)</span> is “R effective”.</div>
+<div class="para" id="sec-determining-a-threshold-vaccine-level-4">We cannot change the intrinsic value of <span class="process-math">\(\mathcal{R}_0\text{,}\)</span> but with vaccination, we can work toward the goal of having <span class="process-math">\(\mathcal{R}_{\text{eff}} \lt 1\text{.}\)</span> If <span class="process-math">\(\mathcal{R}_{\text{eff}} \lt 1\)</span> in a model that includes vaccines or other public health interventions, then overall numbers of Infectious people do not rise over time. With a few lines of algebra, we can build a relationship between <span class="process-math">\(\mathcal{R}_0\text{,}\)</span> <span class="process-math">\(p\text{,}\)</span> and <span class="process-math">\(\mathcal{R}_{\text{eff}}\text{.}\)</span>
+</div>
+<div class="para" id="sec-determining-a-threshold-vaccine-level-5">First, we should state a definition for <span class="process-math">\(p\text{.}\)</span> We define <span class="process-math">\(p\)</span> to be the fraction of people vaccinated against a disease, noting that the values of <span class="process-math">\(p\)</span> are therefore restricted to <span class="process-math">\(0 \leq p \leq 1\text{,}\)</span> where <span class="process-math">\(p=0\)</span> means no one is vaccinated, and <span class="process-math">\(p=1\)</span> means <span class="process-math">\(100\%\)</span> of the population is vaccinated. Initially, we will think of vaccination as being <span class="process-math">\(100\%\)</span> effective.<details class="ptx-footnote" aria-live="polite" id="sec-determining-a-threshold-vaccine-level-5-9"><summary class="ptx-footnote__number" title="Footnote 6.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec-determining-a-threshold-vaccine-level-5-9">In the last exercise of <a href="ch-vaccines.html#exercises-ch-vaccines" class="internal" title="For Further Thought 6.3">For Further Thought 6.3</a>, we update our models to include vaccines that are less than <span class="process-math">\(100\%\)</span> effective.</div></details> When the fraction <span class="process-math">\(p\)</span> of people are vaccinated, the remaining fraction <span class="process-math">\((1-p)\)</span> are not vaccinated. Since <span class="process-math">\(\mathcal{R}_0\)</span> refers to an entirely susceptible population, but only the fraction <span class="process-math">\((1-p)\)</span> of the population is susceptible, we see that the average number of new infections caused by one infectious person in the vaccinated population is <span class="process-math">\((1-p)\mathcal{R}_0\text{.}\)</span> In other words:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/expl-activity-vaccines.html ./knowl/xref/ch-model-analysis-and-the-basic-reproduction-number-R0.html ./knowl/xref/exercises-ch-vaccines.html ./knowl/xref/eq-Reff-define.html ./knowl/xref/eq-Reff-define.html ./knowl/xref/activity-pcrit.html ./knowl/xref/activity-pcrit.html ./knowl/xref/sec-how-vaccination-level-affects-long-term-outcomes.html" id="sec-determining-a-threshold-vaccine-level-6">
+\begin{align}
+\mathcal{R}_{\text{eff}} \amp = (1-p)\mathcal{R}_0. \tag{6.1}
+\end{align}
+</div>
+<div class="para" id="sec-determining-a-threshold-vaccine-level-7">Our goal in the next few mathematical steps is to use <a href="ch-vaccines.html#sec-determining-a-threshold-vaccine-level-6" class="xref" data-knowl="./knowl/xref/eq-Reff-define.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 6.1">(6.1)</a> to determine a value of <span class="process-math">\(p\)</span> for which <span class="process-math">\(\mathcal{R}_{\text{eff}} \lt 1\text{.}\)</span><details class="ptx-footnote" aria-live="polite" id="sec-determining-a-threshold-vaccine-level-7-4"><summary class="ptx-footnote__number" title="Footnote 6.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="sec-determining-a-threshold-vaccine-level-7-4">The goal of <span class="process-math">\(\mathcal{R}_{\text{eff}} \lt 1\)</span> was set out in the 1983 paper  “Parasitic Infections as Regulators of Animal Populations” by Robert M. May, published in <em class="emphasis">American Scientist</em> in the January-February issue. Additional details and explanation appear in the 1988 textbook “Mathematical Models in Biology” by Leah Edelstein-Keshet, published by McGraw-Hill.</div></details> Such a value of <span class="process-math">\(p\)</span> corresponds to a vaccination rate high enough that a disease cannot become an outbreak because <span class="process-math">\(\mathcal{R}_{\text{eff}} \lt 1\)</span> means that the overall numbers in the population are not expected to rise. Read carefully through the following mathematical steps to see how this value of <span class="process-math">\(p\)</span> is computed:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/expl-activity-vaccines.html ./knowl/xref/ch-model-analysis-and-the-basic-reproduction-number-R0.html ./knowl/xref/exercises-ch-vaccines.html ./knowl/xref/eq-Reff-define.html ./knowl/xref/eq-Reff-define.html ./knowl/xref/activity-pcrit.html ./knowl/xref/activity-pcrit.html ./knowl/xref/sec-how-vaccination-level-affects-long-term-outcomes.html" id="sec-determining-a-threshold-vaccine-level-8">
+\begin{align*}
+\mathcal{R}_{\text{eff}} \amp \lt 1 \\
+(1-p)\mathcal{R}_0 \amp \lt 1 \\
+\mathcal{R}_0 - p \mathcal{R}_0 \amp \lt 1 \\
+p \mathcal{R}_0 \amp \gt \mathcal{R}_0 - 1 \\
+p \amp \gt \frac{\mathcal{R}_0 - 1}{\mathcal{R}_0} \\
+p \amp \gt 1- \frac{1}{\mathcal{R}_0}. 
+\end{align*}
+</div>
+<div class="para" id="sec-determining-a-threshold-vaccine-level-9">In the lines above, we started with our goal of causing <span class="process-math">\(\mathcal{R}_{\text{eff}}\)</span> to be less than one. We then made a substitution using <a href="ch-vaccines.html#sec-determining-a-threshold-vaccine-level-6" class="xref" data-knowl="./knowl/xref/eq-Reff-define.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 6.1">(6.1)</a> and rearranged algebraically until we found a formula showing values of <span class="process-math">\(p\)</span> that satisfied our goal. Notice that to compute the next-to-last line, we divided by <span class="process-math">\(\mathcal{R}_0\)</span> without changing the direction of the inequality, which assumed that <span class="process-math">\(\mathcal{R}_0 \gt 0\text{.}\)</span> This assumption makes biological sense, and is important to point out mathematically, as biology and mathematics should support each other throughout the modeling process.</div>
+<div class="para" id="sec-determining-a-threshold-vaccine-level-10">We now note a particular, special value of <span class="process-math">\(p\)</span> that is the threshold between two outcomes, which makes it a <dfn class="terminology">critical value</dfn>. The two outcomes are having, or not having, an outbreak. We therefore name this critical value of <span class="process-math">\(p\)</span> to be <span class="process-math">\(p_{\text{crit}}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/expl-activity-vaccines.html ./knowl/xref/ch-model-analysis-and-the-basic-reproduction-number-R0.html ./knowl/xref/exercises-ch-vaccines.html ./knowl/xref/eq-Reff-define.html ./knowl/xref/eq-Reff-define.html ./knowl/xref/activity-pcrit.html ./knowl/xref/activity-pcrit.html ./knowl/xref/sec-how-vaccination-level-affects-long-term-outcomes.html" id="sec-determining-a-threshold-vaccine-level-11">
+\begin{align}
+p_{\text{crit}} \amp = 1- \frac{1}{\mathcal{R}_0}. \tag{6.2}
+\end{align}
+</div>
+<div class="para" id="sec-determining-a-threshold-vaccine-level-12">Investigate the critical value <span class="process-math">\(p_{\text{crit}}\text{,}\)</span> and the accompanying threshold between outbreak and no outbreak, in <a href="ch-vaccines.html#activity-pcrit" class="xref" data-knowl="./knowl/xref/activity-pcrit.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 6.2">Activity 6.2</a>.</div>
+<article class="activity project-like" id="activity-pcrit"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.2</span><span class="period">.</span>
+</h4>
+<div class="para" id="activity-pcrit-1-1">In this activity, we explore <span class="process-math">\(p_{\text{crit}}\)</span> through the comparison of two historically widespread diseases: smallpox and measles.</div> <ol class="decimal">
+<li id="activity-pcrit-1-2-1"><div class="para" id="activity-pcrit-1-2-1-1">We begin by examining smallpox. Estimates for the value of <span class="process-math">\(\mathcal{R}_0\)</span> for smallpox range from 3.5 to 6.<details class="ptx-footnote" aria-live="polite" id="activity-pcrit-1-2-1-1-2"><summary class="ptx-footnote__number" title="Footnote 6.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="activity-pcrit-1-2-1-1-2">Estimates that <span class="process-math">\(\mathcal{R}_0 \approx 3.5-6\)</span> come from the paper “Transmission potential of smallpox in contemporary populations” by Raymond Gani and Steve Leach, published in the journal <em class="emphasis">Nature</em> on 13 December 2001.</div></details> Given this range of <span class="process-math">\(\mathcal{R}_0\)</span> values, what is the range of <span class="process-math">\(p_{\text{crit}}\)</span> values required in order to reduce the value of <span class="process-math">\(\mathcal{R}_{\text{eff}}\)</span> for smallpox so that <span class="process-math">\(\mathcal{R}_{\text{eff}} \lt 1\text{?}\)</span> Suppose that a <span class="process-math">\(100\%\)</span> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <span class="process-math">\(p_{\text{crit}}\)</span> you computed, to prevent a smallpox outbreak, that is, to cause <span class="process-math">\(\mathcal{R}_{\text{eff}} \lt 1\text{?}\)</span>
+</div></li>
+<li id="activity-pcrit-1-2-2"><div class="para" id="activity-pcrit-1-2-2-1">Next, we examine measles. Many estimates for the value of <span class="process-math">\(\mathcal{R}_0\)</span> for measles range from 12 to 18.<details class="ptx-footnote" aria-live="polite" id="activity-pcrit-1-2-2-1-2"><summary class="ptx-footnote__number" title="Footnote 6.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="activity-pcrit-1-2-2-1-2">The paper “The basic reproduction number (R0) of measles: a systematic review”, by Fiona M Guerra, Shelly Bolotin, Gillian Lim, Jane Heffernan, Shelley L Deeks, Ye Li, and Natasha S Crowcroft, states that <span class="process-math">\(\mathcal{R}_0\)</span> is often approximated as <span class="process-math">\(12-18\text{,}\)</span> while also stating that the actual range of <span class="process-math">\(\mathcal{R}_0\)</span> for measles varies even more. This paper was published in <em class="emphasis">The Lancet Infectious Diseases</em> on 27 July 2017.</div></details> Given this range of <span class="process-math">\(\mathcal{R}_0\)</span> values, what is the range of <span class="process-math">\(p_{\text{crit}}\)</span> values required in order to reduce the value of <span class="process-math">\(\mathcal{R}_{\text{eff}}\)</span> for measles so that <span class="process-math">\(\mathcal{R}_{\text{eff}} \lt 1\text{?}\)</span> Suppose that a <span class="process-math">\(100\%\)</span> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <span class="process-math">\(p_{\text{crit}}\)</span> you computed, to prevent a measles outbreak, that is, to cause <span class="process-math">\(\mathcal{R}_{\text{eff}} \lt 1\text{?}\)</span>
+</div></li>
+<li id="activity-pcrit-1-2-3"><div class="para" id="activity-pcrit-1-2-3-1">Smallpox has been eliminated: the last natural occurrence was in 1977, and in 1980, the World Health Organization stated that smallpox had been globally eradicated. Measles has not been eliminated: widespread vaccination has reduced cases drastically in many parts of the world, but measles continues to circulate. Given your results in parts 1 and 2 of this activity about the values of <span class="process-math">\(p_{\text{crit}}\)</span> for smallpox and measles, write a few sentences about how the value of <span class="process-math">\(\mathcal{R}_0\)</span> increases or decreases the feasibility of vaccinating enough people to eliminate a disease.</div></li>
+</ol>
+<div class="solutions"><details id="activity-pcrit-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ol class="decimal">
+<li id="activity-pcrit-2-1-1"><div class="para" id="activity-pcrit-2-1-1-1">For smallpox, <span class="process-math">\(0.71 \lt p_{\text{crit}} \lt 0.83\text{,}\)</span> meaning approximately <span class="process-math">\(71\% - 83\%\)</span> of people need to be vaccinated to prevent an outbreak.</div></li>
+<li id="activity-pcrit-2-1-2"><div class="para" id="activity-pcrit-2-1-2-1">For measles, <span class="process-math">\(0.92 \lt p_{\text{crit}} \lt 0.94\text{,}\)</span> meaning approximately <span class="process-math">\(92\% - 94\%\)</span> of people need to be vaccinated to prevent an outbreak.</div></li>
+<li id="activity-pcrit-2-1-3"><div class="para" id="activity-pcrit-2-1-3-1">This is open-ended. A typical answer may state that higher values of <span class="process-math">\(\mathcal{R}_0\)</span> mean we need higher levels of vaccination. Answers may also investigate the reasons why it becomes so much more difficult to achieve higher levels of vaccination, especially on a global scale.</div></li>
+</ol></div></details></div></article><div class="para" id="sec-determining-a-threshold-vaccine-level-14">The investigations of <a href="ch-vaccines.html#activity-pcrit" class="xref" data-knowl="./knowl/xref/activity-pcrit.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 6.2">Activity 6.2</a> asked you to compute values of <span class="process-math">\(p_{\text{crit}}\)</span> for specific diseases. Another aspect of <span class="process-math">\(p_{\text{crit}}\)</span> is that achieving this critical vaccination level means only that the infection curve, that is, the <span class="process-math">\(I(t)\)</span> curve, falls from the beginning rather than rising first. However, this does not mean that there are no new infections after the initial cases. Explore this further in <a href="ch-vaccines.html#sec-how-vaccination-level-affects-long-term-outcomes" class="internal" title="Section 6.2: How Vaccination Level Affects Long Term Outcomes">Section 6.2</a>.</div></section><section class="section" id="sec-how-vaccination-level-affects-long-term-outcomes"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">6.2</span><span class="space"> </span><span class="title">How Vaccination Level Affects Long Term Outcomes</span>
+</h3>
+<div class="para" id="sec-how-vaccination-level-affects-long-term-outcomes-2">
+<a href="ch-vaccines.html#activity-pcrit2" class="xref" data-knowl="./knowl/xref/activity-pcrit2.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 6.3">Activity 6.3</a> focuses on understanding long-term model outcomes, with an emphasis on <span class="process-math">\(p_{\text{crit}}\text{,}\)</span> the critical vaccine coverage value defined in <a href="ch-vaccines.html#sec-determining-a-threshold-vaccine-level-11" class="xref" data-knowl="./knowl/xref/eq-pcrit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 6.2">(6.2)</a>. Another emphasis is on adjusting our Python code in order to make sure its output truly demonstrates the answers to the questions we are asking.</div>
+<article class="activity project-like" id="activity-pcrit2"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.3</span><span class="period">.</span>
+</h4>
+<div class="para" id="activity-pcrit2-1-1">For the following SIR model, the term <span class="process-math">\((1-p)\)</span> indicates the unvaccinated fraction of people:</div>
+<div class="displaymath process-math" id="activity-pcrit2-1-2">
+\begin{align*}
+\frac{dS}{dt} \amp = - (1-p) \beta S I \\
+\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I \\
+\frac{dR}{dt} \amp = \gamma I. 
+\end{align*}
+</div>
+<div class="para" id="activity-pcrit2-1-3">In the default Python code shown below, <span class="process-math">\(\beta = 0.0003\text{,}\)</span> <span class="process-math">\(\gamma = 0.3\text{,}\)</span> <span class="process-math">\(p=0\text{,}\)</span> the initial population values are <span class="process-math">\(S(0)=2900\text{,}\)</span> <span class="process-math">\(I(0)=100\text{,}\)</span> and <span class="process-math">\(R(0)=0\text{,}\)</span> and time runs from <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t=25\)</span> days. Begin by running the code, and then work through the steps below to make specific changes to the model.</div> <pre id="activity-pcrit2-1-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla() #Clear (delete) any past plots
+
+#Define the system of differential equations, and call it "model"
+def model(y, t):
+  S, I, R = y #Define y as consisting of S, I, and R, in that order
+  dydt = [- (1-p) * beta * S * I, (1-p) * beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+  return dydt
+
+beta = 0.0003 #Give a value to beta
+gamma = 0.3 #Give a value to gamma
+p = 0.0 #Give a value to p
+y0 = [2900, 100, 0] #Set initial conditions for S, I, and R, in that order
+t_range = np.arange(0.0, 25.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+
+sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+# Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+print("Long-term value of S = ", round(sol[-1,0]))
+print("Long-term value of I = ", round(sol[-1,1]))
+print("Long-term value of R = ", round(sol[-1,2]))
+
+
+# Plotting commands are below
+plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+plt.legend()
+plt.grid()
+plt.xlabel('time')
+plt.ylabel('populations')
+plt.show()
+</script></pre> <ol class="decimal">
+<li id="activity-pcrit2-1-5-1"><div class="para" id="activity-pcrit2-1-5-1-1">How many people have had this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment must have been sick at some time, so the long-term value of <span class="process-math">\(R(t)\)</span> provides the answer. Also notice that we need to make sure to run the model long enough that <span class="process-math">\(I(t)\)</span> reaches <span class="process-math">\(0\text{.}\)</span> Only then will <span class="process-math">\(R(t)\)</span> be evaluated at a large enough value of <span class="process-math">\(t\)</span> for us to know the total number of people who become ill.</div></li>
+<li id="activity-pcrit2-1-5-2"><div class="para" id="activity-pcrit2-1-5-2-1">Compute the value <span class="process-math">\(p_{\text{crit}}\)</span> for this model, showing your work. Then run the model using the value you computed for <span class="process-math">\(p_{\text{crit}}\)</span> and re-answer the question above: how many people get the illness at some point in time, according to this model, when <span class="process-math">\(p=p_{\text{crit}}\text{?}\)</span>
+</div></li>
+<li id="activity-pcrit2-1-5-3"><div class="para" id="activity-pcrit2-1-5-3-1">Compare your answer above, regarding how many people get the illness at some time in the situation when <span class="process-math">\(p=p_{\text{crit}}\text{,}\)</span> with the initial number of Infectious people in the model. How many people must have gotten the illness sometime after the original Infectious people? Notice that this means that even when <span class="process-math">\(\mathcal{R}_{\text{eff}} \approx 1\text{,}\)</span> a significant number of additional people can contract the illness being studied. However, the Infectious population curve <span class="process-math">\(I(t)\)</span> does not rise: it instead appears as level or decreasing.</div></li>
+<li id="activity-pcrit2-1-5-4"><div class="para" id="activity-pcrit2-1-5-4-1">We may want to see for ourselves, or demonstrate to others, that the Infectious curve is truly not rising when <span class="process-math">\(p=p_{\text{crit}}\text{.}\)</span> The default graph in the Python code for this activity is not the most helpful to us because <span class="process-math">\(S(0)\)</span> is so large relative to <span class="process-math">\(I(0)\text{,}\)</span> which makes it challenging to see the details of the curvature of the <span class="process-math">\(I(t)\)</span> curve. To see <em class="emphasis">just</em> the <span class="process-math">\(I(t)\)</span> curve, then, we can comment out the lines of code that show the <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(R(t)\)</span> curves. Do this: comment out those lines, and produce a graph showing just the <span class="process-math">\(I(t)\)</span> curve.</div></li>
+</ol>
+<div class="solutions"><details id="activity-pcrit2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ol class="decimal">
+<li id="activity-pcrit2-2-1-1"><div class="para" id="activity-pcrit2-2-1-1-1">The default model says the long-term value of <span class="process-math">\(R(t)\)</span> is <span class="process-math">\(2802\text{,}\)</span> but at <span class="process-math">\(t=25\text{,}\)</span> there are still people in the <span class="process-math">\(I(t)\)</span> compartment. Use a larger value of <span class="process-math">\(t\)</span> to find that <span class="process-math">\(2829\)</span> people have the illness at some time during the outbreak. (State, and show, how large you made your value of <span class="process-math">\(t\text{.}\)</span>)</div></li>
+<li id="activity-pcrit2-2-1-2"><div class="para" id="activity-pcrit2-2-1-2-1">The value of <span class="process-math">\(p_{\text{crit}}\)</span> is <span class="process-math">\(0.\overline{6}\text{,}\)</span> using <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-12" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a> to compute <span class="process-math">\(\mathcal{R}_0\)</span> and then <a href="ch-vaccines.html#sec-determining-a-threshold-vaccine-level-11" class="xref" data-knowl="./knowl/xref/eq-pcrit.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 6.2">(6.2)</a> to compute <span class="process-math">\(p_{\text{crit}}\text{.}\)</span> Approximating <span class="process-math">\(p_{\text{crit}}\)</span> as <span class="process-math">\(0.67\)</span> and setting a large enough value of <span class="process-math">\(t\)</span> leads to the conclusion that <span class="process-math">\(692\)</span> total people have the illness at some time.</div></li>
+<li id="activity-pcrit2-2-1-3"><div class="para" id="activity-pcrit2-2-1-3-1">The answer above said that <span class="process-math">\(692\)</span> people had the illness at some time, and we used the value <span class="process-math">\(I(0)=100\text{.}\)</span> This means that after the initial <span class="process-math">\(100\)</span> people, another <span class="process-math">\(592\)</span> got the illness. (For readers who approximated <span class="process-math">\(0.\overline{6}\)</span> differently than <span class="process-math">\(0.67\text{,}\)</span> your answers may vary somewhat.)</div></li>
+<li id="activity-pcrit2-2-1-4"><div class="para" id="activity-pcrit2-2-1-4-1">The first and third lines after “#Plotting commands are below” should be commented out, that is, the symbol “#” should be placed at the start of each of these lines. Then run the code block again to produce just the <span class="process-math">\(I(t)\)</span> graph.</div></li>
+</ol></div></details></div></article><div class="para" id="sec-how-vaccination-level-affects-long-term-outcomes-4">We now pause our modeling for a moment to provide some extra vocabulary and commentary on vaccines. When vaccines are studied and approved for use, researchers demonstrate their <dfn class="terminology">efficacy</dfn> and <dfn class="terminology">effectiveness</dfn>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <span class="process-math">\(75\%\)</span> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <span class="process-math">\(75\%\text{.}\)</span> (Notice what the <span class="process-math">\(75\%\)</span> does NOT mean: it does NOT mean that only <span class="process-math">\(75\%\)</span> of people are protected by the vaccine, or that the vaccine only “works” <span class="process-math">\(75\%\)</span> of the time.) The word <em class="emphasis">efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em class="emphasis">effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.</div>
+<div class="para" id="sec-how-vaccination-level-affects-long-term-outcomes-5">Nice explanations of the meanings of <em class="emphasis">efficacy</em> and <em class="emphasis">effectiveness</em> can be found at the <a class="external" href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection" target="_blank">Vaccine efficacy, effectiveness and protection</a><details class="ptx-footnote" aria-live="polite" id="sec-how-vaccination-level-affects-long-term-outcomes-5-4"><summary class="ptx-footnote__number" title="Footnote 6.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="sec-how-vaccination-level-affects-long-term-outcomes-5-4"><code class="code-inline tex2jax_ignore">www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection</code></div></details> page from the World Health Organization.</div>
+<div class="para" id="sec-how-vaccination-level-affects-long-term-outcomes-6">Vaccine outcomes extend beyond affecting disease transmission. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can be included in models, however such models tend to be more detailed than those we are studying right now. For this reason, this chapter focuses only on vaccine models that show reduced transmission.</div>
+<div class="para" id="sec-how-vaccination-level-affects-long-term-outcomes-7">Much of this section has focused on vaccines, which are a valuable element of compartmental models. Another important aspect of disease spread is the incubation period of an illness. The SEIR model, described in <a href="ch-incubation-periods.html" class="internal" title="Chapter 7: Incubation Periods">Chapter 7</a>, incorporates this incubation period.</div></section><section class="exercises" id="exercises-ch-vaccines"><h3 class="heading hide-type">
+<span class="type">For Further Thought</span><span class="space"> </span><span class="codenumber">6.3</span><span class="space"> </span><span class="title">For Further Thought</span>
+</h3>
+<article class="exercise exercise-like" id="exercises-ch-vaccines-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-vaccines-1-1">A vaccine for measles was first licensed in the United States in 1963. Before that, nearly all U.S. children got measles by the time they were 15 years old. Due to the vaccine, by the year 2000, the U.S. eliminated measles as a disease that could spread continuously. Since then, measles in the U.S. occurs only occasionally, typically when a person travels elsewhere, gets measles, and returns to the U.S. with the ability to infect others.<details class="ptx-footnote" aria-live="polite" id="exercises-ch-vaccines-1-1-1"><summary class="ptx-footnote__number" title="Footnote 6.7"><sup> 7 </sup></summary><div class="ptx-footnote__contents" id="exercises-ch-vaccines-1-1-1">These facts are from the Centers for Disease Control and Prevention (CDC) page on <a class="external" href="https://www.cdc.gov/measles/about/history-of-measles.html" target="_blank">History of Measles</a>.</div></details>
+</div>
+<div class="para" id="exercises-ch-vaccines-1-2">Measles lends itself to especially demonstrative mathematical models for two reasons: (1) measles is exceptionally contagious, and (2) the vaccine for measles has very high efficacy and effectiveness, with immunity that lasts a lifetime. In our modeling for this exercise, we will think of the measles vaccine as being <span class="process-math">\(100\%\)</span> effective. (In reality, two doses of measles vaccine are about <span class="process-math">\(97\%\)</span> effective. Exercise 3 in this section shows how to model both effectiveness and the level of vaccination across a population.)</div>
+<ol class="lower-alpha">
+<li id="exercises-ch-vaccines-1-3-1">
+<div class="para" id="exercises-ch-vaccines-1-3-1-1">As described in <a href="ch-vaccines.html#activity-pcrit" class="xref" data-knowl="./knowl/xref/activity-pcrit.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 6.2">Activity 6.2</a>, the value of <span class="process-math">\(\mathcal{R}_0\)</span> for measles is approximately 12 to 18. Let’s suppose a specific outbreak of measles has <span class="process-math">\(\mathcal{R}_0 = 15\text{.}\)</span> The CDC says that measles is infectious from four days before symptoms appear until four days after, meaning about 8 total days.<details class="ptx-footnote" aria-live="polite" id="exercises-ch-vaccines-1-3-1-1-4"><summary class="ptx-footnote__number" title="Footnote 6.8"><sup> 8 </sup></summary><div class="ptx-footnote__contents" id="exercises-ch-vaccines-1-3-1-1-4">These numbers come from the Centers for Disease Control and Prevention (CDC) page on <a class="external" href="https://www.cdc.gov/measles/causes/index.html" target="_blank">How Measles Spreads</a>.</div></details> For this reason, set <span class="process-math">\(\gamma = 1/8\text{.}\)</span> Let’s suppose this outbreak occurs in a small, close-knit community of 500 people, in which one person initially has the measles, meaning <span class="process-math">\(S(0)=499\text{,}\)</span> <span class="process-math">\(I(0)=1\text{,}\)</span> <span class="process-math">\(R(0)=0\text{.}\)</span> Set up an SIR model, as shown below, for this outbreak:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/activity-pcrit.html ./knowl/xref/eq-R0-sir.html" id="exercises-ch-vaccines-1-3-1-2">
+\begin{align*}
+\frac{dS}{dt} \amp = - (1-p) \beta S I \\
+\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I \\
+\frac{dR}{dt} \amp = \gamma I. 
+\end{align*}
+</div>
+<div class="para" id="exercises-ch-vaccines-1-3-1-3">To compute parameter values for the model, use the information provided in this exercise, along with equation <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-12" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a>, to compute <span class="process-math">\(\beta\text{.}\)</span> Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<span class="process-math">\(p=0\)</span>), and what happens if everyone in the community is vaccinated (<span class="process-math">\(p=1\)</span>)?</div>
+</li>
+<li id="exercises-ch-vaccines-1-3-2"><div class="para" id="exercises-ch-vaccines-1-3-2-1">Now investigate varying levels of vaccination. What happens if <span class="process-math">\(p=.25\text{,}\)</span> <span class="process-math">\(p=.5\text{,}\)</span> <span class="process-math">\(p=.75\text{,}\)</span> or <span class="process-math">\(p=.9\text{?}\)</span> Determine long-term outcomes in each case, that is, determine how many people ultimately get measles in each modeling scenario. Indicate, also, how much time the model needs to run in order to determine how many people get measles in each scenario. The model may need to run longer when a greater percentage of the population is vaccinated. (Notice that there is not a unique answer to how long to run the model: if you can see the long-term value after 100 days, for instance, then running the model for 120 days will also show the long-term value. Aim to indicate a number of days that shows clearly that population values have leveled off to horizontal lines, while not using such a large number of days that it becomes difficult to see the rise and/or fall of the infectious curve <span class="process-math">\(I(t)\)</span> as the outbreak proceeds.)</div></li>
+<li id="exercises-ch-vaccines-1-3-3"><div class="para" id="exercises-ch-vaccines-1-3-3-1">In many communities in the U.S., the percentage of vaccinated people is around <span class="process-math">\(91\%\)</span> or <span class="process-math">\(92\%\text{.}\)</span><details class="ptx-footnote" aria-live="polite" id="exercises-ch-vaccines-1-3-3-1-3"><summary class="ptx-footnote__number" title="Footnote 6.9"><sup> 9 </sup></summary><div class="ptx-footnote__contents" id="exercises-ch-vaccines-1-3-3-1-3">See the Centers for Disease Control and Prevention (CDC) page on <a class="external" href="https://www.cdc.gov/nchs/fastats/measles.htm" target="_blank">Measles, Mumps, and Rubella</a>.</div></details> At these levels, how many people will get measles, according to your model? What if the vaccination rate were as high as <span class="process-math">\(94\%\text{?}\)</span> Or as low as <span class="process-math">\(89\%\text{?}\)</span>
+</div></li>
+<li id="exercises-ch-vaccines-1-3-4"><div class="para" id="exercises-ch-vaccines-1-3-4-1">Compute <span class="process-math">\(p_{\text{crit}}\)</span> for this model of measles.</div></li>
+<li id="exercises-ch-vaccines-1-3-5"><div class="para" id="exercises-ch-vaccines-1-3-5-1">Write about your results when changing the vaccination rate. Describe how much the number of measles cases can change in response to what may appear to be small changes in the vaccination rate, especially when the vaccination rate is close to the value of <span class="process-math">\(p_{\text{crit}}\text{.}\)</span>
+</div></li>
+</ol></article><article class="exercise exercise-like" id="exercises-ch-vaccines-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-vaccines-2-1">In 2016, Bates College experienced a small outbreak of mumps. Nearly <span class="process-math">\(100\%\)</span> of students had been vaccinated against mumps, and in particular, the students who became sick had been vaccinated. The mumps vaccine is approximately <span class="process-math">\(88\%\)</span> effective when a person has had two doses.<details class="ptx-footnote" aria-live="polite" id="exercises-ch-vaccines-2-1-3"><summary class="ptx-footnote__number" title="Footnote 6.10"><sup> 10 </sup></summary><div class="ptx-footnote__contents" id="exercises-ch-vaccines-2-1-3">The value of <span class="process-math">\(88\%\)</span> comes from the Centers for Disease Control and Prevention (CDC) page on <a class="external" href="https://www.cdc.gov/vaccines/vpd/mumps/index.html" target="_blank">Mumps Vaccination</a>.</div></details> We use an SIR model for mumps to compare the outcome for a fully vaccinated population with the hypothetical outcome of a mumps outbreak in a fully unvaccinated population.</div>
+<div class="para" id="exercises-ch-vaccines-2-2">You will notice that the population is fully vaccinated, meaning everyone has received the mumps vaccine, but the effectiveness of the vaccine is approximately <span class="process-math">\(88\%\)</span> rather than <span class="process-math">\(100\%\text{.}\)</span> In this circumstance, the factor <span class="process-math">\((1-p)\)</span> in the model accounts for the <em class="emphasis">effectiveness</em> of the vaccine. We therefore set <span class="process-math">\(p=0.88\)</span> to reflect the CDC value on vaccine effectiveness.</div>
+<ol class="lower-alpha">
+<li id="exercises-ch-vaccines-2-3-1">
+<div class="para" id="exercises-ch-vaccines-2-3-1-1">Use the SIR model with vaccination, shown below, to graph the long-term outcome for mumps. At Bates College in 2016, there were approximately 1800 students, and there were 7 initial cases of mumps, which arose from a group of students who had traveled together and become infected during the trip. Consider all remaining students (that is, 1793 students) to initially be Susceptible. Therefore set <span class="process-math">\(S(0)=1793\text{,}\)</span> <span class="process-math">\(I(0)=7\text{,}\)</span> and <span class="process-math">\(R(0)=0\text{.}\)</span> Set <span class="process-math">\(\gamma = 1/7\text{,}\)</span> as mumps tends to be infectious for about one week. The value of <span class="process-math">\(\mathcal{R}_0\)</span> for mumps ranges from 4 to 7, and for mumps spread at a residential campus, where people live in close proximity to each other, we use <span class="process-math">\(\mathcal{R}_0 = 7\text{.}\)</span> These pieces of information, along with equation <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-12" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a>, allow you to compute the value of <span class="process-math">\(\beta\)</span> for the model:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-R0-sir.html" id="exercises-ch-vaccines-2-3-1-2">
+\begin{align*}
+\frac{dS}{dt} \amp = - (1-p) \beta S I \\
+\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I \\
+\frac{dR}{dt} \amp = \gamma I. 
+\end{align*}
+</div>
+<div class="para" id="exercises-ch-vaccines-2-3-1-3">Use Python to visualize this model for the spread of mumps on campus and to determine how many people will eventually become infected with mumps, according to the model.</div>
+</li>
+<li id="exercises-ch-vaccines-2-3-2"><div class="para" id="exercises-ch-vaccines-2-3-2-1">Now, run an experiment to test what would happen if mumps arrived at a hypothetical campus where no one had any vaccination or other past exposure to mumps. Construct a model nearly identical to your model from part (a), except set <span class="process-math">\(p = 0\text{.}\)</span> In this situation, how many people eventually become infected with mumps?</div></li>
+<li id="exercises-ch-vaccines-2-3-3"><div class="para" id="exercises-ch-vaccines-2-3-3-1">Compare your outcomes from parts (a) and (b) and discuss the implications of this comparison. As part of your discussion, describe how models can be used to better understand possible public health interventions (such as vaccines) or lack of interventions.</div></li>
+</ol></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-incubation-periods.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
