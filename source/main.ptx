@@ -2076,9 +2076,6 @@ plt.show()
           After completing <xref ref="activity-introducing-units"/>, we recognize that in our SIR model, the units of <m>\beta</m> are not <m>1/\mbox{time}</m>. Therefore <m>\beta</m> is not a rate, and we cannot estimate the value of <m>\beta</m> similarly to how we estimate the value of <m>\gamma</m>. Indeed, estimating the value of <m>\beta</m> will require different methods. In <xref ref="ch-visualization-graphing-model-results-and-data"/> we discuss estimating <m>\beta</m> visually by comparing our model with data. In <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/> and <xref ref="ch-vaccines-and-incubation-periods"/> we introduce another way to estimate <m>\beta</m>, using other parameter values we know, along with a formula involving an epidemiological concept known as the <term>basic reproduction number</term>. 
         </p>
 
-        <!-- COME BACK HERE AND SAY MORE ABOUT WHERE AND HOW WE ESTIMATE BETA!!! -->
-        <!-- COME BACK HERE AND SAY MORE ABOUT WHERE AND HOW WE ESTIMATE BETA!!! -->
-        <!-- COME BACK HERE AND SAY MORE ABOUT WHERE AND HOW WE ESTIMATE BETA!!! -->
       
       </section>
 
@@ -2808,10 +2805,10 @@ plt.show()
     </chapter>
 
     
-    <chapter xml:id="ch-vaccines-and-incubation-periods">
-      <title>Vaccines and Incubation Periods</title>
+    <chapter xml:id="ch-vaccines">
+      <title>Vaccines</title>
 
-      <introduction xml:id="intro-vaccines-and-incubation-periods">
+      <introduction xml:id="intro-vaccines">
       <objectives>
         <ul>
           <li>
@@ -2827,11 +2824,6 @@ plt.show()
           <li>
             <p>
               Determine the threshold for what percentage of vaccine coverage reduces transmission enough so that the number of Infectious cases does not rise
-            </p>
-          </li>
-          <li>
-            <p>
-              Introduce the SEIR model, where E stands for <em>Exposed-and-incubating</em>, meaning people in the E compartment have already contracted an illness but have not yet become infectious to others
             </p>
           </li>
           <!-- <li>
@@ -2966,8 +2958,8 @@ plt.show()
 
     </introduction>
 
-      <section xml:id="sec-vaccines-in-compartmental-models">
-        <title>Vaccines in Compartmental Models</title>
+      <section xml:id="sec-determining-a-threshold-vaccine-level">
+        <title>Determining a Threshold Vaccine Level</title>
 
         <p>
           The modeling in this section focuses on <em>reducing transmission of a disease through the use of vaccines</em>. We use the multiplier <m>(1-p)</m> from <xref ref="expl-activity-vaccines"/>, along with the concept of <m>\mathcal{R}_0</m> from <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>, to demonstrate the effect of vaccines on the number of people who ever become Infectious in a disease outbreak.
@@ -3042,7 +3034,7 @@ plt.show()
               </li>              
               <li>
                 <p>
-                  Smallpox has been eliminated: the last natural occurrence was in 1977, and in 1980, the World Health Organization stated that smallpox had been globally eradicated. Measles has not been eliminated: widespread vaccination has reduced cases drastically in many parts of the world, but measles continues to circulate. Given your results in this activity about the values of <m>p_{\text{crit}}</m> for smallpox and measles, write a few sentences about how <m>\mathcal{R}_0</m> contributes toward making it more or less feasible to vaccinate enough people to eliminate a disease.   
+                  Smallpox has been eliminated: the last natural occurrence was in 1977, and in 1980, the World Health Organization stated that smallpox had been globally eradicated. Measles has not been eliminated: widespread vaccination has reduced cases drastically in many parts of the world, but measles continues to circulate. Given your results in parts 1 and 2 of this activity about the values of <m>p_{\text{crit}}</m> for smallpox and measles, write a few sentences about how the value of <m>\mathcal{R}_0</m> increases or decreases the feasibility of vaccinating enough people to eliminate a disease.   
                 </p>
               </li>
             </ol>
@@ -3071,16 +3063,22 @@ plt.show()
         </activity>
 
         <p>
-          The investigations of <xref ref="activity-pcrit"/> asked you to compute values of <m>p_{\text{crit}}</m> for specific diseases. Another aspect of <m>p_{\text{crit}}</m> is that achieving this critical vaccination level means only that the infection curve, that is, the <m>I(t)</m> curve, falls from the beginning rather than rising first. However, this does not mean that there are no new infections after the initial cases. Explore this further in <xref ref="activity-pcrit2"/>.
+          The investigations of <xref ref="activity-pcrit"/> asked you to compute values of <m>p_{\text{crit}}</m> for specific diseases. Another aspect of <m>p_{\text{crit}}</m> is that achieving this critical vaccination level means only that the infection curve, that is, the <m>I(t)</m> curve, falls from the beginning rather than rising first. However, this does not mean that there are no new infections after the initial cases. Explore this further in <xref ref="sec-how-vaccination-level-affects-long-term-outcomes"/>.
+        </p>
+
+      </section>
+
+      <section xml:id="sec-how-vaccination-level-affects-long-term-outcomes">
+        <title>How Vaccination Level Affects Long Term Outcomes</title>
+
+        <p>
+          <xref ref="activity-pcrit2"/> focuses on understanding long-term model outcomes, with an emphasis on <m>p_{\text{crit}}</m>, the critical vaccine coverage value defined in <xref ref="eq-pcrit"/>. Another emphasis is on adjusting our Python code in order to make sure its output truly demonstrates the answers to the questions we are asking.
         </p>
 
         <activity xml:id="activity-pcrit2">
           <statement>
-            <p>
-              This activity focuses on understanding long-term model outcomes, with an emphasis on <m>p_{\text{crit}}</m>, the critical vaccine coverage value defined in <xref ref="eq-pcrit"/>. Another emphasis is on adjusting our Python code in order to make sure its output truly demonstrates the answers to the questions we are asking. 
-            </p>
             <p> 
-              We use the following SIR model with a term <m>(1-p)</m> to indicate the unvaccinated fraction of people:  
+              For the following SIR model, the term <m>(1-p)</m> indicates the unvaccinated fraction of people:  
             </p>
             <md>
               <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
@@ -3187,7 +3185,7 @@ plt.show()
         </activity>
              
         <p>
-          We now pause our modeling for a moment to provide some extra vocabulary and commentary on vaccines. When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>.<fn>Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.</fn> The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
+          We now pause our modeling for a moment to provide some extra vocabulary and commentary on vaccines. When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>. (Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.) The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
         </p>
         <p>
           Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at the <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization.
@@ -3196,11 +3194,234 @@ plt.show()
           Vaccine outcomes extend beyond affecting disease transmission. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can be included in models, however such models tend to be more detailed than those we are studying right now. For this reason, this chapter focuses only on vaccine models that show reduced transmission.
         </p>
         <p>
-          Much of this section has focused on vaccines, which are a valuable element of compartmental models. Another important aspect of disease spread is the incubation period of an illness. The SEIR model, described in <xref ref="sec-including-an-incubation-period-the-seir-model"/>, incorporates this incubation period.           
+          Much of this section has focused on vaccines, which are a valuable element of compartmental models. Another important aspect of disease spread is the incubation period of an illness. The SEIR model, described in <xref ref="ch-incubation-periods"/>, incorporates this incubation period.           
         </p>
 
 
       </section>
+
+
+        <!-- <p>
+          Now that we have discussed public health intervention in the form of vaccines, as well as SI, SIR, and SEIR models, we have learned enough to be able to mathematically model the primary dynamics of many disease outbreaks. <em>These ideas are the core of this course.</em> In <xref ref="ch-getting-the-answer-right-in-modeling"/> we will think through the big ideas inherent in mathematical modeling. The remaining chapters in <xref ref="part-core-modeling-concepts"/> focus on connecting data with models and working with two additional ways to significantly extend our use of compartmental models: endemic disease, in <xref ref="ch-epidemic-vs-endemic-models"/>, and modeling ideas other than diseases, in <xref ref="ch-modeling-the-spread-of-a-rumor"/>.
+        </p> -->
+
+      <!-- </section> -->
+
+
+      <exercises xml:id="exercises-ch-vaccines">
+         <exercise number="1">
+          <p>
+            A vaccine for measles was first licensed in the United States in 1963. Before that, nearly all U.S. children got measles by the time they were 15 years old. Due to the vaccine, by the year 2000, the U.S. eliminated measles as a disease that could spread continuously. Since then, measles in the U.S. occurs only occasionally, typically when a person travels elsewhere, gets measles, and returns to the U.S. with the ability to infect others.<fn>These facts are from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/about/history-of-measles.html">History of Measles</url>.</fn>
+          </p> 
+          <p>
+            Measles lends itself to especially demonstrative mathematical models for two reasons: (1) measles is exceptionally contagious, and (2) the vaccine for measles has very high efficacy and effectiveness, with immunity that lasts a lifetime. In our modeling for this exercise, we will think of the measles vaccine as being <m>100\%</m> effective. (In reality, two doses of measles vaccine are about <m>97\%</m> effective. Exercise 3 in this section shows how to model both effectiveness and the level of vaccination across a population.)
+          </p>  
+          <ol>
+            <li>
+              <p>
+                As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is infectious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>These numbers come from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/causes/index.html">How Measles Spreads</url>.</fn> For this reason, set <m>\gamma = 1/8</m>. Let's suppose this outbreak occurs in a small, close-knit community of 500 people, in which one person initially has the measles, meaning <m>S(0)=499</m>, <m>I(0)=1</m>, <m>R(0)=0</m>. Set up an SIR model, as shown below, for this outbreak:
+              </p>              
+              <md>
+                <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
+                <mrow>\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I </mrow>
+                <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+              </md>
+              <p>
+                To compute parameter values for the model, use the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute <m>\beta</m>. Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<m>p=0</m>), and what happens if everyone in the community is vaccinated (<m>p=1</m>)?
+              </p>
+            </li>
+            <li>
+              <p>
+                Now investigate varying levels of vaccination. What happens if <m>p=.25</m>, <m>p=.5</m>, <m>p=.75</m>, or <m>p=.9</m>? Determine long-term outcomes in each case, that is, determine how many people ultimately get measles in each modeling scenario. Indicate, also, how much time the model needs to run in order to determine how many people get measles in each scenario. The model may need to run longer when a greater percentage of the population is vaccinated. (Notice that there is not a unique answer to how long to run the model: if you can see the long-term value after 100 days, for instance, then running the model for 120 days will also show the long-term value. Aim to indicate a number of days that shows clearly that population values have leveled off to horizontal lines, while not using such a large number of days that it becomes difficult to see the rise and/or fall of the infectious curve <m>I(t)</m> as the outbreak proceeds.)
+              </p>
+            </li>
+            <li>
+              <p>
+                In many communities in the U.S., the percentage of vaccinated people is around <m>91\%</m> or <m>92\%</m>.<fn>See the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/nchs/fastats/measles.htm">Measles, Mumps, and Rubella</url>.</fn> At these levels, how many people will get measles, according to your model? What if the vaccination rate were as high as <m>94\%</m>? Or as low as <m>89\%</m>?
+              </p>
+            </li>            
+            <li>
+              <p>
+                Compute <m>p_{\text{crit}}</m> for this model of measles.
+              </p>
+            </li>
+            <li>
+              <p>
+                Write about your results when changing the vaccination rate. Describe how much the number of measles cases can change in response to what may appear to be small changes in the vaccination rate, especially when the vaccination rate is close to the value of <m>p_{\text{crit}}</m>.
+              </p>
+            </li>
+          </ol>       
+        </exercise>
+
+        <exercise number="2">
+          <p>
+            In 2016, Bates College experienced a small outbreak of mumps. Nearly <m>100\%</m> of students had been vaccinated against mumps, and in particular, the students who became sick had been vaccinated. The mumps vaccine is approximately <m>88\%</m> effective when a person has had two doses.<fn>The value of <m>88\%</m> comes from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/vaccines/vpd/mumps/index.html">Mumps Vaccination</url>.</fn> We use an SIR model for mumps to compare the outcome for a fully vaccinated population with the hypothetical outcome of a mumps outbreak in a fully unvaccinated population.
+          </p>  
+          <p>
+            You will notice that the population is fully vaccinated, meaning everyone has received the mumps vaccine, but the effectiveness of the vaccine is approximately <m>88\%</m> rather than <m>100\%</m>. In this circumstance, the factor <m>(1-p)</m> in the model accounts for the <em>effectiveness</em> of the vaccine. We therefore set <m>p=0.88</m> to reflect the CDC value on vaccine effectiveness.
+          </p> 
+          <ol>
+            <li>
+              <p>
+                Use the SIR model with vaccination, shown below, to graph the long-term outcome for mumps. At Bates College in 2016, there were approximately 1800 students, and there were 7 initial cases of mumps, which arose from a group of students who had traveled together and become infected during the trip. Consider all remaining students (that is, 1793 students) to initially be Susceptible. Therefore set <m>S(0)=1793</m>, <m>I(0)=7</m>, and <m>R(0)=0</m>. Set <m>\gamma = 1/7</m>, as mumps tends to be infectious for about one week. The value of <m>\mathcal{R}_0</m> for mumps ranges from 4 to 7, and for mumps spread at a residential campus, where people live in close proximity to each other, we use <m>\mathcal{R}_0 = 7</m>. These pieces of information, along with equation <xref ref="eq-R0-sir"/>, allow you to compute the value of <m>\beta</m> for the model:
+              </p>
+              <md>
+                <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
+                <mrow>\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I </mrow>
+                <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+              </md>
+              <p>
+                Use Python to visualize this model for the spread of mumps on campus and to determine how many people will eventually become infected with mumps, according to the model.
+              </p>
+            </li>
+            <li>
+              <p>
+                Now, run an experiment to test what would happen if mumps arrived at a hypothetical campus where no one had any vaccination or other past exposure to mumps. Construct a model nearly identical to your model from part (a), except set <m>p = 0</m>. In this situation, how many people eventually become infected with mumps?
+              </p>
+            </li>
+            <li>
+              <p>
+                Compare your outcomes from parts (a) and (b) and discuss the implications of this comparison. As part of your discussion, describe how models can be used to better understand possible public health interventions (such as vaccines) or lack of interventions.
+              </p>
+            </li>
+          </ol>   
+        </exercise>
+
+        <!-- <exercise number="3">
+          <p>
+            We make one more update to the pertussis model in <xref ref="activity-seir-model-pertussis-setup"/>, addressing vaccine efficacy. Our inclusion of the multiplier <m>(1-p)</m> assumed that vaccination had <m>100 \%</m> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <m>80-85\%</m> efficacy.<fn>This range of vaccine efficacy level comes from the <url href="https://www.cdc.gov/vaccines/pubs/pinkbook/pert.html">Centers for Disease Control and Prevention</url>. The range is specific to the DTaP vaccine, in Europe and the Americas, in studies in or after 1991.</fn>
+          </p>   
+          <ol>
+            <li>
+              <p>
+                Rewrite your model as below, where <m>p</m> remains the percentage of people vaccinated, and <m>q</m> is the efficacy percentage. We require that <m>0 \leq p \leq 1</m> and <m>0 \leq q \leq 1</m>. Explain in words why the way the model is written, and the ranges for <m>p</m> and <m>q</m>, make sense. In your explanation, include <q>edge cases</q>, that is, describe what happens when <m>p=0</m>, <m>p=1</m>, <m>q=0</m>, and <m>q=1</m>. Also describe what happens as <m>p</m> increases from <m>0</m> to <m>1</m>, and what happens as <m>q</m> increases from <m>0</m> to <m>1</m>.
+              </p>
+              <md>
+                  <mrow>\frac{dS}{dt} \amp = - (1-pq) \beta S I </mrow>
+                  <mrow>\frac{dE}{dt} \amp =  (1-pq) \beta S I - \kappa E </mrow>
+                  <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+                  <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+              </md>
+            </li>
+            <li>
+              <p>
+                Use the Python code from <xref ref="activity-seir-model-pertussis-setup"/> to incorporate vaccine efficacy. Use logic, as well as results from your code, to explain how vaccine efficacy below <m>100\%</m> can make it more challenging to achieve the goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m>. In your explanation, you may wish to use the information that <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective.
+              </p>
+            </li>
+          </ol>     
+        </exercise> -->
+      </exercises>
+
+
+    
+    </chapter>
+
+
+    
+    <chapter xml:id="ch-incubation-periods">
+      <title>Incubation Periods</title>
+
+      <introduction xml:id="intro-incubation-periods">
+      <objectives>
+        <ul>
+          <li>
+            <p>
+              Introduce the SEIR model, where E stands for <em>Exposed-and-incubating</em>, meaning people in the E compartment have already contracted an illness but have not yet become infectious to others
+            </p>
+          </li>
+          <!-- <li>
+            <p>
+              Introduce a new model compartment, often called <em>Isolated</em>, to reduce disease transmission by reducing the interaction of the Infectious and Susceptible populations 
+            </p>
+          </li> -->
+        </ul>
+      </objectives>
+
+      <p>
+        I  
+      </p>  
+
+      <p>
+        O
+      </p>
+
+      <p>
+        Begin in <xref ref="expl-activity-incubation"/> by 
+      </p>
+      
+      <exploration xml:id="expl-activity-incubation">
+        <title>Reducing New Infections</title>
+        <introduction>
+                    <p>
+            T
+          </p> 
+          <p>
+            W
+          </p>
+        </introduction>
+
+        <task>
+          <statement>
+            <p>
+              R  
+            </p>
+            <p>
+              A
+            </p>
+
+            
+
+            <ol>
+              <li>
+                <p>
+                  G
+                </p>
+              </li>
+              <li>
+                <p>
+                  W
+                </p>
+              </li>              
+            </ol>
+
+            
+          </statement>
+        </task>
+
+        <task>
+          <statement>
+            <p>
+              T
+            </p>
+          <ol>
+            <li>
+                <p>
+                  W
+                </p>
+              </li>
+              <li>
+                <p>
+                  W
+                </p>
+              </li>
+              <li>
+                <p>
+                  P
+                </p>
+              </li>
+          </ol>
+          </statement>
+        </task>
+        
+      </exploration>
+
+    </introduction>
+
+      
+
+
+            
+           
 
       <section xml:id="sec-including-an-incubation-period-the-seir-model">
         <title>Including an Incubation Period: The SEIR Model</title>
@@ -3553,14 +3774,14 @@ plt.show()
         </activity>
         
 
-        <p>
+        <!-- <p>
           Now that we have discussed public health intervention in the form of vaccines, as well as SI, SIR, and SEIR models, we have learned enough to be able to mathematically model the primary dynamics of many disease outbreaks. <em>These ideas are the core of this course.</em> In <xref ref="ch-getting-the-answer-right-in-modeling"/> we will think through the big ideas inherent in mathematical modeling. The remaining chapters in <xref ref="part-core-modeling-concepts"/> focus on connecting data with models and working with two additional ways to significantly extend our use of compartmental models: endemic disease, in <xref ref="ch-epidemic-vs-endemic-models"/>, and modeling ideas other than diseases, in <xref ref="ch-modeling-the-spread-of-a-rumor"/>.
-        </p>
+        </p> -->
 
       </section>
 
 
-      <exercises xml:id="exercises-ch-vaccines">
+      <exercises xml:id="exercises-ch-incubation-period">
          <exercise number="1">
           <p>
             Redo <xref ref="activity-seir-model-pertussis-setup"/>, but convert the time unit to <em>weeks</em> instead of <em>days</em>. To make this change, do the following. 
@@ -3645,876 +3866,6 @@ plt.show()
     </chapter>
 
 
-    <chapter xml:id="ch-getting-the-answer-right-in-modeling">
-      <title>Getting the Answer <q>Right</q> in Modeling</title>
-
-      <introduction xml:id="intro-getting-the-answer-right-in-modeling">
-        <objectives>
-          <ul>
-            <li>
-              <p>
-                Appreciate that mathematical models by themselves are not <q>right</q> or <q>wrong</q>, but instead depend on logically addressing specific questions 
-              </p>
-            </li>
-            <li>
-              <p>
-                Recognize that mathematical models reflect ethics and priorities, and that modelers should consider their ethics and priorities while constructing models
-              </p>
-            </li>
-            <li>
-              <p>
-                Embrace the process of updating models based on new data, different questions being asked, or for many other reasons
-              </p>
-            </li>
-            <li>
-              <p>
-                Commit to explaining models and their results clearly, using carefully chosen graphs and words
-              </p>
-            </li>
-          </ul>
-        </objectives>
-  
-        <p> 
-          In this chapter, we pause and step back to consider the overall process of <term>mathematical modeling</term>. 
-        </p>
-        <p>
-          Mathematical modeling allows us to represent real-world scenarios with mathematical formulas. Models may primarily reflect what is happening in the world, giving us a mathematical way to describe what we see. Alternately, we may use models to think about how to change what is happening in the world. We can make changes mathematically, trying ideas within models, before ever trying to implement those ideas as policies or medical interventions involving actual people.  
-        </p>
-        <exploration xml:id="expl-activity-getting-the-answer-right">
-          <title>Which Model(s) to Use?</title>
-          <introduction>
-            <p>
-              So far, we have worked with the SI, SIR, and SEIR models. We have shown how to include vaccines in a model. And for those who completed the last exercise of <xref ref="exercises-ch-vaccines"/>, we showed how to include vaccines along with their efficacy or effectiveness. Now, think through choosing from these models for different scenarios. 
-            </p>
-          </introduction>
-  
-          <task>
-            <statement>
-              <p>
-                Which model(s) would you choose to work with if you wanted to include a term such as <m>(1-p)</m> to indicate vaccination? Why? 
-              </p>
-            </statement>
-          </task>  
-          <task>
-            <statement>
-              <p>
-                Which model(s) would allow you to change the length of time someone is Infectious, perhaps to test the outcome of a medication that reduces the length of time a person can infect others? Why does your choice of model(s) make sense? 
-              </p>
-            </statement>
-          </task>
-          <task>
-            <statement>
-              <p>
-                Which model(s) would you use if you had an Infectious compartment in which individuals would always stay Infectious? Why? 
-              </p>
-            </statement>
-          </task>
-          <task>
-            <statement>
-              <p>
-                Which model(s) would allow you to change the time scale from days to weeks? How would you know this is possible? 
-              </p>
-            </statement>
-          </task>
-          
-        </exploration>
-        <p>
-           Many people believe that mathematics is all about getting <q>the right answer</q>. With mathematical modeling, there may not be a <q>right answer</q>, or even a best answer. For instance, in <xref ref="expl-activity-getting-the-answer-right"/> there may be multiple reasonable answers to some of the questions. In modeling, the answers we seek depend on the questions we ask, the priorities we set, the way we use models to explore these questions, and our ability to explain all these pieces of our thought process.
-        </p>
-        <p>
-          You could say that modeling consists of four components: 
-        </p>
-        <ol>
-          <li>
-            <p>
-              A <em>logical approach</em>;
-            </p>
-          </li>
-          <li>
-            <p>
-              Stated <em>priorities</em>, which relate to both goals and ethics;
-            </p>
-          </li>
-          <li>
-            <p>
-              Making <em>changes</em> to models as we gain more information, to better represent a situation, to answer different questions, or to try alternate scenarios;
-            </p>
-          </li>
-          <li>
-            <p>
-              Well-constructed <em>explanations</em> of every decision and result.
-            </p>
-          </li>
-        </ol>
-        <p>
-          We work through each of these in the sections below. We then use these ideas throughout the textbook.
-        </p>
-  
-        </introduction>
-
-        <section xml:id="sec-the-logical-approach">
-          <title>The Logical Approach</title>
-
-          <p>
-            Throughout mathematics, we set up statements in a particular logical way. We will see that researchers follow similar principles when describing mathematical models.
-          </p>
-          <p>
-             The structure of mathematical statements typically involves <q>if</q> and <q>then</q> statements, such as: <q><em>If</em> a polygon has six sides and six angles, <em>then</em> the polygon is a hexagon.</q> The <q>if</q> statements are called <em>assumptions</em>. The <q>then</q> statements are called <em>conclusions</em>. A mathematical statement may include multiple assumptions and/or multiple conclusions. The words <q>if</q> and <q>then</q> are not always included, so we as readers may need to think carefully about which parts of a mathematical statement are the assumptions and which parts are the conclusions.
-          </p> 
-          <p>
-            Work through <xref ref="activity-mathematical-logic-sections"/> to build familiarity with identifying the assumptions and conclusions in mathematical statements.
-          </p>
-
-          <!-- <activity xml:id="activity-mathematical-logic-sections">
-            <statement>              
-              <p>
-                Mathematical statements are typically structured in terms of <q>if</q> and <q>then</q> statements, such as: <q><em>If</em> the weather forecast calls for rain, <em>then</em> I will bring my raincoat.</q> There may be several <q>if</q> statements, and these are collectively called <term>assumptions</term>. There may be many <q>then</q> statements, and these are called <term>conclusions</term>.  
-              </p>
-              <p>
-                For each of the following mathematical statements, specify which part is the <em>hypothesis</em>, that is, the <q>if</q> part of the statement. Also specify which part is the <em>conclusion</em>, that is, the <q>then</q> part.
-              </p>
-              <ol>
-                <li>
-                  <p>
-                    If a polygon has six sides and six angles, then the polygon is a hexagon.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    If we add two positive numbers <m>a</m> and <m>b</m>, the resulting number will be larger than either <m>a</m> or <m>b</m>.
-                  </p>
-                </li>
-              </ol>
-            </statement>
-            <hint>
-              <p>
-                The first statement could be described as having one hypothesis or two assumptions, depending on whether we characterize <q>six sides and six angles</q> as a single combined idea, or we prefer to split this idea into two separate assumptions. There could be even more assumptions listed, such as if we want to say that having a shape be a polygon is itself a hypothesis. Any reasonable answer here is valid: there is not just one way to designate assumptions.    
-              </p>
-              <p>
-                The second statement does not explicitly include the word <q>then</q>.   
-              </p>
-            </hint>
-          </activity> -->
-
-          <activity xml:id="activity-mathematical-logic-sections">
-            <statement> 
-                          
-              <p>
-                For each of the following mathematical statements, specify the <em>assumptions</em> and the <em>conclusions</em>. There may be multiple assumptions and/or conclusions per statement. The words <q>if</q> and/or <q>then</q> may not appear explicitly. If cases when these words do not appear, it may help to rewrite the mathematical statement in a way that has the same logical meaning, yet that includes <q>if</q> and <q>then</q> in appropriate parts of the statement.
-              </p>
-              <p>
-                A note: you may recognize these statements, but it is completely OK if you do not recognize them. Naming the assumptions and conclusions is possible even if the statements are unfamiliar.
-              </p>
-              <ol>
-                <li>
-                  <p>
-                    If a right triangle has legs with lengths <m>a</m> and <m>b</m>, and if the same triangle's hypotenuse has length <m>c</m>, then the equation <m>a^2+b^2=c^2</m> is true.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Suppose a function <m>f(x)</m> is continuous for <m>x</m>-values satisfying <m>a \leq x \leq b</m>. In this case, <m>f</m> takes on every value between the numbers <m>f(a)</m> and <m>f(b)</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Differentiable functions are continuous.
-                  </p>
-                </li>
-              </ol>
-            </statement>
-            <hint>
-              <ol>
-                <li>
-                  <p>
-                    This is the most straightforward of the three statements in this activity. Most responses will probably have two hypothesis statements and one conclusion. It is possible to list even more assumptions, such as <q>a triangle is a right triangle,</q> <q>one leg of the triangle has length <m>a</m>,</q> and so on.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    This statement is roughly in <q>if-then</q> format already, with the <q>if</q> portion in the first sentence and the <q>then</q> portion in the second sentence.
-                  </p>
-                  <p>
-                    As a note: this statement is inspired by the Intermediate Value Theorem in calculus, but it is not exactly the Intermediate Value Theorem, as it does not state that we are restricting ourselves to values of <m>x</m> for which <m>a \leq x \leq b</m> when stating that <m>f</m> takes on every value between <m>f(a)</m> and <m>f(b)</m>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    The logical structure for this statement is the same as in the rewritten statement: <q>If a function is differentiable, then that function is continuous.</q>
-                  </p>
-                </li>
-              </ol>
-            </hint>
-          </activity>
-
-          <p>
-            The statements in <xref ref="activity-mathematical-logic-sections"/> are traditionally mathematical. When discussing mathematical models, the statements may look somewhat different. Practice with modeling language in <xref ref="activity-mathematical-logic-in-modeling"/>.
-          </p>
-
-          <activity xml:id="activity-mathematical-logic-in-modeling">
-            <statement>              
-              <p>
-                For each of the following paragraphs, specify the <em>assumptions</em> and the <em>conclusions</em>. There may be multiple assumptions and/or conclusions per paragraph. The words <q>if</q> and/or <q>then</q> may not appear explicitly.
-              </p>
-              <ol>
-                <li>
-                  <p>
-                    Suppose we use an SIR model to represent an outbreak in a population of 10,000 people. In this model, the S compartment contains the Susceptibles, that is, people who are not sick but can become sick. The I compartment contains the Infectious, that is, people who are currently able to spread the disease. The R compartment contains the Removed, that is, people who are no longer able to spread the disease and are unable to become sick again. Suppose we estimate the parameters to be <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.4</m>. If, at the start of the outbreak, ten people are Infectious and the rest are Susceptible, then by the end of the outbreak, the model suggests that <m>1071</m> will remain Susceptible, that is, <m>1071</m> people will never have become Infectious. 
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Suppose we use the same SIR model equations described above, with the same initial conditions and the same value of <m>\gamma</m>. However, public health measures are implemented, so that <m>\beta</m> is estimated to fall to approximately <m>0.00005</m>. In this situation, the model suggests that <m>6257</m> people will remain Susceptible at the end of the outbreak. 
-                  </p>
-                </li>
-              </ol>
-            </statement>
-            <hint>
-              <ol>
-                <li>
-                  <p>
-                    There are many assumptions here! Everything before the word <q>then</q> forms part of the assumptions. The conclusion appears after <q>then</q>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    The assumptions here include most of the information from the first scenario, except with a changed value of <m>\beta</m>. The conclusion begins after <q>In this situation</q>. 
-                  </p>
-                </li>
-              </ol>
-            </hint>
-          </activity>
-
-          <p>
-            All this practice with assumptions and conclusions leads us to a key idea. <em>When the assumptions in a statement are not all satisfied, we should not expect the conclusion in that statement to be satisfied.</em> Practice with this concept appears in <xref ref="activity-mathematical-logic-assumptions-not-satisfied"/>.
-          </p>
-
-          <activity xml:id="activity-mathematical-logic-assumptions-not-satisfied">
-            <statement> 
-              <p>
-                Each of the following changes a statement from <xref ref="activity-mathematical-logic-sections"/>. Based on the change, comment on what we should expect regarding the statement's conclusion. 
-              </p>             
-              <ol>
-                <li>
-                  <p>
-                    Recall the statement <q>Suppose a function <m>f</m> is continuous for <m>x</m>-values satisfying <m>a \leq x \leq b</m>. In this case, <m>f</m> takes on every value between the numbers <m>f(a)</m> and <m>f(b)</m></q>. Suppose a function <m>g</m> is not continuous at some of the <m>x</m>-values satisfying <m>a \leq x \leq b</m>. In this case, might there be some numbers between <m>f(a)</m> and <m>f(b)</m> for which <m>f</m> does not take on the value of those numbers?
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Recall the statement <q>Differentiable functions are continuous</q>. Suppose a function is differentiable at all points except at <m>x=0</m>. Must this function be continuous everywhere? Explain in terms of mathematical logic, and if possible, provide one or more examples of functions that demonstrate that when an assumption is not satisfied, then the conclusion may not be satisfied.
-                  </p>
-                </li>
-              </ol>
-            </statement>
-            <hint>
-              <p>
-                When any of the assumptions are not satisfied, we should not expect the conclusion to be satisfied.
-              </p>
-            </hint>
-          </activity>
-
-          <p>
-            The sheer number of assumptions in a model is notable. We comment again that if <em>any</em> assumptions are not satisfied, then we should not assume that the conclusions must be true. Think through this in <xref ref="activity-mathematical-logic-assumptions-not-satisfied-model"/>.
-          </p>
-
-          <activity xml:id="activity-mathematical-logic-assumptions-not-satisfied-model">
-            <statement>              
-              <p>
-                Recall the following from <xref ref="activity-mathematical-logic-in-modeling"/>.
-              </p>
-              <p>
-                <q>Suppose we use an SIR model to represent an outbreak in a population of 10,000 people. In this model, the S compartment contains the Susceptibles, that is, people who are not sick but can become sick. The I compartment contains the Infectious, that is, people who are currently able to spread the disease. The R compartment contains the Removed, that is, people who are no longer able to spread the disease and are unable to become sick again. Suppose we estimate the parameters to be <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.4</m>. If, at the start of the outbreak, ten people are Infectious and the rest are Susceptible, then by the end of the outbreak, the model suggests that <m>1071</m> will remain Susceptible, that is, <m>1071</m> people will never have become Infectious.</q>
-              </p>
-              <p>
-                Write at least five different ways that the assumptions in the statement of this model may not be satisfied. In each of these cases, we should not expect the conclusion to be satisfied.
-              </p>
-            </statement>
-          </activity>
-
-          <p>
-            We have learned in this section that a model includes statements to create a very specific scenario. Whatever conclusions there may be from the model, we should expect them to occur <em>only in the scenario created by the assumptions</em>. If any of the assumptions change, then we should not expect any of the same conclusions to occur.
-          </p>
-          <p>
-            In mathematical statements and model scenarios: it is not completely impossible to see some of the same conclusions, even if we change the assumptions. We are not saying that it is impossible to end up at the same conclusion. Instead, our emphasis is that we <em>should not expect</em> the conclusion to be the same. All our discussion about the model should include this logical connection between assumptions and conclusions.
-          </p>
-          <p>
-            In addition to the purely logical relationship between the <q>ifs</q> and <q>thens</q> of model statements, there are priorities built into any model. We discuss this in <xref ref="sec-priorities-where-goals-meet-ethics"/>.
-          </p>
-  
-        </section>
-
-
-        <section xml:id="sec-priorities-where-goals-meet-ethics">
-          <title>Priorities: Where Goals Meet Ethics</title>
-          <p>
-            Each model is based on the priorities of the people who create the model. Recognizing this, and thinking about it from the start, makes us better modelers.
-          </p>
-          <p>
-            The word <q>priorities</q> can take on many meanings. One key priority in model building is <em>answering a question</em>. For instance, in <xref ref="ch-vaccines-and-incubation-periods"/> we described models that address questions about how helpful vaccines or isolation can be in preventing an outbreak or reducing the effects of an outbreak. Different questions may require different models.
-          </p>
-          <p>
-            There may be other priorities as well, and we may not even realize when we start model building that we are incorporating those priorities. A student project I once advised produced one very powerful example of priorities that we do not see initially. This project forms the idea behind <xref ref="activity-priorities-HIV-AIDS"/>. Though this student put tremendous thought and research into creating their model, <em>the results of the model showed</em> that the student's priorities had not been properly built into the model. This new understanding led the student to revise the model to better include their priorities.
-          </p>
-
-          <activity xml:id="activity-priorities-HIV-AIDS">
-            <statement>              
-              <p>
-                This activity describes a process for constructing a model to address how a government can best use its resources to reduce the impact of HIV/AIDS in its population. The real-life project that inspires this activity involved an excellent student who did meticulous research in constructing their model. The model shown below is a simplification of the model this student produced, yet still includes the key ideas.
-              </p>
-              <ul>
-                <li>
-                  <p>
-                    This model has three compartments and is similar in structure to an SIR model. However, the compartments here have the initials S, I, and A.
-                  </p>
-                  <ul>
-                    <li>
-                      <p>
-                        The S compartment is our familiar Susceptibles compartment, for people without HIV or AIDS.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        The I compartment is for Infectious people, meaning those with HIV.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        The A compartment is for people with AIDS.
-                      </p>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <p>
-                    Many modelers, at the time this student was working, indicated that patients with AIDS were typically too sick to spread the virus to others. Therefore patients with AIDS, according to models, did not contribute to new cases of HIV. The same hypothesis is part of this model: people in the I compartment can cause new infections, but people in the A compartment cannot.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    When someone in compartment I progresses in status from HIV to AIDS, they move to compartment A. 
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    This model lasts many years, so it includes births and deaths. All births are assumed to be Susceptible, and births occur at a constant rate <m>\Pi</m>. The death rates can differ from compartment to compartment. The death rates are labeled <m>\mu _S</m> for compartment S, <m>\mu _I</m> for compartment I, and <m>\mu _A</m> for compartment A. 
-                  </p>
-                </li>
-              </ul>
-
-              <p>
-                The compartmental diagram for this model appears in <xref ref="fig-SIA-compartmental-diagram"/>.
-              </p>
-
-              <figure xml:id="fig-SIA-compartmental-diagram">
-                <caption>An SIA diagram for HIV and AIDS, with births and deaths included</caption>
-                  <image width="70%">
-                  <description>(Write this)</description>
-                    <latex-image>
-                      \begin{tikzpicture}
-                        \draw [thick] [->] (-1.9,1) to (-0.1,1);
-                        \node at (-1,1.5) {\Large $\Pi$};
-                        \draw [thick] [black] (0,0) -- (2,0);
-                        \draw [thick] [black] (2,0) -- (2,2);
-                        \draw [thick] [black] (2,2) -- (0,2);
-                        \draw [thick] [black] (0,2) -- (0,0);
-                        \node [black] at (1,1) {\Huge $S$};
-                        \draw [thick] [->] (2.1,1) to (3.9,1); 
-                        \node at (3,1.5) {\Large $\beta SI$};
-                        \draw [thick] [->] (1,-0.1) to (1,-1.9);
-                        \node at (1.75,-1) {\Large $\mu _S S$};
-                        \draw [thick] [black] (4,0) -- (6,0);
-                        \draw [thick] [black] (6,0) -- (6,2);
-                        \draw [thick] [black] (6,2) -- (4,2);
-                        \draw [thick] [black] (4,2) -- (4,0);
-                        \node [black] at (5,1) {\Huge $I$};
-                        \draw [thick] [->] (6.1,1) to (7.9,1); 
-                        \node at (7,1.5) {\Large $\gamma I$};
-                        \draw [thick] [->] (5,-0.1) to (5,-1.9);
-                        \node at (5.75,-1) {\Large $\mu _I I$};
-                        \draw [thick] [black] (8,0) -- (10,0);
-                        \draw [thick] [black] (10,0) -- (10,2);
-                        \draw [thick] [black] (10,2) -- (8,2);
-                        \draw [thick] [black] (8,2) -- (8,0);
-                        \node [black] at (9,1) {\Huge $A$};
-                        \draw [thick] [->] (9,-0.1) to (9,-1.9);
-                        \node at (9.75,-1) {\Large $\mu _A A$};
-                      \end{tikzpicture}
-                    </latex-image>
-                   </image>
-              </figure>
-
-              <p>
-                This model has more pieces than the models we have seen before. It may take some time to think through these pieces! <em>Begin by taking a significant amount of time to view the compartmental diagram in <xref ref="fig-SIA-compartmental-diagram"/> and read the ideas that led to the model's development. Be sure you understand them.</em> Then respond to the following questions.
-              </p>
-
-              <ol>
-                <li>
-                  <p>
-                    The student project that inspired this Activity examined government strategies for spending limited funds designated for public health. Write about at least four ways government funds could be used to address health-related issues connected with HIV and AIDS. Include funding for HIV/AIDS prevention as well as funding for the care of those who are sick. 
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    This student project had a goal of determining how government funds should be allocated, given a goal of reducing the number of new HIV infections as much as possible. For each way you described how government funds could be used, do your best to indicate how those funds would affect the model in <xref ref="fig-SIA-compartmental-diagram"/>. For example, the number of people in a compartment could be affected, or one of the rate parameters could be increased or decreased. Explain your reasoning.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Given a fixed amount of funding, and a goal of decreasing new HIV infections as much as possible, the results of this student project prescribed a very stark allocation of funding. Thinking through all the ways you thought funding could be used, and thinking about the stated goal of decreasing new HIV infections: can you guess what this student project found in its results?
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    <em>Only after making a guess at the previous question:</em> check the Hint below to see what happened in this student's project. Then consider carefully why this approach to modeling produced this answer, and give some examples of what would need to change in the modeling process in order to give a different answer.
-                  </p>
-                </li>
-              </ol>
-
-            </statement>
-            <hint>
-              <p>
-                The model indicated that no funds at all should be spent on treating patients with AIDS: no medicines, no hospital beds, nothing. 
-              </p>
-            </hint>
-          </activity>
-
-          <p>
-            The example in <xref ref="activity-priorities-HIV-AIDS"/> provides an important insight: <em>We may think we know what questions we are answering with our models, but we should continue to interrogate our answers in relation to our goals, priorities, and ethics.</em> The outcome of the model in <xref ref="activity-priorities-HIV-AIDS"/> did not fit the goals or ethics of the student doing the project. The result from the mathematical model highlighted built-in priorities of the model that the student (and I) did not notice at first. When new infections are completely unaffected by the people in the A compartment, then treating those people, or providing them any healthcare at all, is irrelevant to the goals of the model. However, leaving large numbers of people without healthcare was never the goal of this project. The model needed to be revised to account for this.
-          </p>
-
-          <p>
-            You may have noticed that the example in <xref ref="activity-priorities-HIV-AIDS"/> provides yet another important insight: <em>The results of a model may draw attention to assumptions we had not realized we were making.</em> Many researchers producing HIV/AIDS models were using models in which patients with AIDS did not contribute to new cases of HIV, so we used the same assumption. However, this led to a model whose outcome indicated that an optimal allocation of funds meant AIDS patients would receive no healthcare. This made brute logical sense, but it showed that we needed to update the model to have an expectation of healthcare for AIDS patients. <em>Models help us see situations in a new light. Even when a model's results are not what we hoped for, the process of modeling often improves our understanding of the system we are studying.</em>
-          </p>
-
-          <p>
-            We have just seen an example in which updating a model was crucial. More generally, the process of modeling nearly always involves revision. We restructure models when we spot errors, or when we are able to access better data, or when we begin by asking some questions and then shift to different questions. Updating models is the focus of <xref ref="sec-making-changes-to-models"/>.
-          </p>
-  
-  
-          
-        </section>
-
-
-        
-        <section xml:id="sec-making-changes-to-models">
-          <title>Making Changes to Models</title>
-          <p>
-            The setup of a model matters. Definitions of compartments and rate parameters matter. Initial conditions, such as initial numbers of people in the population of each compartment, matter. All aspects of a model should reflect our priorities and goals, as described in <xref ref="sec-priorities-where-goals-meet-ethics"/>, and should fit together logically, as described in <xref ref="sec-the-logical-approach"/>. We may endeavor to get all these model details right on the first try, incorporating research into the disease being modeled and the populations involved in the outbreak. Yet the act of building and using a model often shows us more details to consider, such as what was described in <xref ref="activity-priorities-HIV-AIDS"/>. Other changes to models may be motivated by asking different questions, gathering new data, updating information about an outbreak, or many other reasons. <em>Making changes to models is a central part of the modeling process</em>.  
-          </p>
-          <p>
-            When COVID-19 first emerged, people had lots of questions, and data were being updated all the time. This was a disease that was truly new, and mathematical models were (and still are) a way to build understanding. Work through <xref ref="activity-changing-models-COVID-19"/> to address some of the questions people immediately had about COVID-19. Importantly: the models in <xref ref="activity-changing-models-COVID-19"/> are inspired by the questions circulating early in the COVID-19 outbreak, but different regions throughout the world experienced COVID-19 in different ways, and the models here are not meant to address every circumstance. In other words: <em>the models here cannot fully and accurately represent early COVID-19</em>, as worldwide outbreaks were more complex. However, by considering public health interventions and changing models to examine the outcomes of these interventions, we learn more about how such interventions affect the trajectory of an outbreak. 
-          </p>
-          <activity xml:id="activity-changing-models-COVID-19">
-            <statement>              
-              <p>
-                For this activity, we model a simplified version of early COVID-19 using an SEIR model in which the compartment definitions may differ from what we have seen before. For each question below, part of the response includes clarifying the definitions of compartments. Here are comments on each compartment, where terms such as <q>could</q>, <q>may</q>, and <q>in some cases</q> indicate aspects of compartment definitions that change, depending on how we define the compartments in a specific model.
-              </p>
-              <ul>
-                <li>
-                  <p>
-                    Susceptibles (S) are people who have not yet become sick, and who can become sick. The Susceptibles could, in some cases, include people who have been vaccinated and therefore have less chance of becoming sick.  
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    The Exposed-and-incubating (E) compartment includes people who have gotten the COVID-19 virus but not yet become infectious, and this class may include people with and without vaccination. 
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    The Infectious (I) compartment includes people who are currently infectious, regardless of the severity of their symptoms, and in some cases, people in the Infectious compartment are also assumed to be interacting with Susceptibles. 
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    The Removed (R) compartment may consist of people who have recovered from COVID-19, died from COVID-19, or entirely isolated themselves from others, so that they cannot spread COVID-19 at all.
-                  </p>
-                </li>
-              </ul>
-              <p>
-                The equations for the SEIR model are below. Use these, along with the Python code block, to answer the questions that follow.  
-              </p>
-              <p>
-                For questions 2, 3, and possibly 4, first <em>imagine how changes to initial population values or parameter values can change outcomes in the model</em>. That is, truly think through this in your mind, and write down your thoughts, before proceeding with changes. For reference, the values in the original model are based very loosely on Lombardy, Italy, in early 2020. The total population was approximately ten million. The value of <m>\mathcal{R}_0</m> was estimated to be <m>2.6-3.3</m>, and <m>\kappa</m> is estimated at about <m>1/6.5</m>.<fn>These estimates come from the paper <q>The early phase of the COVID-19 epidemic in Lombardy, Italy</q> by many researchers, published in the journal <em>Epidemics</em> in December 2021.</fn> The value of <m>\gamma</m> is <m>1/14</m>, indicating an average of two weeks of being infectious. This is based on many reports suggesting that most people were infectious for one to two weeks, but that some people were infectious for much longer. There was vast variation on how early COVID-19 affected people, which is part of the reason we need to consider changes and updates to models.
-              </p>
-              <p>
-                Next, try your changes in Python, creating before-and-after graphs. The code block includes sections titled <q>original model</q> and <q>your changes to the model</q>: scroll through to the <q>your changes to the model</q> version to make updates. Then go to the <q>plotting commands</q> section to choose the compartments for which you would like to show graphs; the default is to show I(t) for both the original and updated versions. Notice that if you were to show all four compartments, before and after, there would be eight total curves, which can be complicated for a reader to understand. Instead, prioritize the graphs that best illustrate your findings, probably showing no more than two or four total graphs at a time. 
-              </p>
-              <md>
-                <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
-                <mrow>\frac{dE}{dt} \amp =  \beta S I - \kappa E </mrow>
-                <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
-                <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-              </md>
-
-              <sage>
-                <input>
-                  #Import packages
-                  import numpy as np
-                  import matplotlib.pyplot as plt
-                  from scipy.integrate import odeint
-                  
-                  plt.cla() #Clear (delete) any past plots
-                  t_range = np.arange(0.0, 49.1, 0.1) #The time range for both models stays the same, to make comparisons easier
-                  
-                  #------------------ORIGINAL MODEL------------------
-
-                  #Define the system of differential equations for the ORIGINAL conditions, and call it "model_1". All variables and parameters have "_1" to indicate this is the first version of the model
-                  def model_1(y_1, t_1):
-                    S_1, E_1, I_1, R_1 = y_1 #Define y as consisting of S, E, I, and R, in that order, each with the "_1" to show this is for the model with original conditions
-                    dydt_1 = [- beta_1 * S_1 * I_1, beta_1 * S_1 * I_1 - kappa_1 * E_1, kappa_1 * E_1 - gamma_1 * I_1, gamma_1 * I_1] #Provide the right-hand sides of the SEIR model
-                    return dydt_1
-
-                  #All values below are for the original conditions for the model
-                  beta_1 = 2.1 * 10^(-8) #Give a value to beta
-                  kappa_1 = 0.154 #Give a value to kappa
-                  gamma_1 = 0.0714 #Give a value to gamma
-                  total_population_1 = 10000000 #Give a total population here, and use it later to compute the initial S population
-                  E_init_1 = 10 #Give an initial value to population E
-                  I_init_1 = 20 #Give an initial value to population I
-                  R_init_1 = 0 #Give an initial value to population R
-                  S_init_1 = total_population_1 - E_init_1 - I_init_1 - R_init_1 #Solve for the initial population value for S, using total_population and initial population values for E, I, and R
-                  R0_1 = beta_1 * (total_population_1) / gamma_1 #Compute the value of R0
-                  print("R0_1 = ", R0_1) #Print the value of R0, to confirm that our parameter values correspond to a reasonable R0 value
-                  y0_1 = [S_init_1, E_init_1, I_init_1, R_init_1] #Put initial conditions for S, E, I, and R into "y0_1" for use below in "odeint"
-                  
-                  sol_1 = odeint(model_1, y0_1, t_range) #Give the name "sol_1" to the lists of numerical values in this original solution, and give "odeint" the information needed to solve
-                  
-                  #------------------YOUR CHANGES TO THE MODEL------------------
-                  
-                  #Define the system of differential equations for YOUR CHANGES TO THE MODEL, and call it "model_2". All variables and parameters have "_2" to indicate this is the second version of the model
-                  def model_2(y_2, t_2):
-                    S_2, E_2, I_2, R_2 = y_2 #Define y as consisting of S, E, I, and R, in that order, each with the "_2" to show this is for the model with original conditions
-                    dydt_2 = [- beta_2 * S_2 * I_2, beta_2 * S_2 * I_2 - kappa_2 * E_2, kappa_2 * E_2 - gamma_2 * I_2, gamma_2 * I_2] #Provide the right-hand sides of the SEIR model
-                    return dydt_2
-                  #These are the original conditions for the model. Make changes to think through public health interventions
-                  beta_2 = 2.1 * 10^(-8) #Give a value to beta
-                  kappa_2 = 0.154 #Give a value to kappa
-                  gamma_2 = 0.0714 #Give a value to gamma
-                  total_population_2 = 10000000 #Give a total population here, and use it later to compute the initial S population
-                  E_init_2 = 10 #Give an initial value to population E
-                  I_init_2 = 20 #Give an initial value to population I
-                  R_init_2 = 0 #Give an initial value to population R
-                  S_init_2 = total_population_2 - E_init_2 - I_init_2 - R_init_2 #Solve for the initial population value for S, using total_population and initial population values for E, I, and R
-                  R0_2 = beta_2 * (total_population_2) / gamma_2 #Compute the value of R0
-                  print("R0_2 = ", R0_2) #Print the value of R0, to confirm that your parameter values correspond to a reasonable R0 value
-                  y0_2 = [S_init_2, E_init_2, I_init_2, R_init_2] #Put initial conditions for S, E, I, and R into "y0_2" for use below in "odeint"
-                  
-                  sol_2 = odeint(model_2, y0_2, t_range) #Give the name "sol_2" to the lists of numerical values in this updated solution, and give "odeint" the information needed to solve
-                  
-                  #------------------PLOTTING COMMANDS------------------
-                  
-                  #Comment out, or include, whichever commands best demonstrate your story
-                  #The default is to show I(t) in both models
-                  #The defauls is also for all updated model curves to appear as unbroken black curves
-                  #If you are showing more than one compartment, in both models, it will help to change the color and/or style for the updated model so the curves are distinct 
-                  
-                  #plt.plot(t_range, sol_1[:, 0], color='blue', linewidth=2, label='S(t) original')
-                  #plt.plot(t_range, sol_1[:, 1], color='magenta', linestyle='dotted', linewidth=2, label='E(t) original')
-                  plt.plot(t_range, sol_1[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t) original')
-                  #plt.plot(t_range, sol_1[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t) original')
-                  #plt.plot(t_range, sol_2[:, 0], color='black', linewidth=2, label='S(t) updated')
-                  #plt.plot(t_range, sol_2[:, 1], color='black', linewidth=2, label='E(t) updated')
-                  plt.plot(t_range, sol_2[:, 2], color='black', linewidth=2, label='I(t) updated')
-                  #plt.plot(t_range, sol_2[:, 3], color='black', linewidth=2, label='R(t) updated'
-                  plt.legend()
-                  plt.grid()
-                  plt.xlabel('time')
-                  plt.ylabel('populations')
-                  plt.show()
-                </input>
-                <output>
-                
-                </output>
-              </sage>
-              
-              <ol>
-                <li>
-                  <p>
-                    How would you define each compartment in the very early stages of COVID-19, when most people did not yet know this was a new disease, and no public health measures had yet been instituted to try to contain the outbreak?  
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Early public health measures aimed to <q>flatten the curve</q>. The idea was that, even without vaccines or COVID-19-specific medicines, we could slow the spread of the outbreak by having people stay distant from each other. Which parameter(s) in the SEIR model are most affected when people maintain physical distance from each other? Try changing the parameter(s) you have chosen in the Python block and compare your results with the original result. 
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Creating COVID-19 vaccines was an early goal, one that people were modeling long before vaccines became available.<fn>In some parts of the world, there has been significant controversy about the use of vaccines for COVID-19. This book does not require readers to have any one opinion about vaccine usage. We use models to address questions about vaccines, and readers are invited to do the same, building models that represent different vaccine-based outcomes and using those models to determine outcomes and dynamics of COVID-19, with and without vaccines.</fn> The plan was for vaccines to address COVID-19 in multiple ways; we will address two such ways here. One way was for people to be less likely to get COVID-19. Another way was to reduce the severity or length of time ill for people who did get COVID-19. For each of these ways of addressing COVID-19: which compartments and/or parameters in the SEIR model are affected? Prepare before-and-after versions of the model, carefully defining each compartment and parameter in the before model and again in the after model. Then use the Python graph to generate graphs comparing the outcomes before and after vaccines. 
-                  </p>
-                </li>                
-                <li>
-                  <p>
-                    Do more open-ended exploration. How else can we use the SEIR model to address questions about the early spread of an outbreak? State questions of your own, explain what changes you are making to the model to answer your questions, and show your results. Include explanations and interpretations of your results. 
-                  </p>
-                </li>
-              </ol>
-
-            </statement>
-            <hint>
-              <ol>
-                <li>
-                  <p>
-                    These are likely the traditional definitions we have used previously for the SEIR model. There is always room for flexibility, though, when different answers are accompanied by logical explanations.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Flattening the curve, social distancing, and other terms predominantly reduce the parameter <m>\beta</m>. Other changes to the model may also represent some aspects of flattening the curve. 
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    The effect of people being less likely to get COVID-19 is usually modeled by reducing <m>\beta</m>. Reducing the severity or time ill typically increases gamma, which also has the meaning of reducing the average time in the Infectious compartment, as shown in <xref ref="eq-gamma-estimate"/> and <xref ref="eq-gamma-estimate-2"/>. Other answers are possible.
-                  </p>
-                </li>                
-                <li>
-                  <p>
-                    Be expansive and creative here, explain all your reasoning, and create graphs and/or bring in yet other evidence to demonstrate your findings. 
-                  </p>
-                </li>
-              </ol>
-            </hint>
-          </activity>
-  
-  
-          
-        </section>
-      
-      
-      
-        <section xml:id="sec-writing-explanations-to-present-models-to-others">
-        <title>Writing Explanations to Present Models to Others</title>
-        
-        <p>
-          Doing mathematical work, and presenting that mathematical work, are two related yet different tasks. Moreover, mathematical work is just one part of the bigger process of building a model, justifying the assumptions within the model, determining the possible outcomes of the model, and explaining the possible solutions and outcomes of the model. In this section, we discuss the presentation of modeling results through careful writing and organization. 
-        </p>
-        <p>
-          Students who take a course in modeling sometimes come from a mathematical background in which explanations are sparse. A question such as <q>What is the value of <m>3</m> times <m>5~</m>?</q> may not require any explanation. (A more fun question might be, <q>What are two different ways to demonstrate that <m>3</m> times <m>5</m> equals <m>15~</m>?</q>. How would your approach to responding change if the question were phrased this way?) My experience teaching a variety of math courses is that students have not always experienced the value of explanation, prior to a modeling course. We address this directly so that each student's models make the most sense, and the impacts of each model are as meaningful and powerful as they can be. 
-        </p>
-        <p>
-          We have discussed writing and presentation already in this text, and we will continue to do so throughout. Notably, <xref ref="ch-writing-tips-for-math-and-planning-for-peer-review"/> focuses entirely on writing, specifically when writing mathematics and writing about mathematical models. Within this chapter, our focus is on unifying these four components of modeling: a logical approach, clearly stated priorities, making any appropriate changes to a model, and constructing meaningful explanations of the results of our models. Try this in <xref ref="activity-writing-explanations-to-present-models"/>.
-        </p>
-
-        <activity xml:id="activity-writing-explanations-to-present-models">
-          <statement>              
-            <p>
-              Imagine a residential college campus experiences an outbreak of flu, which is also called influenza. The incubation period for influenza is usually one to four days, and most often about two days. People tend to be sick with influenza for a few days to less than two weeks, and in most people, less than one week<fn>Facts on incubation period and period of contagion are shown in the CDC's <em>Key Facts About Influenza</em> page: <url href="https://www.cdc.gov/flu/about/keyfacts.htm"></url>.</fn>. The value of <m>\mathcal{R}_0</m> for influenza is typically between 1 and 2<fn>This summary of <m>\mathcal{R}_0</m> values comes from the Virginia Department of Health (<url href="https://www.vdh.virginia.gov/coronavirus/2022/01/07/covid-19-and-influenza-surveillance"></url>), and many other research articles and websites report on <m>\mathcal{R}_0</m> estimates.</fn>, and many people in a population tend to have some immunity or protection from influenza, either because they have been sick with a related strain of influenza in the past, or because they have received an influenza vaccine, or for both reasons.
-            </p>
-            <ol>
-              <li>
-                <p>
-                  Decide on a model that you would use for an influenza outbreak on the campus you are imagining. Write out your reasons for the modeling decisions you make. Ideas to consider include: which compartmental model? How many people are involved, and what are the initial numbers of people in each compartment? What are the parameter values? What ranges of values may be possible for initial values and parameter values? There may be yet other aspects of your model to describe and explain.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Ask some questions of your model. Two sample questions are, <q>What happens if the campus vastly increases its number and distribution of hand sanitizing stations?</q> and <q>How much do the model's results change as the initial number of infectious people changes?</q>. There are many other questions you can ask. Use Python code blocks from elsewhere in the text to answer your questions. Select a code block that includes the type of model you are using (such as SIR, SEIR, and possibly vaccination) and make whatever changes you need. 
-                </p>
-                <p>
-                  Once you have addressed each question, write about your results. Include information about what question you asked and why it was a reasonable question, given the outbreak being studied. In addition to writing your response using words, incorporate other evidence, such as graphs and long-term values of Susceptibles or other compartments. Think throughout about structuring your response logically; indicating your priorities; explaining the change you made and why you made it; and explaining what happened when you made that change.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Creating COVID-19 vaccines was an early goal, one that people were modeling long before vaccines became available.<fn>In some parts of the world, there has been significant controversy about the use of vaccines for COVID-19. This book does not require readers to have any one opinion about vaccine usage. We use models to address questions about vaccines, and readers are invited to do the same, building models that represent different vaccine-based outcomes and using those models to determine outcomes and dynamics of COVID-19, with and without vaccines.</fn> The plan was for vaccines to address COVID-19 in multiple ways; we will address two such ways here. One way was for people to be less likely to get COVID-19. Another way was to reduce the severity or length of time ill for people who did get COVID-19. For each of these ways of addressing COVID-19: which compartments and/or parameters in the SEIR model are affected? Prepare before-and-after versions of the model, carefully defining each compartment and parameter in the before model and again in the after model. Then use the Python graph to generate graphs comparing the outcomes before and after vaccines. 
-                </p>
-              </li>                
-              <li>
-                <p>
-                  Do more open-ended exploration. How else can we use the SEIR model to address questions about the early spread of an outbreak? State questions of your own, explain what changes you are making to the model to answer your questions, and show your results. Include explanations and interpretations of your results. 
-                </p>
-              </li>
-            </ol>
-            <ul>
-              <li>
-                <p>
-                  Susceptibles (S) are people who have not yet become sick, and who can become sick. The Susceptibles could, in some cases, include people who have been vaccinated and therefore have less chance of becoming sick.  
-                </p>
-              </li>
-              <li>
-                <p>
-                  The Exposed-and-incubating (E) compartment includes people who have gotten the COVID-19 virus but not yet become infectious, and this class may include people with and without vaccination. 
-                </p>
-              </li>
-              <li>
-                <p>
-                  The Infectious (I) compartment includes people who are currently infectious, regardless of the severity of their symptoms, and in some cases, people in the Infectious compartment are also assumed to be interacting with Susceptibles. 
-                </p>
-              </li>
-              <li>
-                <p>
-                  The Removed (R) compartment may consist of people who have recovered from COVID-19, died from COVID-19, or entirely isolated themselves from others, so that they cannot spread COVID-19 at all.
-                </p>
-              </li>
-            </ul>
-            <p>
-              The equations for the SEIR model are below. Use these, along with the Python code block, to answer the questions that follow.  
-            </p>
-            <p>
-              For questions 2, 3, and possibly 4, first <em>imagine how changes to initial population values or parameter values can change outcomes in the model</em>. That is, truly think through this in your mind, and write down your thoughts, before proceeding with changes. For reference, the values in the original model are based very loosely on Lombardy, Italy, in early 2020. The total population was approximately ten million. The value of <m>\mathcal{R}_0</m> was estimated to be <m>2.6-3.3</m>, and <m>\kappa</m> is estimated at about <m>1/6.5</m>.<fn>These estimates come from the paper <q>The early phase of the COVID-19 epidemic in Lombardy, Italy</q> by many researchers, published in the journal <em>Epidemics</em> in December 2021.</fn> The value of <m>\gamma</m> is <m>1/14</m>, indicating an average of two weeks of being infectious. This is based on many reports suggesting that most people were infectious for one to two weeks, but that some people were infectious for much longer. There was vast variation on how early COVID-19 affected people, which is part of the reason we need to consider changes and updates to models.
-            </p>
-            <p>
-              Next, try your changes in Python, creating before-and-after graphs. The code block includes sections titled <q>original model</q> and <q>your changes to the model</q>: scroll through to the <q>your changes to the model</q> version to make updates. Then go to the <q>plotting commands</q> section to choose the compartments for which you would like to show graphs; the default is to show I(t) for both the original and updated versions. Notice that if you were to show all four compartments, before and after, there would be eight total curves, which can be complicated for a reader to understand. Instead, prioritize the graphs that best illustrate your findings, probably showing no more than two or four total graphs at a time. 
-            </p>
-            <md>
-              <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
-              <mrow>\frac{dE}{dt} \amp =  \beta S I - \kappa E </mrow>
-              <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
-              <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-            </md>
-
-            <sage>
-              <input>
-                #Import packages
-                import numpy as np
-                import matplotlib.pyplot as plt
-                from scipy.integrate import odeint
-                
-                plt.cla() #Clear (delete) any past plots
-                t_range = np.arange(0.0, 49.1, 0.1) #The time range for both models stays the same, to make comparisons easier
-                
-                #------------------ORIGINAL MODEL------------------
-
-                #Define the system of differential equations for the ORIGINAL conditions, and call it "model_1". All variables and parameters have "_1" to indicate this is the first version of the model
-                def model_1(y_1, t_1):
-                  S_1, E_1, I_1, R_1 = y_1 #Define y as consisting of S, E, I, and R, in that order, each with the "_1" to show this is for the model with original conditions
-                  dydt_1 = [- beta_1 * S_1 * I_1, beta_1 * S_1 * I_1 - kappa_1 * E_1, kappa_1 * E_1 - gamma_1 * I_1, gamma_1 * I_1] #Provide the right-hand sides of the SEIR model
-                  return dydt_1
-
-                #All values below are for the original conditions for the model
-                beta_1 = 2.1 * 10^(-8) #Give a value to beta
-                kappa_1 = 0.154 #Give a value to kappa
-                gamma_1 = 0.0714 #Give a value to gamma
-                total_population_1 = 10000000 #Give a total population here, and use it later to compute the initial S population
-                E_init_1 = 10 #Give an initial value to population E
-                I_init_1 = 20 #Give an initial value to population I
-                R_init_1 = 0 #Give an initial value to population R
-                S_init_1 = total_population_1 - E_init_1 - I_init_1 - R_init_1 #Solve for the initial population value for S, using total_population and initial population values for E, I, and R
-                R0_1 = beta_1 * (total_population_1) / gamma_1 #Compute the value of R0
-                print("R0_1 = ", R0_1) #Print the value of R0, to confirm that our parameter values correspond to a reasonable R0 value
-                y0_1 = [S_init_1, E_init_1, I_init_1, R_init_1] #Put initial conditions for S, E, I, and R into "y0_1" for use below in "odeint"
-                
-                sol_1 = odeint(model_1, y0_1, t_range) #Give the name "sol_1" to the lists of numerical values in this original solution, and give "odeint" the information needed to solve
-                
-                #------------------YOUR CHANGES TO THE MODEL------------------
-                
-                #Define the system of differential equations for YOUR CHANGES TO THE MODEL, and call it "model_2". All variables and parameters have "_2" to indicate this is the second version of the model
-                def model_2(y_2, t_2):
-                  S_2, E_2, I_2, R_2 = y_2 #Define y as consisting of S, E, I, and R, in that order, each with the "_2" to show this is for the model with original conditions
-                  dydt_2 = [- beta_2 * S_2 * I_2, beta_2 * S_2 * I_2 - kappa_2 * E_2, kappa_2 * E_2 - gamma_2 * I_2, gamma_2 * I_2] #Provide the right-hand sides of the SEIR model
-                  return dydt_2
-                #These are the original conditions for the model. Make changes to think through public health interventions
-                beta_2 = 2.1 * 10^(-8) #Give a value to beta
-                kappa_2 = 0.154 #Give a value to kappa
-                gamma_2 = 0.0714 #Give a value to gamma
-                total_population_2 = 10000000 #Give a total population here, and use it later to compute the initial S population
-                E_init_2 = 10 #Give an initial value to population E
-                I_init_2 = 20 #Give an initial value to population I
-                R_init_2 = 0 #Give an initial value to population R
-                S_init_2 = total_population_2 - E_init_2 - I_init_2 - R_init_2 #Solve for the initial population value for S, using total_population and initial population values for E, I, and R
-                R0_2 = beta_2 * (total_population_2) / gamma_2 #Compute the value of R0
-                print("R0_2 = ", R0_2) #Print the value of R0, to confirm that your parameter values correspond to a reasonable R0 value
-                y0_2 = [S_init_2, E_init_2, I_init_2, R_init_2] #Put initial conditions for S, E, I, and R into "y0_2" for use below in "odeint"
-                
-                sol_2 = odeint(model_2, y0_2, t_range) #Give the name "sol_2" to the lists of numerical values in this updated solution, and give "odeint" the information needed to solve
-                
-                #------------------PLOTTING COMMANDS------------------
-                
-                #Comment out, or include, whichever commands best demonstrate your story
-                #The default is to show I(t) in both models
-                #The defauls is also for all updated model curves to appear as unbroken black curves
-                #If you are showing more than one compartment, in both models, it will help to change the color and/or style for the updated model so the curves are distinct 
-                
-                #plt.plot(t_range, sol_1[:, 0], color='blue', linewidth=2, label='S(t) original')
-                #plt.plot(t_range, sol_1[:, 1], color='magenta', linestyle='dotted', linewidth=2, label='E(t) original')
-                plt.plot(t_range, sol_1[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t) original')
-                #plt.plot(t_range, sol_1[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t) original')
-                #plt.plot(t_range, sol_2[:, 0], color='black', linewidth=2, label='S(t) updated')
-                #plt.plot(t_range, sol_2[:, 1], color='black', linewidth=2, label='E(t) updated')
-                plt.plot(t_range, sol_2[:, 2], color='black', linewidth=2, label='I(t) updated')
-                #plt.plot(t_range, sol_2[:, 3], color='black', linewidth=2, label='R(t) updated'
-                plt.legend()
-                plt.grid()
-                plt.xlabel('time')
-                plt.ylabel('populations')
-                plt.show()
-              </input>
-              <output>
-              
-              </output>
-            </sage>
-            
-            
-
-          </statement>
-          <hint>
-            <ol>
-              <li>
-                <p>
-                  These are likely the traditional definitions we have used previously for the SEIR model. There is always room for flexibility, though, when different answers are accompanied by logical explanations.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Flattening the curve, social distancing, and other terms predominantly reduce the parameter <m>\beta</m>. Other changes to the model may also represent some aspects of flattening the curve. 
-                </p>
-              </li>
-              <li>
-                <p>
-                  The effect of people being less likely to get COVID-19 is usually modeled by reducing <m>\beta</m>. Reducing the severity or time ill typically increases gamma, which also has the meaning of reducing the average time in the Infectious compartment, as shown in <xref ref="eq-gamma-estimate"/> and <xref ref="eq-gamma-estimate-2"/>. Other answers are possible.
-                </p>
-              </li>                
-              <li>
-                <p>
-                  Be expansive and creative here, explain all your reasoning, and create graphs and/or bring in yet other evidence to demonstrate your findings. 
-                </p>
-              </li>
-            </ol>
-          </hint>
-        </activity>
-
-
-        
-      </section>
-
-      <exercises xml:id="exercises-ch-get-answer-right-in-modeling">
-        <exercise number="1">
-         <p>
-           Redo  
-         </p>   
-               
-       </exercise>
-
-       <exercise number="2">
-         <p>
-           Update 
-         </p>   
-         <ol>
-           <li>
-             <p>
-               Compute 
-             </p>
-           </li>
-           <li>
-             <p>
-               Adapt 
-             </p>
-           </li>
-         </ol>   
-       </exercise>
-
-       <exercise number="3">
-         <p>
-           We 
-         </p>   
-             
-       </exercise>
-     </exercises>
-
-    </chapter>
 
     <chapter xml:id="ch-preparing-influenza-data-to-compare-with-a-model">
       <title>* Preparing Influenza Data to Compare With a Model</title>
