@@ -3287,29 +3287,33 @@ plt.show()
           </ol>   
         </exercise>
 
-        <!-- <exercise number="3">
+        <exercise number="3">
           <p>
-            We make one more update to the pertussis model in <xref ref="activity-seir-model-pertussis-setup"/>, addressing vaccine efficacy. Our inclusion of the multiplier <m>(1-p)</m> assumed that vaccination had <m>100 \%</m> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <m>80-85\%</m> efficacy.<fn>This range of vaccine efficacy level comes from the <url href="https://www.cdc.gov/vaccines/pubs/pinkbook/pert.html">Centers for Disease Control and Prevention</url>. The range is specific to the DTaP vaccine, in Europe and the Americas, in studies in or after 1991.</fn>
+            Here, we combine ideas from exercises 1 and 2 in this section to construct a model of a measles outbreak that includes both the level of vaccination across a population, as well as the effectiveness of the measles vaccine. For this model, <m>p</m> represents the fraction of the population that is vaccinated against measles and <m>q</m> represents the effectiveness of the vaccine. 
           </p>   
           <ol>
             <li>
               <p>
-                Rewrite your model as below, where <m>p</m> remains the percentage of people vaccinated, and <m>q</m> is the efficacy percentage. We require that <m>0 \leq p \leq 1</m> and <m>0 \leq q \leq 1</m>. Explain in words why the way the model is written, and the ranges for <m>p</m> and <m>q</m>, make sense. In your explanation, include <q>edge cases</q>, that is, describe what happens when <m>p=0</m>, <m>p=1</m>, <m>q=0</m>, and <m>q=1</m>. Also describe what happens as <m>p</m> increases from <m>0</m> to <m>1</m>, and what happens as <m>q</m> increases from <m>0</m> to <m>1</m>.
+                Rewrite your model as below. We require that <m>0 \leq p \leq 1</m> and <m>0 \leq q \leq 1</m>. Explain in words why the way the model is written, and the ranges for <m>p</m> and <m>q</m>, make sense. In your explanation, include edge cases, that is, describe what happens when <m>p=0</m>, when <m>p=1</m>, when <m>q=0</m>, and when <m>q=1</m>. Also describe what happens as <m>p</m> increases from <m>0</m> to <m>1</m>, and what happens as <m>q</m> increases from <m>0</m> to <m>1</m>:
               </p>
               <md>
                   <mrow>\frac{dS}{dt} \amp = - (1-pq) \beta S I </mrow>
-                  <mrow>\frac{dE}{dt} \amp =  (1-pq) \beta S I - \kappa E </mrow>
-                  <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+                  <mrow>\frac{dI}{dt} \amp =  (1-pq) \beta S I - \gamma I </mrow>
                   <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
               </md>
             </li>
             <li>
               <p>
-                Use the Python code from <xref ref="activity-seir-model-pertussis-setup"/> to incorporate vaccine efficacy. Use logic, as well as results from your code, to explain how vaccine efficacy below <m>100\%</m> can make it more challenging to achieve the goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m>. In your explanation, you may wish to use the information that <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective.
+                 This chapter's definition of <m>\mathcal{R}_{\text{eff}}</m> in <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective. With this new model, using both <m>p</m> and <m>q</m>, we define <m>\mathcal{R}_{\text{eff}} = (1-pq)\mathcal{R}_0</m>. Use algebraic steps similar to those in <xref ref="sec-determining-a-threshold-vaccine-level"/> to compute an updated formula for <m>p_{\text{crit}}</m> that involves <m>q</m> as well as <m>\mathcal{R}_0</m>.  
+              </p>
+            </li>
+            <li>
+              <p>
+                Use your updated formula for <m>p_{\text{crit}}</m> to explain how vaccine effectiveness below <m>100\%</m> can make it more challenging to achieve the goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m>. For measles, in particular, vaccine effectiveness is approximately <m>97\%</m>, which means <m>q = 0.97</m>. Incorporating <m>q</m>, then, what is the value of <m>p_{\text{crit}}</m> indicating the percentage of people that need to be vaccinated in order to achieve <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Use Python to show long-term outbreak results, including number of people infected, in outbreaks having vaccinated populations both slightly above, and slightly below, the value of <m>p_{\text{crit}}</m> you determine. For your Python results, use the parameter values from exercise 1 in this section, along with the vaccine's <m>97\%</m> effectiveness.
               </p>
             </li>
           </ol>     
-        </exercise> -->
+        </exercise>
       </exercises>
 
 
