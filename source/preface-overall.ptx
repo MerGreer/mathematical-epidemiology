@@ -1,0 +1,37 @@
+<preface xml:id="preface-overall"  xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Preface</title>
+    
+    <p>
+      Welcome to Mathematical Epidemiology and More: A Course on Compartmental Models. It so happens that this book is becoming available well after the start of the global COVID-19 outbreak. During this pandemic, mathematics, data, epidemiology, graphs, models, and charts began appearing in the news and other media at levels beyond what we had ever seen before. To fully appreciate and act on the information in the media, it has been helpful to know first-hand the ways models can be built, used, and misused, and to understand the underlying mathematics involved. 
+    </p>
+    <p>
+      Yet this text's origin lies not in the COVID-19 outbreak, but in the much longer history of mathematical epidemiology. The text builds on a course that has been taught since 2014, and typical students studying these topics pre-2020 had never heard of connections between mathematics and epidemiology. Nearly all students in the course, before and since 2020, have gained their first significant introduction to disease models within this course. Examples of outbreaks we study include measles, Ebola, mumps, and whooping cough. 
+    </p>
+    <p>
+      The approach used throughout this text is to dive into using, then building, disease models. We play with models and discover the ways each model responds to small and large changes. We represent the ideas of models using images, equations, words, graphs, and numbers. Each section centers on one or more activities, and as we work through these activities, we build up knowledge about how to construct and work with mathematical models of disease outbreaks.
+    </p>
+    <p>
+      <em>Who is the expected audience for this book?</em> The audience I have in mind while writing is a class of undergraduates, studying together, and checking in with their professor along the way. These students have studied at least one semester of calculus, focusing primarily on derivatives as rates of change. It helps for students to also recognize that integrals and derivatives are inverse operations, to know that integrals sum up area under a curve (when all values on the curve are nonnegative), and to be familiar with the idea of computing derivative and antiderivative formulas. Some sections of this text use linear algebra, specifically matrices and eigenvalues. These sections are not required for learning from this book. Or, for students who would like to include these sections but have not studied linear algebra, there is a brief tutorial available.
+    </p>
+    <p>
+      Though undergraduates are the audience I primarily think about while writing, they are not the only audience. My goal is that anyone with some calculus background will be able to learn about mathematical epidemiology by working through these activities.
+    </p>
+    <p>
+      <em>Who can teach from this book?</em> My goal is for many teachers and professors of college-level mathematics to feel comfortable teaching from this book. There is no requirement to have taught mathematical modeling before, or to have studied mathematical epidemiology. 
+    </p>
+    <p>
+      <em>What other kinds of math will we use, besides calculus?</em> To do mathematical modeling, we use any math we need.  We typically jump into activities and then introduce new mathematical ideas whenever they are helpful. These math ideas come from differential equations, multivariable calculus, linear algebra, numerical analysis, probability, proofs, and more. If you have already studied some of these subjects, you may be able to move more quickly through some of the activities. On the other hand, if you have not yet taken full courses in these subjects, then there will be enough information contained here for you to learn what you need and keep modeling. And, perhaps, you may find that you want to learn more, and that may lead you to study additional areas of mathematics.
+    </p>
+    <p>
+      <em>What kind(s) of models will we use?</em> For most of this textbook, we use compartmental models, which can be drawn in pictures and written as ordinary differential equations. (It is OK to not know some of the terms in the previous sentence when you start: all will be explained.) Some of these models are called SIR models. We will mention other types of models, but we restrict our focus to compartmental models using ordinary differential equations so that we can fully understand the underlying math ideas, how to use the models, and how to visualize our results.
+    </p>
+    <p>
+      <em>Do all the models in this text focus only on diseases?</em> Actually, no. The style of modeling we focus on has many other applications. We will investigate several other ways to use these models, including studying the spread of rumors, political party affiliations, and viral YouTube videos.
+    </p>
+    <p>
+      Thank you for reading this introduction, and I hope you enjoy the book!
+    </p>
+    <p>
+      Meredith L. Greer
+    </p>
+  </preface>

@@ -1,0 +1,199 @@
+<chapter xml:id="ch-prelude-diseases-in-popular-news" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Prelude: Diseases in Popular News</title>
+
+  <introduction xml:id="intro-prelude">
+    <objectives>
+      <ul>
+        <li>
+          <p>
+            Read about an outbreak in a non-scientific article
+          </p>
+        </li>
+        <li>
+          <p>
+            Begin to look for disease details that can turn into mathematical ideas
+          </p>
+        </li>
+        <li>
+          <p>
+            Notice the goals and style of writing in a news or popular culture article on an outbreak, and think about how these may be different in a scientific journal article
+          </p>
+        </li>
+        <li>
+          <p>
+            Prioritize, and build toward a habit of, full-class discussion
+          </p>
+        </li>
+      </ul>
+    </objectives>
+
+    <p>
+      Disease outbreaks have been a topic of widespread discussion for a very long time. In this course, we will discuss the scientific study of outbreaks, data sets collected and curated by government officials, and policy ideas for improving public health outcomes. To begin, however, we examine writing in news and popular culture articles about diseases, starting in <xref ref="expl-reading-about-disease-in-the-news-and-popular-media"/>.
+    </p>
+
+    <exploration xml:id="expl-reading-about-disease-in-the-news-and-popular-media">
+      <title>Reading about Disease in the News and Popular Media</title>
+      <introduction>
+        <p>
+          The Washington Post is a newspaper with a corresponding website. CNN is a television station and an online news source. People magazine and the corresponding website people.com center on <q>celebrity news and human-interest stories</q><fn><url href="https://en.wikipedia.org/wiki/People_(magazine)">People magazine Wikipedia entry</url>, accessed 15 Nov 2022</fn>.
+        </p>
+      </introduction>
+
+      <task>
+        <statement>
+          <p>
+            Read one or more of these suggested articles, which come from the outlets described above.
+          </p>
+          <ul>
+            <li>
+              <p>
+                <url href="https://www.washingtonpost.com/health/2019/08/24/tourist-infected-with-measles-visited-disneyland-other-southern-california-hotspots-mid-august/">A tourist infected with measles visited Disneyland and other Southern California hot spots in mid-August</url>, published August 24, 2019, by the Washington Post;
+              </p>
+            </li>
+            <li>
+              <p>
+                <url href="https://www.cnn.com/2022/10/26/health/rsv-immunity-gap">Pandemic <q>immunity gap</q> is probably behind surge in RSV cases, scientists say</url>, published October 28, 2022, by CNN;
+              </p>
+            </li>
+            <li>
+              <p>
+                <url href="https://people.com/health/measles-outbreak-spreads-21-states-dc/">Vaccinations a Priority as Measles Cases in the U.S. Number 107 in the First 7 Months of 2018</url>, published August 16, 2018, by People.
+              </p>
+            </li>
+          </ul>
+        </statement>
+      </task>
+      <task>
+        <statement>
+          <p>
+            While reading each article, think through the answers to as many of the following questions as you can.
+          </p>
+          <ol>
+            <li>
+              <p>
+                What illness is involved?
+              </p>
+            </li>
+            <li>
+              <p>
+                How does it spread?
+              </p>
+            </li>
+            <li>
+              <p>
+                How quickly does it proceed? Consider incubation time, length of sickness, etc.
+              </p>
+            </li>
+            <li>
+              <p>
+                Is it more prominent in some parts of the world than others?
+              </p>
+            </li>
+            <li>
+              <p>
+                What does the article say about vaccines, quarantines, isolation, testing, or other approaches to managing this illness?
+              </p>
+            </li>
+            <li>
+              <p>
+                What mathematical concepts can you find in your article?
+              </p>
+            </li>
+          </ol>
+          <p>
+            The question about mathematical concepts is very open-ended. List any ideas that seem to make sense to you.
+          </p>
+        </statement>
+      </task>
+      <p>
+        hi
+      </p>
+    </exploration>
+
+  </introduction>
+
+
+    <section xml:id="sec-Possible-Discussion-Themes">
+      <title>Possible Discussion Themes</title>
+      
+      <p>
+        <xref ref="expl-reading-about-disease-in-the-news-and-popular-media" /> is very open-ended. The goal of this exploration is to begin discussing outbreaks as they appear in news and popular culture writing. There is no hidden <q>right answer</q> to find.
+      </p>
+      <p>
+        There are many possible themes that may arise during discussion. Below, you can find a sample of such themes. These may help to expand thoughts and discussions you are already having about the articles. Or it is possible that you discovered yet other themes, beyond those listed here, and this is wonderful!
+      </p>
+      <p>
+        <em>Theme 1.</em> The diseases in the articles are measles and RSV. Both are highly contagious and spread through coughing and sneezing.
+      </p>
+      <p>
+        <em>Theme 2.</em> The articles give different kinds of information about the ways measles and RSV can spread. Some of the articles give descriptions that let us estimate incubation period or length of sickness, and some give fewer such descriptions.
+      </p>
+      <p>
+        <em>Theme 3.</em> Some of the articles describe disease presence in the U.S. only, and some articles describe disease presence in other countries.
+      </p>
+      <p>
+        <em>Theme 4.</em> All of the articles discuss vaccination, but there is not yet a vaccine for RSV. Some alternate control measures, such as hand washing or sanitizing surfaces, appear in one or more articles.
+      </p>
+      <p>
+        <em>Theme 5.</em> The question about mathematical concepts could mean many things. There are many possible answers, including but not limited to: numbers of recent cases, lengths of time of the stages of disease, historical data about when more or fewer people have been ill in past years, or percentages of people vaccinated.
+      </p>
+    </section>
+
+    <section xml:id="sec-Follow-Up-By-Seeking-More-Precise-Data">
+      <title>Follow Up By Seeking More Precise Data</title>
+      <p>
+        For these and other diseases or outbreaks we may read about, we can add to our knowledge of underlying disease biology by gathering additional data. We will find, when modeling diseases, that it can help to know the lengths of time for each disease stage, such as incubation period, how long a person is typically sick, and how long any immunity to the disease lasts. Vaccine data is also helpful, including whether a vaccine exists at all, how effective the vaccine is on average, and what percentage of people are vaccinated against a particular disease. Some of the data we collect may depend on time or place: vaccines may be newer, or different percentages of people may be vaccinated in different locations. 
+      </p>
+      <p>
+        One place to look up data is the <url href="https://www.cdc.gov/">Centers for Disease Control and Prevention (CDC)</url>. As one example, a web search can take us to the <url href="https://www.cdc.gov/measles/index.html">CDC's information page about measles</url>. Not every disease is presented in an identical manner on the CDC's web pages, but very commonly, there is a link for Transmission and another link for Signs and Symptoms. These typically contain lots of information about how diseases spread and how long each stage takes. Such information helps us build our models.
+      </p>
+      <activity>
+        <statement>
+          <p>
+            Take a look at the <url href="https://www.cdc.gov/measles/transmission.html">Transmission</url> and <url href="https://www.cdc.gov/measles/symptoms/signs-symptoms.html">Signs and Symptoms</url> pages for measles at the CDC. Putting together the information on these pages, construct a timeline of measles contagion in a single person, starting at the time the person is first infected. Include the following, and include whatever other information appears important.
+            <ol>
+              <li>
+                <p>
+                  How long does it typically take for a person to begin being contagious?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How long is the total time period from when a person begins being contagious to when they no longer are contagious?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How does contagion overlap, or not overlap, with when a person has the typical measles rash?
+                </p>
+              </li>
+            </ol>
+              It is likely, for most diseases, that these timelines will involve ranges of time such as <q>3 to 5 days</q> rather than more specific amounts of time such as <q>4 days</q>. Time ranges will be helpful to us as we fine-tune our models.
+          </p>
+        </statement>
+      </activity>
+      
+    </section>
+
+    
+
+  
+  <exercises xml:id="exercises-prelude-diseases-in-popular-news">
+    <exercise number="1">
+      <p>
+        Look up the lengths of time for key phases of how measles unfolds. Include the length of time of any incubation period, and include how long a person is infectious with measles. There may be additional disease phases to include. Use official sources, as described in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />. Cite your sources, including links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.  
+      </p>
+    </exercise>
+    <exercise number="2">
+      <p>
+        Look up the lengths of time for key phases of how RSV (respiratory syncytial virus) unfolds. Include the length of time of any incubation period, and include how long a person is infectious with RSV. There may be additional disease phases to include. Use official sources, as described in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />. Cite your sources<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn>.
+      </p>
+    </exercise>
+    <exercise number="3">
+      <p>
+        Look up additional information about measles and RSV. How does each spread? What are governmental recommendations for people who think they may have measles or RSV? And so on: read more about each disease, and write several pieces of information that you find interesting. Does anything you find surprise you? Cite your sources.<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn>
+      </p>
+    </exercise>
+  </exercises>
+
+  </chapter>

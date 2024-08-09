@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-<pretext xml:lang="en-US">
+<pretext xml:lang="en-US"  xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <docinfo>
     <macros>
@@ -60,44 +60,7 @@
 
       </acknowledgement> -->
 
-      <preface xml:id="preface-overall">
-        <title>Preface</title>
-        
-        
-        <p>
-          Welcome to Mathematical Epidemiology and More: A Course on Compartmental Models. It so happens that this book is becoming available well after the start of the global COVID-19 outbreak. During this pandemic, mathematics, data, epidemiology, graphs, models, and charts began appearing in the news and other media at levels beyond what we had ever seen before. To fully appreciate and act on the information in the media, it has been helpful to know first-hand the ways models can be built, used, and misused, and to understand the underlying mathematics involved. 
-        </p>
-        <p>
-          Yet this text's origin lies not in the COVID-19 outbreak, but in the much longer history of mathematical epidemiology. The text builds on a course that has been taught since 2014, and typical students studying these topics pre-2020 had never heard of connections between mathematics and epidemiology. Nearly all students in the course, before and since 2020, have gained their first significant introduction to disease models within this course. Examples of outbreaks we study include measles, Ebola, mumps, and whooping cough. 
-        </p>
-        <p>
-          The approach used throughout this text is to dive into using, then building, disease models. We play with models and discover the ways each model responds to small and large changes. We represent the ideas of models using images, equations, words, graphs, and numbers. Each section centers on one or more activities, and as we work through these activities, we build up knowledge about how to construct and work with mathematical models of disease outbreaks.
-        </p>
-        <p>
-          <em>Who is the expected audience for this book?</em> The audience I have in mind while writing is a class of undergraduates, studying together, and checking in with their professor along the way. These students have studied at least one semester of calculus, focusing primarily on derivatives as rates of change. It helps for students to also recognize that integrals and derivatives are inverse operations, to know that integrals sum up area under a curve (when all values on the curve are nonnegative), and to be familiar with the idea of computing derivative and antiderivative formulas. Some sections of this text use linear algebra, specifically matrices and eigenvalues. These sections are not required for learning from this book. Or, for students who would like to include these sections but have not studied linear algebra, there is a brief tutorial available.
-        </p>
-        <p>
-          Though undergraduates are the audience I primarily think about while writing, they are not the only audience. My goal is that anyone with some calculus background will be able to learn about mathematical epidemiology by working through these activities.
-        </p>
-        <p>
-          <em>Who can teach from this book?</em> My goal is for many teachers and professors of college-level mathematics to feel comfortable teaching from this book. There is no requirement to have taught mathematical modeling before, or to have studied mathematical epidemiology. 
-        </p>
-        <p>
-          <em>What other kinds of math will we use, besides calculus?</em> To do mathematical modeling, we use any math we need.  We typically jump into activities and then introduce new mathematical ideas whenever they are helpful. These math ideas come from differential equations, multivariable calculus, linear algebra, numerical analysis, probability, proofs, and more. If you have already studied some of these subjects, you may be able to move more quickly through some of the activities. On the other hand, if you have not yet taken full courses in these subjects, then there will be enough information contained here for you to learn what you need and keep modeling. And, perhaps, you may find that you want to learn more, and that may lead you to study additional areas of mathematics.
-        </p>
-        <p>
-          <em>What kind(s) of models will we use?</em> For most of this textbook, we use compartmental models, which can be drawn in pictures and written as ordinary differential equations. (It is OK to not know some of the terms in the previous sentence when you start: all will be explained.) Some of these models are called SIR models. We will mention other types of models, but we restrict our focus to compartmental models using ordinary differential equations so that we can fully understand the underlying math ideas, how to use the models, and how to visualize our results.
-        </p>
-        <p>
-          <em>Do all the models in this text focus only on diseases?</em> Actually, no. The style of modeling we focus on has many other applications. We will investigate several other ways to use these models, including studying the spread of rumors, political party affiliations, and viral YouTube videos.
-        </p>
-        <p>
-          Thank you for reading this introduction, and I hope you enjoy the book!
-        </p>
-        <p>
-          Meredith L. Greer
-        </p>
-      </preface>
+      <xi:include href="preface-overall.ptx" />
 
       <preface xml:id="preface-students">
         <title>To Students: How to Get the Most from This Text</title>
@@ -169,205 +132,8 @@
     <title>Core Modeling Concepts</title>
      
     
-    <chapter xml:id="ch-prelude-diseases-in-popular-news">
-      <title>Prelude: Diseases in Popular News</title>
-
-    <introduction xml:id="intro-prelude">
-      <objectives>
-        <ul>
-          <li>
-            <p>
-              Read about an outbreak in a non-scientific article
-            </p>
-          </li>
-          <li>
-            <p>
-              Begin to look for disease details that can turn into mathematical ideas
-            </p>
-          </li>
-          <li>
-            <p>
-              Notice the goals and style of writing in a news or popular culture article on an outbreak, and think about how these may be different in a scientific journal article
-            </p>
-          </li>
-          <li>
-            <p>
-              Prioritize, and build toward a habit of, full-class discussion
-            </p>
-          </li>
-        </ul>
-      </objectives>
-
-      <p>
-        Disease outbreaks have been a topic of widespread discussion for a very long time. In this course, we will discuss the scientific study of outbreaks, data sets collected and curated by government officials, and policy ideas for improving public health outcomes. To begin, however, we examine writing in news and popular culture articles about diseases, starting in <xref ref="expl-reading-about-disease-in-the-news-and-popular-media"/>.
-      </p>
-
-      <exploration xml:id="expl-reading-about-disease-in-the-news-and-popular-media">
-        <title>Reading about Disease in the News and Popular Media</title>
-        <introduction>
-          <p>
-            The Washington Post is a newspaper with a corresponding website. CNN is a television station and an online news source. People magazine and the corresponding website people.com center on <q>celebrity news and human-interest stories</q><fn><url href="https://en.wikipedia.org/wiki/People_(magazine)">People magazine Wikipedia entry</url>, accessed 15 Nov 2022</fn>.
-          </p>
-        </introduction>
-
-        <task>
-          <statement>
-            <p>
-              Read one or more of these suggested articles, which come from the outlets described above.
-            </p>
-            <ul>
-              <li>
-                <p>
-                  <url href="https://www.washingtonpost.com/health/2019/08/24/tourist-infected-with-measles-visited-disneyland-other-southern-california-hotspots-mid-august/">A tourist infected with measles visited Disneyland and other Southern California hot spots in mid-August</url>, published August 24, 2019, by the Washington Post;
-                </p>
-              </li>
-              <li>
-                <p>
-                  <url href="https://www.cnn.com/2022/10/26/health/rsv-immunity-gap">Pandemic <q>immunity gap</q> is probably behind surge in RSV cases, scientists say</url>, published October 28, 2022, by CNN;
-                </p>
-              </li>
-              <li>
-                <p>
-                  <url href="https://people.com/health/measles-outbreak-spreads-21-states-dc/">Vaccinations a Priority as Measles Cases in the U.S. Number 107 in the First 7 Months of 2018</url>, published August 16, 2018, by People.
-                </p>
-              </li>
-            </ul>
-          </statement>
-        </task>
-        <task>
-          <statement>
-            <p>
-              While reading each article, think through the answers to as many of the following questions as you can.
-            </p>
-            <ol>
-              <li>
-                <p>
-                  What illness is involved?
-                </p>
-              </li>
-              <li>
-                <p>
-                  How does it spread?
-                </p>
-              </li>
-              <li>
-                <p>
-                  How quickly does it proceed? Consider incubation time, length of sickness, etc.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Is it more prominent in some parts of the world than others?
-                </p>
-              </li>
-              <li>
-                <p>
-                  What does the article say about vaccines, quarantines, isolation, testing, or other approaches to managing this illness?
-                </p>
-              </li>
-              <li>
-                <p>
-                  What mathematical concepts can you find in your article?
-                </p>
-              </li>
-            </ol>
-            <p>
-              The question about mathematical concepts is very open-ended. List any ideas that seem to make sense to you.
-            </p>
-          </statement>
-        </task>
-        <p>
-          hi
-        </p>
-      </exploration>
-
-    </introduction>
-
-
-      <section xml:id="sec-Possible-Discussion-Themes">
-        <title>Possible Discussion Themes</title>
-        
-        <p>
-          <xref ref="expl-reading-about-disease-in-the-news-and-popular-media" /> is very open-ended. The goal of this exploration is to begin discussing outbreaks as they appear in news and popular culture writing. There is no hidden <q>right answer</q> to find.
-        </p>
-        <p>
-          There are many possible themes that may arise during discussion. Below, you can find a sample of such themes. These may help to expand thoughts and discussions you are already having about the articles. Or it is possible that you discovered yet other themes, beyond those listed here, and this is wonderful!
-        </p>
-        <p>
-          <em>Theme 1.</em> The diseases in the articles are measles and RSV. Both are highly contagious and spread through coughing and sneezing.
-        </p>
-        <p>
-          <em>Theme 2.</em> The articles give different kinds of information about the ways measles and RSV can spread. Some of the articles give descriptions that let us estimate incubation period or length of sickness, and some give fewer such descriptions.
-        </p>
-        <p>
-          <em>Theme 3.</em> Some of the articles describe disease presence in the U.S. only, and some articles describe disease presence in other countries.
-        </p>
-        <p>
-          <em>Theme 4.</em> All of the articles discuss vaccination, but there is not yet a vaccine for RSV. Some alternate control measures, such as hand washing or sanitizing surfaces, appear in one or more articles.
-        </p>
-        <p>
-          <em>Theme 5.</em> The question about mathematical concepts could mean many things. There are many possible answers, including but not limited to: numbers of recent cases, lengths of time of the stages of disease, historical data about when more or fewer people have been ill in past years, or percentages of people vaccinated.
-        </p>
-      </section>
-
-      <section xml:id="sec-Follow-Up-By-Seeking-More-Precise-Data">
-        <title>Follow Up By Seeking More Precise Data</title>
-        <p>
-          For these and other diseases or outbreaks we may read about, we can add to our knowledge of underlying disease biology by gathering additional data. We will find, when modeling diseases, that it can help to know the lengths of time for each disease stage, such as incubation period, how long a person is typically sick, and how long any immunity to the disease lasts. Vaccine data is also helpful, including whether a vaccine exists at all, how effective the vaccine is on average, and what percentage of people are vaccinated against a particular disease. Some of the data we collect may depend on time or place: vaccines may be newer, or different percentages of people may be vaccinated in different locations. 
-        </p>
-        <p>
-          One place to look up data is the <url href="https://www.cdc.gov/">Centers for Disease Control and Prevention (CDC)</url>. As one example, a web search can take us to the <url href="https://www.cdc.gov/measles/index.html">CDC's information page about measles</url>. Not every disease is presented in an identical manner on the CDC's web pages, but very commonly, there is a link for Transmission and another link for Signs and Symptoms. These typically contain lots of information about how diseases spread and how long each stage takes. Such information helps us build our models.
-        </p>
-        <activity>
-          <statement>
-            <p>
-              Take a look at the <url href="https://www.cdc.gov/measles/transmission.html">Transmission</url> and <url href="https://www.cdc.gov/measles/symptoms/signs-symptoms.html">Signs and Symptoms</url> pages for measles at the CDC. Putting together the information on these pages, construct a timeline of measles contagion in a single person, starting at the time the person is first infected. Include the following, and include whatever other information appears important.
-              <ol>
-                <li>
-                  <p>
-                    How long does it typically take for a person to begin being contagious?
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    How long is the total time period from when a person begins being contagious to when they no longer are contagious?
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    How does contagion overlap, or not overlap, with when a person has the typical measles rash?
-                  </p>
-                </li>
-              </ol>
-                It is likely, for most diseases, that these timelines will involve ranges of time such as <q>3 to 5 days</q> rather than more specific amounts of time such as <q>4 days</q>. Time ranges will be helpful to us as we fine-tune our models.
-            </p>
-          </statement>
-        </activity>
-        
-      </section>
-
-      
-
+    <xi:include href="ch-diseases.ptx" />
     
-    <exercises xml:id="exercises-prelude-diseases-in-popular-news">
-      <exercise number="1">
-        <p>
-          Look up the lengths of time for key phases of how measles unfolds. Include the length of time of any incubation period, and include how long a person is infectious with measles. There may be additional disease phases to include. Use official sources, as described in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />. Cite your sources, including links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.  
-        </p>
-      </exercise>
-      <exercise number="2">
-        <p>
-          Look up the lengths of time for key phases of how RSV (respiratory syncytial virus) unfolds. Include the length of time of any incubation period, and include how long a person is infectious with RSV. There may be additional disease phases to include. Use official sources, as described in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />. Cite your sources<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn>.
-        </p>
-      </exercise>
-      <exercise number="3">
-        <p>
-          Look up additional information about measles and RSV. How does each spread? What are governmental recommendations for people who think they may have measles or RSV? And so on: read more about each disease, and write several pieces of information that you find interesting. Does anything you find surprise you? Cite your sources.<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn>
-        </p>
-      </exercise>
-    </exercises>
-
-    </chapter>
 
     <chapter xml:id="ch-zombies-can-math-help">
       <title>Zombies: Can Math Help?</title>
@@ -2073,7 +1839,7 @@ plt.show()
           </answer>
         </activity>
         <p>
-          After completing <xref ref="activity-introducing-units"/>, we recognize that in our SIR model, the units of <m>\beta</m> are not <m>1/\mbox{time}</m>. Therefore <m>\beta</m> is not a rate, and we cannot estimate the value of <m>\beta</m> similarly to how we estimate the value of <m>\gamma</m>. Indeed, estimating the value of <m>\beta</m> will require different methods. In <xref ref="ch-visualization-graphing-model-results-and-data"/> we discuss estimating <m>\beta</m> visually by comparing our model with data. In <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/> and <xref ref="ch-vaccines-and-incubation-periods"/> we introduce another way to estimate <m>\beta</m>, using other parameter values we know, along with a formula involving an epidemiological concept known as the <term>basic reproduction number</term>. 
+          After completing <xref ref="activity-introducing-units"/>, we recognize that in our SIR model, the units of <m>\beta</m> are not <m>1/\mbox{time}</m>. Therefore <m>\beta</m> is not a rate, and we cannot estimate the value of <m>\beta</m> similarly to how we estimate the value of <m>\gamma</m>. Indeed, estimating the value of <m>\beta</m> will require different methods. In <xref ref="ch-visualization-graphing-model-results-and-data"/> we discuss estimating <m>\beta</m> visually by comparing our model with data. In <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/> and <xref ref="ch-vaccines"/> we introduce another way to estimate <m>\beta</m>, using other parameter values we know, along with a formula involving an epidemiological concept known as the <term>basic reproduction number</term>. 
         </p>
 
       
@@ -2596,7 +2362,7 @@ plt.show()
           <mrow xml:id="eq-R0-sir">\mathcal{R}_0 \amp = \frac{\beta N}{\gamma} \mbox{ for our SIR model}. </mrow>
         </mdn>
         <p>
-          It is possible to compute the formula for <m>\mathcal{R}_0</m> from the equations in a compartmental model. The most common way to do this is called the Next Generation Method. Because the Next Generation Method uses partial derivatives and techniques from linear algebra, it is described in the optional sections <xref ref="ch-the-next-generation-method"/> and <xref ref="ch-the-next-generation-method-connecting-theory-with-practice"/>. In particular, <xref ref="ch-the-next-generation-method"/> teaches the process in a way that can be used by students who are new to matrix operations and partial derivatives: there are a few math techniques to learn, and Python does the rest. Readers who include <xref ref="ch-the-next-generation-method"/> will be able to solve for the formula for <m>\mathcal{R}_0</m> in their own models. As an alternative, the <m>\mathcal{R}_0</m> formulas for several commonly used compartmental models are provided directly throughout this text.  
+          It is possible to compute the formula for <m>\mathcal{R}_0</m> from the equations in a compartmental model. The most common way to do this is called the Next Generation Method. Because the Next Generation Method uses partial derivatives and techniques from linear algebra, it is described in the optional sections <xref ref="ch-the-next-generation-method"/> and <xref ref="ch-the-next-generation-method"/>. In particular, <xref ref="ch-the-next-generation-method"/> teaches the process in a way that can be used by students who are new to matrix operations and partial derivatives: there are a few math techniques to learn, and Python does the rest. Readers who include <xref ref="ch-the-next-generation-method"/> will be able to solve for the formula for <m>\mathcal{R}_0</m> in their own models. As an alternative, the <m>\mathcal{R}_0</m> formulas for several commonly used compartmental models are provided directly throughout this text.  
         </p>
         <p>
           The numerical value of the <m>\mathcal{R}_0</m> formula relates closely to the trajectory of an outbreak. Investigate this in <xref ref="activity-r0-less-than-1"/>.
