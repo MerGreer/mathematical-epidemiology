@@ -1,0 +1,483 @@
+<chapter xml:id="ch-linear-algebra-for-compartmental-modeling" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Linear Algebra for Compartmental Modeling</title>
+   <section xml:id="lin-algebra-cc">
+    <title>Linear Algebra Crash Course</title>
+    <p>
+      Linear algebra is a branch of mathematics that deals with vector spaces and linear transformations between these spaces. It focuses on the study of linear equations, matrices, and their properties, providing a framework for solving problems in various fields including mathematical epidemiology.
+      A matrix is a rectangular array of numbers, symbols, or expressions arranged in a set rows and columns where the dimensions of a matrix are expressed as rows <m> \times </m> columns. A <m>m \times n</m> matrix contains <em>m</em> rows and <em>n</em> columns. For instance,
+      <me>
+        A = \begin{bmatrix}
+        1 \amp 0 \amp 0\\
+        0 \amp 1 \amp 0
+        \end{bmatrix}
+      </me>
+      is a 2×3 matrix because it contains two rows and three columns. Within the matrix <em>A</em>, the entry in the <em>i</em>th row and <em>j</em>th column is denoted <m>a_{ij}</m> and is referred to as the (<em>i, j</em>)-entry of the Matrix <em>A</em>. Thus, the "1" in the top left of the matrix <em>A</em> is considered <m>a_{11}</m>. A matrix that has dimensions <em>m×n</em> (same amount of rows and columns), is considered a square matrix.
+    </p>
+   </section>
+   <section xml:id="sec-matrix-operations">
+    <title>Matrix Operations</title>
+    <p>
+      <ol>
+        <li>Addition and subtraction of matrices is only defined when the matrices have the same dimensions. For two matrices, <em>A</em> and <em>B</em>, who both have dimensions of <em>m×n</em>, the sum of <m>A + B</m> is an <em>m×n</em> matrix with every entry equivalent to the sum of the corresponding entries in <em>A</em> and <em>B</em>. It is not possible for two matrices to be added or subtracted together if one is <em>m×n</em> and the other is <em>n×m</em>.
+          <me>
+            A = \begin{bmatrix}
+            2 \amp 4 \amp 3\\
+            1 \amp 5 \amp 2\\
+            3 \amp 2 \amp 3
+            \end{bmatrix}
+            B = \begin{bmatrix}
+            1 \amp 2 \amp 4\\
+            5 \amp 1 \amp 2\\
+            2 \amp 1 \amp 3
+            \end{bmatrix}
+            A + B = \begin{bmatrix}
+            3 \amp 6 \amp 7\\
+            6 \amp 6 \amp 4\\
+            5 \amp 3 \amp 6
+            \end{bmatrix}
+          </me>
+        </li>
+        <li>
+          <p>
+            When multiplying a matrix by a scalar, the dimensions of the matrix stay the same, while each element is individually multiplied by the scalar value. If a 2x2 matrix, <m>A</m>, is multiplied by a scalar, <m>s</m>, the product matrix would be
+            <me>
+              s * A = s *
+              \begin{bmatrix}
+              a_{11} \amp a_{12} \\
+              a_{21} \amp a_{22}
+              \end{bmatrix} =
+              \begin{bmatrix}
+              (s)(a_{11}) \amp (s)(a_{12}) \\
+              (s)(a_{21}) \amp (s)(a_{22})
+              \end{bmatrix}.
+            </me>
+            Here is an example using an integer as a scalar and integers as entries in the matrix <m>A</m>:
+            <me>
+              3 * A = 3 *
+              \begin{bmatrix}
+              2 \amp 4 \\
+              3 \amp 5
+              \end{bmatrix} =
+              \begin{bmatrix}
+              3(2) \amp 3(4) \\
+              3(3) \amp 3(5)
+              \end{bmatrix} =
+              \begin{bmatrix}
+              6 \amp 12 \\
+              9 \amp 15
+              \end{bmatrix}.
+            </me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Multiplication of matrices is only defined when the number of columns in the first matrix is equivalent to the number of rows in the second matrix. Thus, we could multiply a <em>n×m</em> matrix by an <em>m×n</em> but not another <em>n×m</em> matrix (unless <em>m = n</em>). The matrix product will have the number of rows of the original matrix and the number of the columns of the matrix that is the original is being multiplied by. For example, if matrix <em>A</em> is an <em>m×n</em> matrix, and matrix <em>B</em> is an <em>n×p</em> matrix, if we do <em>A*B=C</em>, the matrix C will be an <em>m×p</em> matrix. Additionally, due to these dimension restraints, matrix multiplication is not commutative, meaning <em>A*B</em> is not necessarily equivalent to <em>B*A</em>.
+          </p>
+          <p>
+            Once it is determined that multiplication is defined by checking the dimensions of the matrices <em>A</em> and <em>B</em>, the row-column rule can be applied to compute <em>A*B</em>. The row-column rule states that <mdn><mrow xml:id="rc-theorem">(AB)_{ij} = a_{i1}b_{1j} + a_{i2}b_{2j} + ... + a_{in}b_{nj}</mrow></mdn>. Say we have two matrices <em>A</em> and <em>B</em>, where
+            <me>
+              A = \begin{bmatrix}
+              a_{11} \amp a_{12} \amp a_{13}\\
+              a_{21} \amp a_{22} \amp a_{23}
+              \end{bmatrix}
+              B = \begin{bmatrix}
+              b_{11} \amp b_{12} \\
+              b_{21} \amp b_{22} \\
+              b_{31} \amp b_{32}
+              \end{bmatrix}
+            </me>.
+            The matrix <em>A</em> can be multiplied by <em>B</em> because <em>A</em> has two columns and <em>B</em> has two rows, as a result, the matrix product will have dimensions of 2×2. Using the row-column method, the entries of the matrix <m>A*B</m> can be defined as
+            <md>
+              <mrow>(AB)_{11} \amp= a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31}</mrow>
+              <mrow>(AB)_{12} \amp= a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32}</mrow>
+              <mrow>(AB)_{21} \amp= a_{21}b_{11} + a_{22}b_{21} + a_{23}b_{31}</mrow>
+              <mrow>(AB)_{22} \amp= a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32}</mrow>
+            </md>
+            Let's assign actual values to the matrices <em>A</em> and <em>B</em>. Let's say
+            <me>
+              A = \begin{bmatrix}
+              1 \amp 2 \amp 0\\
+              2 \amp 3 \amp 1
+              \end{bmatrix},
+              B = \begin{bmatrix}
+              1 \amp 2 \\
+              2 \amp 3 \\
+              0 \amp 1
+              \end{bmatrix}
+            </me>.
+            Therefore, the entries of matrix <em>C</em> when we do <m>A * B = C</m> are
+            <md>
+              <mrow>c_{11} \amp= (1)(1) + (2)(2) + (0)(0) = 5</mrow>
+              <mrow>c_{12} \amp= (1)(2) + (2)(3) + (0)(1) = 8</mrow>
+              <mrow>c_{21} \amp= (2)(1) + (3)(2) + (1)(0) = 8</mrow>
+              <mrow>c_{22} \amp= (2)(2) + (3)(3) + (1)(1) = 14</mrow>
+            </md>
+            Thus,
+            <me>
+              C = \begin{bmatrix}
+              5 \amp 8 \\
+              8 \amp 14
+              \end{bmatrix}
+            </me>
+          </p>
+        </li>
+      </ol>
+    </p>
+   </section>
+    
+    <section xml:id="sec-determinants">
+      <title>Determinants</title> 
+      <p>
+        The determinant is a scalar value calculated from the elements of a square matrix. It holds several important properties and uses within linear algebra, such as the following:
+      </p>
+      <p>
+      <ul>
+        <li>
+          <p>
+            Can be used in solving systems of linear equations
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculating the inverse of a matrix
+          </p>
+        </li>
+        <li>
+          <p>
+            Finding eigenvalues.
+          </p>
+        </li>
+      </ul>
+      </p>
+      <p>
+        As aforementioned, only square, <em>n×n</em> matrices have determinants. The determinant of a 1x1 matrix is the number itself. To compute the determinant of a 2x2 matri <em>A</em>, we can use the formula
+        <mdn>
+        <mrow xml:id="det-form">det(A) = a_{11}a_{22} - a_{12}a_{21}</mrow>.
+        </mdn>
+        For example,
+        <md>
+          <mrow>A \amp= \begin{bmatrix}
+          2 \amp 1 \\
+          4 \amp 5
+          \end{bmatrix},</mrow>
+          <mrow> \amp    </mrow>
+          <mrow> det(A) \amp= (2)(5) - (1)(4) = 6. </mrow>
+          </md>
+      </p>
+      <p>
+        To compute the determinant of a 3x3 matrix <em>B</em>, you will take the values in the first row of the matrix (<m>b_{11}, b_{12}, b_{13}</m>) and multiply them by the determinant of three 2x2 matrices comprised of values from the bottom two rows of the matrix. The formula is as follows,
+        <mdn>
+          <mrow xml:id="det3-form">det(B) = b_{11}(b_{22}b_{33}-b_{23}b_{32}) - b_{12}(b_{21}b_{33}-b_{23}b_{31}) + b_{13}(b_{21}b_{32}-b_{22}b_{31}).</mrow>
+        </mdn>
+        To visually see the pattern, here are the three matrices with the value in the first row bolded. For each bolded element, we can see the four underlined values forming the 2x2 submatrix used to calculate its corresponding determinant term. Identify the pattern.
+        <me>
+          \begin{bmatrix}
+            \mathbf{b_{11}} \amp b_{12} \amp b_{13} \\
+            b_{21} \amp \underline{b_{22}} \amp \underline{b_{23}} \\
+            b_{31} \amp \underline{b_{32}} \amp \underline{b_{33}}
+          \end{bmatrix},
+          \begin{bmatrix}
+            b_{11} \amp \mathbf{b_{12}} \amp b_{13} \\
+            \underline{b_{21}} \amp b_{22} \amp \underline{b_{23}} \\
+            \underline{b_{31}} \amp b_{32} \amp \underline{b_{33}}
+          \end{bmatrix},
+          \begin{bmatrix}
+            b_{11} \amp b_{12} \amp \mathbf{b_{13}} \\
+            \underline{b_{21}} \amp \underline{b_{22}} \amp b_{23} \\
+            \underline{b_{31}} \amp \underline{b_{32}} \amp b_{33}
+          \end{bmatrix}
+   
+   
+        </me>
+      </p>
+      <ul>
+        <li>
+          <p>
+            Calculate the determinant for the following matrices:
+            <me>A = \begin{bmatrix}3 \amp 5 \\ 2 \amp 7 \end{bmatrix}, B = \begin{bmatrix}-1 \amp 4 \\ 3 \amp -2 \end{bmatrix}, C = \begin{bmatrix}0 \amp 1 \\ -1 \amp 0 \end{bmatrix}</me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Using the formula <xref ref="det3-form"/>, find the eigenvalues of the matrix <m>D = \begin{bmatrix}
+              2 \amp 1 \amp 3\\
+              1 \amp 4 \amp 2\\
+              3 \amp 2 \amp 1
+              \end{bmatrix}</m>.
+          </p>
+        </li>
+      </ul>
+    </section>
+    <section xml:id="sec-inverses">
+      <title>Inverses</title>
+      <p>
+        For a square matrix <em>A</em>, its inverse <m>A^{-1}</m> is another matrix that when multiplied with <em>A</em>, results in the identity matrix (a square matrix with 1's on the diagnol and 0's everywhere else). Additionally, since the inverse of a matrix has the same square dimensions of the orginal matrix, the multiplication between the two is communitive. Thus, <m>A * A^{-1} = A^{-1} * A = I</m>, where <m>I</m> is the identity matrix. Before finding the inverse of a matrix, it is important to check the determinant.
+        <ul>
+          <li>
+            <p>
+              If <m>det(A) ≠ 0</m>, the matrix is invertible
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>det(A) = 0</m>, the matrix is not invertible.
+            </p>
+          </li>
+        </ul>
+      </p> 
+      <p>
+        For a 2x2 matrix, we can use the formula <xref ref="det-form"/>. If <m>det(A) ≠ 0</m>, we can continue to find the inverse. If <m>det(A) = 0</m>, we can conclude that <m>A</m> is not invertible. If we find that <m>A</m> <alert>is</alert> invertible, we can use the following formula to find <m>A^{-1}</m>:
+        <me>
+          A^{-1} = \frac{1}{det(A)}
+          \begin{bmatrix}
+          a_{22} \amp -a_{12} \\
+          -a_{21} \amp a_{11}
+          \end{bmatrix}.
+        </me>
+        Here is an example with a matrix <m>A</m>, with integers as entries.
+        <me>
+          A = \begin{bmatrix}
+          4 \amp 3 \\
+          1 \amp 1
+          \end{bmatrix}
+        </me>,
+        <me>
+          A^{-1} = \frac{1}{(4)(1)-(3)(1)}
+          \begin{bmatrix}
+          1 \amp -3 \\
+          -1 \amp 4
+          \end{bmatrix}
+          = \begin{bmatrix}
+          1 \amp -3 \\
+          -1 \amp 4
+          \end{bmatrix}.
+        </me>
+        To verify our result, we can multiply the original matrix by its calculated inverse. If the product is the identity matrix, our computation is correct. Here is the calculation using the row-column theorem <xref ref="rc-theorem"/>
+        <me>
+            A*A^{-1} = \begin{bmatrix}
+              4 \amp 3 \\
+              1 \amp 1
+            \end{bmatrix}
+            \begin{bmatrix}
+              1 \amp -3 \\
+              -1 \amp 4
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+              (4)(1) + (3)(-1) \amp (4)(-3) + (3)(4) \\
+              (1)(1) + (1)(-1) \amp (1)(-3) + (1)(4)
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+              1 \amp 0 \\
+              0 \amp 1
+            \end{bmatrix}.
+        </me>
+        Since the product matrix is the the identity matrix, we can conclude that our <m>A^{-1}</m> calculation was correct.
+      </p>
+      <ul>
+        <li>
+          <p>
+            Determine whether the matrix <m>A = \begin{bmatrix}2 \amp 5 \\ 3 \amp 4 \end{bmatrix}</m> is invertible or not. If it is not, explain why. If it is, continue to calculate the inverse.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the inverse of the matrix <m>A = \begin{bmatrix}2 \amp 3 \\ 1 \amp 4 \end{bmatrix}</m>. Show all steps, including how the determinant was calculated. Then, verify the inverse is correct by multiplying <m>A * A^{-1}</m>.
+          </p> 
+        </li>
+      </ul>
+    </section>
+    <section xml:id="sec-eigenvalues">
+      <title>Eigenvalues</title> 
+      <p>
+        An eigenvalue is a scalar that, when a square matrix is multiplied by a specific vector (called an eigenvector), produces a result that is a scaled version of that same vector. Eigenvalues are used to show how the matrix stretches, shrinks, or rotates vectors in space.
+      </p>
+      <p>
+        To find the eigenvalues of a square, <em>n×n</em>, matrix <m>A</m>, we must first form the matrix <m>A - \lambda I</m>. Assuming <m>A</m> is a 2x2 matrix, this process can be seen below:
+        <me>
+          A - \lambda I =
+          \begin{bmatrix}
+          a_{11} \amp a_{12} \\
+          a_{21} \amp a_{22}
+          \end{bmatrix} -
+          \lambda \begin{bmatrix}
+          1 \amp 0 \\
+          0 \amp 1
+          \end{bmatrix} =
+          \begin{bmatrix}
+          a_{11} \amp a_{12} \\
+          a_{21} \amp a_{22}
+          \end{bmatrix} -
+          \begin{bmatrix}
+          \lambda \amp 0 \\
+          0 \amp \lambda
+          \end{bmatrix} =
+          \begin{bmatrix}
+          a_{11} - \lambda \amp a_{12} \\
+          a_{21} \amp a_{22} - \lambda
+          \end{bmatrix}.
+        </me>
+        Once the <m>A - \lambda I</m> matrix is found, we must then set the determinant of this new matrix equal to 0:
+        <mdn>
+          <mrow xml:id="eig-form">det(A - \lambda I) = (a_{11} - \lambda)(a_{22} - \lambda) - a_{12}a_{21} = 0.</mrow>.
+        </mdn>
+        From this point, we can algebraically solve for <m>\lambda</m>. The values of <m>\lambda</m> that solve this equation are the considered the eigenvalues of <m>A</m>. To simplify the algebraic process, we can also use python code to calculate the eigenvalues of the matrix <m>A</m>.
+        <sage>
+          <input>
+          #Import packages
+          import numpy as np
+          
+          # Define the matrix
+          A = np.array([[2, 1],
+                        [1, 2]])
+   
+   
+          # Calculate eigenvalues
+          eigenvalues = np.linalg.eigvals(A)
+   
+   
+          # Print the eigenvalues
+          print("Eigenvalues:", eigenvalues) 
+          </input>
+          <output>
+         
+          </output>
+        </sage>
+      </p>
+      <p>
+        Within a linear system, the value of the calculated eigenvalues provide important information regarding the stability of the system over time.
+        <ul>
+          <li>
+            <p>
+              If the magnitude of all the eigenvalues of a matrix are less than 1:  the system is stable and will eventually settle into an equilibrium state as time progresses.
+            </p>
+          </li>
+          <li>
+            <p>
+              If a matrix has eigenvalues with a magnitude greater than 1, changes in the system will grow exponentially over time (either positively or negatively), which might lead to an ustable system.
+            </p>
+          </li>
+          <li>
+            <p>
+              If a matrix has at least one eigenvalue with magnitude less than 1 (but not all), changes along its corresponding eigenvector(s) will decay over time. This potentially creates a partially stable system where some components approach zero while others may grow or oscillate.
+            </p>
+          </li>
+          <li>
+            <p>
+              If a matrix has eigenvalues that are exactly 1 or -1, the system stays balanced. This means changes don't get bigger or smaller over time, which can cause oscillating movements or other patterns that consistently repeating.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        An eigenvector of a square matrix <m>A</m> is a non-zero vector <alert>v</alert> that, when multiplied by <m>A</m>, yields a scalar multiple of itself. Eigenvectors and eigenvalues are paired in such a way that each eigenvector of a matrix <m>A</m> is associated with a specific eigenvalue of <m>A</m>.
+      </p>
+      <p>
+        To find eigenvectors, we must use the equation
+        <me>
+          (A-\lambda I)\textbf{x} = 0,
+        </me>
+        where <alert>x</alert> is the eigenvector corresponding with <m>\lambda</m>, where <m>\lambda</m> is one of the eigenvalues of <m>A</m>. In the case of a 2x2 matrix, this equation simplifies to
+        <me>
+          \begin{bmatrix}
+          a_{11}-\lambda \amp a_{12} \\
+          a_{21} \amp a_{22}-\lambda
+          \end{bmatrix}
+          \begin{bmatrix}
+          x_1 \\
+          x_2
+          \end{bmatrix}
+          =
+          \begin{bmatrix}
+          0 \\
+          0
+          \end{bmatrix}.
+        </me>
+        After doing this matrix multiplication, we are left with a system of equations:
+        <md>
+          <mrow>(a_{11} - \lambda)(x_1) + (a_{12})(x_2)\amp= 0</mrow>
+          <mrow>(a_{21})(x_1) + (a_{22} - \lambda)(x_2)\amp= 0.</mrow>
+        </md>
+        To find the values of <m>\lambda</m> to input into the system of equations, we must calculate the eigenvalues of the matrix <m>A</m> using the equation <xref ref="eig-form"/>. Once the eigenvalues are calculated, substitute them seperately for <m>\lambda</m> and solve the system of linear equations for the eigenvector <m>\textbf{x} = \begin{bmatrix}x_1 \\ x_2 \end{bmatrix}</m>. There will be a distinct eigenvector for each of the individual eigenvalues. The eigenvectors represents a direction in which the linear transformation described by the matrix scales the vector by a factor equal to its corresponding eigenvalue, potentially including reflection if the eigenvalue is negative.
+      </p>
+      <ul>
+        <li>
+          <p>
+            Find the eigenvalues of the matrix, <m>\begin{bmatrix}
+              3 \amp 1 \\
+              0 \amp 2
+              \end{bmatrix}</m>. Use the eigenvalues to compute the distinct eigenvectors.
+          </p>
+        </li>
+      </ul>
+   </section>
+   <section xml:id="eigvalue-qs">
+    <title>Exercises</title> 
+    <ul>
+      <li>
+        <p>
+          Consider the matrices:
+          <me>
+          A = \begin{bmatrix}
+          1 \amp 2 \\
+          3 \amp 4
+          \end{bmatrix}, B = \begin{bmatrix}
+          5 \amp 6 \\
+          7 \amp 8
+          \end{bmatrix}.
+          </me>
+          Compute <m>A+B</m>, <m>A-B</m>, <m>A*B</m>, and <m>B*A</m>. Then, calculate the determinants of both matrices. Using the determinants, verify if the matrices are invertible or not. If so, find the inverse and verify your result by multiplying the inverse by the orginal matrix.
+        </p>
+      </li>
+      <li>
+        <p>
+        Consider the matrix <m>C = \begin{bmatrix}
+        4 \amp 1 \\
+        2 \amp 3
+        \end{bmatrix}</m>. Find the eigenvalues of <m>C</m> and use them to calculate the corresponding eigenvectors.  
+        </p>
+      </li> 
+      <li>
+        <p>
+        Consider a discrete-time linear system described by the difference equation <m>\textbf{x}_{t+1} = A\textbf{x}_{t}</m> with a general solution of <m>\textbf{x}_{t} = A^\textbf{x}_{0}</m>. Also consider the matrix <m>A</m> and the initial state vector <m>\textbf{x}_0</m>:
+        <me>
+          A = \begin{bmatrix}
+          \frac{1}{2} \amp 0 \\
+          0 \amp \frac{1}{2}
+          \end{bmatrix},
+          \textbf{x}_0 = \begin{bmatrix}
+          1 \\
+          1
+          \end{bmatrix}.
+        </me>
+        Calculate the eigenvectors of the matrix <m>A</m>. Then calculate the state vector <m>\textbf{x}_t</m> ​at <m>𝑡 = 1, 2, 3, 4, 5.</m>. Using pen and paper or an online graphing program, plot the values of <m>\textbf{x}_t</m> over time. Using the visualization, analyze and describe how the system's behavior changes over time.
+        </p>
+      </li>
+      <li>
+        <p>
+          Complete the same process, however, this time use the matrix <m>B</m>:
+          <me>
+            B = \begin{bmatrix}
+            \frac{3}{2} \amp 0 \\
+            0 \amp \frac{3}{2}
+            \end{bmatrix}.
+          </me>
+          Describe the differences in behavior between the two systems.
+        </p>
+      </li>
+      <li>
+        <p>
+          Finally, consider the matrix
+          <me>
+            C = \begin{bmatrix}
+            1.2 \amp 0 \\
+            0 \amp .8
+            \end{bmatrix}.
+          </me>
+          Work throught the same process as above, calculate the state vectors <m>\textbf{x}_t</m> ​at <m>𝑡 = 1, 2, 3, 4, 5</m> and describe the behavior of the system. Using all three systems as examples, what can we say about how eigenvalues can predict the behavior of a system?
+        </p>
+      </li>
+    </ul>
+   </section>
+   </chapter>

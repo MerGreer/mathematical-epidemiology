@@ -1,0 +1,828 @@
+<chapter xml:id="ch-visualization-graphing-model-results-and-data" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Visualization: Graphing Model Results and Data</title>
+
+    <introduction xml:id="intro-visualization-graphing-model-results-and-data">
+      <objectives>
+        <ul>
+          <li>
+            <p>
+              Visualize data from the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> alongside solution curves of the SI model from <xref ref="ch-zombies-can-math-help"/>
+            </p>
+          </li>
+          <li>
+            <p>
+              Use comparisons between data and our initial SI model to visually estimate the value of the parameter <m>\beta</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Learn the <url href="https://www.python.org/">Python</url> needed for solving systems of differential equations and graphing these solutions, plus data, on a shared set of axes
+            </p>
+          </li>
+        </ul>
+      </objectives>
+
+      <p>
+        In <xref ref="ch-zombies-can-math-help" /> we simulated a simple outbreak. This outbreak can be modeled using the <em>system of ordinary differential equations</em> appearing in <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />. Here is the system, also called an SI model, again:  
+      </p>
+
+      <md>
+        <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+        <mrow>\frac{dI}{dt} \amp = \beta S I. </mrow>
+      </md>
+
+      <p>
+        We began to explore the differences between the discrete data, collected round-by-round in the Zombie Game App, and the continuous model, which uses a system of differential equations to produce smooth curves. In this chapter, we continue that exploration visually, by producing graphs of data and graphs of model results. We also see a first, very visual, way to estimate the value of <m>\beta</m> in our model. (There will be other, more detailed, ways to estimate <m>\beta</m>, as we continue in this text.) To do all this, we employ visualization tools. This text uses cells that run both Python and <url href="https://www.sagemath.org/">SageMath</url>, which <q>is a free open-source mathematics software system</q><fn><url href="https://www.sagemath.org/">https://www.sagemath.org/</url></fn>, for visualization. The Python code here can be used in any setting where you use Python.<fn>The Python-related goal of this text is to make it as easy and intuitive as possible for readers to jump into using Python, so that we can better explore disease models. Some readers may prefer different Python syntax, or using a different program altogether, and these alternate approaches are welcome.</fn> 
+        
+        <!-- Other options include Python and Mathematica, with files for each available at (provide on GitHub???). -->
+      </p>
+
+      <p>
+        Begin by reading and seeking to understand the Python code in <xref ref="expl-creating-graphs-in-python-from-the-human-zombie-game"/>. In addition to thinking through what the Python code does, this textbook focuses attention on producing output that best showcases our modeling results and that is readable by a wide audience.
+      </p>
+
+    
+
+    
+    <exploration xml:id="expl-creating-graphs-in-python-from-the-human-zombie-game">
+      <title>Creating Graphs in Python from the Human<ndash />Zombie Game</title>
+      <introduction>
+        <p>
+          If you have never used Python before, you are in the right place! If you have used Python, you may be able to move through this chapter more quickly, but be sure to spend time to make sure you know the code you need to complete modeling tasks. In this chapter, we spend a significant amount of time reading code, viewing code output, and making changes to code, to build up enough Python knowledge to be able to generate additional graphs of data and model results. The code we practice with allows us to visualize the sample data set shown as a table in <xref ref="fig-human-zombie-data-table"/>.
+        </p>
+      </introduction>
+      
+      <task>
+        <statement>
+          <p>
+            Read carefully through the code below, focusing your attention on lines 3<ndash/>8. Click the <c>Evaluate (Sage)</c> button underneath to view the output. Using the code and its output, answer the questions that follow.
+          </p>
+          <sage>
+            <input>
+              import matplotlib.pyplot as plt
+              plt.cla()
+              t_steps = [0, 1, 2, 3, 4, 5, 6]
+              S_data = [49, 47, 43, 36, 20, 4, 0]
+              I_data = [1, 3, 7, 14, 30, 46, 50]
+              plt.plot(t_steps, S_data,'o', color='blue')
+              plt.plot(t_steps, I_data, '*', color='orange')
+              plt.show()
+            </input>
+            <output>
+            
+            </output>
+            </sage>
+          <ul>
+            <li>
+              <p>
+                Explain where and how in the code we enter, and label, the data from <xref ref="fig-human-zombie-data-table"/>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Which lines of code produce the blue dots on the output graph, and what information from <xref ref="fig-human-zombie-data-table"/> do these dots represent?
+              </p>
+            </li>
+            <li>
+              <p>
+                Which lines of code produce the orange stars on the output graph, and what information from <xref ref="fig-human-zombie-data-table"/> do these dots represent? 
+              </p>
+            </li>
+          </ul>
+        </statement>
+        <answer>
+          <ul>
+            <li>
+              <p>
+                In Line 3, we enter the time data and label it <q>t</q>. In the human<ndash/>zombie game, time is listed in rounds of game play.
+              </p>
+              <p>
+                In Lines 4 and 5, we enter the human and zombie data, that is, Susceptible and Infectious, labeled <q>S_data</q> and <q>I_data</q>, respectively. 
+              </p>
+              <p>
+                To enter a list of data, we type the label and the <q>=</q> sign. We then place the data inside square brackets, and we separate the data using commas. (The data, as listed, are separated by commas and also spaces. The spaces are optional.) 
+              </p>
+              <p>
+                We are not entering the data for New Infections. Instead, we enter only the data we need for graphing the Susceptible and Infectious populations.
+              </p>
+            </li>
+            <li>
+              <p>
+                Lines 3 and 4 enter the data: the inputs (time, in terms of rounds of game play, which we label on the horizontal axis and enter in Line 3) and the outputs (values of the Human population, also called the Susceptible population, which are labeled on the vertical axis and are entered in Line 4). Line 6 creates, but does not show, the plot of data from Lines 3 and 4. Line 8 shows the plot of data.
+              </p>
+            </li>
+            <li>
+              <p>
+                Lines 3 and 5 enter the data: the inputs (time, in terms of rounds of game play, which we label on the horizontal axis and enter in Line 3) and the outputs (values of the Zombie population, also called the Infectious population, which are labeled on the vertical axis and are entered in Line 5). Line 7 creates, but does not show, the plot of data from Lines 3 and 5. Line 8 shows the plot of data. 
+              </p>
+            </li>
+          </ul>
+        </answer>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Go back to the Python code and begin to play with it: make some changes. You can always start anew by refreshing the browser window. Address the following questions, and experiment freely beyond that.
+          </p>
+          
+          <ul>
+            <li>
+              <p>
+                What marker shapes do you like? To experiment with other shapes, see <url href="https://matplotlib.org/stable/api/markers_api.html">the library of marker shapes</url> available in the online documentation for <c>matplotlib</c>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Try different colors for the markers. One way to do this quickly is to go to <url href="https://matplotlib.org/stable/gallery/color/named_colors.html">this page about colors</url> from the online documentation for <c>matplotlib</c>, and scroll down to the header <q>CSS Colors</q>. Replace <q>blue</q> and <q>orange</q> with colors you choose from the CSS Colors list, and view the resulting graph. (There are many other ways to choose colors in Python, and you can search online examples and documentation to learn about these.)
+              </p>
+            </li>
+          </ul>
+        </statement>
+      </task>
+
+      <conclusion>
+        <p>
+          The first two lines of the Python code are important, but their phrasing does not make very obvious what they do. Line 1 imports a Python package that includes commands for drawing plots. Line 2 clears any past plots, meaning any past plots should be completely gone. This makes sure that any new plot contains only what we want. Line 2 may not be needed when we very first use Python, but if we create a different plot, and then come back to this code cell and re-enter it, the other plot we created could be overlaid with this one. The <q>clear</q> command, <c>plt.cla()</c>, makes sure that only our current plot appears.
+        </p>
+      </conclusion>
+
+    </exploration>
+
+  </introduction>
+
+
+    <section xml:id="sec-solving-differential-equations-using-graphs">
+      <title><q>Solving</q> Differential Equations Using Graphs</title>
+
+      <p>
+        Our goal in this section is to learn to use Python to create graphs similar to what we saw in <xref ref="fig-first-si-graph"/>. Such a graph starts with a system of differential equations and draws one possible <term>graphical solution</term> to that system. The graphical solution drawn depends on the equations themselves, the value(s) of any parameter(s), and the starting values for each population in the system, that is, the values when <m>t=0</m> of <m>S(t)</m>, <m>I(t)</m>, and any other populations being modeled. For now, we specify that this type of solution is a <em>graphical solution</em>, but as the book continues, we will often refer to a graphical solution as simply a <em>solution</em>.
+      </p>
+
+      <p>
+        One thing we will <em>almost never</em> do is solve an entire system of differential equations in the way you may have seen in a calculus course, where we wrote the solution as a formula. To remind you how this often looks in calculus class<mdash/>that is, how it looks to solve by writing the solution of a differential equation as a formula<mdash/>we show an example in <xref ref="exer-solve-de"/>. Then <xref ref="exer-cannot-easily-solve-de-system"/> begins the discussion about why we use a different approach in this text.
+      </p>
+      
+      <activity xml:id="exer-solve-de">
+        <statement>
+          <p>
+            As we mentioned back in <xref ref="ch-zombies-can-math-help"/>, a differential equation is just an equation in which at least one term is a derivative. This means that an equation like <m>dy/dt=\cos t + 3</m> is a differential equation. 
+          </p>
+
+          <p>
+            Solving a differential equation often means finding a way to write an equivalent relationship, without including a derivative. Using this interpretation of <q>solving</q>: solve  
+          </p>
+
+          <md>
+            <mrow>\frac{dy}{dt}=\cos t + 3.
+            </mrow>
+            </md>
+           
+        </statement>
+        <answer>
+          <p>
+            The general solution is <m>y=\sin t + 3t + C</m>, where <m>C</m> can be any constant. In this case, we solved by computing the antiderivatives of both sides of the differential equation.
+          </p>
+        </answer>
+      </activity>
+
+      <activity xml:id="exer-cannot-easily-solve-de-system">
+        <statement>
+          <p>
+            Now consider the SI model: 
+          </p>
+
+          <md>
+            <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+            <mrow>\frac{dI}{dt} \amp = \beta S I. </mrow>
+          </md>
+
+          <p>
+            What are the challenges to solving this system of equations, where <q>solving</q> means determining formulas that do not involve derivatives for <m>S(t)</m> and <m>I(t)</m>? 
+          </p>
+           
+        </statement>
+        <hint>
+          <p>
+            There are many ways to answer this. One consideration is that each of the differential equations involves both <m>S</m> and <m>I</m>. This means the differential equations do not stand alone: each depends on the other. This interrelationship means we cannot just compute two separate antiderivative formulas. 
+          </p>
+          <p>
+            Another consideration is that the right-hand side of the differential equation in <xref ref="exer-solve-de"/> involves only <m>t</m>, that is, only the independent variable. The dependent variable <m>y</m> does not appear except in the derivative term <m>dy/dt</m>. However, in the SI model system of equations, the dependent variables <m>S</m> and <m>I</m> appear in the derivatives <em>and elsewhere in the equations</em>. The antiderivative methods learned in a typical introductory Calculus course do not apply in this situation.
+          </p>
+          <p>
+            You may have thought of yet other challenges as well.
+          </p>
+        </hint>
+      </activity>
+        
+      <p>
+        As discussed in <xref ref="exer-cannot-easily-solve-de-system"/>, solving a system of differential equations is challenging. As we include more than two compartments, finding solution formulas for <m>S(t)</m>, <m>I(t)</m>, and additional populations becomes yet more challenging, and is often impossible. Even when we can determine solution formulas, they are typically quite complicated to work with.
+      </p>
+
+      <p>
+        Instead, our approach is to compute <term>numerical solutions</term>, which are solutions in the form of numbers. 
+        <!-- More mathematical details appear in <xref ref="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs"/>, but  -->
+        The main idea is that Python starts at the initial population values, then uses the system of differential equations to <q>step through</q> the full range of time, computing population values step-by-step at later times by using information about how the population values change throughout. The system of differential equations is made up of derivatives, which are rates of change, so they exactly describe how the populations change at all times <m>t</m>. The population values computed in the numerical solution can be printed, or more often, graphed, to see the results in the form of a graphical solution.
+      </p>
+
+      <p>
+        We noted earlier that graphical solutions may be called simply <em>solutions</em>. Similarly, numerical solutions are sometimes called simply <em>solutions</em>. And we have seen that formula-based solutions can be called simply <em>solutions</em>. It is important to use context to determine which kind of solution is being discussed, in this text or in other reading.
+      </p>
+
+      <p>
+        Here is an outline of the numerical solution process.
+      </p>
+
+      <ol>
+        <li>
+          <p>
+            Tell Python the formulas for the system of differential equations.
+          </p>
+        </li>
+        <li>
+          <p>
+            Tell Python which numbers to use for any parameters in the model. We select the numbers for a particular numerical solution, and we can use different numbers to create a different numerical solution.
+          </p>
+        </li>
+        <li>
+          <p>
+            Tell Python the <term>initial conditions</term> for each population, that is, the size of each population at the starting time of the model (which is usually <m>t=0</m>).
+          </p>
+        </li>
+        <li>
+          <p>
+            Tell Python when to start and stop the model, that is, the starting and ending values for time <m>t</m>. Also tell Python what time steps to use as Python <q>steps through</q> from the starting to the ending time.
+          </p>
+        </li>
+        <li>
+          <p>
+            Ask Python to use all this information to numerically solve the model and plot graphical solution curves. 
+          </p>
+        </li>
+      </ol>
+
+      <p>
+        In <xref ref="exer-first-odeint-code"/>, compare this outline with Python code.
+      </p>
+
+      <activity xml:id="exer-first-odeint-code">
+        
+      <statement>
+        <p>
+          Read the Python code in the block below, and click the <c>Evaluate (Sage)</c> button to view the resulting graph. Think carefully about steps 1-5 in the outline above. Which lines of code address which steps of the outline? (Notice that you may need to scroll down within the code block. Alternately, click the rectangular icon in the top right of the code block. This opens a full-screen version of the code. To return to the regular screen, click again the rectangle in the top right.)
+        </p>
+
+        <sage>
+          <input>
+            import matplotlib.pyplot as plt
+            import numpy as np
+            from scipy.integrate import odeint
+            plt.cla()
+            
+            def hz(y, t):
+              S, I = y
+              dydt = [-beta * S * I, beta * S * I]
+              return dydt
+            
+            beta = 0.02
+            y0 = [49, 1]
+            t_range = np.arange(0.0, 8.0, 0.1)
+            sol = odeint(hz, y0, t_range)
+            
+            plt.plot(t_range, sol[:, 0], color='blue')
+            plt.plot(t_range, sol[:, 1], color='orange')
+            plt.show()
+          </input>
+          <output>
+           
+          </output>
+          </sage>
+      </statement>
+
+      <answer>
+        <p>
+          <ol>
+            <li>
+              <p>
+                The formulas for the system of differential equations appear most directly in line 8, in order. The first formula is <c>-beta * S * I</c>, and the second formula is <c>beta * S * I</c>. Collectively, these are labeled <c>dy/dt</c>. More generally, the lines 6<ndash/>9 define the system of differential equations.
+              </p>
+            </li>
+            <li>
+              <p>
+                In line 11, we give <m>\beta</m> the value of 0.02. This number can be changed, and the resulting numerical solution then changes accordingly.
+              </p>
+            </li>
+            <li>
+              <p>
+                In line 12, the initial conditions are set to <m>S(0)=49</m> and <m>I(0)=1</m>. These initial conditions are collectively labeled as <c>y0</c>. The initial conditions appear in square brackets and are separated by a comma. This syntax should look familiar from line 8, when we entered the right-hand sides of the differential equations all in one command, using the same syntax.
+              </p>
+            </li>
+            <li>
+              <p>
+                The time range for this numerical solution appears in line 13, using the <c>arange</c> command from the <c>numpy</c> package downloaded in line 2. The code says <c>t = np.arange(0.0, 8.0, 0.1)</c>. This means that time starts at <m>t=0.0</m> and continues till <m>t=8.0</m>. In addition, the <c>0.1</c> tells Python to use a step size of 0.1 in the <q>step through</q> process for computing <m>S(t)</m> and <m>I(t)</m> values. 
+              </p>
+            </li>
+            <li>
+              <p>
+                We ask in line 14 for Python to compute a solution, called <c>sol</c>. To compute this solution, Python uses the command <c>odeint</c> and the inputs <c>hz</c> (the differential equations in the model), <c>y0</c> (the initial conditions for this solution), and <c>t_range</c> (the range of time across which to compute the solution). 
+              </p>
+              <p>
+                The commands in lines 16-18 work together to create the plot we see after clicking <c>Evaluate (Sage)</c>. Line 16 plots the blue <m>S(t)</m> curve, using the time inputs <c>t_range</c> and the values of <m>S(t)</m> throughout those times, which are described as <c>sol[:, 0]</c>. This means the solution <c>sol</c>, at all times, which is designated by <c>:</c>, in the initial position <c>0</c>. Python typically starts counting with 0 rather than 1, so the <m>S(t)</m> values are labeled as <c>0</c> rather than <c>1</c>. 
+              </p>
+              <p>
+                Line 17 plots the orange <m>I(t)</m> curve, using the time inputs <c>t_range</c> and the values of <m>I(t)</m> throughout those times, which are described as <c>sol[:, 1]</c>. Python continues its counting here, with the <m>I(t)</m> values labeled as <c>1</c>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </answer>
+      
+      </activity>
+
+      <p>
+        Here is a summary of the Python code above, with some of the commands explained in more detail.
+      </p>
+
+      <p>
+        In the lines 
+        <cd>
+          <cline>     import matplotlib.pyplot as plt</cline>
+          <cline>     import numpy as np</cline>
+          <cline>     from scipy.integrate import odeint</cline>
+        </cd>
+        we import online packages that make it possible for Python to do some of the things we are about to do. Saying we are importing <q>as</q> gives us a name, such as <c>plt</c> or <c>np</c>, by which to call each package and use the tools within that package.
+      </p>
+
+      <p>
+        The lines 
+        <cd>
+          <cline>     def hz(y, t):</cline>
+          <cline>       S, I = y</cline>
+          <cline>       dydt = [-beta * S * I, beta * S * I]</cline>
+          <cline>       return dydt</cline>
+        </cd>
+        define the system of differential equations, using the command <c>def</c>. The system is named <c>hz</c>, for <q>human-zombie</q>, and the <c>(y, t)</c> means that the model depends on variables <m>y</m> and <m>t</m>. The line <c>S, I = y</c> defines <m>y</m> as comprising both <m>S</m> and <m>I</m>, in that order. This means that <m>y</m> collectively represents all our dependent variables. Taking the derivative of <m>y</m>, then, means taking each of the derivatives <m>dS/dt</m> and <m>dI/dt</m>. The formulas for these derivatives, which are on the right-hand sides of the SI model, appear in order in the line <c>dydt = [-beta * S * I, beta * S * I]</c>. Finally, the line <c>return dydt</c> ends the definition and says that whenever we later use the definition, we will be using the derivatives defined in <c>dydt</c>.
+      </p>
+      <p>
+        A quick way to think about these lines is that they define our system of differential equations and label them as <c>hz</c>.
+      </p>
+
+      <p>
+        The lines 
+        <cd>
+          <cline>     beta = 0.02</cline>
+          <cline>     y0 = [49, 1]</cline>
+          <cline>     t_range = np.arange(0.0, 8.0, 0.1)</cline>
+        </cd>
+        provide values for <m>\beta</m>, the initial conditions <m>S(0)</m> and <m>I(0)</m>, and <m>t</m>. Any of these values can be changed, and the code can be run again, to produce a different numerical simulation of the same system of differential equations. Notice that the initial conditions are listed in the same order as how we defined the differential equations: <m>S(0)=49</m> is first, and <m>I(0)=1</m> is second. 
+      </p>
+
+      <p>
+        The solution of the system of differential equations 
+        <cd>
+          <cline>     sol = odeint(hz, y0, t_range)</cline>
+        </cd>
+        is a numerical solution, and it includes multiple parts. The solution is named <c>sol</c>. The Python command <c>odeint</c> computes the solution. For <c>odeint</c> to run, it needs three things: (1) a system of differential equations <c>hz</c>, (2) initial conditions <c>y0</c> for the differential equations, and (3) a time range <c>t_range</c> across which to create the solution. Though <c>odeint</c> computes the numerical solution, it does not show us the graphical solution: the plots we create later show us these results. Instead, the numerical solution created by <c>odeint</c> consists of lists of numbers for <m>S</m> and for <m>I</m>, at the times specified in <c>t_range</c>. (If you would like to see the numerical values computed by <c>sol</c>, include the line <c>print(sol)</c> in the block of Python code above, sometime after the line <c>sol = odeint(hz, y0, t_range)</c>. When you then evaluate the code, the list of values will appear.)
+      </p>
+
+      <p>
+        The lines 
+        <cd>
+          <cline>     plt.plot(t_range, sol[:, 0], color='blue')</cline>
+          <cline>     plt.plot(t_range, sol[:, 1], color='orange')</cline>
+        </cd>
+        create, but do not show, the plots of graphical solutions to the system of differential equations. For each plot, we provide the input values <c>t_range</c> and the output values from the numerical solution <c>sol</c>. As described above, <c>sol</c> is a set of numbers which are the values of the populations <m>S(t)</m> and <m>I(t)</m> at all the times in <c>t_range</c>. The numbers in <c>sol</c> are structured into two lists, list 0 and list 1. (Python often counts things, such as lists, starting with 0 rather than starting with 1.) The syntax <c>sol[:,0]</c> describes all the <m>S(t)</m> data. The colon <c>:</c> means <q>all</q> the elements, and the <c>0</c> means list 0, which is the list containing values of <m>S(t)</m>. The syntax <c>sol[:,1]</c> describes all the <m>I(t)</m> data, with <c>:</c> again representing <q>all</q> and <c>1</c> representing list 1, which contains <m>I(t)</m> values.
+      </p>
+
+      <p>
+        The lines above include colors for each graph, <c>'blue'</c> for the <m>S(t)</m> graph and <c>'orange'</c> for the <m>I(t)</m> graph. Stating colors is optional.
+      </p>
+
+      <p>
+        Finally, 
+        <cd>
+          <cline>     plt.show()</cline>
+        </cd>
+        shows the two plots, on a shared set of axes.
+      </p>
+      
+      <p>
+        To build further understanding of how the Python code works, it helps to make several small changes to the code. Simultaneously, we continue to build intuition for how the output graph is affected by our selected parameter values, initial conditions, time range, and more.  Try this in <xref ref="exer-first-odeint-code-play-around"/>. 
+      </p>
+
+      <activity xml:id="exer-first-odeint-code-play-around">
+          
+      <statement>
+        <p>
+          Start with the same Python code as in <xref ref="exer-first-odeint-code"/> and try various small changes to the code. Identify where and how in the code to make the changes suggested below, and discuss the effects of each change on the resulting graph. Here and elsewhere, whenever we work with Python, feel free to try your own adaptations to the code. 
+        </p>
+
+        <sage>
+          <input>
+            import matplotlib.pyplot as plt
+            import numpy as np
+            from scipy.integrate import odeint
+            plt.cla()
+            
+            def hz(y, t):
+              S, I = y
+              dydt = [-beta * S * I, beta * S * I]
+              return dydt
+            
+            beta = 0.02
+            y0 = [49, 1]
+            t_range = np.arange(0.0, 8.0, 0.1)
+            sol = odeint(hz, y0, t_range)
+            
+            plt.plot(t_range, sol[:, 0], color='blue')
+            plt.plot(t_range, sol[:, 1], color='orange')
+            plt.show()
+          </input>
+          <output>
+          
+          </output>
+          </sage>
+
+          <ul>
+            <li>
+              <p>
+                Change the value of <m>\beta</m>. Identify where in the Python code to make this change, and comment on how the output graph changes when <m>\beta</m> increases or decreases. (While you can change <m>\beta</m> to any value you like, recall that a realistic outbreak model requires <m>\beta > 0</m>.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Change the initial conditions so that <m>S(0) \neq 49</m>, <m>I(0) \neq 1</m>, or both. Comment on how these changes affect the resulting graph. (To stay in the realm of biologically feasible outbreaks, keep <m>S(0) > 0</m> and <m>I(0) > 0</m>.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Change the time range. Continue to begin at <m>t=0</m>, but change the end time to something different than <m>t=8</m>. Discuss reasons why a modeler may want to change the time range, and identify ways in which changing the time range causes the output graph to change. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Change the step size for time <m>t</m> so that Python steps forward in increments of 1.0 instead of 0.1. Identify where in the Python code to make this change, and observe any ways in which the output graph looks different after the change. 
+              </p>
+            </li>
+          </ul>
+      </statement>
+        
+      </activity>
+
+      <p>
+        These are all the basics for numerically solving a system of differential equations. In <xref ref="sec-estimating-beta-and-building-visualization-skills"/> we create a graph in which data points and solution curves appear all on the same set of axes. Combining these plots provides a visual way to change the value of <m>\beta</m> to improve the model's fit to data points. Then, also in <xref ref="sec-estimating-beta-and-building-visualization-skills"/>, we discuss helpful ways to visualize information on graphs, so readers can best understand the results that emerge from models.  
+      </p>
+
+    </section>
+
+    <section xml:id="sec-estimating-beta-and-building-visualization-skills">
+      <title>Estimating <m>\beta</m> and Building Visualization Skills</title>
+
+      <p>
+        To start, use information from the coding blocks above to create a single graph containing discrete data points for Humans and Zombies as well as continuous solution curves to the model for Susceptible and Infectious populations.
+      </p>
+
+
+      <activity xml:id="exer-combine-data-points-and-curves">
+          
+      <statement>
+        <p>
+          Combine lines of Python code from the coding blocks shown in <xref ref="expl-creating-graphs-in-python-from-the-human-zombie-game"/> and <xref ref="exer-first-odeint-code"/> so that both the individual data markers from <xref ref="expl-creating-graphs-in-python-from-the-human-zombie-game"/> and the smooth solution curves from <xref ref="exer-first-odeint-code"/> appear on the same graph.
+        </p>
+
+        <p>
+          Notice before you begin: some of the same commands appear in each of the two coding blocks you are combining. You do not need to include those lines twice. 
+        </p>
+
+        <sage>
+          <input>
+            
+          </input>
+          <output>
+          
+          </output>
+          </sage>
+
+          <p>
+            Once you have combined the data points and solution curves into a single graph, try different values of <m>\beta</m>. Working visually, comparing data points with solution curves, can you identify a value of <m>\beta</m> that you believe produces the best correspondence between data points and solution curves? Discuss your reasoning, including a description of the features of a good correspondence between data points and solution curves.
+          </p>
+
+      </statement>
+
+      <hint>
+        <p>
+          If your approach creates two separate sets of axes, try again. Can you find a way to produce just one set of axes that contains both the data points from the Zombie Game App, and also the solution curves from the system of differential equations?
+        </p>
+        <p>
+          Regarding <m>\beta</m>, we are not seeking a mathematically precise <q>best fit</q>. Instead, we are (1) visually identifying what a good fit may look like, and (2) describing the features of a good fit, <em>from a visual perspective</em>. The features may be somewhat subjective: there is not likely to be a perfect fit, and different readers may have different priorities regarding how a good fit <q>should</q> look.
+        </p>
+      </hint>
+
+      <answer>
+        <p>
+          One possible answer for the code is the following.
+        
+
+        <cd>
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.integrate import odeint
+plt.cla()
+            
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+S_data = [49, 47, 43, 36, 20, 4, 0]
+I_data = [1, 3, 7, 14, 30, 46, 50]
+            
+def hz(y, t):
+S, I = y
+dydt = [-beta * S * I, beta * S * I]
+return dydt
+            
+beta = 0.02
+y0 = [49, 1]
+t_range = np.arange(0.0, 8.0, 0.1)
+sol = odeint(hz, y0, t_range)
+plt.plot(t_steps, S_data,'o', color='blue')
+plt.plot(t_steps, I_data, '*', color='orange')
+plt.plot(t_range, sol[:, 0], color='blue')
+plt.plot(t_range, sol[:, 1], color='orange')
+plt.show()
+        </cd>
+        </p>
+        <p>
+          There are many possible answers regarding the value of <m>\beta</m>. The key is to discuss what a good fit may look like. When the data and model do not fit perfectly, which is usually what will happen, then which aspects of the data do we most hope are represented in the model's solution curves?
+        </p>
+      </answer>
+        
+      </activity>
+
+      <p>
+        At this point, you have worked with enough Python code to be able to graph your own data points and your own solutions to systems of differential equations that represent disease spread. Before we complete this chapter, however, we spend additional time with Python and visualization, with the goal of designing plots that best convey the information learned from models.
+      </p>
+
+    
+      <p>
+        Each activity below invites you to learn by doing. Additionally: think through what YOU would like to see in plots. What features make it easier for you to interpret a graph? What features tell you best how to connect an image with a mathematical equation? 
+      </p>
+
+      <activity xml:id="exer-grid-axis-labels-comments">
+        <statement>
+          <p>
+            Evaluate the code below. Use the Python code, as well as the resulting graphs, to answer the questions appearing below the code block.
+          </p>
+          <sage>
+            <input>
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+              plt.cla()
+              
+              def model(y, t):
+                S, I = y
+                dydt = [-beta * S * I, beta * S * I]
+                return dydt
+                    
+              beta = 0.02
+              y0 = [49, 1]
+              t_range = np.arange(0.0, 8.0, 0.1)
+              
+              sol = odeint(model, y0, t_range)
+              
+              plt.plot(t_range, sol[:, 0], color='blue', label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', label='I(t)')
+              plt.legend()
+              plt.xlabel('time')
+              #plt.grid()
+              plt.show()
+
+            </input>
+            <output>
+            
+            </output>
+            </sage>
+
+            <ul>
+              <li>
+                <p>
+                  This code block includes an additional optional command in each of the lines starting with <c>plt.plot</c>. This command begins with <c>label</c> in each line. Where do you find these labels, <m>S(t)</m> and <m>I(t)</m>, on the plot produced below the code?
+                </p>
+              </li><li>
+                <p>
+                  Line 19 says <c>plt.legend()</c>. What does this mean? You can check by turning this line off, then on again. To turn it off, type <c>#</c> at the start of Line 19, and run the code again. To turn it back on, remove the <c>#</c>. Starting a line with <c>#</c> turns the line into a <em>comment</em> rather than code. This means that Python does not execute the rest of the line after the <c>#</c>.  
+                </p>
+              </li><li>
+                <p>
+                  Line 20 states <c>plt.xlabel('time')</c>. Do you see where this label appears in the resulting plot? If so: can you figure out how to label the vertical axis as <q>populations</q>, to represent the combination of populations <m>S(t)</m> and <m>I(t)</m>?
+                </p>
+              </li><li>
+                <p>
+                  Uncomment Line 21 by removing the <c>#</c> symbol and evaluate the code again. How does this change the resulting plot? What advantages or disadvantages do you see in this change?
+                </p>
+              </li>
+            </ul>
+        </statement>
+
+        <answer>
+          <ul>
+            <li>
+              <p>
+                The labels <m>S(t)</m> and <m>I(t)</m> appear in the box on the graph, next to the line color of their associated plot. That is, label <m>S(t)</m> appears next to a blue line, and <m>S(t)</m> is plotted in blue. Label <m>I(t)</m> appears next to an orange line, and <m>I(t)</m> is plotted in orange. 
+              </p>
+            </li>
+            <li>
+              <p>
+                The legend is the box mentioned in the previous bullet point. Legends can be very helpful when multiple plots appear on a shared set of axes.
+              </p>
+            </li>
+            <li>
+              <p>
+                The label appears below the horizontal axis. To label the vertical axis, include this new line in the code: <c>plt.ylabel('populations')</c>.
+              </p>
+            </li>
+            <li>
+              <p>
+                A grid appears throughout the plot. This may be an advantage for better pinpointing what the values of <m>S(t)</m> and <m>I(t)</m> are at various times <m>t</m>. It may be a disadvantage if it makes the plot seem cluttered. There may be other advantages and disadvantages.
+              </p>
+            </li>
+          </ul>
+
+        </answer>
+        
+      </activity>
+
+      <p>
+        <em>Comments</em> are mentioned in <xref ref="exer-grid-axis-labels-comments"/>. In Python, comments are helpful for turning code lines on and off. One reason to do this is to troubleshoot: if code seems to not be working, turning some lines temporarily into comments can help narrow down where the problem lies. Another reason to include comments is to write notes about what is happening in the code. This is helpful if you will use this code later, or share it with other people, to make it easier for you and others to use the code in the future.
+      </p>
+      <p>
+        The next activity shows more detailed use of comments, along with more ways to distinguish different solution curves when we plot multiple results on a shared set of axes.
+      </p>
+
+      <activity xml:id="exer-dash-dot-comments">
+        <statement>
+          <p>
+            Notice that the code block below includes many comments. Read through the comments: do they make sense? Would you add others?
+          </p>
+          <p>
+            Then evaluate the code and respond to the prompts below. 
+          </p>
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+              
+              plt.cla()  #Clear (delete) any past plots
+
+              #Include data from Zombie Game App
+              t_steps = [0, 1, 2, 3, 4, 5, 6]
+              S_data = [49, 47, 43, 36, 20, 4, 0]
+              I_data = [1, 3, 7, 14, 30, 46, 50]
+              
+              #Define the system of differential equations, and call it "hz"
+              def hz(y, t):
+                s, i = y #Define y as consisting of s and i, in that order
+                dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
+                return dydt
+                    
+              beta = 0.02 #Give a value to beta
+              y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
+              t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+              
+              sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+              
+              # Plotting commands are below
+              plt.plot(t_steps, S_data,'o', markersize=12, color='blue')
+              plt.plot(t_steps, I_data, '*', markersize=5, color='orange')
+              plt.plot(t_range, sol[:, 0], color='blue', linestyle='dashed', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dotted', linewidth=3, label='I(t)')
+              plt.legend()
+              plt.xlabel('time')
+              plt.ylabel('populations')
+              plt.show()
+            </input>
+            <output>
+            
+            </output>
+            </sage>
+            
+            <ul>
+              <li>
+                <p>
+                  What do the <c>linestyle</c> commands do? Include them in Lines 26 and 27, when plotting <c>S_data</c> and <c>I_data</c>, to connect the markers from the Zombie Game App data points with the same style lines as those that solve the SI model.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do the <c>markersize</c> commands do? Try different numerical values to find what you like.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What do the <c>linewidth</c> commands do? Try different numerical values to find what you like.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Label the data points from the Zombie Game App so that they appear in the legend.
+                </p>
+              </li>                
+              <li>
+                <p>
+                  Change the label on the horizontal axis to say <q>time (rounds)</q> to make the units of time more clear.
+                </p>
+              </li>
+            </ul>
+
+
+
+            <!-- Linestyles: https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html#linestyles -->
+        </statement>
+      </activity>
+
+    </section>
+
+    <exercises xml:id="exercises-visualization-graphing-model-results-and-data">
+      <exercise number="1">
+        <statement>
+          <p>
+           Start with the basic SI model in Python. Code for this appears in <xref ref="exer-first-odeint-code"/> and <xref ref="exer-first-odeint-code-play-around"/>. Change the code in the ways described below. For each change, list the original Python code, specify what updates you make, provide an image of the resulting graph, and describe in words how the resulting graph looks different as a result of the change you made. Keep the change in part (a) when you update part (b), then keep all these changes when you update part (c).
+          </p>
+        <ol>
+          <li>
+            <p>
+              Increase <m>S(0)</m> to 200.
+            </p>
+          </li>
+          <li>
+            <p>
+              Adjust <m>\beta</m> so that the Susceptible population is approximately 100 on day 10. (Notice that this update requires changing more than just the value of <m>\beta</m>.)
+            </p>
+          </li>
+          <li>
+            <p>
+              Increase <m>I(0)</m> to 10.
+            </p>
+          </li>
+        </ol>
+      </statement>
+        <hint>
+          <p>
+            The following figures, in order, are possible results.
+          </p>
+          <figure width="90%" xml:id="fig-visualize-1a">
+            <caption>A possible outcome from setting <m>S(0)=200</m>.</caption>
+            <image source="Visualize_HW_1a.png" width="80%">
+                <description>Sample solution graph for setting <m>S(0)</m> to 200.</description>
+            </image>
+          </figure>
+          <figure width="90%" xml:id="fig-visualize-1b">
+            <caption>A possible outcome when adjusting <m>\beta</m> so that <m>S(10) \approx 100</m>. The graph includes a grid, and it extends time to <m>t=15</m>.</caption>
+            <image source="Visualize_HW_1b.png" width="80%">
+                <description>Sample solution graph for setting <m>\beta</m> so that <m>S(100) \approx 10</m>. The graph includes a grid, and it extends time to <m>t=15</m>.</description>
+            </image>
+          </figure>
+          <figure width="90%" xml:id="fig-visualize-1c">
+            <caption>A possible outcome when setting <m>I(0)=10</m>.</caption>
+            <image source="Visualize_HW_1c.png" width="80%">
+                <description>Sample solution graph for setting <m>I(0)</m> to 10.</description>
+            </image>
+          </figure>
+        </hint>
+      </exercise>
+      <exercise number="2">
+        <p>
+          Open the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> and run it, creating a data set that is (hopefully) different than that in <xref ref="fig-human-zombie-data-table"/>. Use Python to plot these data points for humans and zombies. On the same set of axes, plot the graphical solutions to the differential equations in the SI model. Adjust <m>\beta</m> so the SI model solution curves fit adequately well with the generated data points. Include a short discussion of ways in which the curves fit the data well, and ways in which the fit is not as good. 
+        </p>
+      </exercise>
+      <exercise number="3">
+        <p>
+          Look up information online about making data visualization more accessible to people who have some version of colorblindness. Read multiple sources on this topic, and use them to respond to the following questions. Cite your sources, including links to any web pages, the title of each web page used, the name of the publisher of each web page, and the date you most recently accessed the web page.
+        </p>
+        <ol>
+          <li>
+            <p>
+              What sorts of color palettes can work relatively well to make a graph more accessible to a colorblind individual?
+            </p>
+          </li>
+          <li>
+            <p>
+              What are some ways that data markers can be used to improve graph accessibility?
+            </p>
+          </li>
+          <li>
+            <p>
+              How can different line styles be used to improve graph accessibility?
+            </p>
+          </li>
+          <li>
+            <p>
+              What are yet additional ways you can use Python features to create graphs that are accessible to as many people as possible?
+            </p>
+          </li>
+        </ol>
+      </exercise>
+    </exercises>
+    
+
+  </chapter>

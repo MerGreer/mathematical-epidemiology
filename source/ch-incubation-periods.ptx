@@ -1,0 +1,561 @@
+<chapter xml:id="ch-incubation-periods" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Incubation Periods</title>
+
+    <introduction xml:id="intro-incubation-periods">
+    <objectives>
+      <ul>
+        <li>
+          <p>
+            Introduce the SEIR model, where E stands for <em>Exposed-and-incubating</em>, meaning people in the E compartment have already contracted an illness but have not yet become infectious to others.
+          </p>
+        </li>
+        <li>
+          <p>
+            Learn to make the timelines of models more realistic by incorporating disease incubation periods.
+          </p>
+        </li>
+        <li>
+          <p>
+            Gain practice combining multiple variations, such as both vaccines and incubation periods, into a single model of disease spread.
+          </p>
+        </li>
+        <!-- <li>
+          <p>
+            Introduce a new model compartment, often called <em>Isolated</em>, to reduce disease transmission by reducing the interaction of the Infectious and Susceptible populations 
+          </p>
+        </li> -->
+      </ul>
+    </objectives>
+
+    <p>
+      As we continue to build modeling skills, two goals frequently motivate us. One goal is to improve a model's fit to data (within reason, as we discuss more in later chapters). A second goal is to be able to create models that incorporate the dynamics of how a disease spreads in a population. It turns out that including a disease's incubation period can help to address both these goals.   
+    </p>
+    
+    <p>
+      In this chapter, we experiment with the incubation period of a disease. Early on, we develop an understanding of how to build the incubation period into a model. Throughout, we devote attention to when and why we might want to include the incubation period in a model... or not include it.   
+    </p>
+
+    <p>
+      To start, consider in <xref ref="expl-activity-incubation"/> an outbreak of mumps, which can have an incubation period of two weeks or more.   
+    </p>
+    
+    <exploration xml:id="expl-activity-incubation">
+      <title>Considering an Incubation Period</title>
+      <introduction>
+        <p>
+          The graph below shows data from a mumps outbreak at Bates College in the fall semester of 2016. Specifically, the data indicate numbers of students who have had mumps in this outbreak, counting them when they cease to be sick, to give values corresponding to the Removed compartment of a model. The curve displayed on the graph is the curve for the Removed compartment population in a typical SIR model that starts at the time when the first student would likely have first caught the mumps virus.
+        </p> 
+        <figure width="90%" xml:id="fig-mumps-data-with-SIR">
+          <caption>Data, and an SIR model solution, for the Removed students (those who have recovered from mumps) in a campus outbreak</caption>
+          <image source="MumpsDataWithSIR.png" width="80%">
+              <description>Data points showing students recovering from mumps across time, and a curve showing the solution for the Removed compartment of an SIR model for mumps</description>
+          </image>
+        </figure>
+        <!-- <p>
+          
+        </p> -->
+      </introduction>
+
+      <task>
+        <statement>
+          <p>
+            Use <xref ref="fig-mumps-data-with-SIR"/> to respond to the following questions. 
+          </p>            
+
+          <ol>
+            <li>
+              <p>
+                In what ways does the SIR model's Removed curve do well at representing the values shown by the data points?
+              </p>
+            </li>
+            <li>
+              <p>
+                In what ways does the SIR model's Removed curve do less well at representing the values shown by the data points?
+              </p>
+            </li>              
+          </ol>
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            Now suppose we build a second model. In this model, we account for the lengthy incubation period of mumps, which can be two weeks or more. The solution curve for the Removed compartment of this model is shown in <xref ref="fig-mumps-data-with-SIR"/> alongside the same mumps data set described earlier in this Exploration. 
+          </p>
+          <figure width="90%" xml:id="fig-mumps-data-with-SEIR">
+            <caption>Data, and a model solution that includes an incubation period, for the Removed students (those who have recovered from mumps) in a campus outbreak</caption>
+            <image source="Mumps_Data_With_SEIR.png" width="80%">
+                <description>Data points showing students recovering from mumps across time, and a curve showing the solution for the Removed compartment of a mumps model that includes an incubation period</description>
+            </image>
+          </figure>
+        <ol>
+          <li>
+              <p>
+                In what ways does the Removed curve do well at representing the values shown by the data points, in this model that includes an incubation period?
+              </p>
+            </li>
+            <li>
+              <p>
+                In what ways does the Removed curve do less well at representing the values shown by the data points, in this model that includes an incubation period?
+              </p>
+            </li>
+            <li>
+              <p>
+                Consider how this model with incubation period fits the data points, and consider how the SIR model at the start of this Exploration fits the data points. Compare your observations of the two models and how they fit the data points. You can describe advantages and disadvantages of each model without selecting either as your preferred model, or you may wish to select one model as fitting better, explaining how you made your selection.
+              </p>
+            </li>
+        </ol>
+        </statement>
+      </task>
+      
+    </exploration>
+
+  </introduction>
+
+    
+
+
+          
+         
+
+    <section xml:id="sec-including-an-incubation-period-the-seir-model">
+      <title>Including an Incubation Period: The SEIR Model</title>
+
+      <p>
+        We introduce here the <term>SEIR model</term>. The new compartment, E, stands for <em>Exposed-and-incubating</em>. The population <m>E(t)</m> therefore represents people who have contracted an illness, but who are not yet infectious. As the name <q>SEIR</q> suggests, this model has four compartments. 
+      </p>
+      <p>
+        Now that we have worked with the SI and SIR models, you may well have ideas in mind for how the SEIR model should look. Try these in <xref ref="activity-seir-model-intro"/>.
+      </p>
+
+      <activity xml:id="activity-seir-model-intro">
+        <statement>
+          <p>
+            How do you believe the SEIR model should appear? Demonstrate your ideas for this activity: 
+          </p>
+          
+          <ol>              
+            <li>
+              <p>
+                Draw the SEIR model as a compartmental diagram. Carefully label each compartment and each arrow. Do not include vaccination in this model.
+              </p>
+            </li>              
+            <li>
+              <p>
+                Write the differential equations of the SEIR model. Do not include vaccination.
+              </p>
+            </li>              
+            <li>
+              <p>
+                Compare the compartmental diagram you drew with the differential equations you wrote. Are they compatible with each other? That is, do they describe the same model, with the same flow of people through compartments? 
+              </p>
+            </li>
+          </ol>
+          
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                One possible compartmental diagram appears below. 
+              </p>
+              <figure xml:id="fig-SEIR-model">
+              <caption>Compartmental diagram of a model of HIV/AIDS, using descriptions instead of formulas for each arrow</caption>
+              <image width="100%">
+              <description>(Write this)</description>
+              <latex-image>
+              \begin{tikzpicture}
+                \draw [thick] [black] (0,0) -- (2,0);
+                \draw [thick] [black] (2,0) -- (2,2);
+                \draw [thick] [black] (2,2) -- (0,2);
+                \draw [thick] [black] (0,2) -- (0,0);
+                \node [black] at (1,1) {\Huge $S$};
+                \draw [thick] [->] (2.1,1) to (3.9,1); 
+                \node at (3,1.5) {\Large $\beta SI$};
+                \draw [thick] [black] (4,0) -- (6,0);
+                \draw [thick] [black] (6,0) -- (6,2);
+                \draw [thick] [black] (6,2) -- (4,2);
+                \draw [thick] [black] (4,2) -- (4,0);
+                \node [black] at (5,1) {\Huge $E$};
+                \draw [thick] [->] (6.1,1) to (7.9,1); 
+                \node at (7,1.5) {\Large $\kappa E$};
+                \draw [thick] [black] (8,0) -- (10,0);
+                \draw [thick] [black] (10,0) -- (10,2);
+                \draw [thick] [black] (10,2) -- (8,2);
+                \draw [thick] [black] (8,2) -- (8,0);
+                \node [black] at (9,1) {\Huge $I$};
+                \draw [thick] [->] (10.1,1) to (11.9,1); 
+                \node at (11,1.5) {\Large $\gamma I$};
+                \draw [thick] [black] (12,0) -- (14,0);
+                \draw [thick] [black] (14,0) -- (14,2);
+                \draw [thick] [black] (14,2) -- (12,2);
+                \draw [thick] [black] (12,2) -- (12,0);
+                \node [black] at (13,1) {\Huge $R$};
+              \end{tikzpicture}
+              </latex-image>
+              </image>
+              </figure>
+              <p>
+                One key aspect of this diagram is that the term <m>\beta SI</m> appears on the arrow from <m>S</m> to <m>E</m>. In the SIR model, the arrow from <m>S</m> to <m>I</m> involved exactly the compartments at its beginning and end, but with the SEIR model, there is a different pattern.
+              </p>
+              <p>
+                Notice the arrow labeled <m>\kappa E</m>. The flow out of the E compartment depends only on the population <m>E(t)</m> and the amount of time typically spent as Exposed-and-incubating, similar to how the flow out of the I compartment in the SIR and SEIR models depends only on the population <m>I(t)</m> and the amount of time spent as Infectious. An important comment here is that this answer key uses the parameter <m>\kappa</m> for the rate governing the flow out of the E compartment, but there is no reason at all that you should have chosen the Greek letter <m>\kappa</m> for this rate! Whatever letter you chose, as long as it is not a letter already in use elsewhere in the model, is an excellent choice.
+              </p>
+            </li>
+            <li>
+              <p>
+                The following differential equations represent the SEIR model:
+              </p>
+              <md>
+                <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+                <mrow>\frac{dE}{dt} \amp =  \beta S I - \kappa E </mrow>
+                <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+                <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+              </md>
+              <p>
+                Your answer should look similar, but you may have selected a different parameter instead of <m>\kappa</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Your answers for the first two parts should definitely be compatible. If they are not, whether in this activity or ever in your modeling career, then that is a time to re-evaluate your work. This is one of many ways we can double-check our modeling work: when we describe a model in different formats, such as in a diagram and by means of equations, the different formats should agree with each other. 
+              </p>
+            </li>
+          </ol>
+          
+        </answer>
+      </activity>
+
+      <p>
+        Now that you have built an SEIR model in <xref ref="activity-seir-model-intro"/>, you can explore its compartmental diagram and differential equations. To start, notice that we can estimate the value of <m>\kappa</m> similarly to how we estimated the value of <m>\gamma</m> in <xref ref="eq-gamma-estimate"/> and <xref ref="eq-gamma-estimate-2"/>, using the average incubation time for a disease:         
+      </p>
+      <mdn>
+        <mrow xml:id="eq-kappa-estimate">\frac{1}{\kappa} \amp \approx \mbox{average length of time an individual spends in compartment E} </mrow>
+      </mdn>
+      <p>
+        or:
+      </p>
+      <mdn>
+        <mrow xml:id="eq-kappa-estimate-2">\frac{1}{\kappa} \amp \approx \mbox{average incubation time for a disease.} </mrow>
+      </mdn>
+
+      <p>
+        Next, it is helpful with the newly introduced SEIR model to envision how solutions should look, understand how the value of the new parameter <m>\kappa</m> affects solutions, and simply play around with the equations and different parameter values so that you can build your intuition for this model. Begin these investigations in <xref ref="activity-seir-model-play-with-kappa"/>. 
+      </p>
+
+      <activity xml:id="activity-seir-model-play-with-kappa">
+        <statement>
+          <p>
+            This activity provides a venue for you to play with the SEIR model. Begin by thinking through how you expect SEIR solution curves to appear, and then use Python code to create these solutions and see how they respond to changing parameters.  
+          </p>
+          
+          <ol>              
+            <li>
+              <p>
+                Do a brief sign analysis of the SEIR model. Is it possible for the <m>S(t)</m>, <m>I(t)</m>, or <m>R(t)</m> curves in the SEIR model to behave in any ways that are fundamentally different than how these curves behave in the SIR model? In particular: within <xref ref="sec-using-calculus-to-analyze-models"/> we discussed the ways these three curves in the SIR model could fall, or rise and fall, or rise. Can these curves behave any differently in the SEIR model? And what does sign analysis tell you about how the <m>E(t)</m> model can possibly behave? 
+              </p>
+            </li>              
+            <li>
+              <p>
+                Run the Python code below, and observe the curve <m>E(t)</m>. Does it behave the way you predicted in the first part of this Activity? (It should.) 
+              </p>
+              <p>
+                Next, make a note of the long-term number of people who become sick in this model. Then make <m>\kappa</m> larger and note the newly computed long-term number of people who become sick in the model. Try this for multiple values of <m>\kappa</m>. What pattern(s) do you observe?  
+              </p>
+            </li>
+            <li>
+              <p>
+                Continue the Python investigation of different values of <m>\kappa</m>. Start with <m>\kappa = 0.1</m>, then run the model with <m>\kappa = 0.2</m>, <m>\kappa = 0.3</m>, and so on, up to <m>\kappa = 1.0</m>. Describe how the <m>E(t)</m> curve changes as <m>\kappa</m> goes through these changes. Notice that you can focus in on the <m>E(t)</m> curve by commenting out the other three solution curves, similarly to how we did in <xref ref="activity-pcrit2"/>.
+              </p>
+            </li> 
+          </ol>
+
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla() #Clear (delete) any past plots
+
+              #Define the system of differential equations, and call it "model"
+              def model(y, t):
+                S, E, I, R = y #Define y as consisting of S, E, I, and R, in that order
+                dydt = [- beta * S * I, beta * S * I - kappa * E, kappa * E - gamma * I, gamma * I] #Provide the right-hand sides of the SEIR model
+                return dydt
+
+              beta = 0.0004 #Give a value to beta
+              kappa = 0.33 #Give a value to kappa
+              gamma = 0.2 #Give a value to gamma
+              y0 = [1997, 0, 3, 0] #Set initial conditions for S, E, I, and R, in that order
+              t_range = np.arange(0.0, 80.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+
+              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+              # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+              print("Long-term value of S = ", round(sol[-1,0]))
+              print("Long-term value of E = ", round(sol[-1,1]))
+              print("Long-term value of I = ", round(sol[-1,2]))
+              print("Long-term value of R = ", round(sol[-1,3]))
+
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='magenta', linestyle='dotted', linewidth=2, label='E(t)')
+              plt.plot(t_range, sol[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.grid()
+              plt.xlabel('time')
+              plt.ylabel('populations')
+              plt.show()
+            </input>
+            <output>
+            
+            </output>
+          </sage>
+          
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                As in the SIR model: the <m>S(t)</m> curve can only fall or remain level. The <m>I(t)</m> curve can both rise and fall, and can remain level. The <m>R(t)</m> curve can only rise or remain level. 
+              </p>
+              <p>
+                Sign analysis of the SEIR model shows that the <m>E(t)</m> curve has the possibilities of both rising and falling, as well as remaining level.
+              </p>
+            </li>
+            <li>
+              <p>
+                You should observe that regardless of the value of <m>\kappa</m>, the long-term value of <m>R(t)</m> is 1960, given the other default values in the Python code. There are many additional observations you can make about the dynamics of how the population reaches its long-term values, and the next part of this Activity addresses several such observations.
+              </p>
+            </li>
+            <li>
+              <p>
+                As <m>\kappa</m> increases, the <m>E(t)</m> curve tends to reach lower and lower peak values, and these peak values occur at earlier times <m>t</m>. Sample <m>E(t)</m> curves, with their <m>\kappa</m> values, appear in the graph below.
+              </p>
+              <figure width="90%" xml:id="fig-SEIR-Ecurve-varying-kappa">
+              <caption>Possible <m>E(t)</m> curves for the SEIR model, with <m>\kappa</m> varying</caption>
+              <image source="SEIR_Ecurve_varying_kappa.png" width="90%">
+                  <description>Solution curves for the E compartment in the SEIR model, each with a different value of kappa, ranging from kappa = 0.1 to kappa = 1.0. As kappa increases, the curves have lower peaks, and the peaks occur at earlier times</description>
+              </image>
+            </figure>
+            </li>
+          </ol>
+          
+        </answer>
+      </activity>
+
+      <p>
+        For readers including <xref ref="ch-the-next-generation-method"/> on computing <m>\mathcal{R}_0</m>, you may wish to try the steps for computing <m>\mathcal{R}_0</m> in the SEIR model. The answer appears below, yet this is a great time to test yourself. Completing the steps and confirming your results below lets you gain practice now, before perhaps trying to compute <m>\mathcal{R}_0</m> on a future model where no answer is given. 
+      </p>
+      <p>
+        The resulting <m>\mathcal{R}_0</m> formula is:
+      </p>
+      <mdn>
+        <mrow xml:id="eq-R0-seir">\mathcal{R}_0 \amp = \frac{\beta N}{\gamma} \mbox{ for our SEIR model}. </mrow>
+      </mdn>
+      <p>
+        The formula in <xref ref="eq-R0-seir"/> can be rearranged in order to use information about <m>\mathcal{R}_0</m>, <m>\gamma</m>, and <m>N</m> to compute a reasonable range of <m>\beta</m> values in a model. We have seen how to estimate <m>\gamma</m> and <m>\kappa</m> in <xref ref="eq-gamma-estimate"/>, <xref ref="eq-gamma-estimate-2"/>, <xref ref="eq-kappa-estimate"/>, and <xref ref="eq-kappa-estimate-2"/>. We therefore have the ability to determine the parameter values for an SEIR model of a specific outbreak. Try this in <xref ref="activity-seir-model-pertussis-setup"/>.
+      </p>
+
+      <activity xml:id="activity-seir-model-pertussis-setup">
+        <statement>
+          <p>
+          We are now ready to set up a compartmental model for whooping cough, also called pertussis, in a fictional town having 10,000 residents, using information from the <url href="https://www.health.ny.gov/publications/2171/">New York State Pertussis or Whooping Cough Fact Sheet</url>. The fact sheet says that the first stage of pertussis, in which symptoms are similar to those of a cold, lasts one to two weeks. Stage two, which includes the severe cough that gave pertussis the name <q>whooping cough</q>, lasts one to two months. The fact sheet also says that pertussis is contagious from the time cold symptoms appear until about three weeks after severe cough starts. The incubation period for pertussis is most often seven to ten days: the incubation period can sometimes be longer, but we focus on the most common lengths of time. We will not include the use of antibiotics in this model. 
+        </p>
+        <ol>
+          <li>
+            <p>
+              Use the SEIR model below. Determine as many parameter values as you can, using the information described from the fact sheet. In this model, assume that time is measured in days. It is appropriate for some parameter values to be a range of numbers, rather than a single number, since the fact sheet information includes ranges of time.
+            </p>
+            <md>
+                <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+                <mrow>\frac{dE}{dt} \amp =  \beta S I - \kappa E </mrow>
+                <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+                <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+            </md>
+          </li>
+          <li>
+            <p>
+              You should now have determined the range of values for all parameters except <m>\beta</m>. Here is extra information: the value of <m>\mathcal{R}_0</m> for pertussis has been estimated at anywhere from 5.5 to 17, depending on the outbreak in which <m>\mathcal{R}_0</m> was measured.<fn>A nice summary of studies of <m>\mathcal{R}_0</m> for pertussis appears in <q>Pertussis: Microbiology, Disease, Treatment, and Prevention</q> by Paul E. Kilgore, Abdulbaset M. Salim, Marcus J. Zervos, Heinz-Josef Schmitt, published in <em>Clinical Microbiology Reviews</em> in on March 30, 2016.</fn> Use this range of values of <m>\mathcal{R}_0</m>, along with the parameters you already determined and the formula in <xref ref="eq-R0-seir"/> for <m>\mathcal{R}_0</m>, to solve for <m>\beta</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Run the Python code below, making sure to first enter the values from the parameter ranges you have computed for <m>\mathcal{R}_0</m>, <m>\kappa</m>, and <m>\gamma</m>. (These parameter values are set to 0 in the code, so visualizing the model requires you entering the values you determine.) Notice that the code will compute the appropriate value of <m>\beta</m>, using the total population of 10,000 and the values you assign to <m>\mathcal{R}_0</m> and <m>\gamma</m>. Make observations about the outcomes of the model. Be sure to adjust the length of time the model runs, or to show just one or two solution curves at a time, or to otherwise alter the code so that you can best see and comment on the results of the model.
+            </p>
+          </li>
+        </ol>
+
+        <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla() #Clear (delete) any past plots
+
+              #Define the system of differential equations, and call it "model"
+              def model(y, t):
+                S, E, I, R = y #Define y as consisting of S, E, I, and R, in that order
+                dydt = [- beta * S * I, beta * S * I - kappa * E, kappa * E - gamma * I, gamma * I] #Provide the right-hand sides of the SEIR model
+                return dydt
+
+              # The parameter values below are set to 0.0. Enter the values you have computed to see how the model proceeds
+              R0 = 0.0 #Give a value to R0
+              kappa = 0.0 #Give a value to kappa
+              gamma = 0.0 #Give a value to gamma
+              S_init = 9995 #Give an initial value to population S
+              E_init = 0 #Give an initial value to population E
+              I_init = 5 #Give an initial value to population I
+              R_init = 0 #Give an initial value to population R
+              beta = R0 * gamma / (S_init + E_init + I_init + R_init) #Solve for beta, using the R0 formula
+              y0 = [S_init, E_init, I_init, R_init] #Put initial conditions for S, E, I, and R into "y0" for use below in "odeint"
+
+              # The time range below is set for one year. Make it longer or shorter, as needed, to better see the full dynamics of the model
+              t_range = np.arange(0.0, 365.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+
+              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+              # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+              print("Long-term value of S = ", round(sol[-1,0]))
+              print("Long-term value of E = ", round(sol[-1,1]))
+              print("Long-term value of I = ", round(sol[-1,2]))
+              print("Long-term value of R = ", round(sol[-1,3]))
+
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='magenta', linestyle='dotted', linewidth=2, label='E(t)')
+              plt.plot(t_range, sol[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.grid()
+              plt.xlabel('time')
+              plt.ylabel('populations')
+              plt.show()
+            </input>
+            <output>
+            
+            </output>
+          </sage>
+                     
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                The incubation period is usually 7 to 10 days, so <m>\kappa</m> is in the range <m>\frac{1}{10}- \frac{1}{7}</m>. (The incubation period can be shorter or longer, and if you included this information, you will have a wider range of values for <m>\kappa</m>. This is also valid.)
+              </p>
+              <p>
+                Pertussis begins to be contagious when cold symptoms appear, and the phase for cold symptoms is one to two weeks. Pertussis is most contagious for up to three weeks after the intense coughing phase begins. Adding these phases together, pertussis is contagious, or most contagious, for four to five weeks, meaning 28 to 35 days. So <m>\gamma</m> is in the range <m>\frac{1}{35}- \frac{1}{28}</m>. (Saying <q>up to</q> three weeks suggests people may not be contagious the full three weeks. And pertussis may be contagious, at a lower level, more than three weeks after severe cough begins. You may have built either of these facts into your answer, which may lead to a different answer.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Rearranging <xref ref="eq-R0-seir"/> leads to <m>\beta = \gamma \mathcal{R}_0 / N</m>. Using the range of values <m>5.5 \leq \mathcal{R}_0 \leq 17</m> and <m>\frac{1}{35} \leq \gamma \leq \frac{1}{28}</m>, along with <m>N = 10,000</m>, gives the range of values <m>0.000157 \leq \beta \leq 0.000607</m>. Your range of <m>\beta</m> values should be based on the parameter values you determined.
+              </p>
+            </li>
+            <li>
+              <p>
+                This is open-ended. Make as many observations as you can.
+              </p>
+            </li>
+          </ol>
+          
+        </answer>
+      </activity>
+      
+
+      <!-- <p>
+        Now that we have discussed public health intervention in the form of vaccines, as well as SI, SIR, and SEIR models, we have learned enough to be able to mathematically model the primary dynamics of many disease outbreaks. <em>These ideas are the core of this course.</em> In <xref ref="ch-getting-the-answer-right-in-modeling"/> we will think through the big ideas inherent in mathematical modeling. The remaining chapters in <xref ref="part-core-modeling-concepts"/> focus on connecting data with models and working with two additional ways to significantly extend our use of compartmental models: endemic disease, in <xref ref="ch-epidemic-vs-endemic-models"/>, and modeling ideas other than diseases, in <xref ref="ch-modeling-the-spread-of-a-rumor"/>.
+      </p> -->
+
+    </section>
+
+
+    <exercises xml:id="exercises-ch-incubation-period">
+       <exercise number="1">
+        <p>
+          Redo <xref ref="activity-seir-model-pertussis-setup"/>, but convert the time unit to <em>weeks</em> instead of <em>days</em>. To make this change, do the following. 
+        </p>   
+        <ol>
+          <li>
+            <p>
+              Compute the number of weeks for the incubation period of pertussis. This should be <m>\mbox{(the number of days of the incubation period)} / 7</m>. When you then compute <m>\kappa</m>, you should obtain a value equal to <m>7 * \mbox{(the value you obtained in the previous exercise)}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Similarly, the value of <m>\gamma</m> in this exercise should be <m>7 * \mbox{(the value you obtained in the previous exercise)}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For the graphs to appear the same, the horizontal axis should be adjusted. To be precise, the length of the new time axis should equal <m>\mbox{(the length of the time axis in the previous exercise) } / 7</m>. To be close, use the nearest number of weeks. For instance, the default time length in the previous exercise is 365 days, which is one year. One year has approximately, but not exactly, 52 weeks. Using 52 weeks in this exercise will give a very similar graph to the 365-day graph from the previous exercise. 
+            </p>
+          </li>
+        </ol> 
+        <p>
+          Explain mathematically why the unit conversions described in parts (a.), (b.), and (c.) are the correct conversions for converting the model's time scale from days to weeks. Show graphs from both this exercise and the previous exercise to demonstrate that the model results are the same when we convert the units of time. For better clarity: update the label for the time axis in each graph to say <q>days</q> or <q>weeks</q> instead of <q>time</q>, to make clear which time unit is being used in the graph.
+        </p>        
+      </exercise>
+
+      <exercise number="2">
+        <p>
+          Update <xref ref="activity-seir-model-pertussis-setup"/> to include vaccine. Include the multiplier <m>(1-p)</m> where appropriate, adapting our work from <xref ref="expl-activity-vaccines"/> and <xref ref="activity-pcrit2"/> to the SEIR model.
+        </p>   
+        <ol>
+          <li>
+            <p>
+              Compute <m>p_{\text{crit}}</m> for pertussis, using the information that <m>\mathcal{R}_0</m> for pertussis can be between 5.5 and 17, depending on the outbreak. Your results for <m>p_{\text{crit}}</m> will be a range of values.
+            </p>
+          </li>
+          <li>
+            <p>
+              Adapt the Python code from the second exercise to run the model with a vaccine level at least as large as <m>p_{\text{crit}}</m>. Adjust the time scale, show just some of the solution curve graphs, or make any other changes needed, to best see the long-term outcome of the model. Write your observations of the outcomes of this model, and compare and contrast with the no-vaccine model.
+            </p>
+          </li>
+          <li>
+            <p>
+              Do some online research to determine the percentage of children in your area, or percentage of all people in your area, who are vaccinated against pertussis. <q>Your area</q> can refer to your city, state, province, country, or whatever other region you choose. Run the Python code again, using this percentage for vaccination, and citing the resources in which you found the percentage. Adjust the code as needed so you can best see the results, and describe your findings.
+            </p>
+          </li>
+          <li>
+            <p>
+              In approximately 2019, researchers found that the whooping cough vaccine had become less effective over time, for a variety of reasons. They investigated the reasons and made changes. Read about this in from at least three sources, including general news sources as well as government-led websites, and report on your findings.
+            </p>
+          </li>
+        </ol>   
+      </exercise>
+
+      <!-- <exercise number="3">
+        <p>
+          We make one more update to the pertussis model in <xref ref="activity-seir-model-pertussis-setup"/>, addressing vaccine efficacy. Our inclusion of the multiplier <m>(1-p)</m> assumed that vaccination had <m>100 \%</m> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <m>80-85\%</m> efficacy.<fn>This range of vaccine efficacy level comes from the <url href="https://www.cdc.gov/vaccines/pubs/pinkbook/pert.html">Centers for Disease Control and Prevention</url>. The range is specific to the DTaP vaccine, in Europe and the Americas, in studies in or after 1991.</fn>
+        </p>   
+        <ol>
+          <li>
+            <p>
+              Rewrite your model as below, where <m>p</m> remains the percentage of people vaccinated, and <m>q</m> is the efficacy percentage. We require that <m>0 \leq p \leq 1</m> and <m>0 \leq q \leq 1</m>. Explain in words why the way the model is written, and the ranges for <m>p</m> and <m>q</m>, make sense. In your explanation, include <q>edge cases</q>, that is, describe what happens when <m>p=0</m>, <m>p=1</m>, <m>q=0</m>, and <m>q=1</m>. Also describe what happens as <m>p</m> increases from <m>0</m> to <m>1</m>, and what happens as <m>q</m> increases from <m>0</m> to <m>1</m>.
+            </p>
+            <md>
+                <mrow>\frac{dS}{dt} \amp = - (1-p)(1-q) \beta S I </mrow>
+                <mrow>\frac{dE}{dt} \amp =  (1-p)(1-q) \beta S I - \kappa E </mrow>
+                <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+                <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+            </md>
+          </li>
+          <li>
+            <p>
+              Use the Python code from <xref ref="activity-seir-model-pertussis-setup"/> to incorporate vaccine efficacy. Use logic, as well as results from your code, to explain how vaccine efficacy below <m>100\%</m> can make it more challenging to achieve the goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m>. In your explanation, you may wish to use the information that <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective.
+            </p>
+          </li>
+        </ol>     
+      </exercise> -->
+    </exercises>
+
+
+  
+  </chapter>

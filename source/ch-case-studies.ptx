@@ -1,0 +1,553 @@
+<chapter xml:id="ch-case-studies" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Case Studies</title>
+     <section xml:id="sec-Intro">
+      <title>Intro</title>
+      <p>
+        This chapter will include case studies of outbreaks that contain specific characteristics that create thought-provoking scenarios.
+      </p>
+    </section>
+      <exploration xml:id="Vaccination">
+        <title>Vaccination</title>
+        <introduction>
+          <p>
+            In 2016, a varicella outbreak occurred in a kindergarten in Suzhou, China. The population consisted of 738 children, of whom 664 had no prior history of varicella. Those who have a previous history of varicella were not considered susceptible. Among the susceptible children, 364 had received a single dose of the varicella vaccine before the outbreak. One dose of the vaccine is ~82% effective (CDC).
+          </p>
+        </introduction>
+        <task>
+          <statement>
+            <p>
+              Construct an SEIR model, complete with differential equations (including vaccination) and parameter values. You must do research to find sufficient values for <m>\mathcal{R}_0</m>, <m>\gamma</m>, etc.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Graph your model using python:
+              <sage>
+                <input>
+                  #Import packages
+                  import numpy as np
+                  import matplotlib.pyplot as plt
+                  from scipy.integrate import odeint
+                 
+                  plt.cla() #Clear (delete) any past plots
+                 
+                  #Define the system of differential equations, and call it "model"
+                  def model(y, t):
+                    S, E, I, R = y #Define y as consisting of S, I, and R, in that order
+                    dydt = [- (1-p*q) * beta * S * I, (1-p*q) * beta * S * I - kappa * E, kappa*E - gamma*I, gamma * I] #Provide the right-hand sides of the SIR model
+                    return dydt
+                 
+                  beta =  #Give a value to beta
+                  kappa =  #Give a value to kappa
+                  gamma =  #Give a value to gamma
+                  p =  #Give a value to p
+                  q =  #Give a value to q
+                  y0 = [ , , , ] #Set initial conditions for S, I, and R, in that order
+                  t_range = np.arange(0.0, 60.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+                 
+                  sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+                 
+                  # Tell Python to print the last values produced of S, E, I, and R, to help show long-range outcomes of the model
+                  print("Long-term value of S = ", round(sol[-1,0]))
+                  print("Long-term value of E = ", round(sol[-1,1]))
+                  print("Long-term value of I = ", round(sol[-1,2]))
+                  print("Long-term value of R = ", round(sol[-1,3]))
+                 
+                 
+                  # Plotting commands are below
+                  plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+                  plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='E(t)')
+                  plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='I(t)')
+                  plt.plot(t_range, sol[:, 3], color='green', linestyle='dashdot', linewidth=2, label='R(t)')
+                  plt.legend()
+                  plt.grid()
+                  plt.xlabel('time')
+                  plt.ylabel('populations')
+                  plt.show() 
+                 
+                </input>
+                <output>
+                </output>
+              </sage>
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Using Google Colab, import the actual data from the outbreak and compare the accuracy of your model. The answer below gives instructions on how to import your data.
+              <answer xml:id="colabinst">
+                <p>
+                  Here's how to import data into Google Colab:
+                  <ul>
+                    <li>
+                      <p>
+                        Make sure the “pandas” package is imported at the beginning of the code:
+                        <sage>
+                          <input>
+                            import pandas as pd
+                          </input>
+                          <output>
+                          </output>
+                        </sage>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Mount Google Drive to access data files:
+                        <sage>
+                          <input>
+                            from google.colab import drive
+                            drive.mount("/content/drive")
+                          </input>
+                          <output>
+                          </output>
+                        </sage>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Load data from the file located in Google Drive:
+                      <sage>
+                        <input>
+                          data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv')
+                        </input>
+                        <output>
+                        </output>
+                      </sage>
+                      After /content/drive/MyDrive, continue adding backslashes with the necessary folder names to complete the file path. For example, if your file ‘SmallpoxData.csv’ was located in a folder ‘Modeling’, your file path would be content/drive/MyDrive/Modeling/SmallpoxData.csv
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Extract the column from your data representing time, as a list:
+                        <sage>
+                          <input>
+                            t_steps = data['Day'].tolist()
+                          </input>
+                          <output>
+                          </output>
+                        </sage>
+                        Replace ‘Day’ with whatever your column is labeled.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Extract the column representing the infected population, as a list:
+                        <sage>
+                          <input>
+                            I_prevalence_data = data['Infected'].tolist()
+                          </input>
+                          <output>
+                          </output>
+                        </sage>
+                        Replace 'infected' with whatever your column is labeled.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        All together, the code looks like this (also importing additional necessary packages):
+                        <sage>
+                          <input>
+                            import numpy as np
+                            import pandas as pd
+                            import matplotlib.pyplot as plt
+                            from scipy.integrate import odeint
+     
+     
+                            from google.colab import drive
+                            drive.mount("/content/drive")
+     
+     
+                            data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv'
+                            t_steps = data['Day'].tolist()
+                            I_prevalence_data = data['Infected'].tolist()
+                           
+                          </input>
+                          <output>
+                          </output>
+                        </sage>
+                      </p>
+                    </li>
+                  </ul>
+                </p>
+              </answer>
+              Describe the similarites and differences between your model and the data of the outbreak. What are some possible changes that you could implement into your model do better fit it to the data?
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              How would the model change if the students who had received one shot of vaccination had instead received two? Research the effectiveness of two shots of the varicella vaccine and implement that into the model. How different would the outbreak have gone?
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              How might strict isolation policies have decreased the spread of the disease. Talk specifically about the movement between compartments within the model.
+            </p>
+          </statement>
+        </task>
+      </exploration>
+      <exploration xml:id="Isolation">
+        <title>Isolation</title>
+        <introduction>
+          <p>
+            This case study takes a look at the impact of strict isolation measures on disease spread. When modeling this outbreak it is important to recognize that the isolation of infected individuals is not in place at day 0 of the outbreak.
+          </p>
+          <p>
+            On June 25, 2009, 1376 cadets arrived for a 6-week training at the military facility where an H1N1 outbreak would shortly break out. Throughout the outbreak, there were a total of 167 cases (134 confirmed and 33 suspected). A few days after a July 4th superspreader event, cases of influenza skyrocketed. After suspecting that the virus was H1N1, preventative measures started to be implemented. Starting July 7th (day 11 of the outbreak), cadets who met case definitions were isolated together in a separate dorm for at least 7 days from symptom onset, and then until they were symptom-free for 24 hours. Additional information: H1N1 typically has an <m>\mathcal{R}_0</m>-value of 1.5, and someone with H1N1 is infected for approximately 8 days (Cleveland Clinic).
+          </p>
+          <p>
+            Here is a <url href="https://www.sciencedirect.com/science/article/pii/S0749379709006564?casa_token=1fsuPagAv74AAAAA:HY3XMmbw6sOz4anORvltJb7lZKAQmFNFYrz7ssG8WMLKkQYnRYprW64fhKU6E6vwAUBaVzTP5EE">link</url> to the outbreak investigation.
+          </p>
+        </introduction>
+   
+   
+        <task>
+          <statement>
+            <p>
+              List two possible ways of creating a compartmental model that incorporates strict isolation partway through the outbreak. Construct these models, create a compartmental diagram, and include their differential equations.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              If an SIR model is used, the model must be adjusted to incorporate the effects of isolation measures. Which parameter(s) need to change and why? Provide and justify your choice for the new value of the parameter.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Should the transmission rate (<m>\beta</m>) change when isolation is implemented? What are the arguments for and against changing <m>\beta</m> on day 11? Simulate the model with and without changing <m>\beta</m> on day 11. Analyze the differences in the results and discuss the reasoning behind keeping <m>\beta</m> constant or adjusting it.
+   
+   
+              <sage>
+                <input>
+                  #Import packages
+                  import numpy as np
+                  import matplotlib.pyplot as plt
+                  from scipy.integrate import odeint
+                 
+                  plt.cla() #Clear (delete) any past plots
+                 
+                  #Define the system of differential equations, and call it "model"
+                  def model(y, t):
+                    S, I, R = y #Define y as consisting of S, I, and R, in that order
+                    dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #These formulas are the right-hand sides of the SIR model
+                    return dydt
+                 
+                  beta =  #Give a value to beta
+                  gamma =  #Give a value to gamma
+                  y0 = [1375, 1, 0] #Set initial conditions for S, I, and R, in that order
+                  t_range = np.arange(0.0, 30.0, 0.1) #Set the time range to be t=0 to t=20, with "step through" increments of 0.1 when numerically solving
+                 
+                  sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+                 
+                  # Plotting commands are below
+                  plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+                  plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+                  plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+                  plt.legend()
+                  plt.grid()
+                  plt.xlabel('time')
+                  plt.ylabel('populations')
+                  plt.show()
+                </input>
+                <output>
+               
+                </output>
+                </sage>
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Compare your model to the outbreak data using <url href="https://colab.research.google.com/">Google Colab</url>(instructions on how to import data would be included). How well does this model represent the actual outbreak dynamics? Which parameter could we adjust to improve the model's fit? How would this adjustment reflect the specific characteristics of this outbreak?
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              What might happen if isolation was implemented earlier or later in the outbreak? How would this affect the infection dynamics? Simulate the model with isolation starting on different days (e.g., days 7 and 14) and analyze the outcomes.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Identify and discuss the possible limitations of this model.
+            </p>
+          </statement>
+        </task>
+      </exploration>
+      <exploration xml:id="Vaccine-Campaign">
+        <title>Vaccine Campaign</title>
+        <introduction>
+        <p>
+          This case study includes a vaccine campaign implemented part-way through the outbreak.
+        </p>
+        <p>
+          Between February and April 2024, a migrant shelter in Chicago experienced a sizeable measles outbreak. At the time of the index case, there were 1,801 shelter residents. Of the 1,801 residents, 784 (44%) had previous vaccination documentation. As it is unclear from the investigation, we will take this to mean that those residents with previous vaccine documentation had received one shot of the MMR vaccine. A mass vaccination campaign was initiated and completed within three days of the index cases’ confirmation and approximately 18 days of the index patient’s rash onset. The campaign vaccinated 882 residents (49%) which resulted in 1,666 (93%) of 1,801 shelter residents having vaccine documentation. Again, we will take this to mean having one dose of the MMR vaccine. The outbreak lasted ~50 days.
+        </p>
+        <p>
+          Here is a <url href="https://www.cdc.gov/mmwr/volumes/73/wr/pdfs/mm7319a1-H.pdf">link</url> to the outbreak investigation.
+        </p>
+        </introduction>
+        <task>
+          <statement>
+            <p>
+              Using your own research of measles, list the parameter values for an SIR model as well as the starting values for each compartment. Additionally, set up the differential equations at the beginning of the outbreak.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              As mentioned, there was a successful vaccination campaign that took place during the outbreak. This means that the value of <m>p</m> increases throughout the outbreak. We know that <m>p = .44</m> and the start of the outbreak and <m>p = .93</m> and the end of the outbreak. Given that the vaccination campaign started on day 18 of the outbreak and the MMR vaccine takes approximately 2 weeks to become fully effective, find an equation that demonstrates <m>p</m> increasing linearly between the start of the vaccination campaign and the end.          </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Attempt to graph this model, including your new equation, using Python.
+              <!-- <answer>
+                <p>
+                  <sage>
+                    <input>
+                        # Import packages
+   import numpy as np
+   import pandas as pd
+   import matplotlib.pyplot as plt
+   from scipy.integrate import odeint
+   
+   
+   # Clear any past plots
+   plt.cla()
+   
+   
+   # Define parameters
+   beta = 0.001041  # Infection rate
+   gamma = 1/8  # Recovery rate
+   y0 = [1800, 1, 0]  # Initial conditions for S, I, and R
+   t_range = np.arange(0.0, 49.0, 0.1)  # Time range
+   
+   
+   # Vaccine parameters
+   q = 0.93  # Success rate of the vaccine
+   t_vaccine_start = 18  # Time when vaccine is administered
+   t_vaccine_end = 32  # Time when vaccine becomes fully effective
+   p_start = 0.44  # % of the population vaccinated before the outbreak
+   p_end = 0.93  # % of the population vaccinated after the vaccine campaign
+   
+   
+   # Define the differential equation
+   def hz(y, t):
+      S, I, R = y
+     
+      # Determine the value of p based on time t
+      if t < t_vaccine_start:
+          p = p_start * q
+      elif t_vaccine_start <= t < t_vaccine_end:
+          p = (p_start * q) + (p_end * q - p_start * q) * ((t - t_vaccine_start) / (t_vaccine_end - t_vaccine_start))
+      else:
+          p = p_end * q
+     
+      # Define the system of differential equations
+      dydt = [- (1 - p) * beta * S * I, (1 - p) * beta * S * I - gamma * I, gamma * I]
+      return dydt
+   
+   
+   # Solve the ODEs
+   sol = odeint(hz, y0, t_range)
+   
+   
+   # Extract results
+   S = sol[:, 0]
+   I = sol[:, 1]
+   R = sol[:, 2]
+   
+   
+   # Plot the results
+   plt.figure(figsize=(10, 6))
+   #Import packages
+   import numpy as np
+   import pandas as pd
+   import matplotlib.pyplot as plt
+   from scipy.integrate import odeint
+   
+   
+   
+   
+   # Clear any past plots
+   plt.cla()
+   
+   
+   
+   
+   beta = 0.001041  # Give a value to beta
+   gamma = 1/8  # Give a value to gamma
+   y0 = [1800, 1, 0]  # Set initial conditions for S, I, and R, in that order
+   t_range = np.arange(0.0, 49.0, 0.1)  # Set the time range and increment of time steps to be used for numerically solving
+   
+   
+   
+   
+   q = .93  # the success rate of the vaccine
+   t_vaccine_start = 18  # the time the vaccine is administered
+   t_vaccine_end = 32  # the time when the vaccine becomes fully effective
+   p_start = .44  # % of the population vaccinated before the outbreak
+   p_end = .93  # % of the population vaccinated after the vaccine campaign
+   
+   
+   
+   
+   def hz(y, t):
+     S, I, R = y
+   
+   
+   
+   
+     # Define different values of p based on time range
+     if t < t_vaccine_start:
+         p = p_start * q
+     elif t_vaccine_start <= t < t_vaccine_end:
+         p = (p_start * q) + (p_end * q - p_start * q) * ((t - t_vaccine_start) / (t_vaccine_end - t_vaccine_start))  # creating a linear increase in vaccine effectiveness
+     else:
+         p = p_end * q
+   
+   
+   
+   
+     dydt = [- (1 - p) * beta * S * I, (1 - p) * beta * S * I - gamma * I, gamma * I]
+     return dydt
+   
+   
+   
+   
+   sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+   # Find the indices where the changes occur
+   change_index_1 = np.where(t_range >= t_vaccine_start)[0][0]
+   change_index_2 = np.where(t_range >= t_vaccine_end)[0][0]
+   
+   
+   
+   
+   # Mount Google Drive to access data files
+   #from google.colab import drive
+   #drive.mount("/content/drive")
+   
+   
+   
+   
+   
+   
+   
+   
+   # Load data from the CSV file located in Google Drive
+   #data = pd.read_csv('/content/drive/MyDrive/Professional/Summer Research/Chicago2024.csv')  # Replace with the path to your CSV file
+   #t_steps = data['Day'].tolist()  # Extract the column from your data that represents time, as a list
+   #I_prevalence_data = data['Infected'].tolist()  # Extract the column that represents the infected population, as a list
+   
+   
+   
+   
+   
+   
+   
+   
+   # Plotting commands are below
+   plt.plot(t_range[:change_index_1], sol[:change_index_1, 1], color='blue', linestyle='dashed', linewidth=2, label='I(t) pre-vaccine campaign')
+   plt.plot(t_range[change_index_1:change_index_2], sol[change_index_1:change_index_2, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t) during vaccine campaign')
+   plt.plot(t_range[change_index_2:], sol[change_index_2:, 1], color='red', linestyle='dashed', linewidth=2, label='I(t) post-vaccine campaign')
+   #plt.plot(t_steps, I_prevalence_data,'o', markersize=4, color='green')
+   plt.legend(fontsize='small')
+   plt.xlabel('day')
+   plt.ylabel('population')
+   plt.show()
+   
+   
+                     
+                     
+                    </input>
+                    <output>
+                    </output>
+                  </sage>
+                </p>
+              </answer> -->
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Use Google Colab to compare your model to the data from the outbreak. Do this by importing your data: <xref ref="colabinst"/>.
+            </p>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Add Residual Sum of Squares (RSS) and Corrected Akaike Information Criterion (AICc) to evaluate the accuracy of the model.
+              <answer>
+                <p>
+                  <me>
+                    RSS = \[ \sum_{/text{All data values}}^{} (\text{Model Value - Data Value})^2\]
+                  </me>
+                  Code for RSS:
+                  <sage>
+                    <input>
+                      num_steps = len(t_steps)
+                      RSS = 0
+                     
+                     
+                      for x in range(0,num_steps):
+                         RSS = RSS + (I_prevalence_data[x] - sol[x, 1])**2
+                         #print(RSS) #Uncomment this command to see in-between RSS calculations
+                     
+                     
+                      print("RSS = ", RSS) 
+                     
+                    </input>
+                    <output>
+                    </output>
+                  </sage>
+                </p>
+                <p>
+                  <me>
+                    AIC_c = n\ln{\frac{RSS}{n}} + \frac{2Kn}{n - K - 1}
+                  </me>
+                  where n = # of observations and K = # of parameters used in the model.
+                </p>
+                <p>
+                  Code for <m>AIC_c</m>:
+                  <sage>
+                    <input>
+                      num_parameter = 2 # How many parameters are you using? beta + gamma = 2.
+                      k = num_parameter + 1
+                      aic_c = num_steps * np.log(RSS / num_steps) + ((2*k*num_steps)/(num_steps-k-1))
+                      print("AIC = ", aic_c)
+   
+   
+                    </input>
+                    <output>
+                    </output>
+                  </sage>
+                </p>
+              </answer>
+            </p>
+          </statement>
+        </task>
+      </exploration>
+     
+   
+   
+   </chapter>

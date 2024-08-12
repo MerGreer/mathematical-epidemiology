@@ -1,0 +1,702 @@
+<chapter xml:id="ch-model-analysis-and-the-basic-reproduction-number-R0" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Model Analysis and the Basic Reproduction Number <m>\mathcal{R}_0</m></title>
+
+    <introduction xml:id="intro-model-analysis-and-the-basic-reproduction-number-R0">
+      <objectives>
+        <ul>
+          <li>
+            <p>
+              Develop the technique of <em>sign analysis</em> for analyzing outcomes of compartmental models
+            </p>
+          </li>
+          <li>
+            <p>
+              Investigate relationships between a compartmental disease model, the size of the total population being modeled, and each compartment's long-term population value 
+            </p>
+          </li>
+          <li>
+            <p>
+              Introduce the basic reproduction number <m>\mathcal{R}_0</m> and its implication for outbreaks 
+            </p>
+          </li>
+        </ul>
+      </objectives>
+
+      <p>
+        By now, we have studied models from several perspectives. In <xref ref="ch-zombies-can-math-help"/> and the Zombie Game App, we generated data for an outbreak, constructed tables and graphs of data, and thought through how all these pieces of information fit together. <xref ref="ch-zombies-can-math-help"/> then introduced using a system of differential equations for describing the relationships. The Python code in <xref ref="ch-visualization-graphing-model-results-and-data"/> generated images of data points and solution curves for systems of differential equations. Finally, and crucially, we began drawing compartmental diagrams in <xref ref="ch-compartmental-diagrams"/>. 
+      </p>
+      <p>
+        These multiple forms of describing models all work together. They allow us to understand models and their results through graphs, equations, data, and diagrams. Now that we have these tools for discussing models, we take time to mathematically analyze models. Some of this analysis is necessary for confirming that our models make sense in relationship to the real world. Additional analysis of models gives us ways to think about controlling outbreaks.  
+      </p>
+      <p>
+        Our starting point, using a combination of visual and equation-based understanding, begins in <xref ref="expl-rise-and-fall-of-an-epidemic"/>.
+      </p>
+      
+      <exploration xml:id="expl-rise-and-fall-of-an-epidemic">
+        <title>Rise and Fall of an Epidemic</title>
+        <introduction>
+          <p>
+            We first saw the SIR model in <xref ref="ch-compartmental-diagrams"/>. The compartmental diagram appears in <xref ref="fig-SIR-compartmental-diagram"/> and the system of differential equations is the following:
+          </p>
+          <md>
+            <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+            <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
+            <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+          </md>
+          <p>
+            Throughout this Exploration, continue to connect the model, graphs of its solution curves, and real-world meaning.
+          </p>
+        </introduction>
+        
+        <task>
+          <statement>
+            <p>
+              Look at the expressions on the right-hand sides of the differential equations for the SIR model.  
+            </p>
+            <ul>
+              <li>
+                <p>
+                  Which terms are positive? Which terms are negative? What does this tell you about how each population can flow through the compartments? 
+                </p>
+              </li>
+              <li>
+                <p>
+                  For each differential equation, what signs (<m>+</m>, <m>-</m>, or <m>0</m>) are possible on the right-hand side? What does this tell you about the solution curves for the model? 
+                </p>
+              </li>
+            </ul>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              For the graph in <xref ref="fig-SIR-graph-unlabeled"/>, which curve goes with which compartment of the SIR model? Justify your reasoning in two ways: 
+            </p>
+            <ul>
+              <li>
+                <p>
+                  Use your <term>sign analysis</term>, that is, the work you just did on describing solution curves based on the sign (<m>+</m>, <m>-</m>, or <m>0</m>) of the right-hand side of that compartment's differential equation in the SIR model. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe what happens in the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> when we run a simulation including zombie mortality, and confirm that these curves make sense in that context. 
+                </p>
+              </li>
+            </ul>
+            <figure width="90%" xml:id="fig-SIR-graph-unlabeled">
+              <caption>One set of solution curves for the SIR model</caption>
+              <image source="SIR_Graph_Unlabeled_Curves.png" width="80%">
+                  <description>Solution curves for the SIR model, unlabeled, for an exercise asking students to identify which curve represents which compartment in the model</description>
+              </image>
+            </figure>
+          </statement>
+        </task> 
+        
+      </exploration>
+
+    </introduction>
+
+    <section xml:id="sec-using-calculus-to-analyze-models">
+      <title>Using Calculus to Analyze Models</title>
+
+      <p>
+        The work of <xref ref="expl-rise-and-fall-of-an-epidemic"/> involves central ideas from introductory calculus. The equations of the SIR model are <em>differential equations</em>, which means they include derivatives. Derivatives represent <em>change</em>, and we often describe this change as the <em>slope of a graph</em>. The graphs we use in studying models are the <em>solution curves</em> of the model. That is, given equations for, say, <m>dS/dt</m>, <m>dI/dt</m>, and <m>dR/dt</m>, the solution curves are the graphs of <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>, with time <m>t</m> on the horizontal axis, and the populations <m>S</m>, <m>I</m>, and <m>R</m> on the vertical axis.  
+      </p>
+      <p>
+        Now, let us continue with model analysis, specifically naming calculus concepts along the way.
+      </p>
+      <activity xml:id="activity-total-population">
+        <statement>
+          <p>
+            Consider the SIR model:
+          </p>
+          <md>
+            <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+            <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
+            <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+          </md>
+          <p>
+            and define <m>N(t)=S(t)+I(t)+R(t)</m> to be the <term>total population</term> being modeled, at time <m>t</m>. 
+          </p>
+          <p>
+            Each equation in this model represents the change in a single compartment's population, over time. How can we use the equations in the model to represent the <em>change in total population</em> over time? That is, how can we use the equations to represent <m>dN/dt</m>?
+          </p>
+          <p>
+            Determine the value of the <em>change in total population</em>: you should be able to compute a number. What does this number tell us about the total population in our model? 
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Add together the three differential equations. What is the meaning of the left-hand side? What is the meaning of the right-hand side? And what value do we obtain on the right-hand side when summing the differential equations?
+          </p>
+        </hint>
+        <answer>
+          <p>
+            On the left-hand side:
+          </p>
+          <md>
+            <mrow>\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt} \amp = \frac{d(S+I+R)}{dt} = \frac{dN}{dt}.</mrow>
+          </md>
+          <p>
+            Therefore, summing the three differential equations determines the change over time of the total population.
+          </p>
+          <p>
+            On the right-hand side:
+          </p>
+          <md>
+            <mrow>(-\beta S I)+(\beta S I - \gamma I)+(\gamma I) \amp = 0.</mrow>
+          </md> 
+          <p>
+            Since the three differential equations sum to zero, the change in total population is <m>0</m>. This tells us that the total population in our model does not change. In other words, the size of the total population <m>N(t)</m> remains constant.
+          </p>
+        </answer>
+      </activity>
+
+      <p>
+        The analysis in <xref ref="activity-total-population"/> includes the following calculus concepts.
+      </p>
+      <ul>
+        <li>
+          <p>
+            The sum of derivatives equals the derivative of the sum: <m>\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt} = \frac{d(S+I+R)}{dt}</m>. Therefore <m>\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt} = \frac{dN}{dt}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            When the derivative of a function equals <m>0</m>, the function is unchanging: <m>\frac{dN}{dt}=0</m> indicates that <m>N(t)</m> is unchanging. 
+          </p>
+        </li>
+      </ul>
+      <p>
+        In an outbreak that occurs over a relatively short time, it may make complete sense to say that the population is unchanging. It may be that the population truly does not change at all, or it may be that the population is changing so little that we decide not to include population change in a model of the outbreak. Noticing when population change is <m>0</m>, or close to <m>0</m>, allows us to write relatively simple models that do not try to incorporate births, deaths, immigration, emigration, or other population changes. Models that represent a longer span of time may need to account for changes in population.
+      </p>
+      <p>
+        Considering population change requires us to think more deeply about compartment R. We have referred to this compartment as <q>Removed</q>. Some models call the R compartment <q>Recovered</q>. In an outbreak where people all return to full health, calling the R compartment <q>Recovered</q> works well. In an outbreak that causes deaths, one modeling option is to include both deaths and recoveries in the same R compartment. In this case, the name <q>Removed</q> provides a better description. In either case, recognizing that <q>R</q> may stand for differently named compartments is a reminder to us about why we should fully describe each of our models, even if we believe SIR models are well known to our audience: even among SIR models, the interpretations can differ.
+      </p>
+      <p>For now, we continue to work with an SIR model in which population does not change. We note that some models do need to account for changes in population. As one example, models that represent a longer span of time may incorporate births and deaths. We will see such models later in this text.</p>
+      <p>
+        Another comment: though we have said our current SIR model probably refers to an outbreak over a relatively short time span, we purposely do not designate amounts of time that are <q>relatively short</q> or <q>longer</q>. This is a choice for the modeler. For each model, a human (the modeler, or perhaps a group working together) makes decisions about whether to list population changes based on length of time or other reasons. They then provide their decisions when describing their models, and they include some form of justification for each decision.
+      </p>
+      <p>
+        Next, we go back to the SIR model we have been studying to work through some ways the model solutions can change as parameter values change.
+      </p>
+      <activity xml:id="activity-three-sets-of-parameters">
+        <statement>
+          <p>
+            Use the code below to create three different graphs of solution curves to an SIR model in which <m>S(0)=75</m>, <m>I(0)=25</m>, <m>R(0)=0</m>, and <m>0 \leq t \leq 20</m>. The first set of values for <m>\beta</m> and <m>\gamma</m> appear in the code block; change the code to get the other two sets of values. It may help you to save screenshots of each of the three graphs, so you can more easily see all three at the same time.
+          </p>
+          <ul>
+            <li>
+              <p>
+                In the first graph, let <m>\beta = 0.03</m> and <m>\gamma = 0.25</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                In the second graph, let <m>\beta = 0.01</m> and <m>\gamma = 0.4</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                In the third graph, let <m>\beta = 0.005</m> and <m>\gamma = 0.5</m>.
+              </p>
+            </li>
+          </ul>
+          <p>
+            Then respond to the prompts below the code block.
+          </p>
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla() #Clear (delete) any past plots
+              
+              #Define the system of differential equations, and call it "model"
+              def model(y, t):
+                S, I, R = y #Define y as consisting of S, I, and R, in that order
+                dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #These formulas are the right-hand sides of the SIR model
+                return dydt
+              
+              beta = 0.03 #Give a value to beta
+              gamma = 0.25 #Give a value to gamma
+              y0 = [75, 25, 0] #Set initial conditions for S, I, and R, in that order
+              t_range = np.arange(0.0, 20.0, 0.1) #Set the time range to be t=0 to t=20, with "step through" increments of 0.1 when numerically solving
+              
+              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+              
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.grid()
+              plt.xlabel('time')
+              plt.ylabel('populations')
+              plt.show()
+            </input>
+            <output>
+            
+            </output>
+            </sage>
+
+            <ol>
+              <li>
+                <p>
+                  What observations can you make, overall, about the three graphs? Take time with this question, and think expansively, before moving on to the next questions.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Discuss the similarities and differences in the <m>I(t)</m> curves in each of your three graphs. Include observations using our sign analysis from <xref ref="expl-rise-and-fall-of-an-epidemic"/>: when is <m>I(t)</m> rising or falling, and what does this have to do with the sign (<m>+</m>, <m>-</m>, or <m>0</m>) of <m>dI/dt</m>? 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compare the long-term outcomes for <m>S(t)</m> and <m>R(t)</m> across the three graphs. What do you notice about the total number of people who ever became sick in each case?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Explore the role that changes to <m>\beta</m> make to the outcome in each graph. Similarly, think through how changes to <m>\gamma</m> contribute to changes. For each parameter, decide first how you <em>think</em> changing the parameter will change the solution curves. Then use the code block to make several changes to that parameter, and compare what you see with what you thought you would see.
+                </p>
+              </li>
+            </ol>
+        </statement>
+        <hint>
+          <ol>
+            <li>
+              <p>
+                This is open-ended.
+              </p>
+            </li>
+            <li>
+              <p>
+                In the first two graphs, <m>I(t)</m> rises, then falls. For a sign analysis, first write out the differential equation for <m>dI/dt</m>. Then substitute in the values of <m>\beta</m> and <m>\gamma</m> and the initial values <m>S(0)=75</m> and <m>I(0)=25</m> to see that <m>\beta S I - \gamma I \gt 0</m>. Yet <m>S(t)</m> decreases rapidly, until <m>\beta S I - \gamma I \lt 0</m>, and at this time the <m>I(t)</m> curve falls. 
+              </p>
+              <p>
+                In the third graph, the <m>I(t)</m> graph has a negative slope from the very beginning. A sign analysis shows why this makes sense, based on the initial value of <m>dI/dt</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                In the first graph, everyone eventually gets sick. The long-term value of <m>S(t)</m> appears to be <m>0</m> and the long-term value of <m>R(t)</m> appears to be <m>100</m>, which is the total population.
+              </p>
+              <p>
+                In the second graph, not everyone gets sick in the outbreak. The <m>S(t)</m> curve appears to level out at a value of approximately <m>8</m>. Extending <c>t_range</c> beyond <m>t=20</m> can help for confirming this.
+              </p>
+              <p>
+                In the third graph, quite a few people avoid illness. Estimates for long-term values of <m>S(t)</m> and <m>R(t)</m> can confirm this.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is much to say here. In general, increasing <m>\beta</m> makes more people become sick, and makes infection happen more rapidly. Decreasing <m>\gamma</m> leads to more infections. The <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> graphs are all affected by these changes, and the answer to this prompt should include descriptions of these changes.
+              </p>
+            </li>
+          </ol>
+        </hint>
+      </activity>
+
+      <p>
+        Both <xref ref="activity-three-sets-of-parameters"/> and <xref ref="expl-rise-and-fall-of-an-epidemic"/> use <em>sign analysis</em>. This usage of the signs (<m>+</m>, <m>-</m>, or <m>0</m>) of a derivative can inform us about circumstances in which a population is increasing, decreasing, or remaining constant. Such knowledge about the relationship between signs and derivatives comes from calculus and is tremendously powerful for understanding epidemics through compartmental modeling.
+      </p>
+      <p>
+        Let us take a moment to emphasize an assumption we make about signs when writing compartmental models. In many applications of mathematics, variables and parameters can take on the values of any real number. However, in compartmental models, we specify that variables and parameters cannot be negative because negative values would not make biological sense. For instance, populations of people cannot be negative, and length of time sick with a disease cannot be negative. Therefore, what we see is what we get: if no negative sign (<m>-</m>) is visible, then a term cannot be negative.
+      </p>
+      <p>
+        Here is a summary of some of the key outcomes in the SIR model from our sign analysis so far. Notice that all these observations arise from calculus concepts.
+      </p>
+      <ul>
+        <li>
+          <p>
+            Sign analysis tells us that <m>S(t)</m> cannot increase: since <m>dS/dt \leq 0</m>, then <m>S(t)</m> can only decrease or remain constant.
+          </p>
+        </li>
+        <li>
+          <p>
+            Sign analysis tells us that <m>R(t)</m> cannot decrease: since <m>dR/dt \geq 0</m>, then <m>R(t)</m> can only increase or remain constant.
+          </p>
+        </li>
+        <li>
+          <p>
+            Sign analysis tells us that <m>I(t)</m> has the ability to increase, decrease, or remain constant because the formula for <m>dI/dt</m> can take on values that are positive, negative, or zero.
+          </p>
+        </li>
+        <li>
+          <p>
+            When <m>dI/dt = 0</m>, the graph of <m>I(t)</m> has a slope of <m>0</m>. In many simulations, there is a single value of <m>t</m> at which <m>dI/dt = 0</m> and the graph of <m>I(t)</m> turns from increasing to decreasing.
+          </p>
+        </li>
+        <li>
+          <p>
+            Eventually, in this model, the value of <m>I(t)</m> will approach <m>0</m>, and then the values of <m>S(t)</m> and <m>R(t)</m> will level out because <m>dS/dt</m> and <m>dR/dt</m> will approach <m>0</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            You may have found yet other ways to connect derivative signs (<m>+</m>, <m>-</m>, or <m>0</m>) with model outcomes. 
+          </p>
+        </li>
+      </ul>
+      <p>
+         In addition to looking at signs, we examined long-term outcomes in <xref ref="activity-three-sets-of-parameters"/>. This is a moment to wonder: what can mathematical approaches tell us about limiting the impact of an outbreak? We explore this question in depth in <xref ref="sec-the-basic-reproduction-number-R0"/>.
+      </p>
+
+    </section>
+
+    <section xml:id="sec-the-basic-reproduction-number-R0">
+      <title>The Basic Reproduction Number <m>\mathcal{R}_0</m></title>
+
+      <p>
+        It turns out that the SIR model, and many other compartmental models, can be connected with an epidemiological concept called the <term>basic reproduction number</term>. The basic reproduction number is <em>the average number of new infections caused by one infectious person in an otherwise entirely susceptible population</em>. This number is given the symbol <m>\mathcal{R}_0</m>, which is pronounced as <q>R zero</q> or <q>R nought</q>.
+      </p>
+      <p>
+        In <xref ref="activity-formula-for-i-of-t-turning-around"/>, we begin to link our SIR model with the concept of <m>\mathcal{R}_0</m>.
+      </p>
+      
+      <activity xml:id="activity-formula-for-i-of-t-turning-around">
+        <statement>
+          <p>
+            This activity examines the <em>boundary</em> between rising and falling <m>I(t)</m> numbers in the SIR model we have been studying. We will see that this boundary relates to important information about the basic reproduction number <m>\mathcal{R}_0</m>. 
+          </p>
+          <p>
+            Begin by using the code below to try different values of <m>\beta</m> and <m>\gamma</m>. Your goal is to find values for which the <m>I(t)</m> curve does not rise at first: instead, it stays level or falls. Keep the initial conditions the same, that is, <m>S(0)=1900</m>, <m>I(0)=100</m>, and <m>R(0)=0</m>. If changing the range of <m>t</m> values helps you see the outcome better, then change the end time to a smaller or larger value. However, keep the initial time <m>t=0</m>.   
+          </p>
+          <p>
+            Can you find more than one combination of <m>\beta</m> and <m>\gamma</m> for which the <m>I(t)</m> curve does not rise?
+          </p>
+          <p>
+            You may wish to test your conclusions by viewing model output. To do this, you can modify the Python code provided as part of <xref ref="activity-formula-for-i-of-t-turning-around"/>. Updating the end time of the model simulation may be helpful: rather than end at <m>t=15</m>, consider extending the model for a longer period of time.
+          </p>
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla() #Clear (delete) any past plots
+              
+              #Define the system of differential equations, and call it "model"
+              def model(y, t):
+                S, I, R = y #Define y as consisting of S, I, and R, in that order
+                dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+                return dydt
+              
+              beta = 0.01 #Give a value to beta
+              gamma = 0.1 #Give a value to gamma
+              y0 = [1900, 100, 0] #Set initial conditions for S, I, and R, in that order
+              t_range = np.arange(0.0, 15.0, 0.1) #Set the time range to be t=0 to t=15, with time steps of 0.1 when numerically solving
+              
+              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+              
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.grid()
+              plt.xlabel('time')
+              plt.ylabel('populations')
+              plt.show()
+            </input>
+            <output>
+            
+            </output>
+            </sage>
+
+            <p>
+              Next, consider the equation <m>dI/dt = \beta SI - \gamma I</m> from the SIR model. Under what conditions must <m>dI/dt = 0</m>? Think about these conditions biologically: what interpretations can you give the conditions? 
+            </p>
+        </statement>
+        <hint>
+          <p>
+            The first part of this is open-ended. There are many combinations of <m>\beta</m> and <m>\gamma</m> for which the <m>I(t)</m> curve falls from the start.
+          </p>
+          <p>
+            For the second part of this, set the right-hand side of the <m>dI/dt</m> equation equal to 0 and factor:
+          </p>
+          <md>
+            <mrow>\beta SI - \gamma I \amp = 0 </mrow>
+            <mrow>(\beta S - \gamma ) I \amp = 0 </mrow>
+          </md>
+          <p>
+            This results in two possibilities: either <m>\beta S - \gamma = 0</m> or <m>I=0</m>. There are multiple biological interpretations of each possibility.
+          </p>
+        </hint>
+      </activity>  
+
+      <p>
+        Both <xref ref="activity-three-sets-of-parameters"/> and <xref ref="activity-formula-for-i-of-t-turning-around"/> should be leading you to the following conclusions.
+      </p>
+      <ul>
+        <li>
+          <p>
+            Smaller values of <m>\beta</m> lead to less growth of the <m>I(t)</m> curve and can help contribute to fewer total people ever becoming Infectious. Smaller <m>\beta</m> corresponds to less infectivity.
+          </p>
+        </li>
+        <li>
+          <p>
+            Larger values of <m>\gamma</m> also lead to less growth of the <m>I(t)</m> curve and can help contribute to fewer total people ever becoming Infectious. Larger <m>\gamma</m> corresponds to a higher rate of people moving from compartment I to compartment R. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Another way to think of the previous bullet point: smaller values of <m>1/\gamma</m> lead to less growth of the <m>I(t)</m> curve and can help contribute to fewer total people ever becoming Infectious. Given the relationship in <xref ref="eq-gamma-estimate"/>, we see that smaller <m>1/\gamma</m> corresponds to a shorter length of time that people are Infectious.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>\beta</m> and <m>1/\gamma</m> combine into a small enough value, the <m>I(t)</m> curve does not grow, even at the start of a model simulation.
+          </p>
+        </li>
+        <li>
+          <p>
+            We find that <m>I(t)</m> never grows if <m>dI/dt \leq 0</m> at the start of a simulation, that is, when <m>t=0</m>. This means  
+          </p>
+          <md>
+            <mrow>\beta S I - \gamma I \amp \leq 0 </mrow>
+            <mrow>(\beta S - \gamma) I \amp \leq 0. </mrow>
+          </md>
+          <p>
+            Since <m>I \geq 0</m>, the only way to achieve <m>(\beta S - \gamma) I \lt 0</m> is to have <m>(\beta S - \gamma) \lt 0</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            It would also be possible to have <m>(\beta S - \gamma) I = 0</m> if <m>I=0</m>, but once an outbreak begins, we no longer have <m>I=0</m>.
+          </p>
+        </li>
+      </ul>
+      <p>
+        As a reminder, we said that the basic reproduction number <m>\mathcal{R}_0</m> is the average number of new infections caused by one infectious person <em>in an otherwise entirely susceptible population</em>. We are nearly ready to present the formula for <m>\mathcal{R}_0</m> in the SIR model
+      </p>
+      <md>
+        <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+        <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
+        <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+      </md>
+      <p>
+        However, we first emphasize that <m>\mathcal{R}_0</m> describes a phenomenon that occurs in an entirely susceptible population. When <m>\mathcal{R}_0</m> is described in the news or popular culture, as happened in many reports on COVID-19, the <q>entirely susceptible population</q> part of the <m>\mathcal{R}_0</m> definition is usually left out. 
+      </p>
+      <p>
+        To incorporate the idea of an entirely susceptible population, we refer back to our definition of <em>total population</em> <m>N(t)</m>, which appeared in <xref ref="activity-total-population"/>. In that activity, we showed that <m>N(t)</m> remains constant in this SIR model. We can therefore write <m>N(t)</m> more simply as <m>N</m>, since the value of <m>N</m> does not change over time.
+      </p>
+      <p>
+        We now have all the pieces we need to assemble a formula for <m>\mathcal{R}_0</m> in the SIR model <xref ref="eq-SIR-model-S"/>, <xref ref="eq-SIR-model-I"/>, and <xref ref="eq-SIR-model-R"/>:
+      </p>
+      <mdn>
+        <mrow xml:id="eq-R0-sir">\mathcal{R}_0 \amp = \frac{\beta N}{\gamma} \mbox{ for our SIR model}. </mrow>
+      </mdn>
+      <p>
+        It is possible to compute the formula for <m>\mathcal{R}_0</m> from the equations in a compartmental model. The most common way to do this is called the Next Generation Method. Because the Next Generation Method uses partial derivatives and techniques from linear algebra, it is described in the optional sections <xref ref="ch-the-next-generation-method"/> and <xref ref="ch-the-next-generation-method"/>. In particular, <xref ref="ch-the-next-generation-method"/> teaches the process in a way that can be used by students who are new to matrix operations and partial derivatives: there are a few math techniques to learn, and Python does the rest. Readers who include <xref ref="ch-the-next-generation-method"/> will be able to solve for the formula for <m>\mathcal{R}_0</m> in their own models. As an alternative, the <m>\mathcal{R}_0</m> formulas for several commonly used compartmental models are provided directly throughout this text.  
+      </p>
+      <p>
+        The numerical value of the <m>\mathcal{R}_0</m> formula relates closely to the trajectory of an outbreak. Investigate this in <xref ref="activity-r0-less-than-1"/>.
+      </p>
+
+      <activity xml:id="activity-r0-less-than-1">
+        <statement>
+          <p>
+            Here, we connect two ideas: the circumstances under which <m>dI/dt=0</m>, according to our work in <xref ref="activity-formula-for-i-of-t-turning-around"/>, and the formula for <m>\mathcal{R}_0</m>, as given in <xref ref="eq-R0-sir"/>.
+          </p>
+          <p>
+            Start with the following result from <xref ref="activity-formula-for-i-of-t-turning-around"/>: in order to have <m>dI/dt=0</m> when <m>I \neq 0</m>, it must be that <m>\beta S - \gamma = 0</m>. Show how to rearrange the equation <m>\beta S - \gamma = 0</m> algebraically to get 
+          </p>
+          <md>
+            <mrow>\frac{\beta S}{\gamma} \amp = 1. </mrow>
+          </md>
+          <p>
+            Then answer the following questions.   
+          </p>
+          <ul>
+            <li>
+              <p>
+                When <m>\frac{\beta S}{\gamma} \gt 1</m>, is <m>dI/dt</m> rising or falling?
+              </p>
+            </li>
+            <li>
+              <p>
+                When <m>\frac{\beta S}{\gamma} \lt 1</m>, is <m>dI/dt</m> rising or falling?
+              </p>
+            </li>
+            <li>
+              <p>
+                In a typical outbreak, what changes to cause <m>\frac{\beta S}{\gamma}</m> to transition in sign between being positive, negative, and <m>0</m>? What is the expected order of these signs, that is, out of <m>+</m>, <m>-</m>, and <m>0</m>, which happens first in an outbreak, which happens second, and which happens third? Why is this the order? 
+              </p>
+            </li>
+          </ul>
+          <p>
+            After completing the above questions, next consider the formula from <xref ref="eq-R0-sir"/>, which says that <m>\mathcal{R}_0 = \frac{\beta N}{\gamma}</m>. Use the work you have already done in this activity, along with the definition of <m>\mathcal{R}_0</m> as being the average number of new infections caused by one infectious person <em>in an otherwise entirely susceptible population</em>, to describe what <m>\mathcal{R}_0</m> tells us about the behavior of <m>I(t)</m> early in an outbreak. 
+          </p>
+        </statement>
+        <answer>
+          <p>
+            When <m>\frac{\beta S}{\gamma} \gt 1</m>, then <m>dI/dt \gt 0</m>, which means that the number of Infectious people is increasing. This typically happens early in an outbreak. As the outbreak continues, the value of <m>S</m> becomes smaller, so that eventually <m>\frac{\beta S}{\gamma} = 1</m> (which means <m>dI/dt = 0</m>), and then <m>\frac{\beta S}{\gamma} \lt 1</m> (which means <m>dI/dt \lt 0</m> and the number of Infectious people is decreasing).
+          </p>
+          <p>
+            With one infectious person <em>in an otherwise entirely susceptible population</em>, it is approximately true that <m>S(t)=N</m>, that is, that the Susceptible population is essentially the entire population. Therefore, <m>\mathcal{R}_0</m> is a way of indicating what happens to the <m>I(t)</m> population <em>at the very start of an outbreak</em>. 
+          </p>
+        </answer>
+      </activity>
+
+      <p>
+        As we have seen in <xref ref="activity-r0-less-than-1"/>, the value of <m>\mathcal{R}_0</m> tells us what happens at the very start of an outbreak. This relates to the definition of <m>\mathcal{R}_0</m>, which considers a single infectious person in an otherwise entirely susceptible population.
+      </p>
+      <p>
+        To be more specific, when <m>\mathcal{R}_0 \gt 1</m>, the value of <m>dI/dt</m> is initially positive, which means that the value of <m>I(t)</m> initially increases. Only later, when there are fewer susceptibles, does the graph of <m>I(t)</m> level off and begin to fall. 
+      </p>
+      <p>
+        Alternately, if <m>\mathcal{R}_0 \lt 1</m>, then the value of <m>dI/dt</m> is initially negative. In this case, the graph of <m>I(t)</m> never rises: it only falls.
+      </p>
+      <p>
+        The value of <m>\mathcal{R}_0</m>, then, tells us whether to expect increasing numbers of Infectious individuals. The specific number <m>1</m> is the boundary between rising and falling values of <m>I(t)</m> when a new infection is first introduced to a susceptible population. We will further see that larger values of <m>\mathcal{R}_0</m> correspond to diseases that are more infectious. The concept of <m>\mathcal{R}_0</m> will be central to our study of outbreaks.  
+      </p> 
+
+       
+      
+    </section> 
+
+    <exercises xml:id="exercises-ch-populations-and-R0">
+      <exercise number="1">
+        <p>
+          Do some mathematical analysis of this SI model: 
+        </p>
+        <md>
+          <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+          <mrow>\frac{dI}{dt} \amp = \beta S I. </mrow>
+        </md>
+        <p>
+          In particular,
+        </p>
+        <ol>
+          <li>
+            <p>
+              Sum the differential equations and use your results to describe how the total population being modeled changes over time.  
+            </p>
+          </li>
+          <li>
+            <p>
+              Perform a sign analysis on the <m>dS/dt</m> equation, indicating mathematically feasible ways in which the population <m>S(t)</m> can change during the time of the outbreak.  
+            </p>
+          </li>
+          <li>
+            <p>
+              Perform a sign analysis on the <m>dI/dt</m> equation, indicating mathematically feasible ways in which the population <m>I(t)</m> can change during the time of the outbreak.  
+            </p>
+          </li>
+          <li>
+            <p>
+              Investigate the role of <m>\beta</m> in changing the outcomes of the model. Describe ways in which changing <m>\beta</m> can change the outcomes, and describe what those changes are. Also describe ways in which the outcomes cannot be changed by changing <m>\beta</m>.  
+            </p>
+          </li>
+        </ol>
+      </exercise>
+      <exercise number="2">
+        <p>
+          Imagine a new outbreak occurs in a small town of 5000 people. Let us suppose it makes sense to model this outbreak with an SIR model, where the compartments are Susceptible (people who are not sick but can become sick), Infectious (people who are currently able to spread the disease), and Removed (people who are no longer able to spread the disease and are unable to become sick again). At the start of the outbreak, a single person is Infectious, and the rest of the people are Susceptible.
+        </p>
+        <ol>
+          <li>
+            <p>
+              Suppose that, in the early days of the outbreak, researchers estimate <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> for this model. Then, based on the value of <m>\mathcal{R}_0</m> you compute, answer: what do you think will happen in the short term and in the long term of this outbreak?
+            </p>
+          </li>
+          <li>
+            <p>
+              Now suppose that the value of <m>\beta</m> was instead approximated to be <m>0.00001</m>, yet it is still true that <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> in this case. With this value of <m>\mathcal{R}_0</m>, what do you anticipate for the short-term and long-term outcomes of the outbreak?
+            </p>
+          </li>
+          <li>
+            <p>
+              Now suppose this outbreak occurs in a town of 1000 people, with <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> for the SIR model in this smaller town. Use this value of <m>\mathcal{R}_0</m> to describe what you think will happen in the short term and in the long term of this outbreak.
+            </p>
+          </li>
+          <li>
+            <p>
+              Adapt the Python code shown earlier in this chapter to produce graphs of the outcomes of the SIR models in parts (a), (b), and (c) above. Write a few sentences about how well your descriptions of short-term and long-term model outcomes are supported, or not supported, by the graphs.
+            </p>
+          </li>
+        </ol>
+      </exercise>
+      <exercise number="3">
+        <p>
+          Most diseases we know of have <m>\mathcal{R}_0 \gt 1</m>. This makes sense: without rising numbers of Infectious people, we do not experience an epidemic. However, in rare cases, a disease emerges for which <m>\mathcal{R}_0 \lt 1</m>. One example is MERS, which stands for Middle East Respiratory Syndrome. The first identified case of MERS was in 2012. There is still a lot to learn about MERS, but multiple estimates indicate that the value of <m>\mathcal{R}_0</m> for MERS is less than one.
+        </p>
+        <p>
+          This activity is motivated by the existence of diseases with <m>\mathcal{R}_0 \lt 1</m>. Suppose we study a disease for which <m>\mathcal{R}_0 \approx 0.5</m> and <m>\gamma = 0.1</m>, that is, people are typically infectious for about ten days. Suppose we choose to model this disease with an SIR model similar to the models we have been using in this chapter: <q>S</q> stands for Susceptible, meaning people who are not sick but can become sick; <q>I</q> stands for Infectious, meaning people who are currently able to spread the disease, and <q>R stands for</q> Removed, meaning people who are no longer able to spread the disease and are unable to become sick again. In the case of a disease similar to MERS, the Removed compartment consists of both recoveries and deaths from the disease.
+        </p>
+        <ol>
+          <li>
+            <p>
+              In an area with a population of 1000, rearrange <xref ref="eq-R0-sir"/> to solve for the value of <m>\beta</m> for this SIR model.
+            </p>
+          </li>
+          <li>
+            <p>
+              Suppose that at the start of the outbreak, 20 people are Infectious. Use the Python block below to visualize the outbreak over 200 days. Notice that the Python block includes three <c>print</c> commands. These print and label the last output values stored as <c>sol</c>, that is, the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values for the last value of time <m>t</m>, namely <m>t=200</m>.  
+            </p>
+            <p>
+              <em>Use caution: by default, the Python block does not contain the correct value for <m>\beta</m>. Instead, replace the existing <m>\beta</m> value with the value you computed in part (a).</em>
+            </p>
+            <p>
+               Use the graphs to describe qualitatively what happens in this population that began with 20 Infectious people. Does the curve for the <m>I(t)</m> population begin falling from the very beginning? What happens to the curves for <m>S(t)</m> and <m>R(t)</m>? 
+            </p>
+          </li>
+          <li>
+            <p>
+              Incorporate the output from the <c>print</c> command, along with the visual output of the graphs. How many people, in total, were Infectious at some point during the time of this model? How does this compare with the initial 20 cases? How do you reconcile this result with the behavior of the <m>I(t)</m> curve and with the knowledge that <m>\mathcal{R}_0 \lt 1</m> in this model?
+            </p>
+          </li>
+        </ol> 
+        <sage>
+          <input>
+            #Import packages
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from scipy.integrate import odeint
+
+            plt.cla() #Clear (delete) any past plots
+            
+            #Define the system of differential equations, and call it "model"
+            def model(y, t):
+              S, I, R = y #Define y as consisting of S, I, and R, in that order
+              dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+              return dydt
+            
+            #This value for beta is not correct for MERS.
+            #Instead, use the value you compute in part (a).
+            beta = 0.01
+            gamma = 0.1 #Give a value to gamma
+            y0 = [980, 20, 0] #Set initial conditions for S, I, and R, in that order
+            t_range = np.arange(0.0, 200.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+            
+            sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+            # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+            print("Long-term value of S = ", round(sol[-1,0]))
+            print("Long-term value of I = ", round(sol[-1,1]))
+            print("Long-term value of R = ", round(sol[-1,2]))
+            
+            # Plotting commands are below
+            plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+            plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+            plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+            plt.legend()
+            plt.grid()
+            plt.xlabel('time')
+            plt.ylabel('populations')
+            plt.show()
+          </input>
+          <output>
+          
+          </output>
+          </sage>
+      </exercise>
+    </exercises>
+
+  </chapter>

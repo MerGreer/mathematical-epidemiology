@@ -1,0 +1,516 @@
+<chapter xml:id="ch-vaccines" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Vaccines</title>
+
+    <introduction xml:id="intro-vaccines">
+    <objectives>
+      <ul>
+        <li>
+          <p>
+            Explore the role of public health strategies in managing disease spread, using compartmental models
+          </p>
+        </li>
+        <li>
+          <p>
+            Strengthen understanding of the meaning of <m>\mathcal{R}_0</m>, which involves a single Infectious person in an otherwise entirely Susceptible population
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine the threshold for what percentage of vaccine coverage reduces transmission enough so that the number of Infectious cases does not rise
+          </p>
+        </li>
+        <!-- <li>
+          <p>
+            Introduce a new model compartment, often called <em>Isolated</em>, to reduce disease transmission by reducing the interaction of the Infectious and Susceptible populations 
+          </p>
+        </li> -->
+      </ul>
+    </objectives>
+
+    <p>
+      In the first few chapters of this text, we have introduced the basic <q>hows</q> for compartmental modeling, as well as a few of the <q>whys</q>. Now, we explore the <q>whys</q> even further.  
+    </p>  
+
+    <p>
+      One of the most significant ways to use models is for trying and comparing possible public health strategies <em>in simulations</em> before actually carrying them out with real people. Professional-level models can be quite detailed and depend on large amounts of data, and compartmental models are just one of the many types of models implemented. In this chapter, we work with one commonly used strategy: vaccination<fn>Vaccination is a widely used public health strategy. Yet the author of this text recognizes that reader thoughts on vaccines may vary for many reasons. As mentioned way back in the <q>To Students</q> preface, <q>I will not tell you how to think.</q> Instead, the goal of showing vaccines in models is to demonstrate some of the ways we can use models to try different scenarios. Readers can and should continue to think about their own ethics and experiences when interpreting and discussing models</fn>. 
+    </p>
+
+    <p>
+      Begin in <xref ref="expl-activity-vaccines"/> by adjusting a model in a particular way to reduce the occurrence of new infections.
+    </p>
+    
+    <exploration xml:id="expl-activity-vaccines">
+      <title>Reducing New Infections</title>
+      <introduction>
+        <p>
+          This exploration seeks to reduce the number of new infections by directly reducing the transmission part of the compartmental SIR model shown in <xref ref="eq-SIR-model-S"/>, <xref ref="eq-SIR-model-I"/>, and <xref ref="eq-SIR-model-R"/>. To reduce transmission, we multiply by a term <m>(1-p)</m>:  
+        </p>
+        <md>
+          <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
+          <mrow>\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I </mrow>
+          <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+        </md>
+        <p>
+          This change to the model reflects that the term <m>\beta SI</m> in the SIR model represents transmission of disease from the Infectious to the Susceptible population. To reduce transmission, we therefore change the specific term <m>\beta SI</m> by introducing the multiplier <m>(1-p)</m>. 
+        </p> 
+        <p>
+          Work through the parts below to build understanding of the term <m>(1-p)</m> and the permissible values of <m>p</m>.
+        </p>
+      </introduction>
+
+      <task>
+        <statement>
+          <p>
+            Read the Python code below. Think through the factor <m>(1-p)</m> that is multiplied by <m>\beta S I</m> in both the <m>dS/dt</m> and <m>dI/dt</m> equations. We restrict the possible values of <m>p</m> so that it must be true that <m>0 \leq p \leq 1</m>.  
+          </p>
+          <p>
+            After reading and evaluating the Python code, respond to the questions that follow.
+          </p>
+
+           <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla() #Clear (delete) any past plots
+              
+              #Define the system of differential equations, and call it "model"
+              def model(y, t):
+                S, I, R = y #Define y as consisting of S, I, and R, in that order
+                dydt = [- (1-p) * beta * S * I, (1-p) * beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+                return dydt
+              
+              beta = 0.0004 #Give a value to beta
+              gamma = 0.1 #Give a value to gamma
+              p = 0.0 #Give a value to p
+              y0 = [1500, 500, 0] #Set initial conditions for S, I, and R, in that order
+              t_range = np.arange(0.0, 20.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+              
+              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+              
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.grid()
+              plt.xlabel('time')
+              plt.ylabel('populations')
+              plt.show()
+            </input>
+            <output>
+            
+            </output>
+            </sage>
+
+          <ol>
+            <li>
+              <p>
+                Given the restriction that <m>0 \leq p \leq 1</m>, what is the range of possible values for the term <m>(1-p)</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                When we multiply the transmission term <m>\beta SI</m> by <m>(1-p)</m>, for viable values of <m>p</m>, what is the effect? Describe in terms of numbers, in terms of the graphical output of the Python code, and in terms of the impact on a disease outbreak.
+              </p>
+            </li>              
+          </ol>
+
+          
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            These questions get more specific about the value of <m>p</m>. Think logically and mathematically about your answers, and use the Python code freely to experiment with <m>p</m>. To help you build a strong sense of the role of <m>p</m> in the SIR model, you may wish to change the time range, include other information we have seen in past simulations, or make other changes to the code.
+          </p>
+        <ol>
+          <li>
+              <p>
+                What sorts of effects do you see from the term <m>(1-p)</m> when the value of <m>p</m> is relatively small, that is, <m>p</m> is just above <m>0</m>? In contrast, what sorts of effects do you see from the term <m>(1-p)</m> when the value of <m>p</m> is relatively large, that is, <m>p</m> is just below <m>1</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                What can you say about the boundary values of <m>p</m>? That is, what sorts of effects does the term <m>(1-p)</m> have on the SIR model when <m>p=0</m> or when <m>p=1</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Pulling ideas together: as the value of <m>p</m> increases from <m>0</m> to <m>1</m>, what observations can you make about the output of the SIR model?
+              </p>
+            </li>
+        </ol>
+        </statement>
+      </task>
+      
+    </exploration>
+
+  </introduction>
+
+    <section xml:id="sec-determining-a-threshold-vaccine-level">
+      <title>Determining a Threshold Vaccine Level</title>
+
+      <p>
+        The modeling in this section focuses on <em>reducing transmission of a disease through the use of vaccines</em>. We use the multiplier <m>(1-p)</m> from <xref ref="expl-activity-vaccines"/>, along with the concept of <m>\mathcal{R}_0</m> from <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>, to demonstrate the effect of vaccines on the number of people who ever become Infectious in a disease outbreak.
+      </p>
+      <p>
+        As a reminder, the <em>basic reproduction number</em> <m>\mathcal{R}_0</m> is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. This means that <m>\mathcal{R}_0</m> is not a number we can use to directly describe a population that has been vaccinated against a disease, since a vaccinated population is not entirely susceptible. Instead, we introduce an <term>effective reproduction number</term> <m>\mathcal{R}_{\text{eff}}</m>, which is the average number of new infections caused by one infectious person in a population that may not be entirely susceptible, such as a population that has had access to vaccination. One way to pronounce the symbol <m>\mathcal{R}_{\text{eff}}</m> is <q>R effective</q>.
+      </p>
+      <p>
+        We cannot change the intrinsic value of <m>\mathcal{R}_0</m>, but with vaccination, we can work toward the goal of having <m>\mathcal{R}_{\text{eff}} \lt 1</m>. If <m>\mathcal{R}_{\text{eff}} \lt 1</m> in a model that includes vaccines or other public health interventions, then overall numbers of Infectious people do not rise over time. With a few lines of algebra, we can build a relationship between <m>\mathcal{R}_0</m>, <m>p</m>, and <m>\mathcal{R}_{\text{eff}}</m>. 
+      </p> 
+      <p>
+        First, we should state a definition for <m>p</m>. We define <m>p</m> to be the fraction of people vaccinated against a disease, noting that the values of <m>p</m> are therefore restricted to <m>0 \leq p \leq 1</m>, where <m>p=0</m> means no one is vaccinated, and <m>p=1</m> means <m>100\%</m> of the population is vaccinated. Initially, we will think of vaccination as being <m>100\%</m> effective.<fn>In the last exercise of <xref ref="exercises-ch-vaccines"/>, we update our models to include vaccines that are less than <m>100\%</m> effective.</fn>
+        When the fraction <m>p</m> of people are vaccinated, the remaining fraction <m>(1-p)</m> are not vaccinated. Since <m>\mathcal{R}_0</m> refers to an entirely susceptible population, but only the fraction <m>(1-p)</m> of the population is susceptible, we see that the average number of new infections caused by one infectious person in the vaccinated population is <m>(1-p)\mathcal{R}_0</m>. In other words:
+      </p>
+      
+      <mdn>
+        <mrow xml:id="eq-Reff-define">\mathcal{R}_{\text{eff}} \amp = (1-p)\mathcal{R}_0. </mrow>
+      </mdn>
+
+      <p>
+        Our goal in the next few mathematical steps is to use <xref ref="eq-Reff-define"/> to determine a value of <m>p</m> for which <m>\mathcal{R}_{\text{eff}} \lt 1</m>.<fn>The goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m> was set out in the 1983 paper  <q>Parasitic Infections as Regulators of Animal Populations</q> by Robert M. May, published in <em>American Scientist</em> in the January-February issue. Additional details and explanation appear in the 1988 textbook <q>Mathematical Models in Biology</q> by Leah Edelstein-Keshet, published by McGraw-Hill.</fn> Such a value of <m>p</m> corresponds to a vaccination rate high enough that a disease cannot become an outbreak because <m>\mathcal{R}_{\text{eff}} \lt 1</m> means that the overall numbers in the population are not expected to rise. Read carefully through the following mathematical steps to see how this value of <m>p</m> is computed:
+      </p>
+      
+      <!-- <md>
+        <mrow> \text{Start with our goal:}  \amp \amp  \mathcal{R}_{\text{eff}} \amp \lt 1 </mrow>
+        <mrow> \text{Substitute:}  \amp \amp (1-p)\mathcal{R}_0 \amp \lt 1 </mrow>
+        <mrow> \text{Rearrange algebraically:}  \amp \amp \mathcal{R}_0 - p \mathcal{R}_0 \amp \lt 1 </mrow>
+        <mrow> \text{Rearrange algebraically:}  \amp \amp p \mathcal{R}_0 \amp \gt \mathcal{R}_0 - 1 </mrow>
+        <mrow> \text{Rearrange algebraically:}  \amp \amp p \amp \gt \frac{\mathcal{R}_0 - 1}{\mathcal{R}_0}. </mrow>
+      </md> -->
+
+      <md>
+        <mrow> \mathcal{R}_{\text{eff}} \amp \lt 1 </mrow>
+        <mrow> (1-p)\mathcal{R}_0 \amp \lt 1 </mrow>
+        <mrow> \mathcal{R}_0 - p \mathcal{R}_0 \amp \lt 1 </mrow>
+        <mrow> p \mathcal{R}_0 \amp \gt \mathcal{R}_0 - 1 </mrow>
+        <mrow> p \amp \gt \frac{\mathcal{R}_0 - 1}{\mathcal{R}_0} </mrow>
+        <mrow>p \amp \gt 1- \frac{1}{\mathcal{R}_0}. </mrow>
+      </md>
+
+      <p>
+        In the lines above, we started with our goal of causing <m>\mathcal{R}_{\text{eff}}</m> to be less than one. We then made a substitution using <xref ref="eq-Reff-define"/> and rearranged algebraically until we found a formula showing values of <m>p</m> that satisfied our goal. Notice that to compute the next-to-last line, we divided by <m>\mathcal{R}_0</m> without changing the direction of the inequality, which assumed that <m>\mathcal{R}_0 \gt 0</m>. This assumption makes biological sense, and is important to point out mathematically, as biology and mathematics should support each other throughout the modeling process.        
+      </p>
+
+      <p>
+        We now note a particular, special value of <m>p</m> that is the threshold between two outcomes, which makes it a <term>critical value</term>. The two outcomes are having, or not having, an outbreak. We therefore name this critical value of <m>p</m> to be <m>p_{\text{crit}}</m>:
+      </p>
+
+      <mdn>
+        <mrow xml:id="eq-pcrit">p_{\text{crit}} \amp = 1- \frac{1}{\mathcal{R}_0}. </mrow> 
+      </mdn>
+
+      <p>
+        Investigate the critical value <m>p_{\text{crit}}</m>, and the accompanying threshold between outbreak and no outbreak, in <xref ref="activity-pcrit"/>.
+      </p>
+
+      <activity xml:id="activity-pcrit">
+        <statement>
+          <p>
+            In this activity, we explore <m>p_{\text{crit}}</m> through the comparison of two historically widespread diseases: smallpox and measles.
+          </p>
+          <ol>              
+            <li>
+              <p>
+                We begin by examining smallpox. Estimates for the value of <m>\mathcal{R}_0</m> for smallpox range from 3.5 to 6.<fn>Estimates that <m>\mathcal{R}_0 \approx 3.5-6</m> come from the paper <q>Transmission potential of smallpox in contemporary populations</q> by Raymond Gani and Steve Leach, published in the journal <em>Nature</em> on 13 December 2001.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for smallpox so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Suppose that a <m>100\%</m> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a smallpox outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
+              </p>
+            </li>              
+            <li>
+              <p>
+                Next, we examine measles. Many estimates for the value of <m>\mathcal{R}_0</m> for measles range from 12 to 18.<fn>The paper <q>The basic reproduction number (R0) of measles: a systematic review</q>, by Fiona M Guerra, Shelly Bolotin, Gillian Lim, Jane Heffernan, Shelley L Deeks, Ye Li, and Natasha S Crowcroft, states that <m>\mathcal{R}_0</m> is often approximated as <m>12-18</m>, while also stating that the actual range of <m>\mathcal{R}_0</m> for measles varies even more. This paper was published in <em>The Lancet Infectious Diseases</em> on 27 July 2017.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for measles so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Suppose that a <m>100\%</m> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a measles outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
+              </p>
+            </li>              
+            <li>
+              <p>
+                Smallpox has been eliminated: the last natural occurrence was in 1977, and in 1980, the World Health Organization stated that smallpox had been globally eradicated. Measles has not been eliminated: widespread vaccination has reduced cases drastically in many parts of the world, but measles continues to circulate. Given your results in parts 1 and 2 of this activity about the values of <m>p_{\text{crit}}</m> for smallpox and measles, write a few sentences about how the value of <m>\mathcal{R}_0</m> increases or decreases the feasibility of vaccinating enough people to eliminate a disease.   
+              </p>
+            </li>
+          </ol>
+          
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                For smallpox, <m>0.71 \lt p_{\text{crit}} \lt 0.83</m>, meaning approximately <m>71\% - 83\%</m> of people need to be vaccinated to prevent an outbreak.
+              </p>
+            </li>
+            <li>
+              <p>
+                For measles, <m>0.92 \lt p_{\text{crit}} \lt 0.94</m>, meaning approximately <m>92\% - 94\%</m> of people need to be vaccinated to prevent an outbreak.
+              </p>
+            </li>
+            <li>
+              <p>
+                This is open-ended. A typical answer may state that higher values of <m>\mathcal{R}_0</m> mean we need higher levels of vaccination. Answers may also investigate the reasons why it becomes so much more difficult to achieve higher levels of vaccination, especially on a global scale.
+              </p>
+            </li>
+          </ol>
+          
+        </answer>
+      </activity>
+
+      <p>
+        The investigations of <xref ref="activity-pcrit"/> asked you to compute values of <m>p_{\text{crit}}</m> for specific diseases. Another aspect of <m>p_{\text{crit}}</m> is that achieving this critical vaccination level means only that the infection curve, that is, the <m>I(t)</m> curve, falls from the beginning rather than rising first. However, this does not mean that there are no new infections after the initial cases. Explore this further in <xref ref="sec-how-vaccination-level-affects-long-term-outcomes"/>.
+      </p>
+
+    </section>
+
+    <section xml:id="sec-how-vaccination-level-affects-long-term-outcomes">
+      <title>How Vaccination Level Affects Long Term Outcomes</title>
+
+      <p>
+        <xref ref="activity-pcrit2"/> focuses on understanding long-term model outcomes, with an emphasis on <m>p_{\text{crit}}</m>, the critical vaccine coverage value defined in <xref ref="eq-pcrit"/>. Another emphasis is on adjusting our Python code in order to make sure its output truly demonstrates the answers to the questions we are asking.
+      </p>
+
+      <activity xml:id="activity-pcrit2">
+        <statement>
+          <p> 
+            For the following SIR model, the term <m>(1-p)</m> indicates the unvaccinated fraction of people:  
+          </p>
+          <md>
+            <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
+            <mrow>\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I </mrow>
+            <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+          </md>
+          <p>
+            In the default Python code shown below, <m>\beta = 0.0003</m>, <m>\gamma = 0.3</m>, <m>p=0</m>, the initial population values are <m>S(0)=2900</m>, <m>I(0)=100</m>, and <m>R(0)=0</m>, and time runs from <m>t=0</m> to <m>t=25</m> days. Begin by running the code, and then work through the steps below to make specific changes to the model.
+          </p>
+
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla() #Clear (delete) any past plots
+              
+              #Define the system of differential equations, and call it "model"
+              def model(y, t):
+                S, I, R = y #Define y as consisting of S, I, and R, in that order
+                dydt = [- (1-p) * beta * S * I, (1-p) * beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+                return dydt
+              
+              beta = 0.0003 #Give a value to beta
+              gamma = 0.3 #Give a value to gamma
+              p = 0.0 #Give a value to p
+              y0 = [2900, 100, 0] #Set initial conditions for S, I, and R, in that order
+              t_range = np.arange(0.0, 25.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+              
+              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+              
+              # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+              print("Long-term value of S = ", round(sol[-1,0]))
+              print("Long-term value of I = ", round(sol[-1,1]))
+              print("Long-term value of R = ", round(sol[-1,2]))
+
+
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.grid()
+              plt.xlabel('time')
+              plt.ylabel('populations')
+              plt.show()
+            </input>
+            <output>
+            
+            </output>
+          </sage>
+
+          <ol>              
+            <li>
+              <p>
+                How many people have had this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment must have been sick at some time, so the long-term value of <m>R(t)</m> provides the answer. Also notice that we need to make sure to run the model long enough that <m>I(t)</m> reaches <m>0</m>. Only then will <m>R(t)</m> be evaluated at a large enough value of <m>t</m> for us to know the total number of people who become ill. 
+              </p>
+            </li>              
+            <li>
+              <p>
+                Compute the value <m>p_{\text{crit}}</m> for this model, showing your work. Then run the model using the value you computed for <m>p_{\text{crit}}</m> and re-answer the question above: how many people get the illness at some point in time, according to this model, when <m>p=p_{\text{crit}}</m>? 
+              </p>
+            </li>              
+            <li>
+              <p>
+                Compare your answer above, regarding how many people get the illness at some time in the situation when <m>p=p_{\text{crit}}</m>, with the initial number of Infectious people in the model. How many people must have gotten the illness sometime after the original Infectious people? Notice that this means that even when <m>\mathcal{R}_{\text{eff}} \approx 1</m>, a significant number of additional people can contract the illness being studied. However, the Infectious population curve <m>I(t)</m> does not rise: it instead appears as level or decreasing.
+              </p>
+            </li>
+            <li>
+              <p>
+                We may want to see for ourselves, or demonstrate to others, that the Infectious curve is truly not rising when <m>p=p_{\text{crit}}</m>. The default graph in the Python code for this activity is not the most helpful to us because <m>S(0)</m> is so large relative to <m>I(0)</m>, which makes it challenging to see the details of the curvature of the <m>I(t)</m> curve. To see <em>just</em> the <m>I(t)</m> curve, then, we can comment out the lines of code that show the <m>S(t)</m> and <m>R(t)</m> curves. Do this: comment out those lines, and produce a graph showing just the <m>I(t)</m> curve.
+              </p>
+            </li>
+          </ol>
+          
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                The default model says the long-term value of <m>R(t)</m> is <m>2802</m>, but at <m>t=25</m>, there are still people in the <m>I(t)</m> compartment. Use a larger value of <m>t</m> to find that <m>2829</m> people have the illness at some time during the outbreak. (State, and show, how large you made your value of <m>t</m>.) 
+              </p>
+            </li>
+            <li>
+              <p>
+                The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>, using <xref ref="eq-R0-sir"/> to compute <m>\mathcal{R}_0</m> and then <xref ref="eq-pcrit"/> to compute <m>p_{\text{crit}}</m>. Approximating <m>p_{\text{crit}}</m> as <m>0.67</m> and setting a large enough value of <m>t</m> leads to the conclusion that <m>692</m> total people have the illness at some time.
+              </p>
+            </li>
+            <li>
+              <p>
+                The answer above said that <m>692</m> people had the illness at some time, and we used the value <m>I(0)=100</m>. This means that after the initial <m>100</m> people, another <m>592</m> got the illness. (For readers who approximated <m>0.\overline{6}</m> differently than <m>0.67</m>, your answers may vary somewhat.) 
+              </p>
+            </li>
+            <li>
+              <p>
+                The first and third lines after <q>#Plotting commands are below</q> should be commented out, that is, the symbol <q>#</q> should be placed at the start of each of these lines. Then run the code block again to produce just the <m>I(t)</m> graph. 
+              </p>
+            </li>
+          </ol>
+          
+        </answer>
+      </activity>
+           
+      <p>
+        We now pause our modeling for a moment to provide some extra vocabulary and commentary on vaccines. When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>. (Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.) The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
+      </p>
+      <p>
+        Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at the <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization.
+      </p> 
+      <p>
+        Vaccine outcomes extend beyond affecting disease transmission. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can be included in models, however such models tend to be more detailed than those we are studying right now. For this reason, this chapter focuses only on vaccine models that show reduced transmission.
+      </p>
+      <p>
+        Much of this section has focused on vaccines, which are a valuable element of compartmental models. Another important aspect of disease spread is the incubation period of an illness. The SEIR model, described in <xref ref="ch-incubation-periods"/>, incorporates this incubation period.           
+      </p>
+
+
+    </section>
+
+
+      <!-- <p>
+        Now that we have discussed public health intervention in the form of vaccines, as well as SI, SIR, and SEIR models, we have learned enough to be able to mathematically model the primary dynamics of many disease outbreaks. <em>These ideas are the core of this course.</em> In <xref ref="ch-getting-the-answer-right-in-modeling"/> we will think through the big ideas inherent in mathematical modeling. The remaining chapters in <xref ref="part-core-modeling-concepts"/> focus on connecting data with models and working with two additional ways to significantly extend our use of compartmental models: endemic disease, in <xref ref="ch-epidemic-vs-endemic-models"/>, and modeling ideas other than diseases, in <xref ref="ch-modeling-the-spread-of-a-rumor"/>.
+      </p> -->
+
+    <!-- </section> -->
+
+
+    <exercises xml:id="exercises-ch-vaccines">
+       <exercise number="1">
+        <p>
+          A vaccine for measles was first licensed in the United States in 1963. Before that, nearly all U.S. children got measles by the time they were 15 years old. Due to the vaccine, by the year 2000, the U.S. eliminated measles as a disease that could spread continuously. Since then, measles in the U.S. occurs only occasionally, typically when a person travels elsewhere, gets measles, and returns to the U.S. with the ability to infect others.<fn>These facts are from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/about/history-of-measles.html">History of Measles</url>.</fn>
+        </p> 
+        <p>
+          Measles lends itself to especially demonstrative mathematical models for two reasons: (1) measles is exceptionally contagious, and (2) the vaccine for measles has very high efficacy and effectiveness, with immunity that lasts a lifetime. In our modeling for this exercise, we will think of the measles vaccine as being <m>100\%</m> effective. (In reality, two doses of measles vaccine are about <m>97\%</m> effective. Exercise 3 in this section shows how to model both effectiveness and the level of vaccination across a population.)
+        </p>  
+        <ol>
+          <li>
+            <p>
+              As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is infectious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>These numbers come from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/causes/index.html">How Measles Spreads</url>.</fn> For this reason, set <m>\gamma = 1/8</m>. Let's suppose this outbreak occurs in a small, close-knit community of 500 people, in which one person initially has the measles, meaning <m>S(0)=499</m>, <m>I(0)=1</m>, <m>R(0)=0</m>. Set up an SIR model, as shown below, for this outbreak:
+            </p>              
+            <md>
+              <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
+              <mrow>\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I </mrow>
+              <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+            </md>
+            <p>
+              To compute parameter values for the model, use the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute <m>\beta</m>. Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<m>p=0</m>), and what happens if everyone in the community is vaccinated (<m>p=1</m>)?
+            </p>
+          </li>
+          <li>
+            <p>
+              Now investigate varying levels of vaccination. What happens if <m>p=.25</m>, <m>p=.5</m>, <m>p=.75</m>, or <m>p=.9</m>? Determine long-term outcomes in each case, that is, determine how many people ultimately get measles in each modeling scenario. Indicate, also, how much time the model needs to run in order to determine how many people get measles in each scenario. The model may need to run longer when a greater percentage of the population is vaccinated.
+            </p>
+            <p>Notice that there is not a unique answer to how long to run the model: if you can see the long-term value after 100 days, for instance, then running the model for 120 days will also show the long-term value. Aim to indicate a number of days that shows clearly that population values have leveled off to horizontal lines, while not using such a large number of days that it becomes difficult to see the rise and/or fall of the infectious curve <m>I(t)</m> as the outbreak proceeds.
+            </p>
+          </li>
+          <li>
+            <p>
+              In many communities in the U.S., the percentage of vaccinated people is around <m>91\%</m> or <m>92\%</m>.<fn>See the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/nchs/fastats/measles.htm">Measles, Mumps, and Rubella</url>.</fn> At these levels, how many people will get measles in the long run, according to your model? What if the vaccination rate were as high as <m>94\%</m>? Or as low as <m>89\%</m>?
+            </p>
+          </li>            
+          <li>
+            <p>
+              Compute <m>p_{\text{crit}}</m> for this model of measles.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write about your results when changing the vaccination rate. Describe how much the number of measles cases can change in response to what may appear to be small changes in the vaccination rate, especially when the vaccination rate is close to the value of <m>p_{\text{crit}}</m>.
+            </p>
+          </li>
+        </ol>       
+      </exercise>
+
+      <exercise number="2">
+        <p>
+          In 2016, Bates College experienced a small outbreak of mumps. Nearly <m>100\%</m> of students had been vaccinated against mumps, and in particular, the students who became sick had been vaccinated. The mumps vaccine is approximately <m>88\%</m> effective when a person has had two doses.<fn>The value of <m>88\%</m> comes from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/vaccines/vpd/mumps/index.html">Mumps Vaccination</url>.</fn> We use an SIR model for mumps to compare the outcome for a fully vaccinated population with the hypothetical outcome of a mumps outbreak in a fully unvaccinated population.
+        </p>  
+        <p>
+          You will notice that the population is fully vaccinated, meaning everyone has received the mumps vaccine, but the effectiveness of the vaccine is approximately <m>88\%</m> rather than <m>100\%</m>. In this circumstance, we use a factor <m>(1-q)</m> in the model to account for the <em>effectiveness</em> of the vaccine, similar to how we previously used <m>(1-p)</m> to account for the vaccinated percentage of the population. We set <m>q=0.88</m> to reflect the CDC value on vaccine effectiveness.
+        </p> 
+        <ol>
+          <li>
+            <p>
+              Use the SIR model with vaccination, shown below, to graph the long-term outcome for mumps. At Bates College in 2016, there were approximately 1800 students, and there were 7 initial cases of mumps, which arose from a group of students who had traveled together and become infected during the trip. Consider all remaining students (that is, 1793 students) to initially be Susceptible. Therefore set <m>S(0)=1793</m>, <m>I(0)=7</m>, and <m>R(0)=0</m>. Set <m>\gamma = 1/7</m>, as mumps tends to be infectious for about one week. The value of <m>\mathcal{R}_0</m> for mumps ranges from 4 to 7, and for mumps spread at a residential campus, where people live in close proximity to each other, we use <m>\mathcal{R}_0 = 7</m>. These pieces of information, along with equation <xref ref="eq-R0-sir"/>, allow you to compute the value of <m>\beta</m> for the model:
+            </p>
+            <md>
+              <mrow>\frac{dS}{dt} \amp = - (1-q) \beta S I </mrow>
+              <mrow>\frac{dI}{dt} \amp =  (1-q) \beta S I - \gamma I </mrow>
+              <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+            </md>
+            <p>
+              Use Python to visualize this SIR model with vaccine for the spread of mumps on campus and to determine how many people will eventually become infected with mumps, according to the model.
+            </p>
+          </li>
+          <li>
+            <p>
+              Now, run an experiment to test what would happen if mumps arrived at a hypothetical campus where no one had any vaccination or other past exposure to mumps. Use Python to show the results of an SIR model without vaccine, that is, an SIR model in which the term <m>(1-q)</m> is not included. In this situation, how many people eventually become infected with mumps?
+            </p>
+          </li>
+          <li>
+            <p>
+              Compare your outcomes from parts (a) and (b) and discuss the implications of this comparison. As part of your discussion, describe how models can be used to better understand possible public health interventions (such as vaccines) or lack of interventions.
+            </p>
+          </li>
+        </ol>   
+      </exercise>
+
+      <exercise number="3">
+        <p>
+          Here, we combine ideas from exercises 1 and 2 in this section to construct a model of a measles outbreak that includes both the level of vaccination across a population, as well as the effectiveness of the measles vaccine. For this model, <m>p</m> represents the fraction of the population that is vaccinated against measles and <m>q</m> represents the effectiveness of the vaccine.<fn>With thanks to EJ Holm, Bates Class of 2025, for contributions to writing this exercise.</fn> 
+        </p>   
+        <ol>
+          <li>
+            <p>
+              Rewrite your model as below. We require that <m>0 \leq p \leq 1</m> and <m>0 \leq q \leq 1</m>. Explain in words why the way the model is written, and the ranges for <m>p</m> and <m>q</m>, make sense. In your explanation, include edge cases, that is, describe what happens when <m>p=0</m>, when <m>p=1</m>, when <m>q=0</m>, and when <m>q=1</m>. Also describe what happens as <m>p</m> increases from <m>0</m> to <m>1</m>, and what happens as <m>q</m> increases from <m>0</m> to <m>1</m>:
+            </p>
+            <md>
+                <mrow>\frac{dS}{dt} \amp = - (1-pq) \beta S I </mrow>
+                <mrow>\frac{dI}{dt} \amp =  (1-pq) \beta S I - \gamma I </mrow>
+                <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+            </md>
+          </li>
+          <li>
+            <p>
+               This chapter's definition of <m>\mathcal{R}_{\text{eff}}</m> in <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective. With this new model, using both <m>p</m> and <m>q</m>, we define <m>\mathcal{R}_{\text{eff}} = (1-pq)\mathcal{R}_0</m>. Use algebraic steps similar to those in <xref ref="sec-determining-a-threshold-vaccine-level"/> to compute an updated formula for <m>p_{\text{crit}}</m> that involves <m>q</m> as well as <m>\mathcal{R}_0</m>.  
+            </p>
+          </li>
+          <li>
+            <p>
+              Use your updated formula for <m>p_{\text{crit}}</m> to explain how vaccine effectiveness below <m>100\%</m> can make it more challenging to achieve the goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m>. For measles, in particular, vaccine effectiveness is approximately <m>97\%</m>, which means <m>q = 0.97</m>. Incorporating <m>q</m>, then, what is the value of <m>p_{\text{crit}}</m> indicating the percentage of people that need to be vaccinated in order to achieve <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Use Python to show long-term outbreak results, including number of people infected, in outbreaks having vaccinated populations both slightly above, and slightly below, the value of <m>p_{\text{crit}}</m> you determine. For your Python results, use the parameter values from exercise 1 in this section, along with the vaccine's <m>97\%</m> effectiveness.
+            </p>
+          </li>
+        </ol>     
+      </exercise>
+    </exercises>
+
+
+  
+  </chapter>

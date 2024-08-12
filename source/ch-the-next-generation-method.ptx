@@ -1,0 +1,96 @@
+<chapter xml:id="ch-the-next-generation-method" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>* The Next Generation Method</title>
+
+    <section xml:id="sec-2">
+      <title>Python Code for the Next Generation Method</title>
+      <!-- <p>Change the title??? To focus on linear algebra???</p>
+      <p>Show how to use the NGM and how to use the results to determine beta</p> -->
+
+      <p>
+        The code block below produces the eigenvalues for the SEIR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix.
+      </p>
+
+      <p>
+        Spend some time looking through the code. Be sure you see how and where matrices are entered. You can use similar code for other compartmental models, and the only parts you need to change are the <m>F</m> and <m>V</m> matrices.
+      </p>
+
+      <sage>
+        <input>
+          from sympy import * 
+          init_printing(use_unicode=True)
+          
+          N = Symbol('N') 
+          gamma = Symbol('gamma')
+          beta = Symbol('beta')
+          kappa = Symbol('kappa')
+           
+          # The F matrix of partial derivatives
+          F = Matrix([[0, beta * N], [0, 0]])
+          print("F = ", F)
+          
+          # The V matrix of partial derivatives
+          V = Matrix([[kappa, 0], [-kappa, gamma]])
+          print("V = ", V)
+          
+          # Computing V inverse and the Next Generation matrix
+          Vinv = V**-1
+          print("V inverse = ", Vinv)
+          FVinv = F * Vinv
+          print("Next Gen Matrix = ", FVinv)
+          
+          # Calculating eigenvalues
+          
+          R0eval = FVinv.eigenvals()
+          print("The eigenvalues and their multiplicities are: ", R0eval)
+        </input>
+        <output>
+        
+        </output>
+        </sage>
+
+
+        <p>
+          The code block below produces the eigenvalues for the SLIAR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>3\times 3</m> matrix. Comparing this code with the previous code may help show how similar the code is when computing the Next Generation matrix for different models, as well as showing what to change for a different model.
+        </p>
+
+        <sage>
+          <input>
+            from sympy import * 
+            init_printing(use_unicode=True)
+            
+            N = Symbol('N') 
+            gamma = Symbol('gamma')
+            beta = Symbol('beta')
+            kappa = Symbol('kappa')
+            alpha = Symbol('alpha')
+            delta = Symbol('delta')
+            eta = Symbol('eta')
+            p = Symbol('p')
+
+             
+            # The F matrix of partial derivatives
+            F = Matrix([[0, beta * N, beta * N * delta], [0, 0, 0], [0, 0, 0]])
+            print("F = ", F)
+            
+            # The V matrix of partial derivatives
+            V = Matrix([[kappa, 0, 0], [-p * kappa, alpha, 0], [-(1-p) * kappa, 0, eta]])
+            print("V = ", V)
+            
+            # Computing V inverse and the Next Generation matrix
+            Vinv = V**-1
+            print("V inverse = ", Vinv)
+            FVinv = F * Vinv
+            print("Next Gen Matrix = ", FVinv)
+            
+            # Calculating eigenvalues
+            
+            R0eval = FVinv.eigenvals()
+            print("The eigenvalues and their multiplicities are: ", R0eval)
+          </input>
+          <output>
+          
+          </output>
+          </sage>
+    </section>
+
+  </chapter>

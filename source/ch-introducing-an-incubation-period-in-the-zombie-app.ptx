@@ -1,0 +1,88 @@
+<chapter xml:id="ch-introducing-an-incubation-period-in-the-zombie-app" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Introducing an Incubation Period in the Zombie App</title> 
+
+    <introduction xml:id="intro-incubation-period-in-zombie-app">
+      <objectives>
+        <ul>
+          <li>
+            <p>
+              Use the zombie app in new ways to generate data for simulated outbreaks
+            </p>
+          </li>
+          <li>
+            <p>
+              Develop hypotheses for how an incubation period will affect the timeline and outcomes of an outbreak 
+            </p>
+          </li>
+          <li>
+            <p>
+              Compare your hypotheses about the incubation period with data from your simulations
+            </p>
+          </li>
+        </ul>
+      </objectives> 
+
+      <p>
+        In the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> we originally used in <xref ref="ch-zombies-can-math-help" />, when a human is infected, they become a zombie the very next day.
+      </p>
+      <p>
+        Suppose, instead, that humans experience an incubation period after being attacked by a zombie. During this incubation period, these individuals are neither a zombie (so not Infectious) nor Susceptible.
+      </p>
+      <p>
+        <em>Take a few moments to think through how an incubation period would change the outcomes of the simulation.</em> Then begin <xref ref="sec-activity-introduce-an-incubation-period" />.
+      </p>
+
+      </introduction> 
+
+
+    <section xml:id="sec-activity-introduce-an-incubation-period">
+      <title>Activity: Introduce an Incubation Period</title>
+     
+        <p>
+          In this example, we assume that after a zombie infects a human, there is a <em>one-day incubation period</em>, meaning a one-day delay, before the human becomes a zombie. While the Zombie Game App can help generate data for such an outbreak, it does not have a direct way to incorporate the incubation period. We must therefore restart the app repeatedly and keep track of our own data, as described below.
+        </p>  
+        <p>  
+          Start in <url href="https://nelsong1997.github.io/zombie_game/">the app</url> by beginning a game in which Human Start Count is set equal to 49 and Zombie Start Count is set equal to 1. Click <q>start</q> and write down the resulting number of new infections on Day 1: these are all the humans infected by our starting zombie. For instance, suppose there are two new infections from the interactions on Day 0, as circled in <xref ref="fig-zombie-SEI-Day-1" />. Then on Day 1, there should be 47 humans, 2 incubating individuals, and 1 zombie. The app says there are three zombies, but in our interpretation, 2 are incubating individuals, and 1 is a zombie. 
+        </p>
+        <figure width="90%" xml:id="fig-zombie-SEI-Day-1">
+          <caption>Determining the number of New Infections on Day 1</caption>
+          <image source="Zombie_SEI_Simulation_Day1.png" width="60%">
+            <description>Table of data from one day of a simulation in the human-zombie game. There are two new infections on Day 1.</description>
+          </image>
+        </figure>
+        <p>
+          We therefore click <q>restart</q> on the app, so that we can enter a Human Start Count of 47 and a Zombie Start Count of 1. We do not include the 2 incubating individuals, since they do not affect the number of new zombies generated from Day 1 interactions. With these settings, we run the app for one round, generating new Infectious individuals once again. An example of this is shown in <xref ref="fig-zombie-SEI-Day-2" />. 
+        </p>
+        <figure width="90%" xml:id="fig-zombie-SEI-Day-2">
+          <caption>Using the results of Day 1 to determine the number of New Infections on Day 2</caption>
+          <image source="Zombie_SEI_Simulation_Day2.png" width="60%">
+            <description>Table of data from one day of a simulation in the human-zombie game, using the outcome of Day 1 to determine new infections on Day 2. There is one new infection on Day 2.</description>
+          </image>
+        </figure>
+        <p>
+          The next step is where we begin to re-introduce the individuals who were infected on Day 0 but still incubating the zombie disease on Day 1. From <xref ref="fig-zombie-SEI-Day-2" /> we see that we should have 46 humans and 1 incubating individual on Day 2. We also have 3 zombies: the initial zombie, plus the 2 incubating individuals from Day 1. We therefore restart the model, entering a Human Start Count of 46 and a Zombie Start Count of 3. A possible outcome appears in <xref ref="fig-zombie-SEI-Day-3" />.
+        </p>
+        <figure width="90%" xml:id="fig-zombie-SEI-Day-3">
+          <caption>Using the results of Days 1 and 2, including re-introducing incubating individuals as zombies, to determine the number of New Infections on Day 3</caption>
+          <image source="Zombie_SEI_Simulation_Day3.png" width="60%">
+            <description>Table of data from one day of a simulation in the human-zombie game, re-introducing incubating individuals as zombies, to determine new infections on Day 3. There are four new infections on Day 3.</description>
+          </image>
+        </figure>
+        <p>
+          From this step, we continue until the game has ended. It helps to generate a new table of data, keeping track of the numbers of each of the three types of individuals. This table can be on paper, in a spreadsheet, or in whatever other form you prefer. <xref ref="fig-zombie-SEI-Data" /> shows a sample of how the table might look.
+        </p>
+        <figure width="90%" xml:id="fig-zombie-SEI-Data">
+          <caption>A sample full data set for simulating infections in a case where there is a one day incubation period as humans transition to zombies</caption>
+          <image source="Zombie_SEI_Simulation_Data.png" width="90%">
+            <description>Table of data from one sample simulation where humans have a one-day incubation period before becoming zombies. For days 0 to 10, the numbers of new infections are 1, 2, 1, 4, 5, 13, 8, 9, 5, 2, 0.</description>
+          </image>
+        </figure>
+        <p>
+          Ask yourself: what do you observe? Compare this simulation with simulations having no incubation period. Consider how many days the outbreak lasts. Make note of your observations, share your ideas with others, and consider the observations of other people trying this experiment. Try the experiment with a longer incubation period, such as 2, 3, or 4 days, and observe the ways these changes affect outcomes of the model.
+        </p> 
+        <p>
+          INCLUDE: a question about why the total population always equals 50, and about why this column is included in the sample data set
+        </p> 
+    </section>
+
+  </chapter>
