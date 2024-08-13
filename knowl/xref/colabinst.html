@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<div class="answer solution-like">
+<h4 class="heading">
+<span class="type">Answer</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">Here’s how to import data into Google Colab:</div>
+<ul class="disc" id="colabinst-1-1">
+<li><div class="para">Make sure the “pandas” package is imported at the beginning of the code: <pre id="colabinst-1-1-1-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import pandas as pd
+</script></pre>
+</div></li>
+<li><div class="para">Mount Google Drive to access data files: <pre id="colabinst-1-1-2-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">from google.colab import drive
+drive.mount("/content/drive")
+</script></pre>
+</div></li>
+<li><div class="para">Load data from the file located in Google Drive: <pre id="colabinst-1-1-3-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv')
+</script></pre> After /content/drive/MyDrive, continue adding backslashes with the necessary folder names to complete the file path. For example, if your file ‘SmallpoxData.csv’ was located in a folder ‘Modeling’, your file path would be content/drive/MyDrive/Modeling/SmallpoxData.csv</div></li>
+<li><div class="para">Extract the column from your data representing time, as a list: <pre id="colabinst-1-1-4-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">t_steps = data['Day'].tolist()
+</script></pre> Replace ‘Day’ with whatever your column is labeled.</div></li>
+<li><div class="para">Extract the column representing the infected population, as a list: <pre id="colabinst-1-1-5-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">I_prevalence_data = data['Infected'].tolist()
+</script></pre> Replace ’infected’ with whatever your column is labeled.</div></li>
+<li><div class="para">All together, the code looks like this (also importing additional necessary packages): <pre id="colabinst-1-1-6-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">                       import numpy as np
+                       import pandas as pd
+                       import matplotlib.pyplot as plt
+                       from scipy.integrate import odeint
+
+
+                       from google.colab import drive
+                       drive.mount("/content/drive")
+
+
+                       data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv'
+                       t_steps = data['Day'].tolist()
+                       I_prevalence_data = data['Infected'].tolist()
+</script></pre>
+</div></li>
+</ul>
+</div>
+</div>
+<span class="incontext"><a class="internal" href="ch-case-studies.html#colabinst">in-context</a></span>
+</body>
+</html>

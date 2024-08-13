@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Linear Algebra</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Epidemiology and More">
+<meta property="book:author" content="Meredith L. Greer">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#expl-reading-about-disease-in-the-news-and-popular-media-4-1-2 { counter-set: expl-reading-about-disease-in-the-news-and-popular-media-4-1-2 0; }
+#expl-reading-about-disease-in-the-news-and-popular-media-4-1-2 > li::marker { content: ""counter(expl-reading-about-disease-in-the-news-and-popular-media-4-1-2,decimal)"."; }
+#expl-reading-about-disease-in-the-news-and-popular-media-4-1-2 > li { counter-increment: expl-reading-about-disease-in-the-news-and-popular-media-4-1-2; }
+#sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5 { counter-set: sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5 0; }
+#sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5 > li::marker { content: ""counter(sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5,decimal)"."; }
+#sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5 > li { counter-increment: sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5; }
+#exer-begin-zombie-app-1-2 { counter-set: exer-begin-zombie-app-1-2 0; }
+#exer-begin-zombie-app-1-2 > li::marker { content: ""counter(exer-begin-zombie-app-1-2,decimal)"."; }
+#exer-begin-zombie-app-1-2 > li { counter-increment: exer-begin-zombie-app-1-2; }
+#sec-we-now-have-data-qualitative-musings-5-1-2 { counter-set: sec-we-now-have-data-qualitative-musings-5-1-2 0; }
+#sec-we-now-have-data-qualitative-musings-5-1-2 > li::marker { content: ""counter(sec-we-now-have-data-qualitative-musings-5-1-2,decimal)"."; }
+#sec-we-now-have-data-qualitative-musings-5-1-2 > li { counter-increment: sec-we-now-have-data-qualitative-musings-5-1-2; }
+#sec-a-first-model-6-1-2 { counter-set: sec-a-first-model-6-1-2 0; }
+#sec-a-first-model-6-1-2 > li::marker { content: ""counter(sec-a-first-model-6-1-2,decimal)"."; }
+#sec-a-first-model-6-1-2 > li { counter-increment: sec-a-first-model-6-1-2; }
+#sec-a-first-model-18-1-3 { counter-set: sec-a-first-model-18-1-3 0; }
+#sec-a-first-model-18-1-3 > li::marker { content: ""counter(sec-a-first-model-18-1-3,decimal)"."; }
+#sec-a-first-model-18-1-3 > li { counter-increment: sec-a-first-model-18-1-3; }
+#exercises-ch-zombies-can-math-help-2-2 { counter-set: exercises-ch-zombies-can-math-help-2-2 0; }
+#exercises-ch-zombies-can-math-help-2-2 > li::marker { content: "("counter(exercises-ch-zombies-can-math-help-2-2,lower-alpha)")"; }
+#exercises-ch-zombies-can-math-help-2-2 > li { counter-increment: exercises-ch-zombies-can-math-help-2-2; }
+#exercises-ch-zombies-can-math-help-3-2 { counter-set: exercises-ch-zombies-can-math-help-3-2 0; }
+#exercises-ch-zombies-can-math-help-3-2 > li::marker { content: "("counter(exercises-ch-zombies-can-math-help-3-2,lower-alpha)")"; }
+#exercises-ch-zombies-can-math-help-3-2 > li { counter-increment: exercises-ch-zombies-can-math-help-3-2; }
+#sec-solving-differential-equations-using-graphs-10 { counter-set: sec-solving-differential-equations-using-graphs-10 0; }
+#sec-solving-differential-equations-using-graphs-10 > li::marker { content: ""counter(sec-solving-differential-equations-using-graphs-10,decimal)"."; }
+#sec-solving-differential-equations-using-graphs-10 > li { counter-increment: sec-solving-differential-equations-using-graphs-10; }
+#exer-first-odeint-code-2-1-1 { counter-set: exer-first-odeint-code-2-1-1 0; }
+#exer-first-odeint-code-2-1-1 > li::marker { content: ""counter(exer-first-odeint-code-2-1-1,decimal)"."; }
+#exer-first-odeint-code-2-1-1 > li { counter-increment: exer-first-odeint-code-2-1-1; }
+#exercises-visualization-graphing-model-results-and-data-1-1-2 { counter-set: exercises-visualization-graphing-model-results-and-data-1-1-2 0; }
+#exercises-visualization-graphing-model-results-and-data-1-1-2 > li::marker { content: "("counter(exercises-visualization-graphing-model-results-and-data-1-1-2,lower-alpha)")"; }
+#exercises-visualization-graphing-model-results-and-data-1-1-2 > li { counter-increment: exercises-visualization-graphing-model-results-and-data-1-1-2; }
+#exercises-visualization-graphing-model-results-and-data-3-2 { counter-set: exercises-visualization-graphing-model-results-and-data-3-2 0; }
+#exercises-visualization-graphing-model-results-and-data-3-2 > li::marker { content: "("counter(exercises-visualization-graphing-model-results-and-data-3-2,lower-alpha)")"; }
+#exercises-visualization-graphing-model-results-and-data-3-2 > li { counter-increment: exercises-visualization-graphing-model-results-and-data-3-2; }
+#activity-sir-diagram-and-des-1-2 { counter-set: activity-sir-diagram-and-des-1-2 0; }
+#activity-sir-diagram-and-des-1-2 > li::marker { content: ""counter(activity-sir-diagram-and-des-1-2,decimal)"."; }
+#activity-sir-diagram-and-des-1-2 > li { counter-increment: activity-sir-diagram-and-des-1-2; }
+#activity-sir-diagram-and-des-2-1 { counter-set: activity-sir-diagram-and-des-2-1 0; }
+#activity-sir-diagram-and-des-2-1 > li::marker { content: ""counter(activity-sir-diagram-and-des-2-1,decimal)"."; }
+#activity-sir-diagram-and-des-2-1 > li { counter-increment: activity-sir-diagram-and-des-2-1; }
+#activity-sir-diagram-and-des-3-1 { counter-set: activity-sir-diagram-and-des-3-1 0; }
+#activity-sir-diagram-and-des-3-1 > li::marker { content: ""counter(activity-sir-diagram-and-des-3-1,decimal)"."; }
+#activity-sir-diagram-and-des-3-1 > li { counter-increment: activity-sir-diagram-and-des-3-1; }
+#activity-introducing-units-1-4 { counter-set: activity-introducing-units-1-4 0; }
+#activity-introducing-units-1-4 > li::marker { content: ""counter(activity-introducing-units-1-4,decimal)"."; }
+#activity-introducing-units-1-4 > li { counter-increment: activity-introducing-units-1-4; }
+#activity-introducing-units-2-1 { counter-set: activity-introducing-units-2-1 0; }
+#activity-introducing-units-2-1 > li::marker { content: ""counter(activity-introducing-units-2-1,decimal)"."; }
+#activity-introducing-units-2-1 > li { counter-increment: activity-introducing-units-2-1; }
+#activity-three-sets-of-parameters-1-5 { counter-set: activity-three-sets-of-parameters-1-5 0; }
+#activity-three-sets-of-parameters-1-5 > li::marker { content: ""counter(activity-three-sets-of-parameters-1-5,decimal)"."; }
+#activity-three-sets-of-parameters-1-5 > li { counter-increment: activity-three-sets-of-parameters-1-5; }
+#activity-three-sets-of-parameters-2-1 { counter-set: activity-three-sets-of-parameters-2-1 0; }
+#activity-three-sets-of-parameters-2-1 > li::marker { content: ""counter(activity-three-sets-of-parameters-2-1,decimal)"."; }
+#activity-three-sets-of-parameters-2-1 > li { counter-increment: activity-three-sets-of-parameters-2-1; }
+#exercises-ch-populations-and-R0-1-4 { counter-set: exercises-ch-populations-and-R0-1-4 0; }
+#exercises-ch-populations-and-R0-1-4 > li::marker { content: "("counter(exercises-ch-populations-and-R0-1-4,lower-alpha)")"; }
+#exercises-ch-populations-and-R0-1-4 > li { counter-increment: exercises-ch-populations-and-R0-1-4; }
+#exercises-ch-populations-and-R0-2-2 { counter-set: exercises-ch-populations-and-R0-2-2 0; }
+#exercises-ch-populations-and-R0-2-2 > li::marker { content: "("counter(exercises-ch-populations-and-R0-2-2,lower-alpha)")"; }
+#exercises-ch-populations-and-R0-2-2 > li { counter-increment: exercises-ch-populations-and-R0-2-2; }
+#exercises-ch-populations-and-R0-3-3 { counter-set: exercises-ch-populations-and-R0-3-3 0; }
+#exercises-ch-populations-and-R0-3-3 > li::marker { content: "("counter(exercises-ch-populations-and-R0-3-3,lower-alpha)")"; }
+#exercises-ch-populations-and-R0-3-3 > li { counter-increment: exercises-ch-populations-and-R0-3-3; }
+#expl-activity-vaccines-3-1-4 { counter-set: expl-activity-vaccines-3-1-4 0; }
+#expl-activity-vaccines-3-1-4 > li::marker { content: ""counter(expl-activity-vaccines-3-1-4,decimal)"."; }
+#expl-activity-vaccines-3-1-4 > li { counter-increment: expl-activity-vaccines-3-1-4; }
+#expl-activity-vaccines-4-1-2 { counter-set: expl-activity-vaccines-4-1-2 0; }
+#expl-activity-vaccines-4-1-2 > li::marker { content: ""counter(expl-activity-vaccines-4-1-2,decimal)"."; }
+#expl-activity-vaccines-4-1-2 > li { counter-increment: expl-activity-vaccines-4-1-2; }
+#activity-pcrit-1-2 { counter-set: activity-pcrit-1-2 0; }
+#activity-pcrit-1-2 > li::marker { content: ""counter(activity-pcrit-1-2,decimal)"."; }
+#activity-pcrit-1-2 > li { counter-increment: activity-pcrit-1-2; }
+#activity-pcrit-2-1 { counter-set: activity-pcrit-2-1 0; }
+#activity-pcrit-2-1 > li::marker { content: ""counter(activity-pcrit-2-1,decimal)"."; }
+#activity-pcrit-2-1 > li { counter-increment: activity-pcrit-2-1; }
+#activity-pcrit2-1-5 { counter-set: activity-pcrit2-1-5 0; }
+#activity-pcrit2-1-5 > li::marker { content: ""counter(activity-pcrit2-1-5,decimal)"."; }
+#activity-pcrit2-1-5 > li { counter-increment: activity-pcrit2-1-5; }
+#activity-pcrit2-2-1 { counter-set: activity-pcrit2-2-1 0; }
+#activity-pcrit2-2-1 > li::marker { content: ""counter(activity-pcrit2-2-1,decimal)"."; }
+#activity-pcrit2-2-1 > li { counter-increment: activity-pcrit2-2-1; }
+#exercises-ch-vaccines-1-3 { counter-set: exercises-ch-vaccines-1-3 0; }
+#exercises-ch-vaccines-1-3 > li::marker { content: "("counter(exercises-ch-vaccines-1-3,lower-alpha)")"; }
+#exercises-ch-vaccines-1-3 > li { counter-increment: exercises-ch-vaccines-1-3; }
+#exercises-ch-vaccines-2-3 { counter-set: exercises-ch-vaccines-2-3 0; }
+#exercises-ch-vaccines-2-3 > li::marker { content: "("counter(exercises-ch-vaccines-2-3,lower-alpha)")"; }
+#exercises-ch-vaccines-2-3 > li { counter-increment: exercises-ch-vaccines-2-3; }
+#exercises-ch-vaccines-3-2 { counter-set: exercises-ch-vaccines-3-2 0; }
+#exercises-ch-vaccines-3-2 > li::marker { content: "("counter(exercises-ch-vaccines-3-2,lower-alpha)")"; }
+#exercises-ch-vaccines-3-2 > li { counter-increment: exercises-ch-vaccines-3-2; }
+#expl-activity-incubation-3-1-2 { counter-set: expl-activity-incubation-3-1-2 0; }
+#expl-activity-incubation-3-1-2 > li::marker { content: ""counter(expl-activity-incubation-3-1-2,decimal)"."; }
+#expl-activity-incubation-3-1-2 > li { counter-increment: expl-activity-incubation-3-1-2; }
+#expl-activity-incubation-4-1-3 { counter-set: expl-activity-incubation-4-1-3 0; }
+#expl-activity-incubation-4-1-3 > li::marker { content: ""counter(expl-activity-incubation-4-1-3,decimal)"."; }
+#expl-activity-incubation-4-1-3 > li { counter-increment: expl-activity-incubation-4-1-3; }
+#activity-seir-model-intro-1-2 { counter-set: activity-seir-model-intro-1-2 0; }
+#activity-seir-model-intro-1-2 > li::marker { content: ""counter(activity-seir-model-intro-1-2,decimal)"."; }
+#activity-seir-model-intro-1-2 > li { counter-increment: activity-seir-model-intro-1-2; }
+#activity-seir-model-intro-2-1 { counter-set: activity-seir-model-intro-2-1 0; }
+#activity-seir-model-intro-2-1 > li::marker { content: ""counter(activity-seir-model-intro-2-1,decimal)"."; }
+#activity-seir-model-intro-2-1 > li { counter-increment: activity-seir-model-intro-2-1; }
+#activity-seir-model-play-with-kappa-1-2 { counter-set: activity-seir-model-play-with-kappa-1-2 0; }
+#activity-seir-model-play-with-kappa-1-2 > li::marker { content: ""counter(activity-seir-model-play-with-kappa-1-2,decimal)"."; }
+#activity-seir-model-play-with-kappa-1-2 > li { counter-increment: activity-seir-model-play-with-kappa-1-2; }
+#activity-seir-model-play-with-kappa-2-1 { counter-set: activity-seir-model-play-with-kappa-2-1 0; }
+#activity-seir-model-play-with-kappa-2-1 > li::marker { content: ""counter(activity-seir-model-play-with-kappa-2-1,decimal)"."; }
+#activity-seir-model-play-with-kappa-2-1 > li { counter-increment: activity-seir-model-play-with-kappa-2-1; }
+#activity-seir-model-pertussis-setup-1-2 { counter-set: activity-seir-model-pertussis-setup-1-2 0; }
+#activity-seir-model-pertussis-setup-1-2 > li::marker { content: ""counter(activity-seir-model-pertussis-setup-1-2,decimal)"."; }
+#activity-seir-model-pertussis-setup-1-2 > li { counter-increment: activity-seir-model-pertussis-setup-1-2; }
+#activity-seir-model-pertussis-setup-2-1 { counter-set: activity-seir-model-pertussis-setup-2-1 0; }
+#activity-seir-model-pertussis-setup-2-1 > li::marker { content: ""counter(activity-seir-model-pertussis-setup-2-1,decimal)"."; }
+#activity-seir-model-pertussis-setup-2-1 > li { counter-increment: activity-seir-model-pertussis-setup-2-1; }
+#exercises-ch-incubation-period-1-2 { counter-set: exercises-ch-incubation-period-1-2 0; }
+#exercises-ch-incubation-period-1-2 > li::marker { content: "("counter(exercises-ch-incubation-period-1-2,lower-alpha)")"; }
+#exercises-ch-incubation-period-1-2 > li { counter-increment: exercises-ch-incubation-period-1-2; }
+#exercises-ch-incubation-period-2-2 { counter-set: exercises-ch-incubation-period-2-2 0; }
+#exercises-ch-incubation-period-2-2 > li::marker { content: "("counter(exercises-ch-incubation-period-2-2,lower-alpha)")"; }
+#exercises-ch-incubation-period-2-2 > li { counter-increment: exercises-ch-incubation-period-2-2; }
+#sec-matrix-operations-2-1 { counter-set: sec-matrix-operations-2-1 0; }
+#sec-matrix-operations-2-1 > li::marker { content: ""counter(sec-matrix-operations-2-1,decimal)"."; }
+#sec-matrix-operations-2-1 > li { counter-increment: sec-matrix-operations-2-1; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="mathematical-epidemiology.html"><span class="title">Mathematical Epidemiology and More:</span> <span class="subtitle">A Course on Compartmental Models</span></a></h1>
+<p class="byline">Meredith L. Greer</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-introducing-an-incubation-period-in-the-zombie-app.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part-examples-and-case-studies.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-Case-Studies.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 parts"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="frontmatter-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-overall.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-students.html" class="internal"><span class="title">To Students: How to Get the Most from This Text</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-core-modeling-concepts.html" class="internal"><span class="codenumber">I</span> <span class="title">Core Modeling Concepts</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html" class="internal"><span class="codenumber">1</span> <span class="title">Prelude: Diseases in Popular News</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-Themes" class="internal"><span class="codenumber">1.1</span> <span class="title">Possible Discussion Themes</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#sec-Follow-Up-By-Seeking-More-Precise-Data" class="internal"><span class="codenumber">1.2</span> <span class="title">Follow Up By Seeking More Precise Data</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#exercises-prelude-diseases-in-popular-news" class="internal"><span class="codenumber">1.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-zombies-can-math-help.html" class="internal"><span class="codenumber">2</span> <span class="title">Zombies: Can Math Help?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#sec-we-now-have-data-qualitative-musings" class="internal"><span class="codenumber">2.1</span> <span class="title">We Now Have Data: Qualitative Musings</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal"><span class="codenumber">2.2</span> <span class="title">A First Model</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#exercises-ch-zombies-can-math-help" class="internal"><span class="codenumber">2.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html" class="internal"><span class="codenumber">3</span> <span class="title">Visualization: Graphing Model Results and Data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#sec-solving-differential-equations-using-graphs" class="internal"><span class="codenumber">3.1</span> <span class="title">“Solving” Differential Equations Using Graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal"><span class="codenumber">3.2</span> <span class="title">Estimating <span class="process-math">\(\beta\)</span> and Building Visualization Skills</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#exercises-visualization-graphing-model-results-and-data" class="internal"><span class="codenumber">3.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-compartmental-diagrams.html" class="internal"><span class="codenumber">4</span> <span class="title">Compartmental Diagrams</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-compartmental-diagrams-vocabulary-and-comments" class="internal"><span class="codenumber">4.1</span> <span class="title">Compartmental Diagrams: Vocabulary and Comments</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal"><span class="codenumber">4.2</span> <span class="title">From Zombie Game Variation to Compartmental Diagram</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates" class="internal"><span class="codenumber">4.3</span> <span class="title">Estimating Gamma and Other Rates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal"><span class="codenumber">4.4</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal"><span class="codenumber">5</span> <span class="title">Model Analysis and the Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-using-calculus-to-analyze-models" class="internal"><span class="codenumber">5.1</span> <span class="title">Using Calculus to Analyze Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0" class="internal"><span class="codenumber">5.2</span> <span class="title">The Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#exercises-ch-populations-and-R0" class="internal"><span class="codenumber">5.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-vaccines.html" class="internal"><span class="codenumber">6</span> <span class="title">Vaccines</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines.html#sec-determining-a-threshold-vaccine-level" class="internal"><span class="codenumber">6.1</span> <span class="title">Determining a Threshold Vaccine Level</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines.html#sec-how-vaccination-level-affects-long-term-outcomes" class="internal"><span class="codenumber">6.2</span> <span class="title">How Vaccination Level Affects Long Term Outcomes</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-vaccines.html#exercises-ch-vaccines" class="internal"><span class="codenumber">6.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incubation-periods.html" class="internal"><span class="codenumber">7</span> <span class="title">Incubation Periods</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-incubation-periods.html#sec-including-an-incubation-period-the-seir-model" class="internal"><span class="codenumber">7.1</span> <span class="title">Including an Incubation Period: The SEIR Model</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-incubation-periods.html#exercises-ch-incubation-period" class="internal"><span class="codenumber">7.2</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal"><span class="codenumber">8</span> <span class="title">* Preparing Influenza Data to Compare With a Model</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-ga" class="internal"><span class="codenumber">8.1</span> <span class="title">Starter Example Comparing Data with a Model: Zombie Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gz" class="internal"><span class="codenumber">8.2</span> <span class="title">Using RSS</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gx" class="internal"><span class="codenumber">8.3</span> <span class="title">Influenza Data and RSS</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-epidemic-vs-endemic-models.html" class="internal"><span class="codenumber">9</span> <span class="title">* Epidemic vs. Endemic Models</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-epidemic-vs-endemic-models.html#sec-ee" class="internal"><span class="codenumber">9.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">* Residual Sum of Squares: Improving a Model’s Fit to Data</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-ra" class="internal"><span class="codenumber">10.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-akaike-information-criterion-comparing-different-models.html" class="internal"><span class="codenumber">11</span> <span class="title">* Akaike Information Criterion: Comparing Different Models</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-akaike-information-criterion-comparing-different-models.html#sec-ma" class="internal"><span class="codenumber">11.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-modeling-the-spread-of-a-rumor.html" class="internal"><span class="codenumber">12</span> <span class="title">* Modeling the Spread of a Rumor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-modeling-the-spread-of-a-rumor.html#sec-7" class="internal"><span class="codenumber">12.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-model-analysis-total-population-and-equilibrium-values.html" class="internal"><span class="codenumber">13</span> <span class="title">Model Analysis: Total Population and Equilibrium Values</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-total-population-and-equilibrium-values.html#sec-1" class="internal"><span class="codenumber">13.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">14</span> <span class="title">* The Next Generation Method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-the-next-generation-method.html#sec-2" class="internal"><span class="codenumber">14.1</span> <span class="title">Python Code for the Next Generation Method</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-the-next-generation-method-connecting-theory-with-practice.html" class="internal"><span class="codenumber">15</span> <span class="title">* The Next Generation Method: Underlying Theory</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-the-next-generation-method-connecting-theory-with-practice.html#sec-3" class="internal"><span class="codenumber">15.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-tips-on-reading-a-scientific-paper.html" class="internal"><span class="codenumber">16</span> <span class="title">* Tips on Reading a Scientific Paper</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-tips-on-reading-a-scientific-paper.html#sec-3a" class="internal"><span class="codenumber">16.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.html" class="internal"><span class="codenumber">17</span> <span class="title">* Numerical Simulations: An Overview of How Computers Turn Equations into Graphs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.html#sec-4" class="internal"><span class="codenumber">17.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-kermack-mckendrick-the-1927-paper.html" class="internal"><span class="codenumber">18</span> <span class="title">* Kermack-McKendrick: the 1927 Paper</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-kermack-mckendrick-the-1927-paper.html#sec-4a" class="internal"><span class="codenumber">18.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="part-examples-and-case-studies.html" class="internal"><span class="codenumber">III</span> <span class="title">Examples and Case Studies</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-introducing-an-incubation-period-in-the-zombie-app.html" class="internal"><span class="codenumber">19</span> <span class="title">Introducing an Incubation Period in the Zombie App</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-introducing-an-incubation-period-in-the-zombie-app.html#sec-activity-introduce-an-incubation-period" class="internal"><span class="codenumber">19.1</span> <span class="title">Activity: Introduce an Incubation Period</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html" class="internal"><span class="codenumber">20</span> <span class="title">* Preparing Mumps Data to Compare with a Six-Compartment Model</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html#sec-6" class="internal"><span class="codenumber">20.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-introducing-an-incubation-period-in-the-zombie-app.html" class="internal"><span class="codenumber">21</span> <span class="title">Introducing an Incubation Period in the Zombie App</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-introducing-an-incubation-period-in-the-zombie-app.html#sec-activity-introduce-an-incubation-period" class="internal"><span class="codenumber">21.1</span> <span class="title">Activity: Introduce an Incubation Period</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter active">
+<div class="toc-title-box"><a href="ch-linalg.html" class="internal"><span class="codenumber">22</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linalg.html#lin-algebra-cc" class="internal"><span class="codenumber">22.1</span> <span class="title">Linear Algebra Crash Course</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linalg.html#sec-matrix-operations" class="internal"><span class="codenumber">22.2</span> <span class="title">Matrix Operations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linalg.html#sec-determinants" class="internal"><span class="codenumber">22.3</span> <span class="title">Determinants</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linalg.html#sec-inverses" class="internal"><span class="codenumber">22.4</span> <span class="title">Inverses</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linalg.html#sec-eigenvalues" class="internal"><span class="codenumber">22.5</span> <span class="title">Eigenvalues</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linalg.html#eigvalue-qs" class="internal"><span class="codenumber">22.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-Case-Studies.html" class="internal"><span class="codenumber">23</span> <span class="title">Case Studies</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-Case-Studies.html#sec-Intro" class="internal"><span class="codenumber">23.1</span> <span class="title">Intro</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="glossary-of-terms.html" class="internal"><span class="title">Glossary of Mathematical Epidemiology Terms</span></a></div></li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-linalg"><h2 class="heading">
+<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">22</span><span class="space"> </span><span class="title">Linear Algebra</span>
+</h2>
+<section class="section" id="lin-algebra-cc"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">22.1</span><span class="space"> </span><span class="title">Linear Algebra Crash Course</span>
+</h3>
+<div class="para logical" id="lin-algebra-cc-2">
+<div class="para">Linear algebra is a branch of mathematics that deals with vector spaces and linear transformations between these spaces. It focuses on the study of linear equations, matrices, and their properties, providing a framework for solving problems in various fields including mathematical epidemiology. A matrix is a rectangular array of numbers, symbols, or expressions arranged in a set rows and columns where the dimensions of a matrix are expressed as rows <span class="process-math">\(\times \)</span> columns. A <span class="process-math">\(m \times n\)</span> matrix contains <em class="emphasis">m</em> rows and <em class="emphasis">n</em> columns. For instance,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}
+1 \amp 0 \amp 0\\
+0 \amp 1 \amp 0
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">is a 2×3 matrix because it contains two rows and three columns. Within the matrix <em class="emphasis">A</em>, the entry in the <em class="emphasis">i</em>th row and <em class="emphasis">j</em>th column is denoted <span class="process-math">\(a_{ij}\)</span> and is referred to as the (<em class="emphasis">i, j</em>)-entry of the Matrix <em class="emphasis">A</em>. Thus, the "1" in the top left of the matrix <em class="emphasis">A</em> is considered <span class="process-math">\(a_{11}\text{.}\)</span> A matrix that has dimensions <em class="emphasis">m×n</em> (same amount of rows and columns), is considered a square matrix.</div>
+</div></section><section class="section" id="sec-matrix-operations"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">22.2</span><span class="space"> </span><span class="title">Matrix Operations</span>
+</h3>
+<div class="para logical" id="sec-matrix-operations-2"><ol class="decimal" id="sec-matrix-operations-2-1">
+<li id="sec-matrix-operations-2-1-1"><div class="para" id="p-derived-sec-matrix-operations-2-1-1">Addition and subtraction of matrices is only defined when the matrices have the same dimensions. For two matrices, <em class="emphasis">A</em> and <em class="emphasis">B</em>, who both have dimensions of <em class="emphasis">m×n</em>, the sum of <span class="process-math">\(A + B\)</span> is an <em class="emphasis">m×n</em> matrix with every entry equivalent to the sum of the corresponding entries in <em class="emphasis">A</em> and <em class="emphasis">B</em>. It is not possible for two matrices to be added or subtracted together if one is <em class="emphasis">m×n</em> and the other is <em class="emphasis">n×m</em>.<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}
+2 \amp 4 \amp 3\\
+1 \amp 5 \amp 2\\
+3 \amp 2 \amp 3
+\end{bmatrix}
+B = \begin{bmatrix}
+1 \amp 2 \amp 4\\
+5 \amp 1 \amp 2\\
+2 \amp 1 \amp 3
+\end{bmatrix}
+A + B = \begin{bmatrix}
+3 \amp 6 \amp 7\\
+6 \amp 6 \amp 4\\
+5 \amp 3 \amp 6
+\end{bmatrix}
+\end{equation*}
+</div>
+</div></li>
+<li id="sec-matrix-operations-2-1-2"><div class="para logical" id="sec-matrix-operations-2-1-2-1">
+<div class="para">When multiplying a matrix by a scalar, the dimensions of the matrix stay the same, while each element is individually multiplied by the scalar value. If a 2x2 matrix, <span class="process-math">\(A\text{,}\)</span> is multiplied by a scalar, <span class="process-math">\(s\text{,}\)</span> the product matrix would be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+s * A = s *
+\begin{bmatrix}
+a_{11} \amp a_{12} \\
+a_{21} \amp a_{22}
+\end{bmatrix} =
+\begin{bmatrix}
+(s)(a_{11}) \amp (s)(a_{12}) \\
+(s)(a_{21}) \amp (s)(a_{22})
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Here is an example using an integer as a scalar and integers as entries in the matrix <span class="process-math">\(A\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+3 * A = 3 *
+\begin{bmatrix}
+2 \amp 4 \\
+3 \amp 5
+\end{bmatrix} =
+\begin{bmatrix}
+3(2) \amp 3(4) \\
+3(3) \amp 3(5)
+\end{bmatrix} =
+\begin{bmatrix}
+6 \amp 12 \\
+9 \amp 15
+\end{bmatrix}.
+\end{equation*}
+</div>
+</div></li>
+<li id="sec-matrix-operations-2-1-3">
+<div class="para" id="sec-matrix-operations-2-1-3-1">Multiplication of matrices is only defined when the number of columns in the first matrix is equivalent to the number of rows in the second matrix. Thus, we could multiply a <em class="emphasis">n×m</em> matrix by an <em class="emphasis">m×n</em> but not another <em class="emphasis">n×m</em> matrix (unless <em class="emphasis">m = n</em>). The matrix product will have the number of rows of the original matrix and the number of the columns of the matrix that is the original is being multiplied by. For example, if matrix <em class="emphasis">A</em> is an <em class="emphasis">m×n</em> matrix, and matrix <em class="emphasis">B</em> is an <em class="emphasis">n×p</em> matrix, if we do <em class="emphasis">A*B=C</em>, the matrix C will be an <em class="emphasis">m×p</em> matrix. Additionally, due to these dimension restraints, matrix multiplication is not commutative, meaning <em class="emphasis">A*B</em> is not necessarily equivalent to <em class="emphasis">B*A</em>.</div>
+<div class="para logical" id="sec-matrix-operations-2-1-3-2">
+<div class="para">Once it is determined that multiplication is defined by checking the dimensions of the matrices <em class="emphasis">A</em> and <em class="emphasis">B</em>, the row-column rule can be applied to compute <em class="emphasis">A*B</em>. The row-column rule states that</div>
+<div class="displaymath process-math" id="sec-matrix-operations-2-1-3-2-4">
+\begin{gather}
+(AB)_{ij} = a_{i1}b_{1j} + a_{i2}b_{2j} + ... + a_{in}b_{nj}\text{.}\tag{22.1}
+\end{gather}
+</div>
+<div class="para">Say we have two matrices <em class="emphasis">A</em> and <em class="emphasis">B</em>, where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}
+a_{11} \amp a_{12} \amp a_{13}\\
+a_{21} \amp a_{22} \amp a_{23}
+\end{bmatrix}
+B = \begin{bmatrix}
+b_{11} \amp b_{12} \\
+b_{21} \amp b_{22} \\
+b_{31} \amp b_{32}
+\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">The matrix <em class="emphasis">A</em> can be multiplied by <em class="emphasis">B</em> because <em class="emphasis">A</em> has two columns and <em class="emphasis">B</em> has two rows, as a result, the matrix product will have dimensions of 2×2. Using the row-column method, the entries of the matrix <span class="process-math">\(A*B\)</span> can be defined as</div>
+<div class="displaymath process-math" id="sec-matrix-operations-2-1-3-2-13">
+\begin{align*}
+(AB)_{11} \amp= a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31}\\
+(AB)_{12} \amp= a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32}\\
+(AB)_{21} \amp= a_{21}b_{11} + a_{22}b_{21} + a_{23}b_{31}\\
+(AB)_{22} \amp= a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32}
+\end{align*}
+</div>
+<div class="para">Let’s assign actual values to the matrices <em class="emphasis">A</em> and <em class="emphasis">B</em>. Let’s say</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}
+1 \amp 2 \amp 0\\
+2 \amp 3 \amp 1
+\end{bmatrix},
+B = \begin{bmatrix}
+1 \amp 2 \\
+2 \amp 3 \\
+0 \amp 1
+\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="para">Therefore, the entries of matrix <em class="emphasis">C</em> when we do <span class="process-math">\(A * B = C\)</span> are</div>
+<div class="displaymath process-math" id="sec-matrix-operations-2-1-3-2-19">
+\begin{align*}
+c_{11} \amp= (1)(1) + (2)(2) + (0)(0) = 5\\
+c_{12} \amp= (1)(2) + (2)(3) + (0)(1) = 8\\
+c_{21} \amp= (2)(1) + (3)(2) + (1)(0) = 8\\
+c_{22} \amp= (2)(2) + (3)(3) + (1)(1) = 14
+\end{align*}
+</div>
+<div class="para">Thus,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C = \begin{bmatrix}
+5 \amp 8 \\
+8 \amp 14
+\end{bmatrix}
+\end{equation*}
+</div>
+</div>
+</li>
+</ol></div></section><section class="section" id="sec-determinants"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">22.3</span><span class="space"> </span><span class="title">Determinants</span>
+</h3>
+<div class="para" id="sec-determinants-2">The determinant is a scalar value calculated from the elements of a square matrix. It holds several important properties and uses within linear algebra, such as the following:</div>
+<div class="para logical" id="sec-determinants-3"><ul class="disc" id="sec-determinants-3-1">
+<li id="sec-determinants-3-1-1"><div class="para" id="sec-determinants-3-1-1-1">Can be used in solving systems of linear equations</div></li>
+<li id="sec-determinants-3-1-2"><div class="para" id="sec-determinants-3-1-2-1">Calculating the inverse of a matrix</div></li>
+<li id="sec-determinants-3-1-3"><div class="para" id="sec-determinants-3-1-3-1">Finding eigenvalues.</div></li>
+</ul></div>
+<div class="para logical" id="sec-determinants-4">
+<div class="para">As aforementioned, only square, <em class="emphasis">n×n</em> matrices have determinants. The determinant of a 1x1 matrix is the number itself. To compute the determinant of a 2x2 matri <em class="emphasis">A</em>, we can use the formula</div>
+<div class="displaymath process-math" id="sec-determinants-4-3">
+\begin{gather}
+det(A) = a_{11}a_{22} - a_{12}a_{21}\tag{22.2}
+\end{gather}
+</div>
+<div class="para">For example,</div>
+<div class="displaymath process-math" id="sec-determinants-4-4">
+\begin{align*}
+A \amp= \begin{bmatrix}
+2 \amp 1 \\
+4 \amp 5
+\end{bmatrix},\\
+\amp    \\
+det(A) \amp= (2)(5) - (1)(4) = 6. 
+\end{align*}
+</div>
+</div>
+<div class="para logical" id="sec-determinants-5">
+<div class="para">To compute the determinant of a 3x3 matrix <em class="emphasis">B</em>, you will take the values in the first row of the matrix (<span class="process-math">\(b_{11}, b_{12}, b_{13}\)</span>) and multiply them by the determinant of three 2x2 matrices comprised of values from the bottom two rows of the matrix. The formula is as follows,</div>
+<div class="displaymath process-math" id="sec-determinants-5-3">
+\begin{gather}
+det(B) = b_{11}(b_{22}b_{33}-b_{23}b_{32}) - b_{12}(b_{21}b_{33}-b_{23}b_{31}) + b_{13}(b_{21}b_{32}-b_{22}b_{31}).\tag{22.3}
+\end{gather}
+</div>
+<div class="para">To visually see the pattern, here are the three matrices with the value in the first row bolded. For each bolded element, we can see the four underlined values forming the 2x2 submatrix used to calculate its corresponding determinant term. Identify the pattern.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}
+\mathbf{b_{11}} \amp b_{12} \amp b_{13} \\
+b_{21} \amp \underline{b_{22}} \amp \underline{b_{23}} \\
+b_{31} \amp \underline{b_{32}} \amp \underline{b_{33}}
+\end{bmatrix},
+\begin{bmatrix}
+b_{11} \amp \mathbf{b_{12}} \amp b_{13} \\
+\underline{b_{21}} \amp b_{22} \amp \underline{b_{23}} \\
+\underline{b_{31}} \amp b_{32} \amp \underline{b_{33}}
+\end{bmatrix},
+\begin{bmatrix}
+b_{11} \amp b_{12} \amp \mathbf{b_{13}} \\
+\underline{b_{21}} \amp \underline{b_{22}} \amp b_{23} \\
+\underline{b_{31}} \amp \underline{b_{32}} \amp b_{33}
+\end{bmatrix}
+\end{equation*}
+</div>
+</div>
+<ul class="disc" id="sec-determinants-6">
+<li id="sec-determinants-6-1"><div class="para logical" id="sec-determinants-6-1-1">
+<div class="para">Calculate the determinant for the following matrices:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}3 \amp 5 \\ 2 \amp 7 \end{bmatrix}, B = \begin{bmatrix}-1 \amp 4 \\ 3 \amp -2 \end{bmatrix}, C = \begin{bmatrix}0 \amp 1 \\ -1 \amp 0 \end{bmatrix}\text{.}
+\end{equation*}
+</div>
+</div></li>
+<li id="sec-determinants-6-2"><div class="para" id="sec-determinants-6-2-1">Using the formula <a href="ch-linalg.html#sec-determinants-5-3" class="internal" title="Equation 22.3">(22.3)</a>, find the eigenvalues of the matrix <span class="process-math">\(D = \begin{bmatrix}
+2 \amp 1 \amp 3\\
+1 \amp 4 \amp 2\\
+3 \amp 2 \amp 1
+\end{bmatrix}\text{.}\)</span>
+</div></li>
+</ul></section><section class="section" id="sec-inverses"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">22.4</span><span class="space"> </span><span class="title">Inverses</span>
+</h3>
+<div class="para logical" id="sec-inverses-2">
+<div class="para">For a square matrix <em class="emphasis">A</em>, its inverse <span class="process-math">\(A^{-1}\)</span> is another matrix that when multiplied with <em class="emphasis">A</em>, results in the identity matrix (a square matrix with 1’s on the diagnol and 0’s everywhere else). Additionally, since the inverse of a matrix has the same square dimensions of the orginal matrix, the multiplication between the two is communitive. Thus, <span class="process-math">\(A * A^{-1} = A^{-1} * A = I\text{,}\)</span> where <span class="process-math">\(I\)</span> is the identity matrix. Before finding the inverse of a matrix, it is important to check the determinant.</div>
+<ul class="disc" id="sec-inverses-2-6">
+<li id="sec-inverses-2-6-1"><div class="para" id="sec-inverses-2-6-1-1">If <span class="process-math">\(det(A) ≠ 0\text{,}\)</span> the matrix is invertible</div></li>
+<li id="sec-inverses-2-6-2"><div class="para" id="sec-inverses-2-6-2-1">If <span class="process-math">\(det(A) = 0\text{,}\)</span> the matrix is not invertible.</div></li>
+</ul>
+</div>
+<div class="para logical" id="sec-inverses-3">
+<div class="para">For a 2x2 matrix, we can use the formula <a href="ch-linalg.html#sec-determinants-4-3" class="internal" title="Equation 22.2">(22.2)</a>. If <span class="process-math">\(det(A) ≠ 0\text{,}\)</span> we can continue to find the inverse. If <span class="process-math">\(det(A) = 0\text{,}\)</span> we can conclude that <span class="process-math">\(A\)</span> is not invertible. If we find that <span class="process-math">\(A\)</span> <em class="alert">is</em> invertible, we can use the following formula to find <span class="process-math">\(A^{-1}\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/det-form.html ./knowl/xref/rc-theorem.html">
+\begin{equation*}
+A^{-1} = \frac{1}{det(A)}
+\begin{bmatrix}
+a_{22} \amp -a_{12} \\
+-a_{21} \amp a_{11}
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Here is an example with a matrix <span class="process-math">\(A\text{,}\)</span> with integers as entries.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/det-form.html ./knowl/xref/rc-theorem.html">
+\begin{equation*}
+A = \begin{bmatrix}
+4 \amp 3 \\
+1 \amp 1
+\end{bmatrix}\text{,}
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/det-form.html ./knowl/xref/rc-theorem.html">
+\begin{equation*}
+A^{-1} = \frac{1}{(4)(1)-(3)(1)}
+\begin{bmatrix}
+1 \amp -3 \\
+-1 \amp 4
+\end{bmatrix}
+= \begin{bmatrix}
+1 \amp -3 \\
+-1 \amp 4
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">To verify our result, we can multiply the original matrix by its calculated inverse. If the product is the identity matrix, our computation is correct. Here is the calculation using the row-column theorem <a href="ch-linalg.html#sec-matrix-operations-2-1-3-2-4" class="internal" title="Equation 22.1">(22.1)</a>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/det-form.html ./knowl/xref/rc-theorem.html">
+\begin{equation*}
+A*A^{-1} = \begin{bmatrix}
+4 \amp 3 \\
+1 \amp 1
+\end{bmatrix}
+\begin{bmatrix}
+1 \amp -3 \\
+-1 \amp 4
+\end{bmatrix}
+=
+\begin{bmatrix}
+(4)(1) + (3)(-1) \amp (4)(-3) + (3)(4) \\
+(1)(1) + (1)(-1) \amp (1)(-3) + (1)(4)
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \amp 0 \\
+0 \amp 1
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Since the product matrix is the the identity matrix, we can conclude that our <span class="process-math">\(A^{-1}\)</span> calculation was correct.</div>
+</div>
+<ul class="disc" id="sec-inverses-4">
+<li id="sec-inverses-4-1"><div class="para" id="sec-inverses-4-1-1">Determine whether the matrix <span class="process-math">\(A = \begin{bmatrix}2 \amp 5 \\ 3 \amp 4 \end{bmatrix}\)</span> is invertible or not. If it is not, explain why. If it is, continue to calculate the inverse.</div></li>
+<li id="sec-inverses-4-2"><div class="para" id="sec-inverses-4-2-1">Find the inverse of the matrix <span class="process-math">\(A = \begin{bmatrix}2 \amp 3 \\ 1 \amp 4 \end{bmatrix}\text{.}\)</span> Show all steps, including how the determinant was calculated. Then, verify the inverse is correct by multiplying <span class="process-math">\(A * A^{-1}\text{.}\)</span>
+</div></li>
+</ul></section><section class="section" id="sec-eigenvalues"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">22.5</span><span class="space"> </span><span class="title">Eigenvalues</span>
+</h3>
+<div class="para" id="sec-eigenvalues-2">An eigenvalue is a scalar that, when a square matrix is multiplied by a specific vector (called an eigenvector), produces a result that is a scaled version of that same vector. Eigenvalues are used to show how the matrix stretches, shrinks, or rotates vectors in space.</div>
+<div class="para logical" id="sec-eigenvalues-3">
+<div class="para">To find the eigenvalues of a square, <em class="emphasis">n×n</em>, matrix <span class="process-math">\(A\text{,}\)</span> we must first form the matrix <span class="process-math">\(A - \lambda I\text{.}\)</span> Assuming <span class="process-math">\(A\)</span> is a 2x2 matrix, this process can be seen below:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A - \lambda I =
+\begin{bmatrix}
+a_{11} \amp a_{12} \\
+a_{21} \amp a_{22}
+\end{bmatrix} -
+\lambda \begin{bmatrix}
+1 \amp 0 \\
+0 \amp 1
+\end{bmatrix} =
+\begin{bmatrix}
+a_{11} \amp a_{12} \\
+a_{21} \amp a_{22}
+\end{bmatrix} -
+\begin{bmatrix}
+\lambda \amp 0 \\
+0 \amp \lambda
+\end{bmatrix} =
+\begin{bmatrix}
+a_{11} - \lambda \amp a_{12} \\
+a_{21} \amp a_{22} - \lambda
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Once the <span class="process-math">\(A - \lambda I\)</span> matrix is found, we must then set the determinant of this new matrix equal to 0:</div>
+<div class="displaymath process-math" id="sec-eigenvalues-3-7">
+\begin{gather}
+det(A - \lambda I) = (a_{11} - \lambda)(a_{22} - \lambda) - a_{12}a_{21} = 0.\tag{22.4}
+\end{gather}
+</div>
+<div class="para">From this point, we can algebraically solve for <span class="process-math">\(\lambda\text{.}\)</span> The values of <span class="process-math">\(\lambda\)</span> that solve this equation are the considered the eigenvalues of <span class="process-math">\(A\text{.}\)</span> To simplify the algebraic process, we can also use python code to calculate the eigenvalues of the matrix <span class="process-math">\(A\text{.}\)</span> <pre id="sec-eigenvalues-3-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">       #Import packages
+       import numpy as np
+       
+       # Define the matrix
+       A = np.array([[2, 1],
+                     [1, 2]])
+
+
+       # Calculate eigenvalues
+       eigenvalues = np.linalg.eigvals(A)
+
+
+       # Print the eigenvalues
+       print("Eigenvalues:", eigenvalues)
+</script></pre>
+</div>
+</div>
+<div class="para logical" id="sec-eigenvalues-4">
+<div class="para">Within a linear system, the value of the calculated eigenvalues provide important information regarding the stability of the system over time.</div>
+<ul class="disc" id="sec-eigenvalues-4-1">
+<li id="sec-eigenvalues-4-1-1"><div class="para" id="sec-eigenvalues-4-1-1-1">If the magnitude of all the eigenvalues of a matrix are less than 1:  the system is stable and will eventually settle into an equilibrium state as time progresses.</div></li>
+<li id="sec-eigenvalues-4-1-2"><div class="para" id="sec-eigenvalues-4-1-2-1">If a matrix has eigenvalues with a magnitude greater than 1, changes in the system will grow exponentially over time (either positively or negatively), which might lead to an ustable system.</div></li>
+<li id="sec-eigenvalues-4-1-3"><div class="para" id="sec-eigenvalues-4-1-3-1">If a matrix has at least one eigenvalue with magnitude less than 1 (but not all), changes along its corresponding eigenvector(s) will decay over time. This potentially creates a partially stable system where some components approach zero while others may grow or oscillate.</div></li>
+<li id="sec-eigenvalues-4-1-4"><div class="para" id="sec-eigenvalues-4-1-4-1">If a matrix has eigenvalues that are exactly 1 or -1, the system stays balanced. This means changes don’t get bigger or smaller over time, which can cause oscillating movements or other patterns that consistently repeating.</div></li>
+</ul>
+</div>
+<div class="para" id="sec-eigenvalues-5">An eigenvector of a square matrix <span class="process-math">\(A\)</span> is a non-zero vector <em class="alert">v</em> that, when multiplied by <span class="process-math">\(A\text{,}\)</span> yields a scalar multiple of itself. Eigenvectors and eigenvalues are paired in such a way that each eigenvector of a matrix <span class="process-math">\(A\)</span> is associated with a specific eigenvalue of <span class="process-math">\(A\text{.}\)</span>
+</div>
+<div class="para logical" id="sec-eigenvalues-6">
+<div class="para">To find eigenvectors, we must use the equation</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eig-form.html">
+\begin{equation*}
+(A-\lambda I)\textbf{x} = 0,
+\end{equation*}
+</div>
+<div class="para">where <em class="alert">x</em> is the eigenvector corresponding with <span class="process-math">\(\lambda\text{,}\)</span> where <span class="process-math">\(\lambda\)</span> is one of the eigenvalues of <span class="process-math">\(A\text{.}\)</span> In the case of a 2x2 matrix, this equation simplifies to</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eig-form.html">
+\begin{equation*}
+\begin{bmatrix}
+a_{11}-\lambda \amp a_{12} \\
+a_{21} \amp a_{22}-\lambda
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+0
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">After doing this matrix multiplication, we are left with a system of equations:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eig-form.html" id="sec-eigenvalues-6-7">
+\begin{align*}
+(a_{11} - \lambda)(x_1) + (a_{12})(x_2)\amp= 0\\
+(a_{21})(x_1) + (a_{22} - \lambda)(x_2)\amp= 0.
+\end{align*}
+</div>
+<div class="para">To find the values of <span class="process-math">\(\lambda\)</span> to input into the system of equations, we must calculate the eigenvalues of the matrix <span class="process-math">\(A\)</span> using the equation <a href="ch-linalg.html#sec-eigenvalues-3-7" class="internal" title="Equation 22.4">(22.4)</a>. Once the eigenvalues are calculated, substitute them seperately for <span class="process-math">\(\lambda\)</span> and solve the system of linear equations for the eigenvector <span class="process-math">\(\textbf{x} = \begin{bmatrix}x_1 \\ x_2 \end{bmatrix}\text{.}\)</span> There will be a distinct eigenvector for each of the individual eigenvalues. The eigenvectors represents a direction in which the linear transformation described by the matrix scales the vector by a factor equal to its corresponding eigenvalue, potentially including reflection if the eigenvalue is negative.</div>
+</div>
+<ul class="disc" id="sec-eigenvalues-7"><li id="sec-eigenvalues-7-1"><div class="para" id="sec-eigenvalues-7-1-1">Find the eigenvalues of the matrix, <span class="process-math">\(\begin{bmatrix}
+3 \amp 1 \\
+0 \amp 2
+\end{bmatrix}\text{.}\)</span> Use the eigenvalues to compute the distinct eigenvectors.</div></li></ul></section><section class="section" id="eigvalue-qs"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">22.6</span><span class="space"> </span><span class="title">Exercises</span>
+</h3>
+<ul class="disc" id="eigvalue-qs-2">
+<li id="eigvalue-qs-2-1"><div class="para logical" id="eigvalue-qs-2-1-1">
+<div class="para">Consider the matrices:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}
+1 \amp 2 \\
+3 \amp 4
+\end{bmatrix}, B = \begin{bmatrix}
+5 \amp 6 \\
+7 \amp 8
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Compute <span class="process-math">\(A+B\text{,}\)</span> <span class="process-math">\(A-B\text{,}\)</span> <span class="process-math">\(A*B\text{,}\)</span> and <span class="process-math">\(B*A\text{.}\)</span> Then, calculate the determinants of both matrices. Using the determinants, verify if the matrices are invertible or not. If so, find the inverse and verify your result by multiplying the inverse by the orginal matrix.</div>
+</div></li>
+<li id="eigvalue-qs-2-2"><div class="para" id="eigvalue-qs-2-2-1">Consider the matrix <span class="process-math">\(C = \begin{bmatrix}
+4 \amp 1 \\
+2 \amp 3
+\end{bmatrix}\text{.}\)</span> Find the eigenvalues of <span class="process-math">\(C\)</span> and use them to calculate the corresponding eigenvectors.</div></li>
+<li id="eigvalue-qs-2-3"><div class="para logical" id="eigvalue-qs-2-3-1">
+<div class="para">Consider a discrete-time linear system described by the difference equation <span class="process-math">\(\textbf{x}_{t+1} = A\textbf{x}_{t}\)</span> with a general solution of <span class="process-math">\(\textbf{x}_{t} = A^\textbf{x}_{0}\text{.}\)</span> Also consider the matrix <span class="process-math">\(A\)</span> and the initial state vector <span class="process-math">\(\textbf{x}_0\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}
+\frac{1}{2} \amp 0 \\
+0 \amp \frac{1}{2}
+\end{bmatrix},
+\textbf{x}_0 = \begin{bmatrix}
+1 \\
+1
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Calculate the eigenvectors of the matrix <span class="process-math">\(A\text{.}\)</span> Then calculate the state vector <span class="process-math">\(\textbf{x}_t\)</span> ​at <span class="process-math">\(𝑡 = 1, 2, 3, 4, 5.\text{.}\)</span> Using pen and paper or an online graphing program, plot the values of <span class="process-math">\(\textbf{x}_t\)</span> over time. Using the visualization, analyze and describe how the system’s behavior changes over time.</div>
+</div></li>
+<li id="eigvalue-qs-2-4"><div class="para logical" id="eigvalue-qs-2-4-1">
+<div class="para">Complete the same process, however, this time use the matrix <span class="process-math">\(B\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B = \begin{bmatrix}
+\frac{3}{2} \amp 0 \\
+0 \amp \frac{3}{2}
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Describe the differences in behavior between the two systems.</div>
+</div></li>
+<li id="eigvalue-qs-2-5"><div class="para logical" id="eigvalue-qs-2-5-1">
+<div class="para">Finally, consider the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C = \begin{bmatrix}
+1.2 \amp 0 \\
+0 \amp .8
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Work throught the same process as above, calculate the state vectors <span class="process-math">\(\textbf{x}_t\)</span> ​at <span class="process-math">\(𝑡 = 1, 2, 3, 4, 5\)</span> and describe the behavior of the system. Using all three systems as examples, what can we say about how eigenvalues can predict the behavior of a system?</div>
+</div></li>
+</ul></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-introducing-an-incubation-period-in-the-zombie-app.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-Case-Studies.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

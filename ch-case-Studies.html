@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Case Studies</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathematical Epidemiology and More">
+<meta property="book:author" content="Meredith L. Greer">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#expl-reading-about-disease-in-the-news-and-popular-media-4-1-2 { counter-set: expl-reading-about-disease-in-the-news-and-popular-media-4-1-2 0; }
+#expl-reading-about-disease-in-the-news-and-popular-media-4-1-2 > li::marker { content: ""counter(expl-reading-about-disease-in-the-news-and-popular-media-4-1-2,decimal)"."; }
+#expl-reading-about-disease-in-the-news-and-popular-media-4-1-2 > li { counter-increment: expl-reading-about-disease-in-the-news-and-popular-media-4-1-2; }
+#sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5 { counter-set: sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5 0; }
+#sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5 > li::marker { content: ""counter(sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5,decimal)"."; }
+#sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5 > li { counter-increment: sec-Follow-Up-By-Seeking-More-Precise-Data-4-1-1-5; }
+#exer-begin-zombie-app-1-2 { counter-set: exer-begin-zombie-app-1-2 0; }
+#exer-begin-zombie-app-1-2 > li::marker { content: ""counter(exer-begin-zombie-app-1-2,decimal)"."; }
+#exer-begin-zombie-app-1-2 > li { counter-increment: exer-begin-zombie-app-1-2; }
+#sec-we-now-have-data-qualitative-musings-5-1-2 { counter-set: sec-we-now-have-data-qualitative-musings-5-1-2 0; }
+#sec-we-now-have-data-qualitative-musings-5-1-2 > li::marker { content: ""counter(sec-we-now-have-data-qualitative-musings-5-1-2,decimal)"."; }
+#sec-we-now-have-data-qualitative-musings-5-1-2 > li { counter-increment: sec-we-now-have-data-qualitative-musings-5-1-2; }
+#sec-a-first-model-6-1-2 { counter-set: sec-a-first-model-6-1-2 0; }
+#sec-a-first-model-6-1-2 > li::marker { content: ""counter(sec-a-first-model-6-1-2,decimal)"."; }
+#sec-a-first-model-6-1-2 > li { counter-increment: sec-a-first-model-6-1-2; }
+#sec-a-first-model-18-1-3 { counter-set: sec-a-first-model-18-1-3 0; }
+#sec-a-first-model-18-1-3 > li::marker { content: ""counter(sec-a-first-model-18-1-3,decimal)"."; }
+#sec-a-first-model-18-1-3 > li { counter-increment: sec-a-first-model-18-1-3; }
+#exercises-ch-zombies-can-math-help-2-2 { counter-set: exercises-ch-zombies-can-math-help-2-2 0; }
+#exercises-ch-zombies-can-math-help-2-2 > li::marker { content: "("counter(exercises-ch-zombies-can-math-help-2-2,lower-alpha)")"; }
+#exercises-ch-zombies-can-math-help-2-2 > li { counter-increment: exercises-ch-zombies-can-math-help-2-2; }
+#exercises-ch-zombies-can-math-help-3-2 { counter-set: exercises-ch-zombies-can-math-help-3-2 0; }
+#exercises-ch-zombies-can-math-help-3-2 > li::marker { content: "("counter(exercises-ch-zombies-can-math-help-3-2,lower-alpha)")"; }
+#exercises-ch-zombies-can-math-help-3-2 > li { counter-increment: exercises-ch-zombies-can-math-help-3-2; }
+#sec-solving-differential-equations-using-graphs-10 { counter-set: sec-solving-differential-equations-using-graphs-10 0; }
+#sec-solving-differential-equations-using-graphs-10 > li::marker { content: ""counter(sec-solving-differential-equations-using-graphs-10,decimal)"."; }
+#sec-solving-differential-equations-using-graphs-10 > li { counter-increment: sec-solving-differential-equations-using-graphs-10; }
+#exer-first-odeint-code-2-1-1 { counter-set: exer-first-odeint-code-2-1-1 0; }
+#exer-first-odeint-code-2-1-1 > li::marker { content: ""counter(exer-first-odeint-code-2-1-1,decimal)"."; }
+#exer-first-odeint-code-2-1-1 > li { counter-increment: exer-first-odeint-code-2-1-1; }
+#exercises-visualization-graphing-model-results-and-data-1-1-2 { counter-set: exercises-visualization-graphing-model-results-and-data-1-1-2 0; }
+#exercises-visualization-graphing-model-results-and-data-1-1-2 > li::marker { content: "("counter(exercises-visualization-graphing-model-results-and-data-1-1-2,lower-alpha)")"; }
+#exercises-visualization-graphing-model-results-and-data-1-1-2 > li { counter-increment: exercises-visualization-graphing-model-results-and-data-1-1-2; }
+#exercises-visualization-graphing-model-results-and-data-3-2 { counter-set: exercises-visualization-graphing-model-results-and-data-3-2 0; }
+#exercises-visualization-graphing-model-results-and-data-3-2 > li::marker { content: "("counter(exercises-visualization-graphing-model-results-and-data-3-2,lower-alpha)")"; }
+#exercises-visualization-graphing-model-results-and-data-3-2 > li { counter-increment: exercises-visualization-graphing-model-results-and-data-3-2; }
+#activity-sir-diagram-and-des-1-2 { counter-set: activity-sir-diagram-and-des-1-2 0; }
+#activity-sir-diagram-and-des-1-2 > li::marker { content: ""counter(activity-sir-diagram-and-des-1-2,decimal)"."; }
+#activity-sir-diagram-and-des-1-2 > li { counter-increment: activity-sir-diagram-and-des-1-2; }
+#activity-sir-diagram-and-des-2-1 { counter-set: activity-sir-diagram-and-des-2-1 0; }
+#activity-sir-diagram-and-des-2-1 > li::marker { content: ""counter(activity-sir-diagram-and-des-2-1,decimal)"."; }
+#activity-sir-diagram-and-des-2-1 > li { counter-increment: activity-sir-diagram-and-des-2-1; }
+#activity-sir-diagram-and-des-3-1 { counter-set: activity-sir-diagram-and-des-3-1 0; }
+#activity-sir-diagram-and-des-3-1 > li::marker { content: ""counter(activity-sir-diagram-and-des-3-1,decimal)"."; }
+#activity-sir-diagram-and-des-3-1 > li { counter-increment: activity-sir-diagram-and-des-3-1; }
+#activity-introducing-units-1-4 { counter-set: activity-introducing-units-1-4 0; }
+#activity-introducing-units-1-4 > li::marker { content: ""counter(activity-introducing-units-1-4,decimal)"."; }
+#activity-introducing-units-1-4 > li { counter-increment: activity-introducing-units-1-4; }
+#activity-introducing-units-2-1 { counter-set: activity-introducing-units-2-1 0; }
+#activity-introducing-units-2-1 > li::marker { content: ""counter(activity-introducing-units-2-1,decimal)"."; }
+#activity-introducing-units-2-1 > li { counter-increment: activity-introducing-units-2-1; }
+#activity-three-sets-of-parameters-1-5 { counter-set: activity-three-sets-of-parameters-1-5 0; }
+#activity-three-sets-of-parameters-1-5 > li::marker { content: ""counter(activity-three-sets-of-parameters-1-5,decimal)"."; }
+#activity-three-sets-of-parameters-1-5 > li { counter-increment: activity-three-sets-of-parameters-1-5; }
+#activity-three-sets-of-parameters-2-1 { counter-set: activity-three-sets-of-parameters-2-1 0; }
+#activity-three-sets-of-parameters-2-1 > li::marker { content: ""counter(activity-three-sets-of-parameters-2-1,decimal)"."; }
+#activity-three-sets-of-parameters-2-1 > li { counter-increment: activity-three-sets-of-parameters-2-1; }
+#exercises-ch-populations-and-R0-1-4 { counter-set: exercises-ch-populations-and-R0-1-4 0; }
+#exercises-ch-populations-and-R0-1-4 > li::marker { content: "("counter(exercises-ch-populations-and-R0-1-4,lower-alpha)")"; }
+#exercises-ch-populations-and-R0-1-4 > li { counter-increment: exercises-ch-populations-and-R0-1-4; }
+#exercises-ch-populations-and-R0-2-2 { counter-set: exercises-ch-populations-and-R0-2-2 0; }
+#exercises-ch-populations-and-R0-2-2 > li::marker { content: "("counter(exercises-ch-populations-and-R0-2-2,lower-alpha)")"; }
+#exercises-ch-populations-and-R0-2-2 > li { counter-increment: exercises-ch-populations-and-R0-2-2; }
+#exercises-ch-populations-and-R0-3-3 { counter-set: exercises-ch-populations-and-R0-3-3 0; }
+#exercises-ch-populations-and-R0-3-3 > li::marker { content: "("counter(exercises-ch-populations-and-R0-3-3,lower-alpha)")"; }
+#exercises-ch-populations-and-R0-3-3 > li { counter-increment: exercises-ch-populations-and-R0-3-3; }
+#expl-activity-vaccines-3-1-4 { counter-set: expl-activity-vaccines-3-1-4 0; }
+#expl-activity-vaccines-3-1-4 > li::marker { content: ""counter(expl-activity-vaccines-3-1-4,decimal)"."; }
+#expl-activity-vaccines-3-1-4 > li { counter-increment: expl-activity-vaccines-3-1-4; }
+#expl-activity-vaccines-4-1-2 { counter-set: expl-activity-vaccines-4-1-2 0; }
+#expl-activity-vaccines-4-1-2 > li::marker { content: ""counter(expl-activity-vaccines-4-1-2,decimal)"."; }
+#expl-activity-vaccines-4-1-2 > li { counter-increment: expl-activity-vaccines-4-1-2; }
+#activity-pcrit-1-2 { counter-set: activity-pcrit-1-2 0; }
+#activity-pcrit-1-2 > li::marker { content: ""counter(activity-pcrit-1-2,decimal)"."; }
+#activity-pcrit-1-2 > li { counter-increment: activity-pcrit-1-2; }
+#activity-pcrit-2-1 { counter-set: activity-pcrit-2-1 0; }
+#activity-pcrit-2-1 > li::marker { content: ""counter(activity-pcrit-2-1,decimal)"."; }
+#activity-pcrit-2-1 > li { counter-increment: activity-pcrit-2-1; }
+#activity-pcrit2-1-5 { counter-set: activity-pcrit2-1-5 0; }
+#activity-pcrit2-1-5 > li::marker { content: ""counter(activity-pcrit2-1-5,decimal)"."; }
+#activity-pcrit2-1-5 > li { counter-increment: activity-pcrit2-1-5; }
+#activity-pcrit2-2-1 { counter-set: activity-pcrit2-2-1 0; }
+#activity-pcrit2-2-1 > li::marker { content: ""counter(activity-pcrit2-2-1,decimal)"."; }
+#activity-pcrit2-2-1 > li { counter-increment: activity-pcrit2-2-1; }
+#exercises-ch-vaccines-1-3 { counter-set: exercises-ch-vaccines-1-3 0; }
+#exercises-ch-vaccines-1-3 > li::marker { content: "("counter(exercises-ch-vaccines-1-3,lower-alpha)")"; }
+#exercises-ch-vaccines-1-3 > li { counter-increment: exercises-ch-vaccines-1-3; }
+#exercises-ch-vaccines-2-3 { counter-set: exercises-ch-vaccines-2-3 0; }
+#exercises-ch-vaccines-2-3 > li::marker { content: "("counter(exercises-ch-vaccines-2-3,lower-alpha)")"; }
+#exercises-ch-vaccines-2-3 > li { counter-increment: exercises-ch-vaccines-2-3; }
+#exercises-ch-vaccines-3-2 { counter-set: exercises-ch-vaccines-3-2 0; }
+#exercises-ch-vaccines-3-2 > li::marker { content: "("counter(exercises-ch-vaccines-3-2,lower-alpha)")"; }
+#exercises-ch-vaccines-3-2 > li { counter-increment: exercises-ch-vaccines-3-2; }
+#expl-activity-incubation-3-1-2 { counter-set: expl-activity-incubation-3-1-2 0; }
+#expl-activity-incubation-3-1-2 > li::marker { content: ""counter(expl-activity-incubation-3-1-2,decimal)"."; }
+#expl-activity-incubation-3-1-2 > li { counter-increment: expl-activity-incubation-3-1-2; }
+#expl-activity-incubation-4-1-3 { counter-set: expl-activity-incubation-4-1-3 0; }
+#expl-activity-incubation-4-1-3 > li::marker { content: ""counter(expl-activity-incubation-4-1-3,decimal)"."; }
+#expl-activity-incubation-4-1-3 > li { counter-increment: expl-activity-incubation-4-1-3; }
+#activity-seir-model-intro-1-2 { counter-set: activity-seir-model-intro-1-2 0; }
+#activity-seir-model-intro-1-2 > li::marker { content: ""counter(activity-seir-model-intro-1-2,decimal)"."; }
+#activity-seir-model-intro-1-2 > li { counter-increment: activity-seir-model-intro-1-2; }
+#activity-seir-model-intro-2-1 { counter-set: activity-seir-model-intro-2-1 0; }
+#activity-seir-model-intro-2-1 > li::marker { content: ""counter(activity-seir-model-intro-2-1,decimal)"."; }
+#activity-seir-model-intro-2-1 > li { counter-increment: activity-seir-model-intro-2-1; }
+#activity-seir-model-play-with-kappa-1-2 { counter-set: activity-seir-model-play-with-kappa-1-2 0; }
+#activity-seir-model-play-with-kappa-1-2 > li::marker { content: ""counter(activity-seir-model-play-with-kappa-1-2,decimal)"."; }
+#activity-seir-model-play-with-kappa-1-2 > li { counter-increment: activity-seir-model-play-with-kappa-1-2; }
+#activity-seir-model-play-with-kappa-2-1 { counter-set: activity-seir-model-play-with-kappa-2-1 0; }
+#activity-seir-model-play-with-kappa-2-1 > li::marker { content: ""counter(activity-seir-model-play-with-kappa-2-1,decimal)"."; }
+#activity-seir-model-play-with-kappa-2-1 > li { counter-increment: activity-seir-model-play-with-kappa-2-1; }
+#activity-seir-model-pertussis-setup-1-2 { counter-set: activity-seir-model-pertussis-setup-1-2 0; }
+#activity-seir-model-pertussis-setup-1-2 > li::marker { content: ""counter(activity-seir-model-pertussis-setup-1-2,decimal)"."; }
+#activity-seir-model-pertussis-setup-1-2 > li { counter-increment: activity-seir-model-pertussis-setup-1-2; }
+#activity-seir-model-pertussis-setup-2-1 { counter-set: activity-seir-model-pertussis-setup-2-1 0; }
+#activity-seir-model-pertussis-setup-2-1 > li::marker { content: ""counter(activity-seir-model-pertussis-setup-2-1,decimal)"."; }
+#activity-seir-model-pertussis-setup-2-1 > li { counter-increment: activity-seir-model-pertussis-setup-2-1; }
+#exercises-ch-incubation-period-1-2 { counter-set: exercises-ch-incubation-period-1-2 0; }
+#exercises-ch-incubation-period-1-2 > li::marker { content: "("counter(exercises-ch-incubation-period-1-2,lower-alpha)")"; }
+#exercises-ch-incubation-period-1-2 > li { counter-increment: exercises-ch-incubation-period-1-2; }
+#exercises-ch-incubation-period-2-2 { counter-set: exercises-ch-incubation-period-2-2 0; }
+#exercises-ch-incubation-period-2-2 > li::marker { content: "("counter(exercises-ch-incubation-period-2-2,lower-alpha)")"; }
+#exercises-ch-incubation-period-2-2 > li { counter-increment: exercises-ch-incubation-period-2-2; }
+#sec-matrix-operations-2-1 { counter-set: sec-matrix-operations-2-1 0; }
+#sec-matrix-operations-2-1 > li::marker { content: ""counter(sec-matrix-operations-2-1,decimal)"."; }
+#sec-matrix-operations-2-1 > li { counter-increment: sec-matrix-operations-2-1; }
+#sec-matrix-operations-2-1 { counter-set: sec-matrix-operations-2-1 0; }
+#sec-matrix-operations-2-1 > li::marker { content: ""counter(sec-matrix-operations-2-1,decimal)"."; }
+#sec-matrix-operations-2-1 > li { counter-increment: sec-matrix-operations-2-1; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="mathematical-epidemiology.html"><span class="title">Mathematical Epidemiology and More:</span> <span class="subtitle">A Course on Compartmental Models</span></a></h1>
+<p class="byline">Meredith L. Greer</p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Search Results: </h2>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="ch-linear-algebra-for-compartmental-modeling.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="part-examples-and-case-studies.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2 parts"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="frontmatter-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-overall.html" class="internal"><span class="title">Preface</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface-students.html" class="internal"><span class="title">To Students: How to Get the Most from This Text</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-core-modeling-concepts.html" class="internal"><span class="codenumber">I</span> <span class="title">Core Modeling Concepts</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html" class="internal"><span class="codenumber">1</span> <span class="title">Prelude: Diseases in Popular News</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#sec-Possible-Discussion-Themes" class="internal"><span class="codenumber">1.1</span> <span class="title">Possible Discussion Themes</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#sec-Follow-Up-By-Seeking-More-Precise-Data" class="internal"><span class="codenumber">1.2</span> <span class="title">Follow Up By Seeking More Precise Data</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-prelude-diseases-in-popular-news.html#exercises-prelude-diseases-in-popular-news" class="internal"><span class="codenumber">1.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-zombies-can-math-help.html" class="internal"><span class="codenumber">2</span> <span class="title">Zombies: Can Math Help?</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#sec-we-now-have-data-qualitative-musings" class="internal"><span class="codenumber">2.1</span> <span class="title">We Now Have Data: Qualitative Musings</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#sec-a-first-model" class="internal"><span class="codenumber">2.2</span> <span class="title">A First Model</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-zombies-can-math-help.html#exercises-ch-zombies-can-math-help" class="internal"><span class="codenumber">2.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html" class="internal"><span class="codenumber">3</span> <span class="title">Visualization: Graphing Model Results and Data</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#sec-solving-differential-equations-using-graphs" class="internal"><span class="codenumber">3.1</span> <span class="title">“Solving” Differential Equations Using Graphs</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#sec-estimating-beta-and-building-visualization-skills" class="internal"><span class="codenumber">3.2</span> <span class="title">Estimating <span class="process-math">\(\beta\)</span> and Building Visualization Skills</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-visualization-graphing-model-results-and-data.html#exercises-visualization-graphing-model-results-and-data" class="internal"><span class="codenumber">3.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-compartmental-diagrams.html" class="internal"><span class="codenumber">4</span> <span class="title">Compartmental Diagrams</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-compartmental-diagrams-vocabulary-and-comments" class="internal"><span class="codenumber">4.1</span> <span class="title">Compartmental Diagrams: Vocabulary and Comments</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-from-zombie-game-variation-to-compartmental-diagram" class="internal"><span class="codenumber">4.2</span> <span class="title">From Zombie Game Variation to Compartmental Diagram</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#sec-estimating-gamma-and-other-rates" class="internal"><span class="codenumber">4.3</span> <span class="title">Estimating Gamma and Other Rates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-compartmental-diagrams.html#exercises-ch-compartmental-diagrams" class="internal"><span class="codenumber">4.4</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal"><span class="codenumber">5</span> <span class="title">Model Analysis and the Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-using-calculus-to-analyze-models" class="internal"><span class="codenumber">5.1</span> <span class="title">Using Calculus to Analyze Models</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0" class="internal"><span class="codenumber">5.2</span> <span class="title">The Basic Reproduction Number <span class="process-math">\(\mathcal{R}_0\)</span></span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#exercises-ch-populations-and-R0" class="internal"><span class="codenumber">5.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-vaccines.html" class="internal"><span class="codenumber">6</span> <span class="title">Vaccines</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines.html#sec-determining-a-threshold-vaccine-level" class="internal"><span class="codenumber">6.1</span> <span class="title">Determining a Threshold Vaccine Level</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines.html#sec-how-vaccination-level-affects-long-term-outcomes" class="internal"><span class="codenumber">6.2</span> <span class="title">How Vaccination Level Affects Long Term Outcomes</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-vaccines.html#exercises-ch-vaccines" class="internal"><span class="codenumber">6.3</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incubation-periods.html" class="internal"><span class="codenumber">7</span> <span class="title">Incubation Periods</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-incubation-periods.html#sec-including-an-incubation-period-the-seir-model" class="internal"><span class="codenumber">7.1</span> <span class="title">Including an Incubation Period: The SEIR Model</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-incubation-periods.html#exercises-ch-incubation-period" class="internal"><span class="codenumber">7.2</span> <span class="title">For Further Thought</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal"><span class="codenumber">8</span> <span class="title">* Preparing Influenza Data to Compare With a Model</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-ga" class="internal"><span class="codenumber">8.1</span> <span class="title">Starter Example Comparing Data with a Model: Zombie Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gz" class="internal"><span class="codenumber">8.2</span> <span class="title">Using RSS</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-influenza-data-to-compare-with-a-model.html#sec-gx" class="internal"><span class="codenumber">8.3</span> <span class="title">Influenza Data and RSS</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-epidemic-vs-endemic-models.html" class="internal"><span class="codenumber">9</span> <span class="title">* Epidemic vs. Endemic Models</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-epidemic-vs-endemic-models.html#sec-ee" class="internal"><span class="codenumber">9.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">* Residual Sum of Squares: Improving a Model’s Fit to Data</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-ra" class="internal"><span class="codenumber">10.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-akaike-information-criterion-comparing-different-models.html" class="internal"><span class="codenumber">11</span> <span class="title">* Akaike Information Criterion: Comparing Different Models</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-akaike-information-criterion-comparing-different-models.html#sec-ma" class="internal"><span class="codenumber">11.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-modeling-the-spread-of-a-rumor.html" class="internal"><span class="codenumber">12</span> <span class="title">* Modeling the Spread of a Rumor</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-modeling-the-spread-of-a-rumor.html#sec-7" class="internal"><span class="codenumber">12.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part">
+<div class="toc-title-box"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-model-analysis-total-population-and-equilibrium-values.html" class="internal"><span class="codenumber">13</span> <span class="title">Model Analysis: Total Population and Equilibrium Values</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-model-analysis-total-population-and-equilibrium-values.html#sec-1" class="internal"><span class="codenumber">13.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">14</span> <span class="title">* The Next Generation Method</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-the-next-generation-method.html#sec-2" class="internal"><span class="codenumber">14.1</span> <span class="title">Python Code for the Next Generation Method</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-the-next-generation-method-connecting-theory-with-practice.html" class="internal"><span class="codenumber">15</span> <span class="title">* The Next Generation Method: Underlying Theory</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-the-next-generation-method-connecting-theory-with-practice.html#sec-3" class="internal"><span class="codenumber">15.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-tips-on-reading-a-scientific-paper.html" class="internal"><span class="codenumber">16</span> <span class="title">* Tips on Reading a Scientific Paper</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-tips-on-reading-a-scientific-paper.html#sec-3a" class="internal"><span class="codenumber">16.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.html" class="internal"><span class="codenumber">17</span> <span class="title">* Numerical Simulations: An Overview of How Computers Turn Equations into Graphs</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.html#sec-4" class="internal"><span class="codenumber">17.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-kermack-mckendrick-the-1927-paper.html" class="internal"><span class="codenumber">18</span> <span class="title">* Kermack-McKendrick: the 1927 Paper</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-kermack-mckendrick-the-1927-paper.html#sec-4a" class="internal"><span class="codenumber">18.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-part contains-active">
+<div class="toc-title-box"><a href="part-examples-and-case-studies.html" class="internal"><span class="codenumber">III</span> <span class="title">Examples and Case Studies</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-introducing-an-incubation-period-in-the-zombie-app.html" class="internal"><span class="codenumber">19</span> <span class="title">Introducing an Incubation Period in the Zombie App</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-introducing-an-incubation-period-in-the-zombie-app.html#sec-activity-introduce-an-incubation-period" class="internal"><span class="codenumber">19.1</span> <span class="title">Activity: Introduce an Incubation Period</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html" class="internal"><span class="codenumber">20</span> <span class="title">* Preparing Mumps Data to Compare with a Six-Compartment Model</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.html#sec-6" class="internal"><span class="codenumber">20.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html" class="internal"><span class="codenumber">21</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#lin-algebra-cc" class="internal"><span class="codenumber">21.1</span> <span class="title">Linear Algebra Crash Course</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#sec-matrix-operations" class="internal"><span class="codenumber">21.2</span> <span class="title">Matrix Operations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#sec-determinants" class="internal"><span class="codenumber">21.3</span> <span class="title">Determinants</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#sec-inverses" class="internal"><span class="codenumber">21.4</span> <span class="title">Inverses</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#sec-eigenvalues" class="internal"><span class="codenumber">21.5</span> <span class="title">Eigenvalues</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#eigvalue-qs" class="internal"><span class="codenumber">21.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html" class="internal"><span class="codenumber">22</span> <span class="title">Linear Algebra</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#lin-algebra-cc" class="internal"><span class="codenumber">22.1</span> <span class="title">Linear Algebra Crash Course</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#sec-matrix-operations" class="internal"><span class="codenumber">22.2</span> <span class="title">Matrix Operations</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#sec-determinants" class="internal"><span class="codenumber">22.3</span> <span class="title">Determinants</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#sec-inverses" class="internal"><span class="codenumber">22.4</span> <span class="title">Inverses</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#sec-eigenvalues" class="internal"><span class="codenumber">22.5</span> <span class="title">Eigenvalues</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-linear-algebra-for-compartmental-modeling.html#eigvalue-qs" class="internal"><span class="codenumber">22.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter active">
+<div class="toc-title-box"><a href="ch-case-Studies.html" class="internal"><span class="codenumber">23</span> <span class="title">Case Studies</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-case-Studies.html#sec-Intro" class="internal"><span class="codenumber">23.1</span> <span class="title">Intro</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter">
+<div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-glossary"><div class="toc-title-box"><a href="glossary-of-terms.html" class="internal"><span class="title">Glossary of Mathematical Epidemiology Terms</span></a></div></li></ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-case-Studies"><h2 class="heading">
+<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">23</span><span class="space"> </span><span class="title">Case Studies</span>
+</h2>
+<section class="section" id="sec-Intro"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">23.1</span><span class="space"> </span><span class="title">Intro</span>
+</h3>
+<div class="para" id="sec-Intro-2">This chapter will include case studies of outbreaks that contain specific characteristics that create thought-provoking scenarios.</div></section><article class="exploration project-like" id="Vaccination"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">23.1</span><span class="period">.</span><span class="space"> </span><span class="title">Vaccination.</span>
+</h3>
+<div class="introduction" id="Vaccination-2"><div class="para" id="Vaccination-2-1">In 2016, a varicella outbreak occurred in a kindergarten in Suzhou, China. The population consisted of 738 children, of whom 664 had no prior history of varicella. Those who have a previous history of varicella were not considered susceptible. Among the susceptible children, 364 had received a single dose of the varicella vaccine before the outbreak. One dose of the vaccine is ~82% effective (CDC).</div></div>
+<article class="task exercise-like" id="Vaccination-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="Vaccination-3-1-1">Construct an SEIR model, complete with differential equations (including vaccination) and parameter values. You must do research to find sufficient values for <span class="process-math">\(\mathcal{R}_0\text{,}\)</span> <span class="process-math">\(\gamma\text{,}\)</span> etc.</div></article><article class="task exercise-like" id="Vaccination-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="Vaccination-4-1-1">Graph your model using python: <pre id="Vaccination-4-1-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"> #Import packages
+ import numpy as np
+ import matplotlib.pyplot as plt
+ from scipy.integrate import odeint
+
+ plt.cla() #Clear (delete) any past plots
+
+ #Define the system of differential equations, and call it "model"
+ def model(y, t):
+   S, E, I, R = y #Define y as consisting of S, I, and R, in that order
+   dydt = [- (1-p*q) * beta * S * I, (1-p*q) * beta * S * I - kappa * E, kappa*E - gamma*I, gamma * I] #Provide the right-hand sides of the SIR model
+   return dydt
+
+ beta =  #Give a value to beta
+ kappa =  #Give a value to kappa
+ gamma =  #Give a value to gamma
+ p =  #Give a value to p
+ q =  #Give a value to q
+ y0 = [ , , , ] #Set initial conditions for S, I, and R, in that order
+ t_range = np.arange(0.0, 60.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+
+ sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+ # Tell Python to print the last values produced of S, E, I, and R, to help show long-range outcomes of the model
+ print("Long-term value of S = ", round(sol[-1,0]))
+ print("Long-term value of E = ", round(sol[-1,1]))
+ print("Long-term value of I = ", round(sol[-1,2]))
+ print("Long-term value of R = ", round(sol[-1,3]))
+
+
+ # Plotting commands are below
+ plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+ plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='E(t)')
+ plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='I(t)')
+ plt.plot(t_range, sol[:, 3], color='green', linestyle='dashdot', linewidth=2, label='R(t)')
+ plt.legend()
+ plt.grid()
+ plt.xlabel('time')
+ plt.ylabel('populations')
+ plt.show()
+</script></pre>
+</div></article><article class="task exercise-like" id="Vaccination-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="Vaccination-5-1-1">Using Google Colab, import the actual data from the outbreak and compare the accuracy of your model. The answer below gives instructions on how to import your data. <details id="colabinst" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="colabinst-1">
+<div class="para">Here’s how to import data into Google Colab:</div>
+<ul class="disc" id="colabinst-1-1">
+<li id="colabinst-1-1-1"><div class="para" id="colabinst-1-1-1-1">Make sure the “pandas” package is imported at the beginning of the code: <pre id="colabinst-1-1-1-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import pandas as pd
+</script></pre>
+</div></li>
+<li id="colabinst-1-1-2"><div class="para" id="colabinst-1-1-2-1">Mount Google Drive to access data files: <pre id="colabinst-1-1-2-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">from google.colab import drive
+drive.mount("/content/drive")
+</script></pre>
+</div></li>
+<li id="colabinst-1-1-3"><div class="para" id="colabinst-1-1-3-1">Load data from the file located in Google Drive: <pre id="colabinst-1-1-3-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv')
+</script></pre> After /content/drive/MyDrive, continue adding backslashes with the necessary folder names to complete the file path. For example, if your file ‘SmallpoxData.csv’ was located in a folder ‘Modeling’, your file path would be content/drive/MyDrive/Modeling/SmallpoxData.csv</div></li>
+<li id="colabinst-1-1-4"><div class="para" id="colabinst-1-1-4-1">Extract the column from your data representing time, as a list: <pre id="colabinst-1-1-4-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">t_steps = data['Day'].tolist()
+</script></pre> Replace ‘Day’ with whatever your column is labeled.</div></li>
+<li id="colabinst-1-1-5"><div class="para" id="colabinst-1-1-5-1">Extract the column representing the infected population, as a list: <pre id="colabinst-1-1-5-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">I_prevalence_data = data['Infected'].tolist()
+</script></pre> Replace ’infected’ with whatever your column is labeled.</div></li>
+<li id="colabinst-1-1-6"><div class="para" id="colabinst-1-1-6-1">All together, the code looks like this (also importing additional necessary packages): <pre id="colabinst-1-1-6-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">                       import numpy as np
+                       import pandas as pd
+                       import matplotlib.pyplot as plt
+                       from scipy.integrate import odeint
+
+
+                       from google.colab import drive
+                       drive.mount("/content/drive")
+
+
+                       data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv'
+                       t_steps = data['Day'].tolist()
+                       I_prevalence_data = data['Infected'].tolist()
+</script></pre>
+</div></li>
+</ul>
+</div></div></details> Describe the similarites and differences between your model and the data of the outbreak. What are some possible changes that you could implement into your model do better fit it to the data?</div></article><article class="task exercise-like" id="Vaccination-6"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="Vaccination-6-1-1">How would the model change if the students who had received one shot of vaccination had instead received two? Research the effectiveness of two shots of the varicella vaccine and implement that into the model. How different would the outbreak have gone?</div></article><article class="task exercise-like" id="Vaccination-7"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="Vaccination-7-1-1">How might strict isolation policies have decreased the spread of the disease. Talk specifically about the movement between compartments within the model.</div></article></article><article class="exploration project-like" id="Isolation"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">23.2</span><span class="period">.</span><span class="space"> </span><span class="title">Isolation.</span>
+</h3>
+<div class="introduction" id="Isolation-2">
+<div class="para" id="Isolation-2-1">This case study takes a look at the impact of strict isolation measures on disease spread. When modeling this outbreak it is important to recognize that the isolation of infected individuals is not in place at day 0 of the outbreak.</div> <div class="para" id="Isolation-2-2">On June 25, 2009, 1376 cadets arrived for a 6-week training at the military facility where an H1N1 outbreak would shortly break out. Throughout the outbreak, there were a total of 167 cases (134 confirmed and 33 suspected). A few days after a July 4th superspreader event, cases of influenza skyrocketed. After suspecting that the virus was H1N1, preventative measures started to be implemented. Starting July 7th (day 11 of the outbreak), cadets who met case definitions were isolated together in a separate dorm for at least 7 days from symptom onset, and then until they were symptom-free for 24 hours. Additional information: H1N1 typically has an <span class="process-math">\(\mathcal{R}_0\)</span>-value of 1.5, and someone with H1N1 is infected for approximately 8 days (Cleveland Clinic).</div> <div class="para" id="Isolation-2-3">Here is a <a class="external" href="https://www.sciencedirect.com/science/article/pii/S0749379709006564?casa_token=1fsuPagAv74AAAAA:HY3XMmbw6sOz4anORvltJb7lZKAQmFNFYrz7ssG8WMLKkQYnRYprW64fhKU6E6vwAUBaVzTP5EE" target="_blank">link</a><details class="ptx-footnote" aria-live="polite" id="Isolation-2-3-2"><summary class="ptx-footnote__number" title="Footnote 23.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="Isolation-2-3-2"><code class="code-inline tex2jax_ignore">www.sciencedirect.com/science/article/pii/S0749379709006564?casa_token=1fsuPagAv74AAAAA:HY3XMmbw6sOz4anORvltJb7lZKAQmFNFYrz7ssG8WMLKkQYnRYprW64fhKU6E6vwAUBaVzTP5EE</code></div></details> to the outbreak investigation.</div>
+</div>
+<article class="task exercise-like" id="Isolation-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="Isolation-3-1-1">List two possible ways of creating a compartmental model that incorporates strict isolation partway through the outbreak. Construct these models, create a compartmental diagram, and include their differential equations.</div></article><article class="task exercise-like" id="Isolation-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="Isolation-4-1-1">If an SIR model is used, the model must be adjusted to incorporate the effects of isolation measures. Which parameter(s) need to change and why? Provide and justify your choice for the new value of the parameter.</div></article><article class="task exercise-like" id="Isolation-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="Isolation-5-1-1">Should the transmission rate (<span class="process-math">\(\beta\)</span>) change when isolation is implemented? What are the arguments for and against changing <span class="process-math">\(\beta\)</span> on day 11? Simulate the model with and without changing <span class="process-math">\(\beta\)</span> on day 11. Analyze the differences in the results and discuss the reasoning behind keeping <span class="process-math">\(\beta\)</span> constant or adjusting it. <pre id="Isolation-5-1-1-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"> #Import packages
+ import numpy as np
+ import matplotlib.pyplot as plt
+ from scipy.integrate import odeint
+
+ plt.cla() #Clear (delete) any past plots
+
+ #Define the system of differential equations, and call it "model"
+ def model(y, t):
+   S, I, R = y #Define y as consisting of S, I, and R, in that order
+   dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #These formulas are the right-hand sides of the SIR model
+   return dydt
+
+ beta =  #Give a value to beta
+ gamma =  #Give a value to gamma
+ y0 = [1375, 1, 0] #Set initial conditions for S, I, and R, in that order
+ t_range = np.arange(0.0, 30.0, 0.1) #Set the time range to be t=0 to t=20, with "step through" increments of 0.1 when numerically solving
+
+ sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+ # Plotting commands are below
+ plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+ plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+ plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+ plt.legend()
+ plt.grid()
+ plt.xlabel('time')
+ plt.ylabel('populations')
+ plt.show()
+</script></pre>
+</div></article><article class="task exercise-like" id="Isolation-6"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="Isolation-6-1-1">Compare your model to the outbreak data using <a class="external" href="https://colab.research.google.com/" target="_blank">Google Colab</a><details class="ptx-footnote" aria-live="polite" id="Isolation-6-1-1-2"><summary class="ptx-footnote__number" title="Footnote 23.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="Isolation-6-1-1-2"><code class="code-inline tex2jax_ignore">colab.research.google.com/</code></div></details>(instructions on how to import data would be included). How well does this model represent the actual outbreak dynamics? Which parameter could we adjust to improve the model’s fit? How would this adjustment reflect the specific characteristics of this outbreak?</div></article><article class="task exercise-like" id="Isolation-7"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="Isolation-7-1-1">What might happen if isolation was implemented earlier or later in the outbreak? How would this affect the infection dynamics? Simulate the model with isolation starting on different days (e.g., days 7 and 14) and analyze the outcomes.</div></article><article class="task exercise-like" id="Isolation-8"><h4 class="heading"><span class="codenumber">(f)</span></h4>
+<div class="para" id="Isolation-8-1-1">Identify and discuss the possible limitations of this model.</div></article></article><article class="exploration project-like" id="Vaccine-Campaign"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">23.3</span><span class="period">.</span><span class="space"> </span><span class="title">Vaccine Campaign.</span>
+</h3>
+<div class="introduction" id="Vaccine-Campaign-2">
+<div class="para" id="Vaccine-Campaign-2-1">This case study includes a vaccine campaign implemented part-way through the outbreak.</div> <div class="para" id="Vaccine-Campaign-2-2">Between February and April 2024, a migrant shelter in Chicago experienced a sizeable measles outbreak. At the time of the index case, there were 1,801 shelter residents. Of the 1,801 residents, 784 (44%) had previous vaccination documentation. As it is unclear from the investigation, we will take this to mean that those residents with previous vaccine documentation had received one shot of the MMR vaccine. A mass vaccination campaign was initiated and completed within three days of the index cases’ confirmation and approximately 18 days of the index patient’s rash onset. The campaign vaccinated 882 residents (49%) which resulted in 1,666 (93%) of 1,801 shelter residents having vaccine documentation. Again, we will take this to mean having one dose of the MMR vaccine. The outbreak lasted ~50 days.</div> <div class="para" id="Vaccine-Campaign-2-3">Here is a <a class="external" href="https://www.cdc.gov/mmwr/volumes/73/wr/pdfs/mm7319a1-H.pdf" target="_blank">link</a><details class="ptx-footnote" aria-live="polite" id="Vaccine-Campaign-2-3-2"><summary class="ptx-footnote__number" title="Footnote 23.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="Vaccine-Campaign-2-3-2"><code class="code-inline tex2jax_ignore">www.cdc.gov/mmwr/volumes/73/wr/pdfs/mm7319a1-H.pdf</code></div></details> to the outbreak investigation.</div>
+</div>
+<article class="task exercise-like" id="Vaccine-Campaign-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="Vaccine-Campaign-3-1-1">Using your own research of measles, list the parameter values for an SIR model as well as the starting values for each compartment. Additionally, set up the differential equations at the beginning of the outbreak.</div></article><article class="task exercise-like" id="Vaccine-Campaign-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="Vaccine-Campaign-4-1-1">As mentioned, there was a successful vaccination campaign that took place during the outbreak. This means that the value of <span class="process-math">\(p\)</span> increases throughout the outbreak. We know that <span class="process-math">\(p = .44\)</span> and the start of the outbreak and <span class="process-math">\(p = .93\)</span> and the end of the outbreak. Given that the vaccination campaign started on day 18 of the outbreak and the MMR vaccine takes approximately 2 weeks to become fully effective, find an equation that demonstrates <span class="process-math">\(p\)</span> increasing linearly between the start of the vaccination campaign and the end.</div></article><article class="task exercise-like" id="Vaccine-Campaign-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="Vaccine-Campaign-5-1-1">Attempt to graph this model, including your new equation, using Python. </div></article><article class="task exercise-like" id="Vaccine-Campaign-6"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="Vaccine-Campaign-6-1-1">Use Google Colab to compare your model to the data from the outbreak. Do this by importing your data: <a href="ch-case-Studies.html#colabinst" class="internal" title="Answer 1">Answer 1</a>.</div></article><article class="task exercise-like" id="Vaccine-Campaign-7"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="Vaccine-Campaign-7-1-1">Add Residual Sum of Squares (RSS) and Corrected Akaike Information Criterion (AICc) to evaluate the accuracy of the model. <details id="Vaccine-Campaign-7-1-1-1" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para logical" id="Vaccine-Campaign-7-1-1-1-1">
+<div class="displaymath process-math">
+\begin{equation*}
+RSS = \[ \sum_{/text{All data values}}^{} (\text{Model Value - Data Value})^2\]
+\end{equation*}
+</div>
+<div class="para">Code for RSS: <pre id="Vaccine-Campaign-7-1-1-1-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"> num_steps = len(t_steps)
+ RSS = 0
+
+
+ for x in range(0,num_steps):
+    RSS = RSS + (I_prevalence_data[x] - sol[x, 1])**2
+    #print(RSS) #Uncomment this command to see in-between RSS calculations
+
+
+ print("RSS = ", RSS)
+</script></pre>
+</div>
+</div> <div class="para logical" id="Vaccine-Campaign-7-1-1-1-2">
+<div class="displaymath process-math">
+\begin{equation*}
+AIC_c = n\ln{\frac{RSS}{n}} + \frac{2Kn}{n - K - 1}
+\end{equation*}
+</div>
+<div class="para">where n = # of observations and K = # of parameters used in the model.</div>
+</div> <div class="para" id="Vaccine-Campaign-7-1-1-1-3">Code for <span class="process-math">\(AIC_c\text{:}\)</span> <pre id="Vaccine-Campaign-7-1-1-1-3-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">num_parameter = 2 # How many parameters are you using? beta + gamma = 2.
+k = num_parameter + 1
+aic_c = num_steps * np.log(RSS / num_steps) + ((2*k*num_steps)/(num_steps-k-1))
+print("AIC = ", aic_c)
+</script></pre>
+</div>
+</div></details>
+</div></article></article></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="ch-linear-algebra-for-compartmental-modeling.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>
