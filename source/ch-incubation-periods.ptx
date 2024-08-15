@@ -503,7 +503,7 @@
           Update <xref ref="activity-seir-model-pertussis-setup"/> to include vaccine. Include the multiplier <m>(1-p)</m> where appropriate, adapting our work from <xref ref="expl-activity-vaccines"/> and <xref ref="activity-pcrit2"/> to the SEIR model.
         </p>
         <p>
-          In this exercise, we do not address vaccine efficacy or effectiveness, assuming instead a <m>100\%</m> effective vaccine. In the following exercise, we include the actual effectiveness of pertussis vaccines.
+          In this exercise, we do not address vaccine efficacy or effectiveness, assuming instead a <m>100\%</m> effective vaccine. In the following exercise, number 3 in this section, we include the actual effectiveness of pertussis vaccines. 
         </p>   
         <ol>
           <li>
@@ -521,22 +521,17 @@
               Do some online research to determine the percentage of children in your area, or percentage of all people in your area, who are vaccinated against pertussis. <q>Your area</q> can refer to your city, state, province, country, or whatever other region you choose. Run the Python code again, using this percentage for vaccination, and citing the resources in which you found the percentage. Adjust the code as needed so you can best see the results, and describe your findings.
             </p>
           </li>
-          <li>
-            <p>
-              In approximately 2019, researchers found that the whooping cough vaccine had become less effective over time, for a variety of reasons. They investigated the reasons and made changes. Read about these events from at least three sources, including general news sources as well as government-led websites, and report on your findings.
-            </p>
-          </li>
         </ol>   
       </exercise>
 
-      <!-- <exercise number="3">
+      <exercise number="3">
         <p>
-          We make one more update to the pertussis model in <xref ref="activity-seir-model-pertussis-setup"/>, addressing vaccine effectiveness. Our inclusion of the multiplier <m>(1-p)</m> assumed that vaccination had <m>100 \%</m> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <m>80-85\%</m> vaccine effectiveness.<fn>This range of vaccine effectiveness level comes from the <url href="https://www.cdc.gov/vaccines/pubs/pinkbook/pert.html">Centers for Disease Control and Prevention</url>. The range is specific to the DTaP vaccine, in Europe and the Americas, in studies in or after 1991.</fn>
+          We make one more update to the pertussis model in <xref ref="activity-seir-model-pertussis-setup"/> and exercise 2 in this section, addressing vaccine effectiveness. Our inclusion of the multiplier <m>(1-p)</m> assumed that vaccination had <m>100 \%</m> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <m>80-85\%</m> vaccine effectiveness.<fn>This range of vaccine effectiveness level comes from the <url href="https://www.cdc.gov/vaccines/pubs/pinkbook/pert.html">Centers for Disease Control and Prevention</url>. The range is specific to the DTaP vaccine, in Europe and the Americas, in studies in or after 1991.</fn>
         </p>   
         <ol>
           <li>
             <p>
-              Rewrite your model as below, where <m>p</m> remains the percentage of people vaccinated, and <m>q</m> is the vaccine effectiveness percentage. We require that <m>0 \leq p \leq 1</m> and <m>0 \leq q \leq 1</m>. Explain in words why the way the model is written, and the ranges for <m>p</m> and <m>q</m>, make sense. In your explanation, include <q>edge cases</q>, that is, describe what happens when <m>p=0</m>, <m>p=1</m>, <m>q=0</m>, and <m>q=1</m>. Also describe what happens as <m>p</m> increases from <m>0</m> to <m>1</m>, and what happens as <m>q</m> increases from <m>0</m> to <m>1</m>.
+              Rewrite your model as below, where <m>p</m> remains the percentage of people vaccinated, and <m>q</m> is the vaccine effectiveness percentage. Notice that we require <m>0 \leq p \leq 1</m> and <m>0 \leq q \leq 1</m>: 
             </p>
             <md>
                 <mrow>\frac{dS}{dt} \amp = - (1-pq) \beta S I </mrow>
@@ -544,14 +539,17 @@
                 <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
                 <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
             </md>
+            <p>
+              Compute the value of <m>p_{\text{crit}}</m> for this model when <m>\mathcal{R}_0 = 5.5</m>. What percentage of people must be vaccinated in order to achieve <m>p_{\text{crit}}</m> when vaccine is <m>85\%</m> effective? What can you say about the percentage of vaccinated people needed in order to achieve <m>p_{\text{crit}}</m> when vaccine is <m>80\%</m> effective?
+            </p>
           </li>
           <li>
             <p>
-              Use the Python code from <xref ref="activity-seir-model-pertussis-setup"/> to incorporate vaccine effectiveness. Use logic, as well as results from your code, to explain how vaccine efficacy below <m>100\%</m> can make it more challenging to achieve the goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m>. In your explanation, you may wish to use the information that <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective.
+              In approximately 2019, researchers found that the whooping cough vaccine had become less effective over time, for a variety of reasons. They investigated the reasons and made changes. Read about these events from at least three sources, including general news sources as well as government-led websites, and report on your findings. Cite your sources.  In your report, describe the role of of vaccine effectiveness <m>p</m> as well as the role of the percentage <m>q</m> of people vaccinated in a population.
             </p>
           </li>
         </ol>     
-      </exercise> -->
+      </exercise>
     </exercises>
 
 
