@@ -1,11 +1,13 @@
 <chapter xml:id="ch-case-studies" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Case Studies</title>
-     <section xml:id="sec-Intro">
-      <title>Intro</title>
+     <introduction xml:id="intro-case-studies">
+      
       <p>
-        This chapter will include case studies of outbreaks that contain specific characteristics that create thought-provoking scenarios.
+        This supplemental chapter includes three case studies of outbreaks. The first of these gives a new example of modeling using vaccination. The second example provides extra practice modeling isolation. Finally, the third example returns to vaccination, modeling a vaccine campaign that occurs during an outbreak. 
       </p>
-    </section>
+    </introduction>
+
+    <section>
       <exploration xml:id="Vaccination">
         <title>Vaccination</title>
         <introduction>
@@ -193,6 +195,10 @@
           </statement>
         </task>
       </exploration>
+    </section>
+
+    <section>
+
       <exploration xml:id="Isolation">
         <title>Isolation</title>
         <introduction>
@@ -289,6 +295,9 @@
           </statement>
         </task>
       </exploration>
+    </section>
+
+    <section>
       <exploration xml:id="Vaccine-Campaign">
         <title>Vaccine Campaign</title>
         <introduction>
@@ -548,6 +557,6 @@
         </task>
       </exploration>
      
-   
+    </section>
    
    </chapter>

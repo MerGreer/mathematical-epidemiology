@@ -174,14 +174,14 @@
   
   </part>
 
-  <part xml:id="part-examples-and-case-studies">
-    <title>Examples and Case Studies</title>
+  <part xml:id="part-additional-modeling-examples">
+    <title>Additional Modeling Examples</title>
 
     <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" />
 
     <!-- <xi:include href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.ptx" /> -->
     
-    <xi:include href="ch-case-studies.ptx" />
+    <!-- PROBABLY WON'T USE THIS <xi:include href="ch-case-studies.ptx" /> -->
 
     <!-- <xi:include href="ch-modeling-viral-videos.ptx" /> -->
 
@@ -207,9 +207,11 @@
   <part xml:id="part-supplemental-materials">
     <title>Supplemental Materials</title> 
 
-    <xi:include href="ch-linear-algebra-for-compartmental-modeling.ptx" />
+    <!-- <xi:include href="ch-linear-algebra-for-compartmental-modeling.ptx" /> -->
 
-    <xi:include href="ch-data-sets.ptx" />
+    <!-- <xi:include href="ch-data-sets.ptx" /> -->
+
+    <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
 
     <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
     
