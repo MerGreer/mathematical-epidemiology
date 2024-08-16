@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">16.1</span><span class="period">.</span>
+</h4>
+<div class="introduction"><div class="para">In 2016, a varicella outbreak occurred in a kindergarten in Suzhou, China. The population consisted of 738 children, of whom 664 had no prior history of varicella. Those who had a previous history of varicella were not considered susceptible. Among the susceptible children, 364 had received a single dose of the varicella vaccine before the outbreak. One dose of the vaccine is approximately <span class="process-math">\(82\%\)</span> effective (CDC).</div></div>
+<article class="task exercise-like"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para">Construct an SEIR model, complete with differential equations (including vaccination) and parameter values. You must do research to find sufficient values for <span class="process-math">\(\mathcal{R}_0\text{,}\)</span> <span class="process-math">\(\gamma\text{,}\)</span> etc.</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para">Graph your model using Python: <pre id="activity-varicella-example-with-vaccination-3-1-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"> #Import packages
+ import numpy as np
+ import matplotlib.pyplot as plt
+ from scipy.integrate import odeint
+
+ plt.cla() #Clear (delete) any past plots
+
+ #Define the system of differential equations, and call it "model"
+ def model(y, t):
+   S, E, I, R = y #Define y as consisting of S, I, and R, in that order
+   dydt = [- (1-p*q) * beta * S * I, (1-p*q) * beta * S * I - kappa * E, kappa*E - gamma*I, gamma * I] #Provide the right-hand sides of the SIR model
+   return dydt
+
+ beta =  #Give a value to beta
+ kappa =  #Give a value to kappa
+ gamma =  #Give a value to gamma
+ p =  #Give a value to p
+ q =  #Give a value to q
+ y0 = [ , , , ] #Set initial conditions for S, I, and R, in that order
+ t_range = np.arange(0.0, 60.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+
+ sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+ # Tell Python to print the last values produced of S, E, I, and R, to help show long-range outcomes of the model
+ print("Long-term value of S = ", round(sol[-1,0]))
+ print("Long-term value of E = ", round(sol[-1,1]))
+ print("Long-term value of I = ", round(sol[-1,2]))
+ print("Long-term value of R = ", round(sol[-1,3]))
+
+
+ # Plotting commands are below
+ plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+ plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='E(t)')
+ plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='I(t)')
+ plt.plot(t_range, sol[:, 3], color='green', linestyle='dashdot', linewidth=2, label='R(t)')
+ plt.legend()
+ plt.grid()
+ plt.xlabel('time')
+ plt.ylabel('populations')
+ plt.show()
+</script></pre>
+</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para">Using <a class="external" href="https://colab.research.google.com/" target="_blank">Google Colab</a><details class="ptx-footnote" aria-live="polite" id="activity-varicella-example-with-vaccination-4-1-1-2"><summary class="ptx-footnote__number" title="Footnote 16.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="activity-varicella-example-with-vaccination-4-1-1-2"><code class="code-inline tex2jax_ignore">colab.research.google.com/</code></div></details>, import the actual data from the outbreak and compare the accuracy of your model. The answer below gives instructions on how to import your data. <details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical">
+<div class="para">Here’s how to import data into Google Colab:</div>
+<ul class="disc" id="colabinst-import-data-1-1">
+<li><div class="para">Make sure the “pandas” package is imported at the beginning of the code: <pre id="colabinst-import-data-1-1-1-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">import pandas as pd
+</script></pre>
+</div></li>
+<li><div class="para">Mount Google Drive to access data files: <pre id="colabinst-import-data-1-1-2-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">from google.colab import drive
+drive.mount("/content/drive")
+</script></pre>
+</div></li>
+<li><div class="para">Load data from the file located in Google Drive: <pre id="colabinst-import-data-1-1-3-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv')
+</script></pre> After /content/drive/MyDrive, continue adding backslashes with the necessary folder names to complete the file path. For example, if your file ‘SmallpoxData.csv’ was located in a folder ‘Modeling’, your file path would be content/drive/MyDrive/Modeling/SmallpoxData.csv</div></li>
+<li><div class="para">Extract the column from your data representing time, as a list: <pre id="colabinst-import-data-1-1-4-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">t_steps = data['Day'].tolist()
+</script></pre> Replace ‘Day’ with whatever your column is labeled.</div></li>
+<li><div class="para">Extract the column representing the infected population, as a list: <pre id="colabinst-import-data-1-1-5-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">I_prevalence_data = data['Infected'].tolist()
+</script></pre> Replace ’infected’ with whatever your column is labeled.</div></li>
+<li><div class="para">All together, the code looks like this (also importing additional necessary packages): <pre id="colabinst-import-data-1-1-6-1-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">                       import numpy as np
+                       import pandas as pd
+                       import matplotlib.pyplot as plt
+                       from scipy.integrate import odeint
+
+
+                       from google.colab import drive
+                       drive.mount("/content/drive")
+
+
+                       data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv'
+                       t_steps = data['Day'].tolist()
+                       I_prevalence_data = data['Infected'].tolist()
+</script></pre>
+</div></li>
+</ul>
+</div></div></details> Describe the similarites and differences between your model and the data of the outbreak. What are some possible changes that you could implement into your model do better fit it to the data?</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para">How would the model change if the students who had received one shot of vaccination had instead received two? Research the effectiveness of two shots of the varicella vaccine and implement that into the model. How different would the outbreak have gone?</div></article><article class="task exercise-like"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para">How might strict isolation policies have decreased the spread of the disease. Talk specifically about the movement between compartments within the model.</div></article></article><span class="incontext"><a class="internal" href="ch-case-studies-vaccination-and-isolation.html#activity-varicella-example-with-vaccination">in-context</a></span>
+</body>
+</html>
