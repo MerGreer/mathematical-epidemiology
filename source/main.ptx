@@ -145,6 +145,8 @@
 
     <xi:include href="ch-incubation-periods.ptx" />
 
+    <xi:include href="ch-isolation.ptx" />
+
     <xi:include href="ch-preparing-influenza-data-to-compare-with-a-model.ptx" />
 
     <xi:include href="ch-epidemic-vs-endemic-models.ptx" />

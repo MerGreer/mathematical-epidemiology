@@ -1,0 +1,190 @@
+<chapter xml:id="ch-isolation" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Isolation</title>
+
+    <introduction xml:id="intro-isolation">
+        <objectives>
+          <ul>
+            <li>
+              <p>
+                Learn strategies for modeling <em>isolation</em>, that is, the separation of Infectious people from the rest of the population, in order to prevent them from spreading the disease to others
+              </p>
+            </li>
+            <li>
+              <p>
+                Revisit how to use a model's parameter-based formula for <m>\mathcal{R}_0</m> when computing biologically-feasible values for the transmission parameter <m>\beta</m>, as this computation requires additional thought when isolation is part of the model
+              </p>
+            </li>
+            <li>
+              <p>
+                Consider that isolation may be complete or incomplete, and develop modeling methods for each scenario
+              </p>
+            </li>
+          </ul>
+        </objectives>
+    
+        <p>
+          This chapter functions, along with <xref ref="ch-vaccines"/> and <xref ref="ch-incubation-periods"/>, as a sort of trilogy of methods for making models more realistic and for building public health interventions into models. As with vaccines, isolation of the infected is a public health approach used widely for the reduction of disease spread. As with incubation periods, isolation in a model can help that model to better fit data because the model more fully replicates what is happening in the world. 
+        </p>
+
+        <p>
+          As we proceed through this chapter, we will consider complete isolation, when Infectious people have no contact at all with Susceptibles. We will also consider incomplete isolation, when Infectious people significantly reduce their contact with the general population but still have some chance of infecting Susceptibles. An example of incomplete isolation is staying home when sick, yet still interacting somewhat with roommates, family members, or others who share living space or deliver food. We will additionally spend time on thinking about how to use our parameter-based formula for <m>\mathcal{R}_0</m> in isolation models, and we will distinguish between the outbreak interventions of isolation and quarantine.
+        </p>
+        
+        <exploration xml:id="expl-activity-isolation">
+          <title>What if Individuals Isolate?</title>
+          <introduction>
+            <p>
+              Hm
+            </p> 
+            
+            
+          </introduction>
+    
+          <task>
+            <statement>
+              <p>
+                De 
+              </p>
+              
+            <ol>
+              <li>
+                  <p>
+                    I
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    I
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    C
+                  </p>
+                </li>
+            </ol>
+            </statement>
+          </task>
+          
+        </exploration>
+    
+      </introduction>
+
+    <section xml:id="sec-complete isolation">
+      <title>Complete Isolation</title>
+      <p>isolation</p>
+
+      <activity xml:id="activity-sir-model-flu">
+        <statement>
+          <p>
+            Each academic year, many college campuses experience one or more outbreaks of influenza, also referred to as flu. According to the <url href="https://www.cdc.gov/flu/about/keyfacts.htm">Centers for Disease Control and Prevention (CDC)</url>, flu symptoms may include fever, chills, cough, aches, runny or stuffy nose, and more. Also according to the CDC, influenza spreads via tiny droplets when people sneeze or cough or talk, as well as when people touch surfaces that have the virus on them and then touching parts of their face such as the mouth, nose, and eyes. 
+          </p>
+          <p>
+            To gather information about the incubation period of flu and about how long flu is contagious, visit <url href="https://www.cdc.gov/flu/about/keyfacts.htm">this ``key facts'' page from the CDC</url>. To locate the range of <m>\mathcal{R}_0</m> values for typical influenza outbreaks, visit <url href="https://www.vdh.virginia.gov/coronavirus/2022/01/07/covid-19-and-influenza-surveillance">this page from the Virginia Department of Health</url>. For all of these values that help with modeling, you are welcome to search online for other sources: the links provided here are sufficient, but are not the only way to gather the information we seek.
+          </p>
+          <p>
+            Use the idea of a campus outbreak to think about (at least) two ways to model isolation, guided by the prompts below.
+          </p>
+          <ol>
+            <li>
+              <p>
+                Choose either the SIR or SEIR model for the spread of flu. Use the online facts you have gathered to decide whether or not to include an incubation period in your model. Be sure to explain your reasoning. (There is not a right or wrong answer here: either choice can make sense, yet it is important to justify your decision using facts about the flu.) Provide the range of parameter values for each parameter in your model, and cite your sources.
+              </p>     
+            </li>
+            <li>
+              <p>
+                In many cases, people with the flu know they are sick and have the opportunity to isolate. Let us suppose that every person in an outbreak isolates after they have been sick for one day, and that they isolate perfectly. (This is unlikely in reality, but we can model this  to see the outcome.) Update your model accordingly, changing only the value of <m>\gamma</m> (which relates to the time spent in the <m>I(t)</m> population) so that people move more rapidly from compartment I to compartment R.
+              </p>
+            </li>
+            <li>
+              <p>
+                Try your model in Python (INCLUDE HOW MANY PEOPLE IN THE POPULATION - and also vaccine???), first using your initial model for influenza, and then using your updated <m>\gamma</m> value to represent the complete isolation of Infectious people after only one day. Describe your results. 
+              </p>
+            </li>
+          </ol>
+
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla() #Clear (delete) any past plots
+
+              #Define the system of differential equations, and call it "model"
+              def model(y, t):
+                S, E, I, R = y #Define y as consisting of S, E, I, and R, in that order
+                dydt = [- beta * S * I, beta * S * I - kappa * E, kappa * E - gamma * I, gamma * I] #Provide the right-hand sides of the SEIR model
+                return dydt
+
+              # The parameter values below are set to 0.0. Enter the values you have computed to see how the model proceeds
+              R0 = 0.0 #Give a value to R0
+              kappa = 0.0 #Give a value to kappa
+              gamma = 0.0 #Give a value to gamma
+              S_init = 9995 #Give an initial value to population S
+              E_init = 0 #Give an initial value to population E
+              I_init = 5 #Give an initial value to population I
+              R_init = 0 #Give an initial value to population R
+              beta = R0 * gamma / (S_init + E_init + I_init + R_init) #Solve for beta, using the R0 formula
+              y0 = [S_init, E_init, I_init, R_init] #Put initial conditions for S, E, I, and R into "y0" for use below in "odeint"
+
+              # The time range below is set for one year. Make it longer or shorter, as needed, to better see the full dynamics of the model
+              t_range = np.arange(0.0, 365.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+
+              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+              # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+              print("Long-term value of S = ", round(sol[-1,0]))
+              print("Long-term value of E = ", round(sol[-1,1]))
+              print("Long-term value of I = ", round(sol[-1,2]))
+              print("Long-term value of R = ", round(sol[-1,3]))
+
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='magenta', linestyle='dotted', linewidth=2, label='E(t)')
+              plt.plot(t_range, sol[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.grid()
+              plt.xlabel('time')
+              plt.ylabel('populations')
+              plt.show()
+            </input>
+            <output>
+            
+            </output>
+          </sage>
+                     
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                The incubation period is usually 7 to 10 days, so <m>\kappa</m> is in the range <m>\frac{1}{10}- \frac{1}{7}</m>. (The incubation period can be shorter or longer, and if you included this information, you will have a wider range of values for <m>\kappa</m>. This is also valid.)
+              </p>
+              <p>
+                Pertussis begins to be contagious when cold symptoms appear, and the phase for cold symptoms is one to two weeks. Pertussis is most contagious for up to three weeks after the intense coughing phase begins. Adding these phases together, pertussis is contagious, or most contagious, for four to five weeks, meaning 28 to 35 days. So <m>\gamma</m> is in the range <m>\frac{1}{35}- \frac{1}{28}</m>. (Saying <q>up to</q> three weeks suggests people may not be contagious the full three weeks. And pertussis may be contagious, at a lower level, more than three weeks after severe cough begins. You may have built either of these facts into your answer, which may lead to a different answer.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Rearranging <xref ref="eq-R0-seir"/> leads to <m>\beta = \gamma \mathcal{R}_0 / N</m>. Using the range of values <m>5.5 \leq \mathcal{R}_0 \leq 17</m> and <m>\frac{1}{35} \leq \gamma \leq \frac{1}{28}</m>, along with <m>N = 10,000</m>, gives the range of values <m>0.000157 \leq \beta \leq 0.000607</m>. Your range of <m>\beta</m> values should be based on the parameter values you determined.
+              </p>
+            </li>
+            <li>
+              <p>
+                This is open-ended. Make as many observations as you can.
+              </p>
+            </li>
+          </ol>
+          
+        </answer>
+      </activity>
+
+
+
+
+    </section>
+
+  </chapter>
