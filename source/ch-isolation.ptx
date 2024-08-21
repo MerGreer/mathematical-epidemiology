@@ -52,7 +52,7 @@
                 </li>
                 <li>
                   <p>
-                    Adjust your SIR model to incorporate isolation, which in Town A is complete as soon as Infectious individuals know they are sick. Show both the differential equations and compartmental diagram for your updated model. Determine all parameter values for this updated model.
+                    Adjust your SIR model to incorporate isolation, which in Town A is complete as soon as Infectious individuals know they are sick. Show both the differential equations and compartmental diagram for your adjusted model. Determine all parameter values for this adjusted model.
                   </p>
                 </li>
             </ol>
@@ -67,7 +67,7 @@
             <ol>
               <li>
                 <p>
-                  Adjust your SIR model to incorporate the incomplete isolation described for Town B. Show both the differential equations and a compartmental diagram for your updated model. Determine all parameter values for this updated model.
+                  Adjust your original SIR model, which did not have isolation, to incorporate the incomplete isolation described for Town B. Show both the differential equations and a compartmental diagram for your adjusted model. Determine all parameter values for this adjusted model.
                 </p>
               </li>
               <li>
@@ -85,8 +85,126 @@
 
     <section xml:id="sec-complete-isolation">
       <title>Complete Isolation</title>
-      <p>isolation</p>
+      <p>Part (a) of <xref ref="expl-activity-isolation" /> seeks a possible model of complete isolation, in which people truly and completely isolate for some portion of their Infectious period. There are multiple ways to model this. <xref ref="activity-two-complete-isolation-models" /> describes two possible approaches for you to consider.</p>
 
+      <activity xml:id="activity-two-complete-isolation-models">
+        <statement>
+          <p>
+            Examine the two models shown below. Each is a possible way to adapt a standard SIR model to represent the concept of complete isolation. Pay attention to the compartments, arrows, and parameter value descriptions.  
+          </p>
+          <figure xml:id="fig-SIR-complete-isolation-1">
+            <caption>A compartmental diagram showing one possible approach to modeling complete isolation. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. The parameters <m>\epsilon</m> and <m>\eta</m> replace <m>\gamma</m>, and the times associated with the values of <m>\epsilon</m> and <m>\eta</m> represent how long people typically remain in each of the compartments I and J.</caption>
+              <image width="80%">
+              <description>A compartmental diagram showing one possible approach to modeling complete isolation. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. The parameters epsilon and eta replace gamma, and the times associated with the values of epsilon and eta represent how long people typically remain in each of the compartments I and J. </description>
+                <latex-image>
+                \begin{tikzpicture}
+                \draw [thick] [black] (0,0) -- (2,0);
+                \draw [thick] [black] (2,0) -- (2,2);
+                \draw [thick] [black] (2,2) -- (0,2);
+                \draw [thick] [black] (0,2) -- (0,0);
+                \node [black] at (1,1) {\Huge $S$};
+                \draw [thick] [->] (2.1,1) to (3.9,1); 
+                \node at (3,1.5) {\Large $\beta SI$};
+                \draw [thick] [black] (4,0) -- (6,0);
+                \draw [thick] [black] (6,0) -- (6,2);
+                \draw [thick] [black] (6,2) -- (4,2);
+                \draw [thick] [black] (4,2) -- (4,0);
+                \node [black] at (5,1) {\Huge $I$};
+                \draw [thick] [->] (6.1,1) to (7.9,1); 
+                \node at (7,1.5) {\Large $\epsilon I$};
+                \draw [thick] [black] (8,0) -- (10,0);
+                \draw [thick] [black] (10,0) -- (10,2);
+                \draw [thick] [black] (10,2) -- (8,2);
+                \draw [thick] [black] (8,2) -- (8,0);
+                \node [black] at (9,1) {\Huge $J$};
+                \draw [thick] [->] (10.1,1) to (11.9,1); 
+                \node at (11,1.5) {\Large $\eta J$};
+                \draw [thick] [black] (12,0) -- (14,0);
+                \draw [thick] [black] (14,0) -- (14,2);
+                \draw [thick] [black] (14,2) -- (12,2);
+                \draw [thick] [black] (12,2) -- (12,0);
+                \node [black] at (13,1) {\Huge $R$};
+                \end{tikzpicture}
+                </latex-image>
+               </image>
+          </figure>
+          <figure xml:id="fig-SIR-complete-isolation-2">
+            <caption>A compartmental diagram showing a second possible approach to modeling complete isolation. The value of <m>\gamma</m> is adjusted compared to an SIR model with no isolation, and is relabeled <m>\widetilde{\gamma}</m>, to indicate a more rapid transition from compartment I to compartment R.</caption>
+              <image width="70%">
+              <description>A compartmental diagram showing a second possible approach to modeling complete isolation. The value of gamma is adjusted compared to an SIR model with no isolation, and is relabeled as gamma with a tilde over it, to indicate a more rapid transition from compartment I to compartment R.</description>
+                <latex-image>
+                \begin{tikzpicture}
+                \draw [thick] [black] (0,0) -- (2,0);
+                \draw [thick] [black] (2,0) -- (2,2);
+                \draw [thick] [black] (2,2) -- (0,2);
+                \draw [thick] [black] (0,2) -- (0,0);
+                \node [black] at (1,1) {\Huge $S$};
+                \draw [thick] [->] (2.1,1) to (3.9,1); 
+                \node at (3,1.5) {\Large $\beta SI$};
+                \draw [thick] [black] (4,0) -- (6,0);
+                \draw [thick] [black] (6,0) -- (6,2);
+                \draw [thick] [black] (6,2) -- (4,2);
+                \draw [thick] [black] (4,2) -- (4,0);
+                \node [black] at (5,1) {\Huge $I$};
+                \draw [thick] [->] (6.1,1) to (7.9,1); 
+                \node at (7,1.5) {\Large $\widetilde{\gamma} I$};
+                \draw [thick] [black] (8,0) -- (10,0);
+                \draw [thick] [black] (10,0) -- (10,2);
+                \draw [thick] [black] (10,2) -- (8,2);
+                \draw [thick] [black] (8,2) -- (8,0);
+                \node [black] at (9,1) {\Huge $R$};
+                \end{tikzpicture}
+                </latex-image>
+               </image>
+          </figure>
+          <p>
+            U
+          </p>
+          <ol>
+            <li>
+              <p>
+                Choose either the SIR or SEIR model for the spread of flu. Use the online facts you have gathered to decide whether or not to include an incubation period in your model. Be sure to explain your reasoning. (There is not a right or wrong answer here: either choice can make sense, yet it is important to justify your decision using facts about the flu.) Provide the range of parameter values for each parameter in your model, and cite your sources.
+              </p>     
+            </li>
+            <li>
+              <p>
+                In many cases, people with the flu know they are sick and have the opportunity to isolate. Let us suppose that every person in an outbreak isolates after they have been sick for one day, and that they isolate perfectly. (This is unlikely in reality, but we can model this  to see the outcome.) Update your model accordingly, changing only the value of <m>\gamma</m> (which relates to the time spent in the <m>I(t)</m> population) so that people move more rapidly from compartment I to compartment R.
+              </p>
+            </li>
+            <li>
+              <p>
+                Try your model in Python (INCLUDE HOW MANY PEOPLE IN THE POPULATION - and also vaccine???), first using your initial model for influenza, and then using your updated <m>\gamma</m> value to represent the complete isolation of Infectious people after only one day. Describe your results. 
+              </p>
+            </li>
+          </ol>
+                     
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                The incubation period is usually 7 to 10 days, so <m>\kappa</m> is in the range <m>\frac{1}{10}- \frac{1}{7}</m>. (The incubation period can be shorter or longer, and if you included this information, you will have a wider range of values for <m>\kappa</m>. This is also valid.)
+              </p>
+              <p>
+                Pertussis begins to be contagious when cold symptoms appear, and the phase for cold symptoms is one to two weeks. Pertussis is most contagious for up to three weeks after the intense coughing phase begins. Adding these phases together, pertussis is contagious, or most contagious, for four to five weeks, meaning 28 to 35 days. So <m>\gamma</m> is in the range <m>\frac{1}{35}- \frac{1}{28}</m>. (Saying <q>up to</q> three weeks suggests people may not be contagious the full three weeks. And pertussis may be contagious, at a lower level, more than three weeks after severe cough begins. You may have built either of these facts into your answer, which may lead to a different answer.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Rearranging <xref ref="eq-R0-seir"/> leads to <m>\beta = \gamma \mathcal{R}_0 / N</m>. Using the range of values <m>5.5 \leq \mathcal{R}_0 \leq 17</m> and <m>\frac{1}{35} \leq \gamma \leq \frac{1}{28}</m>, along with <m>N = 10,000</m>, gives the range of values <m>0.000157 \leq \beta \leq 0.000607</m>. Your range of <m>\beta</m> values should be based on the parameter values you determined.
+              </p>
+            </li>
+            <li>
+              <p>
+                This is open-ended. Make as many observations as you can.
+              </p>
+            </li>
+          </ol>
+          
+        </answer>
+      </activity>
+      
+      
       <activity xml:id="activity-sir-model-flu">
         <statement>
           <p>
