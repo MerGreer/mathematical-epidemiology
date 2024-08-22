@@ -93,9 +93,9 @@
             Examine the two models shown below. Each is a possible way to adapt a standard SIR model to represent the concept of complete isolation. Pay attention to the compartments, arrows, and parameter value descriptions.  
           </p>
           <figure xml:id="fig-SIR-complete-isolation-1">
-            <caption>A compartmental diagram showing one possible approach to modeling complete isolation. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. The parameters <m>\epsilon</m> and <m>\eta</m> replace <m>\gamma</m>, and the times associated with the values of <m>\epsilon</m> and <m>\eta</m> represent how long people typically remain in each of the compartments I and J.</caption>
+            <caption>A compartmental diagram showing one possible approach to modeling complete isolation. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. The parameters <m>\epsilon</m> and <m>\eta</m> replace <m>\gamma</m>, and the times associated with the values of <m>\epsilon</m> and <m>\eta</m> represent how long people typically remain in each of the compartments I and J, respectively.</caption>
               <image width="80%">
-              <description>A compartmental diagram showing one possible approach to modeling complete isolation. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. The parameters epsilon and eta replace gamma, and the times associated with the values of epsilon and eta represent how long people typically remain in each of the compartments I and J. </description>
+              <description>A compartmental diagram showing one possible approach to modeling complete isolation. The compartments are S, I, J, and R. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. The parameters epsilon and eta replace gamma, and the times associated with the values of epsilon and eta represent how long people typically remain in each of the compartments I and J, respectively. </description>
                 <latex-image>
                 \begin{tikzpicture}
                 \draw [thick] [black] (0,0) -- (2,0);
@@ -129,9 +129,9 @@
                </image>
           </figure>
           <figure xml:id="fig-SIR-complete-isolation-2">
-            <caption>A compartmental diagram showing a second possible approach to modeling complete isolation. The value of <m>\gamma</m> is adjusted compared to an SIR model with no isolation, and is relabeled <m>\widetilde{\gamma}</m>, to indicate a more rapid transition from compartment I to compartment R.</caption>
+            <caption>A compartmental diagram showing a second possible approach to modeling complete isolation. Here, people move directly to compartment R when they isolate, since they can no longer spread disease due to complete isolation. The value of <m>\gamma</m> is adjusted compared to an SIR model with no isolation, and is relabeled <m>\widetilde{\gamma}</m>, to indicate a more rapid transition from compartment I to compartment R.</caption>
               <image width="70%">
-              <description>A compartmental diagram showing a second possible approach to modeling complete isolation. The value of gamma is adjusted compared to an SIR model with no isolation, and is relabeled as gamma with a tilde over it, to indicate a more rapid transition from compartment I to compartment R.</description>
+              <description>A compartmental diagram showing a second possible approach to modeling complete isolation. The compartments are S, I, and R. Here, people move directly to compartment R when they isolate, since they can no longer spread disease due to complete isolation. The value of gamma is adjusted compared to an SIR model with no isolation, and is relabeled as gamma with a tilde over it, to indicate a more rapid transition from compartment I to compartment R.</description>
                 <latex-image>
                 \begin{tikzpicture}
                 \draw [thick] [black] (0,0) -- (2,0);
@@ -158,22 +158,17 @@
                </image>
           </figure>
           <p>
-            U
+            Use these two models to respond to the prompts below.
           </p>
           <ol>
             <li>
               <p>
-                Choose either the SIR or SEIR model for the spread of flu. Use the online facts you have gathered to decide whether or not to include an incubation period in your model. Be sure to explain your reasoning. (There is not a right or wrong answer here: either choice can make sense, yet it is important to justify your decision using facts about the flu.) Provide the range of parameter values for each parameter in your model, and cite your sources.
+                Compare and contrast the two models. Identify and describe any advantages or disadvantages you perceive for either model. 
               </p>     
             </li>
             <li>
               <p>
-                In many cases, people with the flu know they are sick and have the opportunity to isolate. Let us suppose that every person in an outbreak isolates after they have been sick for one day, and that they isolate perfectly. (This is unlikely in reality, but we can model this  to see the outcome.) Update your model accordingly, changing only the value of <m>\gamma</m> (which relates to the time spent in the <m>I(t)</m> population) so that people move more rapidly from compartment I to compartment R.
-              </p>
-            </li>
-            <li>
-              <p>
-                Try your model in Python (INCLUDE HOW MANY PEOPLE IN THE POPULATION - and also vaccine???), first using your initial model for influenza, and then using your updated <m>\gamma</m> value to represent the complete isolation of Infectious people after only one day. Describe your results. 
+                Suppose that an outbreak without isolation would use an SIR model having parameter values <m>\beta = 0.005</m> and <m>\gamma = 1/10</m>. Further suppose that for that same outbreak, with isolation, people isolate three days after becoming Infectious. What would be the values of <m>\beta</m>, <m>\epsilon</m>, and <m>\eta</m> for the model in <xref ref="fig-SIR-complete-isolation-1"/>? And what would be the values of <m>\beta</m> and <m>\widetilde{\gamma}</m> in <xref ref="fig-SIR-complete-isolation-2"/>?
               </p>
             </li>
           </ol>
@@ -183,20 +178,18 @@
           <ol>
             <li>
               <p>
-                The incubation period is usually 7 to 10 days, so <m>\kappa</m> is in the range <m>\frac{1}{10}- \frac{1}{7}</m>. (The incubation period can be shorter or longer, and if you included this information, you will have a wider range of values for <m>\kappa</m>. This is also valid.)
-              </p>
-              <p>
-                Pertussis begins to be contagious when cold symptoms appear, and the phase for cold symptoms is one to two weeks. Pertussis is most contagious for up to three weeks after the intense coughing phase begins. Adding these phases together, pertussis is contagious, or most contagious, for four to five weeks, meaning 28 to 35 days. So <m>\gamma</m> is in the range <m>\frac{1}{35}- \frac{1}{28}</m>. (Saying <q>up to</q> three weeks suggests people may not be contagious the full three weeks. And pertussis may be contagious, at a lower level, more than three weeks after severe cough begins. You may have built either of these facts into your answer, which may lead to a different answer.)
+                This is an open-ended question. Possible answers may include noting the simplicity of the second model, or preferring the detail in the first model of tracking how many people are isolating rather than removed. Responses may also refer to preferences for computing <m>\epsilon</m> and <m>\eta</m> separately, or for computing only <m>\widetilde{\gamma}</m>. There are many additional possible responses.
               </p>
             </li>
             <li>
               <p>
-                Rearranging <xref ref="eq-R0-seir"/> leads to <m>\beta = \gamma \mathcal{R}_0 / N</m>. Using the range of values <m>5.5 \leq \mathcal{R}_0 \leq 17</m> and <m>\frac{1}{35} \leq \gamma \leq \frac{1}{28}</m>, along with <m>N = 10,000</m>, gives the range of values <m>0.000157 \leq \beta \leq 0.000607</m>. Your range of <m>\beta</m> values should be based on the parameter values you determined.
+                For both models, the value of <m>\beta</m> should not change. 
               </p>
-            </li>
-            <li>
               <p>
-                This is open-ended. Make as many observations as you can.
+                For the model in <xref ref="fig-SIR-complete-isolation-1"/>, we notice that <m>\gamma = 1/10</m> indicates a ten-day contagious period for the disease. We split up this time into the Infectious and Isolated compartments. Since people stay in the Infectious compartment for three days, we set <m>\epsilon = 1/3</m>, using the ideas from <xref ref="eq-gamma-estimate"/>, <xref ref="eq-gamma-estimate-2"/>, <xref ref="eq-kappa-estimate"/>, and <xref ref="eq-kappa-estimate-2"/>. This leaves seven days for people to stay in the Isolated compartment, to add up to their total of ten days, and so we set <m>\eta = 1/7</m>.
+              </p>
+              <p>
+                For the model in <xref ref="fig-SIR-complete-isolation-2"/>, set <m>\widetilde{\gamma} = 1/3</m>, for a similar reason to setting <m>\epsilon = 1/3</m> for the model in <xref ref="fig-SIR-complete-isolation-1"/>. This reduces the length of time people spend in the Infectious compartment, and we consider these people to be Removed for the rest of the time they are contagious.
               </p>
             </li>
           </ol>
