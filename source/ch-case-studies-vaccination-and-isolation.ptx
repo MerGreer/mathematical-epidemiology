@@ -1,14 +1,15 @@
 <chapter xml:id="ch-case-studies-vaccination-and-isolation" xmlns:xi="http://www.w3.org/2001/XInclude">
- <title>Case Studies: Vaccination and Isolation</title>
+ <title>* Case Studies: Vaccination and Isolation</title>
 
   <introduction xml:id="intro-case-studies-vaccination-isolation">   
-   <p>
+    <p>
+      <term>***This chapter remains under construction. The examples are here and may be helpful, and in the future, more detailed instructions will further help students and instructors work from this chapter.***</term>
+     </p>
+   
+    <p>
     This supplemental chapter includes three case studies of outbreaks. The first of these gives a new example of modeling using vaccination. The second example provides extra practice modeling isolation. Finally, the third example returns to vaccination, modeling a vaccine campaign that occurs during an outbreak.
    </p>
 
-   <p>
-    <term>***This chapter remains under construction. The examples are here and may be helpful, and in the future, more detailed instructions will further help students and instructors work from this chapter.***</term>
-   </p>
  </introduction>
 
  <section>

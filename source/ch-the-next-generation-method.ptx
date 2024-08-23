@@ -1,10 +1,16 @@
 <chapter xml:id="ch-the-next-generation-method" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>* The Next Generation Method</title>
 
+    <p>
+      <term>***This chapter is under construction.***</term>
+    </p>
+
     <section xml:id="sec-2">
       <title>Python Code for the Next Generation Method</title>
       <!-- <p>Change the title??? To focus on linear algebra???</p>
       <p>Show how to use the NGM and how to use the results to determine beta</p> -->
+
+      
 
       <p>
         The code block below produces the eigenvalues for the SEIR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix.

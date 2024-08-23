@@ -1,9 +1,16 @@
 <chapter xml:id="ch-epidemic-vs-endemic-models" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>* Epidemic vs. Endemic Models</title>
 
+    <p>
+      <term>***This chapter is under construction.***</term>
+    </p>
+
     <section xml:id="sec-ee">
       <title></title>
-      <p>Talk about demographic effects. Emphasize here that this is why we aren't normalizing total population to 1. Also: put herd immunity in this chapter.</p>
+
+      
+
+      <!-- <p>Talk about demographic effects. Emphasize here that this is why we aren't normalizing total population to 1. Also: put herd immunity in this chapter.</p> -->
     </section>
 
   </chapter>

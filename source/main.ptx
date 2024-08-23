@@ -183,8 +183,6 @@
 
     <!-- <xi:include href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.ptx" /> -->
     
-    <!-- PROBABLY WON'T USE THIS <xi:include href="ch-case-studies.ptx" /> -->
-
     <!-- <xi:include href="ch-modeling-viral-videos.ptx" /> -->
 
     <!-- <xi:include href="ch-modeling-conspiracy-theories.ptx" /> -->
@@ -219,7 +217,7 @@
     
     <!-- <xi:include href="ch-writing-tips-for-math-and-planning-for-peer-review.ptx" /> -->
 
-    <xi:include href="ch-other-resources.ptx" />
+    <!-- <xi:include href="ch-other-resources.ptx" /> -->
 
   </part> 
 

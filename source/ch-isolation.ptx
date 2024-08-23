@@ -1,5 +1,9 @@
 <chapter xml:id="ch-isolation" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>Isolation</title>
+    <title>* Isolation</title>
+
+    <p>
+      <term>***This chapter is under construction.***</term>
+    </p>
 
     <introduction xml:id="intro-isolation">
         <objectives>
@@ -47,7 +51,7 @@
             <ol>
               <li>
                   <p>
-                    Write an SIR model for this outbreak, without (yet) including isolation. Determine all parameter values for your model.
+                    Write an SIR model for this outbreak, without (yet) including isolation. (Do not include vaccine or incubation period in your model.) Determine all parameter values for your model.
                   </p>
                 </li>
                 <li>
@@ -67,7 +71,7 @@
             <ol>
               <li>
                 <p>
-                  Adjust your original SIR model, which did not have isolation, to incorporate the incomplete isolation described for Town B. Show both the differential equations and a compartmental diagram for your adjusted model. Determine all parameter values for this adjusted model.
+                  Adjust your original SIR model, which did not have isolation, to incorporate the incomplete isolation described for Town B. (Do not include vaccine or incubation period in your model.) Show both the differential equations and a compartmental diagram for your adjusted model. Determine all parameter values for this adjusted model.
                 </p>
               </li>
               <li>
@@ -93,7 +97,7 @@
             Examine the two models shown below. Each is a possible way to adapt a standard SIR model to represent the concept of complete isolation. Pay attention to the compartments, arrows, and parameter value descriptions.  
           </p>
           <figure xml:id="fig-SIR-complete-isolation-1">
-            <caption>A compartmental diagram showing one possible approach to modeling complete isolation. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. The parameters <m>\epsilon</m> and <m>\eta</m> replace <m>\gamma</m>, and the times associated with the values of <m>\epsilon</m> and <m>\eta</m> represent how long people typically remain in each of the compartments I and J, respectively.</caption>
+            <caption>A compartmental diagram showing one possible approach to modeling complete isolation. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. Parameters <m>\epsilon</m> and <m>\eta</m> have values determined by how long people typically remain in each of the compartments I and J, respectively.</caption>
               <image width="80%">
               <description>A compartmental diagram showing one possible approach to modeling complete isolation. The compartments are S, I, J, and R. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. The parameters epsilon and eta replace gamma, and the times associated with the values of epsilon and eta represent how long people typically remain in each of the compartments I and J, respectively. </description>
                 <latex-image>
@@ -129,7 +133,7 @@
                </image>
           </figure>
           <figure xml:id="fig-SIR-complete-isolation-2">
-            <caption>A compartmental diagram showing a second possible approach to modeling complete isolation. Here, people move directly to compartment R when they isolate, since they can no longer spread disease due to complete isolation. The value of <m>\gamma</m> is adjusted compared to an SIR model with no isolation, and is relabeled <m>\widetilde{\gamma}</m>, to indicate a more rapid transition from compartment I to compartment R.</caption>
+            <caption>A compartmental diagram showing a second possible approach to modeling complete isolation. Here, people move directly to compartment R when they isolate, since they can no longer spread disease due to complete isolation. The value of <m>\gamma</m> is adjusted compared to an SIR model with no isolation, and is labeled <m>\widetilde{\gamma}</m>, to indicate that the transition time from compartment I to compartment R is likely different than the time indicated by parameter <m>\gamma</m> in an SIR model with no isolation.</caption>
               <image width="70%">
               <description>A compartmental diagram showing a second possible approach to modeling complete isolation. The compartments are S, I, and R. Here, people move directly to compartment R when they isolate, since they can no longer spread disease due to complete isolation. The value of gamma is adjusted compared to an SIR model with no isolation, and is relabeled as gamma with a tilde over it, to indicate a more rapid transition from compartment I to compartment R.</description>
                 <latex-image>
@@ -168,7 +172,7 @@
             </li>
             <li>
               <p>
-                Suppose that an outbreak without isolation would use an SIR model having parameter values <m>\beta = 0.005</m> and <m>\gamma = 1/10</m>. Further suppose that for that same outbreak, with isolation, people isolate three days after becoming Infectious. What would be the values of <m>\beta</m>, <m>\epsilon</m>, and <m>\eta</m> for the model in <xref ref="fig-SIR-complete-isolation-1"/>? And what would be the values of <m>\beta</m> and <m>\widetilde{\gamma}</m> in <xref ref="fig-SIR-complete-isolation-2"/>?
+                Suppose that an outbreak without isolation would use a standard SIR model having parameter values <m>\beta = 0.005</m> and <m>\gamma = 1/10</m>. Further suppose that for that same outbreak, with isolation, people isolate three days after becoming Infectious. What would be the values of <m>\beta</m>, <m>\epsilon</m>, and <m>\eta</m> for the model in <xref ref="fig-SIR-complete-isolation-1"/>? And what would be the values of <m>\beta</m> and <m>\widetilde{\gamma}</m> in <xref ref="fig-SIR-complete-isolation-2"/>?
               </p>
             </li>
           </ol>
@@ -178,7 +182,7 @@
           <ol>
             <li>
               <p>
-                This is an open-ended question. Possible answers may include noting the simplicity of the second model, or preferring the detail in the first model of tracking how many people are isolating rather than removed. Responses may also refer to preferences for computing <m>\epsilon</m> and <m>\eta</m> separately, or for computing only <m>\widetilde{\gamma}</m>. There are many additional possible responses.
+                This is an open-ended question. Possible answers may include preferring the simplicity of the second model, or preferring the detail in the first model of tracking how many people are isolating rather than removed. Responses may also refer to preferences for computing <m>\epsilon</m> and <m>\eta</m> separately, or for computing only <m>\widetilde{\gamma}</m>. There are many additional possible responses.
               </p>
             </li>
             <li>
@@ -196,9 +200,18 @@
           
         </answer>
       </activity>
+
+      <p>
+        The models shown in <xref ref="activity-two-complete-isolation-models"/> are two common ways to show complete isolation. In both models, everyone isolates, and isolation completely prevents disease spread. 
+      </p>
+
+      <p>
+        Let us take a moment to discuss the parameter values to use for the models in <xref ref="fig-SIR-complete-isolation-1"/> and <xref ref="fig-SIR-complete-isolation-2"/>. These models use the ideas we studied in <xref ref="ch-compartmental-diagrams"/> and <xref ref="ch-incubation-periods"/> for determining parameters based on the length of time spent in a compartment.  
+        We also address our expectation that real-life biological information about a disease outbreak should correspond with the parameter-based formula for <m>\mathcal{R}_0</m> that we first studied in <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>.
+      </p>
       
       
-      <activity xml:id="activity-sir-model-flu">
+      <!-- <activity xml:id="activity-sir-model-flu">
         <statement>
           <p>
             Each academic year, many college campuses experience one or more outbreaks of influenza, also referred to as flu. According to the <url href="https://www.cdc.gov/flu/about/keyfacts.htm">Centers for Disease Control and Prevention (CDC)</url>, flu symptoms may include fever, chills, cough, aches, runny or stuffy nose, and more. Also according to the CDC, influenza spreads via tiny droplets when people sneeze or cough or talk, as well as when people touch surfaces that have the virus on them and then touching parts of their face such as the mouth, nose, and eyes. 
@@ -304,7 +317,7 @@
           </ol>
           
         </answer>
-      </activity>
+      </activity> -->
 
 
 

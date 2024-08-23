@@ -1,9 +1,15 @@
 <chapter xml:id="ch-akaike-information-criterion-comparing-different-models" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>* Akaike Information Criterion: Comparing Different Models</title>
 
+    <p>
+      <term>***This chapter is under construction.***</term>
+    </p>
+
     <section xml:id="sec-ma">
       <title></title>
-      <p>Use Bates flu data? Introduce AICc. Discuss comparing models and why we might want to do so. Discuss overfitting, Occam's Razor.</p>
+
+      
+      <!-- <p>Use Bates flu data? Introduce AICc. Discuss comparing models and why we might want to do so. Discuss overfitting, Occam's Razor.</p> -->
     </section>
 
   </chapter>
