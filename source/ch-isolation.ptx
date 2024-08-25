@@ -209,32 +209,37 @@
         Let us take a moment to discuss the parameter values computed for the models in <xref ref="fig-SIR-complete-isolation-1"/> and <xref ref="fig-SIR-complete-isolation-2"/>. As with <m>\gamma</m> in <xref ref="ch-compartmental-diagrams"/> and <m>\kappa</m> in <xref ref="ch-incubation-periods"/>, the values for parameters <m>\widetilde{\gamma}</m>, <m>\epsilon</m>, and <m>\eta</m> are determined by the length of time spent in a compartment. Specifically, each of these parameters has a value that is the reciprocal of the time spent in that compartment, and we make sure the units of time match. For example, if we are using the model in <xref ref="fig-SIR-complete-isolation-1"/> and expect the typical person to isolate for seven days, and if our unit of time in the model is days, then <m>\eta = 1/7</m>. However, if we have a different unit of time, then we adjust, in a way similar to that shown in the first exercise in <xref ref="exercises-ch-incubation-period"/>.
       </p>
       <p>
-        We also address our expectation that real-life biological information about a disease outbreak should correspond with the parameter-based formula for <m>\mathcal{R}_0</m> that we first studied in <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>. This is more complicated. Real-life estimates of <m>\mathcal{R}_0</m> for past outbreaks include the possibility of some people staying home when sick. However, widespread isolation can be a strategy to reduce disease spread. Here are thoughts on how to proceed.
+        We also address the expectation that real-life biological information about a disease outbreak should correspond with the parameter-based formula for <m>\mathcal{R}_0</m> that we first studied in <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>. Historical values of <m>\mathcal{R}_0</m> take into account that people may have interacted less with others while sick, but do not include widespread intervention, such as coordinated isolation campaigns. Here are steps you can take when determining all parameter values in a model with such intervention, with help from the <m>\mathcal{R}_0</m> formula.
       </p>
-      <ul>
+      <ol>
         <li>
           <p>
-            When using the parameter-based formula for <m>\mathcal{R}_0</m> to compute the value of parameter <m>\beta</m> for an outbreak, start with a model that does not include intervention by large numbers of individuals or by an entire community. For instance, with an outbreak modeled using either of the strategies in <xref ref="activity-two-complete-isolation-models"/>, use a standard SIR model for computing <m>\beta</m>. This computation uses the formula in <xref ref="eq-R0-sir"/>. 
+            When using the parameter-based formula for <m>\mathcal{R}_0</m> to compute the value of parameter <m>\beta</m> for an outbreak, start with a model that does not include intervention by large numbers of individuals or by an entire community. For instance, to model an outbreak using either of the strategies in <xref ref="activity-two-complete-isolation-models"/>, start with a standard SIR model, shown in <xref ref="eq-SIR-model-S"/>, <xref ref="eq-SIR-model-I"/>, and <xref ref="eq-SIR-model-R"/>, for computing <m>\beta</m>. The parameter-based formula corresponding to this model is <xref ref="eq-R0-sir"/>. 
           </p>
         </li>
         <li>
           <p>
-            The reason for using a model without intervention is this: <m>\mathcal{R}_0</m> is, as we learned, <em>the average number of new infections caused by one infectious person in an otherwise entirely susceptible population</em>. Interventions, such as vaccines or widespread isolation, change the ability of a disease to infect large numbers of people. Historical values of <m>\mathcal{R}_0</m> computed from past outbreaks do not include such interventions.
+            The reason for starting with a model without intervention is this: <m>\mathcal{R}_0</m> is, as we learned, <em>the average number of new infections caused by one infectious person in an otherwise entirely susceptible population</em>. Interventions, such as vaccines or widespread isolation, change the ability of a disease to infect large numbers of people. Historical values of <m>\mathcal{R}_0</m> computed from past outbreaks do not include such interventions.
           </p>
         </li> 
         <li>
           <p>
-            Once you have used a standard, intervention-free version of your model, along with that model's parameter-based formula for <m>\mathcal{R}_0</m>, to estimate <m>\beta</m>, you can then incorporate isolation in your model. Possible models include those shown in <xref ref="fig-SIR-complete-isolation-1" /> and <xref ref="fig-SIR-complete-isolation-2" />. For these, do not change the value of <m>\beta</m> you have already computed, but do incorporate appropriate values of <m>\widetilde{\gamma}</m> or <m>\epsilon</m> and <m>\eta</m>. Designating parameter values in this way will allow your models to show the effects of isolation as intervention. 
+            Once you have computed a biologically sound value or range of values for <m>\beta</m> using an intervention-free version of your model, along with that model's parameter-based formula for <m>\mathcal{R}_0</m>, you can then incorporate isolation in your model. Possible models include those shown in <xref ref="fig-SIR-complete-isolation-1" /> and <xref ref="fig-SIR-complete-isolation-2" />. Do not change the value of <m>\beta</m> you have already computed, but do incorporate appropriate values of <m>\widetilde{\gamma}</m> or <m>\epsilon</m> and <m>\eta</m>. Computing parameter values in this way will allow your models to show the effects of isolation as intervention. 
           </p>
         </li>
         <li>
           <p>
-            In the next section, we will show other ways to model intervention. Continue to use these approaches to determining parameter values. That is, estimate <m>\beta</m> first, in a appropriately corresponding model without intervention. Then adjust that model to include intervention, but do not change <m>\beta</m>.
+            In <xref ref="sec-incomplete-isolation"/>, we will show other ways to model isolation. In those models too, estimate <m>\beta</m> first, in an appropriate corresponding model without intervention. Then adjust that model to include intervention, but do not change <m>\beta</m>.
           </p>
         </li>
-      </ul>
-      
-      
+      </ol>
+
+    </section>
+
+    <section xml:id="sec-incomplete-isolation">
+      <title>Incomplete Isolation</title>
+      <!-- <p>Part (a) of <xref ref="expl-activity-isolation" /> seeks a possible model of complete isolation, in which people truly and completely isolate for some portion of their Infectious period. There are multiple ways to model this. <xref ref="activity-two-complete-isolation-models" /> describes two possible approaches for you to consider.</p> -->
+
       <!-- <activity xml:id="activity-sir-model-flu">
         <statement>
           <p>
@@ -343,9 +348,9 @@
         </answer>
       </activity> -->
 
-
-
-
     </section>
+
+    
+
 
   </chapter>
