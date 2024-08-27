@@ -1,6 +1,84 @@
 <chapter xml:id="ch-preparing-influenza-data-to-compare-with-a-model" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>* Preparing Influenza Data to Compare With a Model</title>
 
+
+    <p>
+      <term>***This chapter is under construction.***</term>
+    </p>
+
+    <introduction xml:id="intro-isolation">
+      <objectives>
+        <ul>
+          <li>
+            <p>
+              L
+            </p>
+          </li>
+          <li>
+            <p>
+              R
+            </p>
+          </li>
+          <li>
+            <p>
+              C
+            </p>
+          </li>
+        </ul>
+      </objectives>
+
+      <p>
+        A
+      </p>
+      
+      <exploration xml:id="expl-activity-influenza-data">
+        <title>W</title>
+        <introduction>
+          <p>
+            I
+          </p>            
+        </introduction>
+  
+        <task>
+          <statement>
+            <p>
+              F
+            </p>
+            
+          <ol>
+            <li>
+                <p>
+                  W
+                </p>
+              </li>
+              <li>
+                <p>
+                  A
+                </p>
+              </li>
+          </ol>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              N
+            </p>
+            
+          <ol>
+            <li>
+              <p>
+                D
+              </p>
+            </li>
+          </ol>
+          </statement>
+        </task>
+        
+      </exploration>
+  
+    </introduction>
+
     <section xml:id="sec-ga">
       <title>Starter Example Comparing Data with a Model: Zombie Data</title>
       <!-- <p>Use Bates flu data. Discuss converting from New Cases to S, I, R and possibly other compartments. Also discuss different time scales (here or elsewhere): converting data and parameters between days, weeks, months, years.</p> -->

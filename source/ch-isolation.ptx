@@ -38,14 +38,14 @@
           <title>What if People Choose to Isolate?</title>
           <introduction>
             <p>
-              In this activity, use the knowledge you have been building about mathematical modeling to develop two possible mathematical models, one for complete isolation and one for incomplete isolation. We set these models in fictional small, remote towns, where people interact with each other frequently, but there are not a lot of visitors to town or travel of town residents elsewhere. We therefore focus the model just on the town's residents. We also focus this model on an outbreak of a fictional ``Disease X'', for which <m>\mathcal{R}_0 \approx 4</m> and the infectious period is approximately 8 days.
+              In this activity, use the knowledge you have been building about mathematical modeling to develop two possible mathematical models, one for complete isolation and one for incomplete isolation. We set these models in fictional small, remote towns, where there are not a lot of visitors to town or travel of town residents elsewhere. We therefore focus the model just on the town's residents. We also focus this model on an outbreak of a fictional <q>Disease X</q>, for which <m>\mathcal{R}_0 \approx 4</m> and the infectious period is approximately 8 days.
             </p>            
           </introduction>
     
           <task>
             <statement>
               <p>
-                First, consider ``Town A'', which has 6,000 residents, and imagine a scenario of complete isolation. That is, suppose that as soon as people know they are sick with Disease X, they isolate completely, having no contact with anyone else. Fortunately, Town A has found a way to deliver food and supplies, and to otherwise care for, people who are sick. Unfortunately, people are infectious with Disease X two days before they know they are sick, so they cannot isolate yet during those two days.
+                First, consider <q>Town A</q>, which has 6,000 residents, and imagine a scenario of complete isolation. That is, suppose that as soon as people know they are sick with Disease X, they isolate completely, having no contact with anyone else. Fortunately, Town A has found a way to deliver food and supplies, and to otherwise care for, people who are sick. Unfortunately, people are infectious with Disease X two days before they know they are sick, so they cannot isolate yet during those two days.
               </p>
               
             <ol>
@@ -65,7 +65,7 @@
           <task>
             <statement>
               <p>
-                Next, consider ``Town B'', which has 8,000 residents, and think of ways to model incomplete isolation. Suppose that Disease X appears in Town B, but Town B's people do not have a way to care for or deliver supplies to people who are sick. This means that friends, family members, care workers, or others interact somewhat with the Infectious who know they are sick. Therefore, isolation is not complete, though individuals do reduce their interactions with others as soon as they know they are sick, that is, typically two days after first becoming contagious.
+                Next, consider <q>Town B</q>, which has 8,000 residents, and think of ways to model incomplete isolation. Suppose that Disease X appears in Town B, but Town B's people do not have a way to care for or deliver supplies to people who are sick. This means that friends, family members, care workers, or others interact somewhat with the Infectious who know they are sick. Therefore, isolation is not complete, though individuals do reduce their interactions with others as soon as they know they are sick, that is, typically two days after first becoming contagious.
               </p>
               
             <ol>
@@ -87,14 +87,14 @@
     
       </introduction>
 
-    <section xml:id="sec-complete-isolation">
-      <title>Complete Isolation</title>
+    <section xml:id="sec-complete-isolation-models-and-parameter-estimation">
+      <title>Complete Isolation: Models and Parameter Estimation</title>
       <p>Part (a) of <xref ref="expl-activity-isolation" /> seeks a possible model of complete isolation, in which people truly and completely isolate for some portion of their Infectious period. There are multiple ways to model this. <xref ref="activity-two-complete-isolation-models" /> describes two possible approaches for you to consider.</p>
 
       <activity xml:id="activity-two-complete-isolation-models">
         <statement>
           <p>
-            Examine the two models shown below. Each is a possible way to adapt a standard SIR model to represent the concept of complete isolation. Pay attention to the compartments, arrows, and parameter value descriptions.  
+            Examine the two models described in the images and captions of <xref ref="fig-SIR-complete-isolation-1"/> and  <xref ref="fig-SIR-complete-isolation-2"/>. Each model is a possible way to adapt a standard SIR model to represent the concept of complete isolation. Pay attention to the compartments, arrows, and parameter value descriptions.  
           </p>
           <figure xml:id="fig-SIR-complete-isolation-1">
             <caption>A compartmental diagram showing one possible approach to modeling complete isolation. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. Parameters <m>\epsilon</m> and <m>\eta</m> have values determined by how long people typically remain in each of the compartments I and J, respectively.</caption>
@@ -202,7 +202,7 @@
       </activity>
 
       <p>
-        The models shown in <xref ref="activity-two-complete-isolation-models"/> are two common ways to show complete isolation. In both models, everyone isolates, and isolation completely prevents disease spread. 
+        The models in <xref ref="activity-two-complete-isolation-models"/> are two common ways to represent complete isolation. In both models, everyone isolates, and people in isolation do not spread disease at all. 
       </p>
 
       <p>
@@ -238,7 +238,93 @@
 
     <section xml:id="sec-incomplete-isolation">
       <title>Incomplete Isolation</title>
-      <!-- <p>Part (a) of <xref ref="expl-activity-isolation" /> seeks a possible model of complete isolation, in which people truly and completely isolate for some portion of their Infectious period. There are multiple ways to model this. <xref ref="activity-two-complete-isolation-models" /> describes two possible approaches for you to consider.</p> -->
+      <p>Incomplete isolation can take multiple forms. One possibility is that everyone tries to isolate when they know they are sick, but they cannot completely isolate, for many possible reasons: they may share living space with people who are not sick; they may require care from someone who is not sick; they may not have any way to get food without at least some interaction with people who are not sick; and there could be yet other reasons. Another possibility is that some people are contagious do not isolate. They may know they are sick and choose not to isolate, or with some illnesses, people can have no symptoms yet still be contagious. Think through these possibilities in the following activity.</p>
+
+      <activity xml:id="activity-two-incomplete-isolation-models">
+        <statement>
+          <p>
+            E  
+          </p>
+          <figure xml:id="fig-SIR-incomplete-isolation-1">
+            <caption>A.</caption>
+              <image width="80%">
+              <description>A . </description>
+                <latex-image>
+                \begin{tikzpicture}
+                \draw [thick] [black] (0,0) -- (2,0);
+                \draw [thick] [black] (2,0) -- (2,2);
+                \draw [thick] [black] (2,2) -- (0,2);
+                \draw [thick] [black] (0,2) -- (0,0);
+                \node [black] at (1,1) {\Huge $S$};
+                \draw [thick] [->] (2.1,1) to (5.1,1); 
+                \node at (3.6,1.5) {\Large $\beta S(I+\delta J)$};
+                \draw [thick] [black] (5.2,0) -- (7.2,0);
+                \draw [thick] [black] (7.2,0) -- (7.2,2);
+                \draw [thick] [black] (7.2,2) -- (5.2,2);
+                \draw [thick] [black] (5.2,2) -- (5.2,0);
+                \node [black] at (6.2,1) {\Huge $I$};
+                \draw [thick] [->] (7.3,1) to (8.5,1); 
+                \node at (7.9,1.5) {\Large $\epsilon I$};
+                \draw [thick] [black] (8.6,0) -- (10.6,0);
+                \draw [thick] [black] (10.6,0) -- (10.6,2);
+                \draw [thick] [black] (10.6,2) -- (8.6,2);
+                \draw [thick] [black] (8.6,2) -- (8.6,0);
+                \node [black] at (9.6,1) {\Huge $J$};
+                \draw [thick] [->] (10.7,1) to (11.9,1); 
+                \node at (11.3,1.5) {\Large $\eta J$};
+                \draw [thick] [black] (12,0) -- (14,0);
+                \draw [thick] [black] (14,0) -- (14,2);
+                \draw [thick] [black] (14,2) -- (12,2);
+                \draw [thick] [black] (12,2) -- (12,0);
+                \node [black] at (13,1) {\Huge $R$};
+                \end{tikzpicture}
+                </latex-image>
+               </image>
+          </figure>
+          <figure xml:id="fig-SIR-incomplete-isolation-2">
+            <caption>A</caption>
+              <image width="70%">
+              <description>A</description>
+                <latex-image>
+                \begin{tikzpicture}
+                
+                \end{tikzpicture}
+                </latex-image>
+               </image>
+          </figure>
+          <p>
+            U
+          </p>
+          <ol>
+            <li>
+              <p>
+                C 
+              </p>     
+            </li>
+            <li>
+              <p>
+                S
+              </p>
+            </li>
+          </ol>
+                     
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                T
+              </p>
+            </li>
+            <li>
+              <p>
+                F
+              </p>
+            </li>
+          </ol>
+          
+        </answer>
+      </activity>
 
       <!-- <activity xml:id="activity-sir-model-flu">
         <statement>
