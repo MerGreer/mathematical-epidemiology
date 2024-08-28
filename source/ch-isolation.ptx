@@ -172,6 +172,11 @@
             </li>
             <li>
               <p>
+                Write the system of differential equations for each model. 
+              </p>     
+            </li>
+            <li>
+              <p>
                 Suppose that an outbreak without isolation would use a standard SIR model having parameter values <m>\beta = 0.005</m> and <m>\gamma = 1/10</m>. Further suppose that for that same outbreak, with isolation, people isolate three days after becoming Infectious. What would be the values of <m>\beta</m>, <m>\epsilon</m>, and <m>\eta</m> for the model in <xref ref="fig-SIR-complete-isolation-1"/>? And what would be the values of <m>\beta</m> and <m>\widetilde{\gamma}</m> in <xref ref="fig-SIR-complete-isolation-2"/>?
               </p>
             </li>
@@ -184,6 +189,25 @@
               <p>
                 This is an open-ended question. Possible answers may include preferring the simplicity of the second model, or preferring the detail in the first model of tracking how many people are isolating rather than removed. Responses may also refer to preferences for computing <m>\epsilon</m> and <m>\eta</m> separately, or for computing only <m>\widetilde{\gamma}</m>. There are many additional possible responses.
               </p>
+            </li>
+            <li>
+              <p>
+                For the model in <xref ref="fig-SIR-complete-isolation-1"/>, here is the system of differential equations:
+              </p>
+              <md>
+                <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+                <mrow>\frac{dI}{dt} \amp = \beta S I - \epsilon I </mrow>
+                <mrow>\frac{dJ}{dt} \amp = \epsilon I - \eta J </mrow>
+                <mrow>\frac{dR}{dt} \amp = \eta J. </mrow>
+              </md>
+              <p>
+                For the model in <xref ref="fig-SIR-complete-isolation-2"/>, here is the system of differential equations:
+              </p>
+              <md>
+                <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+                <mrow>\frac{dI}{dt} \amp = \beta S I - \widetilde{\gamma} I </mrow>
+                <mrow>\frac{dR}{dt} \amp = \widetilde{\gamma} I. </mrow>
+              </md>
             </li>
             <li>
               <p>
@@ -243,7 +267,7 @@
       <activity xml:id="activity-two-incomplete-isolation-models">
         <statement>
           <p>
-            E  
+            <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-1" /> represent two possible models of incomplete isolation. Think carefully through the two models, using the prompts below.
           </p>
           <figure xml:id="fig-SIR-incomplete-isolation-1">
             <caption>A.</caption>
@@ -282,12 +306,39 @@
                </image>
           </figure>
           <figure xml:id="fig-SIR-incomplete-isolation-2">
-            <caption>A</caption>
+            <caption>A compartmental diagram showing a second possible approach to modeling incomplete isolation. The model allows Infectious people to move either to an Isolation compartment, labeled J, or directly to the Removed compartment.</caption>
               <image width="70%">
-              <description>A</description>
+              <description>A compartmental diagram showing a second possible approach to modeling incomplete isolation. The model allows Infectious people to move either to an Isolation compartment, labeled J, or directly to the Removed compartment. The arrow from compartment S to compartment I is labeled with the formula <m>\beta S(I+\delta J)</m>. The arrow from compartment I to compartment R is labeled gamma I. The arrow from compartment I to compartment J is labeled epsilon I. The arrow from compartment J to compartment R is labeled eta J. </description>
                 <latex-image>
                 \begin{tikzpicture}
-                
+                \draw [thick] [black] (0,0) -- (2,0);
+                \draw [thick] [black] (2,0) -- (2,2);
+                \draw [thick] [black] (2,2) -- (0,2);
+                \draw [thick] [black] (0,2) -- (0,0);
+                \node [black] at (1,1) {\Huge $S$};
+                \draw [thick] [->] (2.1,1) to (5.1,1); 
+                \node at (3.6,1.5) {\Large $\beta S(I+\delta J)$};
+                \draw [thick] [black] (5.2,0) -- (7.2,0);
+                \draw [thick] [black] (7.2,0) -- (7.2,2);
+                \draw [thick] [black] (7.2,2) -- (5.2,2);
+                \draw [thick] [black] (5.2,2) -- (5.2,0);
+                \node [black] at (6.2,1) {\Huge $I$};
+                \draw [thick] [->] (7.3,1) to (9.1,1); 
+                \node at (8.2,1.5) {\Large $\gamma I$};
+                \draw [thick] [black] (9.2,4) -- (11.2,4);
+                \draw [thick] [black] (11.2,4) -- (11.2,6);
+                \draw [thick] [black] (11.2,6) -- (9.2,6);
+                \draw [thick] [black] (9.2,6) -- (9.2,4);
+                \node [black] at (10.2,5) {\Huge $J$};
+                \draw [thick] [->] (7.3,2) to (9.1,4); 
+                \node at (7.8,3.2) {\Large $\epsilon I$};
+                \draw [thick] [->] (10.2,3.9) to (10.2,2.1);
+                \node at (10.7,3) {\Large $\eta J$};
+                \draw [thick] [black] (9.2,0) -- (11.2,0);
+                \draw [thick] [black] (11.2,0) -- (11.2,2);
+                \draw [thick] [black] (11.2,2) -- (9.2,2);
+                \draw [thick] [black] (9.2,2) -- (9.2,0);
+                \node [black] at (10.2,1) {\Huge $R$};
                 \end{tikzpicture}
                 </latex-image>
                </image>
