@@ -232,6 +232,10 @@
       </mdn>
 
       <p>
+        You may notice with the SEIR model that including the E compartment can change the way we interpret compartment S. So far, people have moved out of the S compartment when they become contagious. At this time, these people have transitioned to compartment I, meaning they are Infectious and can spread illness to others. However, we have not addressed that some of the people in the S compartment may have already contracted an illness but not yet become contagious. If this is only a small number of people at a time, perhaps because the incubation period for a illness is short, then the SIR model may provide a good approximation of real-life events. However, when a larger fraction of the S population is affected simultaneously, most commonly because of a long incubation period for the illness, then including compartment E helps to better represent the timeline of real-life events. 
+      </p>
+
+      <p>
         Next, it is helpful with the newly introduced SEIR model to envision how solutions should look, understand how the value of the new parameter <m>\kappa</m> affects solutions, and simply play around with the equations and different parameter values so that you can build your intuition for this model. Begin these investigations in <xref ref="activity-seir-model-play-with-kappa"/>. 
       </p>
 

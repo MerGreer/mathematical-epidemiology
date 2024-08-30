@@ -94,7 +94,7 @@
       <activity xml:id="activity-two-complete-isolation-models">
         <statement>
           <p>
-            Examine the two models described in the images and captions of <xref ref="fig-SIR-complete-isolation-1"/> and  <xref ref="fig-SIR-complete-isolation-2"/>. Each model is a possible way to adapt a standard SIR model to represent the concept of complete isolation. Pay attention to the compartments, arrows, and parameter value descriptions.  
+            Examine the two models described in the images and captions of <xref ref="fig-SIR-complete-isolation-1"/> and  <xref ref="fig-SIR-complete-isolation-2"/>. Each model is a possible way to adapt an SIR model, as first described in <xref ref="ch-compartmental-diagrams"/>, to represent the concept of complete isolation. Pay attention to the compartments, arrows, and parameter value descriptions.  
           </p>
           <figure xml:id="fig-SIR-complete-isolation-1">
             <caption>A compartmental diagram showing one possible approach to modeling complete isolation. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. Parameters <m>\epsilon</m> and <m>\eta</m> have values determined by how long people typically remain in each of the compartments I and J, respectively.</caption>
@@ -267,7 +267,7 @@
       <activity xml:id="activity-two-incomplete-isolation-models">
         <statement>
           <p>
-            <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-2" /> represent two possible models of incomplete isolation. Think carefully through the two models, considering when one model or the other might be a good choice for modeling isolation.
+            <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-2" /> represent two possible models of incomplete isolation. Each expands on the SIR model first shown in <xref ref="ch-compartmental-diagrams"/>. Think carefully through the two models, considering when one model or the other might be a good choice for modeling isolation.
           </p>
           <figure xml:id="fig-SIR-incomplete-isolation-1">
             <caption>A compartmental diagram showing one possible approach to modeling incomplete isolation. In this model, all Infectious people pass through an Isolation compartment, labeled J, before moving to the Removed compartment. Notice that the arrow from compartment S to compartment I, representing transmission of the illness, depends on both I and J, in contrast to the transmission terms shown in <xref ref="activity-two-complete-isolation-models"/>.</caption>
@@ -349,12 +349,12 @@
           <ol>
             <li>
               <p>
-                Imagine an illness primarily affects children, who require hands-on care and may be near siblings despite being sick. Suppose that everyone who gets this illness experiences symptoms, and the symptoms are distinctive in a way that makes it clear the person has this illness. (Measles is an example of this kind of illness.) Which of the models in <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-2" /> might you prefer for representing this situation? Why is this your choice?
+                Imagine an illness primarily affects children, who require hands-on care and may be near siblings or other people despite being sick. Suppose that everyone who gets this illness experiences symptoms, and the symptoms are distinctive in a way that makes it clear the person has this illness. (Measles is an example of this kind of illness.) Which of the models in <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-2" /> might you prefer for representing this situation? Why is this your choice?
               </p>     
             </li>
             <li>
               <p>
-                Suppose a residential campus experiences an outbreak of influenza. Some students experience high fevers, severe achiness, and other relatively extreme symptoms. These students stay home if they are very sick, but may have roommates or may need food deliveries. Other students have only a low fever and mild symptoms. These students continue with their daily routines, not resting much more than usual and not isolating. Which of the models in <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-2" /> might you prefer for representing this situation? Why is this your choice?
+                Suppose a residential campus experiences an outbreak of influenza. Some students experience high fevers, severe achiness, and other relatively extreme symptoms. These students rest and mostly isolate, but may have roommates or may need to interact with others while acquiring food or medicine. Other students have only a low fever and mild symptoms. These students continue with their daily routines, not resting much more than usual and not isolating. Which of the models in <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-2" /> might you prefer for representing this situation? Why is this your choice?
               </p>
             </li>
             <li>
@@ -372,15 +372,23 @@
                 First and most importantly: there is not a single right answer to this question. Any answer that is well-reasoned works.
               </p>
               <p>
-                The author of this text would likely use a model like the one shown in <xref ref="fig-SIR-incomplete-isolation-1"/> in this situation. The reason is that all or nearly all children with such an illness would isolate, so we have anyone moving from I to R without passing through compartment J. Since families or other caregivers are likely to interact with sick children, there is a nonzero chance of disease spread, and historically, such illnesses have definitely spread in this way. 
+                The author of this text would likely use a model like the one shown in <xref ref="fig-SIR-incomplete-isolation-1"/> in this situation. The reason is that all or nearly all children with such an illness would isolate, so we do not have anyone moving from I to R without passing through compartment J. Since families or other caregivers are likely to interact with sick children, there is a nonzero chance of disease spread, and historically, such illnesses have definitely spread in this way. 
               </p>
               <p>
-                An isolation model may or may not be needed here. Historically and when <m>\mathcal{R}_0</m> for such diseases was computed, it would not be uncommon for children to stay home sick. Therefore, using a model such as that in <xref ref="fig-SIR-incomplete-isolation-1"/> may be most useful when isolation is implemented in a more expansive or thorough way. Otherwise, a model without isolation may be a valid representation of disease spread.   
+                An isolation model may or may not be needed here. Historically and when <m>\mathcal{R}_0</m> for such diseases was computed, it would not be uncommon for children to stay home sick. Therefore, using a model such as that in <xref ref="fig-SIR-incomplete-isolation-1"/> may be most useful when isolation is implemented in a notably expansive or thorough way. Otherwise, a model without isolation may be a valid representation of disease spread.   
               </p>
             </li>
             <li>
               <p>
-                F
+                Again: there is not a single right answer to this question. Reasoning and justification are crucial to any response.
+              </p>
+              <p>
+                One suggested answer is a model like the one shown in <xref ref="fig-SIR-incomplete-isolation-2"/>. This model provides a J compartment to represent the students who do their best to isolate. However, these students may interact with roommates or may receive food deliveries or briefly emerge from isolation to go get food or medicine. Such interactions give a small but nonzero chance for influenza transmission, and the <m>\delta J</m> in the transmission term, multiplied by <m>\beta S</m>, represents this chance. The model in <xref ref="fig-SIR-incomplete-isolation-2"/> also shows that some students do not isolate at all. These students stay in compartment I while they are contagious, and they move to compartment R only after their Infectious time period ends.
+              </p>
+            </li>
+            <li>
+              <p>
+                The transmission term can also be written <m>\beta S I + \delta (\beta S J)</m>. (Check the algebra to confirm this yourself.) The <m>\beta S I</m> portion is the same transmission term from our underlying SIR model. The other term has a similar form, <m>\beta S J</m>, indicating transmission from the J compartment to the S compartment, but is multiplied by a scaling factor <m>\delta</m>. The value of <m>\delta</m> is typically between <m>0</m> and <m>1</m>. A value of <m>\delta = 0</m> would indicate no transmission from J to S, which was the case in our complete isolation model <xref ref="fig-SIR-complete-isolation-1"/>. A value of <m>\delta = 1</m> would indicate that transmission from the Isolation compartment is as likely as from the Infectious compartment, in which case we may have no reason to include an Isolation compartment. For values of <m>\delta</m> between <m>0</m> and <m>1</m>, the larger the value of <m>\delta</m>, the more likely it is for people in isolation to transmit the disease, yet it is still less likely than if they were not isolating at all.
               </p>
             </li>
           </ol>
