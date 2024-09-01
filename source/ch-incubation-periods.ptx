@@ -353,8 +353,15 @@
         <mrow xml:id="eq-R0-seir">\mathcal{R}_0 \amp = \frac{\beta N}{\gamma} \mbox{ for our SEIR model}. </mrow>
       </mdn>
       <p>
-        The formula in <xref ref="eq-R0-seir"/> can be rearranged in order to use information about <m>\mathcal{R}_0</m>, <m>\gamma</m>, and <m>N</m> to compute a reasonable range of <m>\beta</m> values in a model. We have seen how to estimate <m>\gamma</m> and <m>\kappa</m> in <xref ref="eq-gamma-estimate"/>, <xref ref="eq-gamma-estimate-2"/>, <xref ref="eq-kappa-estimate"/>, and <xref ref="eq-kappa-estimate-2"/>. We therefore have the ability to determine the parameter values for an SEIR model of a specific outbreak. Try this in <xref ref="activity-seir-model-pertussis-setup"/>.
+        The formula in <xref ref="eq-R0-seir"/> can be rearranged in order to use information about <m>\mathcal{R}_0</m>, <m>\gamma</m>, and <m>N</m> to compute a reasonable range of <m>\beta</m> values in a model. We have seen how to estimate <m>\gamma</m> and <m>\kappa</m> in <xref ref="eq-gamma-estimate"/>, <xref ref="eq-gamma-estimate-2"/>, <xref ref="eq-kappa-estimate"/>, and <xref ref="eq-kappa-estimate-2"/>. We therefore have the ability to determine the parameter values for an SEIR model of a specific outbreak. Try this in <xref ref="sec-practice-with-an-incubation-model"/>.
       </p>
+
+    </section>
+
+
+    <section xml:id="sec-practice-with-an-incubation-model">
+      <title>Practice with an Incubation Model</title>
+      <p>You have been increasing your ability to represent incubation and your ability to build a model using real data about a specific disease. <xref ref="activity-seir-model-pertussis-setup"/> guides you in setting up such a model.</p>
 
       <activity xml:id="activity-seir-model-pertussis-setup">
         <statement>
