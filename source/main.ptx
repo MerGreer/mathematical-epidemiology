@@ -149,11 +149,11 @@
 
     <xi:include href="ch-preparing-influenza-data-to-compare-with-a-model.ptx" />
 
-    <xi:include href="ch-epidemic-vs-endemic-models.ptx" />
-
     <xi:include href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.ptx" />
 
     <xi:include href="ch-akaike-information-criterion-comparing-different-models.ptx" />
+
+    <xi:include href="ch-epidemic-vs-endemic-models.ptx" />
 
     <xi:include href="ch-modeling-the-spread-of-a-rumor.ptx" />
 

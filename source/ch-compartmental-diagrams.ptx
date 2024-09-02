@@ -178,6 +178,7 @@
 
       <p>
         The letters <m>S</m>, <m>I</m>, and <m>t</m> are variables in the model. The Greek letter <m>\beta</m> is a parameter. We use the following conventions for letters in most of the models we study: 
+      </p>
       <ul>
         <li>
           <p>
@@ -195,12 +196,17 @@
           </p>
         </li>
       </ul>
-           A parameter may seem to behave a bit like a variable, since it can take on different values. However, parameters play a different role than variables in our models. In a given simulation, <em>we use biological information to set all parameter values</em>. By contrast, we choose only the initial values of our variables, that is, the values when <m>t=0</m>, and then the simulation reveals the values of each variable at later points in time. For instance, in the human<ndash />zombie example, we start at <m>t=0</m> with 49 humans and 1 zombie. Writing this in mathematical terms: <m>S(0)=49</m> and <m>I(0)=1</m>. After <m>t=0</m>, the populations of Susceptibles and Infectious depend on the outcome of the simulation. Even the length of time for the simulation depends on how long it takes the Infectious zombies to convert all the Susceptible humans.
+      <p>
+        A parameter may seem to behave a bit like a variable, since it can take on different values. However, parameters play a different role than variables in our models. In a given simulation, <em>we use biological information to set all parameter values</em>. 
+        By contrast, we choose only the initial values of our variables, that is, the values when <m>t=0</m>, and then the simulation reveals the values of each variable at later points in time. 
+        For instance, in the human<ndash />zombie example, we start at <m>t=0</m> with 49 humans and 1 zombie. Writing this in mathematical terms: <m>S(0)=49</m> and <m>I(0)=1</m>. 
+        After <m>t=0</m>, the populations of Susceptibles and Infectious depend on the outcome of the simulation. Even the length of time for the simulation depends on how long it takes the Infectious zombies to convert all the Susceptible humans.
+      </p>
+      <p>
+        As first mentioned in <xref ref="ch-zombies-can-math-help"/>, the values of parameters and population variables can be positive, or sometimes <m>0</m>, but should never be negative. Variables referring to populations, such as <m>S</m> and <m>I</m>, indicate the number of people in a compartment, and therefore it does not make sense for them to be negative, as this would indicate a negative number of people. A variable referring to time should almost always be positive, as we typically think of a disease starting at time <m>t=0</m>. Parameters describe a variety of things, from the transmission parameter <m>\beta</m> we have seen, to parameters we will start learning about in <xref ref="sec-from-zombie-game-variation-to-compartmental-diagram"/> and <xref ref="sec-estimating-gamma-and-other-rates"/> that relate to time spent in a compartment, to parameters indicating percentages, such as percentage of a population that is vaccinated. In all cases, only non-negative numbers are biologically meaningful. An advantage of positive parameters and variables is that we <em>see</em> in our model whether a term is positive or negative in an equation: if we see a negative sign, the term is negative; otherwise, that term is positive. This is in contrast to more general mathematical equations in other applications: mathematical epidemiology makes positives and negatives completely apparent.
       </p>
       
     </section>
-
-    
 
     
     
