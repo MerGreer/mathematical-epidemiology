@@ -397,13 +397,16 @@
       </activity>
 
       <p>
+        Notice that both models shown in <xref ref="activity-two-incomplete-isolation-models"/> could be described as SIJR models, but they are distinct models with different uses and different pathways that people can take when moving through compartments. Thinking further about comparing models: the interpretation of the Isolation compartment J is notably different in the models of <xref ref="activity-two-complete-isolation-models"/>, compared with the models of <xref ref="activity-two-incomplete-isolation-models"/>. These are all reasons why we should be careful, whenever building a model, to describe the meaning of each compartment, and to define precisely each population variable and each parameter.
+      </p>
+      <p>
         You have now worked with two different models for complete isolation, in <xref ref="activity-two-complete-isolation-models"/>, and two different models for incomplete isolation, in <xref ref="activity-two-incomplete-isolation-models"/>. As you have been seeing in <xref ref="ch-vaccines"/> on vaccines, <xref ref="ch-incubation-periods"/> on incubation periods, and this chapter on isolation, there are a variety of ways to expand on an SIR model to address different aspects of an outbreak. As you move forward from here, more exercises and activities will give you freedom to choose how to build your models. 
       </p>
       <p>
         Before we move on to such an activity, let us take a moment to address a vocabulary topic that commonly occurs when studying isolation, namely the difference between isolation and quarantine. According to the <url href="https://www.hhs.gov/answers/public-health-and-safety/what-is-the-difference-between-isolation-and-quarantine/index.html">U.S. Department of Health and Human Services</url>, <term>isolation</term> <q>separates sick people with a contagious disease from people who are not sick</q>. By contrast, <term>quarantine</term> <q>separates and restricts the movement of people who were exposed to a contagious disease to see if they become sick. These people may have been exposed to a disease and do not know it, or they may have the disease but do not show symptoms.</q> It can be more challenging to enact quarantine, and to model quarantine, because we often have less information about which people have been exposed to a disease, in comparison to the information we have about who is actually sick. Seeing symptoms makes it easier to determine when people are sick. For this reason, we emphasize isolation models. However, it is possible to include quarantine in models. One way to include quarantine, without requiring a new compartment, is to scale the transmission term by a factor that is between <m>0</m> and <m>1</m>. This is similar to multiplying by <m>(1-p)</m> to show the effect of vaccine, or multiplying by <m>\delta</m> to show the lower transmission level for incomplete isolation. 
       </p>
       <p>
-        As an additional note: the previous paragraph used the word <q>exposed</q> as it often appears in articles and websites about epidemiology. In the E compartment we introduced in <xref ref="ch-incubation-periods"/>, E stands for <q>Exposed-and-incubating</q>, which has a different meaning than just <q>exposed</q>. The term <q>exposed</q> means a person has been near someone who was contagious with an illness: such a person may or may not then get that illness themself. Our modeling term <q>Exposed-and-incubating</q> indicates that a person has indeed contracted the illness, but is not yet contagious themself, so has not moved into the Infectious compartment. It is important to keep reminding ourselves of this difference in meaning.
+        As an additional note: the previous paragraph used the word <q>exposed</q> as it often appears in articles and websites about epidemiology. In the E compartment we introduced in <xref ref="ch-incubation-periods"/>, E stands for <q>Exposed-and-incubating</q>, which has a different meaning than just <q>exposed</q>. The term <q>exposed</q> means a person has been near someone who was contagious with an illness: such a person may or may not then get that illness themself. Our modeling term <q>Exposed-and-incubating</q> indicates that a person has indeed contracted the illness, but is not yet contagious themself, so has not moved into the Infectious compartment. It is important to keep reminding ourselves of this difference in meaning. (Beware: if you read published articles about mathematical epidemiology, authors often use the word <q>exposed</q> when they mean what we are calling <q>exposed-and-incubating</q>. This is common in the literature of mathematical epidemiology, and it will help you as a reader to be aware of the context.)
       </p>
 
     </section>
@@ -411,7 +414,7 @@
 
     <section xml:id="sec-practice-with-an-isolation-model">
       <title>Practice with an Isolation Model</title>
-      <p>Part (a) of <xref ref="expl-activity-isolation" /> seeks a possible model of complete isolation, in which people truly and completely isolate for some portion of their Infectious period. There are multiple ways to model this. <xref ref="activity-two-complete-isolation-models" /> describes two possible approaches for you to consider.</p>
+      <p>write this</p>
 
     
 

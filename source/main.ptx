@@ -240,7 +240,7 @@
         <gi>
           <title>Basic Reproduction Number</title>
           <p>
-            The basic reproduction number is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. The symbol <m>\mathcal{R}_0</m>, pronounced <q>R zero</q> or <q>R nought</q>, represents the concept of the basic reproduction number, both in writing and in mathematical formulas.  (Defined in Chapter 5, with a very brief mention at the end of Chapter 4)
+            The basic reproduction number is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. The symbol <m>\mathcal{R}_0</m>, pronounced <q>R zero</q> or <q>R nought</q>, represents the concept of the basic reproduction number, both in writing and in mathematical formulas.  (Defined in <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>, with a very brief mention at the end of <xref ref="ch-compartmental-diagrams"/>)
           </p>
         </gi>
 
@@ -248,7 +248,7 @@
         <gi>
           <title>Compartmental Diagram</title>
           <p>
-            A compartmental diagram is an image, typically consisting of labeled boxes and arrows, that visually represents the flow of individuals through a <em>compartmental model</em>. Examples include <xref ref="fig-SI-compartmental-diagram"/> and <xref ref="fig-SIR-compartmental-diagram"/>. (Chapter 4)
+            A compartmental diagram is an image, typically consisting of labeled boxes and arrows, that visually represents the flow of individuals through a <em>compartmental model</em>. Examples include <xref ref="fig-SI-compartmental-diagram"/> and <xref ref="fig-SIR-compartmental-diagram"/>. (<xref ref="ch-compartmental-diagrams"/>)
           </p>
         </gi>
 
@@ -257,7 +257,7 @@
         <gi>
           <title>Compartmental Model</title>
           <p>
-            A compartmental model is a style of mathematical model in which the subjects of the model are grouped into categories called <em>compartments</em>. Such a model follows the overall outcomes for each compartment, but does not typically track the outcomes of smaller groups such as individuals. The compartmental models in this text use differential equations to demonstrate the interactions and rates governing how many individuals move from one group to another at specific points in time.  As one example of a compartmental model, an SIR model consists of three compartments: S, I, and R. Most often in this text, compartment S represents Susceptible individuals, compartment I represents Infectious individuals, and compartment R represents Removed individuals. (Chapter 4)
+            A compartmental model is a style of mathematical model in which the subjects of the model are grouped into categories called <em>compartments</em>. Such a model follows the overall outcomes for each compartment, but does not typically track the outcomes of smaller groups such as individuals. The compartmental models in this text use differential equations to demonstrate the interactions and rates governing how many individuals move from one group to another at specific points in time.  As one example of a compartmental model, an SIR model consists of three compartments: S, I, and R. Most often in this text, compartment S represents Susceptible individuals, compartment I represents Infectious individuals, and compartment R represents Removed individuals. (<xref ref="ch-compartmental-diagrams"/>)
           </p>
         </gi>
 
@@ -266,14 +266,14 @@
         <gi>
           <title>Compartments</title>
           <p>
-            In most models within this text, individuals are placed into categories called compartments. The individuals can typically move out of some compartments and into others, and the differential equations in compartmental models are sets of rules for the ways in which individuals are able to make such moves between compartments.  (Chapter 4)
+            In most models within this text, individuals are placed into categories called compartments. The individuals can typically move out of some compartments and into others, and the differential equations in compartmental models are sets of rules for the ways in which individuals are able to make such moves between compartments.  (<xref ref="ch-compartmental-diagrams"/>)
           </p>
         </gi>
 
         <gi>
           <title>Continuous</title>
           <p>
-            We tend to think of real-world time as continuous, meaning time does not keep stopping and starting. The compartmental models we use in most of this book show continuous time. While this sense of time matches the real world, we need to think about how to reconcile it with data sets, which typically involve discrete time steps, such as days or weeks.  (Chapter 2)
+            We tend to think of real-world time as continuous, meaning time does not keep stopping and starting. The compartmental models we use in most of this book show continuous time. While this sense of time matches the real world, we need to think about how to reconcile it with data sets, which typically involve discrete time steps, such as days or weeks.  (<xref ref="ch-zombies-can-math-help"/>)
           </p>
         </gi>
 
@@ -281,7 +281,7 @@
         <gi>
           <title>Discrete</title>
           <p>
-            We can think of time as discrete when we describe it as separate steps, such as Day 0, Day 1, or Day 2. Many data sets we work with report data in discrete time steps, such as by day or by week. We need to think through how to reconcile discrete data sets with the continuous models we most often use in this text. (Chapter 2)
+            We can think of time as discrete when we describe it as separate steps, such as Day 0, Day 1, or Day 2. Many data sets we work with report data in discrete time steps, such as by day or by week. We need to think through how to reconcile discrete data sets with the continuous models we most often use in this text. (<xref ref="ch-zombies-can-math-help"/>)
           </p>
         </gi>
         
@@ -289,7 +289,7 @@
         <gi>
           <title>Effective Reproduction Number</title>
           <p>
-            The effective reproduction number is the average number of new infections caused by one infectious person in a population that is not entirely susceptible. The most common reason for a population to not be entirely susceptible is when some of the people have some form of immunity. Reasons for immunity may include vaccination and/or some of the people in the population previously having the disease being studied. The symbol <m>\mathcal{R}_{\text{eff}}</m> represents the effective reproduction number. (Chapter 6)
+            The effective reproduction number is the average number of new infections caused by one infectious person in a population that is not entirely susceptible. The most common reason for a population to not be entirely susceptible is when some of the people have some form of immunity. Reasons for immunity may include vaccination and/or some of the people in the population previously having the disease being studied. The symbol <m>\mathcal{R}_{\text{eff}}</m> represents the effective reproduction number. (<xref ref="ch-vaccines"/>)
           </p>
         </gi>
 
@@ -297,7 +297,7 @@
         <gi>
           <title>Effectiveness</title>
           <p>
-            A measure of how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease, <em>in real-world conditions</em>. For instance, if after a vaccine has been released to the public <m>90\%</m> fewer vaccinated people get the virus than do those who are unvaccinated, then the vaccine is said to have an effectiveness of <m>90\%</m>. (Chapter 6)
+            A measure of how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease, <em>in real-world conditions</em>. For instance, if after a vaccine has been released to the public <m>90\%</m> fewer vaccinated people get the virus than do those who are unvaccinated, then the vaccine is said to have an effectiveness of <m>90\%</m>. (<xref ref="ch-vaccines"/>)
           </p>
         </gi>
         
@@ -305,7 +305,7 @@
         <gi>
           <title>Efficacy</title>
           <p>
-            A measure of how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease, <em>in a clinical trial</em>. For instance, if in trials <m>70\%</m> fewer people in the vaccinated group get a virus than do those in the unvaccinated group, then the vaccine is said to have an efficacy of <m>70\%</m>.  (Chapter 6)
+            A measure of how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease, <em>in a clinical trial</em>. For instance, if in trials <m>70\%</m> fewer people in the vaccinated group get a virus than do those in the unvaccinated group, then the vaccine is said to have an efficacy of <m>70\%</m>.  (<xref ref="ch-vaccines"/>)
           </p>
         </gi>
 
@@ -313,7 +313,7 @@
         <gi>
           <title>Graphical Solution</title>
           <p>
-            A graphical solution to a differential equation, or system of differential equations, is a curve or curves showing the behavior of the differential equation(s), based on specific parameter values and initial conditions. When parameter values change, or when initial conditions change, the graphical solution typically changes as well. A graphical solution is often called a <em>solution</em>, and readers should use context to know whether the word <em>solution</em> refers to a graphical solution, a numerical solution, or a formula. (Chapter 3)
+            A graphical solution to a differential equation, or system of differential equations, is a curve or curves showing the behavior of the differential equation(s), based on specific parameter values and initial conditions. When parameter values change, or when initial conditions change, the graphical solution typically changes as well. A graphical solution is often called a <em>solution</em>, and readers should use context to know whether the word <em>solution</em> refers to a graphical solution, a numerical solution, or a formula. (<xref ref="ch-visualization-graphing-model-results-and-data"/>)
           </p>
         </gi>
 
@@ -321,23 +321,31 @@
         <gi>
           <title>Initial Conditions</title>
           <p>
-            Initial conditions are the starting values of the dependent variables in differential equations. Within this text, our dependent variables are typically populations such as <m>S(t)</m> or <m>I(t)</m>, and the start of solutions is usually the time <m>t=0</m>. This means the initial conditions are the values <m>S(0)</m> and <m>I(0)</m>. Initial conditions are used when computing a numerical solution: the numerical solution begins with the initial conditions and then <q>steps through</q> time, computing the later values of each dependent variable using both the earlier values and the information in the differential equations about how each dependent variable changes. (Chapter 3)
+            Initial conditions are the starting values of the dependent variables in differential equations. Within this text, our dependent variables are typically populations such as <m>S(t)</m> or <m>I(t)</m>, and the start of solutions is usually the time <m>t=0</m>. This means the initial conditions are the values <m>S(0)</m> and <m>I(0)</m>. Initial conditions are used when computing a numerical solution: the numerical solution begins with the initial conditions and then <q>steps through</q> time, computing the later values of each dependent variable using both the earlier values and the information in the differential equations about how each dependent variable changes. (<xref ref="ch-visualization-graphing-model-results-and-data"/>)
           </p>
         </gi>
 
-        
+
+        <gi>
+          <title>Isolation</title>
+          <p>
+            According to the <url href="https://www.hhs.gov/answers/public-health-and-safety/what-is-the-difference-between-isolation-and-quarantine/index.html">U.S. Department of Health and Human Services</url>, isolation <q>separates sick people with a contagious disease from people who are not sick</q>. (<xref ref="ch-isolation"/>)
+          </p>
+        </gi>
+
+<!--         
         <gi>
           <title>Mathematical Modeling</title>
           <p>
             Mathematical modeling is a process by which we represent real-world dynamics using mathematical formulas. In this text, we typically use differential equations in our models. The process of mathematical modeling can require many steps, such as choosing which equations to use, comparing the results of a model with data, updating a model as needed to respond to different goals, and considering multiple models to best answer the questions we are asking. (Chapter 7)
           </p>
-        </gi>
+        </gi> -->
 
 
         <gi>
           <title>Numerical Solution</title>
           <p>
-            A numerical solution to a differential equation, or system of differential equations, is a set of lists of numbers that result from approximating the outcome of the differential equation(s), given specific parameter values and initial conditions. When parameter values change, or when initial conditions change, the numerical solution typically changes as well. The lists of numbers for an SIR model, for instance, typically show the values of <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> at many values of time <m>t</m> within the range of time values of interest. We may print some or all of the values in the lists, or we may use graphing to present the information in the lists. A numerical solution is often called a <em>solution</em>, and readers should use context to know whether the word <em>solution</em> refers to a graphical solution, a numerical solution, or a formula. (Chapter 3)
+            A numerical solution to a differential equation, or system of differential equations, is a set of lists of numbers that result from approximating the outcome of the differential equation(s), given specific parameter values and initial conditions. When parameter values change, or when initial conditions change, the numerical solution typically changes as well. The lists of numbers for an SIR model, for instance, typically show the values of <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> at many values of time <m>t</m> within the range of time values of interest. We may print some or all of the values in the lists, or we may use graphing to present the information in the lists. A numerical solution is often called a <em>solution</em>, and readers should use context to know whether the word <em>solution</em> refers to a graphical solution, a numerical solution, or a formula. (<xref ref="ch-visualization-graphing-model-results-and-data"/>)
           </p>
         </gi>
 
@@ -346,16 +354,23 @@
         <gi>
           <title>Parameters</title>
           <p>
-            Parameters in a model are numbers, determined using biological information, that represent some aspect of how a disease progresses. In this text, most parameters are shown as Greek letters, such as <m>\beta</m> or <m>\gamma</m>. A few parameters in this text represent percentages, such as the percentage of a population that is vaccinated against a disease, and these parameters are typically represented by lowercase letters such as <m>p</m> or <m>q</m>. Parameters are different than variables: the variables in our models are typically the independent variable <m>t</m> for time, and dependent variables such as <m>S</m>, <m>I</m>, <m>R</m>, and others, for populations.  (Chapter 4)
+            Parameters in a model are numbers, determined using biological information, that represent some aspect of how a disease progresses. In this text, most parameters are shown as Greek letters, such as <m>\beta</m> or <m>\gamma</m>. A few parameters in this text represent percentages, such as the percentage of a population that is vaccinated against a disease, and these parameters are typically represented by lowercase letters such as <m>p</m> or <m>q</m>. Parameters are different than variables: the variables in our models are typically the independent variable <m>t</m> for time, and dependent variables such as <m>S</m>, <m>I</m>, <m>R</m>, and others, for populations.  (First mentioned in <xref ref="ch-zombies-can-math-help"/>; further defined in <xref ref="ch-compartmental-diagrams"/>)
           </p>
         </gi>
 
         
+        <gi>
+          <title>Quarantine</title>
+          <p>
+            According to the <url href="https://www.hhs.gov/answers/public-health-and-safety/what-is-the-difference-between-isolation-and-quarantine/index.html">U.S. Department of Health and Human Services</url>, quarantine <q>separates and restricts the movement of people who were exposed to a contagious disease to see if they become sick. These people may have been exposed to a disease and do not know it, or they may have the disease but do not show symptoms.</q> (<xref ref="ch-isolation"/>)
+          </p>
+        </gi>
+
         
         <gi>
           <title>Rate</title>
           <p>
-            A rate is, in general, a ratio between two different things. In this text, rates are parameters having units <m>1/\text{time}</m>. In a model, the rate is typically multiplied by a population such as <m>I</m> or <m>R</m> to show the flow of that population out of one compartment and into another compartment. (Chapter 4)
+            A rate is, in general, a ratio between two different things. In this text, rates are parameters having units <m>1/\text{time}</m>. In a model, the rate is typically multiplied by a population such as <m>I</m> or <m>R</m> to show the flow of that population out of one compartment and into another compartment. (<xref ref="ch-compartmental-diagrams"/>)
           </p>
         </gi>
 
@@ -363,7 +378,7 @@
         <gi>
           <title>Sign Analysis</title>
           <p>
-            The word <q>sign</q> in sign analysis refers to whether terms in differential equations are positive (<m>+</m>), negative (<m>-</m>), or zero (<m>0</m>). In sign analysis, we use these signs to build understanding of the differential equation. Often, our goal is to learn whether the solution to the differential equation is rising, falling, or level at some time <m>t</m>. This understanding may help us identify which solution curve goes with which differential equation, may show when a disease starts with an outbreak or can never experience an outbreak, and may indicate many other outcomes of models. Sign analysis is powerful because it depends only on the signs of terms, without forcing us to rely on detailed data sets that may not always be available. (Chapter 5)
+            The word <q>sign</q> in sign analysis refers to whether terms in differential equations are positive (<m>+</m>), negative (<m>-</m>), or zero (<m>0</m>). In sign analysis, we use these signs to build understanding of the differential equation. Often, our goal is to learn whether the solution to the differential equation is rising, falling, or level at some time <m>t</m>. This understanding may help us identify which solution curve goes with which differential equation, may show when a disease starts with an outbreak or can never experience an outbreak, and may indicate many other outcomes of models. Sign analysis is powerful because it depends only on the signs of terms, without forcing us to rely on detailed data sets that may not always be available. (<xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>)
           </p>
         </gi>
 
@@ -371,7 +386,7 @@
         <gi>
           <title>SI Model</title>
           <p>
-            An SI model is a compartmental model having two compartments, labeled S and I. Most often in this text, S stands for <em>Susceptible</em> and I stands for <em>Infectious</em>, though the compartments can have other interpretations. The letters S and I are each pronounced when we say <q>SI model</q>: <q>Ess</q> <q>Eye</q> model. (Chapter 2)
+            An SI model is a compartmental model having two compartments, labeled S and I. Most often in this text, S stands for <em>Susceptible</em> and I stands for <em>Infectious</em>, though the compartments can have other interpretations. The letters S and I are each pronounced when we say <q>SI model</q>: <q>Ess</q> <q>Eye</q> model. (<xref ref="ch-zombies-can-math-help"/>)
           </p>
         </gi>
 
@@ -379,7 +394,7 @@
         <gi>
           <title>SEIR Model</title>
           <p>
-            An SEIR model is a compartmental model having four compartments, labeled S, E, I, and R. Most often in this text, S stands for <em>Susceptible</em>, E stands for <em>Exposed-and-incubating</em>, I stands for <em>Infectious</em>, and R stands for <em>Removed</em>, though the compartments can have other interpretations. The letters S, E, I, and R are each pronounced when we say <q>SEIR model</q>: <q>Ess</q> <q>Eee</q> <q>Eye</q> <q>Arr</q> model. (Chapter 6)
+            An SEIR model is a compartmental model having four compartments, labeled S, E, I, and R. Most often in this text, S stands for <em>Susceptible</em>, E stands for <em>Exposed-and-incubating</em>, I stands for <em>Infectious</em>, and R stands for <em>Removed</em>, though the compartments can have other interpretations. The letters S, E, I, and R are each pronounced when we say <q>SEIR model</q>: <q>Ess</q> <q>Eee</q> <q>Eye</q> <q>Arr</q> model. (<xref ref="ch-incubation-periods"/>)
           </p>
         </gi>
 
@@ -387,7 +402,7 @@
         <gi>
           <title>SIR Model</title>
           <p>
-            An SIR model is a compartmental model having three compartments, labeled S, I, and R. Most often in this text, S stands for <em>Susceptible</em>, I stands for <em>Infectious</em>, and R stands for <em>Removed</em>, though the compartments can have other interpretations. The letters S, I, and R are each pronounced when we say <q>SIR model</q>: <q>Ess</q> <q>Eye</q> <q>Arr</q> model. (Chapter 4)
+            An SIR model is a compartmental model having three compartments, labeled S, I, and R. Most often in this text, S stands for <em>Susceptible</em>, I stands for <em>Infectious</em>, and R stands for <em>Removed</em>, though the compartments can have other interpretations. The letters S, I, and R are each pronounced when we say <q>SIR model</q>: <q>Ess</q> <q>Eye</q> <q>Arr</q> model. (<xref ref="ch-compartmental-diagrams"/>)
           </p>
         </gi>
 
@@ -395,7 +410,7 @@
         <gi>
           <title>Total Population</title>
           <p>
-            The total population of a compartmental model is the sum of the populations in each compartment. We typically use the variable <m>N</m> to refer to total population, and we write <m>N(t)</m> to mean total population at time <m>t</m>. (Chapter 5)
+            The total population of a compartmental model is the sum of the populations in each compartment. We typically use the variable <m>N</m> to refer to total population, and we write <m>N(t)</m> to mean total population at time <m>t</m>. (First mentioned in <xref ref="ch-zombies-can-math-help"/>, then defined in <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>)
           </p>
         </gi>
         
