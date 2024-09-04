@@ -397,16 +397,29 @@
       </activity>
 
       <p>
-        Notice that both models shown in <xref ref="activity-two-incomplete-isolation-models"/> could be described as SIJR models, but they are distinct models with different uses and different pathways that people can take when moving through compartments. Thinking further about comparing models: the interpretation of the Isolation compartment J is notably different in the models of <xref ref="activity-two-complete-isolation-models"/>, compared with the models of <xref ref="activity-two-incomplete-isolation-models"/>. These are all reasons why we should be careful, whenever building a model, to describe the meaning of each compartment, and to define precisely each population variable and each parameter.
+        Notice that both models shown in <xref ref="activity-two-incomplete-isolation-models"/> could be described as SIJR models, but they are distinct models with different uses and different pathways that people can take when moving through compartments. 
+        Thinking further about comparing models: the interpretation of the Isolation compartment J is notably different in the models of <xref ref="activity-two-complete-isolation-models"/>, compared with the models of <xref ref="activity-two-incomplete-isolation-models"/>. 
+        These are all reasons why we should be careful, whenever building a model, to describe the meaning of each compartment, and to define precisely each population variable and each parameter.
       </p>
       <p>
-        You have now worked with two different models for complete isolation, in <xref ref="activity-two-complete-isolation-models"/>, and two different models for incomplete isolation, in <xref ref="activity-two-incomplete-isolation-models"/>. As you have been seeing in <xref ref="ch-vaccines"/> on vaccines, <xref ref="ch-incubation-periods"/> on incubation periods, and this chapter on isolation, there are a variety of ways to expand on an SIR model to address different aspects of an outbreak. As you move forward from here, more exercises and activities will give you freedom to choose how to build your models. 
+        You have now worked with two different models for complete isolation, in <xref ref="activity-two-complete-isolation-models"/>, and two different models for incomplete isolation, in <xref ref="activity-two-incomplete-isolation-models"/>. 
+        As you have been seeing in <xref ref="ch-vaccines"/> on vaccines, <xref ref="ch-incubation-periods"/> on incubation periods, and this chapter on isolation, there are a variety of ways to expand on an SIR model to address different aspects of an outbreak. 
+        As you move forward from here, more exercises and activities will give you freedom to choose how to build your models. 
       </p>
       <p>
-        Before we move on to such an activity, let us take a moment to address a vocabulary topic that commonly occurs when studying isolation, namely the difference between isolation and quarantine. According to the <url href="https://www.hhs.gov/answers/public-health-and-safety/what-is-the-difference-between-isolation-and-quarantine/index.html">U.S. Department of Health and Human Services</url>, <term>isolation</term> <q>separates sick people with a contagious disease from people who are not sick</q>. By contrast, <term>quarantine</term> <q>separates and restricts the movement of people who were exposed to a contagious disease to see if they become sick. These people may have been exposed to a disease and do not know it, or they may have the disease but do not show symptoms.</q> It can be more challenging to enact quarantine, and to model quarantine, because we often have less information about which people have been exposed to a disease, in comparison to the information we have about who is actually sick. Seeing symptoms makes it easier to determine when people are sick. For this reason, we emphasize isolation models. However, it is possible to include quarantine in models. One way to include quarantine, without requiring a new compartment, is to scale the transmission term by a factor that is between <m>0</m> and <m>1</m>. This is similar to multiplying by <m>(1-p)</m> to show the effect of vaccine, or multiplying by <m>\delta</m> to show the lower transmission level for incomplete isolation. 
+        Before we move on to such an activity, let us take a moment to address a vocabulary topic that commonly occurs when studying isolation, namely the difference between isolation and quarantine. 
+        According to the <url href="https://www.hhs.gov/answers/public-health-and-safety/what-is-the-difference-between-isolation-and-quarantine/index.html">U.S. Department of Health and Human Services</url>, <term>isolation</term> <q>separates sick people with a contagious disease from people who are not sick</q>. 
+        By contrast, <term>quarantine</term> <q>separates and restricts the movement of people who were exposed to a contagious disease to see if they become sick. 
+        These people may have been exposed to a disease and do not know it, or they may have the disease but do not show symptoms.</q> It can be more challenging to enact quarantine, and to model quarantine, because we often have less information about which people have been exposed to a disease, in comparison to the information we have about who is actually sick. 
+        Seeing symptoms makes it easier to determine when people are sick. For this reason, we emphasize isolation models. 
+        However, it is possible to include quarantine in models. 
+        One way to include quarantine, without requiring a new compartment, is to scale the transmission term by a factor that is between <m>0</m> and <m>1</m>. This is similar to multiplying by <m>(1-p)</m> to show the effect of vaccine, or multiplying by <m>\delta</m> to show the lower transmission level for incomplete isolation. 
       </p>
       <p>
-        As an additional note: the previous paragraph used the word <q>exposed</q> as it often appears in articles and websites about epidemiology. In the E compartment we introduced in <xref ref="ch-incubation-periods"/>, E stands for <q>Exposed-and-incubating</q>, which has a different meaning than just <q>exposed</q>. The term <q>exposed</q> means a person has been near someone who was contagious with an illness: such a person may or may not then get that illness themself. Our modeling term <q>Exposed-and-incubating</q> indicates that a person has indeed contracted the illness, but is not yet contagious themself, so has not moved into the Infectious compartment. It is important to keep reminding ourselves of this difference in meaning. (Beware: if you read published articles about mathematical epidemiology, authors often use the word <q>exposed</q> when they mean what we are calling <q>exposed-and-incubating</q>. This is common in the literature of mathematical epidemiology, and it will help you as a reader to be aware of the context.)
+        As an additional note: the previous paragraph used the word <q>exposed</q> as it often appears in articles and websites about epidemiology. In the E compartment we introduced in <xref ref="ch-incubation-periods"/>, E stands for <q>Exposed-and-incubating</q>, which has a different meaning than just <q>exposed</q>. 
+        The term <q>exposed</q> means a person has been near someone who was contagious with an illness: such a person may or may not then get that illness themself. Our modeling term <q>Exposed-and-incubating</q> indicates that a person has indeed contracted the illness, but is not yet contagious themself, so has not moved into the Infectious compartment. 
+        It is important to keep reminding ourselves of this difference in meaning. (Beware: if you read published articles about mathematical epidemiology, authors often use the word <q>exposed</q> when they mean what we are calling <q>exposed-and-incubating</q>. 
+        This is common in the literature of mathematical epidemiology, and it will help you as a reader to be aware of the context.)
       </p>
 
     </section>
@@ -414,7 +427,7 @@
 
     <section xml:id="sec-practice-with-an-isolation-model">
       <title>Practice with an Isolation Model</title>
-      <p>write this</p>
+      <!-- <p>Now that we have </p> -->
 
     
 
@@ -442,12 +455,15 @@
             </li>
             <li>
               <p>
-                Try your model in Python (INCLUDE HOW MANY PEOPLE IN THE POPULATION - and also vaccine???), first using your initial model for influenza, and then using your updated <m>\gamma</m> value to represent the complete isolation of Infectious people after only one day. Describe your results. 
+                Try your model in Python, using either the Python code for an SIR model, as in <xref ref="activity-formula-for-i-of-t-turning-around"/>, or the Python code for an SEIR model, as in <xref ref="activity-seir-model-play-with-kappa"/>. Suppose there are 2500 students on campus, and update all parameters and time ranges in the model as needed. Feel free to try just one initial Infectious case, or a few (perhaps 2-10) initial Infectious cases, as it is possible for multiple people to become Infectious simultaneously in an influenza outbreak, perhaps because they all encountered the same Infectious person off-campus, or perhaps because some event led to multiple initial infections within a very short time frame. 
+              </p>
+              <p>
+                First try your baseline model for influenza without isolation, and then try your influenza model with its updated <m>\gamma</m> value to represent the complete isolation of Infectious people after only one day. Describe your results. 
               </p>
             </li>
           </ol>
 
-          <sage>
+          <!-- <sage>
             <input>
               #Import packages
               import numpy as np
@@ -498,27 +514,27 @@
             <output>
             
             </output>
-          </sage>
+          </sage> -->
                      
         </statement>
         <answer>
           <ol>
             <li>
               <p>
-                The incubation period is usually 7 to 10 days, so <m>\kappa</m> is in the range <m>\frac{1}{10}- \frac{1}{7}</m>. (The incubation period can be shorter or longer, and if you included this information, you will have a wider range of values for <m>\kappa</m>. This is also valid.)
+                There truly is no right or wrong decision here. Influenza is often modeled using the SIR model because the incubation period can be relatively short: the linked CDC page says influenza is most contagious for three days. However, the incubation period is not zero, and may be important to include when modeling a real campus outbreak and trying to estimate the timeline of the outbreak's trajectory, and the CDC page also tells us that influenza can be contagious from one day before symptoms appear until five to seven days after symptoms appear, meaning a total of six to eight days. In summary: either model is a reasonable choice, and the decision rests on the modeler's goals and the questions being asked when modeling.
               </p>
               <p>
-                Pertussis begins to be contagious when cold symptoms appear, and the phase for cold symptoms is one to two weeks. Pertussis is most contagious for up to three weeks after the intense coughing phase begins. Adding these phases together, pertussis is contagious, or most contagious, for four to five weeks, meaning 28 to 35 days. So <m>\gamma</m> is in the range <m>\frac{1}{35}- \frac{1}{28}</m>. (Saying <q>up to</q> three weeks suggests people may not be contagious the full three weeks. And pertussis may be contagious, at a lower level, more than three weeks after severe cough begins. You may have built either of these facts into your answer, which may lead to a different answer.)
+                The contagion numbers listed above suggest that, without isolation, we may choose from a range of possible <m>\gamma</m> values for our model, with <m>1/8 \leq \gamma \leq 1/3</m>. The Virginia Department of Health tells us that <m>1 \leq \mathcal{R}_0 \leq 2</m>. Putting these ranges of values and our population size of 2500 into our formula for <m>\mathcal{R}_0</m> tells us that <m>0.00005 \leq \beta \leq 0.000267</m>. (Be sure to confirm these numbers, using the correct <m>\mathcal{R}_0</m> for the model you are using, and showing with <m>\gamma</m> and <m>\mathcal{R}_0</m> values used to compute the least and greatest values for <m>\beta</m>.)
+              </p>              
+            </li>
+            <li>
+              <p>
+                If everyone knows they are sick, and everyone isolates perfectly after one day, then we should set <m>\gamma = 1/1</m> or, more succinctly, <m>\gamma = 1</m>, for a complete isolation model in which the time unit is <em>days</em>.
               </p>
             </li>
             <li>
               <p>
-                Rearranging <xref ref="eq-R0-seir"/> leads to <m>\beta = \gamma \mathcal{R}_0 / N</m>. Using the range of values <m>5.5 \leq \mathcal{R}_0 \leq 17</m> and <m>\frac{1}{35} \leq \gamma \leq \frac{1}{28}</m>, along with <m>N = 10,000</m>, gives the range of values <m>0.000157 \leq \beta \leq 0.000607</m>. Your range of <m>\beta</m> values should be based on the parameter values you determined.
-              </p>
-            </li>
-            <li>
-              <p>
-                This is open-ended. Make as many observations as you can.
+                This is open-ended. Explore in Python, and make as many observations as you can.
               </p>
             </li>
           </ol>
@@ -527,6 +543,88 @@
       </activity>
 
     </section>
+
+
+    <exercises xml:id="exercises-ch-isolation">
+      <!-- <exercise number="1">
+       <p>
+         Redo <xref ref="activity-seir-model-pertussis-setup"/>, but convert the time unit to <em>weeks</em> instead of <em>days</em>. To make this change, do the following. 
+       </p>   
+       <ol>
+         <li>
+           <p>
+             Compute the number of weeks for the incubation period of pertussis. This should be <m>\mbox{(the number of days of the incubation period)} / 7</m>. When you then compute <m>\kappa</m>, you should obtain a value equal to <m>7 * \mbox{(the value you obtained in the previous exercise)}</m>.
+           </p>
+         </li>
+         <li>
+           <p>
+             Similarly, the value of <m>\gamma</m> in this exercise should be <m>7 * \mbox{(the value you obtained in the previous exercise)}</m>.
+           </p>
+         </li>
+         <li>
+           <p>
+             For the graphs to appear the same, the horizontal axis should be adjusted. To be precise, the length of the new time axis should equal <m>\mbox{(the length of the time axis in the previous exercise) } / 7</m>. To be close, use the nearest number of weeks. For instance, the default time length in the previous exercise is 365 days, which is one year. One year has approximately, but not exactly, 52 weeks. Using 52 weeks in this exercise will give a very similar graph to the 365-day graph from the previous exercise. 
+           </p>
+         </li>
+       </ol> 
+       <p>
+         Explain mathematically why the unit conversions described in parts (a.), (b.), and (c.) are the correct conversions for converting the model's time scale from days to weeks. Show graphs from both this exercise and the previous exercise to demonstrate that the model results are the same when we convert the units of time. For better clarity: update the label for the time axis in each graph to say <q>days</q> or <q>weeks</q> instead of <q>time</q>, to make clear which time unit is being used in the graph.
+       </p>        
+     </exercise> -->
+
+     <!-- <exercise number="2">
+       <p>
+         Update <xref ref="activity-seir-model-pertussis-setup"/> to include vaccine. Include the multiplier <m>(1-p)</m> where appropriate, adapting our work from <xref ref="expl-activity-vaccines"/> and <xref ref="activity-pcrit2"/> to the SEIR model.
+       </p>
+       <p>
+         In this exercise, we do not address vaccine efficacy or effectiveness, assuming instead a <m>100\%</m> effective vaccine. In the following exercise, number 3 in this section, we include the actual effectiveness of pertussis vaccines. 
+       </p>   
+       <ol>
+         <li>
+           <p>
+             Compute <m>p_{\text{crit}}</m> for pertussis, using the information that <m>\mathcal{R}_0</m> for pertussis can be between 5.5 and 17, depending on the outbreak. Your results for <m>p_{\text{crit}}</m> will be a range of values.
+           </p>
+         </li>
+         <li>
+           <p>
+             Adapt the Python code from the second exercise to run the model with a vaccine level at least as large as <m>p_{\text{crit}}</m>. Adjust the time scale, show just some of the solution curve graphs, or make any other changes needed, to best see the long-term outcome of the model. Write your observations of the outcomes of this model, and compare and contrast with the no-vaccine model.
+           </p>
+         </li>
+         <li>
+           <p>
+             Do some online research to determine the percentage of children in your area, or percentage of all people in your area, who are vaccinated against pertussis. <q>Your area</q> can refer to your city, state, province, country, or whatever other region you choose. Run the Python code again, using this percentage for vaccination, and citing the resources in which you found the percentage. Adjust the code as needed so you can best see the results, and describe your findings.
+           </p>
+         </li>
+       </ol>   
+     </exercise> -->
+
+     <!-- <exercise number="3">
+       <p>
+         We make one more update to the pertussis model in <xref ref="activity-seir-model-pertussis-setup"/> and exercise 2 in this section, addressing vaccine effectiveness. Our inclusion of the multiplier <m>(1-p)</m> assumed that vaccination had <m>100 \%</m> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <m>80-85\%</m> vaccine effectiveness.<fn>This range of vaccine effectiveness level comes from the <url href="https://www.cdc.gov/vaccines/pubs/pinkbook/pert.html">Centers for Disease Control and Prevention</url>. The range is specific to the DTaP vaccine, in Europe and the Americas, in studies in or after 1991.</fn>
+       </p>   
+       <ol>
+         <li>
+           <p>
+             Rewrite your model as below, where <m>p</m> remains the percentage of people vaccinated, and <m>q</m> is the vaccine effectiveness percentage. Notice that we require <m>0 \leq p \leq 1</m> and <m>0 \leq q \leq 1</m>: 
+           </p>
+           <md>
+               <mrow>\frac{dS}{dt} \amp = - (1-pq) \beta S I </mrow>
+               <mrow>\frac{dE}{dt} \amp =  (1-pq) \beta S I - \kappa E </mrow>
+               <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+               <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+           </md>
+           <p>
+             Compute the value of <m>p_{\text{crit}}</m> for this model when <m>\mathcal{R}_0 = 5.5</m>. What percentage of people must be vaccinated in order to achieve <m>p_{\text{crit}}</m> when vaccine is <m>85\%</m> effective? What can you say about the percentage of vaccinated people needed in order to achieve <m>p_{\text{crit}}</m> when vaccine is <m>80\%</m> effective?
+           </p>
+         </li>
+         <li>
+           <p>
+             In approximately 2019, researchers found that the whooping cough vaccine had become less effective over time, for a variety of reasons. They investigated the reasons and made changes. Read about these events from at least three sources, including general news sources as well as government-led websites, and report on your findings. Cite your sources.  In your report, describe the role of of vaccine effectiveness <m>p</m> as well as the role of the percentage <m>q</m> of people vaccinated in a population.
+           </p>
+         </li>
+       </ol>     
+     </exercise> -->
+   </exercises>
 
     
 
