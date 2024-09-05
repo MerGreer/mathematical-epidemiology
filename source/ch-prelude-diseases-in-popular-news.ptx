@@ -145,12 +145,12 @@
         For these and other diseases or outbreaks we may read about, we can add to our knowledge of underlying disease biology by gathering additional data. We will find, when modeling diseases, that it can help to know the lengths of time for each disease stage, such as incubation period, how long a person is typically sick, and how long any immunity to the disease lasts. Vaccine data is also helpful, including whether a vaccine exists at all, how effective the vaccine is on average, and what percentage of people are vaccinated against a particular disease. Some of the data we collect may depend on time or place: vaccines may be newer, or different percentages of people may be vaccinated in different locations. 
       </p>
       <p>
-        One place to look up data is the <url href="https://www.cdc.gov/">Centers for Disease Control and Prevention (CDC)</url>. As one example, a web search can take us to the <url href="https://www.cdc.gov/measles/index.html">CDC's information page about measles</url>. Not every disease is presented in an identical manner on the CDC's web pages, but very commonly, there is a link for Transmission and another link for Signs and Symptoms. These typically contain lots of information about how diseases spread and how long each stage takes. Such information helps us build our models.
+        One place to look up data is the <url href="https://www.cdc.gov/">Centers for Disease Control and Prevention (CDC)</url>. As one example, a web search can take us to the <url href="https://www.cdc.gov/measles/index.html">CDC's information page about measles</url>. Not every disease is presented in an identical manner on the CDC's web pages, but there are typically page titles including the words <q>Transmission</q> or <q>How It Spreads</q> that help us, as well as page titles including the word <q>Symptoms</q>. These pages contain lots of information about how diseases spread and how long each stage takes. Such information helps us build our models.
       </p>
       <activity>
         <statement>
           <p>
-            Take a look at the <url href="https://www.cdc.gov/measles/transmission.html">Transmission</url> and <url href="https://www.cdc.gov/measles/symptoms/signs-symptoms.html">Signs and Symptoms</url> pages for measles at the CDC. Putting together the information on these pages, construct a timeline of measles contagion in a single person, starting at the time the person is first infected. Include the following, and include whatever other information appears important.
+            Take a look at the CDC's online information pages for measles. Putting together the information on these pages, construct a timeline of measles contagion in a single person, starting at the time the person is first infected. Include the following, and include whatever other information appears important.
             <ol>
               <li>
                 <p>

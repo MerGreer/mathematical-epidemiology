@@ -427,14 +427,13 @@
 
     <section xml:id="sec-practice-with-an-isolation-model">
       <title>Practice with an Isolation Model</title>
-      <!-- <p>Now that we have </p> -->
-
+      <p>We have now worked with both complete and incomplete isolation, as well as both SIR and SEIR models. In <xref ref="activity-sir-model-flu"/>, continue to build isolation models while also considering when you might start with the SIR or SEIR model. After, in <xref ref="exercises-ch-isolation"/>, continue to compare SIR and SEIR models, while also making choices about what kind of isolation to model.</p>
     
 
       <activity xml:id="activity-sir-model-flu">
         <statement>
           <p>
-            Each academic year, many college campuses experience one or more outbreaks of influenza, also referred to as flu. According to the <url href="https://www.cdc.gov/flu/about/keyfacts.htm">Centers for Disease Control and Prevention (CDC)</url>, flu symptoms may include fever, chills, cough, aches, runny or stuffy nose, and more. Also according to the CDC, influenza spreads via tiny droplets when people sneeze or cough or talk, as well as when people touch surfaces that have the virus on them and then touching parts of their face such as the mouth, nose, and eyes. 
+            Each academic year, many college campuses experience one or more outbreaks of influenza, also referred to as flu. According to the <url href="https://www.cdc.gov/flu/about/keyfacts.htm">Centers for Disease Control and Prevention (CDC)</url>, flu symptoms may include fever, chills, cough, aches, runny or stuffy nose, and more. Also according to the CDC, influenza spreads via tiny droplets when people sneeze or cough or talk, as well as when people touch surfaces that have the virus on them and then touch parts of their face such as the mouth, nose, and eyes. 
           </p>
           <p>
             To gather information about the incubation period of flu and about how long flu is contagious, visit <url href="https://www.cdc.gov/flu/about/keyfacts.htm">this ``key facts'' page from the CDC</url>. To locate the range of <m>\mathcal{R}_0</m> values for typical influenza outbreaks, visit <url href="https://www.vdh.virginia.gov/coronavirus/2022/01/07/covid-19-and-influenza-surveillance">this page from the Virginia Department of Health</url>. For all of these values that help with modeling, you are welcome to search online for other sources: the links provided here are sufficient, but are not the only way to gather the information we seek.
@@ -458,65 +457,12 @@
                 Try your model in Python, using either the Python code for an SIR model, as in <xref ref="activity-formula-for-i-of-t-turning-around"/>, or the Python code for an SEIR model, as in <xref ref="activity-seir-model-play-with-kappa"/>. Suppose there are 2500 students on campus, and update all parameters and time ranges in the model as needed. Feel free to try just one initial Infectious case, or a few (perhaps 2-10) initial Infectious cases, as it is possible for multiple people to become Infectious simultaneously in an influenza outbreak, perhaps because they all encountered the same Infectious person off-campus, or perhaps because some event led to multiple initial infections within a very short time frame. 
               </p>
               <p>
-                First try your baseline model for influenza without isolation, and then try your influenza model with its updated <m>\gamma</m> value to represent the complete isolation of Infectious people after only one day. Describe your results. 
+                First try your baseline model for influenza without isolation, and then try your influenza model with its updated <m>\gamma</m> value to represent the complete isolation of Infectious people beginning one day after symptoms appear. Describe your results. 
               </p>
             </li>
-          </ol>
-
-          <!-- <sage>
-            <input>
-              #Import packages
-              import numpy as np
-              import matplotlib.pyplot as plt
-              from scipy.integrate import odeint
-
-              plt.cla() #Clear (delete) any past plots
-
-              #Define the system of differential equations, and call it "model"
-              def model(y, t):
-                S, E, I, R = y #Define y as consisting of S, E, I, and R, in that order
-                dydt = [- beta * S * I, beta * S * I - kappa * E, kappa * E - gamma * I, gamma * I] #Provide the right-hand sides of the SEIR model
-                return dydt
-
-              # The parameter values below are set to 0.0. Enter the values you have computed to see how the model proceeds
-              R0 = 0.0 #Give a value to R0
-              kappa = 0.0 #Give a value to kappa
-              gamma = 0.0 #Give a value to gamma
-              S_init = 9995 #Give an initial value to population S
-              E_init = 0 #Give an initial value to population E
-              I_init = 5 #Give an initial value to population I
-              R_init = 0 #Give an initial value to population R
-              beta = R0 * gamma / (S_init + E_init + I_init + R_init) #Solve for beta, using the R0 formula
-              y0 = [S_init, E_init, I_init, R_init] #Put initial conditions for S, E, I, and R into "y0" for use below in "odeint"
-
-              # The time range below is set for one year. Make it longer or shorter, as needed, to better see the full dynamics of the model
-              t_range = np.arange(0.0, 365.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
-
-              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
-
-              # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
-              print("Long-term value of S = ", round(sol[-1,0]))
-              print("Long-term value of E = ", round(sol[-1,1]))
-              print("Long-term value of I = ", round(sol[-1,2]))
-              print("Long-term value of R = ", round(sol[-1,3]))
-
-              # Plotting commands are below
-              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
-              plt.plot(t_range, sol[:, 1], color='magenta', linestyle='dotted', linewidth=2, label='E(t)')
-              plt.plot(t_range, sol[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
-              plt.plot(t_range, sol[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
-              plt.legend()
-              plt.grid()
-              plt.xlabel('time')
-              plt.ylabel('populations')
-              plt.show()
-            </input>
-            <output>
-            
-            </output>
-          </sage> -->
-                     
+          </ol>                     
         </statement>
+
         <answer>
           <ol>
             <li>
@@ -529,7 +475,7 @@
             </li>
             <li>
               <p>
-                If everyone knows they are sick, and everyone isolates perfectly after one day, then we should set <m>\gamma = 1/1</m> or, more succinctly, <m>\gamma = 1</m>, for a complete isolation model in which the time unit is <em>days</em>.
+                If everyone knows they are sick, and everyone isolates perfectly after one day of illness, then we should set <m>1/2 \leq \gamma \leq 1/1</m> or, more succinctly, <m>1/2 \leq \gamma \leq 1</m>, for a complete isolation model in which the time unit is <em>days</em>. The range of <m>\gamma</m> values is due to the possibility that flu can be contagious one day before symptoms begin, which would mean <m>\gamma = 1/2</m>, or the possibility that contagion can begin close to when symptoms begin, which would mean <m>\gamma = 1</m>.
               </p>
             </li>
             <li>
@@ -546,57 +492,56 @@
 
 
     <exercises xml:id="exercises-ch-isolation">
-      <!-- <exercise number="1">
+      <exercise number="1">
        <p>
-         Redo <xref ref="activity-seir-model-pertussis-setup"/>, but convert the time unit to <em>weeks</em> instead of <em>days</em>. To make this change, do the following. 
+         Revisit <xref ref="activity-sir-model-flu"/>, starting with an SIR model and introducing incomplete isolation. Incomplete isolation can take multiple forms, some of which we described in <xref ref="sec-incomplete-isolation-and-quarantine-vs-isolation"/>.  
        </p>   
        <ol>
          <li>
            <p>
-             Compute the number of weeks for the incubation period of pertussis. This should be <m>\mbox{(the number of days of the incubation period)} / 7</m>. When you then compute <m>\kappa</m>, you should obtain a value equal to <m>7 * \mbox{(the value you obtained in the previous exercise)}</m>.
+             Describe the kind of incomplete isolation you are including in your model. This requires partially rewriting the fictional outbreak in <xref ref="activity-sir-model-flu"/>: perhaps people do not always know if they have the flu, or they do not isolate perfectly, or there may be other reasons for incomplete isolation. Construct the compartmental diagram and differential equations you will use to represent your described form of incomplete isolation.
            </p>
          </li>
          <li>
            <p>
-             Similarly, the value of <m>\gamma</m> in this exercise should be <m>7 * \mbox{(the value you obtained in the previous exercise)}</m>.
+             Determine all parameter values or ranges for your model. Cite official sources wherever possible. (Since you are deciding the kind of incomplete isolation, and since this is a fictional outbreak, there may be one or more parameter values that are based on your decisions and not on official sources. Indicate this wherever it is relevant.)
            </p>
          </li>
          <li>
            <p>
-             For the graphs to appear the same, the horizontal axis should be adjusted. To be precise, the length of the new time axis should equal <m>\mbox{(the length of the time axis in the previous exercise) } / 7</m>. To be close, use the nearest number of weeks. For instance, the default time length in the previous exercise is 365 days, which is one year. One year has approximately, but not exactly, 52 weeks. Using 52 weeks in this exercise will give a very similar graph to the 365-day graph from the previous exercise. 
+             Use Python to show results of your SIR model, with and without incomplete isolation. Describe at least three ways the model changes when incomplete isolation is included, in comparison to when incomplete isolation is not included. 
            </p>
          </li>
-       </ol> 
-       <p>
-         Explain mathematically why the unit conversions described in parts (a.), (b.), and (c.) are the correct conversions for converting the model's time scale from days to weeks. Show graphs from both this exercise and the previous exercise to demonstrate that the model results are the same when we convert the units of time. For better clarity: update the label for the time axis in each graph to say <q>days</q> or <q>weeks</q> instead of <q>time</q>, to make clear which time unit is being used in the graph.
-       </p>        
-     </exercise> -->
+       </ol>         
+     </exercise>
 
-     <!-- <exercise number="2">
-       <p>
-         Update <xref ref="activity-seir-model-pertussis-setup"/> to include vaccine. Include the multiplier <m>(1-p)</m> where appropriate, adapting our work from <xref ref="expl-activity-vaccines"/> and <xref ref="activity-pcrit2"/> to the SEIR model.
-       </p>
-       <p>
-         In this exercise, we do not address vaccine efficacy or effectiveness, assuming instead a <m>100\%</m> effective vaccine. In the following exercise, number 3 in this section, we include the actual effectiveness of pertussis vaccines. 
-       </p>   
-       <ol>
-         <li>
-           <p>
-             Compute <m>p_{\text{crit}}</m> for pertussis, using the information that <m>\mathcal{R}_0</m> for pertussis can be between 5.5 and 17, depending on the outbreak. Your results for <m>p_{\text{crit}}</m> will be a range of values.
-           </p>
-         </li>
-         <li>
-           <p>
-             Adapt the Python code from the second exercise to run the model with a vaccine level at least as large as <m>p_{\text{crit}}</m>. Adjust the time scale, show just some of the solution curve graphs, or make any other changes needed, to best see the long-term outcome of the model. Write your observations of the outcomes of this model, and compare and contrast with the no-vaccine model.
-           </p>
-         </li>
-         <li>
-           <p>
-             Do some online research to determine the percentage of children in your area, or percentage of all people in your area, who are vaccinated against pertussis. <q>Your area</q> can refer to your city, state, province, country, or whatever other region you choose. Run the Python code again, using this percentage for vaccination, and citing the resources in which you found the percentage. Adjust the code as needed so you can best see the results, and describe your findings.
-           </p>
-         </li>
-       </ol>   
-     </exercise> -->
+     <exercise number="2">
+      <p>
+        Revisit <xref ref="activity-sir-model-flu"/>, starting with an SEIR model and introducing incomplete isolation. Incomplete isolation can take multiple forms, some of which we described in <xref ref="sec-incomplete-isolation-and-quarantine-vs-isolation"/>. (If you are also completing exercise 1 in <xref ref="exercises-ch-isolation"/>, use the same form of incomplete isolation.)  
+      </p>   
+      <ol>
+        <li>
+          <p>
+            Describe the kind of incomplete isolation you are including in your model. This requires partially rewriting the fictional outbreak in <xref ref="activity-sir-model-flu"/>: perhaps people do not always know if they have the flu, or they do not isolate perfectly, or there may be other reasons for incomplete isolation. Construct the compartmental diagram and differential equations you will use to represent your described form of incomplete isolation.
+          </p>
+        </li>
+        <li>
+          <p>
+            Determine all parameter values or ranges for your model. Cite official sources wherever possible. (Since you are deciding the kind of incomplete isolation, and since this is a fictional outbreak, there may be one or more parameter values that are based on your decisions and not on official sources. Indicate this wherever it is relevant.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Use Python to show results of your SEIR model, with and without incomplete isolation. Describe at least three ways the model changes when incomplete isolation is included, in comparison to when incomplete isolation is not included. 
+          </p>
+        </li>
+        <li>
+          <p>
+            If you also completed exercise 1 in <xref ref="exercises-ch-isolation"/>, discuss the differences between using an SIR model with isolation and using an SEIR model with isolation. As part of your discussion, provide at least one advantage for using the SIR model, and at least one advantage for using the SEIR model. 
+          </p>
+        </li>
+      </ol>   
+     </exercise>
 
      <!-- <exercise number="3">
        <p>
