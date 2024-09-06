@@ -11,24 +11,28 @@
         <ul>
           <li>
             <p>
-              L
+              Distinguish between the vocabulary terms <em>incidence</em> and <em>prevalence</em> when describing categories of infectious cases in an outbreak
             </p>
           </li>
           <li>
             <p>
-              R
+              Translate the numbers in a typical data set from an outbreak into a related set of numbers that we can compare with the output of a model
             </p>
           </li>
           <li>
             <p>
-              C
+              Build skills for working with numbers and formulas in a spreadsheet
             </p>
           </li>
         </ul>
       </objectives>
 
       <p>
-        A
+        At this point, we have studied compartmental models, mathematical analysis of models, an multiple variations to those models. You should now feel that you can develop a model for many different kinds of infectious disease outbreak and for a variety of public health interventions that can be used to stop, slow, or reduce the size of the outbreak.
+      </p>
+
+      <p>
+        We now begin a three-chapter foray into comparing models with data. This chapter shows how to start with a typical data set, showing how many new cases occur per day (or per week, month, or other time period), and restructure those numbers into a set of numbers that more meaningfully compares with the models we write. <xref ref="ch-residual-sum-of-squares-improving-a-models-fit-to-data"/> introduces Python code for fitting a model to a data set, adjusting parameters within the model to improve the fit. Then in <xref ref="ch-akaike-information-criterion-comparing-different-models"/> we compare multiple models for the same outbreak.
       </p>
       
       <exploration xml:id="expl-activity-influenza-data">
