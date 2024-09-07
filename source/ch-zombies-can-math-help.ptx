@@ -43,24 +43,25 @@
         <p>
           This game uses a grid of 100 hexagons to represent a space in which humans and zombies interact. Each round of game play represents one day. For each day, each human (<q>Susceptible</q>) is represented on the grid by a blue <q>X</q> on a single hexagon. Each zombie (<q>Infectious</q>) is represented by three red dots connected by red lines, meant to suggest a head and two arms, each of which can infect a human. Each zombie spreads out across three connected hexagons. Sample hex grids, both unmarked and marked, appear in <xref ref="zombie-board-graphics" />.
         </p>
+        <figure width="90%" xml:id="zombie-board-graphics">
+          <caption>Blank hex grid, and sample filled-in section</caption>
+          <sidebyside widths="40% 40%" margins="auto" valign="middle">
+            <figure width="40%" xml:id="fig-standard-hex-board">
+              <caption>Full hex grid, not filled in</caption>
+              <image source="StandardHexBoard.png" width="40%">
+              <description>Hex grid of 100 hexagons, in a ten-by-ten arrangement</description>
+              </image>
+            </figure>
+            <figure width="40%" xml:id="fig-zombie-board-detail">
+              <caption>Representing humans (blue X marks) and zombies (red dots and lines, representing a head and two arms) on the hex grid</caption>
+              <image source="ZombieBoardDetail.png" width="40%">
+              <description>Detail of hex grid, showing placement of zombies and humans</description>
+              </image>
+            </figure> 
+          </sidebyside>
+        </figure>
       </introduction>
-      <figure width="90%" xml:id="zombie-board-graphics">
-        <caption>Blank hex grid, and sample filled-in section</caption>
-        <sidebyside widths="40% 40%" margins="auto" valign="middle">
-          <figure width="40%" xml:id="fig-standard-hex-board">
-            <caption>Full hex grid, not filled in</caption>
-            <image source="StandardHexBoard.png" width="40%">
-            <description>Hex grid of 100 hexagons, in a ten-by-ten arrangement</description>
-            </image>
-          </figure>
-          <figure width="40%" xml:id="fig-zombie-board-detail">
-            <caption>Representing humans (blue X marks) and zombies (red dots and lines, representing a head and two arms) on the hex grid</caption>
-            <image source="ZombieBoardDetail.png" width="40%">
-            <description>Detail of hex grid, showing placement of zombies and humans</description>
-            </image>
-          </figure> 
-        </sidebyside>
-      </figure>
+      
 
       <task>
         <statement>
