@@ -86,7 +86,19 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
 <script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -265,9 +277,9 @@ window.MathJax = {
 #exercises-ch-isolation-2-2 { counter-set: exercises-ch-isolation-2-2 0; }
 #exercises-ch-isolation-2-2 > li::marker { content: "("counter(exercises-ch-isolation-2-2,lower-alpha)")"; }
 #exercises-ch-isolation-2-2 > li { counter-increment: exercises-ch-isolation-2-2; }
-#expl-activity-influenza-data-3-1-2 { counter-set: expl-activity-influenza-data-3-1-2 0; }
-#expl-activity-influenza-data-3-1-2 > li::marker { content: ""counter(expl-activity-influenza-data-3-1-2,decimal)"."; }
-#expl-activity-influenza-data-3-1-2 > li { counter-increment: expl-activity-influenza-data-3-1-2; }
+#expl-activity-influenza-data-3-1-5 { counter-set: expl-activity-influenza-data-3-1-5 0; }
+#expl-activity-influenza-data-3-1-5 > li::marker { content: ""counter(expl-activity-influenza-data-3-1-5,decimal)"."; }
+#expl-activity-influenza-data-3-1-5 > li { counter-increment: expl-activity-influenza-data-3-1-5; }
 #expl-activity-influenza-data-4-1-2 { counter-set: expl-activity-influenza-data-4-1-2 0; }
 #expl-activity-influenza-data-4-1-2 > li::marker { content: ""counter(expl-activity-influenza-data-4-1-2,decimal)"."; }
 #expl-activity-influenza-data-4-1-2 > li { counter-increment: expl-activity-influenza-data-4-1-2; }
@@ -386,7 +398,11 @@ window.MathJax = {
 </li>
 <li class="toc-item toc-chapter active">
 <div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">* Residual Sum of Squares: Improving a Model’s Fit to Data</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-ra" class="internal"><span class="codenumber">10.1</span> <span class="title"></span></a></div></li></ul>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-gaa" class="internal"><span class="codenumber">10.1</span> <span class="title">Starter Example Comparing Data with a Model: Zombie Data</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-gzz" class="internal"><span class="codenumber">10.2</span> <span class="title">Using RSS</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-ra" class="internal"><span class="codenumber">10.3</span> <span class="title"></span></a></div></li>
+</ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-akaike-information-criterion-comparing-different-models.html" class="internal"><span class="codenumber">11</span> <span class="title">* Akaike Information Criterion: Comparing Different Models</span></a></div>
@@ -442,8 +458,76 @@ window.MathJax = {
 <span class="type">Chapter</span><span class="space"> </span><span class="codenumber">10</span><span class="space"> </span><span class="title">* Residual Sum of Squares: Improving a Model’s Fit to Data</span>
 </h2>
 <div class="para" id="ch-residual-sum-of-squares-improving-a-models-fit-to-data-2"><dfn class="terminology">***This chapter is under construction.***</dfn></div>
-<section class="section" id="sec-ra"><h3 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">10.1</span><span class="space"> </span><span class="title"></span>
+<section class="section" id="sec-gaa"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">10.1</span><span class="space"> </span><span class="title">Starter Example Comparing Data with a Model: Zombie Data</span>
+</h3>
+<div class="para" id="sec-gaa-2">Suppose you have data to compare against your model. Which set of parameters is best? We start by revisiting the type of graph and data we saw with our (relatively simple) early-semester zombie models. Read through the following and make sure you understand what is happening in each command.</div>
+<pre id="sec-gaa-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla()  #Clear (delete) any past plots
+
+#Include data from Zombie Game App
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+S_data = [49, 48, 46, 40, 28, 10, 0]
+
+#Define the system of differential equations, and call it "hz"
+def hz(y, t):
+  s, i = y #Define y as consisting of s and i, in that order
+  dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
+  return dydt
+      
+beta = 0.03 #Give a value to beta
+y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
+t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+
+sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+# Plotting commands are below
+plt.plot(t_steps, S_data,'o', markersize=4, color='blue')
+plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+plt.legend()
+plt.xlabel('time')
+plt.ylabel('population')
+plt.show()
+</script></pre></section><section class="section" id="sec-gzz"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">10.2</span><span class="space"> </span><span class="title">Using RSS</span>
+</h3>
+<div class="para" id="sec-gzz-2">One way to compare data with a graph is by computing the Residual Sum of Squares. (There will be an explanation during class time.) Within a single model, this is a good option. Read the code block below to see how we can do this in Python.</div>
+<pre id="sec-gzz-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla()  #Clear (delete) any past plots
+
+#Include data from Zombie Game App
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+S_data = [49, 48, 46, 40, 28, 10, 0]
+
+#Define the system of differential equations, and call it "hz"
+def hz(y, t):
+  s, i = y #Define y as consisting of s and i, in that order
+  dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
+  return dydt
+  
+beta = 0.03 #Give a value to beta
+y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
+t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+ 
+sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+RSS = 0
+
+for x in range(0,7):
+    RSS = RSS + (S_data[x] - sol[0 + 10 * x, 0])**2
+    print(RSS)
+
+print("RSS = ", RSS)
+</script></pre></section><section class="section" id="sec-ra"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">10.3</span><span class="space"> </span><span class="title"></span>
 </h3></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="ch-preparing-influenza-data-to-compare-with-a-model.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-akaike-information-criterion-comparing-different-models.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
