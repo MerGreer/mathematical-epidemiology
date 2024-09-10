@@ -108,4 +108,66 @@
       <!-- <p>Use Bates flu data? Introduce RSS. Discuss improving model fit and show how to do it. Emphasize (!!!!!!!) biological suitability of parameter choices, noise in data, etc. Consider developing a range of very good parameters, rather than imagining there is some set of "best" parameters.</p> -->
     </section>
 
+    <section xml:id="sec-gx">
+      <title>Influenza Data and RSS</title>
+
+      <p>
+        Now try computing RSS using the influenza prevalence data. The data are already written into the code block below. Time 0 is the same as October 6.
+      </p>
+
+      <p>
+        Notice in the line <c>RSS = RSS + (I_prevalence_data[x] - sol[0 + 10 * x, 1])**2</c> that instead of writing <c>sol[0 + 10 * x, 0]</c> we write <c>sol[0 + 10 * x, 1]</c>. Changing the <c>0</c> to a <c>1</c> tells Python to use the next column of model values from the array of S, I, and R values, that is, to use column 1 of Infectious values rather than column 0 of Susceptible values. It is important to choose the correct column of model values when comparing with data values.
+      </p>
+
+      <sage>
+        <input>
+          #Import packages
+          import numpy as np
+          import matplotlib.pyplot as plt
+          from scipy.integrate import odeint
+          
+          plt.cla()  #Clear (delete) any past plots
+          
+          #Include data from Zombie Game App
+          t_steps = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+          I_prevalence_data = [5, 13, 15, 21, 27, 37, 57, 108, 146, 160, 157, 138, 102, 79, 66, 54, 45, 28, 7, 0]
+          
+          #Define the system of differential equations, and call it "hz"
+          def hz(y, t):
+            s, i, r = y #Define y as consisting of s and i, in that order
+            dydt = [-beta * s * i, beta * s * i - gamma * i, gamma * i] #These formulas are the right-hand sides of the SI model
+            return dydt
+            
+          beta = 0.00035 #Give a value to beta
+          gamma = 0.33 # Give a value to gamma: 0.25-0.33 are good values for most versions of flu
+          y0 = [1709, 5, 0] #Set initial conditions for S, I, and R. There were 1714 students on campus.
+          t_range = np.arange(0.0, 40.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+           
+          sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+          
+          # Plotting commands are below
+          plt.plot(t_steps, I_prevalence_data,'o', markersize=4, color='orange')
+          plt.plot(t_range, sol[:, 1], color='orange', linewidth=2, label='I(t)')
+          plt.legend()
+          plt.xlabel('time')
+          plt.ylabel('population')
+          plt.show()
+
+
+          RSS = 0
+
+          for x in range(0,20):
+              RSS = RSS + (I_prevalence_data[x] - sol[0 + 10 * x, 1])**2
+              #print(RSS) #Uncomment this command to see in-between RSS calculations
+
+          print("RSS = ", RSS)
+        </input>
+        <output>
+        
+        </output>
+        </sage>
+
+    
+  </section>
+
   </chapter>

@@ -28,11 +28,11 @@
       </objectives>
 
       <p>
-        At this point, we have studied compartmental models, mathematical analysis of models, and multiple variations to those models. You should now feel that you can develop a model for many different kinds of infectious disease outbreak and for a variety of public health interventions that can be used to stop, slow, or reduce the size of the outbreak.
+        At this point, we have studied compartmental models, mathematical analysis of models, and multiple variations to those models. You can now develop models for many different kinds of infectious disease outbreak and for a variety of public health interventions that can be used to stop, slow, or reduce the size of the outbreak.
       </p>
 
       <p>
-        We now begin a three-chapter foray into comparing models with data. In this chapter, we start with a typical data set that shows how many new cases occur per day (or per week, month, or other time period), and we restructure those numbers into a set of numbers that more meaningfully compares with the models we write. <xref ref="ch-residual-sum-of-squares-improving-a-models-fit-to-data"/> introduces Python code for fitting a model to a data set, adjusting parameters within the model to improve the fit. Then, in <xref ref="ch-akaike-information-criterion-comparing-different-models"/>, we compare multiple models for the same outbreak.
+        Next, we begin a three-chapter foray into comparing models with data. In this chapter, we start with a typical data set that shows how many new cases occur per day (or per week, month, or other time period), and we restructure those numbers into a set of numbers that more meaningfully compares with the models we write. <xref ref="ch-residual-sum-of-squares-improving-a-models-fit-to-data"/> introduces Python code for fitting a model to a data set, adjusting parameters within the model to improve the fit. Then, in <xref ref="ch-akaike-information-criterion-comparing-different-models"/>, we compare multiple models for the same outbreak.
       </p>
 
       <p>
@@ -43,7 +43,7 @@
         <title>Comparing New Zombies with Infectious Zombies</title>
         <introduction>
           <p>
-            We return to the Zombie Game App, using the <q>Zombie Mortality</q> feature in a similar way to what we first saw in <xref ref="expl-activity-varying-the-human-zombie-game"/>. This time, our goal is to distinguish between the data for # Zombies and the data for New Infections. 
+            We return to the Zombie Game App, using the <em>Zombie Mortality</em> feature in a similar way to what we first saw in <xref ref="expl-activity-varying-the-human-zombie-game"/>. This time, our goal is to distinguish between the data for <em># Zombies</em> and the data for <em>New Infections</em>. 
           </p>            
         </introduction>
   
@@ -59,7 +59,7 @@
               </image>
             </figure>
             <p>
-              On paper or in a spreadsheet: create a plot with <term>Round #</term> on the horizontal axis and <term># Zombies</term> on the vertical axis. Separately, create a plot with <term>Round #</term> on the horizontal axis and <term>New Infections</term> on the vertical axis.
+              On paper or in a spreadsheet: create a plot with <em>Round #</em> on the horizontal axis and <em># Zombies</em> on the vertical axis. Separately, create a plot with <em>Round #</em> on the horizontal axis and <em>New Infections</em> on the vertical axis.
             </p>
             <p>
               Make at least three observations, comparing and contrasting your plots.
@@ -69,7 +69,7 @@
         <task>
           <statement>
             <p>
-              Next, open the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> to generate your own data. Within the app, check the box labeled <q>Zombie Mortality</q>, located under the heading <q>Other Options</q>. Once you do so, you can select the  <q>Zombie Lifespan (days)</q>. Then run the game and make note of your resulting data table. Again, graph the data for # Zombies and for New Infections, as you did in part (a).
+              Next, open the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> to generate your own data. Within the app, check the box labeled <em>Zombie Mortality</em>, located under the heading <em>Other Options</em>. Once you do so, you can select the  <em>Zombie Lifespan (days)</em>. Then run the game and make note of your resulting data table. Again, graph the data for <em># Zombies</em> and for <em>New Infections</em>, as you did in part (a).
             </p>
             <p>
               Which of your observations from part (a) remain true? If any change, which observations change, and in what ways do they change?
@@ -79,7 +79,7 @@
         <task>
           <statement>
             <p>
-              When running the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> in part (b), you may also choose to change the initial <q>Human Start Count</q> to make it more likely for Humans to win the game. Write out at least three different combinations of Zombie Lifespan (days) and Human Start Count that you used and found that Humans won the game.         
+              When running the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> in part (b), you may also choose to change the initial <em>Human Start Count</em> to make it more likely for Humans to win the game. Write out at least three different combinations of <em>Zombie Lifespan (days)</em> and <em>Human Start Count</em> that you used and found that Humans won the game.         
             </p>
             <p>
               In general: does <em>increasing</em> or <em>decreasing</em> the Human Start Count make it more likely for Humans to win? What mathematical epidemiology quantity that we have studied provides insight into the answer to this question?
@@ -92,161 +92,27 @@
     </introduction>
 
     <section xml:id="sec-ga">
-      <title>Starter Example Comparing Data with a Model: Zombie Data</title>
-      <!-- <p>Use Bates flu data. Discuss converting from New Cases to S, I, R and possibly other compartments. Also discuss different time scales (here or elsewhere): converting data and parameters between days, weeks, months, years.</p> -->
+      <title>Incidence and Prevalence</title>
+      
       <p>
-        Suppose you have data to compare against your model. Which set of parameters is best? We start by revisiting the type of graph and data we saw with our (relatively simple) early-semester zombie models. Read through the following and make sure you understand what is happening in each command. 
+        When studying mathematical epidemiology, it helps to distinguish between the epidemiological terms <em>incidence</em> and <em>prevalence</em>. <term>Incidence</term> is a measure of new cases within a specified time unit, such as new cases per day or new cases per week. <term>Prevalence</term> is the total number of active cases at a given time, which means that prevalence includes both new cases and already-existing cases.
       </p>
-
-      <sage>
-        <input>
-          #Import packages
-          import numpy as np
-          import matplotlib.pyplot as plt
-          from scipy.integrate import odeint
-          
-          plt.cla()  #Clear (delete) any past plots
-
-          #Include data from Zombie Game App
-          t_steps = [0, 1, 2, 3, 4, 5, 6]
-          S_data = [49, 48, 46, 40, 28, 10, 0]
-          
-          #Define the system of differential equations, and call it "hz"
-          def hz(y, t):
-            s, i = y #Define y as consisting of s and i, in that order
-            dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
-            return dydt
-                
-          beta = 0.03 #Give a value to beta
-          y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
-          t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
-          
-          sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
-          
-          # Plotting commands are below
-          plt.plot(t_steps, S_data,'o', markersize=4, color='blue')
-          plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
-          plt.legend()
-          plt.xlabel('time')
-          plt.ylabel('population')
-          plt.show()
-        </input>
-        <output>
-        
-        </output>
-        </sage>
 
       </section>
 
       <section xml:id="sec-gz">
-        <title>Using RSS</title>
+        <title>Using </title>
 
         <p>
-          One way to compare data with a graph is by computing the Residual Sum of Squares. (There will be an explanation during class time.) Within a single model, this is a good option. Read the code block below to see how we can do this in Python.
+          One
         </p>
 
-        <sage>
-          <input>
-            #Import packages
-            import numpy as np
-            import matplotlib.pyplot as plt
-            from scipy.integrate import odeint
-            
-            plt.cla()  #Clear (delete) any past plots
-            
-            #Include data from Zombie Game App
-            t_steps = [0, 1, 2, 3, 4, 5, 6]
-            S_data = [49, 48, 46, 40, 28, 10, 0]
-            
-            #Define the system of differential equations, and call it "hz"
-            def hz(y, t):
-              s, i = y #Define y as consisting of s and i, in that order
-              dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
-              return dydt
-              
-            beta = 0.03 #Give a value to beta
-            y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
-            t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
-             
-            sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
-            
-            RSS = 0
-
-            for x in range(0,7):
-                RSS = RSS + (S_data[x] - sol[0 + 10 * x, 0])**2
-                print(RSS)
-
-            print("RSS = ", RSS)
-          </input>
-          <output>
-          
-          </output>
-          </sage>
+        
 
       
     </section>
 
-    <section xml:id="sec-gx">
-      <title>Influenza Data and RSS</title>
-
-      <p>
-        Now try computing RSS using the influenza prevalence data. The data are already written into the code block below. Time 0 is the same as October 6.
-      </p>
-
-      <p>
-        Notice in the line <c>RSS = RSS + (I_prevalence_data[x] - sol[0 + 10 * x, 1])**2</c> that instead of writing <c>sol[0 + 10 * x, 0]</c> we write <c>sol[0 + 10 * x, 1]</c>. Changing the <c>0</c> to a <c>1</c> tells Python to use the next column of model values from the array of S, I, and R values, that is, to use column 1 of Infectious values rather than column 0 of Susceptible values. It is important to choose the correct column of model values when comparing with data values.
-      </p>
-
-      <sage>
-        <input>
-          #Import packages
-          import numpy as np
-          import matplotlib.pyplot as plt
-          from scipy.integrate import odeint
-          
-          plt.cla()  #Clear (delete) any past plots
-          
-          #Include data from Zombie Game App
-          t_steps = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
-          I_prevalence_data = [5, 13, 15, 21, 27, 37, 57, 108, 146, 160, 157, 138, 102, 79, 66, 54, 45, 28, 7, 0]
-          
-          #Define the system of differential equations, and call it "hz"
-          def hz(y, t):
-            s, i, r = y #Define y as consisting of s and i, in that order
-            dydt = [-beta * s * i, beta * s * i - gamma * i, gamma * i] #These formulas are the right-hand sides of the SI model
-            return dydt
-            
-          beta = 0.00035 #Give a value to beta
-          gamma = 0.33 # Give a value to gamma: 0.25-0.33 are good values for most versions of flu
-          y0 = [1709, 5, 0] #Set initial conditions for S, I, and R. There were 1714 students on campus.
-          t_range = np.arange(0.0, 40.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
-           
-          sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
-          
-          # Plotting commands are below
-          plt.plot(t_steps, I_prevalence_data,'o', markersize=4, color='orange')
-          plt.plot(t_range, sol[:, 1], color='orange', linewidth=2, label='I(t)')
-          plt.legend()
-          plt.xlabel('time')
-          plt.ylabel('population')
-          plt.show()
-
-
-          RSS = 0
-
-          for x in range(0,20):
-              RSS = RSS + (I_prevalence_data[x] - sol[0 + 10 * x, 1])**2
-              #print(RSS) #Uncomment this command to see in-between RSS calculations
-
-          print("RSS = ", RSS)
-        </input>
-        <output>
-        
-        </output>
-        </sage>
-
     
-  </section>
 
 
 
