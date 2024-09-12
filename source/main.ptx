@@ -319,6 +319,14 @@
 
         
         <gi>
+          <title>Incidence</title>
+          <p>
+            Incidence is a measure of new cases within a specified time unit, such as new cases per day or new cases per week. For example, disease incidence can be represented as data on new infections per day, across the span of an outbreak. (<xref ref="ch-preparing-influenza-data-to-compare-with-a-model"/>)
+          </p>
+        </gi>
+
+        
+        <gi>
           <title>Initial Conditions</title>
           <p>
             Initial conditions are the starting values of the dependent variables in differential equations. Within this text, our dependent variables are typically populations such as <m>S(t)</m> or <m>I(t)</m>, and the start of solutions is usually the time <m>t=0</m>. This means the initial conditions are the values <m>S(0)</m> and <m>I(0)</m>. Initial conditions are used when computing a numerical solution: the numerical solution begins with the initial conditions and then <q>steps through</q> time, computing the later values of each dependent variable using both the earlier values and the information in the differential equations about how each dependent variable changes. (<xref ref="ch-visualization-graphing-model-results-and-data"/>)
@@ -355,6 +363,14 @@
           <title>Parameters</title>
           <p>
             Parameters in a model are numbers, determined using biological information, that represent some aspect of how a disease progresses. In this text, most parameters are shown as Greek letters, such as <m>\beta</m> or <m>\gamma</m>. A few parameters in this text represent percentages, such as the percentage of a population that is vaccinated against a disease, and these parameters are typically represented by lowercase letters such as <m>p</m> or <m>q</m>. Parameters are different than variables: the variables in our models are typically the independent variable <m>t</m> for time, and dependent variables such as <m>S</m>, <m>I</m>, <m>R</m>, and others, for populations.  (First mentioned in <xref ref="ch-zombies-can-math-help"/>; further defined in <xref ref="ch-compartmental-diagrams"/>)
+          </p>
+        </gi>
+  
+
+        <gi>
+          <title>Prevalence</title>
+          <p>
+            Prevalence is the total number of active disease cases at a given time, which means that prevalence includes both new cases and already-existing cases. In an SIR model for a disease in which people are contagious exactly when they show disease symptoms, the <m>I(t)</m> compartment corresponds to disease prevalence. (<xref ref="ch-preparing-influenza-data-to-compare-with-a-model"/>)
           </p>
         </gi>
 
