@@ -50,7 +50,7 @@
         <task>
           <statement>
             <p>
-              The data table below comes from the Zombie Game App. This table results from a simulation in which zombies are designated as mortal, with a <q>lifespan</q> (if zombies can be said to have a lifespan) of two days.
+              The data table below comes from the Zombie Game App. This table results from a simulation in which zombies are designated as mortal, with a <q>lifespan</q> (if zombies can be said to have a lifespan) of two days. Once a zombie surpasses its lifespan, it moves to the <em>Removed</em> category, meaning it no longer appears on the hex grid and can no longer infect humans.
             </p>
             <figure width="90%" xml:id="fig-human-zombie-SIR-sample-data-table">
               <caption>Table of sample data from a human<ndash />zombie simulation in which zombies have a two-day lifespan</caption>
@@ -62,7 +62,7 @@
               On paper or in a spreadsheet: create a plot with <em>Round #</em> on the horizontal axis and <em># Zombies</em> on the vertical axis. Separately, create a plot with <em>Round #</em> on the horizontal axis and <em>New Infections</em> on the vertical axis.
             </p>
             <p>
-              Make at least three observations, comparing and contrasting your plots.
+              Make at least three observations, comparing and contrasting the two plots you have made.
             </p>
           </statement>
         </task>
@@ -79,10 +79,13 @@
         <task>
           <statement>
             <p>
-              When running the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> in part (b), you may also choose to change the initial <em>Human Start Count</em> to make it more likely for Humans to win the game. Write out at least three different combinations of <em>Zombie Lifespan (days)</em> and <em>Human Start Count</em> that you used and found that Humans won the game.         
+              When running the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> in part (b), you may also choose to change the default <em>Human Start Count</em> to make it more likely for Humans to win the game. Write out at least three different combinations of <em>Zombie Lifespan (days)</em> and <em>Human Start Count</em> that you used and found that Humans won the game. 
             </p>
             <p>
-              In general: does <em>increasing</em> or <em>decreasing</em> the Human Start Count make it more likely for Humans to win? What mathematical epidemiology quantity that we have studied provides insight into the answer to this question?
+              Next, investigate the question: when keeping <em>Zombie Lifespan (days)</em> the same, does <em>increasing</em> or <em>decreasing</em> the Human Start Count make it more likely for Humans to win? Support your response using evidence you generate from the Zombie Game App.
+            </p>
+            <p>
+              What mathematical epidemiology quantity that we have studied provides insight into answering the question in the previous paragraph? 
             </p>
           </statement>
         </task>
@@ -95,7 +98,7 @@
       <title>Incidence and Prevalence</title>
       
       <p>
-        When studying mathematical epidemiology, it helps to distinguish between the epidemiological terms <em>incidence</em> and <em>prevalence</em>. <term>Incidence</term> is a measure of new cases within a specified time unit, such as new cases per day or new cases per week. <term>Prevalence</term> is the total number of active cases at a given time, which means that prevalence includes both new cases and already-existing cases.
+        When studying mathematical epidemiology, it helps to distinguish between the epidemiological terms <em>incidence</em> and <em>prevalence</em>. <term>Incidence</term> is a measure of new cases within a specified time unit, such as new cases per day or new cases per week. <term>Prevalence</term> is the total number of active cases at a given time, which means that prevalence includes both new cases and already-existing cases. <xref ref="activity-incidence-prevalence"/> provides practice with these terms, as they relate to data from the Zombie Game App and to solution curves from SIR models.
       </p>
 
       <activity xml:id="activity-incidence-prevalence">
@@ -126,7 +129,8 @@
             </li>
             <li>
               <p>
-                Now compare <xref ref="fig-zombies-incidence-prevalence"/> with graphs you have seen for SIR models, when we plot solution curves for <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Given curves for data on New Infections vs. time, and data on # Zombies vs. time, which seems better for comparing with the <m>I(t)</m> curve we would generate in a model of an outbreak?
+                Now compare <xref ref="fig-zombies-incidence-prevalence"/> with graphs you have seen for SIR models, when we plot solution curves for <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. 
+                Which of the data plots in <xref ref="fig-zombies-incidence-prevalence"/> -- the New Infections plot, or the # Zombies plot -- seems better for comparing with the <m>I(t)</m> curve we would generate in an SIR model of an outbreak?
               </p>
             </li>
           </ol>
@@ -146,7 +150,7 @@
             </li>
             <li>
               <p>
-                The <m>I(t)</m> curve typically describes all active infections at a given time <m>t</m>. This compares best with the data for # Zombies vs. time.   
+                The <m>I(t)</m> curve often describes all active infections at a given time <m>t</m>. This compares best with the data for # Zombies vs. time. (This is not a perfect comparison for every outbreak, as sometimes <m>I(t)</m> means a person is contagious but does not yet show symptoms. However, in the basic zombie game, where is a person is contagious exactly when they are a zombie, the <m>I(t)</m> curve is well matched with data for # Zombies.)
               </p>
             </li>
           </ol>
@@ -154,14 +158,151 @@
         </answer>
       </activity>
 
+      <p>
+        It turns out that outbreak data typically take a format similar to the numbers shown in the <em>New Infections</em> column of data in the Zombie Game App. These numbers may be shared as a table of values, or in a graphical format, such as a histogram. In order to compare the number of new cases in an outbreak with the curves in an SIR model (or other compartmental model), we need to use what we know about the outbreak to convert the numbers of new cases into numbers of people in the S, I, and R compartments at each time step of the outbreak. This is our goal in <xref ref="sec-translating-a-typical-data-set-into-numbers-we-can-compare-with-a-model"/>.
+      </p>
+
       </section>
 
-      <section xml:id="sec-gz">
-        <title>Using </title>
+      <section xml:id="sec-translating-a-typical-data-set-into-numbers-we-can-compare-with-a-model">
+        <title>Translating a Typical Data Set Into Numbers We Can Compare With a Model </title>
 
         <p>
-          One
+          In the fall of 2009, Bates College experienced an outbreak of H1N1 influenza. The initiating event appeared to be Parents' and Families' Weekend, a time when relatives of students were all invited to campus for a weekend of events together. Shortly thereafter, the first confirmed cases of H1N1 appeared on campus. This is a situation where there were multiple initial infections, due to several students independently becoming infected after visitors came to campus. 
         </p>
+        <p>
+          (Say more here about H1N1's novelty - link to WHO and/or others)
+        </p>
+        <p>
+          The Dean of Students and Student Health Services were kind enough to share their data on new infections among students. As is common with data sets for an outbreak: information that could identify specific individuals has been removed, and the data set takes the form of new case reports.
+        </p>
+
+        <table xml:id="table-h1n1-fall-2009">
+          <title>Student Case Reports of H1N1 in Fall 2009 at Bates College</title>
+          <tabular halign="center">
+            <row header="yes">
+              <cell>Day of Week </cell>
+              <cell>Date </cell>
+              <cell>New Cases Reported</cell>
+            </row>
+            <row>
+              <cell>Tuesday</cell>
+              <cell>October 6</cell>
+              <cell>5</cell>
+            </row>
+            <row>
+              <cell>Wednesday</cell>
+              <cell>October 7</cell>
+              <cell>8</cell>
+            </row>
+            <row>
+              <cell>Thursday</cell>
+              <cell>October 8</cell>
+              <cell>2</cell>
+            </row>
+            <row>
+              <cell>Friday</cell>
+              <cell>October 9</cell>
+              <cell>6</cell>
+            </row>
+            <row>
+              <cell>Saturday</cell>
+              <cell>October 10</cell>
+              <cell>6</cell>
+            </row>
+            <row>
+              <cell>Sunday</cell>
+              <cell>October 11</cell>
+              <cell>15</cell>
+            </row>
+            <row>
+              <cell>Monday</cell>
+              <cell>October 12</cell>
+              <cell>28</cell>
+            </row>
+            <row>
+              <cell>Tuesday</cell>
+              <cell>October 13</cell>
+              <cell>53</cell>
+            </row>
+            <row>
+              <cell>Wednesday</cell>
+              <cell>October 14</cell>
+              <cell>44</cell>
+            </row>
+            <row>
+              <cell>Thursday</cell>
+              <cell>October 15</cell>
+              <cell>20</cell>
+            </row>
+            <row>
+              <cell>Friday</cell>
+              <cell>October 16</cell>
+              <cell>12</cell>
+            </row>
+            <row>
+              <cell>Saturday</cell>
+              <cell>October 17</cell>
+              <cell>9</cell>
+            </row>
+            <row>
+              <cell>Sunday</cell>
+              <cell>October 18</cell>
+              <cell>17</cell>
+            </row>
+            <row>
+              <cell>Monday</cell>
+              <cell>October 19</cell>
+              <cell>21</cell>
+            </row>
+            <row>
+              <cell>Tuesday</cell>
+              <cell>October 20</cell>
+              <cell>7</cell>
+            </row>
+          </tabular>
+        </table>
+
+        <p>
+          In <xref ref="activity-h1n1-data-fall-2009"/> we start with the data set shown in <xref ref="table-h1n1-fall-2009"/> and think through how to convert that data set into numbers we can compare with an SIR model for the spread of H1N1 influenza.
+        </p>
+
+        <activity xml:id="activity-h1n1-data-fall-2009">
+          <statement>
+            <p>
+              Examine 
+            </p>
+            <p>
+              Use 
+            </p>
+            <ol>
+              <li>
+                <p>
+                  Compare 
+                </p>     
+              </li>
+            </ol>
+                       
+          </statement>
+          <answer>
+            <ol>
+              <li>
+                <p>
+                  This 
+                </p>
+              </li>
+              <li>
+                <p>
+                  For 
+                </p>
+                <p>
+                  For 
+                </p>
+              </li>
+            </ol>
+            
+          </answer>
+        </activity>
 
         
 
