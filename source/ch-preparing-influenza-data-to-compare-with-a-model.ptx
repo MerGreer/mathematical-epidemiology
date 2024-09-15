@@ -171,109 +171,105 @@
           In the fall of 2009, Bates College experienced an outbreak of H1N1 influenza. The initiating event appeared to be Parents' and Families' Weekend, a time when relatives of students were all invited to campus for a weekend of events together. Shortly thereafter, the first confirmed cases of H1N1 appeared on campus. This is a situation where there were multiple initial infections, due to several students independently becoming infected after visitors came to campus. 
         </p>
         <p>
-          (Say more here about H1N1's novelty - link to WHO and/or others)
+          Before the fall 2009 semester, college officials at Bates and elsewhere had been preparing for the newly emerged H1N1 influenza virus. While the specific influenza viruses that circulate each year are often different from those that circulated in previous years, the 2009 H1N1 virus had distinct genetic differences from any influenza viruses that had ever been studied in humans. The <url href="https://www.who.int/emergencies/situations/influenza-a-(h1n1)-outbreak">World Health Organization</url> and the <url href="https://www.cdc.gov/orr/responses/h1n1-influenza-pandemic.html">Centers for Disease Control and Prevention</url> describe more about the differences on their websites. The novelty of the fall 2009 H1N1 virus led to heightened concern about large outbreaks and possible effects on people of all ages.
         </p>
         <p>
-          The Dean of Students and Student Health Services were kind enough to share their data on new infections among students. As is common with data sets for an outbreak: information that could identify specific individuals has been removed, and the data set takes the form of new case reports.
-        </p>
-
-        <table xml:id="table-h1n1-fall-2009">
-          <title>Student Case Reports of H1N1 in Fall 2009 at Bates College</title>
-          <tabular halign="center">
-            <row header="yes">
-              <cell>Day of Week </cell>
-              <cell>Date </cell>
-              <cell>New Cases Reported</cell>
-            </row>
-            <row>
-              <cell>Tuesday</cell>
-              <cell>October 6</cell>
-              <cell>5</cell>
-            </row>
-            <row>
-              <cell>Wednesday</cell>
-              <cell>October 7</cell>
-              <cell>8</cell>
-            </row>
-            <row>
-              <cell>Thursday</cell>
-              <cell>October 8</cell>
-              <cell>2</cell>
-            </row>
-            <row>
-              <cell>Friday</cell>
-              <cell>October 9</cell>
-              <cell>6</cell>
-            </row>
-            <row>
-              <cell>Saturday</cell>
-              <cell>October 10</cell>
-              <cell>6</cell>
-            </row>
-            <row>
-              <cell>Sunday</cell>
-              <cell>October 11</cell>
-              <cell>15</cell>
-            </row>
-            <row>
-              <cell>Monday</cell>
-              <cell>October 12</cell>
-              <cell>28</cell>
-            </row>
-            <row>
-              <cell>Tuesday</cell>
-              <cell>October 13</cell>
-              <cell>53</cell>
-            </row>
-            <row>
-              <cell>Wednesday</cell>
-              <cell>October 14</cell>
-              <cell>44</cell>
-            </row>
-            <row>
-              <cell>Thursday</cell>
-              <cell>October 15</cell>
-              <cell>20</cell>
-            </row>
-            <row>
-              <cell>Friday</cell>
-              <cell>October 16</cell>
-              <cell>12</cell>
-            </row>
-            <row>
-              <cell>Saturday</cell>
-              <cell>October 17</cell>
-              <cell>9</cell>
-            </row>
-            <row>
-              <cell>Sunday</cell>
-              <cell>October 18</cell>
-              <cell>17</cell>
-            </row>
-            <row>
-              <cell>Monday</cell>
-              <cell>October 19</cell>
-              <cell>21</cell>
-            </row>
-            <row>
-              <cell>Tuesday</cell>
-              <cell>October 20</cell>
-              <cell>7</cell>
-            </row>
-          </tabular>
-        </table>
-
-        <p>
-          In <xref ref="activity-h1n1-data-fall-2009"/> we start with the data set shown in <xref ref="table-h1n1-fall-2009"/> and think through how to convert that data set into numbers we can compare with an SIR model for the spread of H1N1 influenza.
+          In <xref ref="activity-h1n1-data-fall-2009"/> we work with real data collected during this Bates outbreak. Starting with this data set, which is shown in <xref ref="table-h1n1-fall-2009"/>, we think through how to convert data into numbers we can compare with an SIR model for the spread of H1N1 influenza.
         </p>
 
         <activity xml:id="activity-h1n1-data-fall-2009">
           <statement>
             <p>
-              Examine 
+              After the 2009 outbreak of H1N1 influenza virus on the Bates College campus, the Dean of Students and Student Health Services were kind enough to share their data on new infections among students. As is common with data sets for an outbreak: information that could identify specific individuals has been removed, and the data set takes the form of new case reports. The data set appears in <xref ref="table-h1n1-fall-2009"/>.
             </p>
+            <table xml:id="table-h1n1-fall-2009">
+              <title>Student case reports of H1N1 in fall 2009 at Bates College</title>
+              <tabular halign="center">
+                <row header="yes">
+                  <cell>Day of Week </cell>
+                  <cell>Date </cell>
+                  <cell>New Cases Reported</cell>
+                </row>
+                <row>
+                  <cell>Tuesday</cell>
+                  <cell>October 6</cell>
+                  <cell>5</cell>
+                </row>
+                <row>
+                  <cell>Wednesday</cell>
+                  <cell>October 7</cell>
+                  <cell>8</cell>
+                </row>
+                <row>
+                  <cell>Thursday</cell>
+                  <cell>October 8</cell>
+                  <cell>2</cell>
+                </row>
+                <row>
+                  <cell>Friday</cell>
+                  <cell>October 9</cell>
+                  <cell>6</cell>
+                </row>
+                <row>
+                  <cell>Saturday</cell>
+                  <cell>October 10</cell>
+                  <cell>6</cell>
+                </row>
+                <row>
+                  <cell>Sunday</cell>
+                  <cell>October 11</cell>
+                  <cell>15</cell>
+                </row>
+                <row>
+                  <cell>Monday</cell>
+                  <cell>October 12</cell>
+                  <cell>28</cell>
+                </row>
+                <row>
+                  <cell>Tuesday</cell>
+                  <cell>October 13</cell>
+                  <cell>53</cell>
+                </row>
+                <row>
+                  <cell>Wednesday</cell>
+                  <cell>October 14</cell>
+                  <cell>44</cell>
+                </row>
+                <row>
+                  <cell>Thursday</cell>
+                  <cell>October 15</cell>
+                  <cell>20</cell>
+                </row>
+                <row>
+                  <cell>Friday</cell>
+                  <cell>October 16</cell>
+                  <cell>12</cell>
+                </row>
+                <row>
+                  <cell>Saturday</cell>
+                  <cell>October 17</cell>
+                  <cell>9</cell>
+                </row>
+                <row>
+                  <cell>Sunday</cell>
+                  <cell>October 18</cell>
+                  <cell>17</cell>
+                </row>
+                <row>
+                  <cell>Monday</cell>
+                  <cell>October 19</cell>
+                  <cell>21</cell>
+                </row>
+                <row>
+                  <cell>Tuesday</cell>
+                  <cell>October 20</cell>
+                  <cell>7</cell>
+                </row>
+              </tabular>
+            </table>
+    
             <p>
-              Use 
+              Influenza moves fairly quickly, and studies of the 2009 H1N1 influenza show this. In some school-age populations, the incubation period was demonstrated to be 1.4 days, typically, with  
             </p>
             <ol>
               <li>
