@@ -159,7 +159,7 @@
       </activity>
 
       <p>
-        It turns out that outbreak data typically take a format similar to the numbers shown in the <em>New Infections</em> column of data in the Zombie Game App. These numbers may be shared as a table of values, or in a graphical format, such as a histogram. In order to compare the number of new cases in an outbreak with the curves in an SIR model (or other compartmental model), we need to use what we know about the outbreak to convert the numbers of new cases into numbers of people in the S, I, and R compartments at each time step of the outbreak. This is our goal in <xref ref="sec-translating-a-typical-data-set-into-numbers-we-can-compare-with-a-model"/>.
+        It turns out that outbreak data typically take a format similar to the numbers shown in the <em>New Infections</em> column of data in the Zombie Game App. These numbers may be shared as a table of values, or in a graphical format, such as a histogram. In order to compare the number of new cases in an outbreak with the <m>I(t)</m> curve in an SIR model (or other compartmental model), we need to use what we know about the outbreak to convert the numbers of new cases into the number of people in the I compartment at each time step of the outbreak. This is our goal in <xref ref="sec-translating-a-typical-data-set-into-numbers-we-can-compare-with-a-model"/>.
       </p>
 
       </section>
@@ -168,13 +168,13 @@
         <title>Translating a Typical Data Set Into Numbers We Can Compare With a Model </title>
 
         <p>
-          In the fall of 2009, Bates College experienced an outbreak of H1N1 influenza. The initiating event appeared to be Parents' and Families' Weekend, a time when relatives of students were all invited to campus for a weekend of events together. Shortly thereafter, the first confirmed cases of H1N1 appeared on campus. This is a situation where there were multiple initial infections, due to several students independently becoming infected after visitors came to campus. 
+          In the fall of 2009, Bates College experienced an outbreak of H1N1 influenza. The initiating event appeared to be Parents' and Families' Weekend, a time when relatives of students were all invited to campus for a weekend of events together. Shortly thereafter, the first confirmed cases of H1N1 appeared on campus. There were multiple initial infections, due to several students independently becoming infected after visitors came to campus. 
         </p>
         <p>
-          Before the fall 2009 semester, college officials at Bates and elsewhere had been preparing for the newly emerged H1N1 influenza virus. While the specific influenza viruses that circulate each year are often different from those that circulated in previous years, the 2009 H1N1 virus had distinct genetic differences from any influenza viruses that had ever been studied in humans. The <url href="https://www.who.int/emergencies/situations/influenza-a-(h1n1)-outbreak">World Health Organization</url> and the <url href="https://www.cdc.gov/orr/responses/h1n1-influenza-pandemic.html">Centers for Disease Control and Prevention</url> describe more about the differences on their websites. The novelty of the fall 2009 H1N1 virus led to heightened concern about large outbreaks and possible effects on people of all ages.
+          Before the fall 2009 semester, college officials at Bates and elsewhere had been preparing for the newly emerged H1N1 influenza virus. While the specific influenza viruses that circulate each year differ somewhat from those that circulated in previous years, the 2009 H1N1 virus had distinct genetic differences from any influenza viruses that had ever been studied in humans. The <url href="https://www.who.int/emergencies/situations/influenza-a-(h1n1)-outbreak">World Health Organization</url> and the <url href="https://www.cdc.gov/orr/responses/h1n1-influenza-pandemic.html">Centers for Disease Control and Prevention</url> describe more about the differences on their websites. The novelty of the fall 2009 H1N1 virus led to heightened concern about large outbreaks and possible effects on people of all ages.
         </p>
         <p>
-          In <xref ref="activity-h1n1-data-fall-2009"/> we work with real data collected during this Bates outbreak. Starting with this data set, which is shown in <xref ref="table-h1n1-fall-2009"/>, we think through how to convert data into numbers we can compare with an SIR model for the spread of H1N1 influenza.
+          In <xref ref="activity-h1n1-data-fall-2009"/> we work with real data collected during the Bates outbreak. Starting with this data set, which is shown in <xref ref="table-h1n1-fall-2009"/>, we think through how to convert data into numbers we can compare with an SIR model for the spread of H1N1 influenza.
         </p>
 
         <activity xml:id="activity-h1n1-data-fall-2009">
@@ -269,12 +269,18 @@
             </table>
     
             <p>
-              Influenza moves fairly quickly, and studies of the 2009 H1N1 influenza show this. In some school-age populations, the incubation period was demonstrated to be 1.4 days, typically, with  
+              Influenza moves quickly. The incubation period is short, often just two days or even shorter, and people can become contagious before showing symptoms.<fn>Two articles to support this are <q>2009 H1N1 Influenza</q> by Seth J. Sullivan, Robert M. Jacobson, Walter R. Dowdle, and Gregory A. Poland, published January 2010 in the <em>Mayo Clinic Proceedings</em>, and <q>Outbreak of 2009 pandemic influenza A (H1N1) at a New York City school</q> by Justin Lessler, Nicholas G. Reich, and Derek A. T. Cummings, published in 2009 in the New England Journal of Medicine.</fn> For this reason, we use an SIR model instead of an SEIR model. 
+              There are multiple estimates how long people remain contagious, with five days as a commonly provided number, though for some people the contagious period may be a little shorter or a few days longer. <fn>The European Centre for Disease Prevention and Control includes the estimate of five days for adults and seven days for children on their web page <q>Questions and answers on the pandemic (H1N1) 2009</q>, last accessed 16 September 2024, available at <url href="https://www.ecdc.europa.eu/en/seasonal-influenza/2009-influenza-h1n1-faq" />.
+              </fn>  
+            </p>
+            <p>
+              Given this information about the incubation period and contagious period of H1N1, follow the steps below to convert the incidence data in <xref ref="table-h1n1-fall-2009"/> to prevalence numbers that can be compared with the I compartments of an SIR model students at Bates College in fall 2009.
+              <!-- There were 1714 students in residence at Bates during the fall 2009 semester. -->
             </p>
             <ol>
               <li>
                 <p>
-                  Compare 
+                  
                 </p>     
               </li>
             </ol>
