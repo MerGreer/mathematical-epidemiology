@@ -280,28 +280,182 @@
             <ol>
               <li>
                 <p>
-                  
+                  Open <url href="https://docs.google.com/spreadsheets/d/1M3-G-t22ibUqKmEOMhmeK99T0iKIWefUzI9G0jXjg0g/edit?usp=sharing">this publicly shared spreadsheet</url>  and make your own copy. Alternately, open a blank spreadsheet and copy into it the data from <xref ref="table-h1n1-fall-2009"/>. 
+                </p>     
+              </li>
+              <li>
+                <p>
+                  Create a new column titled <q>Prevalence</q>. Compute the H1N1 prevalence for each day by supposing that once people are in the Infectious compartment, they remain Infectious for five days. This means, for instance, that the five initial cases from October 6 remain Infectious for October 6, 7, 8, 9, and 10, but on October 11 they no longer are Infectious. 
+                  You may notice that we are thinking of prevalence and the Infectious compartment as equivalent. This equivalence works well for influenza, as people become contagious very close to the time when they begin showing symptoms, and they stop being contagious approximately when they stop showing symptoms.
+                </p>     
+              </li>
+              <li>
+                <p>
+                  Extend the length of your <q>Prevalence</q> column so that it represents the full five days of contagion for all the New Cases Reported. This means adding extra rows at the bottom of the table.
+                </p>     
+              </li>
+              <li>
+                <p>
+                  Create a plot showing New Cases Reported on the vertical axis, with time on the horizontal axis. The horizontal axis should show the dates. On the same axes, create a plot showing Prevalence on the vertical axis, with time again on the horizontal axis. 
+                </p>     
+              </li>
+              <li>
+                <p>
+                  Discuss with your group: how do the two curves compare (or not) with typical <m>I(t)</m> curves in outbreaks? Make three or more observations about the H1N1 data and the plots you created from the data.
+                </p>     
+              </li>
+              <li>
+                <p>
+                  Bonus spreadsheet work, if time permits: go back to the <q>Prevalence</q> column you created. If you have not yet used spreadsheet formulas to determine the column entries, try to do so. Formulas let you refer to other cells in the spreadsheet, rather than re-typing their numbers every time you re-use the same numbers.
                 </p>     
               </li>
             </ol>
                        
           </statement>
           <answer>
-            <ol>
-              <li>
-                <p>
-                  This 
-                </p>
-              </li>
-              <li>
-                <p>
-                  For 
-                </p>
-                <p>
-                  For 
-                </p>
-              </li>
-            </ol>
+            <p>
+              The table below shows the table with the updated Prevalence values, including extra rows to display Prevalence values for all cases of H1N1.
+            </p>
+            <table xml:id="table-h1n1-fall-2009-including-prevalence">
+              <title>Student case reports of H1N1 in fall 2009 at Bates College</title>
+              <tabular halign="center">
+                <row header="yes">
+                  <cell>Day of Week </cell>
+                  <cell>Date </cell>
+                  <cell>New Cases Reported</cell>
+                  <cell>Prevalence</cell>
+                </row>
+                <row>
+                  <cell>Tuesday</cell>
+                  <cell>October 6</cell>
+                  <cell>5</cell>
+                  <cell>5</cell>
+                </row>
+                <row>
+                  <cell>Wednesday</cell>
+                  <cell>October 7</cell>
+                  <cell>8</cell>
+                  <cell>13</cell>
+                </row>
+                <row>
+                  <cell>Thursday</cell>
+                  <cell>October 8</cell>
+                  <cell>2</cell>
+                  <cell>15</cell>
+                </row>
+                <row>
+                  <cell>Friday</cell>
+                  <cell>October 9</cell>
+                  <cell>6</cell>
+                  <cell>21</cell>
+                </row>
+                <row>
+                  <cell>Saturday</cell>
+                  <cell>October 10</cell>
+                  <cell>6</cell>
+                  <cell>27</cell>
+                </row>
+                <row>
+                  <cell>Sunday</cell>
+                  <cell>October 11</cell>
+                  <cell>15</cell>
+                  <cell>37</cell>
+                </row>
+                <row>
+                  <cell>Monday</cell>
+                  <cell>October 12</cell>
+                  <cell>28</cell>
+                  <cell>57</cell>
+                </row>
+                <row>
+                  <cell>Tuesday</cell>
+                  <cell>October 13</cell>
+                  <cell>53</cell>
+                  <cell>108</cell>
+                </row>
+                <row>
+                  <cell>Wednesday</cell>
+                  <cell>October 14</cell>
+                  <cell>44</cell>
+                  <cell>146</cell>
+                </row>
+                <row>
+                  <cell>Thursday</cell>
+                  <cell>October 15</cell>
+                  <cell>20</cell>
+                  <cell>160</cell>
+                </row>
+                <row>
+                  <cell>Friday</cell>
+                  <cell>October 16</cell>
+                  <cell>12</cell>
+                  <cell>157</cell>
+                </row>
+                <row>
+                  <cell>Saturday</cell>
+                  <cell>October 17</cell>
+                  <cell>9</cell>
+                  <cell>138</cell>
+                </row>
+                <row>
+                  <cell>Sunday</cell>
+                  <cell>October 18</cell>
+                  <cell>17</cell>
+                  <cell>102</cell>
+                </row>
+                <row>
+                  <cell>Monday</cell>
+                  <cell>October 19</cell>
+                  <cell>21</cell>
+                  <cell>79</cell>
+                </row>
+                <row>
+                  <cell>Tuesday</cell>
+                  <cell>October 20</cell>
+                  <cell>7</cell>
+                  <cell>66</cell>
+                </row>
+                <row>
+                  <cell>Wednesday</cell>
+                  <cell>October 21</cell>
+                  <cell>0</cell>
+                  <cell>54</cell>
+                </row>
+                <row>
+                  <cell>Thursday</cell>
+                  <cell>October 22</cell>
+                  <cell>0</cell>
+                  <cell>45</cell>
+                </row>
+                <row>
+                  <cell>Friday</cell>
+                  <cell>October 23</cell>
+                  <cell>0</cell>
+                  <cell>28</cell>
+                </row>
+                <row>
+                  <cell>Saturday</cell>
+                  <cell>October 24</cell>
+                  <cell>0</cell>
+                  <cell>7</cell>
+                </row>
+                <row>
+                  <cell>Sunday</cell>
+                  <cell>October 25</cell>
+                  <cell>0</cell>
+                  <cell>0</cell>
+                </row>
+              </tabular>
+            </table>
+            <p>
+              Here is one possible graph of the results.
+            </p>
+            <figure width="90%" xml:id="fig-bates-H1N1-new-cases-and-prevalence">
+              <caption>A graph showing two plots of the H1N1 outbreak at Bates in 2009: (1) new cases vs. time, and (2) prevalence vs. time</caption>
+              <image source="Bates_H1N1_New_Cases_and_Prevalence.png" width="80%">
+                  <description>This is a graph showing two plots of the H1N1 outbreak at Bates in 2009. The first is new cases vs. time. The second is prevalence vs. time.</description>
+              </image>
+            </figure>
             
           </answer>
         </activity>
