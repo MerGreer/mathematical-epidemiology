@@ -516,17 +516,17 @@
           <ul>
             <li>
               <p>
-                When <m>\frac{\beta S}{\gamma} \gt 1</m>, is <m>dI/dt</m> rising or falling?
+                When <m>\frac{\beta S}{\gamma} \gt 1</m>, is <m>I(t)</m> rising or falling?
               </p>
             </li>
             <li>
               <p>
-                When <m>\frac{\beta S}{\gamma} \lt 1</m>, is <m>dI/dt</m> rising or falling?
+                When <m>\frac{\beta S}{\gamma} \lt 1</m>, is <m>I(t)</m> rising or falling?
               </p>
             </li>
             <li>
               <p>
-                In a typical outbreak, what changes to cause <m>\frac{\beta S}{\gamma}</m> to transition in sign between being positive, negative, and <m>0</m>? What is the expected order of these signs, that is, out of <m>+</m>, <m>-</m>, and <m>0</m>, which happens first in an outbreak, which happens second, and which happens third? Why is this the order? 
+                In a typical outbreak, what change causes <m>\frac{\beta S}{\gamma}</m> to transition among being less than <m>1</m>, or equal to <m>1</m>, or greater than <m>1</m>? What is the expected order of these cases, that is, in an outbreak where all three cases <m>\frac{\beta S}{\gamma} \lt 1</m>, <m> \frac{\beta S}{\gamma}=1</m>, and <m> \frac{\beta S}{\gamma}\gt 1</m> happen at some time, which of these cases happens first, which happens second, and which happens third? Why is this the order? 
               </p>
             </li>
           </ul>

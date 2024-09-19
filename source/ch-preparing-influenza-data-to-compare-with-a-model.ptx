@@ -296,8 +296,14 @@
               </li>
               <li>
                 <p>
-                  Create a plot showing New Cases Reported on the vertical axis, with time on the horizontal axis. The horizontal axis should show the dates. On the same axes, create a plot showing Prevalence on the vertical axis, with time again on the horizontal axis. 
-                </p>     
+                  Create a plot showing New Cases Reported on the vertical axis, with time on the horizontal axis. The horizontal axis in your chart should show the dates. On the same axes, create a plot showing Prevalence on the vertical axis, with time again on the horizontal axis.   
+                </p> 
+                <p>
+                  To create this type of spreadsheet plot in Google Sheets, choose menu item <c>Insert</c>, then choose <c>Chart</c>, and then in the Chart Editor, select <c>Line chart</c>. The Chart Editor provides several ways to edit the chart. 
+                </p> 
+                <p>
+                  Alternately, in Microsoft Excel, choose menu item <c>Insert</c>, and then from the <c>Chart</c> menu, select one of the <c>Scatter</c> options.
+                </p>   
               </li>
               <li>
                 <p>
@@ -463,44 +469,48 @@
               These are a few common observations, but to emphasize: there are many more possible. Keep seeking more.
             </p>
             <p>
-              <em>Spreadsheet Formulas.</em> For the Prevalence column, rather than compute values ourself, we can let the spreadsheet do this for us. If you copied the shared spreadsheet, the data values begin in row 4, and Prevalence will appear in column D.  In cell D5, for prevalence on October 7, rather than add 5 and 8 to obtain 13, you can type <c>=C4+C5</c>.
+              <em>Spreadsheet Formulas.</em> For the Prevalence column, rather than compute values ourself, we can let the spreadsheet do this for us. If you copied the shared spreadsheet, the data values begin in row 5, and Prevalence appears in column D. 
             </p>
             <ul>
               <li>
                 <p>
-                  To compute prevalence on October 6, rather than type in the number 5, you can type in <c>=C4</c> to bring in the value 5 from cell C4.
+                  To compute prevalence on October 6, rather than type in the number 5, you can type in <c>=C5</c> to bring in the value 5 from cell C5.
                 </p>
               </li>
               <li>
                 <p>
-                  In cell D5, for prevalence on October 7, rather than add 5 and 8 to obtain 13, you can type <c>=C4+C5</c>.
+                  In cell D6, for prevalence on October 7, rather than add 5 and 8 to obtain 13, you can type <c>=C5+C6</c>.
                 </p>
               </li>
               <li>
                 <p>
-                  Similarly, for cell D6, have the spreadsheet add the numbers for cells C4, C5, and C6. For cell D7, have the spreadsheet add the numbers for cells C4, C5, C6, and C7.
+                  Similarly, for cell D7, have the spreadsheet add the numbers for cells C5, C6, and C7. For cell D8, have the spreadsheet add the numbers for cells C5, C6, C7, and C8.
                 </p>
               </li>
               <li>
                 <p>
-                  Here (along with the next step) is where we start to see how a spreadsheet can automate work for us. For cell D8, use the <c>sum</c> function. Type <c>=sum(C4:C8)</c> to have the spreadsheet add the numbers for all the cells from C4 to C8, that is: C4, C5, C6, C7, and C8.
+                  Here (along with the next step) is where we start to see how a spreadsheet can automate work for us. For cell D9, use the <c>sum</c> function. Type <c>=sum(C5:C9)</c> to have the spreadsheet add the numbers for all the cells from C5 to C9, that is: C5, C6, C7, C8, and C9.
                 </p>
               </li>
               <li>
                 <p>
-                  Now we can stop typing so much. Copy what you typed in cell D8, and paste it into the rest of your prevalence cells in column D. To match the table in <xref ref="table-h1n1-fall-2009-including-prevalence"/>, this means pasting into cells D9 through D23. 
-                  Notice that the spreadsheet does not always add the values in cells C4 through C8: instead, the spreadsheet adds the values in the five cells that are in similar locations, <em>relative to the prevalence cell being computed</em>. To see which cells are being added to obtain each prevalence value, click on that cell in the prevalence column and view the formula.
+                  Now we can stop typing so much. Copy what you typed in cell D9, and paste it into the rest of your prevalence cells in column D. To match the table in <xref ref="table-h1n1-fall-2009-including-prevalence"/>, this means pasting into cells D10 through D24. 
+                  Notice that the spreadsheet does not always add the values in cells C5 through C9: instead, the spreadsheet adds the values in the five cells that are in similar locations, <em>relative to the prevalence cell being computed</em>. To see which cells are being added to obtain each prevalence value, click on that cell in the prevalence column and view the formula.
                 </p>
               </li>
-            </ul>
+            </ul> 
             <p>
-              <em>Spreadsheet Plots</em>
-            </p>
-            
+              There is more than one way to compute the formulas for the Prevalence column. If you used spreadsheet formulas but found a different approach (such as starting with the prevalence value the day before, adding the new cases for that day, and subtracting the cases from five days earlier), and if your approach resulted in the same values, then well done!
+            </p>           
           </answer>
         </activity>
 
-        
+        <p>
+          <xref ref="activity-h1n1-data-fall-2009"/> is lengthy! There is a lot to work through. Mathematically, we are primarily adding numbers, but we must make sure to do so in a way that correctly represents real data from a real outbreak. 
+        </p>
+        <p>
+          Completing <xref ref="activity-h1n1-data-fall-2009"/> is adequate for comparing influenza prevalence data with the <m>I(t)</m> compartment of a model. However, at times we may want to compare another compartment of a model to the appropriate data. In (name activity), continue your work from <xref ref="activity-h1n1-data-fall-2009"/> to convert the Bates 2009 H1N1 data set into values that can be compared with the <m>S(t)</m> and <m>R(t)</m> compartments.
+        </p>
 
       
     </section>
