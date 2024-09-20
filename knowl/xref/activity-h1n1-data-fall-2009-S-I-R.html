@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">9.4</span><span class="period">.</span>
+</h4>
+<div class="para">Start over with the New Cases Reported data provided in <a href="ch-preparing-influenza-data-to-compare-with-a-model.html#table-h1n1-fall-2009" class="xref" data-knowl="./knowl/xref/table-h1n1-fall-2009.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.3: Student case reports of H1N1 in fall 2009 at Bates College">Table 9.3</a>. You may copy your own spreadsheet from <a href="ch-preparing-influenza-data-to-compare-with-a-model.html#activity-h1n1-data-fall-2009" class="xref" data-knowl="./knowl/xref/activity-h1n1-data-fall-2009.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.3">Activity 9.3</a>, type in the data from <a href="ch-preparing-influenza-data-to-compare-with-a-model.html#table-h1n1-fall-2009" class="xref" data-knowl="./knowl/xref/table-h1n1-fall-2009.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.3: Student case reports of H1N1 in fall 2009 at Bates College">Table 9.3</a>, or download a copy of the data in <a class="external" href="https://docs.google.com/spreadsheets/d/1M3-G-t22ibUqKmEOMhmeK99T0iKIWefUzI9G0jXjg0g/edit?usp=sharing" target="_blank">this starter spreadsheet</a><details class="ptx-footnote" aria-live="polite" id="activity-h1n1-data-fall-2009-S-I-R-1-1-5"><summary class="ptx-footnote__number" title="Footnote 9.8"><sup> 8 </sup></summary><div class="ptx-footnote__contents" id="activity-h1n1-data-fall-2009-S-I-R-1-1-5"><code class="code-inline tex2jax_ignore">docs.google.com/spreadsheets/d/1M3-G-t22ibUqKmEOMhmeK99T0iKIWefUzI9G0jXjg0g/edit?usp=sharing</code></div></details>. Then follow the steps below to convert New Cases Reported data into data points that can be compared with an SIR model in which the unit of time is days.</div> <ol class="decimal" id="activity-h1n1-data-fall-2009-S-I-R-1-2">
+<li><div class="para">To the right of the New Cases Reported column, create columns for <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and <span class="process-math">\(R(t)\text{.}\)</span>
+</div></li>
+<li><div class="para">In the <span class="process-math">\(I(t)\)</span> column, enter the numbers or formulas you developed in <a href="ch-preparing-influenza-data-to-compare-with-a-model.html#activity-h1n1-data-fall-2009" class="xref" data-knowl="./knowl/xref/activity-h1n1-data-fall-2009.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.3">Activity 9.3</a> to represent the prevalence values for this H1N1 outbreak. In other words: replicate your work from <a href="ch-preparing-influenza-data-to-compare-with-a-model.html#activity-h1n1-data-fall-2009" class="xref" data-knowl="./knowl/xref/activity-h1n1-data-fall-2009.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.3">Activity 9.3</a>, this time placing those values in the <span class="process-math">\(I(t)\)</span> column.</div></li>
+<li><div class="para">Similarly to what you did in <a href="ch-preparing-influenza-data-to-compare-with-a-model.html#activity-h1n1-data-fall-2009" class="xref" data-knowl="./knowl/xref/activity-h1n1-data-fall-2009.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 9.3">Activity 9.3</a>, extend the number of rows in the spreadsheet so that the prevalence values, shown here as the <span class="process-math">\(I(t)\)</span> column, continue until no one remains Infectious.</div></li>
+<li><div class="para">Next, fill in the <span class="process-math">\(S(t)\)</span> column, using the knowledge that there were a total of 1714 students on campus that semester. On October 6, then, there should be <span class="process-math">\(1714-5=1709\)</span> Susceptible people. For each day following that, determine that day’s <span class="process-math">\(S(t)\)</span> value by subtracting the New Cases Reported from the previous day’s number of Susceptibles.</div></li>
+<li><div class="para">Then, fill in the <span class="process-math">\(R(t)\)</span> column. To do this, fill in zeroes for the first few days. Continue to think of the infectious period as lasting five days. This means that the New Cases Reported on October 6 are infectious October 6, 7, 8, 9, and 10, and then move into <span class="process-math">\(R(t)\)</span> on October 11, so <span class="process-math">\(R(t)=5\)</span> on October 11. On October 12, the New Cases Reported from October 7 move into <span class="process-math">\(R(t)\text{,}\)</span> so <span class="process-math">\(R(t)=5+8=13\)</span> on October 12. Continue similarly: on each day, update the <span class="process-math">\(R(t)\)</span> column by adding the New Cases Reported from five days earlier.</div></li>
+<li><div class="para">Check your work: create one more column titled “Check Total”. For each row, add the three values in the  <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and <span class="process-math">\(R(t)\)</span> columns. Your numbers should be the same every day, since compartmental models require that every person be in exactly one compartment at each time step. This column is one way to check your work and find possible mistakes: if the numbers do not add up to 1714 on any day(s), there must be an error.</div></li>
+<li><div class="para">Bonus spreadsheet work: if you added and subtracted cases on your own and entered those numbers in the spreadsheet cells, go back and do all the steps from this activity using formulas.</div></li>
+</ol>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para">
+<a href="ch-preparing-influenza-data-to-compare-with-a-model.html#table-h1n1-fall-2009-S-I-R" class="xref" data-knowl="./knowl/xref/table-h1n1-fall-2009-S-I-R.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 9.6: Student case reports of H1N1 in fall 2009 at Bates College">Table 9.6</a> shows the H1N1 data along with the <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and <span class="process-math">\(R(t)\)</span> values for the full outbreak.</div> <figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">9.6<span class="period">.</span></span><span class="space"> </span>Student case reports of H1N1 in fall 2009 at Bates College</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines">Day of Week</th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Date</th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">New Cases Reported</th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\(S(t)\)</span></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\(I(t)\)</span></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\(R(t)\)</span></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Check Total</th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Tuesday</td>
+<td class="c m b0 r0 l0 t0 lines">October 6</td>
+<td class="c m b0 r0 l0 t0 lines">5</td>
+<td class="c m b0 r0 l0 t0 lines">1709</td>
+<td class="c m b0 r0 l0 t0 lines">5</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Wednesday</td>
+<td class="c m b0 r0 l0 t0 lines">October 7</td>
+<td class="c m b0 r0 l0 t0 lines">8</td>
+<td class="c m b0 r0 l0 t0 lines">1701</td>
+<td class="c m b0 r0 l0 t0 lines">13</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Thursday</td>
+<td class="c m b0 r0 l0 t0 lines">October 8</td>
+<td class="c m b0 r0 l0 t0 lines">2</td>
+<td class="c m b0 r0 l0 t0 lines">1699</td>
+<td class="c m b0 r0 l0 t0 lines">15</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Friday</td>
+<td class="c m b0 r0 l0 t0 lines">October 9</td>
+<td class="c m b0 r0 l0 t0 lines">6</td>
+<td class="c m b0 r0 l0 t0 lines">1693</td>
+<td class="c m b0 r0 l0 t0 lines">21</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Saturday</td>
+<td class="c m b0 r0 l0 t0 lines">October 10</td>
+<td class="c m b0 r0 l0 t0 lines">6</td>
+<td class="c m b0 r0 l0 t0 lines">1687</td>
+<td class="c m b0 r0 l0 t0 lines">27</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Sunday</td>
+<td class="c m b0 r0 l0 t0 lines">October 11</td>
+<td class="c m b0 r0 l0 t0 lines">15</td>
+<td class="c m b0 r0 l0 t0 lines">1672</td>
+<td class="c m b0 r0 l0 t0 lines">37</td>
+<td class="c m b0 r0 l0 t0 lines">5</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Monday</td>
+<td class="c m b0 r0 l0 t0 lines">October 12</td>
+<td class="c m b0 r0 l0 t0 lines">28</td>
+<td class="c m b0 r0 l0 t0 lines">1644</td>
+<td class="c m b0 r0 l0 t0 lines">57</td>
+<td class="c m b0 r0 l0 t0 lines">13</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Tuesday</td>
+<td class="c m b0 r0 l0 t0 lines">October 13</td>
+<td class="c m b0 r0 l0 t0 lines">53</td>
+<td class="c m b0 r0 l0 t0 lines">1591</td>
+<td class="c m b0 r0 l0 t0 lines">108</td>
+<td class="c m b0 r0 l0 t0 lines">15</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Wednesday</td>
+<td class="c m b0 r0 l0 t0 lines">October 14</td>
+<td class="c m b0 r0 l0 t0 lines">44</td>
+<td class="c m b0 r0 l0 t0 lines">1547</td>
+<td class="c m b0 r0 l0 t0 lines">146</td>
+<td class="c m b0 r0 l0 t0 lines">21</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Thursday</td>
+<td class="c m b0 r0 l0 t0 lines">October 15</td>
+<td class="c m b0 r0 l0 t0 lines">20</td>
+<td class="c m b0 r0 l0 t0 lines">1527</td>
+<td class="c m b0 r0 l0 t0 lines">160</td>
+<td class="c m b0 r0 l0 t0 lines">27</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Friday</td>
+<td class="c m b0 r0 l0 t0 lines">October 16</td>
+<td class="c m b0 r0 l0 t0 lines">12</td>
+<td class="c m b0 r0 l0 t0 lines">1515</td>
+<td class="c m b0 r0 l0 t0 lines">157</td>
+<td class="c m b0 r0 l0 t0 lines">42</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Saturday</td>
+<td class="c m b0 r0 l0 t0 lines">October 17</td>
+<td class="c m b0 r0 l0 t0 lines">9</td>
+<td class="c m b0 r0 l0 t0 lines">1506</td>
+<td class="c m b0 r0 l0 t0 lines">138</td>
+<td class="c m b0 r0 l0 t0 lines">70</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Sunday</td>
+<td class="c m b0 r0 l0 t0 lines">October 18</td>
+<td class="c m b0 r0 l0 t0 lines">17</td>
+<td class="c m b0 r0 l0 t0 lines">1489</td>
+<td class="c m b0 r0 l0 t0 lines">102</td>
+<td class="c m b0 r0 l0 t0 lines">123</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Monday</td>
+<td class="c m b0 r0 l0 t0 lines">October 19</td>
+<td class="c m b0 r0 l0 t0 lines">21</td>
+<td class="c m b0 r0 l0 t0 lines">1468</td>
+<td class="c m b0 r0 l0 t0 lines">79</td>
+<td class="c m b0 r0 l0 t0 lines">167</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Tuesday</td>
+<td class="c m b0 r0 l0 t0 lines">October 20</td>
+<td class="c m b0 r0 l0 t0 lines">7</td>
+<td class="c m b0 r0 l0 t0 lines">1461</td>
+<td class="c m b0 r0 l0 t0 lines">66</td>
+<td class="c m b0 r0 l0 t0 lines">187</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Wednesday</td>
+<td class="c m b0 r0 l0 t0 lines">October 21</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1461</td>
+<td class="c m b0 r0 l0 t0 lines">54</td>
+<td class="c m b0 r0 l0 t0 lines">199</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Thursday</td>
+<td class="c m b0 r0 l0 t0 lines">October 22</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1461</td>
+<td class="c m b0 r0 l0 t0 lines">45</td>
+<td class="c m b0 r0 l0 t0 lines">208</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Friday</td>
+<td class="c m b0 r0 l0 t0 lines">October 23</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1461</td>
+<td class="c m b0 r0 l0 t0 lines">28</td>
+<td class="c m b0 r0 l0 t0 lines">225</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Saturday</td>
+<td class="c m b0 r0 l0 t0 lines">October 24</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1461</td>
+<td class="c m b0 r0 l0 t0 lines">7</td>
+<td class="c m b0 r0 l0 t0 lines">246</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Sunday</td>
+<td class="c m b0 r0 l0 t0 lines">October 25</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1461</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">253</td>
+<td class="c m b0 r0 l0 t0 lines">1714</td>
+</tr>
+</table></div></figure>
+</div></details></div></article><span class="incontext"><a class="internal" href="ch-preparing-influenza-data-to-compare-with-a-model.html#activity-h1n1-data-fall-2009-S-I-R">in-context</a></span>
+</body>
+</html>
