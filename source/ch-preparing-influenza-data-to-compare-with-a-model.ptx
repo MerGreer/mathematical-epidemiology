@@ -274,7 +274,7 @@
               </fn>  
             </p>
             <p>
-              Given this information about the incubation period and contagious period of H1N1, follow the steps below to convert the incidence data in <xref ref="table-h1n1-fall-2009"/> to prevalence numbers that can be compared with the I compartment of an SIR model.
+              Given this information about the incubation period and contagious period of H1N1, follow the steps below to convert the incidence data in <xref ref="table-h1n1-fall-2009"/> to prevalence numbers that can be compared with the I compartment of an SIR model in which the time unit is days.
               <!-- There were 1714 students in residence at Bates during the fall 2009 semester. -->
             </p>
             <ol>
@@ -515,7 +515,7 @@
         <activity xml:id="activity-h1n1-data-fall-2009-S-I-R">
           <statement>
             <p>
-              Start over with the New Cases Reported data provided in <xref ref="table-h1n1-fall-2009"/>. You may copy your own spreadsheet from <xref ref="activity-h1n1-data-fall-2009"/>, type in the data from <xref ref="table-h1n1-fall-2009"/>, or download a copy of the data in <url href="https://docs.google.com/spreadsheets/d/1M3-G-t22ibUqKmEOMhmeK99T0iKIWefUzI9G0jXjg0g/edit?usp=sharing">this starter spreadsheet</url>. Then follow the steps below to convert New Cases Reported data into data points that can be compared with an SIR model in which the unit of time is days.
+              Start over with the New Cases Reported data provided in <xref ref="table-h1n1-fall-2009"/>. You may  type in the data from <xref ref="table-h1n1-fall-2009"/>, or download a copy of the data in <url href="https://docs.google.com/spreadsheets/d/1M3-G-t22ibUqKmEOMhmeK99T0iKIWefUzI9G0jXjg0g/edit?usp=sharing">this starter spreadsheet</url>. Then follow the steps below to convert New Cases Reported data into data points that can be compared with an SIR model in which the time unit is days.
             </p>
             <ol>
               <li>
@@ -754,9 +754,125 @@
                 </row>
               </tabular>
             </table>
-                     
+            <p>
+              <em>Spreadsheet Formulas.</em> If you copied the shared spreadsheet, the <m>S(t)</m> values begin in row 5, column D, and the <m>R(t)</m> values begin in row 5, column F. 
+            </p>
+            <p>
+              First compute the <m>S(t)</m> values.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  To compute <m>S(t)</m> on October 6, rather than type in the number 1709, you can type in <c>=1714-C5</c> to start with the 1714 students on campus and subtract the five New Cases Reported shown in cell C5.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In cell D6, for <m>S(t)</m> on October 7, you can type <c>=D5-C6</c>. This starts with the 1709 Susceptibles from cell D5 and subtracts the eight New Cases Reported in cell C6.
+                </p>
+              </li>
+              <li>
+                <p>
+                  You can then copy the formula from cell D6 and paste the formula into the rest of column D. The spreadsheet formulas are <em>relative</em> rather than <em>absolute</em>. For our specific formulas, this means that each cell from D6 to D24 starts with the number in the cell directly above, and subtracts the number in the cell directly to the left. (If the formulas were <em>absolute</em>, we would always compute <c>=D5-C6</c>, but this would not compute correct values for <m>S(t)</m> at each day of the outbreak.) 
+                </p>
+              </li>
+            </ul> 
+            <p>
+              Next compute the <m>R(t)</m> values.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  Enter <m>0</m> for <m>R(t)</m> on October 6, 7, 8, 9, and 10, that is, in cells F5, F6, F7, F8, and F9.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In cell F10, for <m>R(t)</m> on October 11, you can type <c>=F9+C5</c>. This starts with the Removed population of 0 in cell F9 and adds the New Cases Reported in cell C5. These New Cases Reported have just moved from the Infectious compartment to the Removed compartment.
+                </p>
+              </li>
+              <li>
+                <p>
+                  You can then copy the formula from cell F10 and paste the formula into the rest of column F. As described for computing the <m>S(t)</m> column: the formulas in the cells are relative, meaning that each day's <m>R(t)</m> value is based on the previous day's <m>R(t)</m> value and the number of New Cases Reported from five days earlier.
+                </p>
+              </li>
+            </ul> 
+            <p>
+              Finally, compute the <q>Check Total</q> values.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  In cell G5, type <c>=D5:F5</c> or type <c>=D5+E5+F5</c>. Either of these formulas adds the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values for this row, and the result should be 1714.
+                </p>
+              </li>
+              <li>
+                <p>
+                  You can then copy the formula from cell G5 and paste this formula into the rest of column G. Yet again: the formulas in the cells are relative, meaning that each day's <q>Check Total</q> value is the sum of that day's <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values. Click on multiple cells in column G to confirm this. Then use this column to confirm that your result is 1714 in all of column G, from cell G5 down to cell G24. <em>If any of your results do not equal 1714, this indicates an error somewhere in your spreadsheet. Take time to track down and fix any such errors.</em>
+                </p>
+              </li>
+            </ul> 
+            <p>
+              There may be other ways to compute these formulas. If you used spreadsheet formulas but found a different approach, and if your approach resulted in the same values, then well done!
+            </p>         
           </answer>
         </activity>
+
+
+        <exercises xml:id="exercises-ch-influenza-data">
+          <exercise number="1">
+           <p>
+             Use your completed work from <xref ref="activity-h1n1-data-fall-2009-S-I-R"/> to create plots of the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> data, based on the data set from the H1N1 outbreak at Bates. Describe three observations about these data and how they compare with the kinds of curves you have seen in Python solutions for SIR models. (If you did not complete <xref ref="activity-h1n1-data-fall-2009-S-I-R"/>, transfer the results in <xref ref="table-h1n1-fall-2009-S-I-R"/> to a spreadsheet so that you can create the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> graphs.)  
+           </p>          
+         </exercise>
+    
+         <!-- <exercise number="2">
+          <p>
+            Revisit <xref ref="activity-sir-model-flu"/>, starting with an SEIR model and introducing incomplete isolation. Incomplete isolation can take multiple forms, some of which we described in <xref ref="sec-incomplete-isolation-and-quarantine-vs-isolation"/>. (If you are also completing exercise 1 in <xref ref="exercises-ch-isolation"/>, use the same form of incomplete isolation.)  
+          </p>   
+          <ol>
+            <li>
+              <p>
+                Describe the kind of incomplete isolation you are including in your model. This requires partially rewriting the fictional outbreak in <xref ref="activity-sir-model-flu"/>: perhaps people do not always know if they have the flu, or they do not isolate perfectly, or there may be other reasons for incomplete isolation. Construct the compartmental diagram and differential equations you will use to represent your described form of incomplete isolation.
+              </p>
+            </li>
+            <li>
+              <p>
+                Determine all parameter values or ranges for your model. Cite official sources wherever possible. (Since you are deciding the kind of incomplete isolation, and since this is a fictional outbreak, there may be one or more parameter values that are based on your decisions and not on official sources. Indicate this wherever it is relevant.)
+              </p>
+            </li>
+            <li>
+              <p>
+                Use Python to show results of your SEIR model, with and without incomplete isolation. Describe at least three ways the model changes when incomplete isolation is included, in comparison to when incomplete isolation is not included. 
+              </p>
+            </li>
+            <li>
+              <p>
+                If you also completed exercise 1 in <xref ref="exercises-ch-isolation"/>, discuss the differences between using an SIR model with isolation and using an SEIR model with isolation. As part of your discussion, provide at least one advantage for using the SIR model, and at least one advantage for using the SEIR model. 
+              </p>
+            </li>
+          </ol>   
+         </exercise> -->
+    
+         <!-- <exercise number="3">
+           <p>
+             Dongguan from Sam's "Intro Write Ups for Case Studies"
+           </p>   
+           <ol>
+             <li>
+               <p>
+                 Re 
+               </p>
+               
+             </li>
+             <li>
+               <p>
+                 In
+               </p>
+             </li>
+           </ol>     
+         </exercise> -->
+       </exercises>
 
       
     </section>
