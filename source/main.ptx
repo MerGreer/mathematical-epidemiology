@@ -55,7 +55,13 @@
 
       <!-- <acknowledgement>
         <p>
-          Thanks to
+          Two classes of Senior Seminar students at Bates College have contributed to this work. They were: (list names and semesters).
+        </p>
+        <p>
+          Thank you to Sam Sheaffer '25, who located several data sets and case studies, and who drafted the first version of <xref ref="ch-case-studies-vaccination-and-isolation"/>. Thanks also to EJ Holm '25, who contributed to the development of vaccine exercises involving both <m>p</m> to represent the fraction of the population that is vaccinated against measles and <m>q</m> to represent the effectiveness of the vaccine.
+        </p>
+        <p>
+          This work was supported in part by the Bates Faculty Development Fund.
         </p>
 
       </acknowledgement> -->

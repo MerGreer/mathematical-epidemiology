@@ -344,7 +344,7 @@
       </activity>
 
       <p>
-        For readers including <xref ref="ch-the-next-generation-method"/> on computing <m>\mathcal{R}_0</m>, you may wish to try the steps for computing <m>\mathcal{R}_0</m> in the SEIR model. The answer appears below, yet this is a great time to test yourself. Completing the steps and confirming your results below lets you gain practice now, before perhaps trying to compute <m>\mathcal{R}_0</m> on a future model where no answer is given. 
+        For readers including <xref ref="ch-the-next-generation-method"/> on computing <m>\mathcal{R}_0</m>, be sure to independently work through the steps for computing <m>\mathcal{R}_0</m> in the SEIR model. The answer appears below, yet completing the steps and confirming your results lets you gain practice. This practice will help you be sure you understand the steps used to compute <m>\mathcal{R}_0</m>, before trying to compute <m>\mathcal{R}_0</m> on a future model where no answer is given. 
       </p>
       <p>
         The resulting <m>\mathcal{R}_0</m> formula is:

@@ -1,10 +1,5 @@
 <chapter xml:id="ch-preparing-influenza-data-to-compare-with-a-model" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>* Preparing Influenza Data to Compare With a Model</title>
-
-
-    <p>
-      <term>***This chapter is under construction.***</term>
-    </p>
+    <title>Preparing Influenza Data to Compare With a Model</title>
 
     <introduction xml:id="intro-influenza-data">
       <objectives>
@@ -822,37 +817,18 @@
         <exercises xml:id="exercises-ch-influenza-data">
           <exercise number="1">
            <p>
-             Use your completed work from <xref ref="activity-h1n1-data-fall-2009-S-I-R"/> to create plots of the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> data, based on the data set from the H1N1 outbreak at Bates. Describe three observations about these data and how they compare with the kinds of curves you have seen in Python solutions for SIR models. (If you did not complete <xref ref="activity-h1n1-data-fall-2009-S-I-R"/>, transfer the results in <xref ref="table-h1n1-fall-2009-S-I-R"/> to a spreadsheet so that you can create the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> graphs.)  
+             Use your completed work from <xref ref="activity-h1n1-data-fall-2009-S-I-R"/> to create plots of the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> data that can be constructed from the Bates H1N1 New Cases Reported data set. Describe three observations about the three plots you create and how they compare with the kinds of curves you have seen in Python solutions for SIR models. (If you did not complete <xref ref="activity-h1n1-data-fall-2009-S-I-R"/>, transfer the results in <xref ref="table-h1n1-fall-2009-S-I-R"/> to a spreadsheet so that you can create the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> graphs.)  
            </p>          
          </exercise>
     
-         <!-- <exercise number="2">
+         <exercise number="2">
           <p>
-            Revisit <xref ref="activity-sir-model-flu"/>, starting with an SEIR model and introducing incomplete isolation. Incomplete isolation can take multiple forms, some of which we described in <xref ref="sec-incomplete-isolation-and-quarantine-vs-isolation"/>. (If you are also completing exercise 1 in <xref ref="exercises-ch-isolation"/>, use the same form of incomplete isolation.)  
+            Recreate prevalence data for the data set in <xref ref="table-h1n1-fall-2009"/>, but using different assumptions than in <xref ref="activity-h1n1-data-fall-2009"/>. Here, instead of assuming a 5-day Infectious period, create prevalence data with the assumption that there is a 4-day Infectious period. Separately, create prevalence data with the assumption that there is a 6-day Infectious period.   
           </p>   
-          <ol>
-            <li>
-              <p>
-                Describe the kind of incomplete isolation you are including in your model. This requires partially rewriting the fictional outbreak in <xref ref="activity-sir-model-flu"/>: perhaps people do not always know if they have the flu, or they do not isolate perfectly, or there may be other reasons for incomplete isolation. Construct the compartmental diagram and differential equations you will use to represent your described form of incomplete isolation.
-              </p>
-            </li>
-            <li>
-              <p>
-                Determine all parameter values or ranges for your model. Cite official sources wherever possible. (Since you are deciding the kind of incomplete isolation, and since this is a fictional outbreak, there may be one or more parameter values that are based on your decisions and not on official sources. Indicate this wherever it is relevant.)
-              </p>
-            </li>
-            <li>
-              <p>
-                Use Python to show results of your SEIR model, with and without incomplete isolation. Describe at least three ways the model changes when incomplete isolation is included, in comparison to when incomplete isolation is not included. 
-              </p>
-            </li>
-            <li>
-              <p>
-                If you also completed exercise 1 in <xref ref="exercises-ch-isolation"/>, discuss the differences between using an SIR model with isolation and using an SEIR model with isolation. As part of your discussion, provide at least one advantage for using the SIR model, and at least one advantage for using the SEIR model. 
-              </p>
-            </li>
-          </ol>   
-         </exercise> -->
+          <p>
+            On a single set of axes, plot your results for both 4-day prevalence and 6-day prevalence. Write at least three observations about these plots.
+          </p>   
+         </exercise>
     
          <!-- <exercise number="3">
            <p>
