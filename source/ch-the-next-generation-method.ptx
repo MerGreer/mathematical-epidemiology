@@ -5,6 +5,81 @@
       <term>***This chapter is under construction.***</term>
     </p>
 
+    <introduction xml:id="intro-next-generation-method">
+      <objectives>
+        <ul>
+          <li>
+            <p>
+              Learn to complete all the steps in the Next Generation Method for relating the epidemiological quantity <m>\mathcal{R}_0</m> to parameters and other quantities used in a compartmental model
+            </p>
+          </li>
+          <li>
+            <p>
+              Build understanding of compartmental models as a way to map disease spread, or other kinds of spread, as a generation-to-generation phenomenon
+            </p>
+          </li>
+          <li>
+            <p>
+              Increase awareness of how eigenvalues help show us specific information about the long-term behavior of a system of differential equations
+            </p>
+          </li>
+        </ul>
+      </objectives>
+  
+      <p>
+        This chapter uses many linear algebra concepts. Before beginning, we pause to review.
+      </p>
+      
+      <exploration xml:id="expl-activity-next-generation-method">
+        <title>Linear Algebra Review</title>
+        <introduction>
+          <p>
+            This 
+          </p>            
+        </introduction>
+        <task>
+          <statement>
+            <p>
+              First, 
+            </p>
+          <ol>
+            <li>
+                <p>
+                  Write 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Adjust 
+                </p>
+              </li>
+          </ol>
+          </statement>
+        </task>
+        <task>
+          <statement>
+            <p>
+              Next
+            </p>
+          <ol>
+            <li>
+              <p>
+                Adjust 
+              </p>
+            </li>
+            <li>
+              <p>
+                Discuss 
+              </p>
+            </li>
+          </ol>
+          </statement>
+        </task>
+        
+      </exploration>
+  
+    </introduction>
+
     <section xml:id="sec-2">
       <title>Python Code for the Next Generation Method</title>
       <!-- <p>Change the title??? To focus on linear algebra???</p>

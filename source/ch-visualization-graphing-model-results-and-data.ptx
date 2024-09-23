@@ -746,7 +746,7 @@ plt.show()
       <exercise number="1">
         <statement>
           <p>
-           Start with the basic SI model in Python. Code for this appears in <xref ref="exer-first-odeint-code"/> and <xref ref="exer-first-odeint-code-play-around"/>. Change the code in the ways described below. For each change, list the original Python code, specify what updates you make, provide an image of the resulting graph, and describe in words how the resulting graph looks different as a result of the change you made. Keep the change in part (a) when you update part (b), then keep all these changes when you update part (c).
+           Start with the basic SI model in Python. Code for this appears in <xref ref="exer-first-odeint-code"/> and <xref ref="exer-first-odeint-code-play-around"/>. Change the code in the ways described below. For each change, list the original Python code, specify what code updates you make, provide an image of the resulting graph, and describe in words how the resulting graph looks different as a result of the change you made. Keep the change in part (a) when you update part (b), then keep all these changes when you update part (c).
           </p>
         <ol>
           <li>
@@ -792,8 +792,25 @@ plt.show()
       </exercise>
       <exercise number="2">
         <p>
-          Open the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> and run it, creating a data set that is (hopefully) different than that in <xref ref="fig-human-zombie-data-table"/>. Use Python to plot these data points for humans and zombies. On the same set of axes, plot the graphical solutions to the differential equations in the SI model. Adjust <m>\beta</m> so the SI model solution curves fit adequately well with the generated data points. Include a short discussion of ways in which the curves fit the data well, and ways in which the fit is not as good. 
+          Open the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> and run it with its default settings, creating a data set that is (hopefully) different than that in <xref ref="fig-human-zombie-data-table"/>.  
         </p>
+        <ol>
+          <li>
+            <p>
+              Write your data set as a table, in the style of <xref ref="fig-human-zombie-data-table"/>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Use Python to create multiple plots on a single set of axes, with time on the horizontal axis. First plot your data points for humans and zombies. Then plot the graphical solutions to the differential equations in the SI model. You will need to choose your value of <m>\beta</m> for the model. In doing so, adjust <m>\beta</m> so that the SI model solution curves fit fairly well with the generated data points.
+            </p>
+          </li>
+          <li>
+            <p>
+              Write about your observations of ways in which the curves fit the data well, and ways in which the fit is not as good. 
+            </p>
+          </li>
+        </ol>
       </exercise>
       <exercise number="3">
         <p>

@@ -380,8 +380,20 @@
       <exercises xml:id="exercises-ch-zombies-can-math-help">
         <exercise number="1">
          <p>
-           Vary the zombie simulation so that zombies have only one arm. In this case, the app represents each zombie by two connected dots, rather than three connected dots. We can change the <q># of Zombie Arms</q> in the app from 2 to 1. Complete one or more simulations with this change. Collect and graph the simulation data. How do your results compare with the results from simulations in which zombies have two arms? Write about your results. Include graphs and tables of data, in the style of <xref ref="fig-human-zombie-data-graph"/> and <xref ref="fig-human-zombie-data-table"/>, as part of your comparison.
+           Vary the zombie simulation so that zombies have only one arm. In this case, the app represents each zombie by two connected dots, rather than three connected dots. We can change the <q># of Zombie Arms</q> in the app from 2 to 1. Complete at least two simulations in which zombies have two arms, and at least two simulations in which zombies have one arm, so you will be able to compare outcomes.  
           </p>
+          <ol>
+            <li>
+              <p>
+                Collect and graph the simulation data. Display tables and graphs of data, in the style of <xref ref="fig-human-zombie-data-table"/> and <xref ref="fig-human-zombie-data-graph"/>.
+              </p>
+            </li>
+            <li>
+              <p>
+                How do your results when zombies have one arm compare with the results when zombies have two arms? Write at least three observations about this comparison.
+              </p>
+            </li>
+          </ol>
         </exercise>
         <exercise number="2">
           <p>
@@ -405,17 +417,17 @@
         </exercise>
         <exercise number="3">
           <p>
-            Spend more time examining and thinking about the graph of the SI model, as shown in <xref ref="fig-first-si-graph" />.
+            Spend more time examining and thinking about the graph of the SI model, as shown in <xref ref="fig-first-si-graph" />. The prompts below ask you to make calculus-based observations the functions <m>S(t)</m> and <m>I(t)</m> and their derivatives <m>dS/dt</m> and <m>dI/dt</m>.
           </p>
           <ol>
             <li>
               <p>
-                Since <m>\beta</m>, <m>S</m>, and <m>I</m> cannot be negative, we recognize that <m>-\beta S I</m> must be either negative or equal to zero. Explain what these observations indicate about the Susceptibles graph in <xref ref="fig-first-si-graph" />, using Equation <xref ref="eq-S-in-SImodel" /> as part of your explanation.
+                Since <m>\beta</m>, <m>S</m>, and <m>I</m> cannot be negative, we recognize that <m>-\beta S I</m> must be either negative or equal to zero. Explain what this observation relating to <m>dS/dt=-\beta SI</m> indicates about the Susceptibles graph in <xref ref="fig-first-si-graph" />.
               </p>
             </li>
             <li>
               <p>
-                Since <m>\beta</m>, <m>S</m>, and <m>I</m> cannot be negative, we recognize that <m>\beta S I</m> must be either positive or equal to zero. Explain what these observations indicate about the Infectious graph in <xref ref="fig-first-si-graph" />, using Equation <xref ref="eq-I-in-SImodel" /> as part of your explanation.
+                Since <m>\beta</m>, <m>S</m>, and <m>I</m> cannot be negative, we recognize that <m>\beta S I</m> must be either positive or equal to zero. Explain what this observation relating to <m>dI/dt=\beta SI</m> indicates about the Infectious graph in <xref ref="fig-first-si-graph" />.
               </p>
             </li>
             <li>
