@@ -26,6 +26,7 @@
         </ul>
       </objectives>
   
+      
       <p>
         This chapter uses many linear algebra concepts. Before beginning, we pause to review.
       </p>
@@ -34,23 +35,37 @@
         <title>Linear Algebra Review</title>
         <introduction>
           <p>
-            This 
+            To do the work of this chapter, it will help to have certain linear algebra concepts freshly in mind. This Exploration prepares us for what comes next. 
           </p>            
         </introduction>
         <task>
           <statement>
             <p>
-              First, 
+              First review matrices. Use textbooks, online information, or other means to refresh your about matrices in general. Then respond to the following.
             </p>
           <ol>
             <li>
                 <p>
-                  Write 
+                  Create a <m>2 \times 2</m> matrix. Create another matrix, this time <m>3 \times 3</m>. These matrices are called <em>square</em> matrices. Why can we use this name? And what other options are there for matrices? To demonstrate, create at least one matrix that is not a square matrix, and explain how you know that this matrix is not square.  
                 </p>
               </li>
               <li>
                 <p>
-                  Adjust 
+                  Create two different <m>2 \times 2</m> matrices and show how to multiply them.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Describe what an inverse matrix is. Then write the formula for computing the inverse of a matrix of the form: 
+                </p>
+                <me>
+                  \begin{pmatrix}
+                    a \amp b \\
+                    c \amp d 
+                  \end{pmatrix}.
+                </me>
+                <p>
+                  For each of the two <m>2 \times 2</m> matrices you created in part (b) above, show how to compute the inverse of the matrix, using the inverse formula you wrote.  
                 </p>
               </li>
           </ol>
@@ -59,17 +74,17 @@
         <task>
           <statement>
             <p>
-              Next
+              Next review eigenvalues.
             </p>
           <ol>
             <li>
               <p>
-                Adjust 
+                How do we describe an eigenvalue mathematically? Your response should include at least one mathematical formula, along with a description of what the formula means. 
               </p>
             </li>
             <li>
               <p>
-                Discuss 
+                Research eigenvalues to find ways that eigenvalues are used in applications of mathematics. Write at least two examples of applications of eigenvalues.  
               </p>
             </li>
           </ol>
@@ -79,6 +94,38 @@
       </exploration>
   
     </introduction>
+
+    <section xml:id="sec-introduction-to-the-next-generation-method">
+      <title>Introduction to the Next Generation Method</title>   
+
+      <p>
+        So far, to determine the value of <m>\beta</m> in a compartmental model, we have done one of two things: 
+      </p>
+      <ol>
+        <li>
+          <p>
+            estimated <m>\beta</m> visually by comparing the model's solution curves with data, or
+          </p>
+        </li>
+        <li>
+          <p>
+            used a formula for <m>\mathcal{R}_0</m>, such as <m>\mathcal{R}_0 = (\beta N)/\gamma</m>, to substitute in values we know for <m>\mathcal{R}_0</m>, <m>N</m>, and <m>\gamma</m>, rearrange, and solve for <m>\beta</m>.
+          </p>
+        </li>
+      </ol>
+      <p>
+        However, the formula for <m>\mathcal{R}_0</m> is not always <m>\mathcal{R}_0 = (\beta N)/\gamma</m>. Systems of differential equations having different compartments, or systems in which the flow between compartments is different than what we have worked with before, can have different formulas for <m>\mathcal{R}_0</m>. These formulas are usually not obvious. However, a method exists that allows us to determine the formula. This is the Next Generation Method.
+      </p>
+
+      <!-- <p>
+        Say more here about 2002 paper and earlier papers. Link to them.
+      </p> -->
+
+      <p>
+        To use the Next Generation Method, we will need to be familiar with matrices, eigenvalues, equilibrium values for a system of differential equations, and partial derivatives. <xref ref="expl-activity-next-generation-method"/> was a reminder about matrices and eigenvalues, and we will build more knowledge about these linear algebra concepts. Let's also discuss equilibrium values and partial derivatives.
+      </p>
+
+    </section>
 
     <section xml:id="sec-2">
       <title>Python Code for the Next Generation Method</title>
