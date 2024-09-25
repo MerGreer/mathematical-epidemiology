@@ -371,7 +371,7 @@
         <ol>
           <li>
             <p>
-              Use the SEIR model below. Determine as many parameter values as you can, using the information described from the fact sheet. In this model, assume that time is measured in days. It is appropriate for some parameter values to be a range of numbers, rather than a single number, since the fact sheet information includes ranges of time.
+              Use the SEIR model below. Determine as many parameter values as you can, using the information described from the fact sheet. In this model, assume that time is measured in days. It is appropriate for some parameter values to be a range of numbers, rather than a single number, since the fact sheet information includes ranges of time:
             </p>
             <md>
                 <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>

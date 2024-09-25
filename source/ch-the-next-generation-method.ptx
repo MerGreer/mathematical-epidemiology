@@ -20,7 +20,7 @@
           </li>
           <li>
             <p>
-              Increase awareness of how eigenvalues help show us specific information about the long-term behavior of a system of differential equations
+              Increase awareness of how eigenvalues show us specific information about the long-term behavior of a system of differential equations
             </p>
           </li>
         </ul>
@@ -46,7 +46,7 @@
           <ol>
             <li>
                 <p>
-                  Create a <m>2 \times 2</m> matrix. Create another matrix, this time <m>3 \times 3</m>. These matrices are called <em>square</em> matrices. Why can we use this name? And what other options are there for matrices? To demonstrate, create at least one matrix that is not a square matrix, and explain how you know that this matrix is not square.  
+                  Create a <m>2 \times 2</m> matrix. Create another matrix, this time <m>3 \times 3</m>. These matrices are called <em>square</em> matrices. Why can we use the name <q>square</q>? And what could a matrix look like if it is not a square matrix? To demonstrate, create at least two differently sized matrices that are not square, and explain how you know that these matrices are not square.  
                 </p>
               </li>
               <li>
@@ -65,7 +65,7 @@
                   \end{pmatrix}.
                 </me>
                 <p>
-                  For each of the two <m>2 \times 2</m> matrices you created in part (b) above, show how to compute the inverse of the matrix, using the inverse formula you wrote.  
+                  For each of the two <m>2 \times 2</m> matrices you created in part (b) above, show how to compute the inverse of the matrix, using the matrix inverse formula you wrote.  
                 </p>
               </li>
           </ol>
@@ -84,7 +84,7 @@
             </li>
             <li>
               <p>
-                Research eigenvalues to find ways that eigenvalues are used in applications of mathematics. Write at least two examples of applications of eigenvalues.  
+                Research eigenvalues to find ways that eigenvalues are used in applications of mathematics. Write descriptions of at least two examples of applications of eigenvalues.  
               </p>
             </li>
           </ol>
@@ -123,6 +123,77 @@
 
       <p>
         To use the Next Generation Method, we will need to be familiar with matrices, eigenvalues, equilibrium values for a system of differential equations, and partial derivatives. <xref ref="expl-activity-next-generation-method"/> was a reminder about matrices and eigenvalues, and we will build more knowledge about these linear algebra concepts. Let's also discuss equilibrium values and partial derivatives.
+      </p>
+
+      <activity xml:id="activity-equilibrium-values">
+        <statement>
+          <p>
+            This activity identifies equilibrium values for two systems of differential equations that we have worked with as compartmental models.  
+          </p>
+          <ol>              
+            <li>
+              <p>
+                Consider the SI model below: 
+              </p>
+              <md>
+                <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+                <mrow>\frac{dI}{dt} \amp =  \beta S I. </mrow>
+            </md>
+            <p>
+              For a system of differential equations, being at equilibrium means that the dependent variables in the system are not changing as the independent variables change. For the SI model, this means that <m>S</m> and <m>I</m> are not changing as time <m>t</m> changes. Using knowledge from calculus: what can we say about each of the derivatives <m>dS/dt</m> and <m>dI/dt</m> when the system is at equilibrium?
+            </p>
+            </li>              
+            <li>
+              <p>
+                Next: determine the possible values of <m>S</m> and <m>I</m> for which the SI model is at equilibrium.
+              </p>
+            </li>              
+            <li>
+              <p>
+                Next consider the SEIR model below: 
+              </p>
+              <md>
+                <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+                <mrow>\frac{dE}{dt} \amp =  \beta S I - \kappa E </mrow>
+                <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+                <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+              </md>
+              <p>
+                Can you determine possible values of <m>S</m>, <m>E</m>, <m>I</m>, and <m>R</m> for which the SEIR model is at equilibrium? In doing this, be sure the overall population is nonzero, that is, <m>S+E+I+R \neq 0</m>.
+              </p>
+            </li>
+          </ol>          
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                For the system to be at equilibrium, each of the derivatives must equal <m>0</m>. 
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>S=0</m>, the SI model is at equilibrium. This corresponds to a situation where the entire population is in the <m>I</m> compartment.  
+              </p>
+              <p>
+                Alternately, if <m>I=0</m>, the SI model is at equilibrium. This corresponds to a situation where the entire population is in the <m>S</m> compartment.
+              </p>
+            </li>
+            <li>
+              <p>
+                The SEIR model is at equilibrium when <m>E=0</m> and <m>I=0</m>. 
+              </p>
+            </li>
+          </ol>
+        </answer>
+      </activity>
+
+      <p>
+        You may have noticed in <xref ref="activity-equilibrium-values"/>, part 3, that there are many ways to arrive at equilbrium. It is true that the <m>E</m> and <m>I</m> compartments should be empty, but the population can be distributed in any way across compartments <m>S</m> and <m>R</m>. 
+      </p>
+      <p>
+        <!-- However... (continue here) -->
+        We discuss the general concept of equilibrium, with a focus on the <term>disease-free equilibrium</term>, which we will use when applying the Next Generation Method.
       </p>
 
     </section>
