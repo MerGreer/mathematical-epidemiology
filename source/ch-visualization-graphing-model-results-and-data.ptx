@@ -75,7 +75,7 @@
           <ul>
             <li>
               <p>
-                Explain where and how in the code we enter, and label, the data from <xref ref="fig-human-zombie-data-table"/>.
+                Explain where and how in the code we enter the data from <xref ref="fig-human-zombie-data-table"/> and give names in Python to the data.
               </p>
             </li>
             <li>
@@ -94,13 +94,13 @@
           <ul>
             <li>
               <p>
-                In Line 3, we enter the time data and label it <q>t</q>. In the human<ndash/>zombie game, time is listed in rounds of game play.
+                In Line 3, we enter the time data and name it <q>t_steps</q>. In the human<ndash/>zombie game, time is listed in rounds of game play.
               </p>
               <p>
-                In Lines 4 and 5, we enter the human and zombie data, that is, Susceptible and Infectious, labeled <q>S_data</q> and <q>I_data</q>, respectively. 
+                In Lines 4 and 5, we enter the human and zombie data, that is, Susceptible and Infectious, named <q>S_data</q> and <q>I_data</q>, respectively. 
               </p>
               <p>
-                To enter a list of data, we type the label and the <q>=</q> sign. We then place the data inside square brackets, and we separate the data using commas. (The data, as listed, are separated by commas and also spaces. The spaces are optional.) 
+                To enter a list of data, we type the name and the <q>=</q> sign. We then place the data inside square brackets, and we separate the data using commas. (The data, as listed, are separated by commas and also spaces. The spaces are optional.) 
               </p>
               <p>
                 We are not entering the data for New Infections. Instead, we enter only the data we need for graphing the Susceptible and Infectious populations.
@@ -108,12 +108,12 @@
             </li>
             <li>
               <p>
-                Lines 3 and 4 enter the data: the inputs (time, in terms of rounds of game play, which we label on the horizontal axis and enter in Line 3) and the outputs (values of the Human population, also called the Susceptible population, which are labeled on the vertical axis and are entered in Line 4). Line 6 creates, but does not show, the plot of data from Lines 3 and 4. Line 8 shows the plot of data.
+                Lines 3 and 4 enter the data: the inputs (time, in terms of rounds of game play, shown by tick marks on the horizontal axis and entered in Line 3) and the outputs (values of the Human population, also called the Susceptible population, shown by tick marks on the vertical axis and entered in Line 4). Line 6 creates, but does not show, the plot of data from Lines 3 and 4. Line 8 shows the plot of data.
               </p>
             </li>
             <li>
               <p>
-                Lines 3 and 5 enter the data: the inputs (time, in terms of rounds of game play, which we label on the horizontal axis and enter in Line 3) and the outputs (values of the Zombie population, also called the Infectious population, which are labeled on the vertical axis and are entered in Line 5). Line 7 creates, but does not show, the plot of data from Lines 3 and 5. Line 8 shows the plot of data. 
+                Lines 3 and 5 enter the data: the inputs (time, in terms of rounds of game play, shown by tick marks on the horizontal axis and entered in Line 3) and the outputs (values of the Zombie population, also called the Infectious population, shown by tick marks on the vertical axis and entered in Line 5). Line 7 creates, but does not show, the plot of data from Lines 3 and 5. Line 8 shows the plot of data. 
               </p>
             </li>
           </ul>
@@ -304,7 +304,7 @@
           <ol>
             <li>
               <p>
-                The formulas for the system of differential equations appear most directly in line 8, in order. The first formula is <c>-beta * S * I</c>, and the second formula is <c>beta * S * I</c>. Collectively, these are labeled <c>dy/dt</c>. More generally, the lines 6<ndash/>9 define the system of differential equations.
+                The formulas for the system of differential equations appear most directly in line 8, in order. The first formula is <c>-beta * S * I</c>, and the second formula is <c>beta * S * I</c>. Collectively, these are named <c>dy/dt</c>. More generally, the lines 6<ndash/>9 define the system of differential equations.
               </p>
             </li>
             <li>
@@ -314,23 +314,23 @@
             </li>
             <li>
               <p>
-                In line 12, the initial conditions are set to <m>S(0)=49</m> and <m>I(0)=1</m>. These initial conditions are collectively labeled as <c>y0</c>. The initial conditions appear in square brackets and are separated by a comma. This syntax should look familiar from line 8, when we entered the right-hand sides of the differential equations all in one command, using the same syntax.
+                In line 12, the initial conditions are set to <m>S(0)=49</m> and <m>I(0)=1</m>. These initial conditions are collectively named <c>y0</c>. The initial conditions appear in square brackets and are separated by a comma. This syntax should look familiar from line 8, when we entered the right-hand sides of the differential equations all in one command, using the same syntax.
               </p>
             </li>
             <li>
               <p>
-                The time range for this numerical solution appears in line 13, using the <c>arange</c> command from the <c>numpy</c> package downloaded in line 2. The code says <c>t = np.arange(0.0, 8.0, 0.1)</c>. This means that time starts at <m>t=0.0</m> and continues till <m>t=8.0</m>. In addition, the <c>0.1</c> tells Python to use a step size of 0.1 in the <q>step through</q> process for computing <m>S(t)</m> and <m>I(t)</m> values. 
+                The time range for this numerical solution appears in line 13, using the <c>arange</c> command from the <c>numpy</c> package downloaded in line 2. The code says <c>t = np.arange(0.0, 8.0, 0.1)</c>. This means that time starts at <m>t=0.0</m> and continues till the step just before <m>t=8.0</m>. Therefore <m>t=7.9</m> is the last time step for which values of <m>S(t)</m> and <m>I(t)</m> are computed. In addition, the <c>0.1</c> tells Python to use a step size of 0.1 in the <q>step through</q> process for computing <m>S(t)</m> and <m>I(t)</m> values. 
               </p>
             </li>
             <li>
               <p>
-                We ask in line 14 for Python to compute a solution, called <c>sol</c>. To compute this solution, Python uses the command <c>odeint</c> and the inputs <c>hz</c> (the differential equations in the model), <c>y0</c> (the initial conditions for this solution), and <c>t_range</c> (the range of time across which to compute the solution). 
+                We ask in line 14 for Python to compute a solution, called <c>sol</c>. To compute this solution, Python uses the command <c>odeint</c> and the inputs <c>hz</c> (the differential equations in the model), <c>y0</c> (the initial conditions for this solution), and <c>t_range</c> (the range of time across which to compute the solution). These commands produce a collection of numbers that describe the values of <m>S(t)</m> and <m>I(t)</m> at all the times specified in <c>t_range</c>. These numbers are arranged in two columns: one column for all the <m>S(t)</m> values, and one column for all the <m>I(t)</m> values.
               </p>
               <p>
-                The commands in lines 16-18 work together to create the plot we see after clicking <c>Evaluate (Sage)</c>. Line 16 plots the blue <m>S(t)</m> curve, using the time inputs <c>t_range</c> and the values of <m>S(t)</m> throughout those times, which are described as <c>sol[:, 0]</c>. This means the solution <c>sol</c>, at all times, which is designated by <c>:</c>, in the initial position <c>0</c>. Python typically starts counting with 0 rather than 1, so the <m>S(t)</m> values are labeled as <c>0</c> rather than <c>1</c>. 
+                The commands in lines 16-18 work together to create the plot we see after clicking <c>Evaluate (Sage)</c>. Line 16 plots the blue <m>S(t)</m> curve, using the time inputs <c>t_range</c> and the values of <m>S(t)</m> throughout those times. The values of <m>S(t)</m> are described as <c>sol[:, 0]</c>. The <c>:</c> in <c>sol[:, 0]</c> indicates that we want all rows of the solution, which means the solution at all times <m>t</m>. The <c>0</c> in <c>sol[:, 0]</c> means that we want the <m>S(t)</m> values for each of those times. Python typically starts counting with 0 rather than 1, so the column of <m>S(t)</m> values is numbered as column <c>0</c> rather than column <c>1</c>. 
               </p>
               <p>
-                Line 17 plots the orange <m>I(t)</m> curve, using the time inputs <c>t_range</c> and the values of <m>I(t)</m> throughout those times, which are described as <c>sol[:, 1]</c>. Python continues its counting here, with the <m>I(t)</m> values labeled as <c>1</c>.
+                Line 17 plots the orange <m>I(t)</m> curve, using the time inputs <c>t_range</c> and the values of <m>I(t)</m> throughout those times, which are described as <c>sol[:, 1]</c>. This command is very similar to <c>sol[:, 0]</c>, but whereas the <m>S(t)</m> values were in column <m>0</m> of <c>sol</c>, the <m>I(t)</m> values are in column <c>1</c> of <c>sol</c>.
               </p>
             </li>
           </ol>
@@ -364,7 +364,7 @@
         define the system of differential equations, using the command <c>def</c>. The system is named <c>hz</c>, for <q>human-zombie</q>, and the <c>(y, t)</c> means that the model depends on variables <m>y</m> and <m>t</m>. The line <c>S, I = y</c> defines <m>y</m> as comprising both <m>S</m> and <m>I</m>, in that order. This means that <m>y</m> collectively represents all our dependent variables. Taking the derivative of <m>y</m>, then, means taking each of the derivatives <m>dS/dt</m> and <m>dI/dt</m>. The formulas for these derivatives, which are on the right-hand sides of the SI model, appear in order in the line <c>dydt = [-beta * S * I, beta * S * I]</c>. Finally, the line <c>return dydt</c> ends the definition and says that whenever we later use the definition, we will be using the derivatives defined in <c>dydt</c>.
       </p>
       <p>
-        A quick way to think about these lines is that they define our system of differential equations and label them as <c>hz</c>.
+        A quick way to think about these lines is that they define our system of differential equations and give them the name <c>hz</c>.
       </p>
 
       <p>
