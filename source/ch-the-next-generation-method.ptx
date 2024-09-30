@@ -95,8 +95,8 @@
   
     </introduction>
 
-    <section xml:id="sec-introduction-to-the-next-generation-method">
-      <title>Introduction to the Next Generation Method</title>   
+    <section xml:id="sec-mathematical-background-for-the-next-generation-method">
+      <title>Mathematical Background for the Next Generation Method</title>   
 
       <p>
         So far, to determine the value of <m>\beta</m> in a compartmental model, we have done one of two things: 
@@ -122,7 +122,7 @@
       </p> -->
 
       <p>
-        To use the Next Generation Method, we will need to be familiar with matrices, eigenvalues, equilibrium values for a system of differential equations, and partial derivatives. <xref ref="expl-activity-next-generation-method"/> was a reminder about matrices and eigenvalues, and we will build more knowledge about these linear algebra concepts. Let's also discuss equilibrium values and partial derivatives.
+        To use the Next Generation Method, we will need to be familiar with matrices, eigenvalues, equilibrium values for a system of differential equations, and partial derivatives. <xref ref="expl-activity-next-generation-method"/> was a reminder about matrices and eigenvalues, and we will build more knowledge about these linear algebra concepts. But first, use <xref ref="activity-equilibrium-values"/> and <xref ref="activity-partial-derivatives"/> to learn about equilibrium values and partial derivatives.
       </p>
 
       <activity xml:id="activity-equilibrium-values">
@@ -181,7 +181,7 @@
             </li>
             <li>
               <p>
-                The SEIR model is at equilibrium when <m>E=0</m> and <m>I=0</m>. 
+                The SEIR model is at equilibrium when <m>E=0</m> and <m>I=0</m>. The rest of the population can be divided in any way between the <m>S</m> and <m>R</m> compartments.
               </p>
             </li>
           </ol>
@@ -192,10 +192,307 @@
         You may have noticed in <xref ref="activity-equilibrium-values"/>, part 3, that there are many ways to arrive at equilbrium. It is true that the <m>E</m> and <m>I</m> compartments should be empty, but the population can be distributed in any way across compartments <m>S</m> and <m>R</m>. 
       </p>
       <p>
-        <!-- However... (continue here) -->
-        We discuss the general concept of equilibrium, with a focus on the <term>disease-free equilibrium</term>, which we will use when applying the Next Generation Method.
+        For the work we will do in this chapter, we decide the population distribution by seeking the <term>disease-free equilibrium</term>. This is the particular equilibrium value that occurs in a situation where disease has not yet appeared in a population. In the SEIR model, for instance, equilibrium requires <m>E=I=0</m>, with the rest of the population split somehow across the <m>S</m> and <m>R</m> compartments. <em>Disease-free equilibrium</em> adds the extra requirement that the population all be in the <m>S</m> compartment. This means <m>S=N</m>, where <m>N</m> represents the entire population, as first defined in <xref ref="activity-total-population"/>. Then the other three populations, <m>E</m>, <m>I</m>, and <m>R</m>, all equal <m>0</m>.
       </p>
+      <p>
+        One way to write the disease-free equilibrium is <m>(\overline{S}, \overline{E}, \overline{I}, \overline{R})=(N, 0, 0, 0)</m>. The bar over each of the population letters <m>S</m>, <m>E</m>, <m>I</m>, and <m>R</m> represents an equilibrium value for that population.
+      </p> 
+      <p>
+        For the models we have studied so far, disease-free equilibrium requires that the entire population start in the <m>S</m> compartment, but there exist compartmental models where the initial population can be split across multiple compartments. 
+      </p>
+      <p>
+        In addition to the concept of the disease-free equilibrium value, we also work with partial derivatives when performing the Next Generation Method. Gain practice with partial derivatives in <xref ref="activity-partial-derivatives"/>. 
+      </p>
+      <activity xml:id="activity-partial-derivatives">
+        <statement>
+          <p>
+            This course requires mainly the calculus concepts from a Calculus I course. These concepts include working with derivatives, understanding that a derivative is a rate of change, knowing that the slope on a graph relates directly to the derivative of a function, and recognizing that positive slopes (or, equivalently, positive derivatives) correspond to increasing functions and, similarly, negative slopes (or, equivalently, negative derivatives) correspond to decreasing functions.
+          </p>
+          <p>
+            The Next Generation Method also requires us to compute <em>partial derivatives</em>. 
+            <!-- These are derivatives in which we work with a formula that may involve multiple dependent variables, but we temporarily think of all but one of those variables as a constant so that we can compute a derivative of the one remaining dependent variable, as the independent variable (which, for us, is always time) changes. -->
+            To see how this works, progress through the steps below.
+          </p>
+          <ol>                           
+            <li>
+              <p>
+                Start by computing derivatives as you would during Calculus I.
+              </p>
+              <ol>
+                <li>
+                  <p>
+                    For the function <m>f(x)=3x^2 + 5x + 7</m>, compute its derivative <m>f'(x)</m>. This can also be written <m>\frac{d}{dx}(3x^2 + 5x + 7)</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Then, for the related function <m>g(x)=ax^2 + bx + c</m>, compute its derivative. The values <m>a</m>, <m>b</m>, and <m>c</m> are all constants. This derivative can also be written <m>\frac{d}{dx}(ax^2 + bx + c)</m>.
+                  </p>
+                </li>
+                <!-- <li>
+                  <p>
+                    Write and/or discuss an observation about the role constants play when computing derivatives. As the notation <m>\frac{d}{dx}</m> reminds us, <m>x</m> is a variable, but the letters <m>a</m>, <m>b</m>, and <m>c</m> in <m>\frac{d}{dx}(ax^2 + bx + c)</m> are constants, similar to the way that <m>3</m>, <m>5</m>, and <m>7</m> are constants in <m>\frac{d}{dx}(3x^2 + 5x + 7)</m>. How, then, how do you think about <m>3</m> or <m>a</m>, compared with how you think about <m>x^2</m>? Ask similar questions about computing derivatives of each of the other terms in <m>f(x)</m> and <m>g(x)</m>.
+                  </p>
+                </li> -->
+              </ol>
+            </li>
+            <!-- <li>
+              <p>
+                Many Calculus I courses discuss <em>implicit differentiation</em>. Try this example so that implicit differentiation will be fresh in your mind. 
+              </p>
+              <p>
+                For the function <m>x^2+y^2=4</m>, compute its derivative with respect to <m>x</m>, using the information that <m>y</m> is a function of <m>x</m>. 
+                    <m>y \, '</m>. Do this by computing derivatives of both <m>x^2</m> and <m>y^2</m>, and then solving for <m>y \, '</m>, meaning that your response is written as <q><m>y \, ' = \, </m> </q> followed by the derivative formula you have computed.
+                    This means that you will compute the derivative of <m>x^2</m> similarly to how you computed derivatives in part (1) of this activity. For computing the derivative of <m>y^2</m>, use a similar derivative formula as for the derivative of <m>x^2</m>, and then use the chain rule to multiply by the derivative of <m>y</m>, which can be written as <m>y \, '</m>.
+              </p>
+            </li>   -->
+            <li>
+              <p>
+                Next, we introduce <em>partial derivatives</em>. Whereas in part (1) we computed derivatives with respect to <m>x</m>, we now allow ourselves to compute derivatives with respect to other variables in a formula. 
+              </p>
+              <ol>
+                <li>
+                  <p>
+                    Consider this differential equation from the SEIR model: <m>\frac{dE}{dt} = \beta S I - \kappa E</m>. Compute the derivative of the right-hand side, with respect to <m>E</m>. That is, compute <m>\frac{\partial}{\partial E}(\beta S I - \kappa E)</m>. When computing the derivative with respect to <m>E</m>: think of <m>S</m> and <m>I</m> as constants. Both <m>\beta</m> and <m>\kappa</m> are constants, as always. Think of <m>E</m> as the only variable.
+                  </p>
+                  <p>
+                    You may notice that we have switched from the notation <m>\frac{d}{dE}</m> to the notation <m>\frac{\partial}{\partial E}</m>. This is the notation used when we have multiple choices for our variable of interest: we are focusing on <m>E</m>, but we could have chosen any other variable in our system of equations. The idea of <em>partial derivatives</em> is that there are multiple variables involved, and as each of them changes, the entire system is affected, but we focus on one variable at a time, therefore looking at <em>part</em> of the change of the system rather than the <em>total</em> change of the system. 
+                  </p>
+                  <p>
+                    This emphasis on one variable at a time benefits our understanding by showing how change in each variable<mdash/>in our case, change in each compartment<mdash/>affects the outcome of the entire system.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Then compute these two derivatives: <m>\frac{\partial}{\partial S}(\beta S I - \kappa E)</m> and <m>\frac{\partial}{\partial I}(\beta S I - \kappa E)</m>. The first of these thinks of only <m>S</m> as a variable. The second thinks of only <m>I</m> as a variable.
+                  </p>
+                </li>
+              </ol>
+              <!-- <p>
+                The derivatives computed in part (3) of this activity are called <em>partial derivatives</em>. These are derivatives in which we work with a formula that may involve multiple dependent variables, but we temporarily think of all but one of those variables as a constant. This allows us to compute derivatives using Calculus I formulas we know. It also allows us to select which quantity varies: we allow first <m>E</m> to vary, then <m>S</m>, then <m>I</m>. As each of these changes, the formula <m>\beta S I - \kappa E</m> changes, and partial derivatives help us to quantify that change. 
+              </p> -->
+            </li>
+          </ol>          
+        </statement>
+      </activity>
+    </section>
 
+    <section xml:id="sec-the-next-generation-method-steps-to-follow">
+      <title>The Next Generation Method: Steps to Follow</title>   
+
+      <p>
+        We now go through the steps of the Next Generation Method. 
+        <!-- After walking through the steps for the SEIR model, two activities provide the chance to try the steps for other models. -->
+      </p>
+      <p>
+        Begin, then, with the SEIR model, shown below, and follow the steps described.
+      </p>
+      <md>
+        <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+        <mrow>\frac{dE}{dt} \amp =  \beta S I - \kappa E </mrow>
+        <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
+        <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+      </md>
+      <ol>
+        <li>
+          <p>
+            Decide which compartments of the SEIR model involve individuals experiencing some stage of infection. If a person has contracted an illness, they are in some stage of infection throughout the time they are incubating, whether contagious or not, and whether showing symptoms or not. They stop being in a stage of infection when they are completely done with the illness.
+          </p>
+          <answer>
+            <p>
+              For the SEIR model, the E and I compartments are stages of infection. The S and R compartments are not stages of infection. 
+            </p>
+          </answer>
+        </li>
+        <li>
+          <p>
+            For the equation(s) selected in Step 1, write the equation(s) in matrix form. To do so, place the derivatives on the left-hand side into a vector. On the right-hand side, write the equations in a vector. 
+          </p>
+          <answer>
+            <md>
+              <mrow>\begin{pmatrix}
+                \frac{dE}{dt} \\
+                \frac{dI}{dt}
+                \end{pmatrix} = 
+                \begin{pmatrix}
+                \beta S I - \kappa E \\
+                \kappa E - \gamma I
+                \end{pmatrix} </mrow>
+            </md>
+          </answer>
+        </li>
+        <li>
+          <p>
+            Separate the right-hand side into two vectors, <m>\widehat{F}</m> and <m>\widehat{V}</m>, so that 
+          </p>
+          <ul>
+            <li>
+              <p>
+                The right-hand side can be written as <m>\widehat{F}-\widehat{V}</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                Vector <m>\widehat{F}</m> includes all <em>new infection</em> terms, that is, the terms within the model that indicate when individuals who were not at any stage of infection newly enter a compartment in which they are at some stage of infection; and
+              </p>
+            </li>
+            <li>
+              <p>
+                Vector <m>\widehat{V}</m> is the vector of <em>all other movement between compartments</em>.
+              </p>
+            </li>
+          </ul>
+          <answer>
+            <md>
+              <mrow>\begin{pmatrix}
+                \frac{dE}{dt} \\
+                \frac{dI}{dt}
+                \end{pmatrix} = 
+                \begin{pmatrix}
+                \beta S I  \\
+                0
+                \end{pmatrix} -
+                \begin{pmatrix}
+                \kappa E \\
+                -\kappa E + \gamma I
+                \end{pmatrix}</mrow>
+            </md>
+            <p>
+              That is:
+            </p>
+            <md>
+              <mrow>\widehat{F} = 
+                \begin{pmatrix}
+                \beta S I  \\
+                0
+                \end{pmatrix} </mrow>
+            </md>
+            <p>
+              and
+            </p>
+            <md>
+              <mrow>\widehat{V} = 
+                \begin{pmatrix}
+                \kappa E \\
+                -\kappa E + \gamma I
+                \end{pmatrix}</mrow>
+            </md>
+          </answer> 
+        </li>
+        <li>
+          <p> 
+            Compute the disease-free equilibrium for your compartmental model.
+          </p>
+          <answer>
+            <p>
+              We did this for the SEIR model in <xref ref="activity-equilibrium-values"/>. The disease-free equilibrium is <m>(S, E, I, R)=(N, 0, 0, 0)</m>, where <m>N=S+E+I+R</m> is the entire population being studied.
+            </p>
+          </answer>
+        </li>
+        <li> 
+          <p>
+            Compute matrices <m>F</m> and <m>V</m> (notice these do not have <q>hats</q>: they are different from <m>\widehat{F}</m> and <m>\widehat{V}</m>) by computing partial derivatives of each of the terms in <m>\widehat{F}</m> and <m>\widehat{V}</m>, with respect to each of the infectious compartment populations, following the pattern shown below in the case of the SEIR model, and then evaluating your results at the disease-free equilibrium: 
+          </p>
+          <md>
+            <mrow> F = \left. \begin{pmatrix}
+              \frac{\partial (\beta SI)}{\partial E} \amp \frac{\partial (\beta SI)}{\partial I} \\
+              \frac{\partial (0)}{\partial E} \amp \frac{\partial (0)}{\partial I}
+              \end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
+            </mrow>
+          </md>
+          <md>
+            <mrow> V = \left. \begin{pmatrix}
+              \frac{\partial (\kappa E)}{\partial E} \amp \frac{\partial (\kappa E)}{\partial I} \\
+              \frac{\partial (-\kappa E + \gamma I)}{\partial E} \amp \frac{\partial (-\kappa E + \gamma I)}{\partial I}
+              \end{pmatrix}  \right| _{(S, E, I, R) = (N, 0, 0, 0)} .
+            </mrow>
+          </md>
+          <answer>
+            <md>
+              <mrow> F = \left. \begin{pmatrix}
+                0 \amp \beta S \\
+                0 \amp 0
+                \end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
+                = \begin{pmatrix}
+                0 \amp \beta N \\
+                0 \amp 0
+                \end{pmatrix} 
+              </mrow>
+            </md>
+            <md>
+              <mrow> V = \left. \begin{pmatrix}
+                \kappa \amp 0 \\
+                -\kappa \amp \gamma
+                \end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
+                = \begin{pmatrix}
+                \kappa \amp 0 \\
+                -\kappa \amp \gamma
+                \end{pmatrix} 
+              </mrow>
+            </md>
+          </answer>
+        </li>
+        <li>
+          <p>
+            Compute the Next Generation Matrix, which is the matrix
+          </p>
+          <md>
+            <mrow> K = F \, V^{-1}
+            </mrow>
+          </md> 
+          <p>
+            and determine the largest positive eigenvalue of <m>K</m>.
+          </p>
+          <p>
+            To do this: first compute <m>V^{-1}</m>. Then compute <m>F \,V^{-1}</m>. Then determine the eigenvalues of <m>F \,V^{-1}</m>.
+          </p>
+          <p>
+            The largest possible eigenvalue of <m>F \,V^{-1}</m> is <m>\mathcal{R}_0</m>.
+          </p>
+          <answer>
+            <p>
+              We have seen that the formula for <m>\mathcal{R}_0</m> for the SEIR model is <m>\frac{\beta N}{\gamma}</m>. 
+            </p>
+          </answer>
+        </li>
+      </ol>
+      
+
+
+
+      <!-- <activity xml:id="activity-equilibrium-values">
+        <statement>
+          <p>
+            This   
+          </p>
+          <ol>              
+            <li>
+              <p>
+                Consider the SI model below: 
+              </p>
+              <md>
+                <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+                <mrow>\frac{dI}{dt} \amp =  \beta S I. </mrow>
+            </md>
+            <p>
+              For a
+            </p>
+            </li> 
+          </ol>          
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                For  
+              </p>
+            </li>
+          </ol>
+        </answer>
+      </activity> -->
+
+      
+      
     </section>
 
     <section xml:id="sec-2">
@@ -248,7 +545,7 @@
         </sage>
 
 
-        <p>
+        <!-- <p>
           The code block below produces the eigenvalues for the SLIAR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>3\times 3</m> matrix. Comparing this code with the previous code may help show how similar the code is when computing the Next Generation matrix for different models, as well as showing what to change for a different model.
         </p>
 
@@ -289,7 +586,28 @@
           <output>
           
           </output>
-          </sage>
+          </sage> -->
     </section>
+
+
+    <!-- <ol>
+      <li>
+        <p>
+          For the function <m>x^2+y^2=4</m>, compute its derivative with respect to <m>x</m>, using the information that <m>y</m> is a function of <m>x</m>. 
+          <m>y \, '</m>. Do this by computing derivatives of both <m>x^2</m> and <m>y^2</m>, and then solving for <m>y \, '</m>, meaning that your response is written as <q><m>y \, ' = \, </m> </q> followed by the derivative formula you have computed.
+          This means that you will compute the derivative of <m>x^2</m> similarly to how you computed derivatives in part (1) of this activity. For computing the derivative of <m>y^2</m>, use a similar derivative formula as for the derivative of <m>x^2</m>, and then use the chain rule to multiply by the derivative of <m>y</m>, which can be written as <m>y \, '</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+         Notice that, for the derivatives of both <m>x</m> and <m>y</m>, the independent variable is <m>x</m>. This means that the derivative for <m>x</m> could be written as <m>\frac{d}{dx}(x)</m>, meaning <q>the derivative of <m>x</m>, with respect to <m>x</m></q>, while the derivative for <m>y</m> could be written as <m>\frac{d}{dx}(y)</m>, meaning <q>the derivative of <m>y</m>, with respect to <m>x</m></q>. With this mathematical background in mind, comment on what the derivative formula is for <m>x</m>, compared with what the derivative formula is for <m>y</m>. 
+        </p>
+      </li>
+    </ol> -->
+
+
+
+
+
 
   </chapter>
