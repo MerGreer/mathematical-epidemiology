@@ -463,7 +463,9 @@
           In 2016, Bates College experienced a small outbreak of mumps. Nearly <m>100\%</m> of students had been vaccinated against mumps, and in particular, the students who became sick had been vaccinated. The mumps vaccine is approximately <m>88\%</m> effective when a person has had two doses.<fn>The value of <m>88\%</m> comes from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/vaccines/vpd/mumps/index.html">Mumps Vaccination</url>.</fn> We use an SIR model for mumps to compare the outcome for a fully vaccinated population with the hypothetical outcome of a mumps outbreak in a fully unvaccinated population.
         </p>  
         <p>
-          You will notice that the population is fully vaccinated, meaning everyone has received the mumps vaccine, but the effectiveness of the vaccine is approximately <m>88\%</m> rather than <m>100\%</m>. In this circumstance, we use a factor <m>(1-q)</m> in the model to account for the <em>effectiveness</em> of the vaccine, similar to how we previously used <m>(1-p)</m> to account for the vaccinated percentage of the population. We set <m>q=0.88</m> to reflect the CDC value on vaccine effectiveness.
+          You will notice that the population is fully vaccinated, meaning everyone has received the mumps vaccine, but the effectiveness of the vaccine is approximately <m>88\%</m>
+           <!-- rather than <m>100\%</m> -->
+          . In this circumstance, we use a factor <m>(1-q)</m> in the model to account for the <em>effectiveness</em> of the vaccine, similar to how we previously used <m>(1-p)</m> to account for the vaccinated percentage of the population. We set <m>q=0.88</m> to reflect the CDC value on vaccine effectiveness.
         </p> 
         <ol>
           <li>
@@ -509,7 +511,8 @@
           </li>
           <li>
             <p>
-               This chapter's definition of <m>\mathcal{R}_{\text{eff}}</m> in <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective. With this new model, using both <m>p</m> and <m>q</m>, we define <m>\mathcal{R}_{\text{eff}} = (1-pq)\mathcal{R}_0</m>. Use algebraic steps similar to those in <xref ref="sec-determining-a-threshold-vaccine-level"/> to compute an updated formula for <m>p_{\text{crit}}</m> that involves <m>q</m> as well as <m>\mathcal{R}_0</m>.  
+               <!-- This chapter's definition of <m>\mathcal{R}_{\text{eff}}</m> in <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective.  -->
+               With this model, using both <m>p</m> and <m>q</m>, we define <m>\mathcal{R}_{\text{eff}} = (1-pq)\mathcal{R}_0</m>. Use algebraic steps similar to those in <xref ref="sec-determining-a-threshold-vaccine-level"/> to compute an updated formula for <m>p_{\text{crit}}</m> that involves <m>q</m> as well as <m>\mathcal{R}_0</m>.  
             </p>
           </li>
           <li>
