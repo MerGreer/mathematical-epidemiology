@@ -164,7 +164,9 @@
         We cannot change the intrinsic value of <m>\mathcal{R}_0</m>, but with vaccination, we can work toward the goal of having <m>\mathcal{R}_{\text{eff}} \lt 1</m>. If <m>\mathcal{R}_{\text{eff}} \lt 1</m> in a model that includes vaccines or other public health interventions, then overall numbers of Infectious people do not rise over time. With a few lines of algebra, we can build a relationship between <m>\mathcal{R}_0</m>, <m>p</m>, and <m>\mathcal{R}_{\text{eff}}</m>. 
       </p> 
       <p>
-        First, we should state a definition for <m>p</m>. We define <m>p</m> to be the fraction of people vaccinated against a disease, noting that the values of <m>p</m> are therefore restricted to <m>0 \leq p \leq 1</m>, where <m>p=0</m> means no one is vaccinated, and <m>p=1</m> means <m>100\%</m> of the population is vaccinated. Initially, we will think of vaccination as being <m>100\%</m> effective.<fn>In the last exercise of <xref ref="exercises-ch-vaccines"/>, we update our models to include vaccines that are less than <m>100\%</m> effective.</fn>
+        First, we should state a definition for <m>p</m>. We define <m>p</m> to be the fraction of people vaccinated against a disease, noting that the values of <m>p</m> are therefore restricted to <m>0 \leq p \leq 1</m>, where <m>p=0</m> means no one is vaccinated, and <m>p=1</m> means <m>100\%</m> of the population is vaccinated. 
+        <!-- Initially, we will think of vaccination as being <m>100\%</m> effective. -->
+        <!-- <fn>In the last exercise of <xref ref="exercises-ch-vaccines"/>, we update our models to include vaccines that are less than <m>100\%</m> effective.</fn> -->
         When the fraction <m>p</m> of people are vaccinated, the remaining fraction <m>(1-p)</m> are not vaccinated. Since <m>\mathcal{R}_0</m> refers to an entirely susceptible population, but only the fraction <m>(1-p)</m> of the population is susceptible, we see that the average number of new infections caused by one infectious person in the vaccinated population is <m>(1-p)\mathcal{R}_0</m>. In other words:
       </p>
       
@@ -217,12 +219,16 @@
           <ol>              
             <li>
               <p>
-                We begin by examining smallpox. Estimates for the value of <m>\mathcal{R}_0</m> for smallpox range from 3.5 to 6.<fn>Estimates that <m>\mathcal{R}_0 \approx 3.5-6</m> come from the paper <q>Transmission potential of smallpox in contemporary populations</q> by Raymond Gani and Steve Leach, published in the journal <em>Nature</em> on 13 December 2001.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for smallpox so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Suppose that a <m>100\%</m> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a smallpox outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
+                We begin by examining smallpox. Estimates for the value of <m>\mathcal{R}_0</m> for smallpox range from 3.5 to 6.<fn>Estimates that <m>\mathcal{R}_0 \approx 3.5-6</m> come from the paper <q>Transmission potential of smallpox in contemporary populations</q> by Raymond Gani and Steve Leach, published in the journal <em>Nature</em> on 13 December 2001.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for smallpox so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
+                <!-- Suppose that a <m>100\%</m> effective vaccine is available.  -->
+                What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a smallpox outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
               </p>
             </li>              
             <li>
               <p>
-                Next, we examine measles. Many estimates for the value of <m>\mathcal{R}_0</m> for measles range from 12 to 18.<fn>The paper <q>The basic reproduction number (R0) of measles: a systematic review</q>, by Fiona M Guerra, Shelly Bolotin, Gillian Lim, Jane Heffernan, Shelley L Deeks, Ye Li, and Natasha S Crowcroft, states that <m>\mathcal{R}_0</m> is often approximated as <m>12-18</m>, while also stating that the actual range of <m>\mathcal{R}_0</m> for measles varies even more. This paper was published in <em>The Lancet Infectious Diseases</em> on 27 July 2017.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for measles so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Suppose that a <m>100\%</m> effective vaccine is available. What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a measles outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
+                Next, we examine measles. Many estimates for the value of <m>\mathcal{R}_0</m> for measles range from 12 to 18.<fn>The paper <q>The basic reproduction number (R0) of measles: a systematic review</q>, by Fiona M Guerra, Shelly Bolotin, Gillian Lim, Jane Heffernan, Shelley L Deeks, Ye Li, and Natasha S Crowcroft, states that <m>\mathcal{R}_0</m> is often approximated as <m>12-18</m>, while also stating that the actual range of <m>\mathcal{R}_0</m> for measles varies even more. This paper was published in <em>The Lancet Infectious Diseases</em> on 27 July 2017.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for measles so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
+                <!-- Suppose that a <m>100\%</m> effective vaccine is available.  -->
+                What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a measles outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
               </p>
             </li>              
             <li>
@@ -407,7 +413,8 @@
           A vaccine for measles was first licensed in the United States in 1963. Before that, nearly all U.S. children got measles by the time they were 15 years old. Due to the vaccine, by the year 2000, the U.S. eliminated measles as a disease that could spread continuously. Since then, measles in the U.S. occurs only occasionally, typically when a person travels elsewhere, gets measles, and returns to the U.S. with the ability to infect others.<fn>These facts are from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/about/history-of-measles.html">History of Measles</url>.</fn>
         </p> 
         <p>
-          Measles lends itself to especially demonstrative mathematical models for two reasons: (1) measles is exceptionally contagious, and (2) the vaccine for measles has very high efficacy and effectiveness, with immunity that lasts a lifetime. In our modeling for this exercise, we will think of the measles vaccine as being <m>100\%</m> effective. (In reality, two doses of measles vaccine are about <m>97\%</m> effective. Exercise 3 in this section shows how to model both effectiveness and the level of vaccination across a population.)
+          Measles lends itself to especially demonstrative mathematical models for two reasons: (1) measles is exceptionally contagious, and (2) the vaccine for measles has very high efficacy and effectiveness, with immunity that lasts a lifetime. 
+          <!-- In our modeling for this exercise, we will think of the measles vaccine as being <m>100\%</m> effective. (In reality, two doses of measles vaccine are about <m>97\%</m> effective. Exercise 3 in this section shows how to model both effectiveness and the level of vaccination across a population.) -->
         </p>  
         <ol>
           <li>
@@ -420,19 +427,22 @@
               <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
             </md>
             <p>
-              To compute parameter values for the model, use the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute <m>\beta</m>. Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<m>p=0</m>), and what happens if everyone in the community is vaccinated (<m>p=1</m>)?
+              To compute parameter values for the model, use the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute the value of <m>\beta</m> for this model. 
+              <!-- Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<m>p=0</m>), and what happens if everyone in the community is vaccinated (<m>p=1</m>)? -->
             </p>
           </li>
-          <li>
+          <!-- <li>
             <p>
               Now investigate varying levels of vaccination. What happens if <m>p=.25</m>, <m>p=.5</m>, <m>p=.75</m>, or <m>p=.9</m>? Determine long-term outcomes in each case, that is, determine how many people ultimately get measles in each modeling scenario. Indicate, also, how much time the model needs to run in order to determine how many people get measles in each scenario. The model may need to run longer when a greater percentage of the population is vaccinated.
             </p>
             <p>Notice that there is not a unique answer to how long to run the model: if you can see the long-term value after 100 days, for instance, then running the model for 120 days will also show the long-term value. Aim to indicate a number of days that shows clearly that population values have leveled off to horizontal lines, while not using such a large number of days that it becomes difficult to see the rise and/or fall of the infectious curve <m>I(t)</m> as the outbreak proceeds.
             </p>
-          </li>
+          </li> -->
           <li>
             <p>
-              In many communities in the U.S., the percentage of vaccinated people is around <m>91\%</m> or <m>92\%</m>.<fn>See the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/nchs/fastats/measles.htm">Measles, Mumps, and Rubella</url>.</fn> At these levels, how many people will get measles in the long run, according to your model? What if the vaccination rate were as high as <m>94\%</m>? Or as low as <m>89\%</m>?
+              In many communities in the U.S., the percentage of vaccinated people is around <m>91\%</m> or <m>92\%</m>.<fn>See the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/nchs/fastats/measles.htm">Measles, Mumps, and Rubella</url>.</fn> At each of these levels, how many people will get measles in the long run, according to your model? What if the vaccination rate were as high as <m>94\%</m>? Or as low as <m>89\%</m>?
+            </p>
+            <p>Notice that there is not a unique answer to how long to run the model: if you can see the long-term value after 100 days, for instance, then running the model for 120 days will also show the long-term value. Aim to indicate a number of days that shows clearly that population values have leveled off to horizontal lines, while not using such a large number of days that it becomes difficult to see the rise and/or fall of the infectious curve <m>I(t)</m> as the outbreak proceeds.
             </p>
           </li>            
           <li>
