@@ -332,12 +332,12 @@
       <activity xml:id="activity-understanding-gamma-pt1">
         <statement>
           <p>
-            What would it mean if <m>\gamma =1</m>, <m>\gamma =0.5</m>, or <m>\gamma =0.25</m>? Specifically: what fraction of the members of the I compartment leaves I <em>within one time step</em> for each of these values of <m>\gamma</m>? Similarly, what percentage of the members of the I compartment leaves I <em>within one time step</em> for each value of <m>\gamma</m>?
+            What would it mean if <m>\gamma =1</m>, <m>\gamma =0.5</m>, or <m>\gamma =0.25</m>? Specifically: what fraction of the members of the I compartment leaves I <em>within one unit of time</em> for each of these values of <m>\gamma</m>? For instance, if the unit of time in the SIR model is days, then what fraction of the members of the I compartment leaves I within one day? Similarly, what percentage of the members of the I compartment leaves I <em>within one unit of time</em> for each value of <m>\gamma</m>?
           </p>
         </statement>
         <answer>
           <p>
-            If <m>\gamma =1</m>, then all members of compartment I, that is, <m>100\%</m> of the members, leave I at each time step. If <m>\gamma =0.5</m>, then half the members, that is, <m>50\%</m>, leave I at each time step. And if <m>\gamma =0.25</m>, then one-quarter of the members, that is, <m>25\%</m>, leave I at each time step.
+            If <m>\gamma =1</m>, then all members of compartment I, that is, <m>100\%</m> of the members, leave I at each unit of time. If <m>\gamma =0.5</m>, then half the members, that is, <m>50\%</m>, leave I at each unit of time. And if <m>\gamma =0.25</m>, then one-quarter of the members, that is, <m>25\%</m>, leave I at each unit of time.
           </p>
         </answer>
       </activity>
@@ -349,7 +349,7 @@
         </statement>
         <answer>
           <p>
-            If <m>\gamma =1</m>, then all members of compartment I leave at each time step, so a typical individual stays in I for one time step. If <m>\gamma =0.5</m>, then half the members of I leave at each time step, so a typical individual stays in I for approximately two time steps. And if <m>\gamma =0.25</m>, then one-quarter of the members of I leave at each time step, so a typical individual stays in I for approximately four time steps.
+            If <m>\gamma =1</m>, then all members of compartment I leave at each unit of time, so a typical individual stays in I for one unit of time. If <m>\gamma =0.5</m>, then half the members of I leave at each unit of time, so a typical individual stays in I for approximately two units of time. And if <m>\gamma =0.25</m>, then one-quarter of the members of I leave at each unit of time, so a typical individual stays in I for approximately four units of time.
           </p>
         </answer>
       </activity>
@@ -453,7 +453,7 @@
   <exercises xml:id="exercises-ch-compartmental-diagrams">
     <exercise number="1">
       <p>
-        Use the ideas and website suggestions of <xref ref="ch-prelude-diseases-in-popular-news"/> to determine how long individuals are infectious with measles. Cite your source(s).<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn> Then suppose you are creating an SIR model for the spread of measles. What value would you use for <m>\gamma</m>? Explain your reasoning.
+        Use the ideas and website suggestions of <xref ref="ch-prelude-diseases-in-popular-news"/> to determine how long individuals are infectious with measles, in the sense used for our SIR model, where <q>infectious</q> signifies <q>contagious</q>. Cite your source(s).<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn> Then suppose you are creating an SIR model for the spread of measles. What value would you use for <m>\gamma</m>? Explain your reasoning.
       </p>
     </exercise>
     <exercise number="2">
