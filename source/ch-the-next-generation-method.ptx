@@ -545,7 +545,7 @@
         </sage>
 
 
-        <!-- <p>
+        <p>
           The code block below produces the eigenvalues for the SLIAR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>3\times 3</m> matrix. Comparing this code with the previous code may help show how similar the code is when computing the Next Generation matrix for different models, as well as showing what to change for a different model.
         </p>
 
@@ -586,7 +586,7 @@
           <output>
           
           </output>
-          </sage> -->
+          </sage>
     </section>
 
 
