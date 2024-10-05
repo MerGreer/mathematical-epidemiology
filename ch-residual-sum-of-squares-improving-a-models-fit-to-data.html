@@ -295,6 +295,15 @@ sagecell.makeSagecell({
 #activity-h1n1-data-fall-2009-S-I-R-1-2 { counter-set: activity-h1n1-data-fall-2009-S-I-R-1-2 0; }
 #activity-h1n1-data-fall-2009-S-I-R-1-2 > li::marker { content: ""counter(activity-h1n1-data-fall-2009-S-I-R-1-2,decimal)"."; }
 #activity-h1n1-data-fall-2009-S-I-R-1-2 > li { counter-increment: activity-h1n1-data-fall-2009-S-I-R-1-2; }
+#expl-activity-RSS-3-1-2 { counter-set: expl-activity-RSS-3-1-2 0; }
+#expl-activity-RSS-3-1-2 > li::marker { content: ""counter(expl-activity-RSS-3-1-2,decimal)"."; }
+#expl-activity-RSS-3-1-2 > li { counter-increment: expl-activity-RSS-3-1-2; }
+#expl-activity-RSS-4-1-2 { counter-set: expl-activity-RSS-4-1-2 0; }
+#expl-activity-RSS-4-1-2 > li::marker { content: ""counter(expl-activity-RSS-4-1-2,decimal)"."; }
+#expl-activity-RSS-4-1-2 > li { counter-increment: expl-activity-RSS-4-1-2; }
+#expl-activity-RSS-5-1-2 { counter-set: expl-activity-RSS-5-1-2 0; }
+#expl-activity-RSS-5-1-2 > li::marker { content: ""counter(expl-activity-RSS-5-1-2,decimal)"."; }
+#expl-activity-RSS-5-1-2 > li { counter-increment: expl-activity-RSS-5-1-2; }
 #expl-activity-next-generation-method-3-1-2 { counter-set: expl-activity-next-generation-method-3-1-2 0; }
 #expl-activity-next-generation-method-3-1-2 > li::marker { content: ""counter(expl-activity-next-generation-method-3-1-2,decimal)"."; }
 #expl-activity-next-generation-method-3-1-2 > li { counter-increment: expl-activity-next-generation-method-3-1-2; }
@@ -504,7 +513,71 @@ sagecell.makeSagecell({
 <span class="type">Chapter</span><span class="space"> </span><span class="codenumber">10</span><span class="space"> </span><span class="title">* Residual Sum of Squares: Improving a Model’s Fit to Data</span>
 </h2>
 <div class="para" id="ch-residual-sum-of-squares-improving-a-models-fit-to-data-2"><dfn class="terminology">***This chapter is under construction.***</dfn></div>
-<section class="section" id="sec-gaa"><h3 class="heading hide-type">
+<section class="introduction" id="intro-RSS"><article class="objectives goal-like" id="intro-RSS-1"><h3 class="heading"><span class="type">Goals</span></h3>
+<ul class="disc" id="intro-RSS-1-1">
+<li id="intro-RSS-1-1-1"><div class="para" id="intro-RSS-1-1-1-1">Explore</div></li>
+<li id="intro-RSS-1-1-2"><div class="para" id="intro-RSS-1-1-2-1">Strengthen</div></li>
+<li id="intro-RSS-1-1-3"><div class="para" id="intro-RSS-1-1-3-1">Determine</div></li>
+</ul></article> <div class="para" id="intro-RSS-2">In</div> <div class="para" id="intro-RSS-3">Begin in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#expl-activity-RSS" class="xref" data-knowl="./knowl/xref/expl-activity-RSS.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 10.1: Reducing New Infections">Exploration 10.1</a>
+</div> <article class="exploration project-like" id="expl-activity-RSS"><h3 class="heading">
+<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">10.1</span><span class="period">.</span><span class="space"> </span><span class="title">Reducing New Infections.</span>
+</h3>
+<div class="introduction" id="expl-activity-RSS-2">
+<div class="para" id="expl-activity-RSS-2-1">Use the code shown, and its output, to answer the questions below.</div> <pre id="expl-activity-RSS-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla() #Clear (delete) any past plots
+
+#Include data from Zombie Game App
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+I_data = [1, 2, 4, 10, 22, 40, 50]
+
+#Define the system of differential equations, and call it "hz"
+def hz(y, t):
+  s, i = y #Define y as consisting of s and i, in that order
+  dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
+  return dydt
+
+beta = 0.03 #Give a value to beta
+y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
+t_range = np.arange(0.0, 7.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+
+sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+print("I(0) = ", sol[0, 1])
+print("I(1) = ", sol[10, 1])
+print("I(2) = ", sol[20, 1])
+print("I(3) = ", sol[30, 1])
+print("I(4) = ", sol[40, 1])
+print("I(5) = ", sol[50, 1])
+print("I(6) = ", sol[60, 1])
+
+# Plotting commands are below
+plt.plot(t_steps, I_data,'o', markersize=4, color='orange', label='I(t) data')
+plt.plot(t_range, sol[:, 1], color='orange', linewidth=2, label='Modeled I(t)')
+plt.legend()
+plt.xlabel('Time')
+plt.ylabel('Infectious Population')
+plt.show()
+</script></pre>
+</div>
+<article class="task exercise-like" id="expl-activity-RSS-3"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="expl-activity-RSS-3-1-1">Copy the graph from the Python output, either drawing it by hand or creating a screenshot.</div> <ol class="decimal" id="expl-activity-RSS-3-1-2">
+<li id="expl-activity-RSS-3-1-2-1"><div class="para" id="expl-activity-RSS-3-1-2-1-1">For the values <span class="process-math">\(I(0)\text{,}\)</span> <span class="process-math">\(I(1)\text{,}\)</span> <span class="process-math">\(I(2)\text{,}\)</span> <span class="process-math">\(I(3)\text{,}\)</span> <span class="process-math">\(I(4)\text{,}\)</span> <span class="process-math">\(I(5)\text{,}\)</span> and <span class="process-math">\(I(6)\)</span> that are printed out in the Python output above the graph, label on your copy of the graph where each value is shown.</div></li>
+<li id="expl-activity-RSS-3-1-2-2"><div class="para" id="expl-activity-RSS-3-1-2-2-1">Then write out in words what the values <span class="process-math">\(I(0)\text{,}\)</span> <span class="process-math">\(I(1)\text{,}\)</span> <span class="process-math">\(I(2)\text{,}\)</span> <span class="process-math">\(I(3)\text{,}\)</span> <span class="process-math">\(I(4)\text{,}\)</span> <span class="process-math">\(I(5)\text{,}\)</span> and <span class="process-math">\(I(6)\)</span> represent: are these data points, or values generated by a mathematical model?</div></li>
+</ol></article><article class="task exercise-like" id="expl-activity-RSS-4"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="expl-activity-RSS-4-1-1">Next, read lines 9 and 10 in the Python code.</div> <ol class="decimal" id="expl-activity-RSS-4-1-2">
+<li id="expl-activity-RSS-4-1-2-1"><div class="para" id="expl-activity-RSS-4-1-2-1-1">These values combine to form several points on the output graph. On your copy of the graph, label the points determined by lines 9 and 10.</div></li>
+<li id="expl-activity-RSS-4-1-2-2"><div class="para" id="expl-activity-RSS-4-1-2-2-1">Then write out in words what the values from lines 9 and 10 represent: are these data points, or values generated by a mathematical model?</div></li>
+</ol></article><article class="task exercise-like" id="expl-activity-RSS-5"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="expl-activity-RSS-5-1-1">We now put parts (a) and (b) together.</div> <ol class="decimal" id="expl-activity-RSS-5-1-2">
+<li id="expl-activity-RSS-5-1-2-1"><div class="para" id="expl-activity-RSS-5-1-2-1-1">Use your labeled graph to compare the values in part (a) with the values in part (b). Can you draw a visual way of comparing these values at each of the times <span class="process-math">\(t=0\text{,}\)</span> <span class="process-math">\(t=1\text{,}\)</span> <span class="process-math">\(t=2\text{,}\)</span> <span class="process-math">\(t=3\text{,}\)</span> <span class="process-math">\(t=4\text{,}\)</span> <span class="process-math">\(t=5\text{,}\)</span> and <span class="process-math">\(t=6\text{?}\)</span>
+</div></li>
+<li id="expl-activity-RSS-5-1-2-2"><div class="para" id="expl-activity-RSS-5-1-2-2-1">Starting with the visual comparison you just described: What would change in this visual comparison if the values from the model, and the values at each data point, were closer together?</div></li>
+<li id="expl-activity-RSS-5-1-2-3"><div class="para" id="expl-activity-RSS-5-1-2-3-1">Turn your visual comparison ideas into some mathematical suggestions for identifying when the model and the data are closer together.</div></li>
+</ol></article></article></section><section class="section" id="sec-gaa"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">10.1</span><span class="space"> </span><span class="title">Starter Example Comparing Data with a Model: Zombie Data</span>
 </h3>
 <div class="para" id="sec-gaa-2">Suppose you have data to compare against your model. Which set of parameters is best? We start by revisiting the type of graph and data we saw with our (relatively simple) early-semester zombie models. Read through the following and make sure you understand what is happening in each command.</div>
