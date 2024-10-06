@@ -515,11 +515,11 @@ sagecell.makeSagecell({
 <div class="para" id="ch-residual-sum-of-squares-improving-a-models-fit-to-data-2"><dfn class="terminology">***This chapter is under construction.***</dfn></div>
 <section class="introduction" id="intro-RSS"><article class="objectives goal-like" id="intro-RSS-1"><h3 class="heading"><span class="type">Goals</span></h3>
 <ul class="disc" id="intro-RSS-1-1">
-<li id="intro-RSS-1-1-1"><div class="para" id="intro-RSS-1-1-1-1">Explore</div></li>
-<li id="intro-RSS-1-1-2"><div class="para" id="intro-RSS-1-1-2-1">Strengthen</div></li>
-<li id="intro-RSS-1-1-3"><div class="para" id="intro-RSS-1-1-3-1">Determine</div></li>
-</ul></article> <div class="para" id="intro-RSS-2">In</div> <div class="para" id="intro-RSS-3">Begin in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#expl-activity-RSS" class="xref" data-knowl="./knowl/xref/expl-activity-RSS.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 10.1: Reducing New Infections">Exploration 10.1</a>
-</div> <article class="exploration project-like" id="expl-activity-RSS"><h3 class="heading">
+<li id="intro-RSS-1-1-1"><div class="para" id="intro-RSS-1-1-1-1">Use data from case reports to implement a new method for estimating the value of the transmission parameter <span class="process-math">\(\beta\)</span>
+</div></li>
+<li id="intro-RSS-1-1-2"><div class="para" id="intro-RSS-1-1-2-1">Understand how a “for” loop in Python helps us test many possible values of <span class="process-math">\(\beta\)</span> with one click of the <code class="code-inline tex2jax_ignore">Evaluate</code> button</div></li>
+<li id="intro-RSS-1-1-3"><div class="para" id="intro-RSS-1-1-3-1">Ensure that the results from our math-and-coding-based approach to estimating <span class="process-math">\(\beta\)</span> make biological sense</div></li>
+</ul></article> <div class="para" id="intro-RSS-2">So far, we have estimated <span class="process-math">\(\beta\)</span> in two ways: (1) visually, making adjustments so that data and graphs are closer together, and (2) using a formula involving <span class="process-math">\(\mathcal{R}_0\)</span> and parameters from our model to substitute in values we could find from epidemiological information and solve for <span class="process-math">\(\beta\text{,}\)</span> which is typically the only unknown value in the formula. In this chapter, we learn a new approach.</div> <div class="para" id="intro-RSS-3">Begin in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#expl-activity-RSS" class="xref" data-knowl="./knowl/xref/expl-activity-RSS.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 10.1: Reducing New Infections">Exploration 10.1</a> by</div> <article class="exploration project-like" id="expl-activity-RSS"><h3 class="heading">
 <span class="type">Exploration</span><span class="space"> </span><span class="codenumber">10.1</span><span class="period">.</span><span class="space"> </span><span class="title">Reducing New Infections.</span>
 </h3>
 <div class="introduction" id="expl-activity-RSS-2">
@@ -575,7 +575,7 @@ plt.show()
 <div class="para" id="expl-activity-RSS-5-1-1">We now put parts (a) and (b) together.</div> <ol class="decimal" id="expl-activity-RSS-5-1-2">
 <li id="expl-activity-RSS-5-1-2-1"><div class="para" id="expl-activity-RSS-5-1-2-1-1">Use your labeled graph to compare the values in part (a) with the values in part (b). Can you draw a visual way of comparing these values at each of the times <span class="process-math">\(t=0\text{,}\)</span> <span class="process-math">\(t=1\text{,}\)</span> <span class="process-math">\(t=2\text{,}\)</span> <span class="process-math">\(t=3\text{,}\)</span> <span class="process-math">\(t=4\text{,}\)</span> <span class="process-math">\(t=5\text{,}\)</span> and <span class="process-math">\(t=6\text{?}\)</span>
 </div></li>
-<li id="expl-activity-RSS-5-1-2-2"><div class="para" id="expl-activity-RSS-5-1-2-2-1">Starting with the visual comparison you just described: What would change in this visual comparison if the values from the model, and the values at each data point, were closer together?</div></li>
+<li id="expl-activity-RSS-5-1-2-2"><div class="para" id="expl-activity-RSS-5-1-2-2-1">Starting with the visual comparison you just described: What would change visually if the values from the model, and the values at each data point, were closer together?</div></li>
 <li id="expl-activity-RSS-5-1-2-3"><div class="para" id="expl-activity-RSS-5-1-2-3-1">Turn your visual comparison ideas into some mathematical suggestions for identifying when the model and the data are closer together.</div></li>
 </ol></article></article></section><section class="section" id="sec-gaa"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">10.1</span><span class="space"> </span><span class="title">Starter Example Comparing Data with a Model: Zombie Data</span>
