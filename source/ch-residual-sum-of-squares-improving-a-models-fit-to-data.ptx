@@ -10,28 +10,28 @@
         <ul>
           <li>
             <p>
-              Explore 
+              Use data from case reports to implement a new method for estimating the value of the transmission parameter <m>\beta</m>
             </p>
           </li>
           <li>
             <p>
-              Strengthen 
+              Understand how a <q>for</q> loop in Python helps us test many possible values of <m>\beta</m> with one click of the <c>Evaluate</c> button  
             </p>
           </li>
           <li>
             <p>
-              Determine 
+              Ensure that the results from our math-and-coding-based approach to estimating <m>\beta</m> make biological sense
             </p>
           </li>
         </ul>
       </objectives>
   
       <p>
-        In   
+        So far, we have estimated <m>\beta</m> in two ways: (1) visually, making adjustments so that data and graphs are closer together, and (2) using a formula involving <m>\mathcal{R}_0</m> and parameters from our model to substitute in values we could find from epidemiological information and solve for <m>\beta</m>, which is typically the only unknown value in the formula. In this chapter, we learn a new approach.     
       </p>  
   
       <p>
-        Begin in <xref ref="expl-activity-RSS"/> 
+        Begin in <xref ref="expl-activity-RSS"/> by
       </p>
       
       <exploration xml:id="expl-activity-RSS">
@@ -140,7 +140,7 @@
               </li>
               <li>
                 <p>
-                  Starting with the visual comparison you just described: What would change in this visual comparison if the values from the model, and the values at each data point, were closer together?
+                  Starting with the visual comparison you just described: What would change visually if the values from the model, and the values at each data point, were closer together?
                 </p>
               </li>              
               <li>

@@ -429,6 +429,7 @@
             <p>
               To compute parameter values for the model, use the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute the value of <m>\beta</m> for this model. 
               <!-- Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<m>p=0</m>), and what happens if everyone in the community is vaccinated (<m>p=1</m>)? -->
+               <!-- If including edge cases: state how many people, total, got sick. -->
             </p>
           </li>
           <!-- <li>

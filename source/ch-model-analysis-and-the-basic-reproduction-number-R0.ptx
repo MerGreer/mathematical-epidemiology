@@ -603,22 +603,22 @@
         <ol>
           <li>
             <p>
-              Suppose that, in the early days of the outbreak, researchers estimate <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> for this model. Then, based on the value of <m>\mathcal{R}_0</m> you compute, answer: what do you think will happen in the short term and in the long term of this outbreak?
+              Suppose that, in the early days of the outbreak, researchers estimate <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.2</m>. Show how to compute the value of <m>\mathcal{R}_0</m> for this model, and state the value of <m>\mathcal{R}_0</m> you determine. Then, based on this value of <m>\mathcal{R}_0</m>, answer: what do you anticipate happening to the <m>I(t)</m> solution curve in the short term and in the long term of this outbreak?
             </p>
           </li>
           <li>
             <p>
-              Now suppose that the value of <m>\beta</m> was instead approximated to be <m>0.00001</m>, yet it is still true that <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> in this case. With this value of <m>\mathcal{R}_0</m>, what do you anticipate for the short-term and long-term outcomes of the outbreak?
+              Now suppose that the value of <m>\beta</m> was instead approximated to be <m>0.00001</m>, yet it is still true that <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> in this case. With this value of <m>\mathcal{R}_0</m>, what do you anticipate happening to the <m>I(t)</m> solution curve for the short-term and long-term outcomes of the outbreak?
             </p>
           </li>
           <li>
             <p>
-              Now suppose this outbreak occurs in a town of 1000 people, with <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> for the SIR model in this smaller town. Use this value of <m>\mathcal{R}_0</m> to describe what you think will happen in the short term and in the long term of this outbreak.
+              Now suppose this outbreak occurs in a town of 1000 people, with <m>\beta \approx 0.0001</m> and <m>\gamma \approx 0.2</m>. Compute the value of <m>\mathcal{R}_0</m> for the SIR model in this smaller town. Use this value of <m>\mathcal{R}_0</m> to describe what you think will happen to the <m>I(t)</m> solution curve in the short term and in the long term of this outbreak.
             </p>
           </li>
           <li>
             <p>
-              Adapt the Python code shown earlier in this chapter to produce graphs of the outcomes of the SIR models in parts (a), (b), and (c) above. Write a few sentences about how well your descriptions of short-term and long-term model outcomes are supported, or not supported, by the graphs.
+              Adapt the Python code shown earlier in this chapter to produce graphs of the outcomes of the SIR models in parts (a), (b), and (c) above. Allow time <m>t</m> to increase as needed, to show the full time span of the outbreak. Write a few sentences about how well your descriptions of short-term and long-term model outcomes are supported, or not supported, by the graphs.
             </p>
           </li>
         </ol>
