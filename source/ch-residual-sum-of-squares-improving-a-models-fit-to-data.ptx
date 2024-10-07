@@ -27,7 +27,7 @@
       </objectives>
   
       <p>
-        So far, we have estimated <m>\beta</m> in two ways: (1) visually, making adjustments so that data and graphs are closer together, and (2) using a formula involving <m>\mathcal{R}_0</m> and parameters from our model to substitute in values we could find from epidemiological information and solve for <m>\beta</m>, which is typically the only unknown value in the formula. In this chapter, we learn a new approach.     
+        So far, we have estimated <m>\beta</m> in two ways: (1) visually, making adjustments so that data and graphs are closer together, starting in <xref ref="ch-visualization-graphing-model-results-and-data"/>, and (2) using a formula involving <m>\mathcal{R}_0</m> and parameters from our model, such as in <xref ref="eq-R0-sir"/> and <xref ref="eq-R0-seir"/>, to substitute in values we could find from epidemiological information and solve for <m>\beta</m>, which is typically the only unknown value in the formula. In this chapter, we learn a new approach.     
       </p>  
   
       <p>
