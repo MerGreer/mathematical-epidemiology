@@ -207,7 +207,7 @@
         <title>Residual Sum of Squares: An Introduction</title>
 
         <p>
-          One way to compare data with a graph is by computing the Residual Sum of Squares. When we work with a single model to try to improve the fit of the model to a data set, RSS is a good option. <xref ref="activity-rss-intro"/> shows the process of computing RSS for a model with one choice for a value of <m>\beta</m>. Later, we show how to compare RSS for different values of <m>\beta</m> used in the same model.
+          One way to compare data with the output of a model is by computing the Residual Sum of Squares, often abbreviated to RSS. When we work with a single model to try to improve the fit of the model to a data set, RSS is a good option. <xref ref="activity-rss-intro"/> shows the process of computing RSS for a model with one choice for a value of <m>\beta</m>. Later, we show how to compare RSS for different values of <m>\beta</m> used in the same model.
         </p>
 
         <activity xml:id="activity-rss-intro">
@@ -216,7 +216,7 @@
               In <xref ref="expl-RSS"/> we worked with both a data set, and model output, for times <m>t=0, 1, 2, 3, 4, 5, 6</m>. The values appear in <xref ref="table-si-model-data-values-and-model-output"/>, with model values rounded to two decimal places. 
             </p>
             <table xml:id="table-si-model-data-values-and-model-output">
-              <title>SI Model: Data Points and Model Output</title>
+              <title>SI Model: Data Values and Model Output</title>
               <tabular halign="center">
                 <row header="yes">
                   <cell>Time </cell>
@@ -261,8 +261,68 @@
               </tabular>
             </table>
             <p>
-              and  
+              RSS compares each Data Value from <xref ref="table-si-model-data-values-and-model-output"/> with the Model Output from the same time by subtracting one from the other and squaring the result. 
             </p>
+            <ol>
+              <li>
+                <p>
+                  Try at least two of these comparisons on your own: for times <m>t=1</m> and <m>t=2</m>, subtract the Model Output in <xref ref="table-si-model-data-values-and-model-output"/> from the corresponding Data Value and square the result.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Next, read the code block below to identify where in the code, and how, we subtract each Model Output from its corresponding Data Value. Also identify where and how the code adds up all the squared differences to produce a total value for RSS.
+                </p>
+                <sage>
+                  <input>
+                    #Import packages
+                    import numpy as np
+                    import matplotlib.pyplot as plt
+                    from scipy.integrate import odeint
+
+                    plt.cla() #Clear (delete) any past plots
+
+                    #Include data from the Zombie Game App
+                    t_steps = [0, 1, 2, 3, 4, 5, 6]
+                    I_data = [1, 2, 4, 10, 22, 40, 50]
+
+                    #Define the system of differential equations, and call it "hz"
+                    def hz(y, t):
+                      s, i = y #Define y as consisting of s and i, in that order
+                      dydt = [-beta * s * i, beta * s * i] # These are the right-hand sides of the SI model
+                      return dydt
+
+                    beta = 0.03 #Give beta a value
+                    y0 = [49, 1] #Set initial values for Susceptibles and Infectious, in that order
+                    t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, the set the size of the time steps to use when "stepping through" to numerically solve the system of differential equations
+
+                    sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+                    RSS = 0 #Initialize the value of RSS to be 0
+
+                    for x in range(0,7):
+                      new_square = (I_data[x] - sol[10*x, 1])**2
+                      print("Squared distance at time", x, "=", new_square)
+                      RSS = RSS + new_square
+
+                    print("RSS = ", RSS)
+                  </input>
+                  <output>
+                    
+                  </output>
+                </sage>
+              </li>
+              <li>
+                <p>
+                  Then run the code block. Compare its results with your results for <m>t=1</m> and <m>t=2</m> in part (1) of this Activity. Then examine all the results from the code, including the total value for RSS for this model with this data set.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Once you understand how the code works, experiment with different values of <m>\beta</m>, with the goal of improving the fit between the model and the data set. While doing this, consider including a plot of the graph showing both the solution curve of the model and the data points. (You can copy and paste plotting commands from the Python block in this chapter's Exploration.)
+                </p>
+              </li>
+            </ol>
           </statement>
           <!-- <hint>
             <p>
@@ -292,47 +352,7 @@
         </activity> 
 
 
-        <p>
-          Read the code block below to see how we can implement RSS in Python.
-        </p>
-
-        <sage>
-          <input>
-            #Import packages
-            import numpy as np
-            import matplotlib.pyplot as plt
-            from scipy.integrate import odeint
-            
-            plt.cla()  #Clear (delete) any past plots
-            
-            #Include data from Zombie Game App
-            t_steps = [0, 1, 2, 3, 4, 5, 6]
-            I_data = [1, 2, 4, 10, 22, 40, 50]
-            
-            #Define the system of differential equations, and call it "hz"
-            def hz(y, t):
-              s, i = y #Define y as consisting of s and i, in that order
-              dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
-              return dydt
-              
-            beta = 0.03 #Give a value to beta
-            y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
-            t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
-             
-            sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
-            
-            RSS = 0
-
-            for x in range(0,7):
-                RSS = RSS + (S_data[x] - sol[0 + 10 * x, 1])**2
-                print(RSS)
-
-            print("RSS = ", RSS)
-          </input>
-          <output>
-          
-          </output>
-          </sage>
+        
 
       
     </section>
