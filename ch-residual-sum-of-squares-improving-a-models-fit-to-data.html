@@ -304,6 +304,9 @@ sagecell.makeSagecell({
 #expl-RSS-5-1-2 { counter-set: expl-RSS-5-1-2 0; }
 #expl-RSS-5-1-2 > li::marker { content: ""counter(expl-RSS-5-1-2,decimal)"."; }
 #expl-RSS-5-1-2 > li { counter-increment: expl-RSS-5-1-2; }
+#activity-rss-intro-1-4 { counter-set: activity-rss-intro-1-4 0; }
+#activity-rss-intro-1-4 > li::marker { content: ""counter(activity-rss-intro-1-4,decimal)"."; }
+#activity-rss-intro-1-4 > li { counter-increment: activity-rss-intro-1-4; }
 #expl-activity-next-generation-method-3-1-2 { counter-set: expl-activity-next-generation-method-3-1-2 0; }
 #expl-activity-next-generation-method-3-1-2 > li::marker { content: ""counter(expl-activity-next-generation-method-3-1-2,decimal)"."; }
 #expl-activity-next-generation-method-3-1-2 > li { counter-increment: expl-activity-next-generation-method-3-1-2; }
@@ -579,11 +582,11 @@ plt.show()
 </ol></article></article></section><section class="section" id="sec-residual-sum-of-squares-introduction"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">10.1</span><span class="space"> </span><span class="title">Residual Sum of Squares: An Introduction</span>
 </h3>
-<div class="para" id="sec-residual-sum-of-squares-introduction-2">One way to compare data with a graph is by computing the Residual Sum of Squares. When we work with a single model to try to improve the fit of the model to a data set, RSS is a good option. <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#activity-rss-intro" class="xref" data-knowl="./knowl/xref/activity-rss-intro.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 10.2">Activity 10.2</a> shows the process of computing RSS for a model with one choice for a value of <span class="process-math">\(\beta\text{.}\)</span> Later, we show how to compare RSS for different values of <span class="process-math">\(\beta\)</span> used in the same model.</div>
+<div class="para" id="sec-residual-sum-of-squares-introduction-2">One way to compare data with the output of a model is by computing the Residual Sum of Squares, often abbreviated to RSS. When we work with a single model to try to improve the fit of the model to a data set, RSS is a good option. <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#activity-rss-intro" class="xref" data-knowl="./knowl/xref/activity-rss-intro.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 10.2">Activity 10.2</a> shows the process of computing RSS for a model with one choice for a value of <span class="process-math">\(\beta\text{.}\)</span> Later, we show how to compare RSS for different values of <span class="process-math">\(\beta\)</span> used in the same model.</div>
 <article class="activity project-like" id="activity-rss-intro"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">10.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="activity-rss-intro-1-1">In <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#expl-RSS" class="xref" data-knowl="./knowl/xref/expl-RSS.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 10.1: Visually Demonstrating Differences Between a Model and Data">Exploration 10.1</a> we worked with both a data set, and model output, for times <span class="process-math">\(t=0, 1, 2, 3, 4, 5, 6\text{.}\)</span> The values appear in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="xref" data-knowl="./knowl/xref/table-si-model-data-values-and-model-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.1: SI Model: Data Points and Model Output">Table 10.1</a>, with model values rounded to two decimal places.</div> <figure class="table table-like" id="table-si-model-data-values-and-model-output"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">10.1<span class="period">.</span></span><span class="space"> </span>SI Model: Data Points and Model Output</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="activity-rss-intro-1-1">In <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#expl-RSS" class="xref" data-knowl="./knowl/xref/expl-RSS.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 10.1: Visually Demonstrating Differences Between a Model and Data">Exploration 10.1</a> we worked with both a data set, and model output, for times <span class="process-math">\(t=0, 1, 2, 3, 4, 5, 6\text{.}\)</span> The values appear in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="xref" data-knowl="./knowl/xref/table-si-model-data-values-and-model-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.1: SI Model: Data Values and Model Output">Table 10.1</a>, with model values rounded to two decimal places.</div> <figure class="table table-like" id="table-si-model-data-values-and-model-output"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">10.1<span class="period">.</span></span><span class="space"> </span>SI Model: Data Values and Model Output</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b0 r0 l0 t0 lines">Time</th>
 <th scope="col" class="c m b0 r0 l0 t0 lines">Data Value</th>
@@ -624,38 +627,46 @@ plt.show()
 <td class="c m b0 r0 l0 t0 lines">50</td>
 <td class="c m b0 r0 l0 t0 lines">49.70</td>
 </tr>
-</table></div></figure> <div class="para" id="activity-rss-intro-1-3">and</div></article><div class="para" id="sec-residual-sum-of-squares-introduction-4">Read the code block below to see how we can implement RSS in Python.</div>
-<pre id="sec-residual-sum-of-squares-introduction-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+</table></div></figure> <div class="para" id="activity-rss-intro-1-3">RSS compares each Data Value from <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="xref" data-knowl="./knowl/xref/table-si-model-data-values-and-model-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.1: SI Model: Data Values and Model Output">Table 10.1</a> with the Model Output from the same time by subtracting one from the other and squaring the result.</div> <ol class="decimal" id="activity-rss-intro-1-4">
+<li id="activity-rss-intro-1-4-1"><div class="para" id="activity-rss-intro-1-4-1-1">Try at least two of these comparisons on your own: for times <span class="process-math">\(t=1\)</span> and <span class="process-math">\(t=2\text{,}\)</span> subtract the Model Output in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="xref" data-knowl="./knowl/xref/table-si-model-data-values-and-model-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.1: SI Model: Data Values and Model Output">Table 10.1</a> from the corresponding Data Value and square the result.</div></li>
+<li id="activity-rss-intro-1-4-2">
+<div class="para" id="activity-rss-intro-1-4-2-1">Next, read the code block below to identify where in the code, and how, we subtract each Model Output from its corresponding Data Value. Also identify where and how the code adds up all the squared differences to produce a total value for RSS.</div>
+<pre id="activity-rss-intro-1-4-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 
-plt.cla()  #Clear (delete) any past plots
+plt.cla() #Clear (delete) any past plots
 
-#Include data from Zombie Game App
+#Include data from the Zombie Game App
 t_steps = [0, 1, 2, 3, 4, 5, 6]
 I_data = [1, 2, 4, 10, 22, 40, 50]
 
 #Define the system of differential equations, and call it "hz"
 def hz(y, t):
   s, i = y #Define y as consisting of s and i, in that order
-  dydt = [-beta * s * i, beta * s * i] #These formulas are the right-hand sides of the SI model
+  dydt = [-beta * s * i, beta * s * i] # These are the right-hand sides of the SI model
   return dydt
-  
-beta = 0.03 #Give a value to beta
-y0 = [49, 1] #Set initial conditions for Susceptibles and Infectious, in that order
-t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
- 
+
+beta = 0.03 #Give beta a value
+y0 = [49, 1] #Set initial values for Susceptibles and Infectious, in that order
+t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, the set the size of the time steps to use when "stepping through" to numerically solve the system of differential equations
+
 sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
 
-RSS = 0
+RSS = 0 #Initialize the value of RSS to be 0
 
 for x in range(0,7):
-    RSS = RSS + (S_data[x] - sol[0 + 10 * x, 1])**2
-    print(RSS)
+  new_square = (I_data[x] - sol[10*x, 1])**2
+  print("Squared distance at time", x, "=", new_square)
+  RSS = RSS + new_square
 
 print("RSS = ", RSS)
-</script></pre></section><section class="section" id="sec-ra"><h3 class="heading hide-type">
+</script></pre>
+</li>
+<li id="activity-rss-intro-1-4-3"><div class="para" id="activity-rss-intro-1-4-3-1">Then run the code block. Compare its results with your results for <span class="process-math">\(t=1\)</span> and <span class="process-math">\(t=2\)</span> in part (1) of this Activity. Then examine all the results from the code, including the total value for RSS for this model with this data set.</div></li>
+<li id="activity-rss-intro-1-4-4"><div class="para" id="activity-rss-intro-1-4-4-1">Once you understand how the code works, experiment with different values of <span class="process-math">\(\beta\text{,}\)</span> with the goal of improving the fit between the model and the data set. While doing this, consider including a plot of the graph showing both the solution curve of the model and the data points. (You can copy and paste plotting commands from the Python block in this chapter’s Exploration.)</div></li>
+</ol></article></section><section class="section" id="sec-ra"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">10.2</span><span class="space"> </span><span class="title"></span>
 </h3></section><section class="section" id="sec-gx"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">10.3</span><span class="space"> </span><span class="title">Influenza Data and RSS</span>
