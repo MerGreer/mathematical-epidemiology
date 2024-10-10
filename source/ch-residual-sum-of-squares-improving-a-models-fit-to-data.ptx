@@ -324,31 +324,32 @@
               </li>
             </ol>
           </statement>
-          <!-- <hint>
-            <p>
-              Add together the three differential equations. What is the meaning of the left-hand side? What is the meaning of the right-hand side? And what value do we obtain on the right-hand side when summing the differential equations?
-            </p>
-          </hint>
           <answer>
-            <p>
-              On the left-hand side:
-            </p>
-            <md>
-              <mrow>\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt} \amp = \frac{d(S+I+R)}{dt} = \frac{dN}{dt}.</mrow>
-            </md>
-            <p>
-              Therefore, summing the three differential equations determines the change over time of the total population.
-            </p>
-            <p>
-              On the right-hand side:
-            </p>
-            <md>
-              <mrow>(-\beta S I)+(\beta S I - \gamma I)+(\gamma I) \amp = 0.</mrow>
-            </md> 
-            <p>
-              Since the three differential equations sum to zero, the change in total population is <m>0</m>. This tells us that the total population in our model does not change. In other words, the size of the total population <m>N(t)</m> remains constant.
-            </p>
-          </answer> -->
+            <ol>
+              <li>
+                <p>
+                  At time <m>t=1</m>, compute <m>(4.19-2)^2</m> to get the value <m>4.7961</m>. At time <m>t=2</m>, compute <m>(14.54-4)^2</m> to get the value <m>111.0916</m>. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  In line 27, the code <c>I_data[x] - sol[10*x, 1]</c> starts with the data value given by <c>I_data[x]</c> and subtracts the model value given by <c>sol[10*x, 1]</c>. 
+                </p>
+                <p>
+                  The <c>x</c> in <c>I_data[x]</c> is determined by the range of <c>x</c> values shown in line 26: <c>range(0,7)</c> tells Python to allow <c>x</c> to equal 0, 1, 2, 3, 4, 5, and 6. Python ranges do not include the last number shown, so 7 is not included in <c>range(0,7)</c>. 
+                </p>
+                <p>
+                  When <c>x</c> equals 0, <c>I_data[0]</c> equals the initial value of the <c>I_data</c> list in line 10, that is, <c>I_data[0]</c> equals 1. Then <c>I_data[1]</c> equals 2, <c>I_data[2]</c> equals 4, and so on, continuing until <c>I_data[6]</c> equals 50.
+                </p>
+                <p>
+                  Writing <c>sol[10*x, 1]</c> examines Python's list of model solutions, which we have named <c>sol</c>. To see the full list <c>sol</c>, you can add a new line of code at the end of this block, and in that line, type <c>print(sol)</c>. The list <c>sol</c> is arranged into rows and columns. Each row shows the value of both <m>S(t)</m> and <m>I(t)</m> at a specific time value. The initial column, which Python labels column <c>0</c>, shows the values of <m>S(t)</m> at all times we computed. The next column, which Python labels column <c>1</c>, shows the values of <m>I(t)</m> at all times we computed. 
+                </p>
+                <p>
+                  The times for which we compute solutions are determined by the command <c>t_range = np.arange(0.0, 8.0, 0.1)</c> in line 20. This command says to compute solutions starting at time 0.0, and ending at time 8.0, moving in time increments of 0.1. This means we compute solutions at times 0.0, 0.1, 0.2, and so on, with the last solutions computed at time 7.9. To see the values in <c>t_range</c>, you can add a line of code: <c>print(t_range)</c>. 
+                </p>
+              </li>
+            </ol>
+          </answer> 
         </activity> 
 
 
