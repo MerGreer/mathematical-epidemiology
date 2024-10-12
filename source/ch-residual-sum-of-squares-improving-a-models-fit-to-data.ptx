@@ -266,7 +266,7 @@
             <ol>
               <li>
                 <p>
-                  Try at least two of these comparisons on your own: for times <m>t=1</m> and <m>t=2</m>, subtract the Model Output in <xref ref="table-si-model-data-values-and-model-output"/> from the corresponding Data Value and square the result.
+                  Try at least two of these comparisons on your own: for times <m>t=1</m> and <m>t=2</m>, subtract the Model Output in <xref ref="table-si-model-data-values-and-model-output"/> from the corresponding Data Value and square the result. Later in this activity, we will compare these hand-computed values with the corresponding values computed via Python.
                 </p>
               </li>
               <li>
@@ -314,12 +314,15 @@
               </li>
               <li>
                 <p>
-                  Then run the code block. Compare its results with your results for <m>t=1</m> and <m>t=2</m> in part (1) of this Activity. Then examine all the results from the code, including the total value for RSS for this model with this data set.
+                  Then run the code block. Compare its results with your results for <m>t=1</m> and <m>t=2</m> in part (1) of this Activity. Describe how the results are similar and how they are different, and provide an explanation for why they are not identical. 
+                </p>
+                <p>
+                  Then examine all the results from the code, including the total value for RSS for this model with this data set. 
                 </p>
               </li>
               <li>
                 <p>
-                  Once you understand how the code works, experiment with different values of <m>\beta</m>, with the goal of improving the fit between the model and the data set. While doing this, consider including a plot of the graph showing both the solution curve of the model and the data points. (You can copy and paste plotting commands from the Python block in this chapter's Exploration.)
+                  Once you understand how the code works, experiment with different values of <m>\beta</m>. Your goal is to improve the fit between the model and the data set. While adjusting <m>\beta</m>, consider including a plot of the graph showing both the solution curve of the model and the data points. (You can do this by copying plotting commands from the Python block in this chapter's Exploration and pasting them into the Python block in this activity.)
                 </p>
               </li>
             </ol>

@@ -487,23 +487,30 @@
         <ol>
           <li>
             <p>
-              Compute the number of weeks for the incubation period of pertussis. This should be <m>\mbox{(the number of days of the incubation period)} / 7</m>. When you then compute <m>\kappa</m>, you should obtain a value equal to <m>7 * \mbox{(the value you obtained in the previous exercise)}</m>.
+              Compute the number of weeks for the incubation period of pertussis. This should be 
+              <me>\frac{\mbox{(the number of days of the incubation period)}}{7}</me>. 
+              Then compute <m>\kappa</m> for the model in which the time unit is weeks. This result should be the value of <m>\kappa</m> you obtained in <xref ref="activity-seir-model-pertussis-setup"/>, multiplied by <m>7</m>. 
             </p>
           </li>
           <li>
             <p>
-              Similarly, the value of <m>\gamma</m> in this exercise should be <m>7 * \mbox{(the value you obtained in the previous exercise)}</m>.
+              Similarly, compute the value of <m>\gamma</m> used to model the outbreak from <xref ref="activity-seir-model-pertussis-setup"/> in terms of weeks. Your result should equal the value of <m>\gamma</m> you obtained in <xref ref="activity-seir-model-pertussis-setup"/>, multiplied by <m>7</m>.
             </p>
           </li>
           <li>
             <p>
-              For the graphs to appear the same, the horizontal axis should be adjusted. To be precise, the length of the new time axis should equal <m>\mbox{(the length of the time axis in the previous exercise) } / 7</m>. To be close, use the nearest number of weeks. For instance, the default time length in the previous exercise is 365 days, which is one year. One year has approximately, but not exactly, 52 weeks. Using 52 weeks in this exercise will give a very similar graph to the 365-day graph from the previous exercise. 
+              For the graphs to appear the same, whether the time unit is days or weeks, the horizontal axis should be adjusted to the correct time unit. To be precise, when the time unit is weeks, the length of the time axis should equal <m>1/7</m> the length of the time axis in <xref ref="activity-seir-model-pertussis-setup"/>. Or, to have a similar but not identical time axis, allow the length of the time axis to equal the nearest number of weeks. For instance, the default time length in <xref ref="activity-seir-model-pertussis-setup"/> is 365 days, which is one year. One year has approximately, but not exactly, 52 weeks. Using 52 weeks in this exercise will give a very similar graph to the 365-day graph from <xref ref="activity-seir-model-pertussis-setup"/>. 
+            </p>
+            <p>
+              With this approach in mind: use parameters you have computed to produce two graphs, one in terms of days, and one in terms of weeks, for the the outbreak in <xref ref="activity-seir-model-pertussis-setup"/>. For clarity: update the label for the time axis in each graph to say <q>days</q> or <q>weeks</q> instead of <q>time</q>, to make clear which time unit is being used in the graph.
             </p>
           </li>
-        </ol> 
-        <p>
-          Explain mathematically why the unit conversions described in parts (a.), (b.), and (c.) are the correct conversions for converting the model's time scale from days to weeks. Show graphs from both this exercise and the previous exercise to demonstrate that the model results are the same when we convert the units of time. For better clarity: update the label for the time axis in each graph to say <q>days</q> or <q>weeks</q> instead of <q>time</q>, to make clear which time unit is being used in the graph.
-        </p>        
+          <li>
+            <p>
+              Explain mathematically why the unit conversions described in parts (a.), (b.), and (c.) are the correct conversions for converting the model's time scale from days to weeks.  
+            </p>
+          </li>
+        </ol>      
       </exercise>
 
       <exercise number="2">
@@ -521,7 +528,7 @@
           </li>
           <li>
             <p>
-              Adapt the Python code from the second exercise to run the model with a vaccine level at least as large as <m>p_{\text{crit}}</m>. Adjust the time scale, show just some of the solution curve graphs, or make any other changes needed, to best see the long-term outcome of the model. Write your observations of the outcomes of this model, and compare and contrast with the no-vaccine model.
+              Adapt the Python code from <xref ref="activity-seir-model-pertussis-setup"/> to run the model with a vaccine level at least as large as <m>p_{\text{crit}}</m>. To include vaccine, multiply each term involving <m>\beta SI</m> by <m>(1-p)</m>. Adjust the time scale, show just some of the solution curve graphs, or make any other changes needed, to best see the long-term outcome of the model. Write your observations of the outcomes of this model, and compare and contrast with the no-vaccine model.
             </p>
           </li>
           <li>
