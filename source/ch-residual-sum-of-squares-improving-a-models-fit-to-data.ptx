@@ -280,8 +280,6 @@
                     import matplotlib.pyplot as plt
                     from scipy.integrate import odeint
 
-                    plt.cla() #Clear (delete) any past plots
-
                     #Include data from the Zombie Game App
                     t_steps = [0, 1, 2, 3, 4, 5, 6]
                     I_data = [1, 2, 4, 10, 22, 40, 50]
@@ -336,19 +334,19 @@
               </li>
               <li>
                 <p>
-                  In line 27, the code <c>I_data[x] - sol[10*x, 1]</c> starts with the data value given by <c>I_data[x]</c> and subtracts the model value given by <c>sol[10*x, 1]</c>. 
+                  In line 25, the code <c>I_data[x] - sol[10*x, 1]</c> starts with the data value given by <c>I_data[x]</c> and subtracts the model value given by <c>sol[10*x, 1]</c>. 
                 </p>
                 <p>
-                  The <c>x</c> in <c>I_data[x]</c> is determined by the range of <c>x</c> values shown in line 26: <c>range(0,7)</c> tells Python to allow <c>x</c> to equal 0, 1, 2, 3, 4, 5, and 6. Python ranges do not include the last number shown, so 7 is not included in <c>range(0,7)</c>. 
+                  The <c>x</c> in <c>I_data[x]</c> is determined by the range of <c>x</c> values shown in line 24: <c>range(0,7)</c> tells Python to allow <c>x</c> to equal 0, 1, 2, 3, 4, 5, and 6. Python ranges do not include the last number shown, so 7 is not included in <c>range(0,7)</c>. 
                 </p>
                 <p>
-                  When <c>x</c> equals 0, <c>I_data[0]</c> equals the initial value of the <c>I_data</c> list in line 10, that is, <c>I_data[0]</c> equals 1. Then <c>I_data[1]</c> equals 2, <c>I_data[2]</c> equals 4, and so on, continuing until <c>I_data[6]</c> equals 50.
+                  When <c>x</c> equals 0, <c>I_data[0]</c> equals the initial value of the <c>I_data</c> list in line 8, that is, <c>I_data[0]</c> equals 1. Then <c>I_data[1]</c> equals 2, <c>I_data[2]</c> equals 4, and so on, continuing until <c>I_data[6]</c> equals 50.
                 </p>
                 <p>
                   The code <c>sol[10*x, 1]</c> examines Python's list of model solutions, which we have named <c>sol</c>. To see the full list <c>sol</c>, you can add a new line of code at the end of the Python block, and in that line, type <c>print(sol)</c>. Running the Python block with the <c>print(sol)</c> command shows that the list <c>sol</c> is arranged into rows and columns. Each row shows the value of both <m>S(t)</m> and <m>I(t)</m> at a specific time value. The initial column, which Python labels column <c>0</c>, shows the values of <m>S(t)</m> at all times we computed. The next column, which Python labels column <c>1</c>, shows the values of <m>I(t)</m> at all times we computed. 
                 </p>
                 <p>
-                  The times for which we compute solutions are determined by the command <c>t_range = np.arange(0.0, 8.0, 0.1)</c> in line 20. This command says to compute solutions starting at time 0.0, and ending at time 8.0, moving in time increments of 0.1. This means we compute solutions at times 0.0, 0.1, 0.2, and so on, with the last solutions computed at time 7.9. To see the values in <c>t_range</c>, you can add a new line of code: <c>print(t_range)</c>. Running the Python block with the command <c>print(t_range)</c> shows the list of all <c>t_range</c> values. 
+                  The times for which we compute solutions are determined by the command <c>t_range = np.arange(0.0, 8.0, 0.1)</c> in line 18. This command says to compute solutions starting at time 0.0, and ending at time 8.0, moving in time increments of 0.1. This means we compute solutions at times 0.0, 0.1, 0.2, and so on, with the last solutions computed at time 7.9. To see the values in <c>t_range</c>, you can add a new line of code: <c>print(t_range)</c>. Running the Python block with the command <c>print(t_range)</c> shows the list of all <c>t_range</c> values. 
                 </p>
               </li>
               <li>
@@ -367,7 +365,7 @@
               </li>
               <li>
                 <p>
-                  This is open-ended. Values of <m>\beta</m> that are closer to <m>0.02</m> tend to produce a better fit of model to data, compared with the starting value of <m>\beta = 0.03</m>. You may wish to change additional decimal places <m>\beta</m> to improve the fit even further.   
+                  This is open-ended. Values of <m>\beta</m> that are closer to <m>0.02</m> tend to produce a better fit of model to data, compared with the starting value of <m>\beta = 0.03</m>. You may wish to change additional decimal places of <m>\beta</m> to improve the fit even further.   
                 </p>
                 <p>
                   It is also appropriate to give visual (graph-based) and verbal (word-based) descriptions of changes in the graph of model and data, as the value of <m>\beta</m> changes.
@@ -383,16 +381,93 @@
       
     </section>
 
-    <section xml:id="sec-ra">
-      <title></title>
+    <section xml:id="sec-residual-sum-of-squares-quickly-comparing-multiple-parameter-values">
+      <title>Residual Sum of Squares: Quickly Comparing Multiple Parameter Values</title>
+
+      <p>
+        As we saw in <xref ref="sec-residual-sum-of-squares-introduction"/>, we can compare a model with data by trying different parameter values, such as by allowing <m>\beta</m> to take on different values. In the Python code block within <xref ref="activity-rss-intro"/>, for every value of <m>\beta</m> we wanted to try, we had to change the value of <m>\beta</m> within the code and run the code again. Next, we wrap another <c>for</c> loop around the RSS <c>for</c> loop, so that we can test multiple values of <m>\beta</m> with one click of the <c>Evaluate</c> button.
+      </p>
+
+      <activity xml:id="activity-rss-beta-loop">
+        <statement>
+          <p>
+            This Activity focuses on coding, with the goal of comparing RSS values for multiple values of a parameter without having to run Python code separately for every value of that parameter. Instead, read the code in the Python block below, and use what you read to answer the questions that follow.  
+          </p>
+          <sage>
+            <input>
+              #Import packages 
+              import numpy as np 
+              import matplotlib.pyplot as plt  
+              from scipy.integrate import odeint
+              
+              #Include data from the Zombie Game App 
+              t_steps = [0, 1, 2, 3, 4, 5, 6]
+              I_data = [1, 2, 4, 10, 22, 40, 50]
+              
+              #Define the system of differential equations, and call it "hz"
+              def hz(y, t):
+                s, i = y #Define y as consisting of s and i, in that order
+                dydt = [-beta * s * i, beta * s * i] # These are the right-hand sides of the SI model
+                return dydt
+                
+              y0 = [49, 1] #Set initial values for Susceptibles and Infectious, in that order
+              t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, the set the size of the time steps to use when "stepping through" to numerically solve the system of differential equations
+              
+              for multiplier in range(1,6):
+                beta = 0.01 * multiplier
+                sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+                RSS = 0 #Initialize the value of RSS to be 0
+                for x in range(0,7):
+                  new_square = (I_data[x] - sol[10*x, 1])**2
+                  #print("Squared distance at time", x, "=", new_square)
+                  RSS = RSS + new_square
+                print("RSS when beta equals", round(beta,4), ":", round(RSS,4))
+            </input>
+            <output>
+              
+            </output>
+          </sage>
+          <ol>
+            <li>
+              <p>
+                Try a
+              </p>
+            </li>
+            <li>
+              <p>
+                Next, 
+              </p>
+            </li>
+            <li>
+              <p>
+                Then  
+              </p>
+            </li>
+          </ol>
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                At  
+              </p>
+            </li>
+            <li>
+              <p>
+                The  
+              </p>
+            </li>
+          </ol>
+        </answer> 
+      </activity>
 
       
-
-      <!-- <p>Use Bates flu data? Introduce RSS. Discuss improving model fit and show how to do it. Emphasize (!!!!!!!) biological suitability of parameter choices, noise in data, etc. Consider developing a range of very good parameters, rather than imagining there is some set of "best" parameters.</p> -->
     </section>
 
     <section xml:id="sec-gx">
       <title>Influenza Data and RSS</title>
+
+      <!-- <p>Use Bates flu data? Introduce RSS. Discuss improving model fit and show how to do it. Emphasize (!!!!!!!) biological suitability of parameter choices, noise in data, etc. Consider developing a range of very good parameters, rather than imagining there is some set of "best" parameters.</p> -->
 
       <p>
         Now try computing RSS using the influenza prevalence data. The data are already written into the code block below. Time 0 is the same as October 6.
