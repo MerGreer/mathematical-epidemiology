@@ -430,22 +430,12 @@
           <ol>
             <li>
               <p>
-                Try a
-              </p>
-            </li>
-            <li>
-              <p>
-                Next, 
-              </p>
-            </li>
-            <li>
-              <p>
-                Then  
+                (Questions to appear)
               </p>
             </li>
           </ol>
         </statement>
-        <answer>
+        <!-- <answer>
           <ol>
             <li>
               <p>
@@ -458,7 +448,7 @@
               </p>
             </li>
           </ol>
-        </answer> 
+        </answer>  -->
       </activity>
 
       
@@ -473,9 +463,9 @@
         Now try computing RSS using the influenza prevalence data. The data are already written into the code block below. Time 0 is the same as October 6.
       </p>
 
-      <p>
+      <!-- <p>
         Notice in the line <c>RSS = RSS + (I_prevalence_data[x] - sol[0 + 10 * x, 1])**2</c> that instead of writing <c>sol[0 + 10 * x, 0]</c> we write <c>sol[0 + 10 * x, 1]</c>. Changing the <c>0</c> to a <c>1</c> tells Python to use the next column of model values from the array of S, I, and R values, that is, to use column 1 of Infectious values rather than column 0 of Susceptible values. It is important to choose the correct column of model values when comparing with data values.
-      </p>
+      </p> -->
 
       
 
@@ -529,5 +519,84 @@
 
     
   </section>
+
+  <exercises xml:id="exercises-ch-rss">
+    <exercise number="1">
+      <p>
+      As described starting on page 356 of Mathematical Models in Population Biology and Epidemiology, second edition, by Fred Brauer and Carlos Castillo-Chavez, the village of Eyam, in England, was affected by bubonic plague in 1665-1666. There were two separate plague outbreaks, and <xref ref="table-rss-eyam"/> shows data for the second of these outbreaks. 
+      </p>         
+      <table xml:id="table-rss-eyam">
+        <title>Plague Data from Eyam, 1666</title>
+        <tabular halign="center">
+          <row header="yes">
+            <cell>Date (Day) </cell>
+            <cell>Susceptibles </cell>
+            <cell>Infectious</cell>
+          </row>
+          <row>
+            <cell>July 3/4 (Day 0)</cell>
+            <cell>235</cell>
+            <cell>14.5</cell>
+          </row>
+          <row>
+            <cell>July 19 (Day 15.5)</cell>
+            <cell>201</cell>
+            <cell>22</cell>
+          </row>
+          <row>
+            <cell>August 3/4 (Day 31)</cell>
+            <cell>153.5</cell>
+            <cell>29</cell>
+          </row>
+          <row>
+            <cell>August 19 (Day 46.5)</cell>
+            <cell>121</cell>
+            <cell>21</cell>
+          </row>
+          <row>
+            <cell>September 3/4 (Day 62)</cell>
+            <cell>108</cell>
+            <cell>8</cell>
+          </row>
+          <row>
+            <cell>September 19 (Day 77.5)</cell>
+            <cell>97</cell>
+            <cell>8</cell>
+          </row>
+          <row>
+            <cell>October 4/5 (Day 93)</cell>
+            <cell>Unknown</cell>
+            <cell>Unknown</cell>
+          </row>
+          <row>
+            <cell>October 20 (Day 108.5)</cell>
+            <cell>83</cell>
+            <cell>0</cell>
+          </row>
+        </tabular>
+      </table> 
+      <ol>
+        <li>
+          <p>
+            Use Python to plot these data.
+          </p>
+        </li>
+        <li>
+          <p>
+            Then, use the information that we start with a population of 250 people, the infectious period was 11 days, and <m>\mathcal{R}_0</m> has been estimated to be between 1.6 and 1.9, to construct an SIR model for this outbreak.
+          </p>
+        </li>
+        <li>
+          <p>
+            Then use an RSS approach, along with the data and your SIR model, to select a preferred value of <m>\beta</m> for this SIR model. You may choose to compute <m>(\mbox{Data Value} - \mbox{Model Output})^2</m> separately for each day on which population values are available, or you can use a Python <c>for</c> loop for the six consecutive data points, and then add in <m>(\mbox{Data Value} - \mbox{Model Output})^2</m> for the October 20 data, in order to complete each total RSS value. Additionally, be sure that Python selects the correct value from its model output: this will require changing the <c>10</c> in the <c>sol[10*x, 1]</c> part of the code.
+          </p>
+          <p>
+            In your homework, show your Python code, and show at least three different values of <m>\beta</m> that you tried, along with the corresponding RSS value for each value of <m>\beta</m>. Which value of <m>\beta</m> leads to the smallest RSS value? Confirm that this value of <m>\beta</m> makes biological sense, based on the numbers or ranges of numbers we know for <m>N</m>, <m>\mathcal{R}_0</m>, and <m>\gamma</m>.
+          </p>
+        </li>
+      </ol>
+    </exercise>
+
+   </exercises>
 
   </chapter>
