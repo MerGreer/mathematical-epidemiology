@@ -310,6 +310,12 @@ sagecell.makeSagecell({
 #activity-rss-intro-2-1 { counter-set: activity-rss-intro-2-1 0; }
 #activity-rss-intro-2-1 > li::marker { content: ""counter(activity-rss-intro-2-1,decimal)"."; }
 #activity-rss-intro-2-1 > li { counter-increment: activity-rss-intro-2-1; }
+#activity-rss-beta-loop-1-3 { counter-set: activity-rss-beta-loop-1-3 0; }
+#activity-rss-beta-loop-1-3 > li::marker { content: ""counter(activity-rss-beta-loop-1-3,decimal)"."; }
+#activity-rss-beta-loop-1-3 > li { counter-increment: activity-rss-beta-loop-1-3; }
+#exercises-ch-rss-1-3 { counter-set: exercises-ch-rss-1-3 0; }
+#exercises-ch-rss-1-3 > li::marker { content: "("counter(exercises-ch-rss-1-3,lower-alpha)")"; }
+#exercises-ch-rss-1-3 > li { counter-increment: exercises-ch-rss-1-3; }
 #expl-activity-next-generation-method-3-1-2 { counter-set: expl-activity-next-generation-method-3-1-2 0; }
 #expl-activity-next-generation-method-3-1-2 > li::marker { content: ""counter(expl-activity-next-generation-method-3-1-2,decimal)"."; }
 #expl-activity-next-generation-method-3-1-2 > li { counter-increment: expl-activity-next-generation-method-3-1-2; }
@@ -456,8 +462,9 @@ sagecell.makeSagecell({
 <div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">* Residual Sum of Squares: Improving a Model’s Fit to Data</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-residual-sum-of-squares-introduction" class="internal"><span class="codenumber">10.1</span> <span class="title">Residual Sum of Squares: An Introduction</span></a></div></li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-ra" class="internal"><span class="codenumber">10.2</span> <span class="title"></span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-residual-sum-of-squares-quickly-comparing-multiple-parameter-values" class="internal"><span class="codenumber">10.2</span> <span class="title">Residual Sum of Squares: Quickly Comparing Multiple Parameter Values</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-gx" class="internal"><span class="codenumber">10.3</span> <span class="title">Influenza Data and RSS</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#exercises-ch-rss" class="internal"><span class="codenumber">10.4</span> <span class="title">For Further Thought</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -524,7 +531,7 @@ sagecell.makeSagecell({
 </div></li>
 <li id="intro-RSS-1-1-2"><div class="para" id="intro-RSS-1-1-2-1">Understand how a “for” loop in Python helps us test many possible values of <span class="process-math">\(\beta\)</span> with one click of the <code class="code-inline tex2jax_ignore">Evaluate</code> button</div></li>
 <li id="intro-RSS-1-1-3"><div class="para" id="intro-RSS-1-1-3-1">Ensure that the results from our math-and-coding-based approach to estimating <span class="process-math">\(\beta\)</span> make biological sense</div></li>
-</ul></article> <div class="para" id="intro-RSS-2">So far, we have estimated <span class="process-math">\(\beta\)</span> in two ways: (1) visually, making adjustments so that data and graphs are closer together, starting in <a href="ch-visualization-graphing-model-results-and-data.html" class="internal" title="Chapter 3: Visualization: Graphing Model Results and Data">Chapter 3</a>, and (2) using a formula involving <span class="process-math">\(\mathcal{R}_0\)</span> and parameters from our model, such as in <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-12" class="internal" title="Equation 5.1">(5.1)</a> and <a href="ch-incubation-periods.html#sec-including-an-incubation-period-the-seir-model-14" class="internal" title="Equation 7.3">(7.3)</a>, to substitute in values we could find from epidemiological information and solve for <span class="process-math">\(\beta\text{,}\)</span> which is typically the only unknown value in the formula. In this chapter, we learn a new approach.</div> <div class="para" id="intro-RSS-3">Begin in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#expl-RSS" class="internal" title="Exploration 10.1: Visually Demonstrating Differences Between a Model and Data">Exploration 10.1</a> by examining data points as well as values determined by an SI model. In this exploration, think about mathematical approaches to improve the model’s fit to data.</div> <article class="exploration project-like" id="expl-RSS"><h3 class="heading">
+</ul></article> <div class="para" id="intro-RSS-2">So far, we have estimated <span class="process-math">\(\beta\)</span> in two ways: (1) visually, making adjustments so that data and graphs are closer together, starting in <a href="ch-visualization-graphing-model-results-and-data.html" class="internal" title="Chapter 3: Visualization: Graphing Model Results and Data">Chapter 3</a>, and (2) using a formula involving <span class="process-math">\(\mathcal{R}_0\)</span> and parameters from our model, such as in <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-12" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a> and <a href="ch-incubation-periods.html#sec-including-an-incubation-period-the-seir-model-14" class="xref" data-knowl="./knowl/xref/eq-R0-seir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 7.3">(7.3)</a>, to substitute in values we could find from epidemiological information and solve for <span class="process-math">\(\beta\text{,}\)</span> which is typically the only unknown value in the formula. In this chapter, we learn a new approach.</div> <div class="para" id="intro-RSS-3">Begin in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#expl-RSS" class="xref" data-knowl="./knowl/xref/expl-RSS.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 10.1: Visually Demonstrating Differences Between a Model and Data">Exploration 10.1</a> by examining data points as well as values determined by an SI model. In this exploration, think about mathematical approaches to improve the model’s fit to data.</div> <article class="exploration project-like" id="expl-RSS"><h3 class="heading">
 <span class="type">Exploration</span><span class="space"> </span><span class="codenumber">10.1</span><span class="period">.</span><span class="space"> </span><span class="title">Visually Demonstrating Differences Between a Model and Data.</span>
 </h3>
 <div class="introduction" id="expl-RSS-2">
@@ -585,11 +592,11 @@ plt.show()
 </ol></article></article></section><section class="section" id="sec-residual-sum-of-squares-introduction"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">10.1</span><span class="space"> </span><span class="title">Residual Sum of Squares: An Introduction</span>
 </h3>
-<div class="para" id="sec-residual-sum-of-squares-introduction-2">One way to compare data with the output of a model is by computing the Residual Sum of Squares, often abbreviated to RSS. When we work with a single model to try to improve the fit of the model to a data set, RSS is a good option. <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#activity-rss-intro" class="internal" title="Activity 10.2">Activity 10.2</a> shows the process of computing RSS for a model with one choice for a value of <span class="process-math">\(\beta\text{.}\)</span> Later, we show how to compare RSS for different values of <span class="process-math">\(\beta\)</span> used in the same model.</div>
+<div class="para" id="sec-residual-sum-of-squares-introduction-2">One way to compare data with the output of a model is by computing the Residual Sum of Squares, often abbreviated to RSS. When we work with a single model to try to improve the fit of the model to a data set, RSS is a good option. <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#activity-rss-intro" class="xref" data-knowl="./knowl/xref/activity-rss-intro.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 10.2">Activity 10.2</a> shows the process of computing RSS for a model with one choice for a value of <span class="process-math">\(\beta\text{.}\)</span> Later, we show how to compare RSS for different values of <span class="process-math">\(\beta\)</span> used in the same model.</div>
 <article class="activity project-like" id="activity-rss-intro"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">10.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="activity-rss-intro-1-1">In <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#expl-RSS" class="internal" title="Exploration 10.1: Visually Demonstrating Differences Between a Model and Data">Exploration 10.1</a> we worked with both a data set, and model output, for times <span class="process-math">\(t=0, 1, 2, 3, 4, 5, 6\text{.}\)</span> The values appear in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="internal" title="Table 10.1: SI Model: Data Values and Model Output">Table 10.1</a>, with model values rounded to two decimal places.</div> <figure class="table table-like" id="table-si-model-data-values-and-model-output"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">10.1<span class="period">.</span></span><span class="space"> </span>SI Model: Data Values and Model Output</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<div class="para" id="activity-rss-intro-1-1">In <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#expl-RSS" class="xref" data-knowl="./knowl/xref/expl-RSS.html" data-reveal-label="Reveal" data-close-label="Close" title="Exploration 10.1: Visually Demonstrating Differences Between a Model and Data">Exploration 10.1</a> we worked with both a data set, and model output, for times <span class="process-math">\(t=0, 1, 2, 3, 4, 5, 6\text{.}\)</span> The values appear in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="xref" data-knowl="./knowl/xref/table-si-model-data-values-and-model-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.1: SI Model: Data Values and Model Output">Table 10.1</a>, with model values rounded to two decimal places.</div> <figure class="table table-like" id="table-si-model-data-values-and-model-output"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">10.1<span class="period">.</span></span><span class="space"> </span>SI Model: Data Values and Model Output</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b0 r0 l0 t0 lines">Time</th>
 <th scope="col" class="c m b0 r0 l0 t0 lines">Data Value</th>
@@ -630,16 +637,14 @@ plt.show()
 <td class="c m b0 r0 l0 t0 lines">50</td>
 <td class="c m b0 r0 l0 t0 lines">49.70</td>
 </tr>
-</table></div></figure> <div class="para" id="activity-rss-intro-1-3">RSS compares each Data Value from <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="internal" title="Table 10.1: SI Model: Data Values and Model Output">Table 10.1</a> with the Model Output from the same time by subtracting one from the other and squaring the result.</div> <ol class="decimal" id="activity-rss-intro-1-4">
-<li id="activity-rss-intro-1-4-1"><div class="para" id="activity-rss-intro-1-4-1-1">Try at least two of these comparisons on your own: for times <span class="process-math">\(t=1\)</span> and <span class="process-math">\(t=2\text{,}\)</span> subtract the Model Output in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="internal" title="Table 10.1: SI Model: Data Values and Model Output">Table 10.1</a> from the corresponding Data Value and square the result. Later in this activity, we will compare these hand-computed values with the corresponding values computed via Python.</div></li>
+</table></div></figure> <div class="para" id="activity-rss-intro-1-3">RSS compares each Data Value from <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="xref" data-knowl="./knowl/xref/table-si-model-data-values-and-model-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.1: SI Model: Data Values and Model Output">Table 10.1</a> with the Model Output from the same time by subtracting one from the other and squaring the result.</div> <ol class="decimal" id="activity-rss-intro-1-4">
+<li id="activity-rss-intro-1-4-1"><div class="para" id="activity-rss-intro-1-4-1-1">Try at least two of these comparisons on your own: for times <span class="process-math">\(t=1\)</span> and <span class="process-math">\(t=2\text{,}\)</span> subtract the Model Output in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="xref" data-knowl="./knowl/xref/table-si-model-data-values-and-model-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.1: SI Model: Data Values and Model Output">Table 10.1</a> from the corresponding Data Value and square the result. Later in this activity, we will compare these hand-computed values with the corresponding values computed via Python.</div></li>
 <li id="activity-rss-intro-1-4-2">
 <div class="para" id="activity-rss-intro-1-4-2-1">Next, read the code block below to identify where in the code, and how, we subtract each Model Output from its corresponding Data Value. Also identify where and how the code adds up all the squared differences to produce a total value for RSS.</div>
 <pre id="activity-rss-intro-1-4-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
-
-plt.cla() #Clear (delete) any past plots
 
 #Include data from the Zombie Game App
 t_steps = [0, 1, 2, 3, 4, 5, 6]
@@ -677,30 +682,61 @@ print("RSS = ", RSS)
 <li id="activity-rss-intro-2-1-1"><div class="para" id="activity-rss-intro-2-1-1-1">At time <span class="process-math">\(t=1\text{,}\)</span> compute <span class="process-math">\((4.19-2)^2\)</span> to get the value <span class="process-math">\(4.7961\text{.}\)</span> At time <span class="process-math">\(t=2\text{,}\)</span> compute <span class="process-math">\((14.54-4)^2\)</span> to get the value <span class="process-math">\(111.0916\text{.}\)</span>
 </div></li>
 <li id="activity-rss-intro-2-1-2">
-<div class="para" id="activity-rss-intro-2-1-2-1">In line 27, the code <code class="code-inline tex2jax_ignore">I_data[x] - sol[10*x, 1]</code> starts with the data value given by <code class="code-inline tex2jax_ignore">I_data[x]</code> and subtracts the model value given by <code class="code-inline tex2jax_ignore">sol[10*x, 1]</code>.</div>
-<div class="para" id="activity-rss-intro-2-1-2-2">The <code class="code-inline tex2jax_ignore">x</code> in <code class="code-inline tex2jax_ignore">I_data[x]</code> is determined by the range of <code class="code-inline tex2jax_ignore">x</code> values shown in line 26: <code class="code-inline tex2jax_ignore">range(0,7)</code> tells Python to allow <code class="code-inline tex2jax_ignore">x</code> to equal 0, 1, 2, 3, 4, 5, and 6. Python ranges do not include the last number shown, so 7 is not included in <code class="code-inline tex2jax_ignore">range(0,7)</code>.</div>
-<div class="para" id="activity-rss-intro-2-1-2-3">When <code class="code-inline tex2jax_ignore">x</code> equals 0, <code class="code-inline tex2jax_ignore">I_data[0]</code> equals the initial value of the <code class="code-inline tex2jax_ignore">I_data</code> list in line 10, that is, <code class="code-inline tex2jax_ignore">I_data[0]</code> equals 1. Then <code class="code-inline tex2jax_ignore">I_data[1]</code> equals 2, <code class="code-inline tex2jax_ignore">I_data[2]</code> equals 4, and so on, continuing until <code class="code-inline tex2jax_ignore">I_data[6]</code> equals 50.</div>
+<div class="para" id="activity-rss-intro-2-1-2-1">In line 25, the code <code class="code-inline tex2jax_ignore">I_data[x] - sol[10*x, 1]</code> starts with the data value given by <code class="code-inline tex2jax_ignore">I_data[x]</code> and subtracts the model value given by <code class="code-inline tex2jax_ignore">sol[10*x, 1]</code>.</div>
+<div class="para" id="activity-rss-intro-2-1-2-2">The <code class="code-inline tex2jax_ignore">x</code> in <code class="code-inline tex2jax_ignore">I_data[x]</code> is determined by the range of <code class="code-inline tex2jax_ignore">x</code> values shown in line 24: <code class="code-inline tex2jax_ignore">range(0,7)</code> tells Python to allow <code class="code-inline tex2jax_ignore">x</code> to equal 0, 1, 2, 3, 4, 5, and 6. Python ranges do not include the last number shown, so 7 is not included in <code class="code-inline tex2jax_ignore">range(0,7)</code>.</div>
+<div class="para" id="activity-rss-intro-2-1-2-3">When <code class="code-inline tex2jax_ignore">x</code> equals 0, <code class="code-inline tex2jax_ignore">I_data[0]</code> equals the initial value of the <code class="code-inline tex2jax_ignore">I_data</code> list in line 8, that is, <code class="code-inline tex2jax_ignore">I_data[0]</code> equals 1. Then <code class="code-inline tex2jax_ignore">I_data[1]</code> equals 2, <code class="code-inline tex2jax_ignore">I_data[2]</code> equals 4, and so on, continuing until <code class="code-inline tex2jax_ignore">I_data[6]</code> equals 50.</div>
 <div class="para" id="activity-rss-intro-2-1-2-4">The code <code class="code-inline tex2jax_ignore">sol[10*x, 1]</code> examines Python’s list of model solutions, which we have named <code class="code-inline tex2jax_ignore">sol</code>. To see the full list <code class="code-inline tex2jax_ignore">sol</code>, you can add a new line of code at the end of the Python block, and in that line, type <code class="code-inline tex2jax_ignore">print(sol)</code>. Running the Python block with the <code class="code-inline tex2jax_ignore">print(sol)</code> command shows that the list <code class="code-inline tex2jax_ignore">sol</code> is arranged into rows and columns. Each row shows the value of both <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(I(t)\)</span> at a specific time value. The initial column, which Python labels column <code class="code-inline tex2jax_ignore">0</code>, shows the values of <span class="process-math">\(S(t)\)</span> at all times we computed. The next column, which Python labels column <code class="code-inline tex2jax_ignore">1</code>, shows the values of <span class="process-math">\(I(t)\)</span> at all times we computed.</div>
-<div class="para" id="activity-rss-intro-2-1-2-5">The times for which we compute solutions are determined by the command <code class="code-inline tex2jax_ignore">t_range = np.arange(0.0, 8.0, 0.1)</code> in line 20. This command says to compute solutions starting at time 0.0, and ending at time 8.0, moving in time increments of 0.1. This means we compute solutions at times 0.0, 0.1, 0.2, and so on, with the last solutions computed at time 7.9. To see the values in <code class="code-inline tex2jax_ignore">t_range</code>, you can add a new line of code: <code class="code-inline tex2jax_ignore">print(t_range)</code>. Running the Python block with the command <code class="code-inline tex2jax_ignore">print(t_range)</code> shows the list of all <code class="code-inline tex2jax_ignore">t_range</code> values.</div>
+<div class="para" id="activity-rss-intro-2-1-2-5">The times for which we compute solutions are determined by the command <code class="code-inline tex2jax_ignore">t_range = np.arange(0.0, 8.0, 0.1)</code> in line 18. This command says to compute solutions starting at time 0.0, and ending at time 8.0, moving in time increments of 0.1. This means we compute solutions at times 0.0, 0.1, 0.2, and so on, with the last solutions computed at time 7.9. To see the values in <code class="code-inline tex2jax_ignore">t_range</code>, you can add a new line of code: <code class="code-inline tex2jax_ignore">print(t_range)</code>. Running the Python block with the command <code class="code-inline tex2jax_ignore">print(t_range)</code> shows the list of all <code class="code-inline tex2jax_ignore">t_range</code> values.</div>
 </li>
 <li id="activity-rss-intro-2-1-3">
-<div class="para" id="activity-rss-intro-2-1-3-1">The code produces the value <span class="process-math">\(4.795784246749833\)</span> for the squared distance at time <span class="process-math">\(t=1\text{.}\)</span> Our hand-computed value from part (1) of this Activity was <span class="process-math">\(4.7961\text{.}\)</span> We see that these values are very close to each other. The difference between them is due to our rounding the values in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="internal" title="Table 10.1: SI Model: Data Values and Model Output">Table 10.1</a> to two decimal points.</div>
+<div class="para" id="activity-rss-intro-2-1-3-1">The code produces the value <span class="process-math">\(4.795784246749833\)</span> for the squared distance at time <span class="process-math">\(t=1\text{.}\)</span> Our hand-computed value from part (1) of this Activity was <span class="process-math">\(4.7961\text{.}\)</span> We see that these values are very close to each other. The difference between them is due to our rounding the values in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-si-model-data-values-and-model-output" class="xref" data-knowl="./knowl/xref/table-si-model-data-values-and-model-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.1: SI Model: Data Values and Model Output">Table 10.1</a> to two decimal points.</div>
 <div class="para" id="activity-rss-intro-2-1-3-2">Similarly, the code produces the value <span class="process-math">\(111.02234652523701\)</span> for the squared distance at time <span class="process-math">\(t=2\text{,}\)</span> whereas our hand-computed value from part (1) of this Activity was <span class="process-math">\(111.0916\text{.}\)</span> Again, the difference in values is due to rounding.</div>
 <div class="para" id="activity-rss-intro-2-1-3-3">From here, make additional observations. This is open-ended. Observations may include noticing that the squared distances are notably larger when the data point is further from the value on the solution curve of the model, compared with when the data point is close to the value on the solution curve of the model. There may also be observations about the overall number computed for RSS. This overall RSS number is helpful when we reach part (4) and try to improve the fit of the model to data</div>
 <div class="para" id="activity-rss-intro-2-1-3-4">Many other observations are possible.</div>
 </li>
 <li id="activity-rss-intro-2-1-4">
-<div class="para" id="activity-rss-intro-2-1-4-1">This is open-ended. Values of <span class="process-math">\(\beta\)</span> that are closer to <span class="process-math">\(0.02\)</span> tend to produce a better fit of model to data, compared with the starting value of <span class="process-math">\(\beta = 0.03\text{.}\)</span> You may wish to change additional decimal places <span class="process-math">\(\beta\)</span> to improve the fit even further.</div>
+<div class="para" id="activity-rss-intro-2-1-4-1">This is open-ended. Values of <span class="process-math">\(\beta\)</span> that are closer to <span class="process-math">\(0.02\)</span> tend to produce a better fit of model to data, compared with the starting value of <span class="process-math">\(\beta = 0.03\text{.}\)</span> You may wish to change additional decimal places of <span class="process-math">\(\beta\)</span> to improve the fit even further.</div>
 <div class="para" id="activity-rss-intro-2-1-4-2">It is also appropriate to give visual (graph-based) and verbal (word-based) descriptions of changes in the graph of model and data, as the value of <span class="process-math">\(\beta\)</span> changes.</div>
 </li>
-</ol></div></details></div></article></section><section class="section" id="sec-ra"><h3 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">10.2</span><span class="space"> </span><span class="title"></span>
-</h3></section><section class="section" id="sec-gx"><h3 class="heading hide-type">
+</ol></div></details></div></article></section><section class="section" id="sec-residual-sum-of-squares-quickly-comparing-multiple-parameter-values"><h3 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">10.2</span><span class="space"> </span><span class="title">Residual Sum of Squares: Quickly Comparing Multiple Parameter Values</span>
+</h3>
+<div class="para" id="sec-residual-sum-of-squares-quickly-comparing-multiple-parameter-values-2">As we saw in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-residual-sum-of-squares-introduction" class="internal" title="Section 10.1: Residual Sum of Squares: An Introduction">Section 10.1</a>, we can compare a model with data by trying different parameter values, such as by allowing <span class="process-math">\(\beta\)</span> to take on different values. In the Python code block within <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#activity-rss-intro" class="xref" data-knowl="./knowl/xref/activity-rss-intro.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 10.2">Activity 10.2</a>, for every value of <span class="process-math">\(\beta\)</span> we wanted to try, we had to change the value of <span class="process-math">\(\beta\)</span> within the code and run the code again. Next, we wrap another <code class="code-inline tex2jax_ignore">for</code> loop around the RSS <code class="code-inline tex2jax_ignore">for</code> loop, so that we can test multiple values of <span class="process-math">\(\beta\)</span> with one click of the <code class="code-inline tex2jax_ignore">Evaluate</code> button.</div>
+<article class="activity project-like" id="activity-rss-beta-loop"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">10.3</span><span class="period">.</span>
+</h4>
+<div class="para" id="activity-rss-beta-loop-1-1">This Activity focuses on coding, with the goal of comparing RSS values for multiple values of a parameter without having to run Python code separately for every value of that parameter. Instead, read the code in the Python block below, and use what you read to answer the questions that follow.</div> <pre id="activity-rss-beta-loop-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages 
+import numpy as np 
+import matplotlib.pyplot as plt  
+from scipy.integrate import odeint
+
+#Include data from the Zombie Game App 
+t_steps = [0, 1, 2, 3, 4, 5, 6]
+I_data = [1, 2, 4, 10, 22, 40, 50]
+
+#Define the system of differential equations, and call it "hz"
+def hz(y, t):
+  s, i = y #Define y as consisting of s and i, in that order
+  dydt = [-beta * s * i, beta * s * i] # These are the right-hand sides of the SI model
+  return dydt
+  
+y0 = [49, 1] #Set initial values for Susceptibles and Infectious, in that order
+t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, the set the size of the time steps to use when "stepping through" to numerically solve the system of differential equations
+
+for multiplier in range(1,6):
+  beta = 0.01 * multiplier
+  sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+  RSS = 0 #Initialize the value of RSS to be 0
+  for x in range(0,7):
+    new_square = (I_data[x] - sol[10*x, 1])**2
+    #print("Squared distance at time", x, "=", new_square)
+    RSS = RSS + new_square
+  print("RSS when beta equals", round(beta,4), ":", round(RSS,4))
+</script></pre> <ol class="decimal" id="activity-rss-beta-loop-1-3"><li id="activity-rss-beta-loop-1-3-1"><div class="para" id="activity-rss-beta-loop-1-3-1-1">(Questions to appear)</div></li></ol></article></section><section class="section" id="sec-gx"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">10.3</span><span class="space"> </span><span class="title">Influenza Data and RSS</span>
 </h3>
 <div class="para" id="sec-gx-2">Now try computing RSS using the influenza prevalence data. The data are already written into the code block below. Time 0 is the same as October 6.</div>
-<div class="para" id="sec-gx-3">Notice in the line <code class="code-inline tex2jax_ignore">RSS = RSS + (I_prevalence_data[x] - sol[0 + 10 * x, 1])**2</code> that instead of writing <code class="code-inline tex2jax_ignore">sol[0 + 10 * x, 0]</code> we write <code class="code-inline tex2jax_ignore">sol[0 + 10 * x, 1]</code>. Changing the <code class="code-inline tex2jax_ignore">0</code> to a <code class="code-inline tex2jax_ignore">1</code> tells Python to use the next column of model values from the array of S, I, and R values, that is, to use column 1 of Infectious values rather than column 0 of Susceptible values. It is important to choose the correct column of model values when comparing with data values.</div>
-<pre id="sec-gx-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+<pre id="sec-gx-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
@@ -740,7 +776,66 @@ for x in range(0,20):
     #print(RSS) #Uncomment this command to see in-between RSS calculations
 
 print("RSS = ", RSS)
-</script></pre></section></section></div>
+</script></pre></section><section class="exercises" id="exercises-ch-rss"><h3 class="heading hide-type">
+<span class="type">For Further Thought</span><span class="space"> </span><span class="codenumber">10.4</span><span class="space"> </span><span class="title">For Further Thought</span>
+</h3>
+<article class="exercise exercise-like" id="exercises-ch-rss-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-rss-1-1">As described starting on page 356 of Mathematical Models in Population Biology and Epidemiology, second edition, by Fred Brauer and Carlos Castillo-Chavez, the village of Eyam, in England, was affected by bubonic plague in 1665-1666. There were two separate plague outbreaks, and <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-rss-eyam" class="xref" data-knowl="./knowl/xref/table-rss-eyam.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.2: Plague Data from Eyam, 1666">Table 10.2</a> shows data for the second of these outbreaks.</div>
+<figure class="table table-like" id="table-rss-eyam"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">10.2<span class="period">.</span></span><span class="space"> </span>Plague Data from Eyam, 1666</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines">Date (Day)</th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Susceptibles</th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Infectious</th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">July 3/4 (Day 0)</td>
+<td class="c m b0 r0 l0 t0 lines">235</td>
+<td class="c m b0 r0 l0 t0 lines">14.5</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">July 19 (Day 15.5)</td>
+<td class="c m b0 r0 l0 t0 lines">201</td>
+<td class="c m b0 r0 l0 t0 lines">22</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">August 3/4 (Day 31)</td>
+<td class="c m b0 r0 l0 t0 lines">153.5</td>
+<td class="c m b0 r0 l0 t0 lines">29</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">August 19 (Day 46.5)</td>
+<td class="c m b0 r0 l0 t0 lines">121</td>
+<td class="c m b0 r0 l0 t0 lines">21</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">September 3/4 (Day 62)</td>
+<td class="c m b0 r0 l0 t0 lines">108</td>
+<td class="c m b0 r0 l0 t0 lines">8</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">September 19 (Day 77.5)</td>
+<td class="c m b0 r0 l0 t0 lines">97</td>
+<td class="c m b0 r0 l0 t0 lines">8</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">October 4/5 (Day 93)</td>
+<td class="c m b0 r0 l0 t0 lines">Unknown</td>
+<td class="c m b0 r0 l0 t0 lines">Unknown</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">October 20 (Day 108.5)</td>
+<td class="c m b0 r0 l0 t0 lines">83</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+</tr>
+</table></div></figure><ol class="lower-alpha" id="exercises-ch-rss-1-3">
+<li id="exercises-ch-rss-1-3-1"><div class="para" id="exercises-ch-rss-1-3-1-1">Use Python to plot these data.</div></li>
+<li id="exercises-ch-rss-1-3-2"><div class="para" id="exercises-ch-rss-1-3-2-1">Then, use the information that we start with a population of 250 people, the infectious period was 11 days, and <span class="process-math">\(\mathcal{R}_0\)</span> has been estimated to be between 1.6 and 1.9, to construct an SIR model for this outbreak.</div></li>
+<li id="exercises-ch-rss-1-3-3">
+<div class="para" id="exercises-ch-rss-1-3-3-1">Then use an RSS approach, along with the data and your SIR model, to select a preferred value of <span class="process-math">\(\beta\)</span> for this SIR model. You may choose to compute <span class="process-math">\((\mbox{Data Value} - \mbox{Model Output})^2\)</span> separately for each day on which population values are available, or you can use a Python <code class="code-inline tex2jax_ignore">for</code> loop for the six consecutive data points, and then add in <span class="process-math">\((\mbox{Data Value} - \mbox{Model Output})^2\)</span> for the October 20 data, in order to complete each total RSS value. Additionally, be sure that Python selects the correct value from its model output: this will require changing the <code class="code-inline tex2jax_ignore">10</code> in the <code class="code-inline tex2jax_ignore">sol[10*x, 1]</code> part of the code.</div>
+<div class="para" id="exercises-ch-rss-1-3-3-2">In your homework, show your Python code, and show at least three different values of <span class="process-math">\(\beta\)</span> that you tried, along with the corresponding RSS value for each value of <span class="process-math">\(\beta\text{.}\)</span> Which value of <span class="process-math">\(\beta\)</span> leads to the smallest RSS value? Confirm that this value of <span class="process-math">\(\beta\)</span> makes biological sense, based on the numbers or ranges of numbers we know for <span class="process-math">\(N\text{,}\)</span> <span class="process-math">\(\mathcal{R}_0\text{,}\)</span> and <span class="process-math">\(\gamma\text{.}\)</span>
+</div>
+</li>
+</ol></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="ch-preparing-influenza-data-to-compare-with-a-model.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-akaike-information-criterion-comparing-different-models.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
