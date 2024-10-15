@@ -456,27 +456,50 @@
           </answer>
         </li>
       </ol>
-      
 
-
-
-      <!-- <activity xml:id="activity-equilibrium-values">
+      <activity xml:id="activity-next-generation-practice-sirs">
         <statement>
           <p>
-            This   
+            Now that we have shown all the steps for computing a formula for <m>\mathcal{R}_0</m> in the SEIR model, try again for the SIRS model, shown in <xref ref="fig-SIRS-compartmental-diagram"/>. 
           </p>
-          <ol>              
+          <figure xml:id="fig-SIRS-compartmental-diagram">
+            <caption>The compartmental diagram for one possible SIRS model, where <q>S</q>stands for <q>Susceptible</q>, <q>I</q> stands for <q>Infectious</q>, and <q>R</q> stands for <q>Recovered</q>. In this model, individuals lose immunity some time after recovering. They then return to the S compartment.</caption>
+              <image width="80%">
+              <description>(Write this)</description>
+                <latex-image>
+                \begin{tikzpicture}
+                \draw [thick] [black] (0,0) -- (2,0);
+                \draw [thick] [black] (2,0) -- (2,2);
+                \draw [thick] [black] (2,2) -- (0,2);
+                \draw [thick] [black] (0,2) -- (0,0);
+                \node [black] at (1,1) {\Huge $S$};
+                \draw [thick] [->] (2.1,1) to (3.9,1); 
+                \node at (3,1.5) {\Large $\beta SI$};
+                \draw [thick] [black] (4,0) -- (6,0);
+                \draw [thick] [black] (6,0) -- (6,2);
+                \draw [thick] [black] (6,2) -- (4,2);
+                \draw [thick] [black] (4,2) -- (4,0);
+                \node [black] at (5,1) {\Huge $I$};
+                \draw [thick] [->] (6.1,1) to (7.9,1); 
+                \node at (7,1.5) {\Large $\gamma I$};
+                \draw [thick] [black] (8,0) -- (10,0);
+                \draw [thick] [black] (10,0) -- (10,2);
+                \draw [thick] [black] (10,2) -- (8,2);
+                \draw [thick] [black] (8,2) -- (8,0);
+                \node [black] at (9,1) {\Huge $R$};
+                \draw [thick] [black] (9,2.1) -- (9,2.5);
+                \draw [thick] [black] (9,2.5) -- (1,2.5);
+                \draw [thick] [->] (1,2.5) to (1,2.1); 
+                \node at (5,3) {\Large $\alpha R$};
+                \end{tikzpicture}
+                </latex-image>
+               </image>
+          </figure>
+          <ol>               
             <li>
               <p>
-                Consider the SI model below: 
+                
               </p>
-              <md>
-                <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
-                <mrow>\frac{dI}{dt} \amp =  \beta S I. </mrow>
-            </md>
-            <p>
-              For a
-            </p>
             </li> 
           </ol>          
         </statement>
@@ -489,9 +512,8 @@
             </li>
           </ol>
         </answer>
-      </activity> -->
-
-      
+      </activity>
+ 
       
     </section>
 
