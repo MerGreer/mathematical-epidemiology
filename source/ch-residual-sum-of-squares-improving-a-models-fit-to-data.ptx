@@ -406,12 +406,13 @@
               
               #Define the system of differential equations, and call it "hz"
               def hz(y, t):
-                s, i = y #Define y as consisting of s and i, in that order
-                dydt = [-beta * s * i, beta * s * i] # These are the right-hand sides of the SI model
+                s, i, r = y #Define y as consisting of s and i, in that order
+                dydt = [-beta * s * i, beta * s * i - gamma * i, gamma * i] # These are the right-hand sides of the SI model
                 return dydt
                 
-              y0 = [49, 1] #Set initial values for Susceptibles and Infectious, in that order
+              y0 = [49, 1, 0] #Set initial values for Susceptibles, Infectious, and Removed, in that order
               t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, the set the size of the time steps to use when "stepping through" to numerically solve the system of differential equations
+              gamma = 0.2 #Give a value to gamma
               
               for multiplier in range(1,6):
                 beta = 0.01 * multiplier
@@ -589,6 +590,9 @@
         <li>
           <p>
             Then use an RSS approach, along with the data and your SIR model, to select a preferred value of <m>\beta</m> for this SIR model. You may choose to compute <m>(\mbox{Data Value} - \mbox{Model Output})^2</m> separately for each day on which population values are available, or you can use a Python <c>for</c> loop for the six consecutive data points, and then add in <m>(\mbox{Data Value} - \mbox{Model Output})^2</m> for the October 20 data, in order to complete each total RSS value. Additionally, be sure that Python selects the correct value from its model output: this will require changing the <c>10</c> in the <c>sol[10*x, 1]</c> part of the code.
+          </p>
+          <p>
+            (NOTE for the Bates Mathematical Models in Biology course in Fall 2024: you may compute RSS for comparing the model with just the first six data points, rather than needing to include the last data point, and rather than needing to figure out how to skip over the "Unknown" data point. However, if you can find a way to include the last data point, go ahead and include it!)
           </p>
           <p>
             In your homework, show your Python code, and show at least three different values of <m>\beta</m> that you tried, along with the corresponding RSS value for each value of <m>\beta</m>. Which value of <m>\beta</m> leads to the smallest RSS value? Confirm that this value of <m>\beta</m> makes biological sense, based on the numbers or ranges of numbers we know for <m>N</m>, <m>\mathcal{R}_0</m>, and <m>\gamma</m>.
