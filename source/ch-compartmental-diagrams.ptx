@@ -74,7 +74,7 @@
       <title>Varying the Human<ndash />Zombie Game</title>
       <introduction>
         <p>
-          In the original <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url>, once an individual becomes a zombie, they are always a zombie. This means that no one leaves the Infectious compartment. 
+          In the original <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App,</url> once an individual becomes a zombie, they are always a zombie. This means that no one leaves the Infectious compartment. 
         </p>
         <p>
           Suppose, instead, that zombies do not last forever. Instead, after some number of days, the zombies die (again), or in other words, the zombies become inactive. The number of days they remain Infectious before becoming inactive can be stated in the app.
@@ -360,7 +360,7 @@
         <mrow xml:id="eq-gamma-estimate">\frac{1}{\gamma} \amp \approx \mbox{average length of time an individual spends in compartment I.} </mrow>
       </mdn>
       <p>
-        Another way to phrase this, when being in the I compartment corresponds to a person being infectious, is:
+        Another way to phrase this, when being in the I compartment corresponds to a person being infectious (however <q>infectious</q> is defined in a given model) is:
       </p>
       <mdn>
         <mrow xml:id="eq-gamma-estimate-2">\frac{1}{\gamma} \amp \approx \mbox{average length of time an individual is infectious.} </mrow>
@@ -458,12 +458,12 @@
     </exercise>
     <exercise number="2">
       <p>
-        Compare your response to exercise 1 in <xref ref="exercises-ch-compartmental-diagrams"/> with <url href="https://people.com/health/measles-outbreak-spreads-21-states-dc/">this article on measles</url> from <xref ref="ch-prelude-diseases-in-popular-news"/>. What are the similarities, and the differences, between how the CDC and People magazine describe how long measles is infectious? 
+        Compare your response to exercise 1 in <xref ref="exercises-ch-compartmental-diagrams"/> with <url href="https://people.com/health/measles-outbreak-spreads-21-states-dc/">this article on measles</url> from <xref ref="ch-prelude-diseases-in-popular-news"/>. What are the similarities, and the differences, between how the CDC and People magazine describe how long measles is infectious (where here, <q>infectious</q> means <q>contagious</q>)? 
       </p>           
     </exercise>
     <exercise number="3">
       <p>
-        Use the ideas and website suggestions of <xref ref="ch-prelude-diseases-in-popular-news"/> to determine how long individuals are infectious with RSV. Cite your source(s).<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn> Then suppose you are creating an SIR model for the spread of RSV. What value would you use for <m>\gamma</m>? Explain your reasoning.
+        Use the ideas and website suggestions of <xref ref="ch-prelude-diseases-in-popular-news"/> to determine how long individuals are infectious (here, meaning <q>contagious</q>) with RSV. Cite your source(s).<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn> Then suppose you are creating an SIR model for the spread of RSV. What value would you use for <m>\gamma</m>? Explain your reasoning.
       </p>
     </exercise>
   </exercises>

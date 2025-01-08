@@ -355,6 +355,9 @@
         It turns out that the SIR model, and many other compartmental models, can be connected with an epidemiological concept called the <term>basic reproduction number</term>. The basic reproduction number is <em>the average number of new infections caused by one infectious person in an otherwise entirely susceptible population</em>. This number is given the symbol <m>\mathcal{R}_0</m>, which is pronounced as <q>R zero</q> or <q>R nought</q>.
       </p>
       <p>
+        A comment about the terms <q>Infectious</q> vs. <q>infectious</q> in this text: the capitalized term <q>Infectious</q> refers to the population in the Infectious compartment <m>I</m> of a compartmental model. The more general, uncapitalized <q>infectious</q> refers to people at any stage of infection. We will see in this text that a compartmental model may have multiple compartments representing multiple phases of illness. When discussing the basic reproduction number <m>\mathcal{R}_0</m>, a person in any phase of illness can be called <q>infectious</q>.
+      </p>
+      <p>
         In <xref ref="activity-formula-for-i-of-t-turning-around"/>, we begin to link our SIR model with the concept of <m>\mathcal{R}_0</m>.
       </p>
       
