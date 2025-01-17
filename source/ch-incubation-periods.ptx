@@ -6,7 +6,7 @@
       <ul>
         <li>
           <p>
-            Introduce the SEIR model, where E stands for <em>Exposed-and-incubating</em>, meaning people in the E compartment have already contracted an illness but have not yet become infectious to others.
+            Introduce the SEIR model, where E stands for <em>Exposed-and-incubating</em>, meaning people in the E compartment have already contracted an illness but have not yet become contagious to others.
           </p>
         </li>
         <li>
@@ -114,7 +114,7 @@
       <title>Including an Incubation Period: The SEIR Model</title>
 
       <p>
-        We introduce here the <term>SEIR model</term>. The new compartment, E, stands for <em>Exposed-and-incubating</em>. The population <m>E(t)</m> therefore represents people who have contracted an illness, but who are not yet infectious. As the name <q>SEIR</q> suggests, this model has four compartments. 
+        We introduce here the <term>SEIR model</term>. The new compartment, E, stands for <em>Exposed-and-incubating</em>. The population <m>E(t)</m> therefore represents people who have contracted an illness, but who have not yet entered the <m>I(t)</m> compartment, which in many models means that they are not yet contagious. As the name <q>SEIR</q> suggests, this model has four compartments. 
       </p>
       <p>
         Now that we have worked with the SI and SIR models, you may well have ideas in mind for how the SEIR model should look. Try these in <xref ref="activity-seir-model-intro"/>.

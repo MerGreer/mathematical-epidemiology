@@ -280,8 +280,7 @@
               </li>
               <li>
                 <p>
-                  Create a new column titled <q>Prevalence</q>. Compute the H1N1 prevalence for each day by supposing that once people are in the Infectious compartment, they remain Infectious for five days. This means, for instance, that the five initial cases from October 6 remain Infectious for October 6, 7, 8, 9, and 10, but on October 11 they no longer are Infectious. 
-                  You may notice that we are thinking of prevalence and the Infectious compartment as equivalent. This equivalence works well for influenza, as people become contagious very close to the time when they begin showing symptoms, and they stop being contagious approximately when they stop showing symptoms.
+                  Create a new column titled <q>Prevalence</q>. Compute the H1N1 prevalence for each day by supposing that people are contagious for five days. Measuring prevalence, the number of contagious people, and the number of people in the <m>I(t)</m> compartment are essentially the same for H1N1, as people become contagious very close to the time when they begin showing symptoms, and they stop being contagious approximately when they stop showing symptoms. This means, for instance, that the five initial cases from October 6 remain in the Prevalence column, and hence in <m>I(t)</m>, for October 6, 7, 8, 9, and 10. Then, on October 11, the five cases from October 6 should no longer be in the Prevalence column.
                 </p>     
               </li>
               <li>
@@ -525,7 +524,7 @@
               </li>
               <li>
                 <p>
-                  Similarly to what you did in <xref ref="activity-h1n1-data-fall-2009"/>, extend the number of rows in the spreadsheet so that the prevalence values, shown here as the <m>I(t)</m> column, continue until no one remains Infectious.
+                  Similarly to what you did in <xref ref="activity-h1n1-data-fall-2009"/>, extend the number of rows in the spreadsheet so that the prevalence values, shown here as the <m>I(t)</m> column, continue until no one remains in the  Infectious compartment.
                 </p>     
               </li>
               <li>
@@ -535,7 +534,7 @@
               </li>
               <li>
                 <p>
-                  Then, fill in the <m>R(t)</m> column. To do this, fill in zeroes for the first few days. Continue to think of the infectious period as lasting five days. This means that the New Cases Reported on October 6 are infectious October 6, 7, 8, 9, and 10, and then move into <m>R(t)</m> on October 11, so <m>R(t)=5</m> on October 11. On October 12, the New Cases Reported from October 7 move into <m>R(t)</m>, so <m>R(t)=5+8=13</m> on October 12. Continue similarly: on each day, update the <m>R(t)</m> column by adding the New Cases Reported from five days earlier. 
+                  Then, fill in the <m>R(t)</m> column. To do this, fill in zeroes for the first few days. Continue to think of the contagious period, and the time in the Infectious compartment, as lasting five days. This means that the New Cases Reported on October 6 are in <m>I(t)</m> for the days October 6, 7, 8, 9, and 10, and then move into <m>R(t)</m> on October 11, so <m>R(t)=5</m> on October 11. On October 12, the New Cases Reported from October 7 move into <m>R(t)</m>, so <m>R(t)=5+8=13</m> on October 12. Continue similarly: on each day, update the <m>R(t)</m> column by adding the New Cases Reported from five days earlier. 
                 </p>     
               </li>
               <li>

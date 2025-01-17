@@ -557,7 +557,7 @@
         Alternately, if <m>\mathcal{R}_0 \lt 1</m>, then the value of <m>dI/dt</m> is initially negative. In this case, the graph of <m>I(t)</m> never rises: it only falls.
       </p>
       <p>
-        The value of <m>\mathcal{R}_0</m>, then, tells us whether to expect increasing numbers of Infectious individuals. The specific number <m>1</m> is the boundary between rising and falling values of <m>I(t)</m> when a new infection is first introduced to a susceptible population. We will further see that larger values of <m>\mathcal{R}_0</m> correspond to diseases that are more infectious. The concept of <m>\mathcal{R}_0</m> will be central to our study of outbreaks.  
+        The value of <m>\mathcal{R}_0</m>, then, tells us whether to expect increasing numbers of Infectious individuals. The specific number <m>1</m> is the boundary between rising and falling values of <m>I(t)</m> when a new infection is first introduced to a susceptible population. We will further see that larger values of <m>\mathcal{R}_0</m> correspond to diseases that are more apt to spread, for a variety of reasons. The concept of <m>\mathcal{R}_0</m> will be central to our study of outbreaks.  
       </p> 
 
        
@@ -631,7 +631,7 @@
           Most diseases we know of have <m>\mathcal{R}_0 \gt 1</m>. This makes sense: without rising numbers of Infectious people, we do not experience an epidemic. However, in rare cases, a disease emerges for which <m>\mathcal{R}_0 \lt 1</m>. One example is MERS, which stands for Middle East Respiratory Syndrome. The first identified case of MERS was in 2012. There is still a lot to learn about MERS, but multiple estimates indicate that the value of <m>\mathcal{R}_0</m> for MERS is less than one.
         </p>
         <p>
-          This activity is motivated by the existence of diseases with <m>\mathcal{R}_0 \lt 1</m>. Suppose we study a disease for which <m>\mathcal{R}_0 \approx 0.5</m> and <m>\gamma = 0.1</m>, that is, people are typically infectious for about ten days. Suppose we choose to model this disease with an SIR model similar to the models we have been using in this chapter: <q>S</q> stands for Susceptible, meaning people who are not sick but can become sick; <q>I</q> stands for Infectious, meaning people who are currently able to spread the disease, and <q>R stands for</q> Removed, meaning people who are no longer able to spread the disease and are unable to become sick again. In the case of a disease similar to MERS, the Removed compartment consists of both recoveries and deaths from the disease.
+          This activity is motivated by the existence of diseases with <m>\mathcal{R}_0 \lt 1</m>. Suppose we study a disease for which <m>\mathcal{R}_0 \approx 0.5</m> and <m>\gamma = 0.1</m>, that is, people are typically contagious for about ten days. Suppose we choose to model this disease with an SIR model similar to the models we have been using in this chapter: <q>S</q> stands for Susceptible, meaning people who are not sick but can become sick; <q>I</q> stands for Infectious, meaning people who are currently able to spread the disease, that is, they are contagious, and <q>R</q> stands for Removed, meaning people who are no longer able to spread the disease and are unable to become sick again. In the case of a disease similar to MERS, the Removed compartment consists of both recoveries and deaths from the disease.
         </p>
         <ol>
           <li>

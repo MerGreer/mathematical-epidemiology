@@ -19,11 +19,6 @@
             Determine the threshold for what percentage of vaccine coverage reduces transmission enough so that the number of Infectious cases does not rise
           </p>
         </li>
-        <!-- <li>
-          <p>
-            Introduce a new model compartment, often called <em>Isolated</em>, to reduce disease transmission by reducing the interaction of the Infectious and Susceptible populations 
-          </p>
-        </li> -->
       </ul>
     </objectives>
 
@@ -419,7 +414,7 @@
         <ol>
           <li>
             <p>
-              As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is infectious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>These numbers come from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/causes/index.html">How Measles Spreads</url>.</fn> For this reason, set <m>\gamma = 1/8</m>. Let's suppose this outbreak occurs in a small, close-knit community of 500 people, in which one person initially has the measles, meaning <m>S(0)=499</m>, <m>I(0)=1</m>, <m>R(0)=0</m>. Set up an SIR model, as shown below, for this outbreak:
+              As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is contagious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>These numbers come from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/causes/index.html">How Measles Spreads</url>.</fn> For this reason, set <m>\gamma = 1/8</m>. Let's suppose this outbreak occurs in a small, close-knit community of 500 people, in which one person initially has the measles, meaning <m>S(0)=499</m>, <m>I(0)=1</m>, <m>R(0)=0</m>. Set up an SIR model, as shown below, for this outbreak:
             </p>              
             <md>
               <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
@@ -436,14 +431,14 @@
             <p>
               Now investigate varying levels of vaccination. What happens if <m>p=.25</m>, <m>p=.5</m>, <m>p=.75</m>, or <m>p=.9</m>? Determine long-term outcomes in each case, that is, determine how many people ultimately get measles in each modeling scenario. Indicate, also, how much time the model needs to run in order to determine how many people get measles in each scenario. The model may need to run longer when a greater percentage of the population is vaccinated.
             </p>
-            <p>Notice that there is not a unique answer to how long to run the model: if you can see the long-term value after 100 days, for instance, then running the model for 120 days will also show the long-term value. Aim to indicate a number of days that shows clearly that population values have leveled off to horizontal lines, while not using such a large number of days that it becomes difficult to see the rise and/or fall of the infectious curve <m>I(t)</m> as the outbreak proceeds.
+            <p>Notice that there is not a unique answer to how long to run the model: if you can see the long-term value after 100 days, for instance, then running the model for 120 days will also show the long-term value. Aim to indicate a number of days that shows clearly that population values have leveled off to horizontal lines, while not using such a large number of days that it becomes difficult to see the rise and/or fall of the Infectious curve <m>I(t)</m> as the outbreak proceeds.
             </p>
           </li> -->
           <li>
             <p>
               In many communities in the U.S., the percentage of vaccinated people is around <m>91\%</m> or <m>92\%</m>.<fn>See the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/nchs/fastats/measles.htm">Measles, Mumps, and Rubella</url>.</fn> At each of these levels, how many people will get measles in the long run, according to your model? What if the vaccination rate were as high as <m>94\%</m>? Or as low as <m>89\%</m>?
             </p>
-            <p>Notice that there is not a unique answer to how long to run the model: if you can see the long-term value after 100 days, for instance, then running the model for 120 days will also show the long-term value. Aim to indicate a number of days that shows clearly that population values have leveled off to horizontal lines, while not using such a large number of days that it becomes difficult to see the rise and/or fall of the infectious curve <m>I(t)</m> as the outbreak proceeds.
+            <p>Notice that there is not a unique answer to how long to run the model: if you can see the long-term value after 100 days, for instance, then running the model for 120 days will also show the long-term value. Aim to indicate a number of days that shows clearly that population values have leveled off to horizontal lines, while not using such a large number of days that it becomes difficult to see the rise and/or fall of the Infectious curve <m>I(t)</m> as the outbreak proceeds.
             </p>
           </li>            
           <li>
@@ -471,7 +466,7 @@
         <ol>
           <li>
             <p>
-              Use the SIR model with vaccination, shown below, to graph the long-term outcome for mumps. At Bates College in 2016, there were approximately 1800 students, and there were 7 initial cases of mumps, which arose from a group of students who had traveled together and become infected during the trip. Consider all remaining students (that is, 1793 students) to initially be Susceptible. Therefore set <m>S(0)=1793</m>, <m>I(0)=7</m>, and <m>R(0)=0</m>. Set <m>\gamma = 1/7</m>, as mumps tends to be infectious for about one week. The value of <m>\mathcal{R}_0</m> for mumps ranges from 4 to 7, and for mumps spread at a residential campus, where people live in close proximity to each other, we use <m>\mathcal{R}_0 = 7</m>. These pieces of information, along with equation <xref ref="eq-R0-sir"/>, allow you to compute the value of <m>\beta</m> for the model:
+              Use the SIR model with vaccination, shown below, to graph the long-term outcome for mumps. At Bates College in 2016, there were approximately 1800 students, and there were 7 initial cases of mumps, which arose from a group of students who had traveled together and become infected during the trip. Consider all remaining students (that is, 1793 students) to initially be Susceptible. Therefore set <m>S(0)=1793</m>, <m>I(0)=7</m>, and <m>R(0)=0</m>. Set <m>\gamma = 1/7</m>, as mumps tends to be contagious for about one week. The value of <m>\mathcal{R}_0</m> for mumps ranges from 4 to 7, and for mumps spread at a residential campus, where people live in close proximity to each other, we use <m>\mathcal{R}_0 = 7</m>. These pieces of information, along with equation <xref ref="eq-R0-sir"/>, allow you to compute the value of <m>\beta</m> for the model:
             </p>
             <md>
               <mrow>\frac{dS}{dt} \amp = - (1-q) \beta S I </mrow>
