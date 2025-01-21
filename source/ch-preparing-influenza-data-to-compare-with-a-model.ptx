@@ -275,17 +275,17 @@
             <ol>
               <li>
                 <p>
-                  Open <url href="https://docs.google.com/spreadsheets/d/1M3-G-t22ibUqKmEOMhmeK99T0iKIWefUzI9G0jXjg0g/edit?usp=sharing">this publicly shared spreadsheet</url>  and make your own copy. Alternately, open a blank spreadsheet and copy into it the data from <xref ref="table-h1n1-fall-2009"/>. 
+                  Create your own editable table of data by opening <url href="https://docs.google.com/spreadsheets/d/1M3-G-t22ibUqKmEOMhmeK99T0iKIWefUzI9G0jXjg0g/edit?usp=sharing">this publicly shared spreadsheet</url> and making your own copy. Alternatively, create your table by opening a blank spreadsheet and copying into it the data from <xref ref="table-h1n1-fall-2009"/>.  
                 </p>     
               </li>
               <li>
                 <p>
-                  Create a new column titled <q>Prevalence</q>. Compute the H1N1 prevalence for each day by supposing that people are contagious for five days. Measuring prevalence, the number of contagious people, and the number of people in the <m>I(t)</m> compartment are essentially the same for H1N1, as people become contagious very close to the time when they begin showing symptoms, and they stop being contagious approximately when they stop showing symptoms. This means, for instance, that the five initial cases from October 6 remain in the Prevalence column, and hence in <m>I(t)</m>, for October 6, 7, 8, 9, and 10. Then, on October 11, the five cases from October 6 should no longer be in the Prevalence column.
+                  Create a new column in your table and give this new column the title <q>Prevalence</q>. Compute the H1N1 prevalence for each day by supposing that people are contagious for five days. Measuring prevalence, the number of contagious people, and the number of people in the <m>I(t)</m> compartment are essentially the same for H1N1, as people become contagious very close to the time when they begin showing symptoms, and they stop being contagious approximately when they stop showing symptoms. This means, for instance, that the five initial cases from October 6 remain in the Prevalence column, and hence in <m>I(t)</m>, for October 6, 7, 8, 9, and 10. Then, on October 11, the five cases from October 6 should no longer be in the Prevalence column.
                 </p>     
               </li>
               <li>
                 <p>
-                  Extend the length of your <q>Prevalence</q> column so that it represents the full five days of contagion for all the New Cases Reported. This means adding extra rows at the bottom of the table.
+                  Extend the length of your Prevalence column so that it represents the full five days of contagion for all the New Cases Reported. To extend the length of the Prevalence column, add extra rows at the bottom of the table. The last row should have a Prevalence value of <m>0</m> (and should be the first row in which Prevalence equals <m>0</m>). 
                 </p>     
               </li>
               <li>
@@ -306,7 +306,7 @@
               </li>
               <li>
                 <p>
-                  Bonus spreadsheet work, if time permits: go back to the <q>Prevalence</q> column you created. If you have not yet used spreadsheet formulas to determine the column entries, try to do so. Formulas let you refer to other cells in the spreadsheet, rather than re-typing their numbers every time you re-use the same numbers.
+                  Bonus spreadsheet work, if time permits: go back to the Prevalence column you created. If you have not yet used spreadsheet formulas to determine the column entries, try to do so. Formulas let you refer to other cells in the spreadsheet, rather than re-typing their numbers every time you re-use the same numbers.
                 </p>     
               </li>
             </ol>
@@ -509,7 +509,7 @@
         <activity xml:id="activity-h1n1-data-fall-2009-S-I-R">
           <statement>
             <p>
-              Start over with the New Cases Reported data provided in <xref ref="table-h1n1-fall-2009"/>. You may  type in the data from <xref ref="table-h1n1-fall-2009"/>, or download a copy of the data in <url href="https://docs.google.com/spreadsheets/d/1M3-G-t22ibUqKmEOMhmeK99T0iKIWefUzI9G0jXjg0g/edit?usp=sharing">this starter spreadsheet</url>. Then follow the steps below to convert New Cases Reported data into data points that can be compared with an SIR model in which the time unit is days.
+              Start over with the New Cases Reported data provided in <xref ref="table-h1n1-fall-2009"/>. You may  type in the data from <xref ref="table-h1n1-fall-2009"/>, or download a copy of the data in <url href="https://docs.google.com/spreadsheets/d/1M3-G-t22ibUqKmEOMhmeK99T0iKIWefUzI9G0jXjg0g/edit?usp=sharing">this starter spreadsheet.</url> Then follow the steps below to convert New Cases Reported data into data points that can be compared with an SIR model in which the time unit is days. 
             </p>
             <ol>
               <li>
@@ -539,7 +539,7 @@
               </li>
               <li>
                 <p>
-                  Check your work: create one more column titled <q>Check Total</q>. For each row, add the three values in the  <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> columns. Your numbers should be the same every day, since compartmental models require that every person be in exactly one compartment at each time step. This column is one way to check your work and find possible mistakes: if the numbers do not add up to 1714 on any day(s), there must be an error.
+                  Check your work: create one more column titled <q>Check Total</q>. For each row, add the three values in the  <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> columns. The resulting numbers should be the same every day, since compartmental models require that every person be in exactly one compartment at each time step. This column is one way to check your work and find possible mistakes: if the numbers do not add up to 1714 on any day(s), there must be an error.
                 </p>     
               </li>
               <li>
@@ -797,7 +797,7 @@
             <ul>
               <li>
                 <p>
-                  In cell G5, type <c>=D5:F5</c> or type <c>=D5+E5+F5</c>. Either of these formulas adds the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values for this row, and the result should be 1714.
+                  In cell G5, type <c>=sum(D5:F5)</c> or type <c>=D5+E5+F5</c>. Either of these formulas adds the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values for this row, and the result should be 1714.
                 </p>
               </li>
               <li>
@@ -828,7 +828,7 @@
             Recreate prevalence data for the data set in <xref ref="table-h1n1-fall-2009"/>, but using different assumptions than in <xref ref="activity-h1n1-data-fall-2009"/>. Here, instead of assuming a 5-day Infectious period, create prevalence data with the assumption that there is a 4-day Infectious period. Separately, create prevalence data with the assumption that there is a 6-day Infectious period.   
           </p>   
           <p>
-            On a single set of axes, plot your results for both 4-day prevalence and 6-day prevalence. Write at least three observations about these plots.
+            On a single set of axes, plot the graphs of both 4-day prevalence and 6-day prevalence, that is, plot <m>I(t)</m> in the two cases when we think of influenza as contagious for four days and when we think of influenza as contagious for six days. Write at least three observations about these plots. At least two of your observations should directly compare the plots with each other.
           </p>   
          </exercise>
     
