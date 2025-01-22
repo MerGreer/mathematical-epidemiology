@@ -345,7 +345,7 @@
           </p>
           <figure width="90%" xml:id="fig-first-si-graph">
             <caption>A sample graph of the SI model, drawn using Equations <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />.</caption>
-            <image source="First_SI_Graph.png" width="80%">
+            <image source="Ch2_SampleSImodel.png" width="80%">
                 <description>Sample SI graph, showing Susceptibles starting at 49 and dropping toward 0, and Infectious starting at 1 and rising toward 50</description>
             </image>
           </figure>

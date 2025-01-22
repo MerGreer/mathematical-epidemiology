@@ -391,7 +391,7 @@
         </li>
         <li> 
           <p>
-            Compute matrices <m>F</m> and <m>V</m> (notice these do not have <q>hats</q>: they are different from <m>\widehat{F}</m> and <m>\widehat{V}</m>) by computing partial derivatives of each of the terms in <m>\widehat{F}</m> and <m>\widehat{V}</m>, with respect to each of the infectious compartment populations, following the pattern shown below in the case of the SEIR model, and then evaluating your results at the disease-free equilibrium: 
+            Compute matrices <m>F</m> and <m>V</m> (notice these do not have <q>hats</q>: they are different from <m>\widehat{F}</m> and <m>\widehat{V}</m>) by computing partial derivatives of each of the terms in <m>\widehat{F}</m> and <m>\widehat{V}</m>, with respect to each of the populations of compartments experiencing infection, following the pattern shown below in the case of the SEIR model, and then evaluating your results at the disease-free equilibrium: 
           </p>
           <md>
             <mrow> F = \left. \begin{pmatrix}
