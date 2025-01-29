@@ -417,7 +417,7 @@
         </exercise>
         <exercise number="3">
           <p>
-            Spend more time examining and thinking about the graph of the SI model, as shown in <xref ref="fig-first-si-graph" />. The prompts below ask you to make calculus-based observations the functions <m>S(t)</m> and <m>I(t)</m> and their derivatives <m>dS/dt</m> and <m>dI/dt</m>.
+            Spend more time examining and thinking about the graph of the SI model, as shown in <xref ref="fig-first-si-graph" />. The prompts below ask you to make calculus-based observations about the functions <m>S(t)</m> and <m>I(t)</m> and their derivatives <m>dS/dt</m> and <m>dI/dt</m>.
           </p>
           <ol>
             <li>

@@ -261,7 +261,7 @@
               </li>
               <li>
                 <p>
-                  Explore the role that changes to <m>\beta</m> make to the outcome in each graph. Similarly, think through how changes to <m>\gamma</m> contribute to changes. For each parameter, decide first how you <em>think</em> changing the parameter will change the solution curves. Then use the code block to make several changes to that parameter, and compare what you see with what you thought you would see.
+                  Explore the role that changes to <m>\beta</m> make to the outcome in each graph. Similarly, think through how changes to <m>\gamma</m> contribute to graph outcomes. For each parameter, decide first how you <em>think</em> changing the parameter will change the solution curves. Then use the code block to make several changes to that parameter, and compare what you see with what you thought you would see.
                 </p>
               </li>
             </ol>
@@ -283,7 +283,7 @@
             </li>
             <li>
               <p>
-                In the first graph, everyone eventually gets sick. The long-term value of <m>S(t)</m> appears to be <m>0</m> and the long-term value of <m>R(t)</m> appears to be <m>100</m>, which is the total population.
+                In the first graph, everyone eventually gets sick. One way to see this is that the long-term value of <m>S(t)</m> appears to be <m>0</m> and the long-term value of <m>R(t)</m> appears to be <m>100</m>, which is the total population.
               </p>
               <p>
                 In the second graph, not everyone gets sick in the outbreak. The <m>S(t)</m> curve appears to level out at a value of approximately <m>8</m>. Extending <c>t_range</c> beyond <m>t=20</m> can help for confirming this.
@@ -366,15 +366,29 @@
           <p>
             This activity examines the <em>boundary</em> between rising and falling <m>I(t)</m> numbers in the SIR model we have been studying. We will see that this boundary relates to important information about the basic reproduction number <m>\mathcal{R}_0</m>. 
           </p>
-          <p>
-            Begin by using the code below to try different values of <m>\beta</m> and <m>\gamma</m>. Your goal is to find values for which the <m>I(t)</m> curve does not rise at first: instead, it stays level or falls. Keep the initial conditions the same, that is, <m>S(0)=1900</m>, <m>I(0)=100</m>, and <m>R(0)=0</m>. If changing the range of <m>t</m> values helps you see the outcome better, then change the end time to a smaller or larger value. However, keep the initial time <m>t=0</m>.   
-          </p>
-          <p>
-            Can you find more than one combination of <m>\beta</m> and <m>\gamma</m> for which the <m>I(t)</m> curve does not rise?
-          </p>
-          <p>
-            You may wish to test your conclusions by viewing model output. To do this, you can modify the Python code provided as part of <xref ref="activity-formula-for-i-of-t-turning-around"/>. Updating the end time of the model simulation may be helpful: rather than end at <m>t=15</m>, consider extending the model for a longer period of time.
-          </p>
+          <ol>
+              <li>
+                <p>
+                  Begin by using the code below to try different values of <m>\beta</m> and <m>\gamma</m>. Your goal is to find values for which the <m>I(t)</m> curve does not rise at first: instead, it stays level or falls. Keep the initial conditions the same, that is, <m>S(0)=1900</m>, <m>I(0)=100</m>, and <m>R(0)=0</m>. If changing the range of <m>t</m> values helps you see the outcome better, then change the end time to a smaller or larger value. However, keep the initial time <m>t=0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                   Find more than one combination of <m>\beta</m> and <m>\gamma</m> for which the <m>I(t)</m> curve does not rise. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Demonstrate your results by showing model output. To do this, you can modify the Python code provided as part of <xref ref="activity-formula-for-i-of-t-turning-around"/>. If it would help you to change the end time of the model simulation so you can better see all the model's behavior, then in <c>t_range</c> in line 17, you can update the value <m>15</m> to a different number.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Finally, consider the equation <m>dI/dt = \beta SI - \gamma I</m> from the SIR model. Under what conditions must <m>dI/dt = 0</m>? Think about these conditions biologically: what interpretations can you give the conditions?
+                </p>
+              </li>
+            </ol>
+          
           <sage>
             <input>
               #Import packages
@@ -411,10 +425,6 @@
             
             </output>
             </sage>
-
-            <p>
-              Next, consider the equation <m>dI/dt = \beta SI - \gamma I</m> from the SIR model. Under what conditions must <m>dI/dt = 0</m>? Think about these conditions biologically: what interpretations can you give the conditions? 
-            </p>
         </statement>
         <hint>
           <p>
