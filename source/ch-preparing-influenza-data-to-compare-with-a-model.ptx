@@ -296,7 +296,7 @@
                   To create this type of spreadsheet plot in Google Sheets, choose menu item <c>Insert</c>, then choose <c>Chart</c>, and then in the Chart Editor, select <c>Line chart</c>. The Chart Editor provides several ways to edit the chart. 
                 </p> 
                 <p>
-                  Alternately, in Microsoft Excel, choose menu item <c>Insert</c>, and then from the <c>Chart</c> menu, select one of the <c>Scatter</c> options.
+                  Alternatively, in Microsoft Excel, choose menu item <c>Insert</c>, and then from the <c>Chart</c> menu, select one of the <c>Scatter</c> options.
                 </p>   
               </li>
               <li>

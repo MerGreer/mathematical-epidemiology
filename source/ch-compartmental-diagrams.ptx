@@ -388,7 +388,7 @@
             <mrow xml:id="eq-SIR-model-R">\frac{dR}{dt} \amp = \gamma I. </mrow>
           </mdn>
           <p>
-            Recall that each of the variables <m>S</m>, <m>I</m>, and <m>R</m> represents some average number of individuals. This means that the units for each of <m>S</m>, <m>I</m>, and <m>R</m> are <em>population</em>.<fn>Alternately, we could call these units <em>people</em> or <em>individuals</em>.</fn> We also just saw from the discussion of <xref ref="eq-gamma-estimate"/> that the units of <m>\gamma</m> are <m>1/\mbox{time}</m>. 
+            Recall that each of the variables <m>S</m>, <m>I</m>, and <m>R</m> represents some average number of individuals. This means that the units for each of <m>S</m>, <m>I</m>, and <m>R</m> are <em>population</em>.<fn>Alternatively, we could call these units <em>people</em> or <em>individuals</em>.</fn> We also just saw from the discussion of <xref ref="eq-gamma-estimate"/> that the units of <m>\gamma</m> are <m>1/\mbox{time}</m>. 
           </p>
           <ol>
             <li>

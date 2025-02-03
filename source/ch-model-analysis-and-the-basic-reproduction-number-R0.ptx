@@ -371,15 +371,13 @@
                 <p>
                   Begin by using the code below to try different values of <m>\beta</m> and <m>\gamma</m>. Your goal is to find values for which the <m>I(t)</m> curve does not rise at first: instead, it stays level or falls. Keep the initial conditions the same, that is, <m>S(0)=1900</m>, <m>I(0)=100</m>, and <m>R(0)=0</m>. If changing the range of <m>t</m> values helps you see the outcome better, then change the end time to a smaller or larger value. However, keep the initial time <m>t=0</m>.
                 </p>
-              </li>
-              <li>
                 <p>
                    Find more than one combination of <m>\beta</m> and <m>\gamma</m> for which the <m>I(t)</m> curve does not rise. 
                 </p>
               </li>
               <li>
                 <p>
-                  Demonstrate your results by showing model output. To do this, you can modify the Python code provided as part of <xref ref="activity-formula-for-i-of-t-turning-around"/>. If it would help you to change the end time of the model simulation so you can better see all the model's behavior, then in <c>t_range</c> in line 17, you can update the value <m>15</m> to a different number.
+                  Demonstrate your results by showing model output. To do this, you can modify the Python code provided as part of <xref ref="activity-formula-for-i-of-t-turning-around"/>. If it would help you to change the end time of the model simulation so you can better see all the model's behavior, then in <c>t_range</c> in line 17, you can update the value <m>50</m> to a different number.
                 </p>
               </li>
               <li>
@@ -404,10 +402,10 @@
                 dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
                 return dydt
               
-              beta = 0.01 #Give a value to beta
+              beta = 0.001 #Give a value to beta
               gamma = 0.1 #Give a value to gamma
               y0 = [1900, 100, 0] #Set initial conditions for S, I, and R, in that order
-              t_range = np.arange(0.0, 15.0, 0.1) #Set the time range to be t=0 to t=15, with time steps of 0.1 when numerically solving
+              t_range = np.arange(0.0, 50.0, 0.1) #Set the time range to be t=0 to t=15, with time steps of 0.1 when numerically solving
               
               sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
               
@@ -427,19 +425,30 @@
             </sage>
         </statement>
         <hint>
-          <p>
-            The first part of this is open-ended. There are many combinations of <m>\beta</m> and <m>\gamma</m> for which the <m>I(t)</m> curve falls from the start.
-          </p>
-          <p>
-            For the second part of this, set the right-hand side of the <m>dI/dt</m> equation equal to 0 and factor:
-          </p>
-          <md>
-            <mrow>\beta SI - \gamma I \amp = 0 </mrow>
-            <mrow>(\beta S - \gamma ) I \amp = 0 </mrow>
-          </md>
-          <p>
-            This results in two possibilities: either <m>\beta S - \gamma = 0</m> or <m>I=0</m>. There are multiple biological interpretations of each possibility.
-          </p>
+          <ol>
+            <li>
+              <p>
+                This is open-ended. There are many combinations of <m>\beta</m> and <m>\gamma</m> for which the <m>I(t)</m> curve falls from the start.
+              </p>
+            </li>
+            <li>
+              <p>
+                While this is also open-ended, it is important to extend the end time in <c>t_range</c> enough so that the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> curves are essentially horizontal near the end of the model's time range. The population values for S, I, and R after the curves have leveled to horizontal indicate how many people never got sick (S), how many people got sick and then eventually moved to the Removed compartment (R), and how many people are still sick (I, which should be at 0 if the outbreak is complete).
+              </p>
+            </li>
+            <li>
+              <p>
+                Set the right-hand side of the <m>dI/dt</m> equation equal to 0 and factor:
+              </p>
+              <md>
+                <mrow>\beta SI - \gamma I \amp = 0 </mrow>
+                <mrow>(\beta S - \gamma ) I \amp = 0. </mrow>
+              </md>
+              <p>
+                This results in two possibilities: either <m>\beta S - \gamma = 0</m> or <m>I=0</m>. There are multiple biological interpretations of each possibility.
+              </p> 
+            </li>
+          </ol>
         </hint>
       </activity>  
 
@@ -564,7 +573,7 @@
         To be more specific, when <m>\mathcal{R}_0 \gt 1</m>, the value of <m>dI/dt</m> is initially positive, which means that the value of <m>I(t)</m> initially increases. Only later, when there are fewer susceptibles, does the graph of <m>I(t)</m> level off and begin to fall. 
       </p>
       <p>
-        Alternately, if <m>\mathcal{R}_0 \lt 1</m>, then the value of <m>dI/dt</m> is initially negative. In this case, the graph of <m>I(t)</m> never rises: it only falls.
+        Alternatively, if <m>\mathcal{R}_0 \lt 1</m>, then the value of <m>dI/dt</m> is initially negative. In this case, the graph of <m>I(t)</m> never rises: it only falls.
       </p>
       <p>
         The value of <m>\mathcal{R}_0</m>, then, tells us whether to expect increasing numbers of Infectious individuals. The specific number <m>1</m> is the boundary between rising and falling values of <m>I(t)</m> when a new infection is first introduced to a susceptible population. We will further see that larger values of <m>\mathcal{R}_0</m> correspond to diseases that are more apt to spread, for a variety of reasons. The concept of <m>\mathcal{R}_0</m> will be central to our study of outbreaks.  

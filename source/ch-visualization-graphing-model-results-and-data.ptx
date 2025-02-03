@@ -269,7 +269,7 @@
         
       <statement>
         <p>
-          Read the Python code in the block below, and click the <c>Evaluate (Sage)</c> button to view the resulting graph. Think carefully about steps 1-5 in the outline above. Which lines of code address which steps of the outline? (Notice that you may need to scroll down within the code block. Alternately, click the rectangular icon in the top right of the code block. This opens a full-screen version of the code. To return to the regular screen, click again the rectangle in the top right.)
+          Read the Python code in the block below, and click the <c>Evaluate (Sage)</c> button to view the resulting graph. Think carefully about steps 1-5 in the outline above. Which lines of code address which steps of the outline? (Notice that you may need to scroll down within the code block. Alternatively, click the rectangular icon in the top right of the code block. This opens a full-screen version of the code. To return to the regular screen, click again the rectangle in the top right.)
         </p>
 
         <sage>

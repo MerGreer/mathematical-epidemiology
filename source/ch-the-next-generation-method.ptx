@@ -176,7 +176,7 @@
                 If <m>S=0</m>, the SI model is at equilibrium. This corresponds to a situation where the entire population is in the <m>I</m> compartment.  
               </p>
               <p>
-                Alternately, if <m>I=0</m>, the SI model is at equilibrium. This corresponds to a situation where the entire population is in the <m>S</m> compartment.
+                Alternatively, if <m>I=0</m>, the SI model is at equilibrium. This corresponds to a situation where the entire population is in the <m>S</m> compartment.
               </p>
             </li>
             <li>
