@@ -51,7 +51,7 @@
               </li>
               <li>
                 <p>
-                  Create two different <m>2 \times 2</m> matrices and show how to multiply them.
+                  Create two different <m>2 \times 2</m> matrices and demonstrate how to multiply them.
                 </p>
               </li>
               <li>
@@ -65,7 +65,7 @@
                   \end{pmatrix}.
                 </me>
                 <p>
-                  For each of the two <m>2 \times 2</m> matrices you created in part (b) above, show how to compute the inverse of the matrix, using the matrix inverse formula you wrote.  
+                  For each of the two <m>2 \times 2</m> matrices you created in part (2) above, show how to compute the inverse of the matrix, using the matrix inverse formula you wrote. If it happens that either of your matrices has no inverse, explain how you know this. If neither of your matrices has an inverse, then create a new <m>2 \times 2</m> matrix that does have an inverse, and compute its inverse.
                 </p>
               </li>
           </ol>
@@ -201,7 +201,7 @@
         For the models we have studied so far, disease-free equilibrium requires that the entire population start in the <m>S</m> compartment, but there exist compartmental models where the initial population can be split across multiple compartments. 
       </p>
       <p>
-        In addition to the concept of the disease-free equilibrium value, we also work with partial derivatives when performing the Next Generation Method. Gain practice with partial derivatives in <xref ref="activity-partial-derivatives"/>. 
+        In addition to the concept of the disease-free equilibrium value, we also work with partial derivatives when applying the Next Generation Method. Gain practice with partial derivatives in <xref ref="activity-partial-derivatives"/>. 
       </p>
       <activity xml:id="activity-partial-derivatives">
         <statement>
@@ -210,7 +210,6 @@
           </p>
           <p>
             The Next Generation Method also requires us to compute <em>partial derivatives</em>. 
-            <!-- These are derivatives in which we work with a formula that may involve multiple dependent variables, but we temporarily think of all but one of those variables as a constant so that we can compute a derivative of the one remaining dependent variable, as the independent variable (which, for us, is always time) changes. -->
             To see how this works, progress through the steps below.
           </p>
           <ol>                           
@@ -229,23 +228,8 @@
                     Then, for the related function <m>g(x)=ax^2 + bx + c</m>, compute its derivative. The values <m>a</m>, <m>b</m>, and <m>c</m> are all constants. This derivative can also be written <m>\frac{d}{dx}(ax^2 + bx + c)</m>.
                   </p>
                 </li>
-                <!-- <li>
-                  <p>
-                    Write and/or discuss an observation about the role constants play when computing derivatives. As the notation <m>\frac{d}{dx}</m> reminds us, <m>x</m> is a variable, but the letters <m>a</m>, <m>b</m>, and <m>c</m> in <m>\frac{d}{dx}(ax^2 + bx + c)</m> are constants, similar to the way that <m>3</m>, <m>5</m>, and <m>7</m> are constants in <m>\frac{d}{dx}(3x^2 + 5x + 7)</m>. How, then, how do you think about <m>3</m> or <m>a</m>, compared with how you think about <m>x^2</m>? Ask similar questions about computing derivatives of each of the other terms in <m>f(x)</m> and <m>g(x)</m>.
-                  </p>
-                </li> -->
               </ol>
             </li>
-            <!-- <li>
-              <p>
-                Many Calculus I courses discuss <em>implicit differentiation</em>. Try this example so that implicit differentiation will be fresh in your mind. 
-              </p>
-              <p>
-                For the function <m>x^2+y^2=4</m>, compute its derivative with respect to <m>x</m>, using the information that <m>y</m> is a function of <m>x</m>. 
-                    <m>y \, '</m>. Do this by computing derivatives of both <m>x^2</m> and <m>y^2</m>, and then solving for <m>y \, '</m>, meaning that your response is written as <q><m>y \, ' = \, </m> </q> followed by the derivative formula you have computed.
-                    This means that you will compute the derivative of <m>x^2</m> similarly to how you computed derivatives in part (1) of this activity. For computing the derivative of <m>y^2</m>, use a similar derivative formula as for the derivative of <m>x^2</m>, and then use the chain rule to multiply by the derivative of <m>y</m>, which can be written as <m>y \, '</m>.
-              </p>
-            </li>   -->
             <li>
               <p>
                 Next, we introduce <em>partial derivatives</em>. Whereas in part (1) we computed derivatives with respect to <m>x</m>, we now allow ourselves to compute derivatives with respect to other variables in a formula. 
@@ -253,7 +237,7 @@
               <ol>
                 <li>
                   <p>
-                    Consider this differential equation from the SEIR model: <m>\frac{dE}{dt} = \beta S I - \kappa E</m>. Compute the derivative of the right-hand side, with respect to <m>E</m>. That is, compute <m>\frac{\partial}{\partial E}(\beta S I - \kappa E)</m>. When computing the derivative with respect to <m>E</m>: think of <m>S</m> and <m>I</m> as constants. Both <m>\beta</m> and <m>\kappa</m> are constants, as always. Think of <m>E</m> as the only variable.
+                    Consider this differential equation from the SEIR model: <m>\frac{dE}{dt} = \beta S I - \kappa E</m>. Compute the derivative of the right-hand side, with respect to <m>E</m>. That is, compute <m>\frac{\partial}{\partial E}(\beta S I - \kappa E)</m>. When computing the derivative with respect to <m>E</m>: think of <m>S</m>, <m>I</m>, <m>\beta</m>, and <m>\kappa</m> as constants. Think of <m>E</m> as the only variable.
                   </p>
                   <p>
                     You may notice that we have switched from the notation <m>\frac{d}{dE}</m> to the notation <m>\frac{\partial}{\partial E}</m>. This is the notation used when we have multiple choices for our variable of interest: we are focusing on <m>E</m>, but we could have chosen any other variable in our system of equations. The idea of <em>partial derivatives</em> is that there are multiple variables involved, and as each of them changes, the entire system is affected, but we focus on one variable at a time, therefore looking at <em>part</em> of the change of the system rather than the <em>total</em> change of the system. 
@@ -268,12 +252,41 @@
                   </p>
                 </li>
               </ol>
-              <!-- <p>
-                The derivatives computed in part (3) of this activity are called <em>partial derivatives</em>. These are derivatives in which we work with a formula that may involve multiple dependent variables, but we temporarily think of all but one of those variables as a constant. This allows us to compute derivatives using Calculus I formulas we know. It also allows us to select which quantity varies: we allow first <m>E</m> to vary, then <m>S</m>, then <m>I</m>. As each of these changes, the formula <m>\beta S I - \kappa E</m> changes, and partial derivatives help us to quantify that change. 
-              </p> -->
             </li>
           </ol>          
         </statement>
+        <answer>
+          <ol>
+            <li>
+              <ol>
+                <li>
+                  <p>
+                    The derivative is <m>\frac{d}{dx}(3x^2 + 5x + 7) = 6x+5</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The derivative is <m>\frac{d}{dx}(ax^2 + bx + 7c) = 2ax+b</m>.
+                  </p>
+                </li>
+              </ol>
+            </li>
+            <li>
+              <ol>
+                <li>
+                  <p>
+                    The derivative is <m>\frac{\partial}{\partial E}(\beta S I - \kappa E) = - \kappa </m>. 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The derivative with respect to <m>S</m> is <m>\frac{\partial}{\partial S}(\beta S I - \kappa E) = \beta I </m> and the derivative with respect to <m>I</m> is <m>\frac{\partial}{\partial I}(\beta S I - \kappa E) = \beta S </m>.
+                  </p>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </answer>
       </activity>
     </section>
 
@@ -285,7 +298,7 @@
         <!-- After walking through the steps for the SEIR model, two activities provide the chance to try the steps for other models. -->
       </p>
       <p>
-        Begin, then, with the SEIR model, shown below, and follow the steps described.
+        Begin with the SEIR model, shown below, and follow the steps described.
       </p>
       <md>
         <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
@@ -451,7 +464,17 @@
           </p>
           <answer>
             <p>
-              We have seen that the formula for <m>\mathcal{R}_0</m> for the SEIR model is <m>\frac{\beta N}{\gamma}</m>. 
+              Compute matrix <m>V^{-1}=\begin{pmatrix}
+                \frac{1}{\kappa} \amp 0 \\
+                \frac{1}{\gamma} \amp \frac{1}{\gamma} 
+                \end{pmatrix}.</m> 
+
+              Then compute matrix <m>FV^{-1}=\begin{pmatrix}
+                \frac{N \beta}{\gamma} \amp \frac{N \beta}{\gamma} \\
+                0 \amp 0 
+                \end{pmatrix}.</m> 
+
+              The eigenvalues of <m>FV^{-1}</m> are <m>0</m> and <m>\frac{N \beta}{\gamma}</m>. Of these, the largest eigenvalue is <m>\frac{N \beta}{\gamma}</m>, and therefore <m>\mathcal{R}_0 = \frac{N \beta}{\gamma}</m>.
             </p>
           </answer>
         </li>
