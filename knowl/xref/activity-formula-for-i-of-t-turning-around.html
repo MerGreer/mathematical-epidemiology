@@ -28,8 +28,15 @@ sagecell.makeSagecell({
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.4</span><span class="period">.</span>
 </h4>
 <div class="para">This activity examines the <em class="emphasis">boundary</em> between rising and falling <span class="process-math">\(I(t)\)</span> numbers in the SIR model we have been studying. We will see that this boundary relates to important information about the basic reproduction number <span class="process-math">\(\mathcal{R}_0\text{.}\)</span>
-</div> <div class="para">Begin by using the code below to try different values of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\text{.}\)</span> Your goal is to find values for which the <span class="process-math">\(I(t)\)</span> curve does not rise at first: instead, it stays level or falls. Keep the initial conditions the same, that is, <span class="process-math">\(S(0)=1900\text{,}\)</span> <span class="process-math">\(I(0)=100\text{,}\)</span> and <span class="process-math">\(R(0)=0\text{.}\)</span> If changing the range of <span class="process-math">\(t\)</span> values helps you see the outcome better, then change the end time to a smaller or larger value. However, keep the initial time <span class="process-math">\(t=0\text{.}\)</span>
-</div> <div class="para">Can you find more than one combination of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> for which the <span class="process-math">\(I(t)\)</span> curve does not rise?</div> <div class="para">You may wish to test your conclusions by viewing model output. To do this, you can modify the Python code provided as part of <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#activity-formula-for-i-of-t-turning-around" class="xref" data-knowl="./knowl/xref/activity-formula-for-i-of-t-turning-around.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 5.4">Activity 5.4</a>. Updating the end time of the model simulation may be helpful: rather than end at <span class="process-math">\(t=15\text{,}\)</span> consider extending the model for a longer period of time.</div> <pre id="activity-formula-for-i-of-t-turning-around-1-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+</div> <ol class="decimal" id="activity-formula-for-i-of-t-turning-around-1-2">
+<li>
+<div class="para">Begin by using the code below to try different values of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\text{.}\)</span> Your goal is to find values for which the <span class="process-math">\(I(t)\)</span> curve does not rise at first: instead, it stays level or falls. Keep the initial conditions the same, that is, <span class="process-math">\(S(0)=1900\text{,}\)</span> <span class="process-math">\(I(0)=100\text{,}\)</span> and <span class="process-math">\(R(0)=0\text{.}\)</span> If changing the range of <span class="process-math">\(t\)</span> values helps you see the outcome better, then change the end time to a smaller or larger value. However, keep the initial time <span class="process-math">\(t=0\text{.}\)</span>
+</div>
+<div class="para">Find more than one combination of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> for which the <span class="process-math">\(I(t)\)</span> curve does not rise.</div>
+</li>
+<li><div class="para">Demonstrate your results by showing model output. To do this, you can modify the Python code provided as part of <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#activity-formula-for-i-of-t-turning-around" class="xref" data-knowl="./knowl/xref/activity-formula-for-i-of-t-turning-around.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 5.4">Activity 5.4</a>. If it would help you to change the end time of the model simulation so you can better see all the model’s behavior, then in <code class="code-inline tex2jax_ignore">t_range</code> in line 17, you can update the value <span class="process-math">\(50\)</span> to a different number.</div></li>
+<li><div class="para">Finally, consider the equation <span class="process-math">\(dI/dt = \beta SI - \gamma I\)</span> from the SIR model. Under what conditions must <span class="process-math">\(dI/dt = 0\text{?}\)</span> Think about these conditions biologically: what interpretations can you give the conditions?</div></li>
+</ol> <pre id="activity-formula-for-i-of-t-turning-around-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
@@ -42,10 +49,10 @@ def model(y, t):
   dydt = [-beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
   return dydt
 
-beta = 0.01 #Give a value to beta
+beta = 0.001 #Give a value to beta
 gamma = 0.1 #Give a value to gamma
 y0 = [1900, 100, 0] #Set initial conditions for S, I, and R, in that order
-t_range = np.arange(0.0, 15.0, 0.1) #Set the time range to be t=0 to t=15, with time steps of 0.1 when numerically solving
+t_range = np.arange(0.0, 50.0, 0.1) #Set the time range to be t=0 to t=15, with time steps of 0.1 when numerically solving
 
 sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
 
@@ -58,16 +65,20 @@ plt.grid()
 plt.xlabel('time')
 plt.ylabel('populations')
 plt.show()
-</script></pre> <div class="para">Next, consider the equation <span class="process-math">\(dI/dt = \beta SI - \gamma I\)</span> from the SIR model. Under what conditions must <span class="process-math">\(dI/dt = 0\text{?}\)</span> Think about these conditions biologically: what interpretations can you give the conditions?</div>
-<div class="solutions"><details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
-<div class="para">The first part of this is open-ended. There are many combinations of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> for which the <span class="process-math">\(I(t)\)</span> curve falls from the start.</div> <div class="para">For the second part of this, set the right-hand side of the <span class="process-math">\(dI/dt\)</span> equation equal to 0 and factor:</div>
+</script></pre>
+<div class="solutions"><details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><ol class="decimal" id="activity-formula-for-i-of-t-turning-around-2-1">
+<li><div class="para">This is open-ended. There are many combinations of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> for which the <span class="process-math">\(I(t)\)</span> curve falls from the start.</div></li>
+<li><div class="para">While this is also open-ended, it is important to extend the end time in <code class="code-inline tex2jax_ignore">t_range</code> enough so that the <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and <span class="process-math">\(R(t)\)</span> curves are essentially horizontal near the end of the model’s time range. The population values for S, I, and R after the curves have leveled to horizontal indicate how many people never got sick (S), how many people got sick and then eventually moved to the Removed compartment (R), and how many people are still sick (I, which should be at 0 if the outbreak is complete).</div></li>
+<li>
+<div class="para">Set the right-hand side of the <span class="process-math">\(dI/dt\)</span> equation equal to 0 and factor:</div>
 <div class="displaymath process-math">
 \begin{align*}
 \beta SI - \gamma I \amp = 0 \\
-(\beta S - \gamma ) I \amp = 0 
+(\beta S - \gamma ) I \amp = 0. 
 \end{align*}
 </div>
 <div class="para">This results in two possibilities: either <span class="process-math">\(\beta S - \gamma = 0\)</span> or <span class="process-math">\(I=0\text{.}\)</span> There are multiple biological interpretations of each possibility.</div>
-</div></details></div></article><span class="incontext"><a class="internal" href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#activity-formula-for-i-of-t-turning-around">in-context</a></span>
+</li>
+</ol></div></details></div></article><span class="incontext"><a class="internal" href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#activity-formula-for-i-of-t-turning-around">in-context</a></span>
 </body>
 </html>

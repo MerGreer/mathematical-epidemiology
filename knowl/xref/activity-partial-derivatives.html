@@ -14,7 +14,7 @@
 <article class="activity project-like"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">14.3</span><span class="period">.</span>
 </h4>
-<div class="para">This course requires mainly the calculus concepts from a Calculus I course. These concepts include working with derivatives, understanding that a derivative is a rate of change, knowing that the slope on a graph relates directly to the derivative of a function, and recognizing that positive slopes (or, equivalently, positive derivatives) correspond to increasing functions and, similarly, negative slopes (or, equivalently, negative derivatives) correspond to decreasing functions.</div> <div class="para">The Next Generation Method also requires us to compute <em class="emphasis">partial derivatives</em>.  To see how this works, progress through the steps below.</div> <ol class="decimal" id="activity-partial-derivatives-1-3">
+<div class="para">This course requires mainly the calculus concepts from a Calculus I course. These concepts include working with derivatives, understanding that a derivative is a rate of change, knowing that the slope on a graph relates directly to the derivative of a function, and recognizing that positive slopes (or, equivalently, positive derivatives) correspond to increasing functions and, similarly, negative slopes (or, equivalently, negative derivatives) correspond to decreasing functions.</div> <div class="para">The Next Generation Method also requires us to compute <em class="emphasis">partial derivatives</em>. To see how this works, progress through the steps below.</div> <ol class="decimal" id="activity-partial-derivatives-1-3">
 <li>
 <div class="para">Start by computing derivatives as you would during Calculus I.</div>
 <ol class="lower-alpha" id="activity-partial-derivatives-1-3-1-2">
@@ -28,13 +28,27 @@
 <div class="para">Next, we introduce <em class="emphasis">partial derivatives</em>. Whereas in part (1) we computed derivatives with respect to <span class="process-math">\(x\text{,}\)</span> we now allow ourselves to compute derivatives with respect to other variables in a formula.</div>
 <ol class="lower-alpha" id="activity-partial-derivatives-1-3-2-2">
 <li>
-<div class="para">Consider this differential equation from the SEIR model: <span class="process-math">\(\frac{dE}{dt} = \beta S I - \kappa E\text{.}\)</span> Compute the derivative of the right-hand side, with respect to <span class="process-math">\(E\text{.}\)</span> That is, compute <span class="process-math">\(\frac{\partial}{\partial E}(\beta S I - \kappa E)\text{.}\)</span> When computing the derivative with respect to <span class="process-math">\(E\text{:}\)</span> think of <span class="process-math">\(S\)</span> and <span class="process-math">\(I\)</span> as constants. Both <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\kappa\)</span> are constants, as always. Think of <span class="process-math">\(E\)</span> as the only variable.</div>
+<div class="para">Consider this differential equation from the SEIR model: <span class="process-math">\(\frac{dE}{dt} = \beta S I - \kappa E\text{.}\)</span> Compute the derivative of the right-hand side, with respect to <span class="process-math">\(E\text{.}\)</span> That is, compute <span class="process-math">\(\frac{\partial}{\partial E}(\beta S I - \kappa E)\text{.}\)</span> When computing the derivative with respect to <span class="process-math">\(E\text{:}\)</span> think of <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(I\text{,}\)</span> <span class="process-math">\(\beta\text{,}\)</span> and <span class="process-math">\(\kappa\)</span> as constants. Think of <span class="process-math">\(E\)</span> as the only variable.</div>
 <div class="para">You may notice that we have switched from the notation <span class="process-math">\(\frac{d}{dE}\)</span> to the notation <span class="process-math">\(\frac{\partial}{\partial E}\text{.}\)</span> This is the notation used when we have multiple choices for our variable of interest: we are focusing on <span class="process-math">\(E\text{,}\)</span> but we could have chosen any other variable in our system of equations. The idea of <em class="emphasis">partial derivatives</em> is that there are multiple variables involved, and as each of them changes, the entire system is affected, but we focus on one variable at a time, therefore looking at <em class="emphasis">part</em> of the change of the system rather than the <em class="emphasis">total</em> change of the system.</div>
 <div class="para">This emphasis on one variable at a time benefits our understanding by showing how change in each variable—in our case, change in each compartment—affects the outcome of the entire system.</div>
 </li>
 <li><div class="para">Then compute these two derivatives: <span class="process-math">\(\frac{\partial}{\partial S}(\beta S I - \kappa E)\)</span> and <span class="process-math">\(\frac{\partial}{\partial I}(\beta S I - \kappa E)\text{.}\)</span> The first of these thinks of only <span class="process-math">\(S\)</span> as a variable. The second thinks of only <span class="process-math">\(I\)</span> as a variable.</div></li>
 </ol>
 </li>
-</ol></article><span class="incontext"><a class="internal" href="ch-the-next-generation-method.html#activity-partial-derivatives">in-context</a></span>
+</ol>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ol class="decimal" id="activity-partial-derivatives-2-1">
+<li><div class="para"><ol class="lower-alpha" id="activity-partial-derivatives-2-1-1-1">
+<li><div class="para">The derivative is <span class="process-math">\(\frac{d}{dx}(3x^2 + 5x + 7) = 6x+5\text{.}\)</span>
+</div></li>
+<li><div class="para">The derivative is <span class="process-math">\(\frac{d}{dx}(ax^2 + bx + 7c) = 2ax+b\text{.}\)</span>
+</div></li>
+</ol></div></li>
+<li><div class="para"><ol class="lower-alpha" id="activity-partial-derivatives-2-1-2-1">
+<li><div class="para">The derivative is <span class="process-math">\(\frac{\partial}{\partial E}(\beta S I - \kappa E) = - \kappa \text{.}\)</span>
+</div></li>
+<li><div class="para">The derivative with respect to <span class="process-math">\(S\)</span> is <span class="process-math">\(\frac{\partial}{\partial S}(\beta S I - \kappa E) = \beta I \)</span> and the derivative with respect to <span class="process-math">\(I\)</span> is <span class="process-math">\(\frac{\partial}{\partial I}(\beta S I - \kappa E) = \beta S \text{.}\)</span>
+</div></li>
+</ol></div></li>
+</ol></div></details></div></article><span class="incontext"><a class="internal" href="ch-the-next-generation-method.html#activity-partial-derivatives">in-context</a></span>
 </body>
 </html>
