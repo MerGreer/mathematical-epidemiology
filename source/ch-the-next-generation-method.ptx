@@ -462,7 +462,7 @@
           <p>
             The largest possible eigenvalue of <m>F \,V^{-1}</m> is <m>\mathcal{R}_0</m>.
           </p>
-          <answer>
+          <answer> 
             <p>
               Compute matrix <m>V^{-1}=\begin{pmatrix}
                 \frac{1}{\kappa} \amp 0 \\
@@ -470,11 +470,11 @@
                 \end{pmatrix}.</m> 
 
               Then compute matrix <m>FV^{-1}=\begin{pmatrix}
-                \frac{N \beta}{\gamma} \amp \frac{N \beta}{\gamma} \\
+                \frac{\beta  N}{\gamma} \amp \frac{\beta N}{\gamma} \\
                 0 \amp 0 
                 \end{pmatrix}.</m> 
 
-              The eigenvalues of <m>FV^{-1}</m> are <m>0</m> and <m>\frac{N \beta}{\gamma}</m>. Of these, the largest eigenvalue is <m>\frac{N \beta}{\gamma}</m>, and therefore <m>\mathcal{R}_0 = \frac{N \beta}{\gamma}</m>.
+              The eigenvalues of <m>FV^{-1}</m> are <m>0</m> and <m>\frac{\beta  N}{\gamma}</m>. Of these, the largest eigenvalue is <m>\frac{\beta  N}{\gamma}</m>, and therefore <m>\mathcal{R}_0 = \frac{\beta  N}{\gamma}</m>.
             </p>
           </answer>
         </li>
@@ -517,24 +517,24 @@
                 \end{tikzpicture}
                 </latex-image>
                </image>
-          </figure>
-          <ol>               
-            <li>
-              <p>
-                
-              </p>
-            </li> 
-          </ol>          
+          </figure>         
         </statement>
-        <answer>
-          <ol>
-            <li>
-              <p>
-                For  
-              </p>
-            </li>
-          </ol>
-        </answer>
+        <hint>
+          <p>
+            Only one compartment of the SIR model involves individuals experiencing some stage of infection, namely, the I compartment. This means that when we write the equations in matrix form, we use a <m>1 \times 1</m> matrix. Then <m>\widehat{F}= \begin{pmatrix}
+              \beta SI
+              \end{pmatrix}</m> and 
+              <m>\widehat{V}= \begin{pmatrix}
+              \gamma I
+              \end{pmatrix}.</m> Computing partial derivatives with respect to <m>I</m>, and evaluating at the disease-free equilibrium <m>(S, I, R)=(N, 0, 0)</m> results in <m>F = \begin{pmatrix}
+              \beta N
+              \end{pmatrix}</m> and <m>V = \begin{pmatrix}
+              \gamma
+              \end{pmatrix}.</m> Computing <m>FV^{-1}</m> results in <m>FV^{-1} = \begin{pmatrix}
+              \frac{\beta N}{\gamma}
+              \end{pmatrix}</m>, and the one eigenvalue of <m>FV^{-1}</m> tells us that <m>\mathcal{R}_0 = \frac{\beta  N}{\gamma}</m>. 
+          </p>
+        </hint>
       </activity>
  
       
@@ -543,7 +543,7 @@
     <section xml:id="sec-2">
       <title>Python Code for the Next Generation Method</title>
       <!-- <p>Change the title??? To focus on linear algebra???</p>
-      <p>Show how to use the NGM and how to use the results to determine beta</p> -->
+      <p>Show how to use the Next Generation Method and how to use the results to determine beta</p> -->
 
       
 
