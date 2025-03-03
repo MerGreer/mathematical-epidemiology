@@ -358,12 +358,6 @@ sagecell.makeSagecell({
 #sec-the-next-generation-method-steps-to-follow-5 { counter-set: sec-the-next-generation-method-steps-to-follow-5 0; }
 #sec-the-next-generation-method-steps-to-follow-5 > li::marker { content: ""counter(sec-the-next-generation-method-steps-to-follow-5,decimal)"."; }
 #sec-the-next-generation-method-steps-to-follow-5 > li { counter-increment: sec-the-next-generation-method-steps-to-follow-5; }
-#activity-next-generation-practice-sirs-1-3 { counter-set: activity-next-generation-practice-sirs-1-3 0; }
-#activity-next-generation-practice-sirs-1-3 > li::marker { content: ""counter(activity-next-generation-practice-sirs-1-3,decimal)"."; }
-#activity-next-generation-practice-sirs-1-3 > li { counter-increment: activity-next-generation-practice-sirs-1-3; }
-#activity-next-generation-practice-sirs-2-1 { counter-set: activity-next-generation-practice-sirs-2-1 0; }
-#activity-next-generation-practice-sirs-2-1 > li::marker { content: ""counter(activity-next-generation-practice-sirs-2-1,decimal)"."; }
-#activity-next-generation-practice-sirs-2-1 > li { counter-increment: activity-next-generation-practice-sirs-2-1; }
 </style>
 </head>
 <body class="pretext book ignore-math">
@@ -812,9 +806,9 @@ K = F \, V^{-1}
 \frac{1}{\kappa} \amp 0 \\
 \frac{1}{\gamma} \amp \frac{1}{\gamma} 
 \end{pmatrix}.\)</span> Then compute matrix <span class="process-math">\(FV^{-1}=\begin{pmatrix}
-\frac{N \beta}{\gamma} \amp \frac{N \beta}{\gamma} \\
+\frac{\beta  N}{\gamma} \amp \frac{\beta N}{\gamma} \\
 0 \amp 0 
-\end{pmatrix}.\)</span> The eigenvalues of <span class="process-math">\(FV^{-1}\)</span> are <span class="process-math">\(0\)</span> and <span class="process-math">\(\frac{N \beta}{\gamma}\text{.}\)</span> Of these, the largest eigenvalue is <span class="process-math">\(\frac{N \beta}{\gamma}\text{,}\)</span> and therefore <span class="process-math">\(\mathcal{R}_0 = \frac{N \beta}{\gamma}\text{.}\)</span>
+\end{pmatrix}.\)</span> The eigenvalues of <span class="process-math">\(FV^{-1}\)</span> are <span class="process-math">\(0\)</span> and <span class="process-math">\(\frac{\beta  N}{\gamma}\text{.}\)</span> Of these, the largest eigenvalue is <span class="process-math">\(\frac{\beta  N}{\gamma}\text{,}\)</span> and therefore <span class="process-math">\(\mathcal{R}_0 = \frac{\beta  N}{\gamma}\text{.}\)</span>
 </div></div></details>
 </li>
 </ol>
@@ -822,8 +816,18 @@ K = F \, V^{-1}
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">14.4</span><span class="period">.</span>
 </h4>
 <div class="para" id="activity-next-generation-practice-sirs-1-1">Now that we have shown all the steps for computing a formula for <span class="process-math">\(\mathcal{R}_0\)</span> in the SEIR model, try again for the SIRS model, shown in <a href="ch-the-next-generation-method.html#fig-SIRS-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SIRS-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 14.1">Figure 14.1</a>.</div> <figure class="figure figure-like" id="fig-SIRS-compartmental-diagram"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/fig-SIRS-compartmental-diagram-2.svg" role="img" class="contained" alt="(Write this)"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.1<span class="period">.</span></span><span class="space"> </span>The compartmental diagram for one possible SIRS model, where “S”stands for “Susceptible”, “I” stands for “Infectious”, and “R” stands for “Recovered”. In this model, individuals lose immunity some time after recovering. They then return to the S compartment.</figcaption></figure> <ol class="decimal" id="activity-next-generation-practice-sirs-1-3"><li id="activity-next-generation-practice-sirs-1-3-1"><div class="para" id="activity-next-generation-practice-sirs-1-3-1-1"></div></li></ol>
-<div class="solutions"><details id="activity-next-generation-practice-sirs-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ol class="decimal" id="activity-next-generation-practice-sirs-2-1"><li id="activity-next-generation-practice-sirs-2-1-1"><div class="para" id="activity-next-generation-practice-sirs-2-1-1-1">For</div></li></ol></div></details></div></article></section><section class="section" id="sec-2"><h3 class="heading hide-type">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.1<span class="period">.</span></span><span class="space"> </span>The compartmental diagram for one possible SIRS model, where “S”stands for “Susceptible”, “I” stands for “Infectious”, and “R” stands for “Recovered”. In this model, individuals lose immunity some time after recovering. They then return to the S compartment.</figcaption></figure><div class="solutions"><details id="activity-next-generation-practice-sirs-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="activity-next-generation-practice-sirs-2-1">Only one compartment of the SIR model involves individuals experiencing some stage of infection, namely, the I compartment. This means that when we write the equations in matrix form, we use a <span class="process-math">\(1 \times 1\)</span> matrix. Then <span class="process-math">\(\widehat{F}= \begin{pmatrix}
+\beta SI
+\end{pmatrix}\)</span> and <span class="process-math">\(\widehat{V}= \begin{pmatrix}
+\gamma I
+\end{pmatrix}.\)</span> Computing partial derivatives with respect to <span class="process-math">\(I\text{,}\)</span> and evaluating at the disease-free equilibrium <span class="process-math">\((S, I, R)=(N, 0, 0)\)</span> results in <span class="process-math">\(F = \begin{pmatrix}
+\beta N
+\end{pmatrix}\)</span> and <span class="process-math">\(V = \begin{pmatrix}
+\gamma
+\end{pmatrix}.\)</span> Computing <span class="process-math">\(FV^{-1}\)</span> results in <span class="process-math">\(FV^{-1} = \begin{pmatrix}
+\frac{\beta N}{\gamma}
+\end{pmatrix}\text{,}\)</span> and the one eigenvalue of <span class="process-math">\(FV^{-1}\)</span> tells us that <span class="process-math">\(\mathcal{R}_0 = \frac{\beta  N}{\gamma}\text{.}\)</span>
+</div></div></details></div></article></section><section class="section" id="sec-2"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">14.3</span><span class="space"> </span><span class="title">Python Code for the Next Generation Method</span>
 </h3>
 <div class="para" id="sec-2-2">The code block below produces the eigenvalues for the SEIR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <span class="process-math">\(2\times 2\)</span> matrix.</div>
