@@ -297,7 +297,7 @@
         We now go through the steps of the Next Generation Method. 
         <!-- After walking through the steps for the SEIR model, two activities provide the chance to try the steps for other models. -->
       </p>
-      <p>
+      <!-- <p>
         Begin with the SEIR model, shown below, and follow the steps described.
       </p>
       <md>
@@ -478,7 +478,7 @@
             </p>
           </answer>
         </li>
-      </ol>
+      </ol> -->
 
       <activity xml:id="activity-next-generation-practice-demo">
         <statement>
