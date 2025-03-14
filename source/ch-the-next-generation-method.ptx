@@ -480,7 +480,7 @@
         </li>
       </ol> -->
 
-      <activity xml:id="activity-next-generation-practice-demo">
+      <activity xml:id="activity-learning-next-generation-seir">
         <statement>
           <p>
             Begin with the SEIR model, shown below, and follow the steps described.
@@ -740,7 +740,7 @@
       
 
       <p>
-        The code block below produces the eigenvalues for the SEIR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix.
+        The code block below produces the eigenvalues for the SEIR model, doing the computation in Step 6 of the Next Generation Method as described in <xref ref="activity-learning-next-generation-seir"/>. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix.
       </p>
 
       <p>
@@ -781,6 +781,67 @@
         </output>
         </sage>
 
+
+        <p>
+          Activity ?? below introduces a Python code block for producing eigenvalues when the Next Generation Method involves a <m>3\times 3</m> matrix 
+        </p>
+
+        <activity xml:id="activity-next-generation-practice-sirs">
+        <statement>
+          <p>
+            The book <em>Mathematical Epidemiology</em> introduces a model of influenza having five compartments.<fn><em>Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 12, which was written by Fred Brauer, and is labeled SLIAR. Our version is labeled SEIAR to stay consistent with notation we have used in other chapters.</fn> In addition to Susceptibles (S), Infectious (I), and Removed (R), there is an Exposed-and-incubating (E) compartment for people incubating influenza who are not yet Infectious, and there is an Asymptomatic (A) compartment for people who are affected by influenza but do not show symptoms, yet are capable of spreading influenza to others. The compartmental diagram for this model appears in Figure (cite here).
+          </p>
+          <figure xml:id="fig-SEIAR-compartmental-diagram">
+            <caption>The compartmental diagram for one possible SIRS model, where <q>S</q>stands for <q>Susceptible</q>, <q>I</q> stands for <q>Infectious</q>, and <q>R</q> stands for <q>Recovered</q>. In this model, individuals lose immunity some time after recovering. They then return to the S compartment.</caption>
+              <image width="80%">
+              <description>(Write this)</description>
+                <latex-image>
+                \begin{tikzpicture}
+                \draw [thick] [black] (0,0) -- (2,0);
+                \draw [thick] [black] (2,0) -- (2,2);
+                \draw [thick] [black] (2,2) -- (0,2);
+                \draw [thick] [black] (0,2) -- (0,0);
+                \node [black] at (1,1) {\Huge $S$};
+                \draw [thick] [->] (2.1,1) to (3.9,1); 
+                \node at (3,1.5) {\Large $\beta SI$};
+                \draw [thick] [black] (4,0) -- (6,0);
+                \draw [thick] [black] (6,0) -- (6,2);
+                \draw [thick] [black] (6,2) -- (4,2);
+                \draw [thick] [black] (4,2) -- (4,0);
+                \node [black] at (5,1) {\Huge $I$};
+                \draw [thick] [->] (6.1,1) to (7.9,1); 
+                \node at (7,1.5) {\Large $\gamma I$};
+                \draw [thick] [black] (8,0) -- (10,0);
+                \draw [thick] [black] (10,0) -- (10,2);
+                \draw [thick] [black] (10,2) -- (8,2);
+                \draw [thick] [black] (8,2) -- (8,0);
+                \node [black] at (9,1) {\Huge $R$};
+                \draw [thick] [black] (9,2.1) -- (9,2.5);
+                \draw [thick] [black] (9,2.5) -- (1,2.5);
+                \draw [thick] [->] (1,2.5) to (1,2.1); 
+                \node at (5,3) {\Large $\alpha R$};
+                \end{tikzpicture}
+                </latex-image>
+               </image>
+          </figure>         
+        </statement>
+        <hint>
+          <p>
+            Only one compartment of the SIR model involves individuals experiencing some stage of infection, namely, the I compartment. This means that when we write the equations in matrix form, we use a <m>1 \times 1</m> matrix. Then <m>\widehat{F}= \begin{pmatrix}
+              \beta SI
+              \end{pmatrix}</m> and 
+              <m>\widehat{V}= \begin{pmatrix}
+              \gamma I
+              \end{pmatrix}.</m> Computing partial derivatives with respect to <m>I</m>, and evaluating at the disease-free equilibrium <m>(S, I, R)=(N, 0, 0)</m> results in <m>F = \begin{pmatrix}
+              \beta N
+              \end{pmatrix}</m> and <m>V = \begin{pmatrix}
+              \gamma
+              \end{pmatrix}.</m> Computing <m>FV^{-1}</m> results in <m>FV^{-1} = \begin{pmatrix}
+              \frac{\beta N}{\gamma}
+              \end{pmatrix}</m>, and the one eigenvalue of <m>FV^{-1}</m> tells us that <m>\mathcal{R}_0 = \frac{\beta  N}{\gamma}</m>. 
+          </p>
+        </hint>
+      </activity>
 
         <p>
           The code block below produces the eigenvalues for the SLIAR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>3\times 3</m> matrix. Comparing this code with the previous code may help show how similar the code is when computing the Next Generation matrix for different models, as well as showing what to change for a different model.
