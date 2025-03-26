@@ -783,47 +783,85 @@
 
 
         <p>
-          Activity ?? below introduces a Python code block for producing eigenvalues when the Next Generation Method involves a <m>3\times 3</m> matrix 
+          <xref ref="activity-next-generation-practice-seiar"/> below introduces a Python code block for producing eigenvalues when the Next Generation Method involves a <m>3\times 3</m> matrix. 
         </p>
 
-        <activity xml:id="activity-next-generation-practice-sirs">
+        <activity xml:id="activity-next-generation-practice-seiar">
         <statement>
           <p>
-            The book <em>Mathematical Epidemiology</em> introduces a model of influenza having five compartments.<fn><em>Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 12, which was written by Fred Brauer, and is labeled SLIAR. Our version is labeled SEIAR to stay consistent with notation we have used in other chapters.</fn> In addition to Susceptibles (S), Infectious (I), and Removed (R), there is an Exposed-and-incubating (E) compartment for people incubating influenza who are not yet Infectious, and there is an Asymptomatic (A) compartment for people who are affected by influenza but do not show symptoms, yet are capable of spreading influenza to others. The compartmental diagram for this model appears in Figure (cite here).
+            The book <em>Mathematical Epidemiology</em><fn><em>Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 12, which was written by Fred Brauer, and is labeled SLIAR. Our version is labeled SEIAR to stay consistent with notation we have used in other chapters.</fn> introduces a model of influenza having five compartments. In addition to Susceptibles (S), Infectious (I), and Removed (R), there is an Exposed-and-incubating (E) compartment for people incubating influenza who are not yet Infectious, and there is an Asymptomatic (A) compartment for people who are capable of spreading influenza to others, despite not displaying any symptoms of having influenza. The compartmental diagram for this model appears in <xref ref="fig-SEIAR-compartmental-diagram"/>. In this activity, we explore this new model and investigate Python code that can help us determine <m>\mathcal{R}_0</m> for this model using the Next Generation Method.
           </p>
           <figure xml:id="fig-SEIAR-compartmental-diagram">
-            <caption>The compartmental diagram for one possible SIRS model, where <q>S</q>stands for <q>Susceptible</q>, <q>I</q> stands for <q>Infectious</q>, and <q>R</q> stands for <q>Recovered</q>. In this model, individuals lose immunity some time after recovering. They then return to the S compartment.</caption>
+            <caption>The compartmental diagram for one possible SEIAR model for influenza, where <q>S</q>stands for <q>Susceptible</q>, <q>E</q> stands for <q>Exposed-and-incubating</q>, <q>I</q> stands for <q>Infectious</q>, <q>A</q> stands for <q>Asymptomatic</q> and <q>R</q> stands for <q>Recovered</q>. In this model, Asymptomatic individuals have no symptoms but can spread influenza, though they are not as contagious as individuals in the Infectious compartment.</caption>
               <image width="80%">
               <description>(Write this)</description>
                 <latex-image>
                 \begin{tikzpicture}
-                \draw [thick] [black] (0,0) -- (2,0);
-                \draw [thick] [black] (2,0) -- (2,2);
-                \draw [thick] [black] (2,2) -- (0,2);
-                \draw [thick] [black] (0,2) -- (0,0);
-                \node [black] at (1,1) {\Huge $S$};
-                \draw [thick] [->] (2.1,1) to (3.9,1); 
-                \node at (3,1.5) {\Large $\beta SI$};
-                \draw [thick] [black] (4,0) -- (6,0);
-                \draw [thick] [black] (6,0) -- (6,2);
-                \draw [thick] [black] (6,2) -- (4,2);
-                \draw [thick] [black] (4,2) -- (4,0);
-                \node [black] at (5,1) {\Huge $I$};
-                \draw [thick] [->] (6.1,1) to (7.9,1); 
-                \node at (7,1.5) {\Large $\gamma I$};
-                \draw [thick] [black] (8,0) -- (10,0);
-                \draw [thick] [black] (10,0) -- (10,2);
-                \draw [thick] [black] (10,2) -- (8,2);
-                \draw [thick] [black] (8,2) -- (8,0);
-                \node [black] at (9,1) {\Huge $R$};
-                \draw [thick] [black] (9,2.1) -- (9,2.5);
-                \draw [thick] [black] (9,2.5) -- (1,2.5);
-                \draw [thick] [->] (1,2.5) to (1,2.1); 
-                \node at (5,3) {\Large $\alpha R$};
+                \draw [thick] [black] (0,3) -- (2,3);
+                \draw [thick] [black] (2,3) -- (2,5);
+                \draw [thick] [black] (2,5) -- (0,5);
+                \draw [thick] [black] (0,5) -- (0,3);
+                \node [black] at (1,4) {\Huge $S$};
+                \draw [thick] [->] (2.1,4) to (4.65,4); 
+                \node at (3.35,4.4) {\large $\beta (I + \delta A)$};
+                \draw [thick] [black] (4.75,3) -- (6.75,3);
+                \draw [thick] [black] (6.75,3) -- (6.75,5);
+                \draw [thick] [black] (6.75,5) -- (4.75,5);
+                \draw [thick] [black] (4.75,5) -- (4.75,3);
+                \node [black] at (5.75,4) {\Huge $E$};
+                \draw [thick] [->] (6.85,4.7) to (9.15,6); 
+                \node at (7.75,5.65) {\large $p \kappa E$};
+                \draw [thick] [->] (6.85,3.3) to (9.15,2); 
+                \node at (7.7,1.9) {\large $(1-p) \kappa E$};
+                \draw [thick] [black] (9.25,5) -- (11.25,5);
+                \draw [thick] [black] (11.25,5) -- (11.25,7);
+                \draw [thick] [black] (11.25,7) -- (9.25,7);
+                \draw [thick] [black] (9.25,7) -- (9.25,5);
+                \node [black] at (10.25,6) {\Huge $I$};
+                \draw [thick] [->] (11.35,6.7) to (14.5,6.7); 
+                \node at (12.8,7.1) {\large $(1-f) \alpha I$};
+                \draw [thick] [->] (11.35,6) to (13.65,4.7); 
+                \node at (12.7,5.8) {\large $f \alpha I$};
+                \draw [thick] [black] (9.25,1) -- (11.25,1);
+                \draw [thick] [black] (11.25,1) -- (11.25,3);
+                \draw [thick] [black] (11.25,3) -- (9.25,3);
+                \draw [thick] [black] (9.25,3) -- (9.25,1);
+                \node [black] at (10.25,2) {\Huge $A$};
+                \draw [thick] [->] (11.35,2) to (13.65,3.3); 
+                \node at (12.7,2.3) {\large $\eta A$};
+                \draw [thick] [black] (13.75,3) -- (15.75,3);
+                \draw [thick] [black] (15.75,3) -- (15.75,5);
+                \draw [thick] [black] (15.75,5) -- (13.75,5);
+                \draw [thick] [black] (13.75,5) -- (13.75,3);
+                \node [black] at (14.75,4) {\Huge $R$};
                 \end{tikzpicture}
                 </latex-image>
                </image>
-          </figure>         
+          </figure>  
+          <ol>                           
+            <li>
+              <p>
+                The parameter <m>p</m> may take on values <m>0 \leq p \leq 1</m>. Think through the role of <m>p</m> in the model.  
+              </p>
+              <ol>
+                <li>
+                  <p>
+                    What does it mean that the arrow from E to I includes the term <m>p \kappa E</m>, and the arrow from E to A includes the term <m>(1-p) \kappa E</m>? What would happen if we added the terms on these two arrows and simplified the result?
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    How would the result in part (a) compare with the formula for moving from the E compartment to the I compartment in a simpler model with an Exposed-and-incubating compartment, such as the model in <xref ref="activity-seir-model-pertussis-setup"/>? 
+                  </p>
+                </li>
+              </ol>
+            </li>
+            <li>
+              <p>
+                Asymptomatic people in this model are able to spread influenza, but may not be able to spread influenza as easily as people in the Infectious compartment. Given this information, what possible values for <m>\delta</m> make sense? 
+              </p>
+            </li>
+          </ol>       
         </statement>
         <hint>
           <p>
