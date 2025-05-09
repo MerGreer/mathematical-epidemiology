@@ -79,7 +79,7 @@
           <ol>
             <li>
               <p>
-                How do we describe an eigenvalue mathematically? Your response should include at least one mathematical formula, along with a description of what the formula means. 
+                How do we describe an eigenvalue mathematically? Your response should include at least one mathematical formula, along with a description of what the formula means.  
               </p>
             </li>
             <li>
@@ -140,7 +140,7 @@
                 <mrow>\frac{dI}{dt} \amp =  \beta S I. </mrow>
             </md>
             <p>
-              For a system of differential equations, being at equilibrium means that the dependent variables in the system are not changing as the independent variables change. For the SI model, this means that <m>S</m> and <m>I</m> are not changing as time <m>t</m> changes. Using knowledge from calculus: what can we say about each of the derivatives <m>dS/dt</m> and <m>dI/dt</m> when the system is at equilibrium?
+              For a system of differential equations, being at equilibrium means that the dependent variables in the system are not changing as the independent variables change. For the SI model, this means that the populations <m>S</m> and <m>I</m> are not changing as time <m>t</m> changes. Using knowledge from calculus: what can we say about each of the derivatives <m>dS/dt</m> and <m>dI/dt</m> when the system is at equilibrium?
             </p>
             </li>              
             <li>
@@ -240,7 +240,7 @@
                     Consider this differential equation from the SEIR model: <m>\frac{dE}{dt} = \beta S I - \kappa E</m>. Compute the derivative of the right-hand side, with respect to <m>E</m>. That is, compute <m>\frac{\partial}{\partial E}(\beta S I - \kappa E)</m>. When computing the derivative with respect to <m>E</m>: think of <m>S</m>, <m>I</m>, <m>\beta</m>, and <m>\kappa</m> as constants. Think of <m>E</m> as the only variable.
                   </p>
                   <p>
-                    You may notice that we have switched from the notation <m>\frac{d}{dE}</m> to the notation <m>\frac{\partial}{\partial E}</m>. This is the notation used when we have multiple choices for our variable of interest: we are focusing on <m>E</m>, but we could have chosen any other variable in our system of equations. The idea of <em>partial derivatives</em> is that there are multiple variables involved, and as each of them changes, the entire system is affected, but we focus on one variable at a time, therefore looking at <em>part</em> of the change of the system rather than the <em>total</em> change of the system. 
+                    You may notice that we have switched from the notation <m>\frac{d}{dx}</m> to the notation <m>\frac{\partial}{\partial E}</m>. We use <m>\partial</m> rather than <m>d</m> when there are multiple choices for our variable of interest: we are focusing on <m>E</m>, but we could have chosen any other variable in our system of equations. The idea of <em>partial derivatives</em> is that there are multiple variables involved, and as each of them changes, the entire system is affected, but we focus on one variable at a time, therefore looking at <em>part</em> of the change of the system rather than the <em>total</em> change of the system. 
                   </p>
                   <p>
                     This emphasis on one variable at a time benefits our understanding by showing how change in each variable<mdash/>in our case, change in each compartment<mdash/>affects the outcome of the entire system.
@@ -483,7 +483,7 @@
       <activity xml:id="activity-learning-next-generation-seir">
         <statement>
           <p>
-            Begin with the SEIR model, shown below, and follow the steps described.
+            Begin with the SEIR model, shown below, and follow the steps described. While in many activities it is good to try all the steps before checking the answer, in this activity you may wish to compare your results after each step with the <q>Answer</q> link at the bottom of the activity. There will then be additional chances to practice the Next Generation Method, so that you will have the chance to try the Next Generation Method without checking answers at each step.
           </p>
           <md>
             <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
@@ -504,22 +504,22 @@
             </li>
             <li>
               <p>
-                Separate the right-hand side into two vectors, <m>\widehat{F}</m> and <m>\widehat{V}</m>, so that 
+                Separate the right-hand side into two vectors, <m>\widehat{F}</m> and <m>\widehat{V}</m>, so that all of the following are true:
               </p>
               <ul>
                 <li>
                   <p>
-                    The right-hand side can be written as <m>\widehat{F}-\widehat{V}</m>;
+                    the right-hand side can be written as <m>\widehat{F}-\widehat{V}</m>;
                   </p>
                 </li>
                 <li>
                   <p>
-                    Vector <m>\widehat{F}</m> includes all <em>new infection</em> terms, that is, the terms within the model that indicate when individuals who were not at any stage of infection newly enter a compartment in which they are at some stage of infection; and
+                    vector <m>\widehat{F}</m> includes all <em>new infection</em> terms, that is, the terms within the model that indicate when individuals who were not at any stage of infection newly enter a compartment in which they are at some stage of infection; and
                   </p>
                 </li>
                 <li>
                   <p>
-                    Vector <m>\widehat{V}</m> is the vector of <em>all other movement between compartments</em>.
+                    vector <m>\widehat{V}</m> is the vector of <em>all other movement between compartments</em>.
                   </p>
                 </li>
               </ul> 
@@ -563,7 +563,7 @@
                 To do this: first compute <m>V^{-1}</m>. Then compute <m>F \,V^{-1}</m>. Then determine the eigenvalues of <m>F \,V^{-1}</m>.
               </p>
               <p>
-                The largest possible eigenvalue of <m>F \,V^{-1}</m> is <m>\mathcal{R}_0</m>.
+                The largest possible eigenvalue of <m>F \,V^{-1}</m> is the value of <m>\mathcal{R}_0</m>.
               </p>
             </li>
           </ol>     
@@ -625,7 +625,7 @@
             </li>
             <li>
               <p>
-               We did this for the SEIR model in <xref ref="activity-equilibrium-values"/>. The disease-free equilibrium is <m>(S, E, I, R)=(N, 0, 0, 0)</m>, where <m>N=S+E+I+R</m> is the entire population being studied.
+               We did this for the SEIR model in <xref ref="activity-equilibrium-values"/>. The disease-free equilibrium is <m>(S, E, I, R)=(N, 0, 0, 0)</m>, where <m>N</m> is the total number of people in the entire population being studied.
               </p>
             </li>
             <li> 
@@ -718,7 +718,7 @@
               \end{pmatrix}</m> and 
               <m>\widehat{V}= \begin{pmatrix}
               \gamma I
-              \end{pmatrix}.</m> Computing partial derivatives with respect to <m>I</m>, and evaluating at the disease-free equilibrium <m>(S, I, R)=(N, 0, 0)</m> results in <m>F = \begin{pmatrix}
+              \end{pmatrix}.</m> Computing partial derivatives with respect to <m>I</m>, and evaluating at the disease-free equilibrium <m>(S, I, R)=(N, 0, 0)</m>, results in <m>F = \begin{pmatrix}
               \beta N
               \end{pmatrix}</m> and <m>V = \begin{pmatrix}
               \gamma
@@ -744,7 +744,7 @@
       </p>
 
       <p>
-        Spend some time looking through the code. Be sure you see how and where matrices are entered. You can use similar code for other compartmental models, and the only parts you need to change are the <m>F</m> and <m>V</m> matrices.
+        Spend some time looking through the code. Be sure you see how and where matrices are entered. You can use similar code for other compartmental models, and the only parts that need changing are the <m>F</m> and <m>V</m> matrices, along with including as <c>Symbol</c> any Greek letters used for parameters.
       </p>
 
       <sage>
@@ -861,7 +861,7 @@
                 Asymptomatic people in this model are able to spread influenza, but may not be able to spread influenza as easily as people in the Infectious compartment. Given this information, what possible values for <m>\delta</m> make sense? 
               </p>
             </li>
-          </ol>       
+          </ol>     <!--Start here next time --> 
         </statement>
         <hint>
           <p>
