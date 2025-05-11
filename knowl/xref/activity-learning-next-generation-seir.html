@@ -14,7 +14,7 @@
 <article class="activity project-like"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">14.4</span><span class="period">.</span>
 </h4>
-<div class="para">Begin with the SEIR model, shown below, and follow the steps described.</div>
+<div class="para">Begin with the SEIR model, shown below, and follow the steps described. While in many activities it is good to try all the steps before checking the answer, in this activity you may wish to compare your results after each step with the “Answer” link at the bottom of the activity. There will then be additional chances to practice the Next Generation Method, so that you will have the chance to try the Next Generation Method without checking answers at each step.</div>
 <div class="displaymath process-math">
 \begin{align*}
 \frac{dS}{dt} \amp = - \beta S I \\
@@ -27,12 +27,12 @@
 <li><div class="para">Decide which compartments of the SEIR model involve individuals experiencing some stage of infection. If a person has contracted an illness, they are in some stage of infection throughout the time they are incubating, whether contagious or not, and whether showing symptoms or not. They stop being in a stage of infection when they are completely done with the illness.</div></li>
 <li><div class="para">For the equation(s) selected in Step 1, write the equation(s) in matrix form. To do so, place the derivatives on the left-hand side into a vector. On the right-hand side, write the equations in a vector.</div></li>
 <li>
-<div class="para">Separate the right-hand side into two vectors, <span class="process-math">\(\widehat{F}\)</span> and <span class="process-math">\(\widehat{V}\text{,}\)</span> so that</div>
+<div class="para">Separate the right-hand side into two vectors, <span class="process-math">\(\widehat{F}\)</span> and <span class="process-math">\(\widehat{V}\text{,}\)</span> so that all of the following are true:</div>
 <ul class="disc" id="activity-learning-next-generation-seir-1-3-3-2">
-<li><div class="para">The right-hand side can be written as <span class="process-math">\(\widehat{F}-\widehat{V}\text{;}\)</span>
+<li><div class="para">the right-hand side can be written as <span class="process-math">\(\widehat{F}-\widehat{V}\text{;}\)</span>
 </div></li>
-<li><div class="para">Vector <span class="process-math">\(\widehat{F}\)</span> includes all <em class="emphasis">new infection</em> terms, that is, the terms within the model that indicate when individuals who were not at any stage of infection newly enter a compartment in which they are at some stage of infection; and</div></li>
-<li><div class="para">Vector <span class="process-math">\(\widehat{V}\)</span> is the vector of <em class="emphasis">all other movement between compartments</em>.</div></li>
+<li><div class="para">vector <span class="process-math">\(\widehat{F}\)</span> includes all <em class="emphasis">new infection</em> terms, that is, the terms within the model that indicate when individuals who were not at any stage of infection newly enter a compartment in which they are at some stage of infection; and</div></li>
+<li><div class="para">vector <span class="process-math">\(\widehat{V}\)</span> is the vector of <em class="emphasis">all other movement between compartments</em>.</div></li>
 </ul>
 </li>
 <li><div class="para">Compute the disease-free equilibrium for your compartmental model.</div></li>
@@ -66,7 +66,7 @@ K = F \, V^{-1}
 </div>
 <div class="para">To do this: first compute <span class="process-math">\(V^{-1}\text{.}\)</span> Then compute <span class="process-math">\(F \,V^{-1}\text{.}\)</span> Then determine the eigenvalues of <span class="process-math">\(F \,V^{-1}\text{.}\)</span>
 </div>
-<div class="para">The largest possible eigenvalue of <span class="process-math">\(F \,V^{-1}\)</span> is <span class="process-math">\(\mathcal{R}_0\text{.}\)</span>
+<div class="para">The largest possible eigenvalue of <span class="process-math">\(F \,V^{-1}\)</span> is the value of <span class="process-math">\(\mathcal{R}_0\text{.}\)</span>
 </div>
 </li>
 </ol>
@@ -122,7 +122,7 @@ K = F \, V^{-1}
 \end{gather*}
 </div>
 </li>
-<li><div class="para">We did this for the SEIR model in <a href="ch-the-next-generation-method.html#activity-equilibrium-values" class="xref" data-knowl="./knowl/xref/activity-equilibrium-values.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 14.2">Activity 14.2</a>. The disease-free equilibrium is <span class="process-math">\((S, E, I, R)=(N, 0, 0, 0)\text{,}\)</span> where <span class="process-math">\(N=S+E+I+R\)</span> is the entire population being studied.</div></li>
+<li><div class="para">We did this for the SEIR model in <a href="ch-the-next-generation-method.html#activity-equilibrium-values" class="xref" data-knowl="./knowl/xref/activity-equilibrium-values.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 14.2">Activity 14.2</a>. The disease-free equilibrium is <span class="process-math">\((S, E, I, R)=(N, 0, 0, 0)\text{,}\)</span> where <span class="process-math">\(N\)</span> is the total number of people in the entire population being studied.</div></li>
 <li><div class="para">
 <div class="displaymath process-math">
 \begin{align*}
