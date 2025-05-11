@@ -789,7 +789,7 @@
         <activity xml:id="activity-next-generation-practice-seiar">
         <statement>
           <p>
-            The book <em>Mathematical Epidemiology</em><fn><em>Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 12, which was written by Fred Brauer, and is labeled SLIAR. Our version is labeled SEIAR to stay consistent with notation we have used in other chapters.</fn> introduces a model of influenza having five compartments. In addition to Susceptibles (S), Infectious (I), and Removed (R), there is an Exposed-and-incubating (E) compartment for people incubating influenza who are not yet Infectious, and there is an Asymptomatic (A) compartment for people who are capable of spreading influenza to others, despite not displaying any symptoms of having influenza. We further assume that Asymptomatic individuals cannot spread influenza as much as individuals in the Infectious compartment. The compartmental diagram for this model appears in <xref ref="fig-SEIAR-compartmental-diagram"/>. In this activity, we explore the SEIAR model and investigate Python code that can help us determine <m>\mathcal{R}_0</m> for this model using the Next Generation Method.
+            The book <em>Mathematical Epidemiology</em><fn><em>Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 12, which was written by Fred Brauer, and is labeled SLIAR. Our version is labeled SEIAR to stay consistent with notation we have used in other chapters.</fn> introduces a model of influenza having five compartments. This model has a Susceptibles (S) compartment that is similar to what we have seen before. There is then an Exposed-and-incubating (E) compartment for people incubating influenza who are not yet able to spread influenza to others. After that, people may be Infectious (I), meaning they have symptoms and can spread influenza, or they may be Asymptomatic (A), meaning they do not have symptoms but can still spread influenza to others. In this model, Asymptomatic (A) people are less able to spread influenza than Infectious (I) people. Many people then move into a Recovered (R) compartment, but those who die depart the model rather than moving into the R compartment. The compartmental diagram for this model appears in <xref ref="fig-SEIAR-compartmental-diagram"/>. In this activity, we explore the SEIAR model and investigate Python code that can help us determine <m>\mathcal{R}_0</m> for this model using the Next Generation Method.
           </p>
           <figure xml:id="fig-SEIAR-compartmental-diagram">
             <caption>The compartmental diagram for one possible SEIAR model for influenza, where <q>S</q>stands for <q>Susceptible</q>, <q>E</q> stands for <q>Exposed-and-incubating</q>, <q>I</q> stands for <q>Infectious</q>, <q>A</q> stands for <q>Asymptomatic</q> and <q>R</q> stands for <q>Recovered</q>. In this model, Asymptomatic individuals have no symptoms but can spread influenza, though they are not as contagious as individuals in the Infectious compartment.</caption>
@@ -863,7 +863,7 @@
             </li>
             <li>
               <p>
-                This model separates Recovered people from those who die from influenza. We have seen that the R compartment stands for Recovered. Explain how the parameter <m>f</m> distinguishes people who have died from people who have recovered. While explaining, use the following information, which is similar to what we saw with parameter <m>p</m>: the possible values for <m>f</m> are <m>0 \leq f \leq 1</m>.
+                This model separates Recovered people from those who die from influenza. We have seen that the R compartment stands for Recovered. As further information, the possible values for the parameter <m>f</m> are <m>0 \leq f \leq 1</m>. Explain how <m>f</m> distinguishes people who have died from people who have recovered, and compare this approach with how we have handled deaths in models where the R compartment stood for Removed.
               </p>
             </li>
           </ol>     
@@ -878,25 +878,28 @@
                   </p> 
                   <p> Notice that since <m>0 \leq p \leq 1</m>, then <m>0 \leq 1-p \leq 1</m>. This means that <m>0 \leq p\kappa E \leq \kappa E</m> and <m>0 \leq (1-p)\kappa E \leq \kappa E</m>.
                   </p>
+                  <p>
+                    Adding the two terms: <m>p\kappa E + (1-p)\kappa E = p \kappa E + \kappa E - p \kappa E = \kappa E</m>.
+                  </p>
                 </li>
                 <li>
                   <p>
-                    In a simpler model, the expression <m>\kappa E</m> would represent the full number of people transitioning from the Exposed-and-incubating compartment to the Infectious compartment within a single unit of time. In the SEIAR model, we see that <m>p\kappa E + (1-p)\kappa E = \kappa E</m>, meaning that the total number of people departing the Exposed-and-incubating compartment within a single unit of time still equals <m>\kappa E</m>, but this number of people is split across two different arrows.
+                    In a simpler model, the expression <m>\kappa E</m> would represent the full number of people transitioning from the Exposed-and-incubating compartment to the Infectious compartment within a single unit of time. In the SEIAR model, <m>\kappa E</m> is split into two pieces, <m>p\kappa E</m> and <m>(1-p)\kappa E</m>, so that the total number of people departing the E compartment is the same, but those people go to two possible compartments, the Infectious compartment and the Asymptomatic compartment.
                   </p>
                 </li>
               </ol>
             </li>
             <li>
               <p>
-                It makes sense to have <m>0 \leq \delta \leq 1</m>. If <m>\delta = 0</m>, this means there is no spread of influenza from Asymptomatic people. If <m>\delta = 1</m>, this means Asymptomatic people spread influenza just as much as people in the Infectious compartment. For values of <m>\delta</m> between <m>0</m> and <m>1</m>, Asymptomatic people spread influenza to some extent, but strictly less than people in the Infectious compartment
+                It makes sense to have <m>0 \lt \delta \lt 1</m>. Notice that letting <m>\delta = 0</m> would means there is no spread of influenza from Asymptomatic people, and letting <m>\delta = 1</m> would means Asymptomatic people spread influenza just as much as people in the Infectious compartment. For values of <m>\delta</m> strictly between <m>0</m> and <m>1</m>, Asymptomatic people spread influenza to some extent, but strictly less than people in the Infectious compartment
               </p>
               <p>
-                We could also imagine having <m>\delta >1</m>. This would mean that people in the Asymptomatic compartment spread influenza <em>more</em> than people in the Infectious compartment. For this model, we wrote that Asymptomatic people spread influenza less than Infectious people, so we should not allow <m>\delta >1</m>. However, the idea of <m>\delta >1</m> could be useful in some other model with different assumptions.
+                For this model, we wrote that Asymptomatic people spread influenza less than Infectious people, so we should not allow <m>\delta \gt 1</m>. However, the idea of <m>\delta \gt 1</m> could be useful in some other model with different assumptions.
               </p>
             </li>
             <li>
               <p>
-                In a single unit of time, <m>\alpha I</m> people depart compartment I. A fraction <m>f</m> of these people move into compartment R, meaning they have recovered. A fraction <m>1-f</m> of these people do not move into a named compartment. These people die, and in this model, people who have died are no longer represented as being in a compartment.
+                In a single unit of time, <m>\alpha I</m> people depart compartment I. A fraction <m>f</m> of these people move into compartment R, meaning they have recovered. A fraction <m>1-f</m> of these people do not move into a named compartment. These people die, and in this model, people who have died are no longer represented as being in a compartment. This means that in this model, the total population of people in compartments does not stay the same across time.
               </p>
             </li>
           </ol>
