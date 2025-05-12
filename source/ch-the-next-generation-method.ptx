@@ -728,20 +728,45 @@
           </p>
         </hint>
       </activity>
+
+      <p>
+        We have now seen the steps of the Next Generation Method for both SEIR and SIR models. The final step of the Next Generation Method requires a significant amount of linear algebra, especially as models become more complicated. In <xref ref="sec-python-code-for-the-next-generation-method" />, we introduce Python code to help with this.
+      </p>
  
       
     </section>
 
-    <section xml:id="sec-2">
+    <section xml:id="sec-python-code-for-the-next-generation-method">
       <title>Python Code for the Next Generation Method</title>
-      <!-- <p>Change the title??? To focus on linear algebra???</p>
-      <p>Show how to use the Next Generation Method and how to use the results to determine beta</p> -->
 
-      
+      <p>
+        For the most part, steps 1 through 4 of the Next Generation Method cannot be automated, as they require human judgment. In particular, Step 1 requires determining which compartments involve some stage of infection, and Step 3 distinguishes new infections from all other stages of infection. In Step 4, we use logical thinking to help us write down the population distribution in a situation where there has not been an outbreak previously.
+      </p>
+      <p>
+        For the later steps of the Next Generation Method, especially computing matrix inverses and eigenvalues, technology can be extremely helpful. These are doable using linear algebra, yet they are not the focus of this course. For this textbook, students are asked to complete by hand Step 5 of the Next Generation Method, and then we use Python for the grand finale in Step 6.
+      </p>
+      <p>
+        <xref ref="activity-learning-next-generation-python-seir"/> provides one possible set of Python commands for computing the value of <m>\mathcal{R}_0</m> in the SEIR model shown in <xref ref="activity-learning-next-generation-seir"/>.
+      </p>
+
+      <activity xml:id="activity-learning-next-generation-python-seir">
+        <statement>
+          <p>
+            Now 
+          </p>
+                 
+        </statement>
+        <hint>
+          <p>
+            Only  
+          </p>
+        </hint>
+      </activity>
 
       <p>
         The code block below produces the eigenvalues for the SEIR model, doing the computation in Step 6 of the Next Generation Method as described in <xref ref="activity-learning-next-generation-seir"/>. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix.
       </p>
+
 
       <p>
         Spend some time looking through the code. Be sure you see how and where matrices are entered. You can use similar code for other compartmental models, and the only parts that need changing are the <m>F</m> and <m>V</m> matrices, along with including as <c>Symbol</c> any Greek letters used for parameters.
