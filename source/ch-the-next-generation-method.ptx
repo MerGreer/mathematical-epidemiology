@@ -740,7 +740,7 @@
       <title>Python Code for the Next Generation Method</title>
 
       <p>
-        For the most part, steps 1 through 4 of the Next Generation Method cannot be automated, as they require human judgment. In particular, Step 1 requires determining which compartments involve some stage of infection, and Step 3 distinguishes new infections from all other stages of infection. In Step 4, we use logical thinking to help us write down the population distribution in a situation where there has not been an outbreak previously.
+        For the most part, steps 1 through 4 of the Next Generation Method cannot be automated, as they require human judgment. In particular, Step 1 requires determining which compartments involve some stage of infection, and in Step 3, we must distinguish new infections from all other stages of infection. In Step 4, we use logical thinking to help us write down the population distribution in a situation where there has not been an outbreak previously.
       </p>
       <p>
         For the later steps of the Next Generation Method, especially computing matrix inverses and eigenvalues, technology can be extremely helpful. These are doable using linear algebra, yet they are not the focus of this course. For this textbook, students are asked to complete by hand Step 5 of the Next Generation Method, and then we use Python for the grand finale in Step 6.
@@ -752,9 +752,71 @@
       <activity xml:id="activity-learning-next-generation-python-seir">
         <statement>
           <p>
-            Now 
+            The code block below produces the eigenvalues for the SEIR model, doing the computation in Step 6 of the Next Generation Method as described in <xref ref="activity-learning-next-generation-seir"/>. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix. 
           </p>
-                 
+          <p>
+            Use the code to answer the questions below.
+          </p> 
+          <sage>
+            <input>
+              from sympy import * 
+              init_printing(use_unicode=True)
+              
+              N = Symbol('N') 
+              gamma = Symbol('gamma')
+              beta = Symbol('beta')
+              kappa = Symbol('kappa')
+              
+              # The F matrix of partial derivatives
+              F = Matrix([[0, beta * N], [0, 0]])
+              print("F = ", F)
+              
+              # The V matrix of partial derivatives
+              V = Matrix([[kappa, 0], [-kappa, gamma]])
+              print("V = ", V)
+              
+              # Computing V inverse and the Next Generation matrix
+              Vinv = V**-1
+              print("V inverse = ", Vinv)
+              FVinv = F * Vinv
+              print("Next Gen Matrix = ", FVinv)
+              
+              # Calculating eigenvalues
+              
+              R0eval = FVinv.eigenvals()
+              print("The eigenvalues and their multiplicities are: ", R0eval)
+            </input>
+            <output>
+
+            </output>
+          </sage>  
+          <ol>
+            <li>
+              <p>
+                Four expressions are listed as <c>Symbol</c> in lines 4 through 7 of the Python code. Compare these expressions with the entries in matrices <m>F</m> and <m>V</m> that we solved for in part 5 of <xref ref="activity-learning-next-generation-seir"/>. Show where each <c>Symbol</c> occurs in matrices <m>F</m> and <m>V</m>, and state why these are all the terms we need to define as <c>Symbol</c> so that Python will recognize them. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Use lines 10 and 14 of the Python code to describe the syntax we use for entering matrices into Python.
+              </p>
+            </li>
+            <li>
+              <p>
+                From line 18, state how we compute the inverse of matrix <m>V</m>, also written as <m>V^{-1}</m>. From line 20, state how we compute the matrix <m>FV^{-1}</m>, which multiples matrix <m>F</m> with matrix <m>V^{-1}</m>. From line 25, state the command used to calculate the eigenvalues of matrix <m>FV^{-1}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The lines 11, 15, 19, 21, and 26 all include the <c>print</c> command. Write out exactly what Python prints for each of these lines when we evaluate the code, and explain what each of these printed results means, in the context of the Next Generation Method.
+              </p>
+            </li>
+            <li>
+              <p>
+                When we compute eigenvalues for a matrix, it is possible that an eigenvalue may occur more than once. The number of times an eigenvalue occurs is called the <em>multiplicity</em> of the eigenvalue. Python tells us the eigenvalues of a matrix, along with the multiplicity of each eigenvalue. Write out the eigenvalues of <m>FV^{-1}</m> and the multiplicity of each eigenvalue. Explain how you know that each eigenvalue is a real number (and not a complex number, meaning that no part of the eigenvalue includes <m>i=\sqrt{-1}</m>). Then state which eigenvalue is the largest, and confirm that this eigenvalue must represent a positive real number. 
+              </p>
+            </li>
+          </ol>
         </statement>
         <hint>
           <p>
@@ -763,48 +825,7 @@
         </hint>
       </activity>
 
-      <p>
-        The code block below produces the eigenvalues for the SEIR model, doing the computation in Step 6 of the Next Generation Method as described in <xref ref="activity-learning-next-generation-seir"/>. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix.
-      </p>
-
-
-      <p>
-        Spend some time looking through the code. Be sure you see how and where matrices are entered. You can use similar code for other compartmental models, and the only parts that need changing are the <m>F</m> and <m>V</m> matrices, along with including as <c>Symbol</c> any Greek letters used for parameters.
-      </p>
-
-      <sage>
-        <input>
-          from sympy import * 
-          init_printing(use_unicode=True)
-          
-          N = Symbol('N') 
-          gamma = Symbol('gamma')
-          beta = Symbol('beta')
-          kappa = Symbol('kappa')
-           
-          # The F matrix of partial derivatives
-          F = Matrix([[0, beta * N], [0, 0]])
-          print("F = ", F)
-          
-          # The V matrix of partial derivatives
-          V = Matrix([[kappa, 0], [-kappa, gamma]])
-          print("V = ", V)
-          
-          # Computing V inverse and the Next Generation matrix
-          Vinv = V**-1
-          print("V inverse = ", Vinv)
-          FVinv = F * Vinv
-          print("Next Gen Matrix = ", FVinv)
-          
-          # Calculating eigenvalues
-          
-          R0eval = FVinv.eigenvals()
-          print("The eigenvalues and their multiplicities are: ", R0eval)
-        </input>
-        <output>
-        
-        </output>
-        </sage>
+      
 
 
         <p>
