@@ -752,7 +752,7 @@
       <activity xml:id="activity-learning-next-generation-python-seir">
         <statement>
           <p>
-            The code block below produces the eigenvalues for the SEIR model, doing the computation in Step 6 of the Next Generation Method as described in <xref ref="activity-learning-next-generation-seir"/>. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix. 
+            The code block below produces the eigenvalues for the SEIR model. In other words, this code does the computation in Step 6 of the Next Generation Method as described in <xref ref="activity-learning-next-generation-seir"/>. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix. 
           </p>
           <p>
             Use the code to answer the questions below.
@@ -793,7 +793,7 @@
           <ol>
             <li>
               <p>
-                Four expressions are listed as <c>Symbol</c> in lines 4 through 7 of the Python code. Compare these expressions with the entries in matrices <m>F</m> and <m>V</m> that we solved for in part 5 of <xref ref="activity-learning-next-generation-seir"/>. Show where each <c>Symbol</c> occurs in matrices <m>F</m> and <m>V</m>, and state why these are all the terms we need to define as <c>Symbol</c> so that Python will recognize them. 
+                Four expressions are listed as <c>Symbol</c> in lines 4 through 7 of the Python code. Compare these expressions with the entries in matrices <m>F</m> and <m>V</m> that we solved for in Step 5 of <xref ref="activity-learning-next-generation-seir"/>. Show where each <c>Symbol</c> occurs in matrices <m>F</m> and <m>V</m>, and state why these are all the terms we need to define as <c>Symbol</c> so that Python will recognize them. 
               </p>
             </li>
             <li>
@@ -803,7 +803,7 @@
             </li>
             <li>
               <p>
-                From line 18, state how we compute the inverse of matrix <m>V</m>, also written as <m>V^{-1}</m>. From line 20, state how we compute the matrix <m>FV^{-1}</m>, which multiples matrix <m>F</m> with matrix <m>V^{-1}</m>. From line 25, state the command used to calculate the eigenvalues of matrix <m>FV^{-1}</m>.
+                From line 18, state how we compute the inverse of matrix <m>V</m>, also written as <m>V^{-1}</m>. From line 20, state how we compute the matrix <m>FV^{-1}</m>, which multiples matrix <m>F</m> with matrix <m>V^{-1}</m>. From line 25, state the command used to calculate the eigenvalues of matrix <m>FV^{-1}</m>, and give the name we assign to that set of eigenvalues.
               </p>
             </li>
             <li>
@@ -819,17 +819,47 @@
           </ol>
         </statement>
         <hint>
-          <p>
-            Only  
-          </p>
+          <ol>
+            <li>
+              <p>
+                In Step 5 of <xref ref="activity-learning-next-generation-seir"/>, we produced matrices for <m>F</m> and <m>V</m>. These matrices used letters, including Greek letters, to represent some parts of the model. For each of these letters, we now designate that letter to be a <c>Symbol</c> so that Python knows how to work with it. As an example, we write <c>gamma = Symbol('gamma')</c> to give the name <q>gamma</q> to the Greek letter <m>\gamma</m>. Python then knows to treat the entire text string <c>gamma</c> as the single parameter value <m>\gamma</m> whenever <m>\gamma</m> appears in a mathematical expression, such as in matrix <m>V</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                To enter a matrix, we type <c>Matrix([])</c>. Inside the square brackets, we enter each row of the matrix, using its own set of square brackets, with commas separating the matrix entries. This system extends to matrices larger than <m>2\times 2</m>. 
+              </p>
+            </li>
+            <li>
+              <p>
+                These commands appear on the right-hand side of the equals <m>(=)</m> sign in each of the given lines. Notice that in each case we name the output. In particular, we give the name <c>R0eval</c> to the output of the <c>eigenvals</c> command so that we can print this output, using the command in line 26. 
+              </p>
+            </li>
+            <li>
+              <p>
+                The <c>print</c> commands in this code block all include text, in quotation marks, followed by the name of a mathematical expression we have either entered into Python or asked Python to compute. As a result, Python prints this exact text first, telling us what we are seeing in the mathematical expression appearing just after the text.  
+              </p>
+              <p>
+                For instance, the code in line 19 tells Python to print the text <q>V inverse = </q> and then to print the actual matrix <m>V^{-1}</m> that has been computed based on the matrix <m>V</m> we entered.
+              </p>
+            </li>
+            <li>
+              <p>
+                For matrix <m>FV^{-1}</m> resulting from the Next Generation Method shown in <xref ref="activity-learning-next-generation-seir"/>, the eigenvalues are <c>0</c>, having multiplicity <m>1</m>, and <c>N*beta/gamma</c>, which equals <m>\frac{\beta N}{\gamma}</m>, having multiplicity 1. 
+              </p>
+              <p>
+                It is not unusual for eigenvalue equaling <m>\mathcal{R}_0</m> to look different in Python than in mathematical writing. Rearranging and rewriting the Python version of <m>\mathcal{R}_0</m> often makes the result easier to work with, both mathematically and for understanding its meaning.
+              </p>
+              <p>
+                In the case of this activity's output: the eigenvalue <c>N*beta/gamma</c> is a positive real number, and is larger than <c>0</c>, because all three values <m>N</m>, <m>\beta</m>, and <m>\gamma</m> are positive real numbers in the SEIR model that led to this result.
+              </p>
+            </li>
+          </ol>
         </hint>
       </activity>
 
-      
-
-
         <p>
-          <xref ref="activity-next-generation-practice-seiar"/> below introduces a Python code block for producing eigenvalues when the Next Generation Method involves a <m>3\times 3</m> matrix. 
+          <xref ref="activity-next-generation-practice-seiar"/> below provides a somewhat larger model on which to practice the Next Generation Method. It also introduces a Python code block for producing eigenvalues when the Next Generation Method involves a <m>3\times 3</m> matrix. 
         </p>
 
         <activity xml:id="activity-next-generation-practice-seiar">
