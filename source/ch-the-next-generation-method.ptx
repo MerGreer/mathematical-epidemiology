@@ -803,7 +803,7 @@
             </li>
             <li>
               <p>
-                From line 18, state how we compute the inverse of matrix <m>V</m>, also written as <m>V^{-1}</m>. From line 20, state how we compute the matrix <m>FV^{-1}</m>, which multiples matrix <m>F</m> with matrix <m>V^{-1}</m>. From line 25, state the command used to calculate the eigenvalues of matrix <m>FV^{-1}</m>, and give the name we assign to that set of eigenvalues.
+                From line 18, state how we tell Python to compute the inverse of matrix <m>V</m>, also written as <m>V^{-1}</m>. From line 20, state how we tell Python to compute the matrix <m>FV^{-1}</m>, which multiples matrix <m>F</m> with matrix <m>V^{-1}</m>. From line 25, state the command used to calculate the eigenvalues of matrix <m>FV^{-1}</m>, and give the name we assign to that set of eigenvalues.
               </p>
             </li>
             <li>
@@ -822,8 +822,8 @@
           <ol>
             <li>
               <p>
-                In Step 5 of <xref ref="activity-learning-next-generation-seir"/>, we produced matrices for <m>F</m> and <m>V</m>. These matrices used letters, including Greek letters, to represent some parts of the model. For each of these letters, we now designate that letter to be a <c>Symbol</c> so that Python knows how to work with it. As an example, we write <c>gamma = Symbol('gamma')</c> to give the name <q>gamma</q> to the Greek letter <m>\gamma</m>. Python then knows to treat the entire text string <c>gamma</c> as the single parameter value <m>\gamma</m> whenever <m>\gamma</m> appears in a mathematical expression, such as in matrix <m>V</m>.
-              </p>
+                In Step 5 of <xref ref="activity-learning-next-generation-seir"/>, we produced matrices for <m>F</m> and <m>V</m>. These matrices used letters, including Greek letters, to represent some parts of the model. We now designate each of those letters to be a <c>Symbol</c> so that Python knows how to work with it. As an example, we write <c>gamma = Symbol('gamma')</c> to give the name <q>gamma</q> to the Greek letter <m>\gamma</m>. Python then knows to treat the entire text string <c>gamma</c> as the single parameter value <m>\gamma</m> whenever <m>\gamma</m> appears in a mathematical expression, such as in matrix <m>V</m>.
+              </p> 
             </li>
             <li>
               <p>
@@ -848,7 +848,7 @@
                 For matrix <m>FV^{-1}</m> resulting from the Next Generation Method shown in <xref ref="activity-learning-next-generation-seir"/>, the eigenvalues are <c>0</c>, having multiplicity <m>1</m>, and <c>N*beta/gamma</c>, which equals <m>\frac{\beta N}{\gamma}</m>, having multiplicity 1. 
               </p>
               <p>
-                It is not unusual for eigenvalue equaling <m>\mathcal{R}_0</m> to look different in Python than in mathematical writing. Rearranging and rewriting the Python version of <m>\mathcal{R}_0</m> often makes the result easier to work with, both mathematically and for understanding its meaning.
+                It is not unusual for the eigenvalue equaling <m>\mathcal{R}_0</m> to look different in Python than in mathematical writing. Rearranging and rewriting the Python version of <m>\mathcal{R}_0</m> often makes the result easier to work with, both mathematically and for understanding its meaning.
               </p>
               <p>
                 In the case of this activity's output: the eigenvalue <c>N*beta/gamma</c> is a positive real number, and is larger than <c>0</c>, because all three values <m>N</m>, <m>\beta</m>, and <m>\gamma</m> are positive real numbers in the SEIR model that led to this result.
@@ -942,7 +942,57 @@
                 This model separates Recovered people from those who die from influenza. We have seen that the R compartment stands for Recovered. As further information, the possible values for the parameter <m>f</m> are <m>0 \leq f \leq 1</m>. Explain how <m>f</m> distinguishes people who have died from people who have recovered, and compare this approach with how we have handled deaths in models where the R compartment stood for Removed.
               </p>
             </li>
-          </ol>     
+            <li>
+              <p>
+                The code block below produces the eigenvalues for the SEIAR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>3\times 3</m> matrix. Compare this code with the code in <xref ref="activity-learning-next-generation-python-seir"/>. Name at least two ways the code blocks are similar, indicating ways the Next Generation Method computation is similar, and name at least two ways the code blocks are different, indicating things that change for the Next Generation Method computation in these two different examples. 
+              </p>
+            </li>
+            <li>
+              <p>
+                One way to write the value of <m>\mathcal{R}_0</m> for this model is the following:
+                <md>
+                  <mrow>\mathcal{R}_0 \amp = \beta N \left( \frac{p}{\alpha} + \frac{\delta (1-p)}{\eta} \right) . </mrow>
+                </md>
+                Write the value of <m>\mathcal{R}_0</m> given by the Python code block below, and show the algebra steps needed to demonstrate that Python's result matches the formula shown here. Then explain, mathematically, what the fractions <m>\frac{p}{\alpha} </m> and <m>\frac{\delta (1-p)}{\eta}</m> indicate about movement through the SEIAR model.
+              </p>
+            </li>
+          </ol> 
+          <sage>
+            <input>
+              from sympy import * 
+              init_printing(use_unicode=True)
+              
+              N = Symbol('N') 
+              gamma = Symbol('gamma')
+              beta = Symbol('beta')
+              kappa = Symbol('kappa')
+              alpha = Symbol('alpha')
+              delta = Symbol('delta')
+              eta = Symbol('eta')
+              p = Symbol('p')
+              
+              # The F matrix of partial derivatives
+              F = Matrix([[0, beta * N, beta * N * delta], [0, 0, 0], [0, 0, 0]])
+              print("F = ", F)
+              
+              # The V matrix of partial derivatives
+              V = Matrix([[kappa, 0, 0], [-p * kappa, alpha, 0], [-(1-p) * kappa, 0, eta]])
+              print("V = ", V)
+              
+              # Computing V inverse and the Next Generation matrix
+              Vinv = V**-1
+              print("V inverse = ", Vinv)
+              FVinv = F * Vinv
+              print("Next Gen Matrix = ", FVinv)
+              
+              # Calculating eigenvalues
+              R0eval = FVinv.eigenvals()
+              print("The eigenvalues and their multiplicities are: ", R0eval)
+            </input>
+            <output>
+
+            </output>
+          </sage>    
         </statement>
         <answer>
           <ol>                           
@@ -975,56 +1025,82 @@
             </li>
             <li>
               <p>
-                In a single unit of time, <m>\alpha I</m> people depart compartment I. A fraction <m>f</m> of these people move into compartment R, meaning they have recovered. A fraction <m>1-f</m> of these people do not move into a named compartment. These people die, and in this model, people who have died are no longer represented as being in a compartment. This means that in this model, the total population of people in compartments does not stay the same across time.
+                In a single unit of time, <m>\alpha I</m> people depart compartment I. A fraction <m>f</m> of these people move into compartment R, meaning they have recovered. A fraction <m>1-f</m> of these people do not move into a named compartment. These people die, and in this model, people who have died are no longer represented as being in a compartment. This means that in this model, the total population of people in compartments does not stay the same across time (unless we let <m>f=1</m>, sending everyone from the <m>I</m> compartment into the <m>R</m> compartment).
               </p>
             </li>
-          </ol>
+            
+          </ol>  
         </answer>
       </activity>
 
-        <p>
-          The code block below produces the eigenvalues for the SLIAR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>3\times 3</m> matrix. Comparing this code with the previous code may help show how similar the code is when computing the Next Generation matrix for different models, as well as showing what to change for a different model.
-        </p>
-
-        <sage>
-          <input>
-            from sympy import * 
-            init_printing(use_unicode=True)
-            
-            N = Symbol('N') 
-            gamma = Symbol('gamma')
-            beta = Symbol('beta')
-            kappa = Symbol('kappa')
-            alpha = Symbol('alpha')
-            delta = Symbol('delta')
-            eta = Symbol('eta')
-            p = Symbol('p')
-
-             
-            # The F matrix of partial derivatives
-            F = Matrix([[0, beta * N, beta * N * delta], [0, 0, 0], [0, 0, 0]])
-            print("F = ", F)
-            
-            # The V matrix of partial derivatives
-            V = Matrix([[kappa, 0, 0], [-p * kappa, alpha, 0], [-(1-p) * kappa, 0, eta]])
-            print("V = ", V)
-            
-            # Computing V inverse and the Next Generation matrix
-            Vinv = V**-1
-            print("V inverse = ", Vinv)
-            FVinv = F * Vinv
-            print("Next Gen Matrix = ", FVinv)
-            
-            # Calculating eigenvalues
-            
-            R0eval = FVinv.eigenvals()
-            print("The eigenvalues and their multiplicities are: ", R0eval)
-          </input>
-          <output>
-          
-          </output>
-          </sage>
+        
     </section>
+
+    <exercises xml:id="exercises-ch-next-generation-method">
+       <exercise number="1">
+        <p>
+          Redo  
+        </p>   
+        <ol>
+          <li>
+            <p>
+              Compute  
+            </p>
+          </li>
+          <li>
+            <p>
+              Similarly
+            </p>
+          </li>
+          <li>
+            <p>
+              Explain   
+            </p>
+          </li>
+        </ol>      
+      </exercise>
+
+      <!-- <exercise number="2">
+        <p>
+          Update  
+        </p>   
+        <ol>
+          <li>
+            <p>
+              Compute 
+            </p>
+          </li>
+          <li>
+            <p>
+              Adapt 
+            </p>
+          </li>
+          <li>
+            <p>
+              Do 
+            </p>
+          </li>
+        </ol>   
+      </exercise>
+
+      <exercise number="3">
+        <p>
+          We 
+        </p>   
+        <ol>
+          <li>
+            <p>
+              Rewrite 
+            </p>
+          </li>
+          <li>
+            <p>
+              In 
+            </p>
+          </li>
+        </ol>     
+      </exercise> -->
+    </exercises>
 
 
     <!-- <ol>
