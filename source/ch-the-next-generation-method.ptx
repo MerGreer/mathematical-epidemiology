@@ -939,7 +939,7 @@
             </li>
             <li>
               <p>
-                This model separates Recovered people from those who die from influenza. We have seen that the R compartment stands for Recovered. As further information, the possible values for the parameter <m>f</m> are <m>0 \leq f \leq 1</m>. Explain how <m>f</m> distinguishes people who have died from people who have recovered, and compare this approach with how we have handled deaths in models where the R compartment stood for Removed.
+                This model separates Recovered people from those who die from influenza. To emphasize, the R compartment here stands for Recovered, which is different than what we have seen in some models where the R stood for Removed, which could mean recovery, death, or other departure from the population. As further information, the possible values for the parameter <m>f</m> are <m>0 \leq f \leq 1</m>. Explain how <m>f</m> distinguishes people who have died from people who have recovered, and compare this approach with how we have handled deaths in models where the R compartment stood for Removed.
               </p>
             </li>
             <li>
@@ -1028,7 +1028,34 @@
                 In a single unit of time, <m>\alpha I</m> people depart compartment I. A fraction <m>f</m> of these people move into compartment R, meaning they have recovered. A fraction <m>1-f</m> of these people do not move into a named compartment. These people die, and in this model, people who have died are no longer represented as being in a compartment. This means that in this model, the total population of people in compartments does not stay the same across time (unless we let <m>f=1</m>, sending everyone from the <m>I</m> compartment into the <m>R</m> compartment).
               </p>
             </li>
-            
+            <li>
+              <p>
+                The answers here are open-ended.
+              </p>
+            </li>
+            <li>
+              <p>
+                Python writes the eigenvalue that is <m>\mathcal{R}_0</m> in the form 
+                <md>
+                  <mrow>-N \beta (\alpha \delta p - \alpha \delta - \eta p)/(\alpha \eta ) .</mrow>
+                </md> 
+                First, we write this in more standard fraction notation. In the same step, we move the minus sign (<m>-</m>) from before <m>N \beta</m>, choosing instead to distribute this minus sign to the terms inside the parentheses:
+                <md>
+                  <mrow>\frac{N \beta (-\alpha \delta p + \alpha \delta + \eta p)}{\alpha \eta}. </mrow>
+                </md>
+                Next, we group terms within the parentheses, splitting the terms up so they form two separate fractions, and rearrange the order of some terms to better match the answer we eventually want to reach:
+                <md>
+                  <mrow>\beta N \left(  \frac{\eta p}{\alpha \eta} + \frac{\alpha \delta -\alpha \delta p}{\alpha \eta} \right). </mrow>
+                </md>
+                Finally, we divide <m>\eta</m> from the top and bottom of the first fraction, and we divide <m>\alpha</m> from the top and bottom of the second fraction. In doing so, we note that these are parameters that should always have strictly positive values, which means we can divide by them and not be dividing by <m>0</m>:
+                <md>
+                  <mrow>\beta N \left(  \frac{p}{\alpha} + \frac{\delta (1-p)}{\eta} \right). </mrow>
+                </md>
+              </p>
+              <p>
+                For mathematical explanation, we compare this form of <m>\mathcal{R}_0</m> with <m>\mathcal{R}_0=\frac{\beta N}{\gamma}</m> in some of the simpler models we have studied. In those, the value of <m>\gamma</m> in the denominator indicates that the more rapidly people depart the I compartment, the less able a disease is to spread, making <m>\mathcal{R}_0</m> lower. Here, since we split into compartments I and A, we need to separately evaluate the rapidity with which people depart each of these compartments. A fraction <m>p</m> of people in the I compartment depart at rate <m>\alpha</m>. This is the first fraction in parentheses for <m>\mathcal{R}_0</m> in this exercise. The remaining fraction of people, <m>1-p</m>, depart compartment A at rate <m>\eta</m>. However, these people also have less impact on new infections because of the parameter <m>\delta</m>. This lesser impact is measured by the value of <m>\delta</m> in the second fraction within <m>\mathcal{R}_0</m>.
+              </p>
+            </li>
           </ol>  
         </answer>
       </activity>
