@@ -9,6 +9,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <article class="activity project-like"><h4 class="heading">
@@ -25,8 +38,47 @@
 </ol>
 </li>
 <li><div class="para">Asymptomatic people in the SEIAR model are able to spread influenza but may not be able to spread influenza as easily as people in the Infectious compartment. Given this information, what possible values for <span class="process-math">\(\delta\)</span> make sense?</div></li>
-<li><div class="para">This model separates Recovered people from those who die from influenza. We have seen that the R compartment stands for Recovered. As further information, the possible values for the parameter <span class="process-math">\(f\)</span> are <span class="process-math">\(0 \leq f \leq 1\text{.}\)</span> Explain how <span class="process-math">\(f\)</span> distinguishes people who have died from people who have recovered, and compare this approach with how we have handled deaths in models where the R compartment stood for Removed.</div></li>
-</ol>
+<li><div class="para">This model separates Recovered people from those who die from influenza. To emphasize, the R compartment here stands for Recovered, which is different than what we have seen in some models where the R stood for Removed, which could mean recovery, death, or other departure from the population. As further information, the possible values for the parameter <span class="process-math">\(f\)</span> are <span class="process-math">\(0 \leq f \leq 1\text{.}\)</span> Explain how <span class="process-math">\(f\)</span> distinguishes people who have died from people who have recovered, and compare this approach with how we have handled deaths in models where the R compartment stood for Removed.</div></li>
+<li><div class="para">The code block below produces the eigenvalues for the SEIAR model. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <span class="process-math">\(3\times 3\)</span> matrix. Compare this code with the code in <a href="ch-the-next-generation-method.html#activity-learning-next-generation-python-seir" class="xref" data-knowl="./knowl/xref/activity-learning-next-generation-python-seir.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 14.6">Activity 14.6</a>. Name at least two ways the code blocks are similar, indicating ways the Next Generation Method computation is similar, and name at least two ways the code blocks are different, indicating things that change for the Next Generation Method computation in these two different examples.</div></li>
+<li><div class="para logical">
+<div class="para">One way to write the value of <span class="process-math">\(\mathcal{R}_0\)</span> for this model is the following:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\mathcal{R}_0 \amp = \beta N \left( \frac{p}{\alpha} + \frac{\delta (1-p)}{\eta} \right) . 
+\end{align*}
+</div>
+<div class="para">Write the value of <span class="process-math">\(\mathcal{R}_0\)</span> given by the Python code block below, and show the algebra steps needed to demonstrate that Python’s result matches the formula shown here. Then explain, mathematically, what the fractions <span class="process-math">\(\frac{p}{\alpha} \)</span> and <span class="process-math">\(\frac{\delta (1-p)}{\eta}\)</span> indicate about movement through the SEIAR model.</div>
+</div></li>
+</ol> <pre id="activity-next-generation-practice-seiar-1-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">from sympy import * 
+init_printing(use_unicode=True)
+
+N = Symbol('N') 
+gamma = Symbol('gamma')
+beta = Symbol('beta')
+kappa = Symbol('kappa')
+alpha = Symbol('alpha')
+delta = Symbol('delta')
+eta = Symbol('eta')
+p = Symbol('p')
+
+# The F matrix of partial derivatives
+F = Matrix([[0, beta * N, beta * N * delta], [0, 0, 0], [0, 0, 0]])
+print("F = ", F)
+
+# The V matrix of partial derivatives
+V = Matrix([[kappa, 0, 0], [-p * kappa, alpha, 0], [-(1-p) * kappa, 0, eta]])
+print("V = ", V)
+
+# Computing V inverse and the Next Generation matrix
+Vinv = V**-1
+print("V inverse = ", Vinv)
+FVinv = F * Vinv
+print("Next Gen Matrix = ", FVinv)
+
+# Calculating eigenvalues
+R0eval = FVinv.eigenvals()
+print("The eigenvalues and their multiplicities are: ", R0eval)
+</script></pre>
 <div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ol class="decimal" id="activity-next-generation-practice-seiar-2-1">
 <li><div class="para"><ol class="lower-alpha" id="activity-next-generation-practice-seiar-2-1-1-1">
 <li>
@@ -42,7 +94,39 @@
 <div class="para">It makes sense to have <span class="process-math">\(0 \lt \delta \lt 1\text{.}\)</span> Notice that letting <span class="process-math">\(\delta = 0\)</span> would means there is no spread of influenza from Asymptomatic people, and letting <span class="process-math">\(\delta = 1\)</span> would means Asymptomatic people spread influenza just as much as people in the Infectious compartment. For values of <span class="process-math">\(\delta\)</span> strictly between <span class="process-math">\(0\)</span> and <span class="process-math">\(1\text{,}\)</span> Asymptomatic people spread influenza to some extent, but strictly less than people in the Infectious compartment</div>
 <div class="para">For this model, we wrote that Asymptomatic people spread influenza less than Infectious people, so we should not allow <span class="process-math">\(\delta \gt 1\text{.}\)</span> However, the idea of <span class="process-math">\(\delta \gt 1\)</span> could be useful in some other model with different assumptions.</div>
 </li>
-<li><div class="para">In a single unit of time, <span class="process-math">\(\alpha I\)</span> people depart compartment I. A fraction <span class="process-math">\(f\)</span> of these people move into compartment R, meaning they have recovered. A fraction <span class="process-math">\(1-f\)</span> of these people do not move into a named compartment. These people die, and in this model, people who have died are no longer represented as being in a compartment. This means that in this model, the total population of people in compartments does not stay the same across time.</div></li>
+<li><div class="para">In a single unit of time, <span class="process-math">\(\alpha I\)</span> people depart compartment I. A fraction <span class="process-math">\(f\)</span> of these people move into compartment R, meaning they have recovered. A fraction <span class="process-math">\(1-f\)</span> of these people do not move into a named compartment. These people die, and in this model, people who have died are no longer represented as being in a compartment. This means that in this model, the total population of people in compartments does not stay the same across time (unless we let <span class="process-math">\(f=1\text{,}\)</span> sending everyone from the <span class="process-math">\(I\)</span> compartment into the <span class="process-math">\(R\)</span> compartment).</div></li>
+<li><div class="para">The answers here are open-ended.</div></li>
+<li>
+<div class="para logical">
+<div class="para">Python writes the eigenvalue that is <span class="process-math">\(\mathcal{R}_0\)</span> in the form</div>
+<div class="displaymath process-math">
+\begin{gather*}
+-N \beta (\alpha \delta p - \alpha \delta - \eta p)/(\alpha \eta ) .
+\end{gather*}
+</div>
+<div class="para">First, we write this in more standard fraction notation. In the same step, we move the minus sign (<span class="process-math">\(-\)</span>) from before <span class="process-math">\(N \beta\text{,}\)</span> choosing instead to distribute this minus sign to the terms inside the parentheses:</div>
+<div class="displaymath process-math">
+\begin{gather*}
+\frac{N \beta (-\alpha \delta p + \alpha \delta + \eta p)}{\alpha \eta}. 
+\end{gather*}
+</div>
+<div class="para">Next, we group terms within the parentheses, splitting the terms up so they form two separate fractions, and rearrange the order of some terms to better match the answer we eventually want to reach:</div>
+<div class="displaymath process-math">
+\begin{gather*}
+\beta N \left(  \frac{\eta p}{\alpha \eta} + \frac{\alpha \delta -\alpha \delta p}{\alpha \eta} \right). 
+\end{gather*}
+</div>
+<div class="para">Finally, we divide <span class="process-math">\(\eta\)</span> from the top and bottom of the first fraction, and we divide <span class="process-math">\(\alpha\)</span> from the top and bottom of the second fraction. In doing so, we note that these are parameters that should always have strictly positive values, which means we can divide by them and not be dividing by <span class="process-math">\(0\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{gather*}
+\beta N \left(  \frac{p}{\alpha} + \frac{\delta (1-p)}{\eta} \right). 
+\end{gather*}
+</div>
+</div>
+<div class="para">For mathematical explanation, we compare this form of <span class="process-math">\(\mathcal{R}_0\)</span> with <span class="process-math">\(\mathcal{R}_0=\frac{\beta N}{\gamma}\)</span> in some of the simpler models we have studied. In those, the value of <span class="process-math">\(\gamma\)</span> in the denominator indicates that the more rapidly people depart the I compartment, the less able a disease is to spread, making <span class="process-math">\(\mathcal{R}_0\)</span> lower. Here, since we split into compartments I and A, we need to separately evaluate the rapidity with which people depart each of these compartments. A fraction <span class="process-math">\(p\)</span> of people in the I compartment depart at rate <span class="process-math">\(\alpha\text{.}\)</span> This is the first fraction in parentheses for <span class="process-math">\(\mathcal{R}_0\)</span> in this exercise. The remaining fraction of people, <span class="process-math">\(1-p\text{,}\)</span> depart compartment A at rate <span class="process-math">\(\eta\text{.}\)</span> However, these people also have less impact on new infections because of the parameter <span class="process-math">\(\delta\text{.}\)</span> This lesser impact is measured by the value of <span class="process-math">\(\delta\)</span> in the second fraction within <span class="process-math">\(\mathcal{R}_0\text{.}\)</span>
+</div>
+</li>
 </ol></div></details></div></article><span class="incontext"><a class="internal" href="ch-the-next-generation-method.html#activity-next-generation-practice-seiar">in-context</a></span>
 </body>
 </html>
