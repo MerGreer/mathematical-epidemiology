@@ -1063,15 +1063,69 @@
         
     </section>
 
+
+    <!-- CITE THE SEIR MODEL BELOW!!! -->
+
     <exercises xml:id="exercises-ch-next-generation-method">
        <exercise number="1">
         <p>
-          Redo  
-        </p>   
-        <ol>
+          Consider the SEIR model, shown below, which includes a constant term <m>\Pi</m> representing births, as well as a death rate <m>\mu</m> from each compartment.  
+        </p> 
+        <figure xml:id="fig-SEIR-births-and-deaths-compartmental-diagram">
+            <caption>The compartmental diagram for one possible SEIR model, where <q>S</q>stands for <q>Susceptible</q>, <q>E</q> stands for <q>Exposed-and-incubating</q>, <q>I</q> stands for <q>Infectious</q>, and <q>R</q> stands for <q>Recovered</q>. Births enter the Susceptible compartment at a constant rate <m>\Pi</m> and deaths from each compartment occur at a fraction <m>\mu</m> of that population, per time step.</caption>
+              <image width="60%">
+              <description>(Write this)</description>
+                <latex-image>
+                \begin{tikzpicture}
+                \draw [thick] [->] (-2,5) to (-0.1,5); 
+                \node at (-1,5.5) {\Large $\Pi$};
+                \draw [thick] [black] (0,0) -- (2,0);
+                \draw [thick] [black] (2,0) -- (2,2);
+                \draw [thick] [black] (2,2) -- (0,2);
+                \draw [thick] [black] (0,2) -- (0,0);
+                \node [black] at (1,1) {\Huge $R$};
+                \draw [thick] [->] (1,-0.1) to (1,-2); 
+                \node at (1.5,-1) {\Large $\mu R$};
+                \draw [thick] [->] (3.9,1) to (2.1,1); 
+                \node at (3,1.5) {\Large $\gamma I$};
+                \draw [thick] [black] (4,0) -- (6,0);
+                \draw [thick] [black] (6,0) -- (6,2);
+                \draw [thick] [black] (6,2) -- (4,2);
+                \draw [thick] [black] (4,2) -- (4,0);
+                \node [black] at (5,1) {\Huge $I$};
+                \draw [thick] [->] (5,-0.1) to (5,-2); 
+                \node at (5.5,-1) {\Large $\mu I$};
+                \draw [thick] [black] (0,4) -- (2,4);
+                \draw [thick] [black] (2,4) -- (2,6);
+                \draw [thick] [black] (2,6) -- (0,6);
+                \draw [thick] [black] (0,6) -- (0,4);
+                \node [black] at (1,5) {\Huge $S$};
+                \draw [thick] [->] (1,6.1) to (1,8); 
+                \node at (1.5,7) {\Large $\mu S$};
+                \draw [thick] [->] (2.1,5) to (3.9,5); 
+                \node at (3,5.5) {\Large $\beta SI$};
+                \draw [thick] [black] (4,4) -- (6,4);
+                \draw [thick] [black] (6,4) -- (6,6);
+                \draw [thick] [black] (6,6) -- (4,6);
+                \draw [thick] [black] (4,6) -- (4,4);
+                \node [black] at (5,5) {\Huge $E$};
+                \draw [thick] [->] (5,6.1) to (5,8); 
+                \node at (5.5,7) {\Large $\mu E$};
+                \draw [thick] [->] (5,3.9) to (5,2.1); 
+                \node at (5.5,3) {\Large $\kappa E$};
+                \end{tikzpicture}
+                </latex-image>
+               </image>
+          </figure>  
+        <ol> 
           <li>
             <p>
-              Compute  
+              Complete all steps of the Next Generation Method to show how to determine the value of <m>\mathcal{R}_0</m> for this model. As a hint: you should get 
+              <md>
+                <mrow>\mathcal{R}_0 \amp = 
+                  \frac{\kappa \beta N}{(\mu + \kappa)(\mu + \gamma)} </mrow>
+              </md>
+              as your result. Demonstrate fully how you complete each step of the Next Generation Method in order to achieve this result.
             </p>
           </li>
           <li>
