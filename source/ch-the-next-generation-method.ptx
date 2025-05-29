@@ -1067,9 +1067,9 @@
     <!-- CITE THE SEIR MODEL BELOW!!! -->
 
     <exercises xml:id="exercises-ch-next-generation-method">
-       <exercise number="1">
+       <exercise number="1"> 
         <p>
-          Consider the SEIR model with births and deaths, shown below, which includes a constant term <m>\Pi</m> representing births per time unit, as well as a death rate <m>\mu</m> from each compartment.  
+          Consider the SEIR model with births and deaths, shown in <xref ref="fig-SEIR-births-and-deaths-compartmental-diagram"/>, which includes a constant term <m>\Pi</m> representing births per time unit, as well as a death rate <m>\mu</m> from each compartment. This model comes from the book <em>Mathematical Epidemiology</em>.<fn><em>Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 6, which was written by James Watmough and Pauline van den Driessche.</fn>  
         </p> 
         <figure xml:id="fig-SEIR-births-and-deaths-compartmental-diagram">
             <caption>The compartmental diagram for one possible SEIR model with births and deaths, where <q>S</q>stands for <q>Susceptible</q>, <q>E</q> stands for <q>Exposed-and-incubating</q>, <q>I</q> stands for <q>Infectious</q>, and <q>R</q> stands for <q>Recovered</q>. Births enter the Susceptible compartment at a constant quantity <m>\Pi</m> per time step, and deaths from each compartment occur at a rate <m>\mu</m> of that population, per time step.</caption>
@@ -1165,7 +1165,7 @@
 
       <!-- <exercise number="2">
         <p>
-          Update  
+          GIVE CREDIT TO MATH EPID BOOK FOR EXERCISE 1 ABOVE  
         </p>   
         <ol>
           <li>
