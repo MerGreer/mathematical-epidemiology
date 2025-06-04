@@ -379,12 +379,9 @@ sagecell.makeSagecell({
 #activity-next-generation-practice-seiar-2-1-1-1 { counter-set: activity-next-generation-practice-seiar-2-1-1-1 0; }
 #activity-next-generation-practice-seiar-2-1-1-1 > li::marker { content: "("counter(activity-next-generation-practice-seiar-2-1-1-1,lower-alpha)")"; }
 #activity-next-generation-practice-seiar-2-1-1-1 > li { counter-increment: activity-next-generation-practice-seiar-2-1-1-1; }
-#exercises-ch-next-generation-method-1-3 { counter-set: exercises-ch-next-generation-method-1-3 0; }
-#exercises-ch-next-generation-method-1-3 > li::marker { content: "("counter(exercises-ch-next-generation-method-1-3,lower-alpha)")"; }
-#exercises-ch-next-generation-method-1-3 > li { counter-increment: exercises-ch-next-generation-method-1-3; }
-#exercises-ch-next-generation-method-1-3-2-2 { counter-set: exercises-ch-next-generation-method-1-3-2-2 0; }
-#exercises-ch-next-generation-method-1-3-2-2 > li::marker { content: ""counter(exercises-ch-next-generation-method-1-3-2-2,lower-roman)"."; }
-#exercises-ch-next-generation-method-1-3-2-2 > li { counter-increment: exercises-ch-next-generation-method-1-3-2-2; }
+#exercises-ch-next-generation-method-2-2 { counter-set: exercises-ch-next-generation-method-2-2 0; }
+#exercises-ch-next-generation-method-2-2 > li::marker { content: "("counter(exercises-ch-next-generation-method-2-2,lower-alpha)")"; }
+#exercises-ch-next-generation-method-2-2 > li { counter-increment: exercises-ch-next-generation-method-2-2; }
 </style>
 </head>
 <body class="pretext book ignore-math">
@@ -525,7 +522,7 @@ sagecell.makeSagecell({
 <div class="toc-title-box"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-chapter">
-<div class="toc-title-box"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">14</span> <span class="title">* The Next Generation Method</span></a></div>
+<div class="toc-title-box"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">14</span> <span class="title">The Next Generation Method</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-the-next-generation-method.html#sec-mathematical-background-for-the-next-generation-method" class="internal"><span class="codenumber">14.1</span> <span class="title">Mathematical Background for the Next Generation Method</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-the-next-generation-method.html#sec-the-next-generation-method-steps-to-follow" class="internal"><span class="codenumber">14.2</span> <span class="title">The Next Generation Method: Steps to Follow</span></a></div></li>
@@ -808,7 +805,7 @@ plt.show()
 \mathcal{R}_0 \amp = \frac{\beta N}{\gamma} \mbox{ for our SIR model}. \tag{5.1}
 \end{align}
 </div>
-<div class="para" id="sec-the-basic-reproduction-number-R0-14">It is possible to compute the formula for <span class="process-math">\(\mathcal{R}_0\)</span> from the equations in a compartmental model. The most common way to do this is called the Next Generation Method. Because the Next Generation Method uses partial derivatives and techniques from linear algebra, it is described in the optional <a href="ch-the-next-generation-method.html" class="internal" title="Chapter 14: * The Next Generation Method">Chapter 14</a>. In particular, <a href="ch-the-next-generation-method.html" class="internal" title="Chapter 14: * The Next Generation Method">Chapter 14</a> teaches the process in a way that can be used by students who are new to matrix operations and partial derivatives: there are a few math techniques to learn, and Python does the rest. Readers who include <a href="ch-the-next-generation-method.html" class="internal" title="Chapter 14: * The Next Generation Method">Chapter 14</a> will be able to solve for the formula for <span class="process-math">\(\mathcal{R}_0\)</span> in their own models. As an alternative, the <span class="process-math">\(\mathcal{R}_0\)</span> formulas for several commonly used compartmental models are provided directly throughout this text.</div>
+<div class="para" id="sec-the-basic-reproduction-number-R0-14">It is possible to compute the formula for <span class="process-math">\(\mathcal{R}_0\)</span> from the equations in a compartmental model. The most common way to do this is called the Next Generation Method. Because the Next Generation Method uses partial derivatives and techniques from linear algebra, it is described in the optional <a href="ch-the-next-generation-method.html" class="internal" title="Chapter 14: The Next Generation Method">Chapter 14</a>. In particular, <a href="ch-the-next-generation-method.html" class="internal" title="Chapter 14: The Next Generation Method">Chapter 14</a> teaches the process in a way that can be used by students who are new to matrix operations and partial derivatives: there are a few math techniques to learn, and Python does the rest. Readers who include <a href="ch-the-next-generation-method.html" class="internal" title="Chapter 14: The Next Generation Method">Chapter 14</a> will be able to solve for the formula for <span class="process-math">\(\mathcal{R}_0\)</span> in their own models. As an alternative, the <span class="process-math">\(\mathcal{R}_0\)</span> formulas for several commonly used compartmental models are provided directly throughout this text.</div>
 <div class="para" id="sec-the-basic-reproduction-number-R0-15">The numerical value of the <span class="process-math">\(\mathcal{R}_0\)</span> formula relates closely to the trajectory of an outbreak. Investigate this in <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#activity-r0-less-than-1" class="xref" data-knowl="./knowl/xref/activity-r0-less-than-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 5.5">Activity 5.5</a>.</div>
 <article class="activity project-like" id="activity-r0-less-than-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.5</span><span class="period">.</span>

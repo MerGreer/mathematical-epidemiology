@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>* The Next Generation Method</title>
+<title>The Next Generation Method</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -379,12 +379,9 @@ sagecell.makeSagecell({
 #activity-next-generation-practice-seiar-2-1-1-1 { counter-set: activity-next-generation-practice-seiar-2-1-1-1 0; }
 #activity-next-generation-practice-seiar-2-1-1-1 > li::marker { content: "("counter(activity-next-generation-practice-seiar-2-1-1-1,lower-alpha)")"; }
 #activity-next-generation-practice-seiar-2-1-1-1 > li { counter-increment: activity-next-generation-practice-seiar-2-1-1-1; }
-#exercises-ch-next-generation-method-1-3 { counter-set: exercises-ch-next-generation-method-1-3 0; }
-#exercises-ch-next-generation-method-1-3 > li::marker { content: "("counter(exercises-ch-next-generation-method-1-3,lower-alpha)")"; }
-#exercises-ch-next-generation-method-1-3 > li { counter-increment: exercises-ch-next-generation-method-1-3; }
-#exercises-ch-next-generation-method-1-3-2-2 { counter-set: exercises-ch-next-generation-method-1-3-2-2 0; }
-#exercises-ch-next-generation-method-1-3-2-2 > li::marker { content: ""counter(exercises-ch-next-generation-method-1-3-2-2,lower-roman)"."; }
-#exercises-ch-next-generation-method-1-3-2-2 > li { counter-increment: exercises-ch-next-generation-method-1-3-2-2; }
+#exercises-ch-next-generation-method-2-2 { counter-set: exercises-ch-next-generation-method-2-2 0; }
+#exercises-ch-next-generation-method-2-2 > li::marker { content: "("counter(exercises-ch-next-generation-method-2-2,lower-alpha)")"; }
+#exercises-ch-next-generation-method-2-2 > li { counter-increment: exercises-ch-next-generation-method-2-2; }
 </style>
 </head>
 <body class="pretext book ignore-math">
@@ -525,7 +522,7 @@ sagecell.makeSagecell({
 <div class="toc-title-box"><a href="part-digging-deeper-mathematically.html" class="internal"><span class="codenumber">II</span> <span class="title">Digging Deeper Mathematically</span></a></div>
 <ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-chapter active">
-<div class="toc-title-box"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">14</span> <span class="title">* The Next Generation Method</span></a></div>
+<div class="toc-title-box"><a href="ch-the-next-generation-method.html" class="internal"><span class="codenumber">14</span> <span class="title">The Next Generation Method</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-the-next-generation-method.html#sec-mathematical-background-for-the-next-generation-method" class="internal"><span class="codenumber">14.1</span> <span class="title">Mathematical Background for the Next Generation Method</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-the-next-generation-method.html#sec-the-next-generation-method-steps-to-follow" class="internal"><span class="codenumber">14.2</span> <span class="title">The Next Generation Method: Steps to Follow</span></a></div></li>
@@ -563,9 +560,8 @@ sagecell.makeSagecell({
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-the-next-generation-method"><h2 class="heading">
-<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">14</span><span class="space"> </span><span class="title">* The Next Generation Method</span>
+<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">14</span><span class="space"> </span><span class="title">The Next Generation Method</span>
 </h2>
-<div class="para" id="ch-the-next-generation-method-2"><dfn class="terminology">***This chapter is under construction.***</dfn></div>
 <section class="introduction" id="intro-next-generation-method"><article class="objectives goal-like" id="intro-next-generation-method-1"><h3 class="heading"><span class="type">Goals</span></h3>
 <ul class="disc" id="intro-next-generation-method-1-1">
 <li id="intro-next-generation-method-1-1-1"><div class="para" id="intro-next-generation-method-1-1-1-1">Learn to complete all the steps in the Next Generation Method for relating the epidemiological quantity <span class="process-math">\(\mathcal{R}_0\)</span> to parameters and other quantities used in a compartmental model</div></li>
@@ -1020,32 +1016,31 @@ print("The eigenvalues and their multiplicities are: ", R0eval)
 <span class="type">For Further Thought</span><span class="space"> </span><span class="codenumber">14.4</span><span class="space"> </span><span class="title">For Further Thought</span>
 </h3>
 <article class="exercise exercise-like" id="exercises-ch-next-generation-method-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="exercises-ch-next-generation-method-1-1">Consider the SEIR model with births and deaths, shown below, which includes a constant term <span class="process-math">\(\Pi\)</span> representing births per time unit, as well as a death rate <span class="process-math">\(\mu\)</span> from each compartment.</div>
-<figure class="figure figure-like" id="fig-SEIR-births-and-deaths-compartmental-diagram"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/fig-SEIR-births-and-deaths-compartmental-diagram-2.svg" role="img" class="contained" alt="(Write this)"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.3<span class="period">.</span></span><span class="space"> </span>The compartmental diagram for one possible SEIR model with births and deaths, where “S”stands for “Susceptible”, “E” stands for “Exposed-and-incubating”, “I” stands for “Infectious”, and “R” stands for “Recovered”. Births enter the Susceptible compartment at a constant quantity <span class="process-math">\(\Pi\)</span> per time step, and deaths from each compartment occur at a rate <span class="process-math">\(\mu\)</span> of that population, per time step.</figcaption></figure><ol class="lower-alpha" id="exercises-ch-next-generation-method-1-3">
-<li id="exercises-ch-next-generation-method-1-3-1"><div class="para logical" id="exercises-ch-next-generation-method-1-3-1-1">
+<div class="para" id="exercises-ch-next-generation-method-1-1">Consider the SEIR model with births and deaths, shown in <a href="ch-the-next-generation-method.html#fig-SEIR-births-and-deaths-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SEIR-births-and-deaths-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 14.3">Figure 14.3</a>, which includes a constant term <span class="process-math">\(\Pi\)</span> representing births per time unit, as well as a death rate <span class="process-math">\(\mu\)</span> from each compartment. This model comes from the book <em class="emphasis">Mathematical Epidemiology</em>.<details class="ptx-footnote" aria-live="polite" id="exercises-ch-next-generation-method-1-1-5"><summary class="ptx-footnote__number" title="Footnote 14.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="exercises-ch-next-generation-method-1-1-5">
+<em class="emphasis">Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 6, which was written by James Watmough and Pauline van den Driessche.</div></details>
+</div>
+<div class="para logical" id="exercises-ch-next-generation-method-1-2">
 <div class="para">Complete all steps of the Next Generation Method to show how to determine the value of <span class="process-math">\(\mathcal{R}_0\)</span> for this model. As a hint: you should get</div>
-<div class="displaymath process-math" id="exercises-ch-next-generation-method-1-3-1-1-2">
+<div class="displaymath process-math" id="exercises-ch-next-generation-method-1-2-2">
 \begin{align*}
-\mathcal{R}_0 \amp = 
-\frac{\kappa \beta N}{(\mu + \kappa)(\mu + \gamma)} 
+\mathcal{R}_0 \amp = \frac{\kappa \beta N}{(\mu + \kappa)(\mu + \gamma)} 
 \end{align*}
 </div>
 <div class="para">as your result. Demonstrate fully how you complete each step of the Next Generation Method in order to achieve this result.</div>
+</div>
+<figure class="figure figure-like" id="fig-SEIR-births-and-deaths-compartmental-diagram"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/latex-image/fig-SEIR-births-and-deaths-compartmental-diagram-2.svg" role="img" class="contained" alt="(Write this)"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.3<span class="period">.</span></span><span class="space"> </span>The compartmental diagram for one possible SEIR model with births and deaths, where “S”stands for “Susceptible”, “E” stands for “Exposed-and-incubating”, “I” stands for “Infectious”, and “R” stands for “Recovered”. Births enter the Susceptible compartment at a constant quantity <span class="process-math">\(\Pi\)</span> per time step, and deaths from each compartment occur at a rate <span class="process-math">\(\mu\)</span> of that population, per time step.</figcaption></figure></article><article class="exercise exercise-like" id="exercises-ch-next-generation-method-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-next-generation-method-2-1">Consider the SEIR model shown in <a href="ch-the-next-generation-method.html#fig-SEIR-births-and-deaths-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SEIR-births-and-deaths-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 14.3">Figure 14.3</a>. In this exercise, analyze the ways each parameter within the <span class="process-math">\(\mathcal{R}_0\)</span> formula affects the size of <span class="process-math">\(\mathcal{R}_0\text{.}\)</span> (Note: the formula for <span class="process-math">\(\mathcal{R}_0\)</span> for this model is given above in Exercise 1.) In particular, consider the following.</div>
+<ol class="lower-alpha" id="exercises-ch-next-generation-method-2-2">
+<li id="exercises-ch-next-generation-method-2-2-1"><div class="para" id="exercises-ch-next-generation-method-2-2-1-1">How do <span class="process-math">\(\beta\)</span> and <span class="process-math">\(N\)</span> affect <span class="process-math">\(\mathcal{R}_0\text{?}\)</span> That is, as <span class="process-math">\(\beta\)</span> increases, what happens to <span class="process-math">\(\mathcal{R}_0\text{?}\)</span> As <span class="process-math">\(\beta\)</span> decreases, what happens to <span class="process-math">\(\mathcal{R}_0\text{?}\)</span> Similarly, how do increases or decreases in <span class="process-math">\(N\)</span> affect <span class="process-math">\(\mathcal{R}_0\text{?}\)</span>
 </div></li>
-<li id="exercises-ch-next-generation-method-1-3-2">
-<div class="para" id="exercises-ch-next-generation-method-1-3-2-1">Analyze the ways each parameter within the <span class="process-math">\(\mathcal{R}_0\)</span> formula affects the size of <span class="process-math">\(\mathcal{R}_0\text{.}\)</span> In particular, consider the following.</div>
-<ol class="lower-roman" id="exercises-ch-next-generation-method-1-3-2-2">
-<li id="exercises-ch-next-generation-method-1-3-2-2-1"><div class="para" id="exercises-ch-next-generation-method-1-3-2-2-1-1">How do <span class="process-math">\(\beta\)</span> and <span class="process-math">\(N\)</span> affect <span class="process-math">\(\mathcal{R}_0\text{?}\)</span>
+<li id="exercises-ch-next-generation-method-2-2-2"><div class="para" id="exercises-ch-next-generation-method-2-2-2-1">How does <span class="process-math">\(\kappa\)</span> affect <span class="process-math">\(\mathcal{R}_0\text{,}\)</span> given that <span class="process-math">\(\kappa\)</span> appears in both the numerator and denominator of <span class="process-math">\(\mathcal{R}_0\text{?}\)</span>
 </div></li>
-<li id="exercises-ch-next-generation-method-1-3-2-2-2"><div class="para" id="exercises-ch-next-generation-method-1-3-2-2-2-1">How does <span class="process-math">\(\kappa\)</span> affect <span class="process-math">\(\mathcal{R}_0\text{,}\)</span> given that <span class="process-math">\(\kappa\)</span> appears in both the numerator and denominator of <span class="process-math">\(\mathcal{R}_0\text{?}\)</span>
-</div></li>
-<li id="exercises-ch-next-generation-method-1-3-2-2-3"><div class="para" id="exercises-ch-next-generation-method-1-3-2-2-3-1">Consider the fraction <span class="process-math">\(\frac{\kappa}{\mu + \kappa }\text{.}\)</span> How does this fraction affect <span class="process-math">\(\mathcal{R}_0\)</span> as <span class="process-math">\(\kappa\)</span> changes, and how does this fraction affect <span class="process-math">\(\mathcal{R}_0\)</span> as <span class="process-math">\(\mu\)</span> changes?</div></li>
-<li id="exercises-ch-next-generation-method-1-3-2-2-4"><div class="para" id="exercises-ch-next-generation-method-1-3-2-2-4-1">Consider the fraction <span class="process-math">\(\frac{1}{\mu + \gamma }\text{.}\)</span> How does this fraction affect <span class="process-math">\(\mathcal{R}_0\)</span> as <span class="process-math">\(\gamma\)</span> changes, and how does this fraction affect <span class="process-math">\(\mathcal{R}_0\)</span> as <span class="process-math">\(\mu\)</span> changes?</div></li>
-<li id="exercises-ch-next-generation-method-1-3-2-2-5"><div class="para" id="exercises-ch-next-generation-method-1-3-2-2-5-1">If we set <span class="process-math">\(\mu = 0\text{,}\)</span> we can simplify the value of <span class="process-math">\(\mathcal{R}_0 =\frac{\kappa \beta N}{(\mu + \kappa)(\mu + \gamma)}\text{.}\)</span> What result do we get when we simplify in this way, and how can we interpret this result in relation to the SEIR model in this activity, as well as in relation to an SEIR model without birth and death terms, such as the model in <a href="ch-incubation-periods.html#activity-seir-model-pertussis-setup" class="xref" data-knowl="./knowl/xref/activity-seir-model-pertussis-setup.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 7.4">Activity 7.4</a>?</div></li>
-</ol>
-</li>
-</ol></article></section></section></div>
+<li id="exercises-ch-next-generation-method-2-2-3"><div class="para" id="exercises-ch-next-generation-method-2-2-3-1">Consider the fraction <span class="process-math">\(\frac{\kappa}{\mu + \kappa }\text{.}\)</span> How large or small can this fraction become? How does this fraction affect <span class="process-math">\(\mathcal{R}_0\)</span> as <span class="process-math">\(\kappa\)</span> becomes larger or smaller, and how does this fraction affect <span class="process-math">\(\mathcal{R}_0\)</span> as <span class="process-math">\(\mu\)</span> becomes larger or smaller?</div></li>
+<li id="exercises-ch-next-generation-method-2-2-4"><div class="para" id="exercises-ch-next-generation-method-2-2-4-1">Consider the fraction <span class="process-math">\(\frac{1}{\mu + \gamma }\text{.}\)</span> How does this fraction affect <span class="process-math">\(\mathcal{R}_0\)</span> as <span class="process-math">\(\gamma\)</span> becomes larger or smaller, and how does this fraction affect <span class="process-math">\(\mathcal{R}_0\)</span> as <span class="process-math">\(\mu\)</span> becomes larger or smaller?</div></li>
+<li id="exercises-ch-next-generation-method-2-2-5"><div class="para" id="exercises-ch-next-generation-method-2-2-5-1">If we set <span class="process-math">\(\mu = 0\text{,}\)</span> we can simplify the value of <span class="process-math">\(\mathcal{R}_0 =\frac{\kappa \beta N}{(\mu + \kappa)(\mu + \gamma)}\text{.}\)</span> What result do we get when we simplify in this way, and how can we interpret this result in relation to the SEIR model in this activity, as well as in relation to an SEIR model without birth and death terms, such as the model in <a href="ch-incubation-periods.html#activity-seir-model-pertussis-setup" class="xref" data-knowl="./knowl/xref/activity-seir-model-pertussis-setup.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 7.4">Activity 7.4</a>?</div></li>
+</ol></article><article class="exercise exercise-like" id="exercises-ch-next-generation-method-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-next-generation-method-3-1">Revisit the SIRS model from <a href="ch-the-next-generation-method.html#activity-next-generation-practice-sirs" class="xref" data-knowl="./knowl/xref/activity-next-generation-practice-sirs.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 14.5">Activity 14.5</a> and introduce birth and death terms in a similar way as is shown in the model in <a href="ch-the-next-generation-method.html#fig-SEIR-births-and-deaths-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SEIR-births-and-deaths-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 14.3">Figure 14.3</a>. Then use the steps of the Next Generation Method to compute <span class="process-math">\(\mathcal{R}_0\)</span> for the resulting SIRS model with births and deaths. Show all your steps.</div></article></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="part-digging-deeper-mathematically.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-tips-on-reading-a-scientific-paper.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
