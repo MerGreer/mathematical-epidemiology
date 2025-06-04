@@ -1063,13 +1063,17 @@
         
     </section>
 
-
-    <!-- CITE THE SEIR MODEL BELOW!!! -->
-
     <exercises xml:id="exercises-ch-next-generation-method">
        <exercise number="1"> 
         <p>
           Consider the SEIR model with births and deaths, shown in <xref ref="fig-SEIR-births-and-deaths-compartmental-diagram"/>, which includes a constant term <m>\Pi</m> representing births per time unit, as well as a death rate <m>\mu</m> from each compartment. This model comes from the book <em>Mathematical Epidemiology</em>.<fn><em>Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 6, which was written by James Watmough and Pauline van den Driessche.</fn>  
+        </p> 
+        <p>
+          Complete all steps of the Next Generation Method to show how to determine the value of <m>\mathcal{R}_0</m> for this model. As a hint: you should get 
+          <md>
+            <mrow>\mathcal{R}_0 \amp = \frac{\kappa \beta N}{(\mu + \kappa)(\mu + \gamma)} </mrow>
+          </md>
+          as your result. Demonstrate fully how you complete each step of the Next Generation Method in order to achieve this result.
         </p> 
         <figure xml:id="fig-SEIR-births-and-deaths-compartmental-diagram">
             <caption>The compartmental diagram for one possible SEIR model with births and deaths, where <q>S</q>stands for <q>Susceptible</q>, <q>E</q> stands for <q>Exposed-and-incubating</q>, <q>I</q> stands for <q>Infectious</q>, and <q>R</q> stands for <q>Recovered</q>. Births enter the Susceptible compartment at a constant quantity <m>\Pi</m> per time step, and deaths from each compartment occur at a rate <m>\mu</m> of that population, per time step.</caption>
@@ -1116,71 +1120,37 @@
                 \end{tikzpicture}
                 </latex-image>
                </image>
-          </figure>  
-        <ol> 
-          <li>
-            <p>
-              Complete all steps of the Next Generation Method to show how to determine the value of <m>\mathcal{R}_0</m> for this model. As a hint: you should get 
-              <md>
-                <mrow>\mathcal{R}_0 \amp = 
-                  \frac{\kappa \beta N}{(\mu + \kappa)(\mu + \gamma)} </mrow>
-              </md>
-              as your result. Demonstrate fully how you complete each step of the Next Generation Method in order to achieve this result.
-            </p>
-          </li>
-          <li>
-            <p>
-              Analyze the ways each parameter within the <m>\mathcal{R}_0</m> formula affects the size of <m>\mathcal{R}_0</m>. In particular, consider the following.
-            </p>
-            <ol>
-              <li>
-                <p>
-                  How do <m>\beta</m> and <m>N</m> affect <m>\mathcal{R}_0</m>?
-                </p>
-              </li>
-              <li>
-                <p>
-                  How does <m>\kappa</m> affect <m>\mathcal{R}_0</m>, given that <m>\kappa</m> appears in both the numerator and denominator of <m>\mathcal{R}_0</m>?
-                </p>
-              </li>
-              <li>
-                <p>
-                  Consider the fraction <m>\frac{\kappa}{\mu + \kappa }</m>. How does this fraction affect <m>\mathcal{R}_0</m> as <m>\kappa</m> changes, and how does this fraction affect <m>\mathcal{R}_0</m> as <m>\mu</m> changes? 
-                </p>
-              </li>
-              <li>
-                <p>
-                  Consider the fraction <m>\frac{1}{\mu + \gamma }</m>. How does this fraction affect <m>\mathcal{R}_0</m> as <m>\gamma</m> changes, and how does this fraction affect <m>\mathcal{R}_0</m> as <m>\mu</m> changes? 
-                </p>
-              </li>
-              <li>
-                <p>
-                  If we set <m>\mu = 0</m>, we can simplify the value of <m>\mathcal{R}_0 =\frac{\kappa \beta N}{(\mu + \kappa)(\mu + \gamma)}</m>. What result do we get when we simplify in this way, and how can we interpret this result in relation to the SEIR model in this activity, as well as in relation to an SEIR model without birth and death terms, such as the model in <xref ref="activity-seir-model-pertussis-setup"/>?
-                </p>
-              </li>
-            </ol>
-          </li>
-        </ol>      
+          </figure>     
       </exercise>
 
-      <!-- <exercise number="2">
+      <exercise number="2">
         <p>
-          GIVE CREDIT TO MATH EPID BOOK FOR EXERCISE 1 ABOVE  
+          Consider the SEIR model shown in <xref ref="fig-SEIR-births-and-deaths-compartmental-diagram"/>. In this exercise, analyze the ways each parameter within the <m>\mathcal{R}_0</m> formula affects the size of <m>\mathcal{R}_0</m>. (Note: the formula for <m>\mathcal{R}_0</m> for this model is given above in Exercise 1.) In particular, consider the following.
         </p>   
         <ol>
           <li>
             <p>
-              Compute 
+              How do <m>\beta</m> and <m>N</m> affect <m>\mathcal{R}_0</m>? That is, as <m>\beta</m> increases, what happens to <m>\mathcal{R}_0</m>? As <m>\beta</m> decreases, what happens to <m>\mathcal{R}_0</m>? Similarly, how do increases or decreases in <m>N</m> affect <m>\mathcal{R}_0</m>?
             </p>
           </li>
           <li>
             <p>
-              Adapt 
+              How does <m>\kappa</m> affect <m>\mathcal{R}_0</m>, given that <m>\kappa</m> appears in both the numerator and denominator of <m>\mathcal{R}_0</m>? 
             </p>
           </li>
           <li>
             <p>
-              Do 
+              Consider the fraction <m>\frac{\kappa}{\mu + \kappa }</m>. How large or small can this fraction become? How does this fraction affect <m>\mathcal{R}_0</m> as <m>\kappa</m> becomes larger or smaller, and how does this fraction affect <m>\mathcal{R}_0</m> as <m>\mu</m> becomes larger or smaller? 
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the fraction <m>\frac{1}{\mu + \gamma }</m>. How does this fraction affect <m>\mathcal{R}_0</m> as <m>\gamma</m> becomes larger or smaller, and how does this fraction affect <m>\mathcal{R}_0</m> as <m>\mu</m> becomes larger or smaller? 
+            </p>
+          </li>
+          <li>
+            <p>
+              If we set <m>\mu = 0</m>, we can simplify the value of <m>\mathcal{R}_0 =\frac{\kappa \beta N}{(\mu + \kappa)(\mu + \gamma)}</m>. What result do we get when we simplify in this way, and how can we interpret this result in relation to the SEIR model in this activity, as well as in relation to an SEIR model without birth and death terms, such as the model in <xref ref="activity-seir-model-pertussis-setup"/>? 
             </p>
           </li>
         </ol>   
@@ -1188,21 +1158,9 @@
 
       <exercise number="3">
         <p>
-          We 
-        </p>   
-        <ol>
-          <li>
-            <p>
-              Rewrite 
-            </p>
-          </li>
-          <li>
-            <p>
-              In 
-            </p>
-          </li>
-        </ol>     
-      </exercise> -->
+          Revisit the SIRS model from <xref ref="activity-next-generation-practice-sirs"/> and introduce birth and death terms in a similar way as is shown in the model in <xref ref="fig-SEIR-births-and-deaths-compartmental-diagram"/>. Then use the steps of the Next Generation Method to compute <m>\mathcal{R}_0</m> for the resulting SIRS model with births and deaths. Show all your steps.
+        </p>     
+      </exercise>
     </exercises>
 
 
