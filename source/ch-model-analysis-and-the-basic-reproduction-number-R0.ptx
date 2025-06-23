@@ -369,7 +369,7 @@
           <ol>
               <li>
                 <p>
-                  Begin by using the code below to try different values of <m>\beta</m> and <m>\gamma</m>. Your goal is to find values for which the <m>I(t)</m> curve does not rise at first: instead, it stays level or falls. Keep the initial conditions the same, that is, <m>S(0)=1900</m>, <m>I(0)=100</m>, and <m>R(0)=0</m>. If changing the range of <m>t</m> values helps you see the outcome better, then change the end time to a smaller or larger value. However, keep the initial time <m>t=0</m>.
+                  Begin by using the code below to try different values of <m>\beta</m> and <m>\gamma</m>. Your goal is to find values for which the <m>I(t)</m> curve does not rise at first: instead, it stays level or falls. Keep the initial conditions the same, that is, <m>S(0)=1900</m>, <m>I(0)=100</m>, and <m>R(0)=0</m>. If changing the range of <m>t</m> values helps you see the outcome better, then change the end time to a smaller or larger value. However, keep the initial time <m>t=0</m>. 
                 </p>
                 <p>
                    Find more than one combination of <m>\beta</m> and <m>\gamma</m> for which the <m>I(t)</m> curve does not rise. 
@@ -377,7 +377,7 @@
               </li>
               <li>
                 <p>
-                  Demonstrate your results by showing model output. To do this, you can modify the Python code provided as part of <xref ref="activity-formula-for-i-of-t-turning-around"/>. If it would help you to change the end time of the model simulation so you can better see all the model's behavior, then in <c>t_range</c> in line 17, you can update the value <m>50</m> to a different number.
+                  Demonstrate your results by showing model output. To do this, you can modify the Python code provided as part of <xref ref="activity-formula-for-i-of-t-turning-around"/>. If it would help you to change the end time of the model simulation so you can better see the full scope of the model's behavior, then in <c>t_range</c> in line 17, you can update the value <m>50</m> to a different number.
                 </p>
               </li>
               <li>
