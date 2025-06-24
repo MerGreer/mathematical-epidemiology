@@ -38,25 +38,25 @@
       <title>Reducing New Infections</title>
       <introduction>
         <p>
-          This exploration seeks to reduce the number of new infections by directly reducing the transmission part of the compartmental SIR model shown in <xref ref="eq-SIR-model-S"/>, <xref ref="eq-SIR-model-I"/>, and <xref ref="eq-SIR-model-R"/>. To reduce transmission, we multiply by a term <m>(1-p)</m>:  
+          This exploration seeks to reduce the number of new infections in the SIR model from <xref ref="activity-introducing-units"/> by changing the initial numbers of people in the Susceptible and Removed compartments. For reference, here are the equations of the model:  
         </p>
         <md>
-          <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
-          <mrow>\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I </mrow>
+          <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+          <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
           <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
         </md>
-        <p>
-          This change to the model reflects that the term <m>\beta SI</m> in the SIR model represents transmission of disease from the Infectious to the Susceptible population. To reduce transmission, we therefore change the specific term <m>\beta SI</m> by introducing the multiplier <m>(1-p)</m>. 
+        <p> 
+          This change to the model reflects a concept we have observed in multiple chapters so far, from the Zombie Game to the definition of <m>\mathcal{R}_0</m> as applying to a population that is nearly entirely Susceptible. In these contexts, we have seen that as the number of Susceptible people falls, an outbreak can slow down and eventually stop. We therefore try starting our model simulation by using the terms <m>p</m> and <m>(1-p)</m> to split the initial population across the S and R compartments.
         </p> 
         <p>
-          Work through the parts below to build understanding of the term <m>(1-p)</m> and the permissible values of <m>p</m>.
+          Work through the parts of this exploration to build understanding of <m>p</m> and <m>(1-p)</m> and their permissible values.
         </p>
       </introduction>
 
       <task>
         <statement>
           <p>
-            Read the Python code below. Think through the factor <m>(1-p)</m> that is multiplied by <m>\beta S I</m> in both the <m>dS/dt</m> and <m>dI/dt</m> equations. We restrict the possible values of <m>p</m> so that it must be true that <m>0 \leq p \leq 1</m>.  
+            Read the Python code below. In line 17, the initial conditions <m>S(0)</m>, <m>I(0)</m>, and <m>R(0)</m> set <m>I(0)=1</m> but use <m>(1-p)</m> and <m>p</m> to split up the rest of the population between the S and R compartments. We restrict the possible values of <m>p</m> so that it must be true that <m>0 \leq p \leq 1</m>.  
           </p>
           <p>
             After reading and evaluating the Python code, respond to the questions that follow.
@@ -69,26 +69,26 @@
               import matplotlib.pyplot as plt
               from scipy.integrate import odeint
 
-              plt.cla() #Clear (delete) any past plots
+              plt.cla() #Clear (delete) any past plots 
               
               #Define the system of differential equations, and call it "model"
               def model(y, t):
                 S, I, R = y #Define y as consisting of S, I, and R, in that order
-                dydt = [- (1-p) * beta * S * I, (1-p) * beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+                dydt = [- beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
                 return dydt
               
               beta = 0.0004 #Give a value to beta
               gamma = 0.1 #Give a value to gamma
               p = 0.0 #Give a value to p
-              y0 = [1500, 500, 0] #Set initial conditions for S, I, and R, in that order
+              y0 = [1999*(1-p), 1, 1999*p] #Set initial conditions for S, I, and R, in that order
               t_range = np.arange(0.0, 20.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
               
               sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
               
               # Plotting commands are below
-              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              #plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
               plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
-              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              #plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
               plt.legend()
               plt.grid()
               plt.xlabel('time')
@@ -108,7 +108,7 @@
             </li>
             <li>
               <p>
-                When we multiply the transmission term <m>\beta SI</m> by <m>(1-p)</m>, for viable values of <m>p</m>, what is the effect? Describe in terms of numbers, in terms of the graphical output of the Python code, and in terms of the impact on a disease outbreak.
+                Notice that we set <m>S(0)=1999*(1-p)</m> and <m>R(0)=1999*p</m>. Try letting <m>p=0.2</m> and <m>p=0.5</m>. In each case, compute how many Susceptible and Removed people we would have at the start of the simulation.
               </p>
             </li>              
           </ol>
@@ -120,12 +120,12 @@
       <task>
         <statement>
           <p>
-            These questions get more specific about the value of <m>p</m>. Think logically and mathematically about your answers, and use the Python code freely to experiment with <m>p</m>. To help you build a strong sense of the role of <m>p</m> in the SIR model, you may wish to change the time range, include other information we have seen in past simulations, or make other changes to the code.
+            These questions get more specific about the effects on the model when we change <m>p</m>. Think logically and mathematically about your answers, and use the Python code freely to experiment with <m>p</m>. To help you build a strong sense of the role of <m>p</m> in the SIR model, you may wish to change the time range, include other information we have seen in past simulations, un-comment the graphs of the Susceptible and/or Removed populations, or make other changes to the code. 
           </p>
         <ol>
           <li>
               <p>
-                What sorts of effects do you see from the term <m>(1-p)</m> when the value of <m>p</m> is relatively small, that is, <m>p</m> is just above <m>0</m>? In contrast, what sorts of effects do you see from the term <m>(1-p)</m> when the value of <m>p</m> is relatively large, that is, <m>p</m> is just below <m>1</m>?
+                Compared with starting the model with <m>S(0)=1999</m> and <m>R(0)=0</m>, what sorts of effects do you see from the term <m>(1-p)</m> when the value of <m>p</m> is relatively small, that is, <m>p</m> is just above <m>0</m>? In contrast, what sorts of effects do you see from the term <m>(1-p)</m> when the value of <m>p</m> is relatively large, that is, <m>p</m> is just below <m>1</m>?
               </p>
             </li>
             <li>

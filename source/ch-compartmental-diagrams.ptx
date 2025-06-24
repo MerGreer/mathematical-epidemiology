@@ -253,7 +253,7 @@
     <p>
       In this diagram, we include the S and I compartments used previously, while also allowing the Infectious zombies to leave the I compartment and enter the R compartment, where they stay for the rest of the simulation. The mathematical formula for movement from I to R is <m>\gamma I</m>. The parameter <m>\gamma</m> (the Greek letter <em>gamma</em>) represents the rate at which individuals leave <m>I</m> and enter <m>R</m>. Larger values of <m>\gamma</m>, for instance, mean that zombies become inactive more rapidly than with smaller values of <m>\gamma</m>. This formula indicates that neither Susceptibles nor Removed individuals influence movement from I to R: instead, only the number of Infectious people, and a rate based on how long they remain zombies, determine this movement between compartments. 
     </p>
-    <activity xml:id="activity-sir-diagram-and-des">
+    <activity xml:id="activity-sir-diagram-and-des"> 
       <statement>
         <p>
           Take time to think through the compartmental diagram in <xref ref="fig-SIR-compartmental-diagram"/>. 
