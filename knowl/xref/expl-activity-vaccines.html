@@ -28,46 +28,43 @@ sagecell.makeSagecell({
 <span class="type">Exploration</span><span class="space"> </span><span class="codenumber">6.1</span><span class="period">.</span><span class="space"> </span><span class="title">Reducing New Infections.</span>
 </h3>
 <div class="introduction">
-<div class="para">This exploration seeks to reduce the number of new infections by directly reducing the transmission part of the compartmental SIR model shown in <a href="ch-compartmental-diagrams.html#activity-introducing-units-1-2" class="xref" data-knowl="./knowl/xref/eq-SIR-model-S.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.3">(4.3)</a>, <a href="ch-compartmental-diagrams.html#activity-introducing-units-1-2" class="xref" data-knowl="./knowl/xref/eq-SIR-model-I.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.4">(4.4)</a>, and <a href="ch-compartmental-diagrams.html#activity-introducing-units-1-2" class="xref" data-knowl="./knowl/xref/eq-SIR-model-R.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.5">(4.5)</a>. To reduce transmission, we multiply by a term <span class="process-math">\((1-p)\text{:}\)</span>
-</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-SIR-model-S.html ./knowl/xref/eq-SIR-model-I.html ./knowl/xref/eq-SIR-model-R.html">
+<div class="para">This exploration seeks to reduce the number of new infections in the SIR model from <a href="ch-compartmental-diagrams.html#activity-introducing-units" class="xref" data-knowl="./knowl/xref/activity-introducing-units.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.5">Activity 4.5</a> by changing the initial numbers of people in the Susceptible and Removed compartments. For reference, here are the equations of the model:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/activity-introducing-units.html">
 \begin{align*}
-\frac{dS}{dt} \amp = - (1-p) \beta S I \\
-\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I \\
+\frac{dS}{dt} \amp = - \beta S I \\
+\frac{dI}{dt} \amp =  \beta S I - \gamma I \\
 \frac{dR}{dt} \amp = \gamma I. 
 \end{align*}
 </div>
-<div class="para">This change to the model reflects that the term <span class="process-math">\(\beta SI\)</span> in the SIR model represents transmission of disease from the Infectious to the Susceptible population. To reduce transmission, we therefore change the specific term <span class="process-math">\(\beta SI\)</span> by introducing the multiplier <span class="process-math">\((1-p)\text{.}\)</span>
-</div> <div class="para">Work through the parts below to build understanding of the term <span class="process-math">\((1-p)\)</span> and the permissible values of <span class="process-math">\(p\text{.}\)</span>
-</div>
+<div class="para">This change to the model reflects a concept we have observed in multiple chapters so far, from the Zombie Game to the definition of <span class="process-math">\(\mathcal{R}_0\)</span> as applying to a population that is nearly entirely Susceptible. In these contexts, we have seen that as the number of Susceptible people falls, an outbreak can slow down and eventually stop. We therefore try starting our model simulation by using the terms <span class="process-math">\(p\)</span> and <span class="process-math">\((1-p)\)</span> to split the initial population across the S and R compartments.</div> <div class="para">Work through the parts of this exploration to build understanding of <span class="process-math">\(p\)</span> and <span class="process-math">\((1-p)\)</span> and their permissible values.</div>
 </div>
 <article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="para">Read the Python code below. Think through the factor <span class="process-math">\((1-p)\)</span> that is multiplied by <span class="process-math">\(\beta S I\)</span> in both the <span class="process-math">\(dS/dt\)</span> and <span class="process-math">\(dI/dt\)</span> equations. We restrict the possible values of <span class="process-math">\(p\)</span> so that it must be true that <span class="process-math">\(0 \leq p \leq 1\text{.}\)</span>
+<div class="para">Read the Python code below. In line 17, the initial conditions <span class="process-math">\(S(0)\text{,}\)</span> <span class="process-math">\(I(0)\text{,}\)</span> and <span class="process-math">\(R(0)\)</span> set <span class="process-math">\(I(0)=1\)</span> but use <span class="process-math">\((1-p)\)</span> and <span class="process-math">\(p\)</span> to split up the rest of the population between the S and R compartments. We restrict the possible values of <span class="process-math">\(p\)</span> so that it must be true that <span class="process-math">\(0 \leq p \leq 1\text{.}\)</span>
 </div> <div class="para">After reading and evaluating the Python code, respond to the questions that follow.</div> <pre id="expl-activity-vaccines-3-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 
-plt.cla() #Clear (delete) any past plots
+plt.cla() #Clear (delete) any past plots 
 
 #Define the system of differential equations, and call it "model"
 def model(y, t):
   S, I, R = y #Define y as consisting of S, I, and R, in that order
-  dydt = [- (1-p) * beta * S * I, (1-p) * beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+  dydt = [- beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
   return dydt
 
 beta = 0.0004 #Give a value to beta
 gamma = 0.1 #Give a value to gamma
 p = 0.0 #Give a value to p
-y0 = [1500, 500, 0] #Set initial conditions for S, I, and R, in that order
+y0 = [1999*(1-p), 1, 1999*p] #Set initial conditions for S, I, and R, in that order
 t_range = np.arange(0.0, 20.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
 
 sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
 
 # Plotting commands are below
-plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+#plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
 plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
-plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+#plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
 plt.legend()
 plt.grid()
 plt.xlabel('time')
@@ -76,10 +73,10 @@ plt.show()
 </script></pre> <ol class="decimal" id="expl-activity-vaccines-3-1-4">
 <li><div class="para">Given the restriction that <span class="process-math">\(0 \leq p \leq 1\text{,}\)</span> what is the range of possible values for the term <span class="process-math">\((1-p)\text{?}\)</span>
 </div></li>
-<li><div class="para">When we multiply the transmission term <span class="process-math">\(\beta SI\)</span> by <span class="process-math">\((1-p)\text{,}\)</span> for viable values of <span class="process-math">\(p\text{,}\)</span> what is the effect? Describe in terms of numbers, in terms of the graphical output of the Python code, and in terms of the impact on a disease outbreak.</div></li>
+<li><div class="para">Notice that we set <span class="process-math">\(S(0)=1999*(1-p)\)</span> and <span class="process-math">\(R(0)=1999*p\text{.}\)</span> Try letting <span class="process-math">\(p=0.2\)</span> and <span class="process-math">\(p=0.5\text{.}\)</span> In each case, compute how many Susceptible and Removed people we would have at the start of the simulation.</div></li>
 </ol></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="para">These questions get more specific about the value of <span class="process-math">\(p\text{.}\)</span> Think logically and mathematically about your answers, and use the Python code freely to experiment with <span class="process-math">\(p\text{.}\)</span> To help you build a strong sense of the role of <span class="process-math">\(p\)</span> in the SIR model, you may wish to change the time range, include other information we have seen in past simulations, or make other changes to the code.</div> <ol class="decimal" id="expl-activity-vaccines-4-1-2">
-<li><div class="para">What sorts of effects do you see from the term <span class="process-math">\((1-p)\)</span> when the value of <span class="process-math">\(p\)</span> is relatively small, that is, <span class="process-math">\(p\)</span> is just above <span class="process-math">\(0\text{?}\)</span> In contrast, what sorts of effects do you see from the term <span class="process-math">\((1-p)\)</span> when the value of <span class="process-math">\(p\)</span> is relatively large, that is, <span class="process-math">\(p\)</span> is just below <span class="process-math">\(1\text{?}\)</span>
+<div class="para">These questions get more specific about the effects on the model when we change <span class="process-math">\(p\text{.}\)</span> Think logically and mathematically about your answers, and use the Python code freely to experiment with <span class="process-math">\(p\text{.}\)</span> To help you build a strong sense of the role of <span class="process-math">\(p\)</span> in the SIR model, you may wish to change the time range, include other information we have seen in past simulations, un-comment the graphs of the Susceptible and/or Removed populations, or make other changes to the code.</div> <ol class="decimal" id="expl-activity-vaccines-4-1-2">
+<li><div class="para">Compared with starting the model with <span class="process-math">\(S(0)=1999\)</span> and <span class="process-math">\(R(0)=0\text{,}\)</span> what sorts of effects do you see from the term <span class="process-math">\((1-p)\)</span> when the value of <span class="process-math">\(p\)</span> is relatively small, that is, <span class="process-math">\(p\)</span> is just above <span class="process-math">\(0\text{?}\)</span> In contrast, what sorts of effects do you see from the term <span class="process-math">\((1-p)\)</span> when the value of <span class="process-math">\(p\)</span> is relatively large, that is, <span class="process-math">\(p\)</span> is just below <span class="process-math">\(1\text{?}\)</span>
 </div></li>
 <li><div class="para">What can you say about the boundary values of <span class="process-math">\(p\text{?}\)</span> That is, what sorts of effects does the term <span class="process-math">\((1-p)\)</span> have on the SIR model when <span class="process-math">\(p=0\)</span> or when <span class="process-math">\(p=1\text{?}\)</span>
 </div></li>
