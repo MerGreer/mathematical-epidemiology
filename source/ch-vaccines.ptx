@@ -31,7 +31,7 @@
     </p>
 
     <p>
-      Begin in <xref ref="expl-activity-vaccines"/> by adjusting a model in a particular way to reduce the occurrence of new infections.
+      Begin in <xref ref="expl-activity-vaccines"/> by adjusting the initial number of Susceptibles in a model, with the goal of reducing the occurrence of new infections.
     </p>
     
     <exploration xml:id="expl-activity-vaccines">
@@ -46,10 +46,10 @@
           <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
         </md>
         <p> 
-          This change to the model reflects a concept we have observed in multiple chapters so far, from the Zombie Game to the definition of <m>\mathcal{R}_0</m> as applying to a population that is nearly entirely Susceptible. In these contexts, we have seen that as the number of Susceptible people falls, an outbreak can slow down and eventually stop. We therefore try starting our model simulation by using the terms <m>p</m> and <m>(1-p)</m> to split the initial population across the S and R compartments.
+          This change to the model reflects a concept we have observed in multiple chapters so far, from the Zombie Game to the definition of <m>\mathcal{R}_0</m> as applying to a population that is nearly entirely Susceptible. In these contexts, we have seen that as the number of Susceptible people falls over the course of an outbreak, the outbreak can slow down and eventually stop. We therefore try starting our model simulation by using the terms <m>p</m> and <m>(1-p)</m> to split the initial population across the S and R compartments.
         </p> 
         <p>
-          Work through the parts of this exploration to build understanding of <m>p</m> and <m>(1-p)</m> and their permissible values.
+          Work through the parts of this exploration to build understanding of <m>p</m> and <m>(1-p)</m> and to determine the possible numerical values for <m>p</m> and <m>(1-p)</m>.
         </p>
       </introduction>
 
@@ -108,7 +108,7 @@
             </li>
             <li>
               <p>
-                Notice that we set <m>S(0)=1999*(1-p)</m> and <m>R(0)=1999*p</m>. Try letting <m>p=0.2</m> and <m>p=0.5</m>. In each case, compute how many Susceptible and Removed people we would have at the start of the simulation.
+                Notice that we set <m>S(0)=1999*(1-p)</m> and <m>R(0)=1999*p</m>. Try letting <m>p=0.2</m> and <m>p=0.5</m>. In each case, compute how many Susceptible and Removed people we would have at the start of the simulation. For each of these values of <m>p</m>, what is the value of <m>S(0)+R(0)</m>?
               </p>
             </li>              
           </ol>
@@ -120,22 +120,22 @@
       <task>
         <statement>
           <p>
-            These questions get more specific about the effects on the model when we change <m>p</m>. Think logically and mathematically about your answers, and use the Python code freely to experiment with <m>p</m>. To help you build a strong sense of the role of <m>p</m> in the SIR model, you may wish to change the time range, include other information we have seen in past simulations, un-comment the graphs of the Susceptible and/or Removed populations, or make other changes to the code. 
+            These questions help us see trends in the model's behavior when we change <m>p</m>. Think logically and mathematically about your answers, and use the Python code freely to experiment with <m>p</m>. To see the full scope of model behavior as you change <m>p</m> in the SIR model, you may wish to change the time range, remove the <c>#</c> sign in lines 23 or 25 so you can see the graphs of the Susceptible or Removed populations, or make other changes to the code. 
           </p>
         <ol>
           <li>
               <p>
-                Compared with starting the model with <m>S(0)=1999</m> and <m>R(0)=0</m>, what sorts of effects do you see from the term <m>(1-p)</m> when the value of <m>p</m> is relatively small, that is, <m>p</m> is just above <m>0</m>? In contrast, what sorts of effects do you see from the term <m>(1-p)</m> when the value of <m>p</m> is relatively large, that is, <m>p</m> is just below <m>1</m>?
+                Compared with starting the model with <m>S(0)=1999</m> and <m>R(0)=0</m>, what sorts of effects do you see when the value of <m>p</m> is relatively small, that is, <m>p</m> is just above <m>0</m>? In contrast, what sorts of effects do you see when the value of <m>p</m> is relatively large, that is, <m>p</m> is just below <m>1</m>?
               </p>
             </li>
             <li>
               <p>
-                What can you say about the boundary values of <m>p</m>? That is, what sorts of effects does the term <m>(1-p)</m> have on the SIR model when <m>p=0</m> or when <m>p=1</m>?
+                What can you say about the boundary values of <m>p</m>? That is, what sorts of effects do you see on the SIR model when <m>p=0</m> or when <m>p=1</m>?
               </p>
             </li>
             <li>
               <p>
-                Pulling ideas together: as the value of <m>p</m> increases from <m>0</m> to <m>1</m>, what observations can you make about the output of the SIR model?
+                As the value of <m>p</m> increases from <m>0</m> to <m>1</m>, passing through several values in between, what observations can you make about the output of the SIR model?
               </p>
             </li>
         </ol>
@@ -150,7 +150,7 @@
       <title>Determining a Threshold Vaccine Level</title>
 
       <p>
-        The modeling in this section focuses on <em>reducing transmission of a disease through the use of vaccines</em>. We use the multiplier <m>(1-p)</m> from <xref ref="expl-activity-vaccines"/>, along with the concept of <m>\mathcal{R}_0</m> from <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>, to demonstrate the effect of vaccines on the number of people who ever become Infectious in a disease outbreak.
+        The modeling in this section focuses on <em>reducing transmission of a disease through the use of vaccines</em>. We use the values <m>p</m> and <m>(1-p)</m> from <xref ref="expl-activity-vaccines"/>, along with the concept of <m>\mathcal{R}_0</m> from <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>, to demonstrate the effect of vaccines on the number of people who ever become Infectious in a disease outbreak.
       </p>
       <p>
         As a reminder, the <em>basic reproduction number</em> <m>\mathcal{R}_0</m> is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. This means that <m>\mathcal{R}_0</m> is not a number we can use to directly describe a population that has been vaccinated against a disease, since a vaccinated population is not entirely susceptible. Instead, we introduce an <term>effective reproduction number</term> <m>\mathcal{R}_{\text{eff}}</m>, which is the average number of new infections caused by one infectious person in a population that may not be entirely susceptible, such as a population that has had access to vaccination. One way to pronounce the symbol <m>\mathcal{R}_{\text{eff}}</m> is <q>R effective</q>.
@@ -170,16 +170,8 @@
       </mdn>
 
       <p>
-        Our goal in the next few mathematical steps is to use <xref ref="eq-Reff-define"/> to determine a value of <m>p</m> for which <m>\mathcal{R}_{\text{eff}} \lt 1</m>.<fn>The goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m> was set out in the 1983 paper  <q>Parasitic Infections as Regulators of Animal Populations</q> by Robert M. May, published in <em>American Scientist</em> in the January-February issue. Additional details and explanation appear in the 1988 textbook <q>Mathematical Models in Biology</q> by Leah Edelstein-Keshet, published by McGraw-Hill.</fn> Such a value of <m>p</m> corresponds to a vaccination rate high enough that a disease cannot become an outbreak because <m>\mathcal{R}_{\text{eff}} \lt 1</m> means that the overall numbers in the population are not expected to rise. Read carefully through the following mathematical steps to see how this value of <m>p</m> is computed:
+        Our goal in the next few mathematical steps is to use <xref ref="eq-Reff-define"/> to determine a value of <m>p</m> for which <m>\mathcal{R}_{\text{eff}} \lt 1</m>.<fn>The goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m> was set out in the 1983 paper  <q>Parasitic Infections as Regulators of Animal Populations</q> by Robert M. May, published in <em>American Scientist</em> in the January-February issue. Additional details and explanation appear in the 1988 textbook <q>Mathematical Models in Biology</q> by Leah Edelstein-Keshet, published by McGraw-Hill.</fn> Such a value of <m>p</m> corresponds to a vaccination rate high enough that a disease cannot become an outbreak because <m>\mathcal{R}_{\text{eff}} \lt 1</m> means that the overall numbers in the Infectious population are not expected to rise. Read carefully through the following mathematical steps to see how this value of <m>p</m> is computed:
       </p>
-      
-      <!-- <md>
-        <mrow> \text{Start with our goal:}  \amp \amp  \mathcal{R}_{\text{eff}} \amp \lt 1 </mrow>
-        <mrow> \text{Substitute:}  \amp \amp (1-p)\mathcal{R}_0 \amp \lt 1 </mrow>
-        <mrow> \text{Rearrange algebraically:}  \amp \amp \mathcal{R}_0 - p \mathcal{R}_0 \amp \lt 1 </mrow>
-        <mrow> \text{Rearrange algebraically:}  \amp \amp p \mathcal{R}_0 \amp \gt \mathcal{R}_0 - 1 </mrow>
-        <mrow> \text{Rearrange algebraically:}  \amp \amp p \amp \gt \frac{\mathcal{R}_0 - 1}{\mathcal{R}_0}. </mrow>
-      </md> -->
 
       <md>
         <mrow> \mathcal{R}_{\text{eff}} \amp \lt 1 </mrow>
@@ -272,15 +264,15 @@
       <activity xml:id="activity-pcrit2">
         <statement>
           <p> 
-            For the following SIR model, the term <m>(1-p)</m> indicates the unvaccinated fraction of people:  
+            Investigate different outcomes for the following SIR model when the number of initial Susceptible and initial Removed people varies according to the value <m>p</m>, where <m>0 \leq p \leq 1</m>:  
           </p>
           <md>
-            <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
-            <mrow>\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I </mrow>
+            <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+            <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
             <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
           </md>
           <p>
-            In the default Python code shown below, <m>\beta = 0.0003</m>, <m>\gamma = 0.3</m>, <m>p=0</m>, the initial population values are <m>S(0)=2900</m>, <m>I(0)=100</m>, and <m>R(0)=0</m>, and time runs from <m>t=0</m> to <m>t=25</m> days. Begin by running the code, and then work through the steps below to make specific changes to the model.
+            In the default Python code shown below, <m>\beta = 0.0003</m>, <m>\gamma = 0.3</m>, <m>p=0</m>, the initial population values are <m>S(0)=2999</m>, <m>I(0)=1</m>, and <m>R(0)=0</m>, and time runs from <m>t=0</m> to <m>t=50</m> days. Begin by running the code, and then work through the steps below to make specific changes to the model.
           </p>
 
           <sage>
@@ -301,8 +293,8 @@
               beta = 0.0003 #Give a value to beta
               gamma = 0.3 #Give a value to gamma
               p = 0.0 #Give a value to p
-              y0 = [2900, 100, 0] #Set initial conditions for S, I, and R, in that order
-              t_range = np.arange(0.0, 25.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+              y0 = [2999*(1-p), 1, 2999*p] #Set initial conditions for S, I, and R, in that order
+              t_range = np.arange(0.0, 50.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
               
               sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
               
