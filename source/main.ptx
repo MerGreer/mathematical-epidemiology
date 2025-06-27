@@ -223,6 +223,10 @@
     
     <!-- <xi:include href="ch-writing-tips-for-math-and-planning-for-peer-review.ptx" /> -->
 
+    <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
+    
+    <xi:include href="ch-greek-letters.ptx" />
+
     <!-- <xi:include href="ch-other-resources.ptx" /> -->
 
   </part> 
