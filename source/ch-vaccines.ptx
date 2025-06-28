@@ -1,5 +1,10 @@
 <chapter xml:id="ch-vaccines" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>Vaccines</title>
+    <title>* Vaccines</title>
+    
+    <p>
+      <term>***This chapter is under construction.***</term>
+    </p>
+
 
     <introduction xml:id="intro-vaccines">
     <objectives>
@@ -287,7 +292,7 @@
               #Define the system of differential equations, and call it "model"
               def model(y, t):
                 S, I, R = y #Define y as consisting of S, I, and R, in that order
-                dydt = [- (1-p) * beta * S * I, (1-p) * beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+                dydt = [- beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
                 return dydt
               
               beta = 0.0003 #Give a value to beta
@@ -305,7 +310,7 @@
               
               # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
               print("Long-term value of S = ", round(sol[-1,0]))
-              print("Long-term value of I = ", round(sol[-1,1]))
+              print("Long-term value of I = ", (sol[-1,1]))
               print("Long-term value of R = ", round(sol[-1,2]))
 
               # Plotting commands are below
@@ -326,7 +331,7 @@
           <ol>              
             <li>
               <p>
-                How many people have had this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment, but was not there at the start, must have been sick at some time. We therefore subtract the initial number of people in the R compartment from the long-term value of <m>R(t)</m> to reach our answer. Also notice that we need to make sure to run the model long enough that <m>I(t)</m> reaches <m>0</m>. Only then will long-term <m>R(t)</m> be evaluated at a large enough value of <m>t</m> for us to know the total number of people who become ill. 
+                When <m>p=0</m>, how many people have this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment, but was not there at the start, must have been sick at some time. We therefore subtract the initial number of people in the R compartment from the long-term value of <m>R(t)</m> to reach our answer. Also notice that we need to make sure to run the model long enough that <m>I(t)</m> becomes very close to <m>0</m>. Only then will long-term <m>R(t)</m> be evaluated at a large enough value of <m>t</m> for us to know the total number of people who become ill. 
               </p>
             </li>              
             <li>
@@ -336,12 +341,15 @@
             </li>              
             <li>
               <p>
-                Now think about how many people from the S compartment get the illness, even though <m>p=p_{\text{crit}}</m>. To answer this, subtract the long-term value of <m>S(t)</m> from the initial value <m>S(0)</m>. Notice that your answer tells you that that even when <m>\mathcal{R}_{\text{eff}} \approx 1</m>, additional people can contract the illness being studied. However, the Infectious population curve <m>I(t)</m> does not rise: it instead appears as level or decreasing. As a follow-up: increase the initial number of Infectious people so that <m>I(0)=10</m> and recalculate how many additional people get the illness.
+                Now think about how many people from the S compartment get the illness, even though <m>p=p_{\text{crit}}</m>. To answer this, subtract the long-term value of <m>S(t)</m> from the initial value <m>S(0)</m>. Notice that your answer tells you that that even when <m>\mathcal{R}_{\text{eff}} \approx 1</m>, additional people can contract the illness being studied. However, the Infectious population curve <m>I(t)</m> does not rise: it instead appears as level or decreasing. 
+              </p>
+              <p>
+                The impact on the population is limited when there is only one initial Infectious person. However, it can happen that multiple Infectious people enter a community at approximately the same time. To see how many Susceptible people would become infected in this circumstance, try increasing the initial number of Infectious people so that <m>I(0)=10</m>, and perhaps try other numbers for <m>I(0)</m> as well. With new values of <m>I(0)</m>, recalculate how many additional people get the illness.
               </p>
             </li>
             <li>
               <p>
-                We may want to see for ourselves, or demonstrate to others, that the Infectious curve is truly not rising when <m>p=p_{\text{crit}}</m>. The default graph in the Python code for this activity is not the most helpful to us because <m>S(0)</m> is so large relative to <m>I(0)</m>, which makes it challenging to see the details of the curvature of the <m>I(t)</m> curve. To see <em>just</em> the <m>I(t)</m> curve, then, we can comment out the lines of code that show the <m>S(t)</m> and <m>R(t)</m> curves. Do this: comment out those lines, and produce a graph showing just the <m>I(t)</m> curve.
+                Be sure to check, and be able to demonstrate to others, that the Infectious curve is truly not rising when <m>p=p_{\text{crit}}</m>. The default graph in the Python code for this activity makes it challenging to see the details of the <m>I(t)</m> curve because <m>S(0)</m> is so large relative to <m>I(0)</m>. To see <em>just</em> the <m>I(t)</m> curve, then, we can comment out the lines of code that show the <m>S(t)</m> and <m>R(t)</m> curves. Do this: place the symbol <c>#</c> at the start of each of those lines. Then evaluate the code and display a graph showing just the <m>I(t)</m> curve.
               </p>
             </li>
           </ol>
@@ -351,22 +359,28 @@
           <ol>
             <li>
               <p>
-                The default model says the long-term value of <m>R(t)</m> is <m>2802</m>, but at <m>t=25</m>, there are still people in the <m>I(t)</m> compartment. Use a larger value of <m>t</m> to find that <m>2829</m> people have the illness at some time during the outbreak. (State, and show, how large you made your value of <m>t</m>.) 
+                The default model says the long-term value of <m>R(t)</m> is <m>2821</m>, and we have set the initial value <m>R(0)</m> to equal <m>0</m>. We also check that the long-term value of <m>I(t)</m> is <m>0</m>, so that we know the outbreak has ended. We see that at <m>t=50</m>, the value of <m>I(t)</m> is approximately <m>0.326</m>. Let's try making the value of <m>t</m> larger. We do so by changing the value <c>50.0</c> in line 18 to some larger number. Trying <m>t=100</m>, we see that <m>I(100) \approx 1.45 \times 10^{-6}</m>, which is a quite small value for <m>I(t)</m>. At this time, <m>R(100)=2822</m>. We therefore estimate that <m>2822</m> total people get this illness.
+              </p>
+              <p>
+                It is worth mentioning that different people may estimate different values for the number of people who get an illness, due to using different lengths of time for checking the model. There is not a universal standard for how long a time span to check, or for how small <m>I(t)</m> should be before we stop checking. It is therefore helpful to state the start and end times used, along with other information about how you, as a modeler, believe you have determined a solid estimate.
               </p>
             </li>
             <li>
               <p>
-                The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>, using <xref ref="eq-R0-sir"/> to compute <m>\mathcal{R}_0</m> and then <xref ref="eq-pcrit"/> to compute <m>p_{\text{crit}}</m>. Approximating <m>p_{\text{crit}}</m> as <m>0.67</m> and setting a large enough value of <m>t</m> leads to the conclusion that <m>692</m> total people have the illness at some time.
+                The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>, using <xref ref="eq-R0-sir"/> to compute <m>\mathcal{R}_0</m> and then <xref ref="eq-pcrit"/> to compute <m>p_{\text{crit}}</m>. Approximating <m>p_{\text{crit}}</m> as <m>0.67</m> and confirming that <m>I(t)=0</m> at <m>t=50</m> leads to the conclusion that <m>14</m> total people have the illness at some time.
               </p>
             </li>
             <li>
               <p>
-                The answer above said that <m>692</m> people had the illness at some time, and we used the value <m>I(0)=100</m>. This means that after the initial <m>100</m> people, another <m>592</m> got the illness. (For readers who approximated <m>0.\overline{6}</m> differently than <m>0.67</m>, your answers may vary somewhat.) 
+                The long-term value of <m>S(t)</m> is <m>1019</m>, subtracted from the initial value <m>S(0)=1020</m>, meaning that one additional person contracts the illness after the outbreak begins.
+              </p>
+              <p>
+                Setting <m>I(0)=10</m>, there are still <m>S(0)=1020</m> initial Susceptible people, but in the long-term, only <m>1014</m> Susceptible people remain, meaning that those initial ten Infectious people spread the illness to an additional six people.
               </p>
             </li>
             <li>
               <p>
-                The first and third lines after <q>#Plotting commands are below</q> should be commented out, that is, the symbol <q>#</q> should be placed at the start of each of these lines. Then run the code block again to produce just the <m>I(t)</m> graph. 
+                The first and third lines after <q>#Plotting commands are below</q> should be commented out, that is, the symbol <q>#</q> should be placed at the start of lines 33 and 35. Then run the code block again to produce just the <m>I(t)</m> graph. 
               </p>
             </li>
           </ol>
