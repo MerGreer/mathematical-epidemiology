@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Vaccines</title>
+<title>* Vaccines</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -463,7 +463,7 @@ sagecell.makeSagecell({
 </ul>
 </li>
 <li class="toc-item toc-chapter active">
-<div class="toc-title-box"><a href="ch-vaccines.html" class="internal"><span class="codenumber">6</span> <span class="title">Vaccines</span></a></div>
+<div class="toc-title-box"><a href="ch-vaccines.html" class="internal"><span class="codenumber">6</span> <span class="title">* Vaccines</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines.html#sec-determining-a-threshold-vaccine-level" class="internal"><span class="codenumber">6.1</span> <span class="title">Determining a Threshold Vaccine Level</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-vaccines.html#sec-how-vaccination-level-affects-long-term-outcomes" class="internal"><span class="codenumber">6.2</span> <span class="title">How Vaccination Level Affects Long Term Outcomes</span></a></div></li>
@@ -545,14 +545,20 @@ sagecell.makeSagecell({
 </li>
 <li class="toc-item toc-part">
 <div class="toc-title-box"><a href="part-supplemental-materials.html" class="internal"><span class="codenumber">IV</span> <span class="title">Supplemental Materials</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-chapter">
+<ul class="structural toc-item-list">
+<li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-case-studies-vaccination-and-isolation.html" class="internal"><span class="codenumber">17</span> <span class="title">* Case Studies: Vaccination and Isolation</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-case-studies-vaccination-and-isolation.html#ch-case-studies-vaccination-and-isolation-3" class="internal"><span class="codenumber">17.1</span> <span class="title">A Varicella Example with Vaccination</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-case-studies-vaccination-and-isolation.html#ch-case-studies-vaccination-and-isolation-4" class="internal"><span class="codenumber">17.2</span> <span class="title"></span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-case-studies-vaccination-and-isolation.html#ch-case-studies-vaccination-and-isolation-5" class="internal"><span class="codenumber">17.3</span> <span class="title"></span></a></div></li>
 </ul>
-</li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-greek-letters.html" class="internal"><span class="codenumber">18</span> <span class="title">Greek Letters</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-greek-letters.html#sec-greek-letters" class="internal"><span class="codenumber">18.1</span> <span class="title"></span></a></div></li></ul>
+</li>
+</ul>
 </li>
 <li class="toc-item toc-backmatter">
 <div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div>
@@ -560,8 +566,9 @@ sagecell.makeSagecell({
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-vaccines"><h2 class="heading">
-<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">6</span><span class="space"> </span><span class="title">Vaccines</span>
+<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">6</span><span class="space"> </span><span class="title">* Vaccines</span>
 </h2>
+<div class="para" id="ch-vaccines-2"><dfn class="terminology">***This chapter is under construction.***</dfn></div>
 <section class="introduction" id="intro-vaccines"><article class="objectives goal-like" id="intro-vaccines-1"><h3 class="heading"><span class="type">Goals</span></h3>
 <ul class="disc" id="intro-vaccines-1-1">
 <li id="intro-vaccines-1-1-1"><div class="para" id="intro-vaccines-1-1-1-1">Explore the role of public health strategies in managing disease spread, using compartmental models</div></li>
@@ -701,7 +708,7 @@ plt.cla() #Clear (delete) any past plots
 #Define the system of differential equations, and call it "model"
 def model(y, t):
   S, I, R = y #Define y as consisting of S, I, and R, in that order
-  dydt = [- (1-p) * beta * S * I, (1-p) * beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+  dydt = [- beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
   return dydt
 
 beta = 0.0003 #Give a value to beta
@@ -712,11 +719,15 @@ t_range = np.arange(0.0, 50.0, 0.1) #Set the time range and increment of time st
 
 sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
 
+# Tell Python to print the initial values of S, I, and R
+print("Initial value of S = ", round(y0[0]))
+print("Initial value of I = ", round(y0[1]))
+print("Initial value of R = ", round(y0[2]))
+
 # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
 print("Long-term value of S = ", round(sol[-1,0]))
-print("Long-term value of I = ", round(sol[-1,1]))
+print("Long-term value of I = ", (sol[-1,1]))
 print("Long-term value of R = ", round(sol[-1,2]))
-
 
 # Plotting commands are below
 plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
@@ -728,17 +739,26 @@ plt.xlabel('time')
 plt.ylabel('populations')
 plt.show()
 </script></pre> <ol class="decimal" id="activity-pcrit2-1-5">
-<li id="activity-pcrit2-1-5-1"><div class="para" id="activity-pcrit2-1-5-1-1">How many people have had this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment must have been sick at some time, so the long-term value of <span class="process-math">\(R(t)\)</span> provides the answer. Also notice that we need to make sure to run the model long enough that <span class="process-math">\(I(t)\)</span> reaches <span class="process-math">\(0\text{.}\)</span> Only then will <span class="process-math">\(R(t)\)</span> be evaluated at a large enough value of <span class="process-math">\(t\)</span> for us to know the total number of people who become ill.</div></li>
+<li id="activity-pcrit2-1-5-1"><div class="para" id="activity-pcrit2-1-5-1-1">When <span class="process-math">\(p=0\text{,}\)</span> how many people have this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment, but was not there at the start, must have been sick at some time. We therefore subtract the initial number of people in the R compartment from the long-term value of <span class="process-math">\(R(t)\)</span> to reach our answer. Also notice that we need to make sure to run the model long enough that <span class="process-math">\(I(t)\)</span> becomes very close to <span class="process-math">\(0\text{.}\)</span> Only then will long-term <span class="process-math">\(R(t)\)</span> be evaluated at a large enough value of <span class="process-math">\(t\)</span> for us to know the total number of people who become ill.</div></li>
 <li id="activity-pcrit2-1-5-2"><div class="para" id="activity-pcrit2-1-5-2-1">Compute the value <span class="process-math">\(p_{\text{crit}}\)</span> for this model, showing your work. Then run the model using the value you computed for <span class="process-math">\(p_{\text{crit}}\)</span> and re-answer the question above: how many people get the illness at some point in time, according to this model, when <span class="process-math">\(p=p_{\text{crit}}\text{?}\)</span>
 </div></li>
-<li id="activity-pcrit2-1-5-3"><div class="para" id="activity-pcrit2-1-5-3-1">Compare your answer above, regarding how many people get the illness at some time in the situation when <span class="process-math">\(p=p_{\text{crit}}\text{,}\)</span> with the initial number of Infectious people in the model. How many people must have gotten the illness sometime after the original Infectious people? Notice that this means that even when <span class="process-math">\(\mathcal{R}_{\text{eff}} \approx 1\text{,}\)</span> a significant number of additional people can contract the illness being studied. However, the Infectious population curve <span class="process-math">\(I(t)\)</span> does not rise: it instead appears as level or decreasing.</div></li>
-<li id="activity-pcrit2-1-5-4"><div class="para" id="activity-pcrit2-1-5-4-1">We may want to see for ourselves, or demonstrate to others, that the Infectious curve is truly not rising when <span class="process-math">\(p=p_{\text{crit}}\text{.}\)</span> The default graph in the Python code for this activity is not the most helpful to us because <span class="process-math">\(S(0)\)</span> is so large relative to <span class="process-math">\(I(0)\text{,}\)</span> which makes it challenging to see the details of the curvature of the <span class="process-math">\(I(t)\)</span> curve. To see <em class="emphasis">just</em> the <span class="process-math">\(I(t)\)</span> curve, then, we can comment out the lines of code that show the <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(R(t)\)</span> curves. Do this: comment out those lines, and produce a graph showing just the <span class="process-math">\(I(t)\)</span> curve.</div></li>
+<li id="activity-pcrit2-1-5-3">
+<div class="para" id="activity-pcrit2-1-5-3-1">Now think about how many people from the S compartment get the illness, even though <span class="process-math">\(p=p_{\text{crit}}\text{.}\)</span> To answer this, subtract the long-term value of <span class="process-math">\(S(t)\)</span> from the initial value <span class="process-math">\(S(0)\text{.}\)</span> Notice that your answer tells you that that even when <span class="process-math">\(\mathcal{R}_{\text{eff}} \approx 1\text{,}\)</span> additional people can contract the illness being studied. However, the Infectious population curve <span class="process-math">\(I(t)\)</span> does not rise: it instead appears as level or decreasing.</div>
+<div class="para" id="activity-pcrit2-1-5-3-2">The impact on the population is limited when there is only one initial Infectious person. However, it can happen that multiple Infectious people enter a community at approximately the same time. To see how many Susceptible people would become infected in this circumstance, try increasing the initial number of Infectious people so that <span class="process-math">\(I(0)=10\text{,}\)</span> and perhaps try other numbers for <span class="process-math">\(I(0)\)</span> as well. With new values of <span class="process-math">\(I(0)\text{,}\)</span> recalculate how many additional people get the illness.</div>
+</li>
+<li id="activity-pcrit2-1-5-4"><div class="para" id="activity-pcrit2-1-5-4-1">Be sure to check, and be able to demonstrate to others, that the Infectious curve is truly not rising when <span class="process-math">\(p=p_{\text{crit}}\text{.}\)</span> The default graph in the Python code for this activity makes it challenging to see the details of the <span class="process-math">\(I(t)\)</span> curve because <span class="process-math">\(S(0)\)</span> is so large relative to <span class="process-math">\(I(0)\text{.}\)</span> To see <em class="emphasis">just</em> the <span class="process-math">\(I(t)\)</span> curve, then, we can comment out the lines of code that show the <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(R(t)\)</span> curves. Do this: place the symbol <code class="code-inline tex2jax_ignore">#</code> at the start of each of those lines. Then evaluate the code and display a graph showing just the <span class="process-math">\(I(t)\)</span> curve.</div></li>
 </ol>
 <div class="solutions"><details id="activity-pcrit2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ol class="decimal" id="activity-pcrit2-2-1">
-<li id="activity-pcrit2-2-1-1"><div class="para" id="activity-pcrit2-2-1-1-1">The default model says the long-term value of <span class="process-math">\(R(t)\)</span> is <span class="process-math">\(2802\text{,}\)</span> but at <span class="process-math">\(t=25\text{,}\)</span> there are still people in the <span class="process-math">\(I(t)\)</span> compartment. Use a larger value of <span class="process-math">\(t\)</span> to find that <span class="process-math">\(2829\)</span> people have the illness at some time during the outbreak. (State, and show, how large you made your value of <span class="process-math">\(t\text{.}\)</span>)</div></li>
-<li id="activity-pcrit2-2-1-2"><div class="para" id="activity-pcrit2-2-1-2-1">The value of <span class="process-math">\(p_{\text{crit}}\)</span> is <span class="process-math">\(0.\overline{6}\text{,}\)</span> using <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-13" class="internal" title="Equation 5.1">(5.1)</a> to compute <span class="process-math">\(\mathcal{R}_0\)</span> and then <a href="ch-vaccines.html#sec-determining-a-threshold-vaccine-level-11" class="internal" title="Equation 6.2">(6.2)</a> to compute <span class="process-math">\(p_{\text{crit}}\text{.}\)</span> Approximating <span class="process-math">\(p_{\text{crit}}\)</span> as <span class="process-math">\(0.67\)</span> and setting a large enough value of <span class="process-math">\(t\)</span> leads to the conclusion that <span class="process-math">\(692\)</span> total people have the illness at some time.</div></li>
-<li id="activity-pcrit2-2-1-3"><div class="para" id="activity-pcrit2-2-1-3-1">The answer above said that <span class="process-math">\(692\)</span> people had the illness at some time, and we used the value <span class="process-math">\(I(0)=100\text{.}\)</span> This means that after the initial <span class="process-math">\(100\)</span> people, another <span class="process-math">\(592\)</span> got the illness. (For readers who approximated <span class="process-math">\(0.\overline{6}\)</span> differently than <span class="process-math">\(0.67\text{,}\)</span> your answers may vary somewhat.)</div></li>
-<li id="activity-pcrit2-2-1-4"><div class="para" id="activity-pcrit2-2-1-4-1">The first and third lines after “#Plotting commands are below” should be commented out, that is, the symbol “#” should be placed at the start of each of these lines. Then run the code block again to produce just the <span class="process-math">\(I(t)\)</span> graph.</div></li>
+<li id="activity-pcrit2-2-1-1">
+<div class="para" id="activity-pcrit2-2-1-1-1">The default model says the long-term value of <span class="process-math">\(R(t)\)</span> is <span class="process-math">\(2821\text{,}\)</span> and we have set the initial value <span class="process-math">\(R(0)\)</span> to equal <span class="process-math">\(0\text{.}\)</span> We also check that the long-term value of <span class="process-math">\(I(t)\)</span> is <span class="process-math">\(0\text{,}\)</span> so that we know the outbreak has ended. We see that at <span class="process-math">\(t=50\text{,}\)</span> the value of <span class="process-math">\(I(t)\)</span> is approximately <span class="process-math">\(0.326\text{.}\)</span> Let’s try making the value of <span class="process-math">\(t\)</span> larger. We do so by changing the value <code class="code-inline tex2jax_ignore">50.0</code> in line 18 to some larger number. Trying <span class="process-math">\(t=100\text{,}\)</span> we see that <span class="process-math">\(I(100) \approx 1.45 \times 10^{-6}\text{,}\)</span> which is a quite small value for <span class="process-math">\(I(t)\text{.}\)</span> At this time, <span class="process-math">\(R(100)=2822\text{.}\)</span> We therefore estimate that <span class="process-math">\(2822\)</span> total people get this illness.</div>
+<div class="para" id="activity-pcrit2-2-1-1-2">It is worth mentioning that different people may estimate different values for the number of people who get an illness, due to using different lengths of time for checking the model. There is not a universal standard for how long a time span to check, or for how small <span class="process-math">\(I(t)\)</span> should be before we stop checking. It is therefore helpful to state the start and end times used, along with other information about how you, as a modeler, believe you have determined a solid estimate.</div>
+</li>
+<li id="activity-pcrit2-2-1-2"><div class="para" id="activity-pcrit2-2-1-2-1">The value of <span class="process-math">\(p_{\text{crit}}\)</span> is <span class="process-math">\(0.\overline{6}\text{,}\)</span> using <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-13" class="internal" title="Equation 5.1">(5.1)</a> to compute <span class="process-math">\(\mathcal{R}_0\)</span> and then <a href="ch-vaccines.html#sec-determining-a-threshold-vaccine-level-11" class="internal" title="Equation 6.2">(6.2)</a> to compute <span class="process-math">\(p_{\text{crit}}\text{.}\)</span> Approximating <span class="process-math">\(p_{\text{crit}}\)</span> as <span class="process-math">\(0.67\)</span> and confirming that <span class="process-math">\(I(t)=0\)</span> at <span class="process-math">\(t=50\)</span> leads to the conclusion that <span class="process-math">\(14\)</span> total people have the illness at some time.</div></li>
+<li id="activity-pcrit2-2-1-3">
+<div class="para" id="activity-pcrit2-2-1-3-1">The long-term value of <span class="process-math">\(S(t)\)</span> is <span class="process-math">\(1019\text{,}\)</span> subtracted from the initial value <span class="process-math">\(S(0)=1020\text{,}\)</span> meaning that one additional person contracts the illness after the outbreak begins.</div>
+<div class="para" id="activity-pcrit2-2-1-3-2">Setting <span class="process-math">\(I(0)=10\text{,}\)</span> there are still <span class="process-math">\(S(0)=1020\)</span> initial Susceptible people, but in the long-term, only <span class="process-math">\(1014\)</span> Susceptible people remain, meaning that those initial ten Infectious people spread the illness to an additional six people.</div>
+</li>
+<li id="activity-pcrit2-2-1-4"><div class="para" id="activity-pcrit2-2-1-4-1">The first and third lines after “#Plotting commands are below” should be commented out, that is, the symbol “#” should be placed at the start of lines 33 and 35. Then run the code block again to produce just the <span class="process-math">\(I(t)\)</span> graph.</div></li>
 </ol></div></details></div></article><div class="para" id="sec-how-vaccination-level-affects-long-term-outcomes-4">We now pause our modeling for a moment to provide some extra vocabulary and commentary on vaccines. When vaccines are studied and approved for use, researchers demonstrate their <dfn class="terminology">efficacy</dfn> and <dfn class="terminology">effectiveness</dfn>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <span class="process-math">\(75\%\)</span> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <span class="process-math">\(75\%\text{.}\)</span> (Notice what the <span class="process-math">\(75\%\)</span> does NOT mean: it does NOT mean that only <span class="process-math">\(75\%\)</span> of people are protected by the vaccine, or that the vaccine only “works” <span class="process-math">\(75\%\)</span> of the time.) The word <em class="emphasis">efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em class="emphasis">effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.</div>
 <div class="para" id="sec-how-vaccination-level-affects-long-term-outcomes-5">Nice explanations of the meanings of <em class="emphasis">efficacy</em> and <em class="emphasis">effectiveness</em> can be found at the <a class="external" href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection" target="_blank">Vaccine efficacy, effectiveness and protection</a><details class="ptx-footnote" aria-live="polite" id="sec-how-vaccination-level-affects-long-term-outcomes-5-4"><summary class="ptx-footnote__number" title="Footnote 6.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="sec-how-vaccination-level-affects-long-term-outcomes-5-4"><code class="code-inline tex2jax_ignore">www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection</code></div></details> page from the World Health Organization.</div>
 <div class="para" id="sec-how-vaccination-level-affects-long-term-outcomes-6">Vaccine outcomes extend beyond affecting disease transmission. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can be included in models, however such models tend to be more detailed than those we are studying right now. For this reason, this chapter focuses only on vaccine models that show reduced transmission.</div>
