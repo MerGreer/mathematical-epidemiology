@@ -277,7 +277,7 @@
             <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
           </md>
           <p>
-            In the default Python code shown below, <m>\beta = 0.0003</m>, <m>\gamma = 0.3</m>, <m>p=0</m>, the initial population values are <m>S(0)=2999</m>, <m>I(0)=1</m>, and <m>R(0)=0</m>, and time runs from <m>t=0</m> to <m>t=50</m> days. Begin by running the code, and then work through the steps below to make specific changes to the model.
+            In the default Python code shown below, <m>\beta = 0.0003</m>, <m>\gamma = 0.3</m>, <m>p=0</m>, the initial population values are <m>S(0)=2999</m>, <m>I(0)=1</m>, and <m>R(0)=0</m>, and time runs from <m>t=0</m> to <m>t=50</m> days. When the code is run, most population values are rounded to the nearest whole number, but the long-term value for <m>I(t)</m> is not rounded. (To stop rounding other population values, you can delete the word <c>round</c> at appropriate places in the code if you wish.) Begin by running the code, and then work through the steps below to make specific changes to the model.
           </p>
 
           <sage>
@@ -332,11 +332,17 @@
             <li>
               <p>
                 When <m>p=0</m>, how many people have this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment, but was not there at the start, must have been sick at some time. We therefore subtract the initial number of people in the R compartment from the long-term value of <m>R(t)</m> to reach our answer. Also notice that we need to make sure to run the model long enough that <m>I(t)</m> becomes very close to <m>0</m>. Only then will long-term <m>R(t)</m> be evaluated at a large enough value of <m>t</m> for us to know the total number of people who become ill. 
+              </p> 
+              <p>
+                (This is a situation where the exact outcome of an outbreak, where eventually we have <m>0</m> Infectious people, will be merely approximated in a simulation. The <m>I(t)</m> curve approaches <m>0</m> as an asymptote, but looking out to many decimal places, we see that <m>I(t)</m> remains slightly above <m>0</m> for a long while.)
               </p>
             </li>              
             <li>
               <p>
                 Compute the value <m>p_{\text{crit}}</m> for this model, showing your work. Then run the model using the value you computed for <m>p_{\text{crit}}</m> and re-answer the question above: how many people get the illness at some point in time, according to this model, when <m>p=p_{\text{crit}}</m>? 
+              </p>
+              <p>
+                As part of answering this question, demonstrate at least three different estimates for the long-term value of <m>R(t)</m>, at different values of <m>t</m>. For each of these estimates, state the value of <m>I(t)</m> as well, to give a sense of how small <m>I(t)</m> is becoming as you estimate the long-term total number of people in the Removed compartment.
               </p>
             </li>              
             <li>
@@ -359,7 +365,7 @@
           <ol>
             <li>
               <p>
-                The default model says the long-term value of <m>R(t)</m> is <m>2821</m>, and we have set the initial value <m>R(0)</m> to equal <m>0</m>. We also check that the long-term value of <m>I(t)</m> is <m>0</m>, so that we know the outbreak has ended. We see that at <m>t=50</m>, the value of <m>I(t)</m> is approximately <m>0.326</m>. Let's try making the value of <m>t</m> larger. We do so by changing the value <c>50.0</c> in line 18 to some larger number. Trying <m>t=100</m>, we see that <m>I(100) \approx 1.45 \times 10^{-6}</m>, which is a quite small value for <m>I(t)</m>. At this time, <m>R(100)=2822</m>. We therefore estimate that <m>2822</m> total people get this illness.
+                The given Python model, with <m>p=0</m>, says the long-term value of <m>R(t)</m> is <m>2821</m>, and we have set the initial value <m>R(0)</m> to equal <m>0</m>. At <m>t=50</m>, the value of <m>I(t)</m> is approximately <m>0.326</m>, so it is a good idea to let the simulation run longer to see how much <m>R(t)</m> is still changing. We therefore increase the value <c>50.0</c> in line 18. Trying <m>t=100</m>, we see that <m>I(100) \approx 1.45 \times 10^{-6}</m>, which is a quite small value for <m>I(t)</m>. At this time, <m>R(100)=2822</m>. We therefore estimate that <m>2822</m> total people get this illness.
               </p>
               <p>
                 It is worth mentioning that different people may estimate different values for the number of people who get an illness, due to using different lengths of time for checking the model. There is not a universal standard for how long a time span to check, or for how small <m>I(t)</m> should be before we stop checking. It is therefore helpful to state the start and end times used, along with other information about how you, as a modeler, believe you have determined a solid estimate.
@@ -367,7 +373,7 @@
             </li>
             <li>
               <p>
-                The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>, using <xref ref="eq-R0-sir"/> to compute <m>\mathcal{R}_0</m> and then <xref ref="eq-pcrit"/> to compute <m>p_{\text{crit}}</m>. Approximating <m>p_{\text{crit}}</m> as <m>0.67</m> and confirming that <m>I(t)=0</m> at <m>t=50</m> leads to the conclusion that <m>14</m> total people have the illness at some time.
+                The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>, using <xref ref="eq-R0-sir"/> to compute <m>\mathcal{R}_0</m> and then <xref ref="eq-pcrit"/> to compute <m>p_{\text{crit}}</m>. One option is to approximate <m>p_{\text{crit}}</m> as <m>0.67</m>. The initial value <m>R(0)=2009</m> means 2009 people start in the Removed compartment, due to being vaccinated. Making the value of <m>t</m> larger may lead to estimates larger than 2040 for the long-term value of <m>R(t)</m>. Using one such estimate: if there are 2045 people eventually in the R compartment, then <m>2045-2009=36</m> people got the illness.
               </p>
             </li>
             <li>
