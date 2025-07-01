@@ -277,7 +277,10 @@
             <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
           </md>
           <p>
-            In the default Python code shown below, <m>\beta = 0.0003</m>, <m>\gamma = 0.3</m>, <m>p=0</m>, the initial population values are <m>S(0)=2999</m>, <m>I(0)=1</m>, and <m>R(0)=0</m>, and time runs from <m>t=0</m> to <m>t=50</m> days. When the code is run, most population values are rounded to the nearest whole number, but the long-term value for <m>I(t)</m> is not rounded. (To stop rounding other population values, you can delete the word <c>round</c> at appropriate places in the code if you wish.) Begin by running the code, and then work through the steps below to make specific changes to the model.
+            In the default Python code shown below, <m>\beta = 0.0003</m>, <m>\gamma = 0.3</m>, <m>p=0</m>, the initial population values are <m>S(0)=2999</m>, <m>I(0)=1</m>, and <m>R(0)=0</m>, and time runs from <m>t=0</m> to <m>t=50</m> days. When the value of <m>p</m> changes in line 16, then the initial values <m>S(0)</m> and <m>R(0)</m> change accordingly, with <m>S(0)=2999(1-p)</m> and <m>R(0)=2999p</m>.
+          </p>
+          <p>
+            When the code is run, most population values are rounded to the nearest whole number, but the long-term value for <m>I(t)</m> is not rounded. (To stop rounding other population values, you can delete the word <c>round</c> at appropriate places in the code.) Begin by running the code, and then work through the steps below to make specific changes to the model.
           </p>
 
           <sage>
@@ -339,18 +342,15 @@
             </li>              
             <li>
               <p>
-                Compute the value <m>p_{\text{crit}}</m> for this model, showing your work. Then run the model using the value you computed for <m>p_{\text{crit}}</m> and re-answer the question above: how many people get the illness at some point in time, according to this model, when <m>p=p_{\text{crit}}</m>? 
+                Compute the value <m>p_{\text{crit}}</m> for this model, showing your work. Then run the Python code above, replacing the value of <m>p</m> in line 16 with the value you computed for <m>p_{\text{crit}}</m>, and determine how many people get the illness at some point in time, according to this model, when <m>p=p_{\text{crit}}</m>. 
               </p>
               <p>
-                As part of answering this question, demonstrate at least three different estimates for the long-term value of <m>R(t)</m>, at different values of <m>t</m>. For each of these estimates, state the value of <m>I(t)</m> as well, to give a sense of how small <m>I(t)</m> is becoming as you estimate the long-term total number of people in the Removed compartment.
+                As part of your response, show how you determined the long-term value of <m>R(t)</m> by demonstrating at least three different estimates for <m>R(t)</m> at different values of <m>t</m>. For each of these estimates, state the value of <m>I(t)</m> as well, to give a sense of how small <m>I(t)</m> is becoming as you estimate the long-term total number of people in the Removed compartment.
               </p>
             </li>              
             <li>
               <p>
                 Now think about how many people from the S compartment get the illness, even though <m>p=p_{\text{crit}}</m>. To answer this, subtract the long-term value of <m>S(t)</m> from the initial value <m>S(0)</m>. Notice that your answer tells you that that even when <m>\mathcal{R}_{\text{eff}} \approx 1</m>, additional people can contract the illness being studied. However, the Infectious population curve <m>I(t)</m> does not rise: it instead appears as level or decreasing. 
-              </p>
-              <p>
-                The impact on the population is limited when there is only one initial Infectious person. However, it can happen that multiple Infectious people enter a community at approximately the same time. To see how many Susceptible people would become infected in this circumstance, try increasing the initial number of Infectious people so that <m>I(0)=10</m>, and perhaps try other numbers for <m>I(0)</m> as well. With new values of <m>I(0)</m>, recalculate how many additional people get the illness.
               </p>
             </li>
             <li>
@@ -378,10 +378,7 @@
             </li>
             <li>
               <p>
-                The long-term value of <m>S(t)</m> is <m>1019</m>, subtracted from the initial value <m>S(0)=1020</m>, meaning that one additional person contracts the illness after the outbreak begins.
-              </p>
-              <p>
-                Setting <m>I(0)=10</m>, there are still <m>S(0)=1020</m> initial Susceptible people, but in the long-term, only <m>1014</m> Susceptible people remain, meaning that those initial ten Infectious people spread the illness to an additional six people.
+                In a model simulation where <m>R(0)=2009</m>, we see that <m>S(0)=990</m>. Carrying out this simulation long enough that the long-term value <m>R(t)</m> is <m>2045</m>, we see that the long-term value of <m>S(t)</m> is <m>955</m>. This means that <m>990-955=35</m> people began in the S compartment but did not stay there. In other words, 35 people acquired the illness.
               </p>
             </li>
             <li>
@@ -401,7 +398,7 @@
         Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at the <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization.
       </p> 
       <p>
-        Vaccine outcomes extend beyond affecting disease transmission. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can be included in models, however such models tend to be more detailed than those we are studying right now. For this reason, this chapter focuses only on vaccine models that show reduced transmission.
+        Vaccine outcomes extend beyond affecting how many people get an illness. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can be included in models, however such models tend to be more detailed than those we are studying right now. 
       </p>
       <p>
         Much of this section has focused on vaccines, which are a valuable element of compartmental models. Another important aspect of disease spread is the incubation period of an illness. The SEIR model, described in <xref ref="ch-incubation-periods"/>, incorporates this incubation period.           
