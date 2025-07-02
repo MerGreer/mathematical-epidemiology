@@ -420,12 +420,14 @@
         <ol>
           <li>
             <p>
-              As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is contagious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>These numbers come from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/causes/index.html">How Measles Spreads</url>.</fn> For this reason, set <m>\gamma = 1/8</m>. Let's suppose this outbreak occurs in a small, close-knit community of 500 people, in which one person initially has the measles, meaning <m>S(0)=499</m>, <m>I(0)=1</m>, <m>R(0)=0</m>. Set up an SIR model, as shown below, for this outbreak:
+              As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is contagious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>These numbers come from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/causes/index.html">How Measles Spreads</url>.</fn> For this reason, set <m>\gamma = 1/8</m>. Let's suppose this outbreak occurs in a small, close-knit community of 500 people, in which one person initially has the measles, meaning <m>S(0)=499</m>, <m>I(0)=1</m>, <m>R(0)=0</m> when no vaccines have been administered. Set up an SIR model, as shown below, for this outbreak:
             </p>              
             <md>
               <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
               <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
-              <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+              <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+              <mrow>S(0) \amp = 499(1-p) </mrow>
+              <mrow>R(0) \amp = 499p </mrow>
             </md>
             <p>
               Compute all parameter values for the model, use the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute the value of <m>\beta</m> for this model. 
