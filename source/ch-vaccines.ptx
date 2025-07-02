@@ -280,7 +280,7 @@
             In the default Python code shown below, <m>\beta = 0.0003</m>, <m>\gamma = 0.3</m>, <m>p=0</m>, the initial population values are <m>S(0)=2999</m>, <m>I(0)=1</m>, and <m>R(0)=0</m>, and time runs from <m>t=0</m> to <m>t=50</m> days. When the value of <m>p</m> changes in line 16, then the initial values <m>S(0)</m> and <m>R(0)</m> change accordingly, with <m>S(0)=2999(1-p)</m> and <m>R(0)=2999p</m>.
           </p>
           <p>
-            When the code is run, most population values are rounded to the nearest whole number, but the long-term value for <m>I(t)</m> is not rounded. (To stop rounding other population values, you can delete the word <c>round</c> at appropriate places in the code.) Begin by running the code, and then work through the steps below to make specific changes to the model.
+            When the code is run, most population values are rounded to the nearest whole number, but the long-term value for <m>I(t)</m> is not rounded. To stop rounding other population values, you can delete the word <c>round</c> at appropriate places in the code. Begin by running the code, and then work through the steps below to make specific changes to the model.
           </p>
 
           <sage>
@@ -334,10 +334,10 @@
           <ol>              
             <li>
               <p>
-                When <m>p=0</m>, how many people have this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment, but was not there at the start, must have been sick at some time. We therefore subtract the initial number of people in the R compartment from the long-term value of <m>R(t)</m> to reach our answer. Also notice that we need to make sure to run the model long enough that <m>I(t)</m> becomes very close to <m>0</m>. Only then will long-term <m>R(t)</m> be evaluated at a large enough value of <m>t</m> for us to know the total number of people who become ill. 
+                When <m>p=0</m>, how many people get this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment, but was not there at the start, must have been sick at some time. We therefore subtract the initial number of people in the R compartment from the long-term value of <m>R(t)</m> to reach our answer. Also notice that we need to make sure to run the model long enough that <m>I(t)</m> becomes very close to <m>0</m>. Only then will long-term <m>R(t)</m> be evaluated at a large enough value of <m>t</m> for us to know the total number of people who become ill.  
               </p> 
               <p>
-                (This is a situation where the exact outcome of an outbreak, where eventually we have <m>0</m> Infectious people, will be merely approximated in a simulation. The <m>I(t)</m> curve approaches <m>0</m> as an asymptote, but looking out to many decimal places, we see that <m>I(t)</m> remains slightly above <m>0</m> for a long while.)
+                (Notice that there is a difference in this question between the exact outcome of an outbreak ending with <m>0</m> infectious people and the approximated outcome of running the model simulation long enough for <m>I(t)</m> to get very close to <m>0</m>. Since the <m>I(t)</m> curve approaches <m>0</m> as an asymptote, looking out to many decimal places, we see that <m>I(t)</m> remains slightly above <m>0</m> for a long while.)
               </p>
             </li>              
             <li>
@@ -368,12 +368,12 @@
                 The given Python model, with <m>p=0</m>, says the long-term value of <m>R(t)</m> is <m>2821</m>, and we have set the initial value <m>R(0)</m> to equal <m>0</m>. At <m>t=50</m>, the value of <m>I(t)</m> is approximately <m>0.326</m>, so it is a good idea to let the simulation run longer to see how much <m>R(t)</m> is still changing. We therefore increase the value <c>50.0</c> in line 18. Trying <m>t=100</m>, we see that <m>I(100) \approx 1.45 \times 10^{-6}</m>, which is a quite small value for <m>I(t)</m>. At this time, <m>R(100)=2822</m>. We therefore estimate that <m>2822</m> total people get this illness.
               </p>
               <p>
-                It is worth mentioning that different people may estimate different values for the number of people who get an illness, due to using different lengths of time for checking the model. There is not a universal standard for how long a time span to check, or for how small <m>I(t)</m> should be before we stop checking. It is therefore helpful to state the start and end times used, along with other information about how you, as a modeler, believe you have determined a solid estimate.
+                It is worth mentioning that there may be different estimated values for the number of people who get an illness, due to using different lengths of time for running the model simulation. There is not a universal standard for the length of the simulation's time span, or for what value of <m>I(t)</m> is considered <q>close enough</q> to zero. It is therefore helpful and important to state the start and end times used, along with other information about how you, as a modeler, believe you have determined a solid estimate.
               </p>
             </li>
             <li>
               <p>
-                The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>, using <xref ref="eq-R0-sir"/> to compute <m>\mathcal{R}_0</m> and then <xref ref="eq-pcrit"/> to compute <m>p_{\text{crit}}</m>. One option is to approximate <m>p_{\text{crit}}</m> as <m>0.67</m>. The initial value <m>R(0)=2009</m> means 2009 people start in the Removed compartment, due to being vaccinated. Making the value of <m>t</m> larger may lead to estimates larger than 2040 for the long-term value of <m>R(t)</m>. Using one such estimate: if there are 2045 people eventually in the R compartment, then <m>2045-2009=36</m> people got the illness.
+                The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>, using <xref ref="eq-R0-sir"/> to compute <m>\mathcal{R}_0</m> and then <xref ref="eq-pcrit"/> to compute <m>p_{\text{crit}}</m>. One option is to approximate <m>p_{\text{crit}}</m> as <m>0.67</m>. The initial value <m>R(0)=2009</m> means 2009 people start in the Removed compartment, due to being vaccinated. Making the value of <m>t</m> larger may lead to estimates larger than 2040 for the long-term value of <m>R(t)</m>. Using one such estimate: if there are 2045 people eventually in the R compartment, then <m>2045-2009=36</m> people got the illness. (Your answer should include at least three values of <m>t</m> and <m>R(t)</m>, which will help to show a trend of how <m>R(t)</m> changes as <m>t</m> becomes larger.)
               </p>
             </li>
             <li>
@@ -383,7 +383,7 @@
             </li>
             <li>
               <p>
-                The first and third lines after <q>#Plotting commands are below</q> should be commented out, that is, the symbol <q>#</q> should be placed at the start of lines 33 and 35. Then run the code block again to produce just the <m>I(t)</m> graph. 
+                The first and third lines after <c>#Plotting commands are below</c> should be commented out, that is, the symbol <c>#</c> should be placed at the start of lines 33 and 35. Then run the code block again to produce just the <m>I(t)</m> graph. 
               </p>
             </li>
           </ol>
@@ -408,13 +408,6 @@
     </section>
 
 
-      <!-- <p>
-        Now that we have discussed public health intervention in the form of vaccines, as well as SI, SIR, and SEIR models, we have learned enough to be able to mathematically model the primary dynamics of many disease outbreaks. <em>These ideas are the core of this course.</em> In <xref ref="ch-getting-the-answer-right-in-modeling"/> we will think through the big ideas inherent in mathematical modeling. The remaining chapters in <xref ref="part-core-modeling-concepts"/> focus on connecting data with models and working with two additional ways to significantly extend our use of compartmental models: endemic disease, in <xref ref="ch-epidemic-vs-endemic-models"/>, and modeling ideas other than diseases, in <xref ref="ch-modeling-the-spread-of-a-rumor"/>.
-      </p> -->
-
-    <!-- </section> -->
-
-
     <exercises xml:id="exercises-ch-vaccines">
        <exercise number="1">
         <p>
@@ -430,12 +423,12 @@
               As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is contagious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>These numbers come from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/causes/index.html">How Measles Spreads</url>.</fn> For this reason, set <m>\gamma = 1/8</m>. Let's suppose this outbreak occurs in a small, close-knit community of 500 people, in which one person initially has the measles, meaning <m>S(0)=499</m>, <m>I(0)=1</m>, <m>R(0)=0</m>. Set up an SIR model, as shown below, for this outbreak:
             </p>              
             <md>
-              <mrow>\frac{dS}{dt} \amp = - (1-p) \beta S I </mrow>
-              <mrow>\frac{dI}{dt} \amp =  (1-p) \beta S I - \gamma I </mrow>
+              <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+              <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
               <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
             </md>
             <p>
-              To compute parameter values for the model, use the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute the value of <m>\beta</m> for this model. 
+              Compute all parameter values for the model, use the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute the value of <m>\beta</m> for this model. 
               <!-- Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<m>p=0</m>), and what happens if everyone in the community is vaccinated (<m>p=1</m>)? -->
                <!-- If including edge cases: state how many people, total, got sick. -->
             </p>
@@ -451,12 +444,12 @@
             <p>
               In many communities in the U.S., the percentage of vaccinated people is around <m>91\%</m> or <m>92\%</m>.<fn>See the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/nchs/fastats/measles.htm">Measles, Mumps, and Rubella</url>.</fn> At each of these levels, how many people will get measles in the long run, according to your model? What if the vaccination rate were as high as <m>94\%</m>? Or as low as <m>89\%</m>?
             </p>
-            <p>Notice that there is not a unique answer to how long to run the model: if you can see the long-term value after 100 days, for instance, then running the model for 120 days will also show the long-term value. Aim to indicate a number of days that shows clearly that population values have leveled off to horizontal lines, while not using such a large number of days that it becomes difficult to see the rise and/or fall of the Infectious curve <m>I(t)</m> as the outbreak proceeds.
+            <p>Be sure, in each case, to run your model long enough that the number of Infectious people has dropped close to <m>0</m>, so that the long-term number of people in the Removed compartment seems to remain constant. 
             </p>
           </li>            
           <li>
             <p>
-              Compute <m>p_{\text{crit}}</m> for this model of measles.
+              Compute <m>p_{\text{crit}}</m> for this model of measles, showing your steps. Simulate the model using values of <m>p</m> both above and below <m>p_{\text{crit}}</m>, and for each value of <m>p</m> comment on the number of people who begin in the S compartment and remain in the S compartment after the number of Infectious people has dropped to zero (or very close to zero in a simulation).  
             </p>
           </li>
           <li>
