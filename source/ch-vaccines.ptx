@@ -1,10 +1,6 @@
 <chapter xml:id="ch-vaccines" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>* Vaccines</title>
+    <title>Vaccines</title>
     
-    <p>
-      <term>***This chapter is under construction.***</term>
-    </p>
-
 
     <introduction xml:id="intro-vaccines">
     <objectives>
@@ -420,114 +416,82 @@
         <ol>
           <li>
             <p>
-              As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is contagious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>These numbers come from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/causes/index.html">How Measles Spreads</url>.</fn> For this reason, set <m>\gamma = 1/8</m>. Let's suppose this outbreak occurs in a small, close-knit community of 500 people, in which one person initially has the measles, meaning <m>S(0)=499</m>, <m>I(0)=1</m>, <m>R(0)=0</m> when no vaccines have been administered. Set up an SIR model, as shown below, for this outbreak:
+              As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is contagious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>These numbers come from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/causes/index.html">How Measles Spreads</url>.</fn> For this reason, set <m>\gamma = 1/8</m>. Let us suppose this outbreak occurs in a small, close-knit community of 500 people, where some percentage <m>p</m> of people have been vaccinated and one person initially has the measles. Therefore <m>S(0)=499(1-p)</m>, <m>I(0)=1</m>, <m>R(0)=499p</m>. Set up an SIR model, as shown below, for this outbreak:
             </p>              
             <md>
               <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
               <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
               <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
-              <mrow>S(0) \amp = 499(1-p) </mrow>
-              <mrow>R(0) \amp = 499p </mrow>
             </md>
             <p>
-              Compute all parameter values for the model, use the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute the value of <m>\beta</m> for this model. 
+              Compute all parameter values for the model, using the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute the value of <m>\beta</m> for this model. 
               <!-- Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<m>p=0</m>), and what happens if everyone in the community is vaccinated (<m>p=1</m>)? -->
                <!-- If including edge cases: state how many people, total, got sick. -->
             </p>
           </li>
-          <!-- <li>
+          <li>
+            <p>
+              Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<m>p=0</m>), and what happens if everyone in the community is vaccinated (<m>p=1</m>)? Determine how many people ultimately get measles in each modeling scenario. Indicate, also, how much time the model needs to run in order to determine how many people get measles in each scenario. The model may need to run for different lengths of time at different vaccination levels.
+            </p>            
+            <p>
+              Notice that there is not a unique answer to how long to run the model. Different people may use different final times. The key here is to demonstrate your process for determining a final time. Your process should include supporting the values you compute as long-term outcomes by showing evidence that the simulation values are not changing dramatically after the amount of time you have run the simulation.
+            </p>
+          </li>
+          <li>
             <p>
               Now investigate varying levels of vaccination. What happens if <m>p=.25</m>, <m>p=.5</m>, <m>p=.75</m>, or <m>p=.9</m>? Determine long-term outcomes in each case, that is, determine how many people ultimately get measles in each modeling scenario. Indicate, also, how much time the model needs to run in order to determine how many people get measles in each scenario. The model may need to run longer when a greater percentage of the population is vaccinated.
             </p>
-            <p>Notice that there is not a unique answer to how long to run the model: if you can see the long-term value after 100 days, for instance, then running the model for 120 days will also show the long-term value. Aim to indicate a number of days that shows clearly that population values have leveled off to horizontal lines, while not using such a large number of days that it becomes difficult to see the rise and/or fall of the Infectious curve <m>I(t)</m> as the outbreak proceeds.
-            </p>
-          </li> -->
+          </li> 
+        </ol>       
+      </exercise>
+
+      <exercise number="2">
+        <p>
+          Explore further the measles model from For Further Thought, Exercise 1, in this chapter. Use the same values for <m>\mathcal{R}_0</m>, <m>\gamma</m>, and <m>\beta</m> as you computed in Exercise 1. Use the same system of differential equations as well, and continue to set <m>S(0)=499(1-p)</m>, <m>I(0)=1</m>, <m>R(0)=499p</m>.
+        </p>   
+        <ol>
           <li>
             <p>
-              In many communities in the U.S., the percentage of vaccinated people is around <m>91\%</m> or <m>92\%</m>.<fn>See the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/nchs/fastats/measles.htm">Measles, Mumps, and Rubella</url>.</fn> At each of these levels, how many people will get measles in the long run, according to your model? What if the vaccination rate were as high as <m>94\%</m>? Or as low as <m>89\%</m>?
+              In many communities in the U.S., the percentage of vaccinated people is around <m>91\%</m> or <m>92\%</m>.<fn>See the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/nchs/fastats/measles.htm">Measles, Mumps, and Rubella</url>.</fn> At each of these levels, how many people will get measles in the long run, according to your model? 
             </p>
             <p>Be sure, in each case, to run your model long enough that the number of Infectious people has dropped close to <m>0</m>, so that the long-term number of people in the Removed compartment seems to remain constant. 
             </p>
           </li>            
           <li>
             <p>
-              Compute <m>p_{\text{crit}}</m> for this model of measles, showing your steps. Simulate the model using values of <m>p</m> both above and below <m>p_{\text{crit}}</m>, and for each value of <m>p</m> comment on the number of people who begin in the S compartment and remain in the S compartment after the number of Infectious people has dropped to zero (or very close to zero in a simulation).  
+              Compute <m>p_{\text{crit}}</m> for this model of measles, showing your steps. Simulate the model using at least two values of <m>p</m> above <m>p_{\text{crit}}</m> and at least two values of <m>p</m> below <m>p_{\text{crit}}</m>. (Be sure that all values of <m>p</m> are between <m>0</m> and <m>1</m>.) For each value of <m>p</m> comment on the number of people who begin in the S compartment and remain in the S compartment after the number of Infectious people has dropped to zero (or very close to zero in a simulation).  
             </p>
           </li>
           <li>
             <p>
-              Write about your results when changing the vaccination rate. Describe how much the number of measles cases can change in response to what may appear to be small changes in the vaccination rate, especially when the vaccination rate is close to the value of <m>p_{\text{crit}}</m>.
+              At each value of <m>p</m> for which you simulated the model in part (b), compute the fraction of the initial Susceptible population that acquires the illness. To do this, first determine how many of the initial Susceptible population eventually got the illness by subtracting the long-term number of Susceptibles from the initial number of Susceptibles, and then divide by the initial number of Susceptible people. Here is a formula to help you do this:
+              <md>
+              <mrow>\frac{S(0)- \mbox{Long term number of Susceptibles}}{S(0)} . </mrow>
+            </md>
+            </p>
+          </li>
+          <li>
+            <p>
+              Write about your results when changing the vaccination rate. Describe how much the number of measles cases, or the fraction of people who get measles, can change in response to what may appear to be small changes in the vaccination rate, especially when the vaccination rate is close to the value of <m>p_{\text{crit}}</m>.
             </p>
           </li>
         </ol>       
-      </exercise>
-
-      <exercise number="2">
-        <p>
-          In 2016, Bates College experienced a small outbreak of mumps. Nearly <m>100\%</m> of students had been vaccinated against mumps, and in particular, the students who became sick had been vaccinated. The mumps vaccine is approximately <m>88\%</m> effective when a person has had two doses.<fn>The value of <m>88\%</m> comes from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/vaccines/vpd/mumps/index.html">Mumps Vaccination</url>.</fn> We use an SIR model for mumps to compare the outcome for a fully vaccinated population with the hypothetical outcome of a mumps outbreak in a fully unvaccinated population.
-        </p>  
-        <p>
-          You will notice that the population is fully vaccinated, meaning everyone has received the mumps vaccine, but the effectiveness of the vaccine is approximately <m>88\%</m>
-           <!-- rather than <m>100\%</m> -->
-          . In this circumstance, we use a factor <m>(1-q)</m> in the model to account for the <em>effectiveness</em> of the vaccine, similar to how we previously used <m>(1-p)</m> to account for the vaccinated percentage of the population. We set <m>q=0.88</m> to reflect the CDC value on vaccine effectiveness.
-        </p> 
-        <ol>
-          <li>
-            <p>
-              Use the SIR model with vaccination, shown below, to graph the long-term outcome for mumps. At Bates College in 2016, there were approximately 1800 students, and there were 7 initial cases of mumps, which arose from a group of students who had traveled together and become infected during the trip. Consider all remaining students (that is, 1793 students) to initially be Susceptible. Therefore set <m>S(0)=1793</m>, <m>I(0)=7</m>, and <m>R(0)=0</m>. Set <m>\gamma = 1/7</m>, as mumps tends to be contagious for about one week. The value of <m>\mathcal{R}_0</m> for mumps ranges from 4 to 7, and for mumps spread at a residential campus, where people live in close proximity to each other, we use <m>\mathcal{R}_0 = 7</m>. These pieces of information, along with equation <xref ref="eq-R0-sir"/>, allow you to compute the value of <m>\beta</m> for the model:
-            </p>
-            <md>
-              <mrow>\frac{dS}{dt} \amp = - (1-q) \beta S I </mrow>
-              <mrow>\frac{dI}{dt} \amp =  (1-q) \beta S I - \gamma I </mrow>
-              <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-            </md>
-            <p>
-              Use Python to visualize this SIR model with vaccine for the spread of mumps on campus and to determine how many people will eventually become infected with mumps, according to the model.
-            </p>
-          </li>
-          <li>
-            <p>
-              Now, run an experiment to test what would happen if mumps arrived at a hypothetical campus where no one had any vaccination or other past exposure to mumps. Use Python to show the results of an SIR model without vaccine, that is, an SIR model in which the term <m>(1-q)</m> is not included. In this situation, how many people eventually become infected with mumps?
-            </p>
-          </li>
-          <li>
-            <p>
-              Compare your outcomes from parts (a) and (b) and discuss the implications of this comparison. As part of your discussion, describe how models can be used to better understand possible public health interventions (such as vaccines) or lack of interventions.
-            </p>
-          </li>
-        </ol>   
-      </exercise>
-
-      <exercise number="3">
-        <p>
-          Here, we combine ideas from exercises 1 and 2 in this section to construct a model of a measles outbreak that includes both the level of vaccination across a population, as well as the effectiveness of the measles vaccine. For this model, <m>p</m> represents the fraction of the population that is vaccinated against measles and <m>q</m> represents the effectiveness of the vaccine.<fn>With thanks to EJ Holm, Bates Class of 2025, for contributions to writing this exercise.</fn> 
-        </p>   
-        <ol>
-          <li>
-            <p>
-              Rewrite your model as below. We require that <m>0 \leq p \leq 1</m> and <m>0 \leq q \leq 1</m>. Explain in words why the way the model is written, and the ranges for <m>p</m> and <m>q</m>, make sense. In your explanation, include edge cases, that is, describe what happens when <m>p=0</m>, when <m>p=1</m>, when <m>q=0</m>, and when <m>q=1</m>. Also describe what happens as <m>p</m> increases from <m>0</m> to <m>1</m>, and what happens as <m>q</m> increases from <m>0</m> to <m>1</m>:
-            </p>
-            <md>
-                <mrow>\frac{dS}{dt} \amp = - (1-pq) \beta S I </mrow>
-                <mrow>\frac{dI}{dt} \amp =  (1-pq) \beta S I - \gamma I </mrow>
-                <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-            </md>
-          </li>
-          <li>
-            <p>
-               <!-- This chapter's definition of <m>\mathcal{R}_{\text{eff}}</m> in <xref ref="eq-Reff-define"/> used the assumption that vaccine was <m>100\%</m> effective.  -->
-               With this model, using both <m>p</m> and <m>q</m>, we define <m>\mathcal{R}_{\text{eff}} = (1-pq)\mathcal{R}_0</m>. Use algebraic steps similar to those in <xref ref="sec-determining-a-threshold-vaccine-level"/> to compute an updated formula for <m>p_{\text{crit}}</m> that involves <m>q</m> as well as <m>\mathcal{R}_0</m>.  
-            </p>
-          </li>
-          <li>
-            <p>
-              Use your updated formula for <m>p_{\text{crit}}</m> to explain how vaccine effectiveness below <m>100\%</m> can make it more challenging to achieve the goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m>. For measles, in particular, vaccine effectiveness is approximately <m>97\%</m>, which means <m>q = 0.97</m>. Incorporating <m>q</m>, then, what is the value of <m>p_{\text{crit}}</m> indicating the percentage of people that need to be vaccinated in order to achieve <m>\mathcal{R}_{\text{eff}} \lt 1</m>? Use Python to show long-term outbreak results, including number of people infected, in outbreaks having vaccinated populations both slightly above, and slightly below, the value of <m>p_{\text{crit}}</m> you determine. For your Python results, use the parameter values from exercise 1 in this section, along with the vaccine's <m>97\%</m> effectiveness.
-            </p>
-          </li>
-        </ol>     
-      </exercise>
+      </exercise>  
+      
     </exercises>
 
 
   
-  </chapter>
+  </chapter> 
+
+
+
+
+
+
+
+
+
+
+
+  
