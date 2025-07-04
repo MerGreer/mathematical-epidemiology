@@ -408,8 +408,7 @@
         By contrast, <term>quarantine</term> <q>separates and restricts the movement of people who were exposed to a contagious disease to see if they become sick. 
         These people may have been exposed to a disease and do not know it, or they may have the disease but do not show symptoms.</q> It can be more challenging to enact quarantine, and to model quarantine, because we often have less information about which people have been exposed to a disease, in comparison to the information we have about who is actually sick. 
         Seeing symptoms makes it easier to determine when people are sick. For this reason, we emphasize isolation models. 
-        However, it is possible to include quarantine in models. 
-        One way to include quarantine, without requiring a new compartment, is to scale the transmission term by a factor that is between <m>0</m> and <m>1</m>. This is similar to multiplying by <m>(1-p)</m> to show the effect of vaccine, or multiplying by <m>\delta</m> to show the lower transmission level for incomplete isolation. 
+        However, it is possible to include quarantine in models, most often by designating a separate compartment for quarantined individuals. 
       </p>
       <p>
         As an additional note: the previous paragraph used the word <q>exposed</q> as it often appears in articles and websites about epidemiology. In the E compartment we introduced in <xref ref="ch-incubation-periods"/>, E stands for <q>Exposed-and-incubating</q>, which has a different meaning than just <q>exposed</q>. 

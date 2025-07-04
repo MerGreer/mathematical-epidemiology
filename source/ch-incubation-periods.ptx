@@ -242,7 +242,7 @@
       <activity xml:id="activity-seir-model-play-with-kappa">
         <statement>
           <p>
-            This activity provides a venue for you to play with the SEIR model. Begin by thinking through how you expect SEIR solution curves to appear, and then use Python code to create these solutions and see how they respond to changing parameters.  
+            This activity provides a venue for you to play with the SEIR model. Begin by thinking through how you expect SEIR solution curves to appear, and then use Python code to create these solutions and see how they respond to changing parameters. You may notice the initial values <m>S(0)=1997</m> and <m>I(0)=3</m>, rather than starting with only one Infectious person. Some outbreaks begin with more than one Infectious person, for a variety of reasons, such as group travel that may lead to multiple people returning while sick to the population being modeled. We can include this information in our model simulation's initial conditions. 
           </p>
           
           <ol>              
@@ -515,7 +515,7 @@
 
       <exercise number="2">
         <p>
-          Update <xref ref="activity-seir-model-pertussis-setup"/> to include vaccine. Include the multiplier <m>(1-p)</m> where appropriate, adapting our work from <xref ref="expl-activity-vaccines"/> and <xref ref="activity-pcrit2"/> to the SEIR model.
+          Update <xref ref="activity-seir-model-pertussis-setup"/> to include vaccine. Change the values for <m>S(0)</m> and <m>R(0)</m> where appropriate, adapting our work from <xref ref="expl-activity-vaccines"/> and <xref ref="activity-pcrit2"/> to the SEIR model.
         </p>
         <p>
           In this exercise, we do not address vaccine efficacy or effectiveness, assuming instead a <m>100\%</m> effective vaccine. In the following exercise, number 3 in this section, we include the actual effectiveness of pertussis vaccines. 
@@ -528,7 +528,7 @@
           </li>
           <li>
             <p>
-              Adapt the Python code from <xref ref="activity-seir-model-pertussis-setup"/> to run the model with a vaccine level at least as large as <m>p_{\text{crit}}</m>. To include vaccine, multiply each term involving <m>\beta SI</m> by <m>(1-p)</m>. Adjust the time scale, show just some of the solution curve graphs, or make any other changes needed, to best see the long-term outcome of the model. Write your observations of the outcomes of this model, and compare and contrast with the no-vaccine model.
+              Adapt the Python code from <xref ref="activity-seir-model-pertussis-setup"/> to run the model with a vaccine level at least as large as <m>p_{\text{crit}}</m>. To include vaccine, first include in the code a line for setting the value of <m>p</m>, the fraction of people covered by vaccination. Then set <c>S_init=9995*(1-p)</c> and set <c>R_init=9995*p</c>. Adjust the time scale, show just some of the solution curve graphs, or make any other changes needed, to best see the long-term outcome of the model. Write your observations of the outcomes of this model, and compare and contrast with the no-vaccine model.
             </p>
           </li>
           <li>
@@ -539,32 +539,7 @@
         </ol>   
       </exercise>
 
-      <exercise number="3">
-        <p>
-          We make one more update to the pertussis model in <xref ref="activity-seir-model-pertussis-setup"/> and exercise 2 in this section, addressing vaccine effectiveness. Our inclusion of the multiplier <m>(1-p)</m> assumed that vaccination had <m>100 \%</m> efficacy or effectiveness. However, research into pertussis vaccines shows that the level of vaccine efficacy or effectiveness can be significantly less. There is a wide range of values, depending on the specific vaccine used, the location in the world, and the years of study. For this exercise, we use a range of <m>80-85\%</m> vaccine effectiveness.<fn>This range of vaccine effectiveness level comes from the <url href="https://www.cdc.gov/vaccines/pubs/pinkbook/pert.html">Centers for Disease Control and Prevention</url>. The range is specific to the DTaP vaccine, in Europe and the Americas, in studies in or after 1991.</fn>
-        </p>   
-        <ol>
-          <li>
-            <p>
-              Rewrite your model as below, where <m>p</m> remains the percentage of people vaccinated, and <m>q</m> is the vaccine effectiveness percentage. Notice that we require <m>0 \leq p \leq 1</m> and <m>0 \leq q \leq 1</m>: 
-            </p>
-            <md>
-                <mrow>\frac{dS}{dt} \amp = - (1-pq) \beta S I </mrow>
-                <mrow>\frac{dE}{dt} \amp =  (1-pq) \beta S I - \kappa E </mrow>
-                <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
-                <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-            </md>
-            <p>
-              Compute the value of <m>p_{\text{crit}}</m> for this model when <m>\mathcal{R}_0 = 5.5</m>. What percentage of people must be vaccinated in order to achieve <m>p_{\text{crit}}</m> when vaccine is <m>85\%</m> effective? What can you say about the percentage of vaccinated people needed in order to achieve <m>p_{\text{crit}}</m> when vaccine is <m>80\%</m> effective?
-            </p>
-          </li>
-          <li>
-            <p>
-              In approximately 2019, researchers found that the whooping cough vaccine had become less effective over time, for a variety of reasons. They investigated the reasons and made changes. Read about these events from at least three sources, including general news sources as well as government-led websites, and report on your findings. Cite your sources.  In your report, describe the role of of vaccine effectiveness <m>p</m> as well as the role of the percentage <m>q</m> of people vaccinated in a population.
-            </p>
-          </li>
-        </ol>     
-      </exercise>
+      
     </exercises>
 
 
