@@ -182,8 +182,10 @@
   
   </part>
 
-  <part xml:id="part-additional-modeling-examples">
+  <part xml:id="part-additional-modeling-examples"> 
     <title>Additional Modeling Examples</title>
+
+    <xi:include href="ch-more-advanced-vaccine-models.ptx" />
 
     <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" />
 

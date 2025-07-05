@@ -259,7 +259,7 @@
       <title>How Vaccination Level Affects Long Term Outcomes</title>
 
       <p>
-        <xref ref="activity-pcrit2"/> focuses on understanding long-term model outcomes, with an emphasis on <m>p_{\text{crit}}</m>, the critical vaccine coverage value defined in <xref ref="eq-pcrit"/>. Another emphasis is on adjusting our Python code in order to make sure its output truly demonstrates the answers to the questions we are asking.
+        <xref ref="activity-pcrit2"/> focuses on understanding long-term model outcomes, in the case that an outbreak occurs when some percentage of the population has already been vaccinated. One emphasis is on <m>p_{\text{crit}}</m>, the critical vaccine coverage value defined in <xref ref="eq-pcrit"/>. Another emphasis is on adjusting our Python code in order to make sure its output truly demonstrates the answers to the questions we are asking.
       </p>
 
       <activity xml:id="activity-pcrit2">

@@ -1,5 +1,5 @@
 <chapter xml:id="ch-introducing-an-incubation-period-in-the-zombie-app" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>* Introducing an Incubation Period in the Zombie App</title> 
+    <title>Introducing an Incubation Period in the Zombie App</title> 
 
     <introduction xml:id="intro-incubation-period-in-zombie-app">
       <objectives>
@@ -81,7 +81,7 @@
           Ask yourself: what do you observe? Compare this simulation with simulations having no incubation period. Consider how many days the outbreak lasts. Make note of your observations, share your ideas with others, and consider the observations of other people trying this experiment. Try the experiment with a longer incubation period, such as 2, 3, or 4 days, and observe the ways these changes affect outcomes of the model.
         </p> 
         <p>
-          INCLUDE: a question about why the total population always equals 50, and about why this column is included in the sample data set
+          Also ask yourself: why does the total population always equals 50, and what reasons can you see for including this column in the sample data set?
         </p> 
     </section>
 

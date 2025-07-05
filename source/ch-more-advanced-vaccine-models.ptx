@@ -1,0 +1,15 @@
+<chapter xml:id="ch-more-advanced-vaccine-models" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>* More Advanced Vaccine Models</title>
+
+    <p>
+      <term>***This chapter is under construction.***</term>
+    </p>
+
+    <section xml:id="sec-hmm">
+      <title></title>
+
+      
+      <!-- Let people be vaccinated throughout the outbreak (arrow from S to R, e.g.). Use a separate vaccine compartment V. -->
+    </section>
+
+  </chapter>
