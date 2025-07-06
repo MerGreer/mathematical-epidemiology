@@ -404,7 +404,7 @@
       </p>
       <p>
         Before we move on to such an activity, let us take a moment to address a vocabulary topic that commonly occurs when studying isolation, namely the difference between isolation and quarantine. 
-        According to the <url href="https://www.hhs.gov/answers/public-health-and-safety/what-is-the-difference-between-isolation-and-quarantine/index.html">U.S. Department of Health and Human Services</url>, <term>isolation</term> <q>separates sick people with a contagious disease from people who are not sick</q>. 
+        According to the <url href="https://www.hhs.gov/answers/public-health-and-safety/what-is-the-difference-between-isolation-and-quarantine/index.html">U.S. Department of Health and Human Services,</url> <term>isolation</term> <q>separates sick people with a contagious disease from people who are not sick</q>. 
         By contrast, <term>quarantine</term> <q>separates and restricts the movement of people who were exposed to a contagious disease to see if they become sick. 
         These people may have been exposed to a disease and do not know it, or they may have the disease but do not show symptoms.</q> It can be more challenging to enact quarantine, and to model quarantine, because we often have less information about which people have been exposed to a disease, in comparison to the information we have about who is actually sick. 
         Seeing symptoms makes it easier to determine when people are sick. For this reason, we emphasize isolation models. 
@@ -428,10 +428,10 @@
       <activity xml:id="activity-sir-model-flu">
         <statement>
           <p>
-            Each academic year, many college campuses experience one or more outbreaks of influenza, also referred to as flu. According to the <url href="https://www.cdc.gov/flu/about/keyfacts.htm">Centers for Disease Control and Prevention (CDC)</url>, flu symptoms may include fever, chills, cough, aches, runny or stuffy nose, and more. Also according to the CDC, influenza spreads via tiny droplets when people sneeze or cough or talk, as well as when people touch surfaces that have the virus on them and then touch parts of their face such as the mouth, nose, and eyes. 
+            Each academic year, many college campuses experience one or more outbreaks of influenza, also referred to as flu. According to the <url href="https://www.cdc.gov/flu/about/keyfacts.htm">Centers for Disease Control and Prevention (CDC),</url> flu symptoms may include fever, chills, cough, aches, runny or stuffy nose, and more. Also according to the CDC, influenza spreads via tiny droplets when people sneeze or cough or talk, as well as when people touch surfaces that have the virus on them and then touch parts of their face such as the mouth, nose, and eyes.  
           </p>
           <p>
-            To gather information about the incubation period of flu and about how long flu is contagious, visit <url href="https://www.cdc.gov/flu/about/keyfacts.htm">this ``key facts'' page from the CDC</url>. To locate the range of <m>\mathcal{R}_0</m> values for typical influenza outbreaks, visit <url href="https://www.vdh.virginia.gov/coronavirus/2022/01/07/covid-19-and-influenza-surveillance">this page from the Virginia Department of Health</url>. For all of these values that help with modeling, you are welcome to search online for other sources: the links provided here are sufficient, but are not the only way to gather the information we seek.
+            To gather information about the incubation period of flu and about how long flu is contagious, visit <url href="https://www.cdc.gov/flu/about/keyfacts.htm">this ``key facts'' page from the CDC.</url> To locate the range of <m>\mathcal{R}_0</m> values for typical influenza outbreaks, visit <url href="https://www.vdh.virginia.gov/coronavirus/2022/01/07/covid-19-and-influenza-surveillance">this page from the Virginia Department of Health.</url> For all of these values that help with modeling, you are welcome to search online for other sources: the links provided here are sufficient, but are not the only way to gather the information we seek.
           </p>
           <p>
             Use the idea of a campus outbreak to think about (at least) two ways to model isolation, guided by the prompts below.
@@ -439,7 +439,7 @@
           <ol>
             <li>
               <p>
-                Choose either the SIR or SEIR model for the spread of flu. Use the online facts you have gathered to decide whether or not to include an incubation period in your model. Be sure to explain your reasoning. (There is not a right or wrong answer here: either choice can make sense, yet it is important to justify your decision using facts about the flu.) Provide the range of parameter values for each parameter in your model, and cite your sources.
+                Choose either the SIR or SEIR model for the spread of flu. Use the online facts you have gathered to decide whether or not to include an incubation period in your model. Be sure to explain your reasoning. (There is not a right or wrong answer here: either choice can make sense, yet it is important to justify your decision using facts about the flu.) Provide the range of parameter values for each parameter in your model, and cite your sources. Remember to use a model without isolation, along with the basic reproduction number <m>\mathcal{R}_0</m>, when computing <m>\beta</m>. Then use this value of <m>\beta</m> when building a mathematical model that includes isolation.
               </p>     
             </li>
             <li>
@@ -449,7 +449,7 @@
             </li>
             <li>
               <p>
-                Try your model in Python, using either the Python code for an SIR model, as in <xref ref="activity-formula-for-i-of-t-turning-around"/>, or the Python code for an SEIR model, as in <xref ref="activity-seir-model-play-with-kappa"/>. Suppose there are 2500 students on campus, and update all parameters and time ranges in the model as needed. Feel free to try just one initial Infectious case, or a few (perhaps 2-10) initial Infectious cases, as it is possible for multiple people to become Infectious simultaneously in an influenza outbreak, perhaps because they all encountered the same Infectious person off-campus, or perhaps because some event led to multiple initial infections within a very short time frame. 
+                Try your model in Python, using either the Python code for an SIR model, as in <xref ref="activity-formula-for-i-of-t-turning-around"/>, or the Python code for an SEIR model, as in <xref ref="activity-seir-model-play-with-kappa"/>. Suppose there are 2500 students on campus, and update all parameters and time ranges in the model as needed. Feel free to try just one initial Infectious case, or a few (perhaps 2-10) initial Infectious cases, as it is possible for multiple people to become Infectious simultaneously in an influenza outbreak, perhaps because they all encountered the same Infectious person off-campus, or perhaps because some social event led to multiple initial infections within a very short time frame. 
               </p>
               <p>
                 First try your baseline model for influenza without isolation, and then try your influenza model with its updated <m>\gamma</m> value to represent the complete isolation of Infectious people beginning one day after symptoms appear. Describe your results. 
