@@ -386,13 +386,139 @@
           
         </answer>
       </activity>
+
+      <p>
+        You may have noticed that <xref ref="activity-pcrit2"/> assumed that people who were vaccinated were entirely unable to get the illness being modeled. You also may have thought about real-world outbreaks in which vaccinated individuals can still become sick and can still spread the illness to others. For many outbreaks, vaccines reduce the chance of acquiring an illness, rather than completely preventing illness. It can also be the case that a vaccinated individual is less able to spread illness to someone else.
+      </p>
+      <p>
+        In <xref ref="sec-vaccine-efficacy-and-effectiveness"/> we address these vaccine outcomes. We also distinguish between the epidemiological terms <em>efficacy</em> and <em>effectiveness</em>.
+      </p>
+
+    </section>
+
+    <section xml:id="sec-vaccine-efficacy-and-effectiveness">
+      <title>Vaccine Efficacy and Effectiveness</title>
            
       <p>
-        We now pause our modeling for a moment to provide some extra vocabulary and commentary on vaccines. When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>. (Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.) The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
+        We start by providing some extra vocabulary and commentary on vaccines. When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>. (Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.) The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
       </p>
       <p>
         Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at the <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization.
       </p> 
+
+      <activity xml:id="activity-vaccine-effectiveness">
+        <statement>
+          <p> 
+            Inv  
+          </p>
+          <md>
+            <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+            <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
+            <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
+          </md>
+          <p>
+            In 
+          </p>
+
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla() #Clear (delete) any past plots
+              
+              #Define the system of differential equations, and call it "model"
+              def model(y, t):
+                S, I, R = y #Define y as consisting of S, I, and R, in that order
+                dydt = [- beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+                return dydt
+              
+              beta = 0.0003 #Give a value to beta
+              gamma = 0.3 #Give a value to gamma
+              p = 0.0 #Give a value to p
+              y0 = [2999*(1-p), 1, 2999*p] #Set initial conditions for S, I, and R, in that order
+              t_range = np.arange(0.0, 50.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+              
+              sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+              # Tell Python to print the initial values of S, I, and R
+              print("Initial value of S = ", round(y0[0]))
+              print("Initial value of I = ", round(y0[1]))
+              print("Initial value of R = ", round(y0[2]))
+              
+              # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+              print("Long-term value of S = ", round(sol[-1,0]))
+              print("Long-term value of I = ", (sol[-1,1]))
+              print("Long-term value of R = ", round(sol[-1,2]))
+
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.grid()
+              plt.xlabel('time')
+              plt.ylabel('populations')
+              plt.show()
+            </input>
+            <output>
+            
+            </output>
+          </sage>
+
+          <ol>              
+            <li>
+              <p>
+                When   
+              </p> 
+            </li>              
+            <li>
+              <p>
+                Compute  
+              </p>
+            </li>              
+            <li>
+              <p>
+                Now  
+              </p>
+            </li>
+            <li>
+              <p>
+                Be 
+              </p>
+            </li>
+          </ol>
+          
+        </statement>
+        <answer>
+          <ol>
+            <li>
+              <p>
+                The 
+              </p>
+            </li>
+            <li>
+              <p>
+                The 
+              </p>
+            </li>
+            <li>
+              <p>
+                In 
+              </p>
+            </li>
+            <li>
+              <p>
+                The 
+              </p>
+            </li>
+          </ol>
+          
+        </answer>
+      </activity>
+
       <p>
         Vaccine outcomes extend beyond affecting how many people get an illness. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can be included in models, however such models tend to be more detailed than those we are studying right now. 
       </p>
