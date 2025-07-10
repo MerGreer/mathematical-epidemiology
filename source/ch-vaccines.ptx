@@ -388,32 +388,69 @@
       </activity>
 
       <p>
-        You may have noticed that <xref ref="activity-pcrit2"/> assumed that people who were vaccinated were entirely unable to get the illness being modeled. You also may have thought about real-world outbreaks in which vaccinated individuals can still become sick and can still spread the illness to others. For many outbreaks, vaccines reduce the chance of acquiring an illness, rather than completely preventing illness. It can also be the case that a vaccinated individual is less able to spread illness to someone else.
+        You may have noticed that <xref ref="activity-pcrit2"/> assumed that people who were vaccinated were entirely unable to get the illness being modeled. You also may have thought about real-world outbreaks in which vaccinated individuals can still become sick. For many outbreaks, vaccines reduce the chance of acquiring an illness, rather than completely preventing illness. 
       </p>
       <p>
-        In <xref ref="sec-vaccine-efficacy-and-effectiveness"/> we address these vaccine outcomes. We also distinguish between the epidemiological terms <em>efficacy</em> and <em>effectiveness</em>.
+        In <xref ref="sec-vaccine-efficacy-and-effectiveness"/> we address this vaccine outcome. We also distinguish between the epidemiological terms <em>efficacy</em> and <em>effectiveness</em>.
       </p>
 
     </section>
 
     <section xml:id="sec-vaccine-efficacy-and-effectiveness">
-      <title>Vaccine Efficacy and Effectiveness</title>
+      <title>Vaccine Efficacy and Effectiveness</title> 
            
       <p>
         We start by providing some extra vocabulary and commentary on vaccines. When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>. (Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.) The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
       </p>
       <p>
-        Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at the <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization.
+        Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at the <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization. In <xref ref="activity-vaccine-effectiveness"/> we build and work with a model that incorporates vaccine effectiveness.
       </p> 
 
       <activity xml:id="activity-vaccine-effectiveness">
         <statement>
           <p> 
-            Inv  
+            One way to model vaccine effectiveness is to include a compartment for vaccinated individuals. We call this the V compartment. One such model appears in <xref ref="fig-SVIR-compartmental-diagram"/> and the differential equations below.  
           </p>
+          <figure xml:id="fig-SVIR-compartmental-diagram">
+            <caption>One possible <m>SVIR</m> (Susceptible, Vaccinated, Infectious, Removed) compartmental diagram</caption>
+            <image width="70%">
+              <description>(Write this)</description>
+              <latex-image>
+                \begin{tikzpicture}
+                \draw [thick] [black] (0,4) -- (2,4);    
+                \draw [thick] [black] (2,4) -- (2,6);
+                \draw [thick] [black] (2,6) -- (0,6);
+                \draw [thick] [black] (0,6) -- (0,4);
+                \node [black] at (1,5) {\Huge $S$};
+                \draw [thick] [black] (0,0) -- (2,0);
+                \draw [thick] [black] (2,0) -- (2,2);
+                \draw [thick] [black] (2,2) -- (0,2);
+                \draw [thick] [black] (0,2) -- (0,0);
+                \node [black] at (1,1) {\Huge $V$};
+                \draw [thick] [->] (2.1,5) to (3.9,3.5); 
+                \node at (3.2,4.8) {\large $\beta SI$};
+                \draw [thick] [->] (2.1,1) to (3.9,2.5); 
+                \node at (3.3,1.2) {\large $\beta_V VI$};
+                \draw [thick] [black] (4,2) -- (6,2);
+                \draw [thick] [black] (6,2) -- (6,4);
+                \draw [thick] [black] (6,4) -- (4,4);
+                \draw [thick] [black] (4,4) -- (4,2);
+                \node [black] at (5,3) {\Huge $I$};
+                \draw [thick] [->] (6.1,3) to (7.9,3); 
+                \node at (7,3.3) {\large $\gamma I$};
+                \draw [thick] [black] (8,2) -- (10,2);
+                \draw [thick] [black] (10,2) -- (10,4);
+                \draw [thick] [black] (10,4) -- (8,4);
+                \draw [thick] [black] (8,4) -- (8,2);
+                \node [black] at (9,3) {\Huge $R$};
+                \end{tikzpicture}
+              </latex-image>
+            </image>
+          </figure>
           <md>
             <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
-            <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
+            <mrow>\frac{dV}{dt} \amp = - \beta_V V I</mrow>
+            <mrow>\frac{dI}{dt} \amp =  \beta S I + \beta_V V I - \gamma I </mrow>
             <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
           </md>
           <p>
@@ -431,32 +468,35 @@
               
               #Define the system of differential equations, and call it "model"
               def model(y, t):
-                S, I, R = y #Define y as consisting of S, I, and R, in that order
-                dydt = [- beta * S * I, beta * S * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+                S, V, I, R = y #Define y as consisting of S, V, I, and R, in that order
+                dydt = [- beta * S * I, - beta_V * V * I,  beta * S * I + beta_V * V * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
                 return dydt
               
-              beta = 0.0003 #Give a value to beta
+              beta = 0.0002 #Give a value to beta
+              beta_V = 0.0001 #Give a value to beta_V
               gamma = 0.3 #Give a value to gamma
-              p = 0.0 #Give a value to p
-              y0 = [2999*(1-p), 1, 2999*p] #Set initial conditions for S, I, and R, in that order
+              y0 = [2999, 3000, 1, 0] #Set initial conditions for S, V, I, and R, in that order
               t_range = np.arange(0.0, 50.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
               
               sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
 
-              # Tell Python to print the initial values of S, I, and R
+              # Tell Python to print the initial values of S, V, I, and R
               print("Initial value of S = ", round(y0[0]))
-              print("Initial value of I = ", round(y0[1]))
-              print("Initial value of R = ", round(y0[2]))
+              print("Initial value of V = ", round(y0[1]))
+              print("Initial value of I = ", round(y0[2]))
+              print("Initial value of R = ", round(y0[3]))
               
-              # Tell Python to print the last values produced of S, I, and R, to help show long-range outcomes of the model
+              # Tell Python to print the last values produced of S, V, I, and R, to help show long-range outcomes of the model
               print("Long-term value of S = ", round(sol[-1,0]))
-              print("Long-term value of I = ", (sol[-1,1]))
-              print("Long-term value of R = ", round(sol[-1,2]))
+              print("Long-term value of V = ", round(sol[-1,1]))
+              print("Long-term value of I = ", (sol[-1,2]))
+              print("Long-term value of R = ", round(sol[-1,3]))
 
               # Plotting commands are below
               plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
-              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
-              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.plot(t_range, sol[:, 1], color='lightblue', linestyle='dotted', linewidth=2, label='V(t)')
+              plt.plot(t_range, sol[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
               plt.legend()
               plt.grid()
               plt.xlabel('time')
@@ -520,7 +560,7 @@
       </activity>
 
       <p>
-        Vaccine outcomes extend beyond affecting how many people get an illness. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. This and other outcomes can be included in models, however such models tend to be more detailed than those we are studying right now. 
+        Vaccine outcomes extend beyond affecting how many people get an illness. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. Another common outcome is that people who were vaccinated, yet become sick, are less likely to spread infection to others. These and other outcomes can be included in increasingly detailed models. 
       </p>
       <p>
         Much of this section has focused on vaccines, which are a valuable element of compartmental models. Another important aspect of disease spread is the incubation period of an illness. The SEIR model, described in <xref ref="ch-incubation-periods"/>, incorporates this incubation period.           
