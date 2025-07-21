@@ -409,7 +409,7 @@
       <activity xml:id="activity-vaccine-effectiveness">
         <statement>
           <p> 
-            One way to model vaccine effectiveness is to include a compartment for vaccinated individuals. We call this the V compartment. One such model appears in <xref ref="fig-SVIR-compartmental-diagram"/> and the differential equations below.  
+            One way to model vaccine effectiveness is to include a compartment for vaccinated individuals. We call this the V compartment. One such model appears in <xref ref="fig-SVIR-compartmental-diagram"/> and the differential equations below.<fn>This is a simplified version of a model from the paper <q>A Vaccination Model for Transmission Dynamics of Influenza</q> by M. E. Alexander, C. Bowman, S. M. Moghadas, R. Summers, A. B. Gumel, and B. M. Sahai, published in the SIAM Journal of Applied Dynamical Systems in 2004.</fn>  
           </p>
           <figure xml:id="fig-SVIR-compartmental-diagram">
             <caption>One possible <m>SVIR</m> (Susceptible, Vaccinated, Infectious, Removed) compartmental diagram</caption>
@@ -476,7 +476,7 @@
               beta_V = 0.0001 #Give a value to beta_V
               gamma = 0.3 #Give a value to gamma
               y0 = [2999, 3000, 1, 0] #Set initial conditions for S, V, I, and R, in that order
-              t_range = np.arange(0.0, 50.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+              t_range = np.arange(0.0, 70.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
               
               sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
 
@@ -494,7 +494,7 @@
 
               # Plotting commands are below
               plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
-              plt.plot(t_range, sol[:, 1], color='lightblue', linestyle='dotted', linewidth=2, label='V(t)')
+              plt.plot(t_range, sol[:, 1], color='cornflowerblue', linestyle='dotted', linewidth=2, label='V(t)')
               plt.plot(t_range, sol[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
               plt.plot(t_range, sol[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
               plt.legend()
