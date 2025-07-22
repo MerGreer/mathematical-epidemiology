@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.4</span><span class="period">.</span>
+</h4>
+<div class="para">One way to model vaccine effectiveness is to include a compartment for vaccinated individuals. We call this the V compartment. One such model appears in <a href="ch-vaccines.html#fig-SVIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SVIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.1">Figure 6.1</a> and in the differential equations below.<details class="ptx-footnote" aria-live="polite" id="activity-vaccine-effectiveness-1-1-2"><summary class="ptx-footnote__number" title="Footnote 6.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="activity-vaccine-effectiveness-1-1-2">This is a simplified version of a model from the paper “A Vaccination Model for Transmission Dynamics of Influenza” by M. E. Alexander, C. Bowman, S. M. Moghadas, R. Summers, A. B. Gumel, and B. M. Sahai, published in the SIAM Journal of Applied Dynamical Systems in 2004.</div></details>
+</div> <figure class="figure figure-like"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig-SVIR-compartmental-diagram-2.svg" role="img" class="contained" alt="(Write this)"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1<span class="period">.</span></span><span class="space"> </span>One possible <span class="process-math">\(SVIR\)</span> (Susceptible, Vaccinated, Infectious, Removed) compartmental diagram</figcaption></figure><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-SVIR-compartmental-diagram.html ./knowl/xref/fig-SVIR-compartmental-diagram.html">
+\begin{align*}
+\frac{dS}{dt} \amp = - \beta S I \\
+\frac{dV}{dt} \amp = - \beta_V V I\\
+\frac{dI}{dt} \amp =  \beta S I + \beta_V V I - \gamma I \\
+\frac{dR}{dt} \amp = \gamma I. 
+\end{align*}
+</div>
+<div class="para">In</div> <pre id="activity-vaccine-effectiveness-1-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint
+
+plt.cla() #Clear (delete) any past plots
+
+#Define the system of differential equations, and call it "model"
+def model(y, t):
+  S, V, I, R = y #Define y as consisting of S, V, I, and R, in that order
+  dydt = [- beta * S * I, - beta_V * V * I,  beta * S * I + beta_V * V * I - gamma * I, gamma * I] #Provide the right-hand sides of the SIR model
+  return dydt
+
+beta = 0.0002 #Give a value to beta
+beta_V = 0.0001 #Give a value to beta_V
+gamma = 0.3 #Give a value to gamma
+y0 = [2999, 3000, 1, 0] #Set initial conditions for S, V, I, and R, in that order
+t_range = np.arange(0.0, 70.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+
+sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+# Tell Python to print the initial values of S, V, I, and R
+print("Initial value of S = ", round(y0[0]))
+print("Initial value of V = ", round(y0[1]))
+print("Initial value of I = ", round(y0[2]))
+print("Initial value of R = ", round(y0[3]))
+
+# Tell Python to print the last values produced of S, V, I, and R, to help show long-range outcomes of the model
+print("Long-term value of S = ", round(sol[-1,0]))
+print("Long-term value of V = ", round(sol[-1,1]))
+print("Long-term value of I = ", (sol[-1,2]))
+print("Long-term value of R = ", round(sol[-1,3]))
+
+# Plotting commands are below
+plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+plt.plot(t_range, sol[:, 1], color='cornflowerblue', linestyle='dotted', linewidth=2, label='V(t)')
+plt.plot(t_range, sol[:, 2], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+plt.plot(t_range, sol[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+plt.legend()
+plt.grid()
+plt.xlabel('time')
+plt.ylabel('populations')
+plt.show()
+</script></pre> <ol class="decimal" id="activity-vaccine-effectiveness-1-6">
+<li><div class="para logical">
+<div class="para">First, take time to explore with the model.</div>
+<ol class="lower-alpha" id="activity-vaccine-effectiveness-1-6-1-1-1">
+<li><div class="para">The default Python code uses a total population of <span class="process-math">\(6000\text{,}\)</span> split into <span class="process-math">\(S(0)=2999\)</span> initial Susceptibles, <span class="process-math">\(V(0)=3000\)</span> initial Vaccinated, and <span class="process-math">\(I(0)=1\)</span> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings.</div></li>
+<li><div class="para">The default Python code sets <span class="process-math">\(\beta = 0.0002\)</span> and <span class="process-math">\(\beta_V = 0.0001\text{,}\)</span> making <span class="process-math">\(\beta_V\)</span> equal to half the value of <span class="process-math">\(\beta\text{.}\)</span> Try different relationships between <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\beta_V\text{.}\)</span> (It is a good idea to keep <span class="process-math">\(\beta_V \lt \beta\text{,}\)</span> as vaccination leads to a smaller chance of becoming infected.) Make planned and systematic changes to these parameter values, and report your findings.</div></li>
+</ol>
+</div></li>
+<li>
+<div class="para">Next, explore the concept of a <em class="emphasis">control reproduction number</em>, which we can label <span class="process-math">\(\mathcal{R}_c\text{.}\)</span> Whereas the basic reproduction number <span class="process-math">\(\mathcal{R}_0\)</span> supposes we have one Infectious person, and everyone else Susceptible, the control reproduction number <span class="process-math">\(\mathcal{R}_c\)</span> supposes we have attempted to control the outbreak to some extent, such as by vaccination or other public health measures.</div>
+<div class="para">For the SVIR model in <a href="ch-vaccines.html#fig-SVIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SVIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.1">Figure 6.1</a>, the formula for <span class="process-math">\(\mathcal{R}_c\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-SVIR-compartmental-diagram.html">
+\begin{align*}
+\mathcal{R}_c \amp = \frac{\beta S(0) + \beta_V V(0)}{\gamma} . 
+\end{align*}
+</div>
+<div class="para">By contrast, the basic reproduction number for this model is the same as for the SIR model without vaccination, that is, <span class="process-math">\(\mathcal{R}_0=\beta N / \gamma\text{,}\)</span> where <span class="process-math">\(N\)</span> represents the total population, and we assume no vaccination occurs.</div>
+<div class="para">Develop some scenarios in which <span class="process-math">\(\mathcal{R}_0\)</span> would be larger than 1, yet due to vaccination, <span class="process-math">\(\mathcal{R}_c \lt 1\text{.}\)</span> Report on your findings for long-term outcomes in each case.</div>
+</li>
+</ol>
+<div class="solutions"><details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><ol class="decimal" id="activity-vaccine-effectiveness-2-1">
+<li><div class="para"><ol class="lower-alpha" id="activity-vaccine-effectiveness-2-1-1-1">
+<li><div class="para">This is an open-ended question. As you work through it, think about how to be systematic. This could involve putting specific percentages of the initial population into <span class="process-math">\(V(0)\text{,}\)</span> such as <span class="process-math">\(50\%\text{,}\)</span> <span class="process-math">\(75\%\text{,}\)</span> <span class="process-math">\(90\%\text{,}\)</span> <span class="process-math">\(95\%\text{,}\)</span> and <span class="process-math">\(99\%\text{,}\)</span> and listing long-term outcomes in the form of a table of values and/or as graphs. There can be other approaches as well.</div></li>
+<li><div class="para">This, too, is an open-ended question that will be helped by a systematic approach. One idea is to set <span class="process-math">\(\beta_V = 0.5\beta\text{,}\)</span> <span class="process-math">\(\beta_V = 0.25\beta\text{,}\)</span> <span class="process-math">\(\beta_V = 0.1\beta\text{,}\)</span> and so on, and then to display the resulting long-term outcomes in a table of values and/or as graphs. This is just one of many ways to explore combinations of the values of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\beta_V\text{.}\)</span>
+</div></li>
+</ol></div></li>
+<li><div class="para">This exercise is set up so that the default values of <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(\gamma\text{,}\)</span> and <span class="process-math">\(N\)</span> cause <span class="process-math">\(\mathcal{R}_0\)</span> to be larger than 1. Compute this value of <span class="process-math">\(\mathcal{R}_0\)</span> and then, by changing <span class="process-math">\(\beta_V\)</span> and the model’s initial conditions <span class="process-math">\(S(0)\)</span> and <span class="process-math">\(V(0)\text{,}\)</span> create multiple ways to ensure <span class="process-math">\(\mathcal{R}_c \lt 1\text{.}\)</span> Display long-term results as a table of values and/or as graphs.</div></li>
+</ol></div></details></div></article><span class="incontext"><a class="internal" href="ch-vaccines.html#activity-vaccine-effectiveness">in-context</a></span>
+</body>
+</html>
