@@ -409,7 +409,7 @@
       <activity xml:id="activity-vaccine-effectiveness">
         <statement>
           <p> 
-            One way to model vaccine effectiveness is to include a compartment for vaccinated individuals. We call this the V compartment. One such model appears in <xref ref="fig-SVIR-compartmental-diagram"/> and the differential equations below.<fn>This is a simplified version of a model from the paper <q>A Vaccination Model for Transmission Dynamics of Influenza</q> by M. E. Alexander, C. Bowman, S. M. Moghadas, R. Summers, A. B. Gumel, and B. M. Sahai, published in the SIAM Journal of Applied Dynamical Systems in 2004.</fn>  
+            One way to model vaccine effectiveness is to include a compartment for vaccinated individuals. We call this the V compartment. One such model appears in <xref ref="fig-SVIR-compartmental-diagram"/> and in the differential equations below.<fn>This is a simplified version of a model from the paper <q>A Vaccination Model for Transmission Dynamics of Influenza</q> by M. E. Alexander, C. Bowman, S. M. Moghadas, R. Summers, A. B. Gumel, and B. M. Sahai, published in the SIAM Journal of Applied Dynamical Systems in 2004.</fn>  
           </p>
           <figure xml:id="fig-SVIR-compartmental-diagram">
             <caption>One possible <m>SVIR</m> (Susceptible, Vaccinated, Infectious, Removed) compartmental diagram</caption>
@@ -511,52 +511,65 @@
           <ol>              
             <li>
               <p>
-                When   
+                First, take time to explore with the model. 
+                <ol>
+                  <li>
+                    <p>
+                      The default Python code uses a total population of <m>6000</m>, split into <m>S(0)=2999</m> initial Susceptibles, <m>V(0)=3000</m> initial Vaccinated, and <m>I(0)=1</m> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      The default Python code sets <m>\beta = 0.0002</m> and <m>\beta_V = 0.0001</m>, making <m>\beta_V</m> equal to half the value of <m>\beta</m>. Try different relationships between <m>\beta</m> and <m>\beta_V</m>. (It is a good idea to keep <m>\beta_V \lt \beta</m>, as vaccination leads to a smaller chance of becoming infected.) Make planned and systematic changes to these parameter values, and report your findings.
+                    </p>
+                  </li>
+                </ol>
               </p> 
             </li>              
             <li>
               <p>
-                Compute  
+                Next, explore the concept of a <em>control reproduction number</em>, which we can label <m>\mathcal{R}_c</m>. Whereas the basic reproduction number <m>\mathcal{R}_0</m> supposes we have one Infectious person, and everyone else Susceptible, the control reproduction number <m>\mathcal{R}_c</m> supposes we have attempted to control the outbreak to some extent, such as by vaccination or other public health measures.   
               </p>
-            </li>              
-            <li>
               <p>
-                Now  
+                For the SVIR model in <xref ref="fig-SVIR-compartmental-diagram"/>, the formula for <m>\mathcal{R}_c</m> is
               </p>
-            </li>
-            <li>
+              <md>
+                <mrow>\mathcal{R}_c \amp = \frac{\beta S(0) + \beta_V V(0)}{\gamma} . </mrow>
+              </md>
               <p>
-                Be 
+                By contrast, the basic reproduction number for this model is the same as for the SIR model without vaccination, that is, <m>\mathcal{R}_0=\beta N / \gamma</m>, where <m>N</m> represents the total population, and we assume no vaccination occurs.
               </p>
-            </li>
+              <p>
+                Develop some scenarios in which <m>\mathcal{R}_0</m> would be larger than 1, yet due to vaccination, <m>\mathcal{R}_c \lt 1</m>. Report on your findings for long-term outcomes in each case.
+              </p>
+            </li> 
           </ol>
           
         </statement>
-        <answer>
+        <hint>
           <ol>
             <li>
-              <p>
-                The 
-              </p>
+              <ol>
+                <li>
+                  <p>
+                    This is an open-ended question. As you work through it, think about how to be systematic. This could involve putting specific percentages of the initial population into <m>V(0)</m>, such as <m>50\%</m>, <m>75\%</m>, <m>90\%</m>, <m>95\%</m>, and <m>99\%</m>, and listing long-term outcomes in the form of a table of values and/or as graphs. There can be other approaches as well.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    This, too, is an open-ended question that will be helped by a systematic approach. One idea is to set <m>\beta_V = 0.5\beta</m>, <m>\beta_V = 0.25\beta</m>, <m>\beta_V = 0.1\beta</m>, and so on, and then to display the resulting long-term outcomes in a table of values and/or as graphs. This is just one of many ways to explore combinations of the values of <m>\beta</m> and <m>\beta_V</m>.
+                  </p>
+                </li>
+              </ol>
             </li>
             <li>
               <p>
-                The 
-              </p>
-            </li>
-            <li>
-              <p>
-                In 
-              </p>
-            </li>
-            <li>
-              <p>
-                The 
+                This exercise is set up so that the default values of <m>\beta</m>, <m>\gamma</m>, and <m>N</m> cause <m>\mathcal{R}_0</m> to be larger than 1. Compute this value of <m>\mathcal{R}_0</m> and then, by changing <m>\beta_V</m> and the model's initial conditions <m>S(0)</m> and <m>V(0)</m>, create multiple ways to ensure <m>\mathcal{R}_c \lt 1</m>. Display long-term results as a table of values and/or as graphs.  
               </p>
             </li>
           </ol>
           
-        </answer>
+        </hint>
       </activity>
 
       <p>
