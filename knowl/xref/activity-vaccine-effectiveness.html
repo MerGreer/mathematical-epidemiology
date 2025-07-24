@@ -29,7 +29,7 @@ sagecell.makeSagecell({
 </h4>
 <div class="para">One way to model vaccine effectiveness is to include a compartment for vaccinated individuals. We call this the V compartment. One such model appears in <a href="ch-vaccines.html#fig-SVIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SVIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.1">Figure 6.1</a> and in the differential equations below.<details class="ptx-footnote" aria-live="polite" id="activity-vaccine-effectiveness-1-1-2"><summary class="ptx-footnote__number" title="Footnote 6.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="activity-vaccine-effectiveness-1-1-2">This is a simplified version of a model from the paper “A Vaccination Model for Transmission Dynamics of Influenza” by M. E. Alexander, C. Bowman, S. M. Moghadas, R. Summers, A. B. Gumel, and B. M. Sahai, published in the SIAM Journal of Applied Dynamical Systems in 2004.</div></details>
 </div> <figure class="figure figure-like"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="generated/latex-image/fig-SVIR-compartmental-diagram-2.svg" role="img" class="contained" alt="(Write this)"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1<span class="period">.</span></span><span class="space"> </span>One possible <span class="process-math">\(SVIR\)</span> (Susceptible, Vaccinated, Infectious, Removed) compartmental diagram</figcaption></figure><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-SVIR-compartmental-diagram.html ./knowl/xref/fig-SVIR-compartmental-diagram.html">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1<span class="period">.</span></span><span class="space"> </span>One possible <span class="process-math">\(SVIR\)</span> (Susceptible, Vaccinated, Infectious, Removed) compartmental diagram</figcaption></figure><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-SVIR-compartmental-diagram.html ./knowl/xref/ch-compartmental-diagrams.html ./knowl/xref/ch-model-analysis-and-the-basic-reproduction-number-R0.html ./knowl/xref/fig-SVIR-compartmental-diagram.html">
 \begin{align*}
 \frac{dS}{dt} \amp = - \beta S I \\
 \frac{dV}{dt} \amp = - \beta_V V I\\
@@ -37,7 +37,7 @@ sagecell.makeSagecell({
 \frac{dR}{dt} \amp = \gamma I. 
 \end{align*}
 </div>
-<div class="para">In</div> <pre id="activity-vaccine-effectiveness-1-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+<div class="para">You will notice that this model has four compartments. The Infectious and Removed compartments are similar to those we have worked with before, such as in <a href="ch-compartmental-diagrams.html" class="internal" title="Chapter 4: Compartmental Diagrams">Chapter 4</a> and <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal" title="Chapter 5: Model Analysis and the Basic Reproduction Number \mathcal{R}_0">Chapter 5</a>. The Susceptibles compartment now includes everyone who could become sick <em class="emphasis">and has not been vaccinated</em>. The Vaccinated compartment includes everyone who could become sick <em class="emphasis">but has been vaccinated</em>. This model can be used to represent outcomes with a vaccine that reduces the risk of becoming Infectious but does not completely prevent infection.</div> <pre id="activity-vaccine-effectiveness-1-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
@@ -53,8 +53,8 @@ def model(y, t):
 beta = 0.0002 #Give a value to beta
 beta_V = 0.0001 #Give a value to beta_V
 gamma = 0.3 #Give a value to gamma
-y0 = [2999, 3000, 1, 0] #Set initial conditions for S, V, I, and R, in that order
-t_range = np.arange(0.0, 70.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+y0 = [3000, 3000, 1, 0] #Set initial conditions for S, V, I, and R, in that order
+t_range = np.arange(0.0, 100.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
 
 sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
 
@@ -84,7 +84,7 @@ plt.show()
 <li><div class="para logical">
 <div class="para">First, take time to explore with the model.</div>
 <ol class="lower-alpha" id="activity-vaccine-effectiveness-1-6-1-1-1">
-<li><div class="para">The default Python code uses a total population of <span class="process-math">\(6000\text{,}\)</span> split into <span class="process-math">\(S(0)=2999\)</span> initial Susceptibles, <span class="process-math">\(V(0)=3000\)</span> initial Vaccinated, and <span class="process-math">\(I(0)=1\)</span> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings.</div></li>
+<li><div class="para">The default Python code uses a total population of <span class="process-math">\(6001\text{,}\)</span> split into <span class="process-math">\(S(0)=3000\)</span> initial Susceptibles, <span class="process-math">\(V(0)=3000\)</span> initial Vaccinated, and <span class="process-math">\(I(0)=1\)</span> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings.</div></li>
 <li><div class="para">The default Python code sets <span class="process-math">\(\beta = 0.0002\)</span> and <span class="process-math">\(\beta_V = 0.0001\text{,}\)</span> making <span class="process-math">\(\beta_V\)</span> equal to half the value of <span class="process-math">\(\beta\text{.}\)</span> Try different relationships between <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\beta_V\text{.}\)</span> (It is a good idea to keep <span class="process-math">\(\beta_V \lt \beta\text{,}\)</span> as vaccination leads to a smaller chance of becoming infected.) Make planned and systematic changes to these parameter values, and report your findings.</div></li>
 </ol>
 </div></li>
