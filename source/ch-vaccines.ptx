@@ -403,8 +403,11 @@
         We start by providing some extra vocabulary and commentary on vaccines. When vaccines are studied and approved for use, researchers demonstrate their <term>efficacy</term> and <term>effectiveness</term>. Both terms consider how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease. If, for instance, <m>75\%</m> fewer people in the vaccinated population get the disease, then we say the vaccine has an efficacy or effectiveness of <m>75\%</m>. (Notice what the <m>75\%</m> does NOT mean: it does NOT mean that only <m>75\%</m> of people are protected by the vaccine, or that the vaccine only <q>works</q> <m>75\%</m> of the time.) The word <em>efficacy</em> specifies that the comparison of vaccinated and unvaccinated populations happens within a clinical trial. The word <em>effectiveness</em> indicates that the vaccine is being studied for populations in the real world. While clinical trials do include a range of different people, effectiveness often differs from efficacy.
       </p>
       <p>
-        Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at the <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization. In <xref ref="activity-vaccine-effectiveness"/> we build and work with a model that incorporates vaccine effectiveness.
+        Nice explanations of the meanings of <em>efficacy</em> and <em>effectiveness</em> can be found at the <url href="https://www.who.int/news-room/feature-stories/detail/vaccine-efficacy-effectiveness-and-protection">Vaccine efficacy, effectiveness and protection</url> page from the World Health Organization. 
       </p> 
+      <p>
+        In <xref ref="activity-vaccine-effectiveness"/> we build and work with a model that incorporates the idea that a vaccine has some level of effectiveness. The World Health Organization's measurements of vaccine efficacy and effectiveness are based on outcomes of how many vaccinated and unvaccinated people become sick. Our model instead introduces an alternative transmission parameter <m>\beta_V</m>, which we apply to a Vaccinated population that is separate from the unvaccinated Susceptibles population. 
+      </p>
 
       <activity xml:id="activity-vaccine-effectiveness">
         <statement>
@@ -454,7 +457,7 @@
             <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
           </md>
           <p>
-            In 
+            You will notice that this model has four compartments. The Infectious and Removed compartments are similar to those we have worked with before, such as in <xref ref="ch-compartmental-diagrams"/> and <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>. The Susceptibles compartment now includes everyone who could become sick <em>and has not been vaccinated</em>. The Vaccinated compartment includes everyone who could become sick <em>but has been vaccinated</em>. This model can be used to represent outcomes with a vaccine that reduces the risk of becoming Infectious but does not completely prevent infection.  
           </p>
 
           <sage>
@@ -475,8 +478,8 @@
               beta = 0.0002 #Give a value to beta
               beta_V = 0.0001 #Give a value to beta_V
               gamma = 0.3 #Give a value to gamma
-              y0 = [2999, 3000, 1, 0] #Set initial conditions for S, V, I, and R, in that order
-              t_range = np.arange(0.0, 70.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+              y0 = [3000, 3000, 1, 0] #Set initial conditions for S, V, I, and R, in that order
+              t_range = np.arange(0.0, 100.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
               
               sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
 
@@ -515,7 +518,7 @@
                 <ol>
                   <li>
                     <p>
-                      The default Python code uses a total population of <m>6000</m>, split into <m>S(0)=2999</m> initial Susceptibles, <m>V(0)=3000</m> initial Vaccinated, and <m>I(0)=1</m> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings.
+                      The default Python code uses a total population of <m>6001</m>, split into <m>S(0)=3000</m> initial Susceptibles, <m>V(0)=3000</m> initial Vaccinated, and <m>I(0)=1</m> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings.
                     </p>
                   </li>
                   <li>
