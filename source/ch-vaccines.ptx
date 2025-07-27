@@ -518,12 +518,12 @@
                 <ol>
                   <li>
                     <p>
-                      The default Python code uses a total population of <m>6001</m>, split into <m>S(0)=3000</m> initial Susceptibles, <m>V(0)=3000</m> initial Vaccinated, and <m>I(0)=1</m> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings.
+                      The default Python code uses a total population of <m>6001</m>, split into <m>S(0)=3000</m> initial Susceptibles, <m>V(0)=3000</m> initial Vaccinated, and <m>I(0)=1</m> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings using tables and/or graphs.
                     </p>
                   </li>
                   <li>
                     <p>
-                      The default Python code sets <m>\beta = 0.0002</m> and <m>\beta_V = 0.0001</m>, making <m>\beta_V</m> equal to half the value of <m>\beta</m>. Try different relationships between <m>\beta</m> and <m>\beta_V</m>. (It is a good idea to keep <m>\beta_V \lt \beta</m>, as vaccination leads to a smaller chance of becoming infected.) Make planned and systematic changes to these parameter values, and report your findings.
+                      The default Python code sets <m>\beta = 0.0002</m> and <m>\beta_V = 0.0001</m>, making <m>\beta_V</m> equal to half the value of <m>\beta</m>. Try different relationships between <m>\beta</m> and <m>\beta_V</m>. (It is a good idea to keep <m>\beta_V \lt \beta</m>, as vaccination leads to a smaller chance of becoming infected.) Make planned and systematic changes to these parameter values, and report your findings using tables and/or graphs.
                     </p>
                   </li>
                 </ol>
@@ -543,7 +543,7 @@
                 By contrast, the basic reproduction number for this model is the same as for the SIR model without vaccination, that is, <m>\mathcal{R}_0=\beta N / \gamma</m>, where <m>N</m> represents the total population, and we assume no vaccination occurs.
               </p>
               <p>
-                Develop some scenarios in which <m>\mathcal{R}_0</m> would be larger than 1, yet due to vaccination, <m>\mathcal{R}_c \lt 1</m>. Report on your findings for long-term outcomes in each case.
+                Develop some scenarios in which <m>\mathcal{R}_0</m> would be larger than 1, yet due to vaccination, <m>\mathcal{R}_c \lt 1</m>. Report on your findings for long-term outcomes in each case, using tables and/or graphs.
               </p>
             </li> 
           </ol>
@@ -648,8 +648,8 @@
             <p>
               At each value of <m>p</m> for which you simulated the model in part (b), compute the fraction of the initial Susceptible population that acquires the illness. To do this, first determine how many of the initial Susceptible population eventually got the illness by subtracting the long-term number of Susceptibles from the initial number of Susceptibles, and then divide by the initial number of Susceptible people. Here is a formula to help you do this:
               <md>
-              <mrow>\frac{S(0)- \mbox{Long term number of Susceptibles}}{S(0)} . </mrow>
-            </md>
+                <mrow>\frac{S(0)- \mbox{Long term number of Susceptibles}}{S(0)} . </mrow>
+              </md>
             </p>
           </li>
           <li>
@@ -658,7 +658,51 @@
             </p>
           </li>
         </ol>       
-      </exercise>  
+      </exercise> 
+      
+      <exercise number="3">
+        <p>
+          Now use an SVIR model to represent measles. Your goal is to work with outcomes to compute Vaccine Effectiveness, abbreviated VE. Two doses of the measles vaccine has been found to have 97% effectiveness.<fn>The Centers for Disease Control provides the value of 97%, along with more information about the <url href="https://www.cdc.gov/measles/vaccines/index.html">MMR and MMRV vaccines</url>, which both protect against measles, mumps, and rubella. The MMRV vaccine provides additional protection against varicella, also called chickenpox.</fn>
+        </p>   
+        <ol>
+          <li>
+            <p>
+              The formula for vaccine effectiveness requires computing the attack rate for both the vaccinated and unvaccinated populations. The <term>attack rate</term> is the proportion of a population of a population that contracts an illness within a specified time range.<fn>One place to find this formula is through the archive of the <url href="https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson3/section2.html">Centers for Disease Control and Prevention</url>.</fn> For our purposes in this question, we define two attack rates. The first is the Susceptible Attack Rate, abbreviated SAR:
+              <md>
+                <mrow>\mbox{SAR } = \frac{\mbox{Number of new cases among Susceptibles during an outbreak}}{\mbox{Number of Susceptibles at the start of the outbreak}}. </mrow>
+              </md> 
+              The second is the Vaccinated Attack Rate, abbreviated VAR:
+              <md>
+                <mrow>\mbox{VAR } = \frac{\mbox{Number of new cases among Vaccinated during an outbreak}}{\mbox{Number of Vaccinated at the start of the outbreak}}. </mrow>
+              </md> 
+            </p>
+            <p>
+              As one example, using the default Python code in <xref ref="activity-vaccine-effectiveness"/>, we compute  
+              <md>
+                <mrow>\mbox{SAR } = \frac{3000-80}{3000} = \frac{2920}{3000} \approx 0.973 </mrow>
+              </md> 
+              and 
+              <md>
+                <mrow>\mbox{VAR } = \frac{3000-491}{3000} = \frac{2509}{3000} \approx 0.836 .</mrow>
+              </md>
+              This means that about <m>97.3\%</m> of Susceptibles get the measles in this scenario, compared with about <m>83.6\%</m> of Vaccinated individuals.
+            </p>
+            <p>
+              S
+            </p>
+          </li>            
+          <li>
+            <p>
+              Compute   
+            </p>
+          </li>
+          <li>
+            <p>
+              At 
+            </p>
+          </li>
+        </ol>       
+      </exercise>
       
     </exercises>
 
