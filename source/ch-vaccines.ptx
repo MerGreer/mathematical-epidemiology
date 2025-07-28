@@ -536,9 +536,9 @@
               <p>
                 For the SVIR model in <xref ref="fig-SVIR-compartmental-diagram"/>, the formula for <m>\mathcal{R}_c</m> is
               </p>
-              <md>
-                <mrow>\mathcal{R}_c \amp = \frac{\beta S(0) + \beta_V V(0)}{\gamma} . </mrow>
-              </md>
+              <mdn>
+                <mrow xml:id="eq-Rc-define">\mathcal{R}_c \amp = \frac{\beta S(0) + \beta_V V(0)}{\gamma} . </mrow>
+              </mdn>
               <p>
                 By contrast, the basic reproduction number for this model is the same as for the SIR model without vaccination, that is, <m>\mathcal{R}_0=\beta N / \gamma</m>, where <m>N</m> represents the total population, and we assume no vaccination occurs.
               </p>
@@ -683,22 +683,45 @@
               </md> 
               and 
               <md>
-                <mrow>\mbox{VAR } = \frac{3000-491}{3000} = \frac{2509}{3000} \approx 0.836 .</mrow>
+                <mrow>\mbox{VAR } = \frac{3000-491}{3000} = \frac{2509}{3000} \approx 0.837 .</mrow>
               </md>
-              This means that about <m>97.3\%</m> of Susceptibles get the measles in this scenario, compared with about <m>83.6\%</m> of Vaccinated individuals.
+              This means that about <m>97.3\%</m> of Susceptibles get the measles in this scenario, compared with about <m>83.7\%</m> of Vaccinated individuals.
             </p>
             <p>
-              S
+              Compute SAR and VAR in the measles model from <xref ref="activity-vaccine-effectiveness"/>, in the following two situations.
             </p>
+            <ol>
+              <li>
+                <p>
+                  First, let <m>S(0)=V(0)=3000</m>, <m>\beta=0.0002</m>, and <m>\beta_V=0.00001</m>. That is, <m>\beta_V</m> in this exercise is one-tenth of the default <m>\beta_V</m> value in <xref ref="activity-vaccine-effectiveness"/>.
+                </p>
+                <p>
+                  Comment on the resulting values for SAR and VAR. How do these values differ from those computed in the example above, with the default parameters and initial values in <xref ref="activity-vaccine-effectiveness"/>? Include a comment about the change in SAR, even though the values of <m>\beta </m> and <m>S(0)</m> have not changed.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Next, use the formula for <m>\mathcal{R}_c</m> in <xref ref="eq-Rc-define"/> to develop a combination of values of <m>\beta</m>, <m>\beta_V</m>, <m>S(0)</m>, and <m>V(0)</m> for which <m>\mathcal{R}_c \lt 1</m>. Do not change <m>\gamma</m>. Run the model from <xref ref="activity-vaccine-effectiveness"/> using the values you have determined, and compute the resulting SAR and VAR. Comment on your results.               
+                </p>
+              </li>
+            </ol>
           </li>            
           <li>
             <p>
-              Compute   
+              Now, you will compute vaccine effectiveness for the measles model in each of the scenarios you developed in part (a). Vaccine effectiveness measures the percentage by which the attack rate is reduced in the vaccinated population, when compared with the unvaccinated population. In our model, then, the formula for <term>vaccine effectiveness</term> (abbreviated VE) is: 
+              <md>
+                <mrow>\mbox{VE } = \frac{\mbox{SAR } - \mbox{ VAR}}{\mbox{SAR}} .</mrow>
+              </md>  
             </p>
-          </li>
-          <li>
             <p>
-              At 
+              Continuing the example from part (a), using the default Python code in <xref ref="activity-vaccine-effectiveness"/>, we compute  
+              <md>
+                <mrow>\mbox{VE } = \frac{0.973-0.837}{0.973} \approx 0.14 .</mrow>
+              </md> 
+              This means that vaccine effectiveness is about <m>14\%</m> in this case.
+            </p>
+            <p>
+              Now compute vaccine effectiveness for each of the other sets of parameter values you worked with in part (a). You can use the values of SAR and VAR that you have already computed.
             </p>
           </li>
         </ol>       
