@@ -693,7 +693,7 @@
             <ol>
               <li>
                 <p>
-                  First, let <m>S(0)=V(0)=3000</m>, <m>\beta=0.0002</m>, and <m>\beta_V=0.00001</m>. That is, <m>\beta_V</m> in this exercise is one-tenth of the default <m>\beta_V</m> value in <xref ref="activity-vaccine-effectiveness"/>.
+                  First, let <m>S(0)=V(0)=3000</m>, <m>\beta=0.0002</m>, and <m>\beta_V=(1-0.97)\beta = 0.03\beta</m>. That is, <m>\beta_V</m> in this exercise is only 3% of the default <m>\beta_V</m> value in <xref ref="activity-vaccine-effectiveness"/>, trying to build into the model the idea that the measles vaccine is 97% effective.
                 </p>
                 <p>
                   Comment on the resulting values for SAR and VAR. How do these values differ from those computed in the example above, with the default parameters and initial values in <xref ref="activity-vaccine-effectiveness"/>? Include a comment about the change in SAR, even though the values of <m>\beta </m> and <m>S(0)</m> have not changed.
@@ -708,7 +708,7 @@
           </li>            
           <li>
             <p>
-              Now, you will compute vaccine effectiveness for the measles model in each of the scenarios you developed in part (a). Vaccine effectiveness measures the percentage by which the attack rate is reduced in the vaccinated population, when compared with the unvaccinated population. In our model, then, the formula for <term>vaccine effectiveness</term> (abbreviated VE) is: 
+              Now, you will compute vaccine effectiveness for the measles model in each of the scenarios you developed in part (a). Rewording our definition of effectiveness from earlier in <xref ref="sec-vaccine-efficacy-and-effectiveness"/>, vaccine effectiveness measures the percentage by which the attack rate is reduced in the vaccinated population, when compared with the attack rate in the unvaccinated population. In our model, then, the formula for vaccine effectiveness (abbreviated VE) is: 
               <md>
                 <mrow>\mbox{VE } = \frac{\mbox{SAR } - \mbox{ VAR}}{\mbox{SAR}} .</mrow>
               </md>  
@@ -720,9 +720,18 @@
               </md> 
               This means that vaccine effectiveness is about <m>14\%</m> in this case.
             </p>
-            <p>
-              Now compute vaccine effectiveness for each of the other sets of parameter values you worked with in part (a). You can use the values of SAR and VAR that you have already computed.
-            </p>
+            <ol>
+              <li>
+                <p>
+                  Now compute vaccine effectiveness for each of the other sets of parameter values you worked with in part (a). You can use the values of SAR and VAR that you have already computed.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write comments on your results. Include a comment on the actual vaccine effectiveness (VE) value you compute in part (a)(i) when <m>\beta_V = 0.03\beta</m>, compared with the idea of trying to build 97% vaccine effectiveness into the model from the start.
+                </p>
+              </li>
+            </ol>
           </li>
         </ol>       
       </exercise>

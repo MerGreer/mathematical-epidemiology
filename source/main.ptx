@@ -250,6 +250,14 @@
         
         
         <gi>
+          <title>Attack Rate</title>
+          <p>
+            The attack rate is the proportion of a population of a population that contracts an illness within a specified time range.  (<xref ref="ch-vaccines"/>)
+          </p>
+        </gi>
+
+
+        <gi>
           <title>Basic Reproduction Number</title>
           <p>
             The basic reproduction number is the average number of new infections caused by one infectious person in an otherwise entirely susceptible population. The symbol <m>\mathcal{R}_0</m>, pronounced <q>R zero</q> or <q>R nought</q>, represents the concept of the basic reproduction number, both in writing and in mathematical formulas.  (Defined in <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>, with a very brief mention at the end of <xref ref="ch-compartmental-diagrams"/>)
@@ -441,6 +449,7 @@
             The total population of a compartmental model is the sum of the populations in each compartment. We typically use the variable <m>N</m> to refer to total population, and we write <m>N(t)</m> to mean total population at time <m>t</m>. (First mentioned in <xref ref="ch-zombies-can-math-help"/>, then defined in <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>)
           </p>
         </gi>
+        
         
       
 
