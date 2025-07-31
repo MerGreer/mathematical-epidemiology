@@ -43,7 +43,7 @@
         </website> -->
 
         <copyright>
-          <year>2020<ndash />2023</year>
+          <year>2020<ndash />present</year>
           <holder>Meredith L. Greer</holder>
           <shortlicense> 
             This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, CC BY-NC-SA. To view a copy of this license, visit <url href="https://creativecommons.org/licenses/by-nc-sa/4.0/" visual="https://creativecommons.org/licenses/by-nc-sa/4.0/"> CreativeCommons.org</url>.
@@ -53,18 +53,24 @@
         <p> This book was authored in <pretext />. </p>
       </colophon>
 
-      <!-- <acknowledgement>
+      <acknowledgement>
         <p>
-          Two classes of Senior Seminar students at Bates College have contributed to this work. They were: (list names and semesters).
+          This work has been supported by Bates College, both by the Phillips Fellowship  and by the Bates Faculty Development Fund.
         </p>
         <p>
-          Thank you to Sam Sheaffer '25, who located several data sets and case studies, and who drafted the first version of <xref ref="ch-case-studies-vaccination-and-isolation"/>. Thanks also to EJ Holm '25, who contributed to the development of vaccine exercises involving both <m>p</m> to represent the fraction of the population that is vaccinated against measles and <m>q</m> to represent the effectiveness of the vaccine.
+          Two classes of Senior Seminar students at Bates College contributed to the big-picture development of this book. The Winter Semester 2019 students were Bryan Almonte, Hana Dailey, Maddie Foote, Emma Foss, Max Huang, Taylor Lough, Madeline Moberg, and Robben Tian. The Winter Semester 2020 students were Adena Bernot, Josie Blanchon, Jason Canaday, Emmy Daigle, Sam Findlen-Golden, Connor Fitzgerald, El Khansaa Kaddioui, Katie Leeke, Brendan Mullally, Gabe Nelson, Luca Polgar, Xuchong Shao, and Casey Snow. (We are located at Bates College in Maine, USA, where we have Winter Semesters instead of Spring Semesters.) 
         </p>
         <p>
-          This work was supported in part by the Bates Faculty Development Fund.
+          Several students deserve thanks for specific sections of the book. Sam Sheaffer '25 located several data sets and case studies and drafted the first version of <xref ref="ch-case-studies-vaccination-and-isolation"/>. EJ Holm '25 contributed to the development of exercises combining vaccine efficacy or effectiveness with the percentage of the population that has been vaccinated. Madeline Moberg '19 and Maddie Foote '19 initiated the idea of a lesson on reading scientific articles and developed these materials.
+        </p>
+        <p>
+          My ability to teach this course has been profoundly affected by years-long conversations with fabulous colleagues. Karen Palin and I collaborated on mathematical epidemiology research and teaching, and she helped me understand much more deeply how epidemiologists approach these ideas, in comparison with mathematicians applying their work to epidemiology. Bonnie Shulman and Adriana Salerno have been central to my thoughts about how to teach mathematics, across decades of treasured conversations. The writing program at Bates, and training for teaching our writing-focused First-Year Seminar, have built my ability and confidence in using project-based and writing-based assignments; many of the specific approaches I use derive from helpful meetings with Seri Lowell and Hillory Oakes.
+        </p>
+        <p>
+          The structure of this book owes inspiration to three different texts I have taught from over the years. Carol Schumacher's <em>Chapter Zero</em> includes an Instructor's Resource Guide that was pivotal in helping me, from my first year as a professor, to be able to lead student-centered active-learning courses. David Lay's <em>Linear Algebra and Its Applications</em> has a stucture I have long admired, describing for instructors which sections are pivotal, which are more application-based, and which are more theory-based. I enjoy the <q>Choose-your-own-adventure</q> idea behind this, and have strived to build some of that into this book. And last but not least, the amazing <em>Active Calculus</em>, by Matthew Boelkins and others, was my entry into writing with <pretext /> and has had a clear impact on the structure of this book.
         </p>
 
-      </acknowledgement> -->
+      </acknowledgement>
 
       <xi:include href="preface-overall.ptx" />
 
