@@ -10,6 +10,15 @@ var ptx_lunr_docs = [
   "body": "  copyright  This book was authored in PreTeXt .  "
 },
 {
+  "id": "frontmatter-3",
+  "level": "1",
+  "url": "frontmatter-3.html",
+  "type": "Acknowledgements",
+  "number": "",
+  "title": "Acknowledgements",
+  "body": " This work has been supported by Bates College, both by the Phillips Fellowship and by the Bates Faculty Development Fund.  Two classes of Senior Seminar students at Bates College contributed to the big-picture development of this book. The Winter Semester 2019 students were Bryan Almonte, Hana Dailey, Maddie Foote, Emma Foss, Max Huang, Taylor Lough, Madeline Moberg, and Robben Tian. The Winter Semester 2020 students were Adena Bernot, Josie Blanchon, Jason Canaday, Emmy Daigle, Sam Findlen-Golden, Connor Fitzgerald, El Khansaa Kaddioui, Katie Leeke, Brendan Mullally, Gabe Nelson, Luca Polgar, Xuchong Shao, and Casey Snow. (We are located at Bates College in Maine, USA, where we have Winter Semesters instead of Spring Semesters.)  Several students deserve thanks for specific sections of the book. Sam Sheaffer '25 located several data sets and case studies and drafted the first version of . EJ Holm '25 contributed to the development of exercises combining vaccine efficacy or effectiveness with the percentage of the population that has been vaccinated. Madeline Moberg '19 and Maddie Foote '19 initiated the idea of a lesson on reading scientific articles and developed these materials.  My ability to teach this course has been profoundly affected by years-long conversations with fabulous colleagues. Karen Palin and I collaborated on mathematical epidemiology research and teaching, and she helped me understand much more deeply how epidemiologists approach these ideas, in comparison with mathematicians applying their work to epidemiology. Bonnie Shulman and Adriana Salerno have been central to my thoughts about how to teach mathematics, across decades of treasured conversations. The writing program at Bates, and training for teaching our writing-focused First-Year Seminar, have built my ability and confidence in using project-based and writing-based assignments; many of the specific approaches I use derive from helpful meetings with Seri Lowell and Hillory Oakes.  The structure of this book owes inspiration to three different texts I have taught from over the years. Carol Schumacher's Chapter Zero includes an Instructor's Resource Guide that was pivotal in helping me, from my first year as a professor, to be able to lead student-centered active-learning courses. David Lay's Linear Algebra and Its Applications has a stucture I have long admired, describing for instructors which sections are pivotal, which are more application-based, and which are more theory-based. I enjoy the Choose-your-own-adventure idea behind this, and have strived to build some of that into this book. And last but not least, the amazing Active Calculus , by Matthew Boelkins and others, was my entry into writing with PreTeXt and has had a clear impact on the structure of this book.  "
+},
+{
   "id": "preface-overall",
   "level": "1",
   "url": "preface-overall.html",
