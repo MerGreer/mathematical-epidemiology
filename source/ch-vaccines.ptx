@@ -708,7 +708,7 @@
           </li>            
           <li>
             <p>
-              Now, you will compute vaccine effectiveness for the measles model in each of the scenarios you developed in part (a). Rewording our definition of effectiveness from earlier in <xref ref="sec-vaccine-efficacy-and-effectiveness"/>, vaccine effectiveness measures the percentage by which the attack rate is reduced in the vaccinated population, when compared with the attack rate in the unvaccinated population. In our model, then, the formula for vaccine effectiveness (abbreviated VE) is: 
+              Now, you will compute vaccine effectiveness for the measles model in each of the scenarios you developed in part (a). Rewording our definition of effectiveness from earlier in <xref ref="sec-vaccine-efficacy-and-effectiveness"/>, vaccine effectiveness measures the percentage by which the attack rate is reduced in the vaccinated population, when compared with the attack rate in the unvaccinated population.<fn><url href="https://medicalguidelines.msf.org/en/viewport/mme/english/7-6-vaccine-effectiveness-32408146.html">M&#233;decins Sans Fronti&#232;res</url>, also known as Doctors Without Borders, provides a nice description of vaccine effectiveness, along with information about how to compute its value.</fn> In our model, then, the formula for vaccine effectiveness (abbreviated VE) is:  
               <md>
                 <mrow>\mbox{VE } = \frac{\mbox{SAR } - \mbox{ VAR}}{\mbox{SAR}} .</mrow>
               </md>  

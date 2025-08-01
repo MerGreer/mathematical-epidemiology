@@ -35,7 +35,7 @@
       <title>Reading about Disease in the News and Popular Media</title>
       <introduction>
         <p>
-          The Washington Post is a newspaper with a corresponding website. CNN is a television station and an online news source. People magazine and the corresponding website people.com center on <q>celebrity news and human-interest stories</q><fn><url href="https://en.wikipedia.org/wiki/People_(magazine)">People magazine Wikipedia entry</url>, accessed 15 Nov 2022</fn>.
+          The Washington Post is a newspaper with a corresponding website. CNN is a television station and an online news source. People magazine and the corresponding website people.com center on <q>celebrity news and human-interest stories</q>.<fn><url href="https://en.wikipedia.org/wiki/People_(magazine)">People magazine Wikipedia entry</url>, accessed 15 Nov 2022</fn>
         </p>
       </introduction>
 
@@ -47,17 +47,17 @@
           <ul>
             <li>
               <p>
-                <url href="https://www.washingtonpost.com/health/2019/08/24/tourist-infected-with-measles-visited-disneyland-other-southern-california-hotspots-mid-august/">A tourist infected with measles visited Disneyland and other Southern California hot spots in mid-August</url>, published August 24, 2019, by the Washington Post;
+                <url href="https://www.washingtonpost.com/health/2019/08/24/tourist-infected-with-measles-visited-disneyland-other-southern-california-hotspots-mid-august/">A tourist infected with measles visited Disneyland and other Southern California hot spots in mid-August,</url> published August 24, 2019, by the Washington Post;
               </p>
             </li>
             <li>
               <p>
-                <url href="https://www.cnn.com/2022/10/26/health/rsv-immunity-gap">Pandemic <q>immunity gap</q> is probably behind surge in RSV cases, scientists say</url>, published October 28, 2022, by CNN;
+                <url href="https://www.cnn.com/2022/10/26/health/rsv-immunity-gap">Pandemic <q>immunity gap</q> is probably behind surge in RSV cases, scientists say,</url> published October 28, 2022, by CNN;
               </p>
             </li>
             <li>
               <p>
-                <url href="https://people.com/health/measles-outbreak-spreads-21-states-dc/">Vaccinations a Priority as Measles Cases in the U.S. Number 107 in the First 7 Months of 2018</url>, published August 16, 2018, by People.
+                <url href="https://people.com/health/measles-outbreak-spreads-21-states-dc/">Vaccinations a Priority as Measles Cases in the U.S. Number 107 in the First 7 Months of 2018,</url> published August 16, 2018, by People. 
               </p>
             </li>
           </ul>
@@ -144,8 +144,8 @@
       <p>
         For these and other diseases or outbreaks we may read about, we can add to our knowledge of underlying disease biology by gathering additional data. We will find, when modeling diseases, that it can help to know the lengths of time for each disease stage, such as incubation period, how long a person is typically sick, and how long any immunity to the disease lasts. Vaccine data is also helpful, including whether a vaccine exists at all, how effective the vaccine is on average, and what percentage of people are vaccinated against a particular disease. Some of the data we collect may depend on time or place: vaccines may be newer, or different percentages of people may be vaccinated in different locations. 
       </p>
-      <p>
-        One place to look up data is the <url href="https://www.cdc.gov/">Centers for Disease Control and Prevention (CDC)</url>. As one example, a web search can take us to the <url href="https://www.cdc.gov/measles/index.html">CDC's information page about measles</url>. Not every disease is presented in an identical manner on the CDC's web pages, but there are typically page titles including the words <q>Transmission</q> or <q>How It Spreads</q> that help us, as well as page titles including the word <q>Symptoms</q>. These pages contain lots of information about how diseases spread and how long each stage takes. Such information helps us build our models.
+      <p> 
+        One place to look up data is the <url href="https://www.cdc.gov/">Centers for Disease Control and Prevention (CDC).</url> As one example, a web search can take us to the <url href="https://www.cdc.gov/measles/index.html">CDC's information page about measles.</url> Not every disease is presented in an identical manner on the CDC's web pages, but there are typically page titles including the words <q>Transmission</q> or <q>How It Spreads</q> that help us, as well as page titles including the word <q>Symptoms</q>. These pages contain lots of information about how diseases spread and how long each stage takes. Such information helps us build our models.
       </p>
       <activity>
         <statement>
