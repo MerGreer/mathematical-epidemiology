@@ -46,12 +46,12 @@
           <year>2020<ndash />present</year>
           <holder>Meredith L. Greer</holder>
           <shortlicense> 
-            This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, CC BY-NC-SA. To view a copy of this license, visit <url href="https://creativecommons.org/licenses/by-nc-sa/4.0/" visual="https://creativecommons.org/licenses/by-nc-sa/4.0/"> CreativeCommons.org</url>.
+            This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, CC BY-NC-SA. To view a copy of this license, visit <url href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CreativeCommons.org.</url>
           </shortlicense>
-        </copyright>
+        </copyright> 
 
         <p> This book was authored in <pretext />. </p>
-      </colophon>
+      </colophon> 
 
       <acknowledgement>
         <p>
@@ -115,7 +115,7 @@
           For readers using an electronic PDF of this book, many things are similar to the web version, but the live links to equations and figures will lead to the original location of those items within the text, rather than opening them within a box within the page you are reading. 
         </p>
         <p>          
-          For anyone not using the web version of this text, the Python code will not run directly, which requires you to set up some way to run Python on your computer. There are many ways to do this. Suggestions include (and are not limited to): copying the code directly into the box at the top of the page at <url href="https://sagecell.sagemath.org/">sagecell.sagemath.org</url>, using Google Colab at <url href="https://colab.research.google.com/">colab.research.google.com</url>, or downloading an installation of Python directly from <url href="https://www.python.org/">python.org</url>.
+          For anyone not using the web version of this text, the Python code will not run directly, which requires you to set up some way to run Python on your computer. There are many ways to do this. Suggestions include (and are not limited to): copying the code directly into the box at the top of the page at <url href="https://sagecell.sagemath.org/">sagecell.sagemath.org,</url> using Google Colab at <url href="https://colab.research.google.com/">colab.research.google.com,</url> or downloading an installation of Python directly from <url href="https://www.python.org/">python.org.</url>
         </p>
         <p>
           Last but not least: I will not tell you how to think. Mathematical modeling involves setting priorities and incorporating personal values, and each person gets to decide these for themselves.  This book focuses on the processes of developing and describing models, stating and supporting your assumptions, and understanding and explaining your model's outcomes. The mathematics certainly needs to be correct, and all the processes should be done carefully, but priorities and values are personal.
@@ -167,7 +167,7 @@
 
     <xi:include href="ch-epidemic-vs-endemic-models.ptx" />
 
-    <xi:include href="ch-modeling-the-spread-of-a-rumor.ptx" />
+    <xi:include href="ch-modeling-the-spread-of-an-idea.ptx" />
 
   </part>
 
@@ -179,8 +179,6 @@
     <xi:include href="ch-the-next-generation-method.ptx" />
 
     <!-- <xi:include href="ch-the-next-generation-method-connecting-theory-with-practice.ptx" /> -->
-    
-    <xi:include href="ch-tips-on-reading-a-scientific-paper.ptx" />
 
     <!-- <xi:include href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.ptx" /> -->
 
@@ -191,6 +189,9 @@
   <part xml:id="part-additional-modeling-examples"> 
     <title>Additional Modeling Examples</title>
 
+    
+    <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
+    
     <xi:include href="ch-more-advanced-vaccine-models.ptx" />
 
     <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" />
@@ -221,11 +222,11 @@
   <part xml:id="part-supplemental-materials">
     <title>Supplemental Materials</title> 
 
+    <xi:include href="ch-tips-on-reading-a-scientific-paper.ptx" />
+    
     <!-- <xi:include href="ch-linear-algebra-for-compartmental-modeling.ptx" /> -->
 
     <!-- <xi:include href="ch-data-sets.ptx" /> -->
-
-    <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
 
     <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
     

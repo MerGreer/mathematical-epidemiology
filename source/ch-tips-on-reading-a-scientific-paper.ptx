@@ -5,8 +5,98 @@
       <term>***This chapter is under construction.***</term>
     </p>
 
-    <section xml:id="sec-3a">
-      <title></title>
+    <introduction xml:id="intro-reading-a-scientific-paper">
+    <objectives>
+      <ul>
+        <li>
+          <p>
+            E
+          </p>
+        </li>
+        <li>
+          <p>
+            S
+          </p>
+        </li>
+        <li>
+          <p>
+            D
+          </p>
+        </li>
+      </ul>
+    </objectives>
+
+    <p>
+      B
+    </p>
+    
+    <exploration xml:id="expl-activity-reading-a-scientific-paper">
+      <title>Reducing New Infections</title>
+      <introduction>
+        <p>
+          Idea: focus on the Abstract from PvdD and JW paper on R0
+        </p>
+      </introduction>
+
+      <task>
+        <statement>
+          <p>
+            R  
+          </p>
+          <p>
+            A
+          </p>
+
+          <ol>
+            <li>
+              <p>
+                G
+              </p>
+            </li>
+            <li>
+              <p>
+                N
+              </p>
+            </li>              
+          </ol>
+
+          
+        </statement>
+      </task>
+
+      <task>
+        <statement>
+          <p>
+            T 
+          </p>
+        <ol>
+          <li>
+              <p>
+                C
+              </p>
+            </li>
+            <li>
+              <p>
+                W
+              </p>
+            </li>
+        </ol>
+        </statement>
+      </task>
+      
+    </exploration>
+
+  </introduction>
+
+    <section xml:id="sec-why-read-scientific-papers">
+      <title>Why Read Scientific Papers?</title>
+
+      <p>
+        Scientific papers, also called scientific articles, come directly from researchers and explain new ideas and findings. Such papers are the main sources for finding new or foundational scientific content. 
+      </p>
+      <p>
+        Many examples in this textbook come from scientific papers or books. Footnotes indicate the original sources, both to give credit to those sources, and so that you as a reader can go find those sources if you would like to read more detailed information. If you seek even more information that what is in the sources themselves, you can read some of the articles cited in the references at the end of your paper. Another great technique is to look up your paper online, such as in <url href="https://scholar.google.com/">Google Scholar,</url> and to find and read later articles that cited your paper.
+      </p>
       <!-- <p>The Maddie/Maddy talk! Turn into a chapter and give them credit</p> -->
     </section>
 

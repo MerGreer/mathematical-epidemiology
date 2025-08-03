@@ -90,7 +90,7 @@
      <task>
        <statement>  
          <p>
-           Using <url href="https://colab.research.google.com/">Google Colab</url>, import the actual data from the outbreak and compare the accuracy of your model. The answer below gives instructions on how to import your data.
+           Using <url href="https://colab.research.google.com/">Google Colab,</url> import the actual data from the outbreak and compare the accuracy of your model. The answer below gives instructions on how to import your data.
            <answer xml:id="colabinst-import-data">
              <p>
                Here's how to import data into Google Colab:
