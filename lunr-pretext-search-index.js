@@ -1339,7 +1339,7 @@ var ptx_lunr_docs = [
   "type": "Chapter",
   "number": "18",
   "title": "* Tips on Reading a Scientific Paper",
-  "body": " * Tips on Reading a Scientific Paper   ***This chapter is under construction.***       E    S    D     B   Reducing New Infections   Idea: focus on the Abstract from PvdD and JW paper on R0    R  A    G    N      T    C    W        Why Read Scientific Papers?  Scientific papers, also called scientific articles, come directly from researchers and explain new ideas and findings. Such papers are the main sources for finding new or foundational scientific content.  Many examples in this textbook come from scientific papers or books. Footnotes indicate the original sources, both to give credit to those sources, and so that you as a reader can go find those sources if you would like to read more detailed information. If you seek even more information that what is in the sources themselves, you can read some of the articles cited in the references at the end of your paper. Another great technique is to look up your paper online, such as in Google Scholar, and to find and read later articles that cited your paper.    "
+  "body": " * Tips on Reading a Scientific Paper   ***This chapter is under construction.***   This chapter will be based on the work of Madeline Moberg and Maddie Foote, two Bates students from the Class of 2019 who conceived of this topic and developed a presentation on it. Their presentation appears here. They happily agreed to share this work widely.       What are Scientific Papers, and Why Read Them?  Scientific papers, also called scientific articles, come directly from active researchers. These papers typically present new research, analyze and compile existing research into a comprehensive review, or comment on trends in a given field. They often base their research on data. Many present experiments and results and have a very specific structure. They have important distinctions from most online content, namely that they are peer reviewed and published in academic journals. Scientific papers are the main sources for finding new or foundational scientific content.  You may find yourself reading scientific papers to develop your own projects, or to learn more about ideas you are learning in class. For instance, many examples in this textbook come from scientific papers or books. You may read those papers or books directly. To find even more information, one option is to check the footnotes or end notes of those papers or books. Footnotes and end notes indicate the original sources used to write a paper or book, both to give credit to those sources, and so that you as a reader can go find those sources if you would like to read them. Another way to build more information on a topic that interests you is to start with a paper you like, and then read later articles that cite that paper. One way to find such articles is to search for the paper, using Google Scholar, and to consult the Cited by link. Alternatively, you may have access to some other search engine focused on academic work.    "
 },
 {
   "id": "ch-tips-on-reading-a-scientific-paper-2",
@@ -1349,24 +1349,6 @@ var ptx_lunr_docs = [
   "number": "",
   "title": "",
   "body": "***This chapter is under construction.*** "
-},
-{
-  "id": "intro-reading-a-scientific-paper-1",
-  "level": "2",
-  "url": "ch-tips-on-reading-a-scientific-paper.html#intro-reading-a-scientific-paper-1",
-  "type": "Goals",
-  "number": "",
-  "title": "",
-  "body": "   E    S    D    "
-},
-{
-  "id": "expl-activity-reading-a-scientific-paper",
-  "level": "2",
-  "url": "ch-tips-on-reading-a-scientific-paper.html#expl-activity-reading-a-scientific-paper",
-  "type": "Exploration",
-  "number": "18.1",
-  "title": "Reducing New Infections.",
-  "body": " Reducing New Infections   Idea: focus on the Abstract from PvdD and JW paper on R0    R  A    G    N      T    C    W     "
 },
 {
   "id": "ch-greek-letters",
