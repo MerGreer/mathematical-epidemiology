@@ -5,8 +5,12 @@
       <term>***This chapter is under construction.***</term>
     </p>
 
+    <p>
+      This chapter will be based on the work of Madeline Moberg and Maddie Foote, two Bates students from the Class of 2019 who conceived of this topic and developed a presentation on it. Their presentation appears <url href="https://drive.google.com/file/d/1klqLyQfKPnj7DdbI2oOz_XpBFYVJ7jZL/view?usp=sharing">here.</url> They happily agreed to share this work widely.
+    </p>
+
     <introduction xml:id="intro-reading-a-scientific-paper">
-    <objectives>
+    <!-- <objectives>
       <ul>
         <li>
           <p>
@@ -24,9 +28,9 @@
           </p>
         </li>
       </ul>
-    </objectives>
+    </objectives> -->
 
-    <p>
+    <!-- <p>
       B
     </p>
     
@@ -84,18 +88,18 @@
         </statement>
       </task>
       
-    </exploration>
+    </exploration> -->
 
   </introduction>
 
-    <section xml:id="sec-why-read-scientific-papers">
-      <title>Why Read Scientific Papers?</title>
+    <section xml:id="sec-what-are-scientific-papers-and-why-read-them">
+      <title>What are Scientific Papers, and Why Read Them?</title>
 
       <p>
-        Scientific papers, also called scientific articles, come directly from researchers and explain new ideas and findings. Such papers are the main sources for finding new or foundational scientific content. 
+        Scientific papers, also called scientific articles, come directly from active researchers. These papers typically present new research, analyze and compile existing research into a comprehensive review, or comment on trends in a given field. They often base their research on data. Many present experiments and results and have a very specific structure. They have important distinctions from most online content, namely that they are peer reviewed and published in academic journals. Scientific papers are the main sources for finding new or foundational scientific content.
       </p>
       <p>
-        Many examples in this textbook come from scientific papers or books. Footnotes indicate the original sources, both to give credit to those sources, and so that you as a reader can go find those sources if you would like to read more detailed information. If you seek even more information that what is in the sources themselves, you can read some of the articles cited in the references at the end of your paper. Another great technique is to look up your paper online, such as in <url href="https://scholar.google.com/">Google Scholar,</url> and to find and read later articles that cited your paper.
+        You may find yourself reading scientific papers to develop your own projects, or to learn more about ideas you are learning in class. For instance, many examples in this textbook come from scientific papers or books. You may read those papers or books directly. To find even more information, one option is to check the footnotes or end notes of those papers or books. Footnotes and end notes indicate the original sources used to write a paper or book, both to give credit to those sources, and so that you as a reader can go find those sources if you would like to read them. Another way to build more information on a topic that interests you is to start with a paper you like, and then read later articles that cite that paper. One way to find such articles is to search for the paper, using <url href="https://scholar.google.com/">Google Scholar,</url> and to consult the <q>Cited by</q> link. Alternatively, you may have access to some other search engine focused on academic work.
       </p>
       <!-- <p>The Maddie/Maddy talk! Turn into a chapter and give them credit</p> -->
     </section>
