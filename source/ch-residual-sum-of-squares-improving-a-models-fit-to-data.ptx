@@ -213,7 +213,7 @@
         <activity xml:id="activity-rss-intro">
           <statement>
             <p>
-              In <xref ref="expl-RSS"/> we worked with both a data set, and model output, for times <m>t=0, 1, 2, 3, 4, 5, 6</m>. The values appear in <xref ref="table-si-model-data-values-and-model-output"/>, with model values rounded to two decimal places. 
+              In <xref ref="expl-RSS"/> we worked with both a data set, and model output, for times <m>t=0, 1, 2, 3, 4, 5, 6</m>. The data values and model output appear in <xref ref="table-si-model-data-values-and-model-output"/>, with model output rounded to two decimal places. 
             </p>
             <table xml:id="table-si-model-data-values-and-model-output">
               <title>SI Model: Data Values and Model Output</title>
@@ -315,12 +315,15 @@
                   Then run the code block. Compare its results with your results for <m>t=1</m> and <m>t=2</m> in part (1) of this Activity. Describe how the results are similar and how they are different, and provide an explanation for why they are not identical. 
                 </p>
                 <p>
-                  Then examine all the results from the code, including the total value for RSS for this model with this data set. 
+                  Then examine all the results from the code, including the total value for RSS for this model with this data set. State at least two of your observations.
                 </p>
               </li>
               <li>
                 <p>
-                  Once you understand how the code works, experiment with different values of <m>\beta</m>. Your goal is to improve the fit between the model and the data set. While adjusting <m>\beta</m>, consider including a plot of the graph showing both the solution curve of the model and the data points. (You can do this by copying plotting commands from the Python block in this chapter's Exploration and pasting them into the Python block in this activity.)
+                  Once you understand how the code works, experiment with different values of <m>\beta</m>. Your goal is to improve the fit between the model and the data set. While adjusting <m>\beta</m>, consider including a plot of the graph showing both the solution curve of the model and the data points. You can do this by copying plotting commands from the Python block in this chapter's Exploration and pasting them into the Python block in this activity.
+                </p>
+                <p>
+                  Write about your experiments and their results. State how you improved the fit of the model to data by adjusting <m>\beta</m>, and include an explanation of how you know the fit is improved.
                 </p>
               </li>
             </ol>
@@ -334,7 +337,7 @@
               </li>
               <li>
                 <p>
-                  In line 25, the code <c>I_data[x] - sol[10*x, 1]</c> starts with the data value given by <c>I_data[x]</c> and subtracts the model value given by <c>sol[10*x, 1]</c>. 
+                  In line 25, the code <c>I_data[x] - sol[10*x, 1]</c> starts with the data value given in line 8 by <c>I_data[x]</c> and subtracts the model value given by <c>sol[10*x, 1]</c>. 
                 </p>
                 <p>
                   The <c>x</c> in <c>I_data[x]</c> is determined by the range of <c>x</c> values shown in line 24: <c>range(0,7)</c> tells Python to allow <c>x</c> to equal 0, 1, 2, 3, 4, 5, and 6. Python ranges do not include the last number shown, so 7 is not included in <c>range(0,7)</c>. 
@@ -343,7 +346,7 @@
                   When <c>x</c> equals 0, <c>I_data[0]</c> equals the initial value of the <c>I_data</c> list in line 8, that is, <c>I_data[0]</c> equals 1. Then <c>I_data[1]</c> equals 2, <c>I_data[2]</c> equals 4, and so on, continuing until <c>I_data[6]</c> equals 50.
                 </p>
                 <p>
-                  The code <c>sol[10*x, 1]</c> examines Python's list of model solutions, which we have named <c>sol</c>. To see the full list <c>sol</c>, you can add a new line of code at the end of the Python block, and in that line, type <c>print(sol)</c>. Running the Python block with the <c>print(sol)</c> command shows that the list <c>sol</c> is arranged into rows and columns. Each row shows the value of both <m>S(t)</m> and <m>I(t)</m> at a specific time value. The initial column, which Python labels column <c>0</c>, shows the values of <m>S(t)</m> at all times we computed. The next column, which Python labels column <c>1</c>, shows the values of <m>I(t)</m> at all times we computed. 
+                  The code <c>sol[10*x, 1]</c> examines Python's list of model solutions, which we have named <c>sol</c> in line 20. To see the full list <c>sol</c>, try adding a new line of code at the end of the Python block, and in that line, type <c>print(sol)</c>. Running the Python block with the <c>print(sol)</c> command shows that the list <c>sol</c> is arranged into rows and columns. Each row shows the value of both <m>S(t)</m> and <m>I(t)</m> at a specific time value. The initial column, which Python labels column <c>0</c>, shows the values of <m>S(t)</m> at all times we computed. The next column, which Python labels column <c>1</c>, shows the values of <m>I(t)</m> at all times we computed. 
                 </p>
                 <p>
                   The times for which we compute solutions are determined by the command <c>t_range = np.arange(0.0, 8.0, 0.1)</c> in line 18. This command says to compute solutions starting at time 0.0, and ending at time 8.0, moving in time increments of 0.1. This means we compute solutions at times 0.0, 0.1, 0.2, and so on, with the last solutions computed at time 7.9. To see the values in <c>t_range</c>, you can add a new line of code: <c>print(t_range)</c>. Running the Python block with the command <c>print(t_range)</c> shows the list of all <c>t_range</c> values. 
@@ -380,6 +383,8 @@
 
       
     </section>
+<!-- 
+    Now include a section on how RSS works: sigma notation formula, graph(s) showing distances, etc. -->
 
     <section xml:id="sec-residual-sum-of-squares-quickly-comparing-multiple-parameter-values">
       <title>Residual Sum of Squares: Quickly Comparing Multiple Parameter Values</title>

@@ -207,7 +207,7 @@
             There are many ways to answer this. One consideration is that each of the differential equations involves both <m>S</m> and <m>I</m>. This means the differential equations do not stand alone: each depends on the other. This interrelationship means we cannot just compute two separate antiderivative formulas. 
           </p>
           <p>
-            Another consideration is that the right-hand side of the differential equation in <xref ref="exer-solve-de"/> involves only <m>t</m>, that is, only the independent variable. The dependent variable <m>y</m> does not appear except in the derivative term <m>dy/dt</m>. However, in the SI model system of equations, the dependent variables <m>S</m> and <m>I</m> appear in the derivatives <em>and elsewhere in the equations</em>. The antiderivative methods learned in a typical introductory Calculus course do not apply in this situation.
+            Another consideration is that the right-hand side of the differential equation in <xref ref="exer-solve-de"/> involves only <m>t</m>, that is, only the independent variable. The dependent variable <m>y</m> does not appear except in the derivative term <m>dy/dt</m>. However, in the SI model system of equations, the dependent variables <m>S</m> and <m>I</m> appear in the derivatives <em>and elsewhere in the equations</em>. Most antiderivative methods learned in a typical introductory Calculus course do not apply in this situation.
           </p>
           <p>
             You may have thought of yet other challenges as well.
