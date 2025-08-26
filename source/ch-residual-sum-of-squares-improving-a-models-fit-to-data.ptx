@@ -377,14 +377,21 @@
             </ol>
           </answer> 
         </activity> 
-
-
-        
-
       
     </section>
 <!-- 
     Now include a section on how RSS works: sigma notation formula, graph(s) showing distances, etc. -->
+
+    <section xml:id="sec-underlying-math-rss">
+        <title>The Underlying Math of RSS</title>
+
+        <p>
+          One way to compare data with the output of a model is by computing the Residual Sum of Squares, often abbreviated to RSS. When we work with a single model to try to improve the fit of the model to a data set, RSS is a good option. <xref ref="activity-rss-intro"/> shows the process of computing RSS for a model with one choice for a value of <m>\beta</m>. Later, we show how to compare RSS for different values of <m>\beta</m> used in the same model.
+        </p>
+
+        
+      
+    </section>
 
     <section xml:id="sec-residual-sum-of-squares-quickly-comparing-multiple-parameter-values">
       <title>Residual Sum of Squares: Quickly Comparing Multiple Parameter Values</title>
@@ -419,8 +426,8 @@
               t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, the set the size of the time steps to use when "stepping through" to numerically solve the system of differential equations
               gamma = 0.2 #Give a value to gamma
               
-              for multiplier in range(1,6):
-                beta = 0.01 * multiplier
+              for beta_value in (0.01, 0.02, 0.03, 0.04, 0.05):
+                beta = beta_value
                 sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
                 RSS = 0 #Initialize the value of RSS to be 0
                 for x in range(0,7):
