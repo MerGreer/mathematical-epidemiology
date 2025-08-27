@@ -388,6 +388,19 @@
         <p>
           One way to compare data with the output of a model is by computing the Residual Sum of Squares, often abbreviated to RSS. When we work with a single model to try to improve the fit of the model to a data set, RSS is a good option. <xref ref="activity-rss-intro"/> shows the process of computing RSS for a model with one choice for a value of <m>\beta</m>. Later, we show how to compare RSS for different values of <m>\beta</m> used in the same model.
         </p>
+        <figure width="90%" xml:id="fig-RSS-example-1">
+          <caption>Graph showing distances between Data Values and Model Output for the SI model from Exploration 10.1, using <m>\beta = 0.03</m></caption>
+          <image source="fig-RSS-example-1.png" width="80%">
+            <description>This graph shows Data Values as orange dots and Model Output as a smooth curve. The graph also shows the distances between Data Values and Model Output, at times <m>t=0, 1, 2, 3, 4, 5, 6,</m> for the SI model from Exploration 10.1, using <m>\beta = 0.03</m>.</description>
+          </image> 
+        </figure>
+
+        <figure width="90%" xml:id="fig-RSS-example-2">
+          <caption>Graph showing distances between Data Values and Model Output for the SI model from Exploration 10.1, using <m>\beta = 0.023</m></caption>
+          <image source="fig-RSS-example-2.png" width="80%">
+            <description>This graph shows Data Values as orange dots and Model Output as a smooth curve. The graph also shows the distances between Data Values and Model Output, at times <m>t=0, 1, 2, 3, 4, 5, 6,</m> for the SI model from Exploration 10.1, using <m>\beta = 0.023</m>.</description>
+          </image>
+        </figure>
 
         
       
