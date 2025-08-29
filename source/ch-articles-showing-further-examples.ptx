@@ -1,0 +1,44 @@
+<chapter xml:id="ch-articles-showing-further-examples" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>* Articles Showing Further Examples</title>
+
+    <introduction xml:id="intro-articles-showing-further-examples">   
+    <p>
+      <term>***This chapter remains under construction. More example articles will appear over time.***</term>
+     </p>
+   
+    <p>
+    The goal for this chapter is to show many more directions in which researchers have taken compartmental models. This chapter provides sample articles and brief summaries for a variety of compartmental modeling studies. Articles that are freely available are marked accordingly; other articles may have a paywall.
+   </p>
+
+   <p>
+    There are many ways to use this chapter. One is to skim to get a sense of what exists. Another is to use these articles for a deeper reading and discussion of the options available using compartmental models. A third is to assign these articles as class projects, for students to dig in, learn the details of what others have done, and present the main ideas to each other or write about these main ideas.
+   </p>
+
+   <p>
+    This chapter works in concert with <xref ref="ch-tips-on-reading-a-scientific-paper"/>, providing opportunities to build skills in reading and understanding scientific articles. Worth noting is that mathematical biology articles do not necessarily have the same sections described in <xref ref="ch-tips-on-reading-a-scientific-paper"/>. They typically have an Abstract, and they may have an Introduction, as well as Discussion and/or Conclusion. They often do not label sections as Methods or Results, but as you read, you will find descriptions of how models were constructed and what researchers found in those models. All in all: there is a wide range of writing styles, yet the framing of <xref ref="ch-tips-on-reading-a-scientific-paper"/> will help you characterize the information in each article.
+   </p>
+
+ </introduction>
+
+
+  <section>
+  <title>Compartmental Models for Diseases</title>
+
+  <p>
+    Varicella is also known as chickenpox. <xref ref="activity-varicella-example-with-vaccination" /> describes a 2016 outbreak and the biological info about varicella that we need to help build a model. In addition, this activity asks students to use Google Colab or some other form of Python, in order to  read in a data set provided externally. Instructions for how to do this are provided.
+  </p>
+
+</section>
+
+
+ <section>
+  <title>Compartmental Models for Applications Other Than Diseases</title>
+
+  <p>
+    <em>Forecasting elections using compartmental models of infection</em>, from 2018, is <url href="https://arxiv.org/abs/1811.01831">freely available on the arXiv.</url> The authors are Alexandria Volkening, Daniel F. Linder, Mason A. Porter, and Grzegorz A. Rempala. The article discusses election forecasts for 2012, 2016, and 2018. The website <url href="https://modelingelectiondynamics.gitlab.io/2020-forecasts/index.html">2020 U.S. Election Forecasts with a Compartmental Model</url> shows later results from the same research group.
+  </p>
+
+</section>
+
+
+</chapter>
