@@ -7,11 +7,11 @@
      </p>
    
     <p>
-    The goal for this chapter is to show many more directions in which researchers have taken compartmental models. This chapter provides sample articles and brief summaries for a variety of compartmental modeling studies. Articles that are freely available are marked accordingly; other articles may have a paywall.
+    The goal for this chapter is to show yet more directions in which researchers have taken compartmental models. This chapter provides sample articles and brief summaries for a variety of compartmental modeling studies. Each article includes a note stating whether and how the article is freely available, or if the article is behind a paywall.
    </p>
 
    <p>
-    There are many ways to use this chapter. One is to skim to get a sense of what exists. Another is to use these articles for a deeper reading and discussion of the options available using compartmental models. A third is to assign these articles as class projects, for students to dig in, learn the details of what others have done, and present the main ideas to each other or write about these main ideas.
+    There are many ways to use this chapter. One is to skim to get a sense of what exists. Another is to use these articles for a deeper reading and discussion of the options available using compartmental models. A third is to assign these articles as class projects, for students to dig in, learn the details of what others have done, and present the main ideas to each other or write about these main ideas. As with so much of modeling: there are more possibilities beyond these.
    </p>
 
    <p>
@@ -24,9 +24,20 @@
   <section>
   <title>Compartmental Models for Diseases</title>
 
-  <p>
-    Varicella is also known as chickenpox. <xref ref="activity-varicella-example-with-vaccination" /> describes a 2016 outbreak and the biological info about varicella that we need to help build a model. In addition, this activity asks students to use Google Colab or some other form of Python, in order to  read in a data set provided externally. Instructions for how to do this are provided.
-  </p>
+  <subsection>
+    <title>Legionnaires' Disease</title>
+    <p>
+      Article: <em>Using mathematical modeling to study the dynamics of Legionnaires’
+      disease and consider management options</em>, from 2025. The authors are Mark Z. Wang, Christina J. Edholm, and Lihong Zhao. 
+    </p>
+    <p>
+      Availability: <url href="https://www.aimspress.com/article/10.3934/mbe.2025045">free from AIMS Press.</url> 
+    </p>
+    <p>
+      More information: Legionnaires' Disease is caused by <em>Legionella</em> bacteria in the water supply. As a result, this paper provides an example of a model with a bacteria compartment that interacts with the compartments showing human population. 
+    </p>
+
+  </subsection>
 
 </section>
 
@@ -34,9 +45,41 @@
  <section>
   <title>Compartmental Models for Applications Other Than Diseases</title>
 
-  <p>
-    <em>Forecasting elections using compartmental models of infection</em>, from 2018, is <url href="https://arxiv.org/abs/1811.01831">freely available on the arXiv.</url> The authors are Alexandria Volkening, Daniel F. Linder, Mason A. Porter, and Grzegorz A. Rempala. The article discusses election forecasts for 2012, 2016, and 2018. The website <url href="https://modelingelectiondynamics.gitlab.io/2020-forecasts/index.html">2020 U.S. Election Forecasts with a Compartmental Model</url> shows later results from the same research group.
-  </p>
+  <subsection>
+    <title>Elections</title>
+    <p>
+      Article: <em>Forecasting elections using compartmental models of infection</em>, from 2018. The authors are Alexandria Volkening, Daniel F. Linder, Mason A. Porter, and Grzegorz A. Rempala. 
+    </p>
+    <p>
+      Availability: <url href="https://arxiv.org/abs/1811.01831">free on the arXiv.</url> 
+    </p>
+    <p>
+      More information: The article discusses election forecasts for 2012, 2016, and 2018. Later results from the same research group appear on the website <url href="https://modelingelectiondynamics.gitlab.io/2020-forecasts/index.html">2020 U.S. Election Forecasts with a Compartmental Model.</url>
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title>Bumblebees and Pollination</title>
+    
+    <p>
+      Article: <em>Bumble bee pollination and the wildflower/crop trade-off: When do
+        wildflower enhancements improve crop yield?</em>, from 2023. The authors are Bruno S. Carturan, Nourridine Siewe, Christina A. Cobbold, and Rebecca C. Tyson. 
+    </p>
+    <p>
+      Availability: for a fee through the publisher Elsevier, but may be available for free by searching the title at <url href="https://scholar.google.com/">Google Scholar.</url>
+    </p>
+    <p>
+      More information: The compartmental diagram for this model shows different classes of bees along with their resources, separated into within-nest dynamics and wider landscape dynamics. 
+    </p>
+    <p>
+    </p>
+    <p>
+    </p>
+
+  </subsection>
+
+  
 
 </section>
 
