@@ -422,7 +422,7 @@
       <title>Residual Sum of Squares: Quickly Comparing Multiple Parameter Values</title>
 
       <p>
-        As we saw in <xref ref="sec-residual-sum-of-squares-introduction"/>, we can compare a model with data by trying different parameter values, such as by allowing <m>\beta</m> to take on different values. In the Python code block within <xref ref="activity-rss-intro"/>, for every value of <m>\beta</m> we wanted to try, we had to change the value of <m>\beta</m> within the code and run the code again. Next, we wrap another <c>for</c> loop around the RSS <c>for</c> loop, so that we can test multiple values of <m>\beta</m> with one click of the <c>Evaluate</c> button.
+        As we saw in <xref ref="sec-residual-sum-of-squares-introductory-example"/>, we can compare a model with data by trying different parameter values, such as by allowing <m>\beta</m> to take on different values. In the Python code block within <xref ref="activity-rss-intro"/>, for every value of <m>\beta</m> we wanted to try, we had to change the value of <m>\beta</m> within the code and run the code again. Next, we wrap another <c>for</c> loop around the RSS <c>for</c> loop, so that we can test multiple values of <m>\beta</m> with one click of the <c>Evaluate</c> button.
       </p>
 
       <activity xml:id="activity-rss-beta-loop">
