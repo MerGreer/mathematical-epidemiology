@@ -90,7 +90,7 @@
         <task>
           <statement>
             <p>
-              Copy the graph from the Python output, either drawing it by hand or creating a screenshot. 
+              Copy the graph from the Python output: draw it by hand or print it out if you prefer a paper copy, or create a digital version you can edit, such as a screenshot. 
             </p>
             <ol>
               <li>
@@ -213,10 +213,10 @@
         <activity xml:id="activity-rss-intro">
           <statement>
             <p>
-              In <xref ref="expl-RSS"/> we worked with both a data set, and model output, for times <m>t=0, 1, 2, 3, 4, 5, 6</m>. The data values and model output appear in <xref ref="table-si-model-data-values-and-model-output"/>, with model output rounded to two decimal places. 
+              In <xref ref="expl-RSS"/> we worked with both a data set, and model output, for the Infectious population <m>I(t)</m> at times <m>t=0, 1, 2, 3, 4, 5, 6</m>. The data values and model output appear in <xref ref="table-si-model-data-values-and-model-output"/>, with model output rounded to two decimal places. 
             </p>
             <table xml:id="table-si-model-data-values-and-model-output">
-              <title>SI Model: Data Values and Model Output</title>
+              <title>SI Model: Data Values and Model Output for <m>I(t)</m></title>
               <tabular halign="center">
                 <row header="yes">
                   <cell>Time </cell>
@@ -271,7 +271,7 @@
               </li>
               <li>
                 <p>
-                  Next, read the code block below to identify where in the code, and how, we subtract each Model Output from its corresponding Data Value. Also identify where and how the code adds up all the squared differences to produce a total value for RSS.
+                  Next, read the code block below to identify where in the code, and how, we subtract each Model Output from its corresponding Data Value. State where and how this happens. Also identify and state where and how the code adds up all the squared differences to produce a total value for RSS.
                 </p>
                 <sage>
                   <input>
@@ -391,28 +391,32 @@
         <p>
           To start, consider <xref ref="fig-RSS-example-1"/>. This figure visualizes the subtraction you did in Step 1 of <xref ref="activity-rss-intro"/>, and that the code did in line 25. Each subtraction takes the form of a purple vertical line.
         </p>
-        <p>
-          Take some time to think through distances and their squares. One outcome of squaring each distance is that we can write code in which the subtraction always occurs in the same order: our code starts with the Data Value and subtracts the Model Output. The result of this subtraction may have either a positive or negative value (or zero), but when we square the result, we can get only a positive value (or zero). When we later add together all the squared differences, each vertical distance contributes in a positive way to the sum.
-        </p>
-        <p>
-          Another aspect of squaring the distances is that the squaring function grows in an increasing way. This means that larger distances contribute more and more to the sum that is our RSS value. We can draw this by thinking about the function <m>y=x</m> as compared with the function <m>y=x^2</m>. As the distances themselves (or, really, their absolute values) increase in a linear way, along the line <m>y=x</m>, their squares increase quadratically, along the curve <m>y=x^2</m>. As a result, larger distances can contribute to a vastly increased RSS value.
-        </p>
-
-
-
         <figure width="90%" xml:id="fig-RSS-example-1">
           <caption>Graph showing distances between Data Values and Model Output for the SI model from Exploration 10.1, using <m>\beta = 0.03</m></caption>
           <image source="fig-RSS-example-1.png" width="80%">
             <description>This graph shows Data Values as orange dots and Model Output as a smooth curve. The graph also shows the distances between Data Values and Model Output, at times <m>t=0, 1, 2, 3, 4, 5, 6,</m> for the SI model from Exploration 10.1, using <m>\beta = 0.03</m>.</description>
           </image> 
         </figure>
-
+        <p>
+          Take some time to think through distances and their squares. One outcome of squaring each distance is that we can write code in which the subtraction always occurs in the same order, without concern for whether the result may be negative. Our code starts with the Data Value and subtracts the Model Output, but either order can be used. The result of this subtraction may have either a positive or negative value (or zero), yet when we square the result, we can get only a positive value (or zero). When we later add together all the squared differences, each vertical distance contributes in a positive way to the sum.
+        </p>
+        <p>
+          Another aspect of squaring the distances is that a squaring function grows in an increasing way. This means that larger distances contribute more and more to the sum that is our RSS value. We can draw this by thinking about the function <m>y=x</m> as compared with the function <m>y=x^2</m>. As the distances themselves (or, really, their absolute values) increase in a linear way along the line <m>y=x</m>, their squares increase quadratically along the curve <m>y=x^2</m>. As a result, larger distances can contribute to a vastly increased RSS value.
+        </p>
+        <p>
+          Notice in <xref ref="fig-RSS-example-2"/> that the vertical distances tend to be smaller than those in <xref ref="fig-RSS-example-1"/>. Previously, such as in <xref ref="ch-visualization-graphing-model-results-and-data"/>, we worked visually to bring the model simulation closer to our data points. Now, we create a formula to do this.
+        </p>
+     
         <figure width="90%" xml:id="fig-RSS-example-2">
           <caption>Graph showing distances between Data Values and Model Output for the SI model from Exploration 10.1, using <m>\beta = 0.023</m></caption>
           <image source="fig-RSS-example-2.png" width="80%">
             <description>This graph shows Data Values as orange dots and Model Output as a smooth curve. The graph also shows the distances between Data Values and Model Output, at times <m>t=0, 1, 2, 3, 4, 5, 6,</m> for the SI model from Exploration 10.1, using <m>\beta = 0.023</m>.</description>
           </image>
         </figure>
+
+        <p>
+          
+        </p>
 
         
       
