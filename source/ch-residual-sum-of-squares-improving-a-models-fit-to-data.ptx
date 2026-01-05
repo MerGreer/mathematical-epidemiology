@@ -398,13 +398,13 @@
           </image> 
         </figure>
         <p>
-          Take some time to think through distances and their squares. One outcome of squaring each distance is that we can write code in which the subtraction always occurs in the same order, without concern for whether the result may be negative. Our code starts with the Data Value and subtracts the Model Output, but either order can be used. The result of this subtraction may have either a positive or negative value (or zero), yet when we square the result, we can get only a positive value (or zero). When we later add together all the squared differences, each vertical distance contributes in a positive way to the sum.
+          Take some time to think through distances and their squares. One outcome of squaring each distance is that we can write code in which the subtraction always occurs in the same order, without concern for whether the result may be negative. Our code starts with the Data Value and subtracts the Model Output, but either order can be used. The result of this subtraction may have either a positive or negative value (or zero), yet when we square the result, we can get only a positive value (or zero). When we later add together all the squared differences, each vertical distance contributes in a positive way (or zero) to the sum.
         </p>
         <p>
           Another aspect of squaring the distances is that a squaring function grows in an increasing way. This means that larger distances contribute more and more to the sum that is our RSS value. We can draw this by thinking about the function <m>y=x</m> as compared with the function <m>y=x^2</m>. As the distances themselves (or, really, their absolute values) increase in a linear way along the line <m>y=x</m>, their squares increase quadratically along the curve <m>y=x^2</m>. As a result, larger distances can contribute to a vastly increased RSS value.
         </p>
         <p>
-          Notice in <xref ref="fig-RSS-example-2"/> that the vertical distances tend to be smaller than those in <xref ref="fig-RSS-example-1"/>. Previously, such as in <xref ref="ch-visualization-graphing-model-results-and-data"/>, we worked visually to bring the model simulation closer to our data points. Now, we create a formula to do this.
+          Notice in <xref ref="fig-RSS-example-2"/> that the curve of Model Outputs grows more slowly than in <xref ref="fig-RSS-example-1"/>, and as a result, the vertical distances between Data Values and Model Outputs tend to be smaller. Previously, such as in <xref ref="ch-visualization-graphing-model-results-and-data"/>, we relied only on trial and error with parameter values to bring the model simulation closer to our data points. Now, we develop a formula to both help us bring the model closer to the data and to create a metric by which we can measure that closeness.
         </p>
      
         <figure width="90%" xml:id="fig-RSS-example-2">
@@ -415,10 +415,10 @@
         </figure>
 
         <p>
-          
+          Start by determining the Model Output at each time when we have a corresponding Data Value. In <xref ref="expl-RSS"/>, the Data Values occur at times <m>t=0,1,2,3,4,5,6</m>, so we use Model Output values for each of those times. We also notice that the Data Values and Model Outputs count the same things: the number of current Infectious individuals. 
         </p>
 
-        
+         <!-- Start here, getting to a mathematical formula!! -->
       
     </section>
 
@@ -426,7 +426,7 @@
       <title>Residual Sum of Squares: Quickly Comparing Multiple Parameter Values</title>
 
       <p>
-        As we saw in <xref ref="sec-residual-sum-of-squares-introductory-example"/>, we can compare a model with data by trying different parameter values, such as by allowing <m>\beta</m> to take on different values. In the Python code block within <xref ref="activity-rss-intro"/>, for every value of <m>\beta</m> we wanted to try, we had to change the value of <m>\beta</m> within the code and run the code again. Next, we wrap another <c>for</c> loop around the RSS <c>for</c> loop, so that we can test multiple values of <m>\beta</m> with one click of the <c>Evaluate</c> button.
+        As we saw in <xref ref="sec-residual-sum-of-squares-introductory-example"/>, we can compare a model with data by trying different parameter values, such as by allowing <m>\beta</m> to take on different values. In the Python code block within <xref ref="activity-rss-intro"/>, for every value of <m>\beta</m> we wanted to try, we had to change the value of <m>\beta</m> within the code and run the code again. Here, we instead wrap another <c>for</c> loop around the RSS <c>for</c> loop, so that we can test multiple values of <m>\beta</m> with one click of the <c>Evaluate</c> button.
       </p>
 
       <activity xml:id="activity-rss-beta-loop">
