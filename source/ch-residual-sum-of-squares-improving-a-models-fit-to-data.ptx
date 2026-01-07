@@ -379,8 +379,7 @@
         </activity> 
       
     </section>
-<!-- 
-    Now include a section on how RSS works: sigma notation formula, graph(s) showing distances, etc. -->
+
 
     <section xml:id="sec-underlying-math-rss">
         <title>The Underlying Math of RSS</title>
@@ -389,7 +388,7 @@
           This section first provides a visual demonstration of what we do when computing RSS, and then presents RSS as a mathematical formula. A goal of this book is for you to dive into modeling, often using examples as a first way to understand how you can build and analyze your own models. <xref ref="activity-rss-intro"/> showed RSS in this example-based way. Now, while describing the mathematical approach more formally, we regularly refer back to <xref ref="activity-rss-intro"/>. 
         </p>
         <p>
-          To start, consider <xref ref="fig-RSS-example-1"/>. This figure visualizes the subtraction that you did in Step 1 of <xref ref="activity-rss-intro"/>, and that the Python code did in line 25. Each subtraction takes the form of a purple vertical line.
+          To start, consider <xref ref="fig-RSS-example-1"/>. This figure visualizes the subtraction that you did in Step 1 of <xref ref="activity-rss-intro"/>, and that the Python code did in line 25. Each subtraction takes the form of a purple vertical line. The length of each vertical line is the distance between the Model Output and the Data Value at a specific time <m>t</m>.
         </p>
         <figure width="90%" xml:id="fig-RSS-example-1">
           <caption>Graph showing distances between Data Values and Model Output for the SI model from Exploration 10.1, using <m>\beta = 0.03</m></caption>
@@ -398,13 +397,13 @@
           </image> 
         </figure>
         <p>
-          Take some time to think through our process of squaring the distances. One outcome of squaring each distance is that the results will always be non-negative, that is, either positive or zero. Our code starts with the Data Value and subtracts the Model Output, but we could have written this subtraction in either order because the results after squaring will be the same. When we later add together all the squared differences, each vertical distance (when the distance is not zero) contributes in a positive way to the sum.
+          After computing vertical distances in <xref ref="activity-rss-intro"/>, we then square these distances. Take some time to think through the mathematical outcomes of squaring. One consequence of squaring each distance is that the results will always be non-negative, that is, either positive or zero. Throughout <xref ref="activity-rss-intro"/> we start with the Data Value and subtract the Model Output, but we could have subtracted in either order because the results after squaring are the same. When we later add together all the squared differences, each vertical distance contributes in a positive way to the sum (or keeps the sum the same, if the vertical distance is zero).
         </p>
         <p>
-          Another aspect of squaring the distances is that a squaring function grows in an increasing way. This means that larger distances contribute more and more to the sum that is our RSS value. We can visualize this by thinking about the function  <m>y=x^2</m>. Just as the <m>y</m> values on the graph of <m>y=x^2</m> increase much more rapidly than their corresponding <m>x</m> values, the squares of the distances increase much more rapidly than the distances themselves. The result is that larger distances can contribute to a vastly increased RSS value.  
+          Another aspect of squaring the distances is that a squaring function grows in an increasing way. This means that one large distance has the potential to contribute much more to the RSS value than several smaller distances. We can visualize this by thinking about the function  <m>y=x^2</m>. Just as the <m>y</m> values on the graph of <m>y=x^2</m> increase much more rapidly than their corresponding <m>x</m> values, the squares of the distances increase much more rapidly than the distances themselves. The result is that larger distances can contribute to a vastly increased RSS value.  
         </p>
         <p>
-          Now turn to <xref ref="fig-RSS-example-2"/> and notice that the Data Values are the same as in <xref ref="fig-RSS-example-1"/>, but the curve of Model Outputs grows more slowly. As a result, the vertical distances between Data Values and Model Outputs tend to be smaller. Previously, such as in <xref ref="ch-visualization-graphing-model-results-and-data"/>, we relied only on trial and error to estimate parameter values that would bring the model simulation closer to our data points. Now, we develop a formula to both help us bring the model closer to the data and to create a metric by which we can measure that closeness.
+          Next, turn to <xref ref="fig-RSS-example-2"/> and notice that the Data Values are the same as in <xref ref="fig-RSS-example-1"/>, but the curve of Model Outputs grows more slowly. As a result, the vertical distances between Data Values and Model Outputs tend to be smaller. Previously, such as in <xref ref="ch-visualization-graphing-model-results-and-data"/>, we relied only on trial and error to estimate parameter values that would bring the model simulation closer to our data points. Now, the RSS formula both helps us bring the model closer to the data and provides a metric by which we can measure that closeness.
         </p>
      
         <figure width="90%" xml:id="fig-RSS-example-2">
@@ -415,28 +414,31 @@
         </figure>
 
         <p>
-          Here are the steps for building the formula.
+          Here are the steps for computing RSS for a specific mathematical model, with specific parameter values, in comparison with a particular set of data values.
           
         </p>
         <ol>
           <li>
             <p>
-              Start by determining the Model Output at each time when we have a corresponding Data Value. In <xref ref="expl-RSS"/>, the Data Values occur at times <m>t=0,1,2,3,4,5,6</m>, so we use Model Output values for each of those times. (Notice that the Data Values and Model Outputs count the same things: the number of current Infectious individuals. In some other models, we will need to take additional steps to ensure that the quantities in our model relate directly to the quantities in our data set.)
+              Start by determining the Model Output at each time when we have a corresponding Data Value. In <xref ref="activity-rss-intro"/>, the Data Values occur at times <m>t=0,1,2,3,4,5,6</m>, so we use Model Output values for each of those times. 
+            </p>
+            <p>
+              Notice that the Data Values and Model Outputs count the same things: the number of current Infectious individuals. In some other models, we will need to take additional steps to ensure that the quantities in our model relate directly to the quantities in our data set.
             </p>
           </li>
           <li>
             <p>
-              For each of the times <m>t=0,1,2,3,4,5,6</m>, subtract <m>(\mbox{Data Value at time }t - \mbox{Model Output Value at time }t)</m>.
+              For each time <m>t</m>, subtract <m>(\mbox{Data Value at time }t - \mbox{Model Output Value at time }t)</m>.
             </p>
           </li>
           <li>
             <p>
-              Compute the squares of each value you computed in the previous step. That is, for each of the times <m>t=0,1,2,3,4,5,6</m>, compute <m>(\mbox{Data Value at time }t - \mbox{Model Output Value at time }t)^2</m>.
+              Compute the squares of each value you computed in the previous step. That is, for each time <m>t</m>, compute <m>(\mbox{Data Value at time }t - \mbox{Model Output Value at time }t)^2</m>.
             </p>
           </li>
           <li>
             <p>
-              Add together all the squared values:
+              Add together all the squared values. The example below relates to <xref ref="activity-rss-intro"/>, with Data Values at times <m>t=0,1,2,3,4,5,6</m>. In an example with different time values <m>t</m>, the summation may need to involve numbers other than the integers from <m>0</m> to <m>6</m>:
               <md number="yes">
                 <mrow>\sum_{t=0}^{6} (\mbox{Data Value at time }t - \mbox{Model Output Value at time }t)^2 .</mrow>
               </md>
@@ -444,7 +446,7 @@
           </li>
         </ol>
         <p>
-          This formula has the name Residual Sum of Squares, often written as RSS. For each choice of <m>\beta</m> in our model, we compute the RSS. We then compare values of RSS for different choices of <m>\beta</m>, seeking the smallest RSS value among values of <m>\beta</m> that make sense biologically.
+          This formula allows us to compute RSS for each choice of <m>\beta</m> in our model. We then compare values of RSS for different choices of <m>\beta</m>, seeking the smallest RSS value among values of <m>\beta</m> that make sense biologically.
         </p>
         <p>
           That last sentence deserves extra emphasis: it is crucial that <m>\beta</m> make sense biologically! Many modelers are tempted to minimize the RSS value in any way they can, losing sight of the biological importance of parameter values. We emphasize, throughout this book, that our model parameters have biological meaning, and therefore the values we choose for those parameters need to make real-world sense. 
