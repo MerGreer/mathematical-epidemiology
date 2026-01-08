@@ -292,7 +292,7 @@
 
                     beta = 0.03 #Give beta a value
                     y0 = [49, 1] #Set initial values for Susceptibles and Infectious, in that order
-                    t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, the set the size of the time steps to use when "stepping through" to numerically solve the system of differential equations
+                    t_range = np.arange(0.0, 7.0, 0.1) #Set the time range, the set the size of the time steps to use when "stepping through" to numerically solve the system of differential equations
 
                     sol = odeint(hz, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
 
@@ -385,10 +385,10 @@
         <title>The Underlying Math of RSS</title>
 
         <p>
-          This section first provides a visual demonstration of what we do when computing RSS, and then presents RSS as a mathematical formula. A goal of this book is for you to dive into modeling, often using examples as a first way to understand how you can build and analyze your own models. <xref ref="activity-rss-intro"/> showed RSS in this example-based way. Now, while describing the mathematical approach more formally, we regularly refer back to <xref ref="activity-rss-intro"/>. 
+          This section first provides a visual demonstration of what we do when computing RSS, and then presents RSS as a mathematical formula. A goal of this book is for you to dive into modeling, often using examples as a first way to understand how you can build and analyze your own models. We therefore started with <xref ref="activity-rss-intro"/>, which showed RSS in an example-based way. Now, while describing the mathematical approach more formally, we regularly refer back to <xref ref="activity-rss-intro"/>. 
         </p>
         <p>
-          To start, consider <xref ref="fig-RSS-example-1"/>. This figure visualizes the subtraction that you did in Step 1 of <xref ref="activity-rss-intro"/>, and that the Python code did in line 25. Each subtraction takes the form of a purple vertical line. The length of each vertical line is the distance between the Model Output and the Data Value at a specific time <m>t</m>.
+          Start by considering <xref ref="fig-RSS-example-1"/>, which visualizes the subtraction that you did in Step 1 of <xref ref="activity-rss-intro"/> and that the Python code did in line 25. Each subtraction takes the form of a purple vertical line. The length of each vertical line is the distance between the Model Output and the Data Value at a specific time <m>t</m>.
         </p>
         <figure width="90%" xml:id="fig-RSS-example-1">
           <caption>Graph showing distances between Data Values and Model Output for the SI model from Exploration 10.1, using <m>\beta = 0.03</m></caption>
@@ -400,10 +400,10 @@
           After computing vertical distances in <xref ref="activity-rss-intro"/>, we then square these distances. Take some time to think through the mathematical outcomes of squaring. One consequence of squaring each distance is that the results will always be non-negative, that is, either positive or zero. Throughout <xref ref="activity-rss-intro"/> we start with the Data Value and subtract the Model Output, but we could have subtracted in either order because the results after squaring are the same. When we later add together all the squared differences, each vertical distance contributes in a positive way to the sum (or keeps the sum the same, if the vertical distance is zero).
         </p>
         <p>
-          Another aspect of squaring the distances is that a squaring function grows in an increasing way. This means that one large distance has the potential to contribute much more to the RSS value than several smaller distances. We can visualize this by thinking about the function  <m>y=x^2</m>. Just as the <m>y</m> values on the graph of <m>y=x^2</m> increase much more rapidly than their corresponding <m>x</m> values, the squares of the distances increase much more rapidly than the distances themselves. The result is that larger distances can contribute to a vastly increased RSS value.  
+          Another aspect of squaring the distances is that a squaring function grows in an increasing way. This means that one large distance has the potential to contribute much more to the RSS value than several smaller distances. We can visualize this by thinking about the function  <m>y=x^2</m>. Just as the <m>y</m> values on the graph of <m>y=x^2</m> increase much more rapidly than their corresponding <m>x</m> values, the squares of the distances increase much more rapidly than the distances themselves. The result is that larger distances can contribute to a vastly increased RSS value.   
         </p>
         <p>
-          Next, turn to <xref ref="fig-RSS-example-2"/> and notice that the Data Values are the same as in <xref ref="fig-RSS-example-1"/>, but the curve of Model Outputs grows more slowly. As a result, the vertical distances between Data Values and Model Outputs tend to be smaller. Previously, such as in <xref ref="ch-visualization-graphing-model-results-and-data"/>, we relied only on trial and error to estimate parameter values that would bring the model simulation closer to our data points. Now, the RSS formula both helps us bring the model closer to the data and provides a metric by which we can measure that closeness.
+          Next, turn to <xref ref="fig-RSS-example-2"/> and notice that the Data Values are the same as in <xref ref="fig-RSS-example-1"/>, but the curve of Model Outputs grows more slowly. As a result, the vertical distances between Data Values and Model Outputs tend to be<mdash/>but are not always<mdash/>smaller. Previously, such as in <xref ref="ch-visualization-graphing-model-results-and-data"/>, we relied only on trial and error, along with personal judgment, to estimate parameter values that would bring the model simulation closer to our data points. Now, the RSS formula both helps us bring the model closer to the data and, importantly, provides a metric by which we can measure that closeness.
         </p>
      
         <figure width="90%" xml:id="fig-RSS-example-2">
@@ -438,7 +438,7 @@
           </li>
           <li>
             <p>
-              Add together all the squared values. The example below relates to <xref ref="activity-rss-intro"/>, with Data Values at times <m>t=0,1,2,3,4,5,6</m>. In an example with different time values <m>t</m>, the summation may need to involve numbers other than the integers from <m>0</m> to <m>6</m>:
+              Add together all the squared values. The formula below relates to <xref ref="activity-rss-intro"/>, with Data Values at times <m>t=0,1,2,3,4,5,6</m>. In an example with different time values <m>t</m>, the summation may need to involve numbers other than the integers from <m>0</m> to <m>6</m>:
               <md number="yes">
                 <mrow>\sum_{t=0}^{6} (\mbox{Data Value at time }t - \mbox{Model Output Value at time }t)^2 .</mrow>
               </md>
@@ -465,7 +465,7 @@
       <activity xml:id="activity-rss-beta-loop">
         <statement>
           <p>
-            This Activity focuses on coding, with the goal of comparing RSS values for multiple values of a parameter without having to run Python code separately for every value of that parameter. Instead, read the code in the Python block below, and use what you read to answer the questions that follow.  
+            This Activity focuses on coding, with the goal of comparing RSS values for multiple values of a parameter without having to run Python code separately for every value of that parameter. Start by reading the code in the Python block below, and use what you read to answer the questions that follow.  
           </p>
           <sage>
             <input>
@@ -480,13 +480,12 @@
               
               #Define the system of differential equations, and call it "hz"
               def hz(y, t):
-                s, i, r = y #Define y as consisting of s and i, in that order
-                dydt = [-beta * s * i, beta * s * i - gamma * i, gamma * i] # These are the right-hand sides of the SI model
+                s, i = y #Define y as consisting of s and i, in that order
+                dydt = [-beta * s * i, beta * s * i] # These are the right-hand sides of the SI model
                 return dydt
                 
-              y0 = [49, 1, 0] #Set initial values for Susceptibles, Infectious, and Removed, in that order
-              t_range = np.arange(0.0, 8.0, 0.1) #Set the time range, the set the size of the time steps to use when "stepping through" to numerically solve the system of differential equations
-              gamma = 0.2 #Give a value to gamma
+              y0 = [49, 1] #Set initial values for Susceptibles and Infectious, in that order
+              t_range = np.arange(0.0, 7.0, 0.1) #Set the time range, the set the size of the time steps to use when "stepping through" to numerically solve the system of differential equations
               
               for beta_value in (0.01, 0.02, 0.03, 0.04, 0.05):
                 beta = beta_value
