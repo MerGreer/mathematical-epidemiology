@@ -451,9 +451,9 @@
               Here is one possible graph of the results.
             </p>
             <figure width="90%" xml:id="fig-bates-H1N1-new-cases-and-prevalence">
-              <caption>A graph showing two plots of the H1N1 outbreak at Bates in 2009: (1) new cases vs. time, and (2) prevalence vs. time</caption>
-              <image source="Bates_H1N1_New_Cases_and_Prevalence.png" width="80%">
-                  <description>This is a graph showing two plots of the H1N1 outbreak at Bates in 2009. The first is new cases vs. time. The second is prevalence vs. time.</description>
+              <caption>This is a graph showing two plots of the H1N1 outbreak at Bates College in 2009. The plot in black shows new cases, as reported by Student Health Services. The plot in orange shows estimated prevalence, assuming influenza is infectious for five days. The horizontal axis shows days since the start of the outbreak, starting at Day 0, where Day 0 is October 6, 2009, the first day cases began to be reported.</caption>
+              <image source="Bates_2009_Influenza_5day_Prevalence.png" width="80%">
+                  <description>This is a graph showing two plots of the H1N1 outbreak at Bates College in 2009. The plot in black shows new cases, as reported by Student Health Services. The plot in orange shows estimated prevalence, assuming influenza is infectious for five days. The horizontal axis shows days since the start of the outbreak, starting at Day 0, where Day 0 is October 6, 2009, the first day cases began to be reported.</description>
               </image>
             </figure>
             <p>
