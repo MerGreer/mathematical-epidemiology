@@ -271,8 +271,36 @@
               </li>
               <li>
                 <p>
-                  Next, read the code block below to identify where in the code, and how, we subtract each Model Output from its corresponding Data Value. State where and how this happens. Also identify and state where and how the code adds up all the squared differences to produce a total value for RSS.
+                  Next, read the code block below to identify where in the code, and how, we do each of the following. 
+                  subtract each Model Output from its corresponding Data Value. State where and how this happens. Also identify and state where and how the code adds up all the squared differences to produce a total value for RSS.
                 </p>
+                <ol>
+                  <li>
+                    <p>
+                      The default code computes Model Output at times 0, 0.1, 0.2, 0.3, and so on, until time 6.9. Where and how does the code say to do this?
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      On which line of code do we subtract each Model Output from its corresponding Data Value? Within this line, how do we specify that we seek Model Output at times 0, 1, 2, and so on, but not the Model Output at non-integer times such as 0.3? Why do we need to specify that we seek Model Output only at integer-valued times?
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      When we say to complete a command for <c>x in range(0,7)</c>, which values of <m>x</m> are we specifying? (This is a Python command that you can look up online for more information.)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Line 24 begins with <c>for</c> and then gives three commands. The word <c>for</c> means to complete these commands repeatedly, as many times as specified in Line 24 (and which you answered more about in the question just before this question). What happens in each of the three commands following <c>for</c>? 
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      How does setting <c>RSS = 0</c> in Line 22 relate to the results from <c>RSS = RSS + new_square</c> in Line 27? 
+                    </p>
+                  </li>
+                </ol>
                 <sage>
                   <input>
                     #Import packages
@@ -449,7 +477,7 @@
           This formula allows us to compute RSS for each choice of <m>\beta</m> in our model. We then compare values of RSS for different choices of <m>\beta</m>, seeking the smallest RSS value among values of <m>\beta</m> that make sense biologically.
         </p>
         <p>
-          That last sentence deserves extra emphasis: it is crucial that <m>\beta</m> make sense biologically! Many modelers are tempted to minimize the RSS value in any way they can, losing sight of the biological importance of parameter values. We emphasize, throughout this book, that our model parameters have biological meaning, and therefore the values we choose for those parameters need to make real-world sense. 
+          That last sentence deserves extra emphasis: it is crucial that <m>\beta</m> make sense biologically! Many modelers are tempted to minimize the RSS value in any way they can, losing sight of the biological importance of parameter values. We emphasize, throughout this book, that our model parameters have biological meaning, and therefore the values we choose for those parameters need to make real-world sense. In <xref ref="sec-influenza-data-and-rss"/>, we discuss parameter values, RSS, and biological meaning in the context of influenza data.
         </p>
 
       
@@ -459,7 +487,7 @@
       <title>Residual Sum of Squares: Quickly Comparing Multiple Parameter Values</title>
 
       <p>
-        As we saw in <xref ref="sec-residual-sum-of-squares-introductory-example"/>, we can compare a model with data by trying different parameter values, such as by allowing <m>\beta</m> to take on different values. In the Python code block within <xref ref="activity-rss-intro"/>, for every value of <m>\beta</m> we wanted to try, we had to change the value of <m>\beta</m> within the code and run the code again. Here, we instead wrap another <c>for</c> loop around the RSS <c>for</c> loop, so that we can test multiple values of <m>\beta</m> with one click of the <c>Evaluate</c> button.
+        As we saw in <xref ref="sec-residual-sum-of-squares-introductory-example"/>, we can bring model simulations closer to a data set by trying different parameter values, such as by allowing <m>\beta</m> to take on different values. In the Python code block within <xref ref="activity-rss-intro"/>, for every value of <m>\beta</m> we wanted to try, we had to change the value of <m>\beta</m> within the code and run the code again. Here, we instead wrap another <c>for</c> loop around the RSS <c>for</c> loop, so that we can test multiple values of <m>\beta</m> with one click of the <c>Evaluate</c> button.
       </p>
 
       <activity xml:id="activity-rss-beta-loop">
