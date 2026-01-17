@@ -271,28 +271,27 @@
               </li>
               <li>
                 <p>
-                  Next, read the code block below to identify where in the code, and how, we do each of the following. 
-                  subtract each Model Output from its corresponding Data Value. State where and how this happens. Also identify and state where and how the code adds up all the squared differences to produce a total value for RSS.
+                  Read the code block below to identify where in the code, and how, we do each of the following. You may find it helpful to look up some of the Python commands online to better understand the details of what they do. Printing more output is another way to build understanding: you can include commands such as <c>print(sol)</c> or <c>print(t_range)</c> near the bottom of the Python code block to be sure you understand the structures of <c>sol</c>, <c>t_range</c>, or other quantities.
                 </p>
                 <ol>
                   <li>
                     <p>
-                      The default code computes Model Output at times 0, 0.1, 0.2, 0.3, and so on, until time 6.9. Where and how does the code say to do this?
+                      The default code computes the numbers of Susceptibles and the numbers of Infectious at times 0, 0.1, 0.2, 0.3, and so on, until time 6.9. Where and how does the code say to do this?
                     </p>
                   </li>
                   <li>
                     <p>
-                      On which line of code do we subtract each Model Output from its corresponding Data Value? Within this line, how do we specify that we seek Model Output at times 0, 1, 2, and so on, but not the Model Output at non-integer times such as 0.3? Why do we need to specify that we seek Model Output only at integer-valued times?
+                      On which line of code do we subtract each Model Output from its corresponding Data Value and then square the result? Within this line, how do we specify that we seek Model Output at times 0, 1, 2, and so on, but not the Model Output at non-integer times such as 0.3? Why do we need to specify that we seek Model Output only at integer-valued times?
                     </p>
                   </li>
                   <li>
                     <p>
-                      When we say to complete a command for <c>x in range(0,7)</c>, which values of <m>x</m> are we specifying? (This is a Python command that you can look up online for more information.)
+                      When we say to complete a command for <c>x in range(0,7)</c>, which values of <m>x</m> are we specifying? 
                     </p>
                   </li>
                   <li>
                     <p>
-                      Line 24 begins with <c>for</c> and then gives three commands. The word <c>for</c> means to complete these commands repeatedly, as many times as specified in Line 24 (and which you answered more about in the question just before this question). What happens in each of the three commands following <c>for</c>? 
+                      Line 24 begins with <c>for</c> and then, in Lines 25, 26, and 27, gives three commands. The word <c>for</c> means to complete these commands repeatedly, as many times as specified in the <c>x in range(0,7)</c> command you focused on in part (c) above. What happens in each of the three commands following <c>for</c>? 
                     </p>
                   </li>
                   <li>
@@ -340,7 +339,7 @@
               </li>
               <li>
                 <p>
-                  Then run the code block. Compare its results with your results for <m>t=1</m> and <m>t=2</m> in part (1) of this Activity. Describe how the results are similar and how they are different, and provide an explanation for why they are not identical. 
+                  Run the code block. Compare its results with your results for <m>t=1</m> and <m>t=2</m> in part (1) of this Activity. Describe how the results are similar and how they are different, and provide an explanation for why they are not identical. 
                 </p>
                 <p>
                   Then examine all the results from the code, including the total value for RSS for this model with this data set. State at least two of your observations.
@@ -364,6 +363,13 @@
                 </p>
               </li>
               <li>
+                <ol>
+                  <li>
+                    <p>
+                      Line 20 tells Python to compute <c>sol</c>, which is the array of values of Susceptibles and Infectious at all times in <c>t_range</c>. Line 18 establishes <c>t_range</c> as the times from 0.0 to 6.9 using the command <c>t_range = np.arange(0.0, 7.0, 0.1)</c>. Here, <c>np.arange(0.0, 7.0, 0.1)</c> indicates that the range of time values in <c>t_range</c> should start at time 0.0 and end at time 7.0, moving in time increments of 0.1. This means we compute solutions at times 0.0, 0.1, 0.2, and so on, with the last solutions computed at time 6.9. To see the values in <c>t_range</c>, you can run the Python block with the added command <c>print(t_range)</c>. 
+                    </p>
+                  </li>
+                </ol>
                 <p>
                   In line 25, the code <c>I_data[x] - sol[10*x, 1]</c> starts with the data value given in line 8 by <c>I_data[x]</c> and subtracts the model value given by <c>sol[10*x, 1]</c>. 
                 </p>
@@ -375,9 +381,6 @@
                 </p>
                 <p>
                   The code <c>sol[10*x, 1]</c> examines Python's list of model solutions, which we have named <c>sol</c> in line 20. To see the full list <c>sol</c>, try adding a new line of code at the end of the Python block, and in that line, type <c>print(sol)</c>. Running the Python block with the <c>print(sol)</c> command shows that the list <c>sol</c> is arranged into rows and columns. Each row shows the value of both <m>S(t)</m> and <m>I(t)</m> at a specific time value. The initial column, which Python labels column <c>0</c>, shows the values of <m>S(t)</m> at all times we computed. The next column, which Python labels column <c>1</c>, shows the values of <m>I(t)</m> at all times we computed. 
-                </p>
-                <p>
-                  The times for which we compute solutions are determined by the command <c>t_range = np.arange(0.0, 8.0, 0.1)</c> in line 18. This command says to compute solutions starting at time 0.0, and ending at time 8.0, moving in time increments of 0.1. This means we compute solutions at times 0.0, 0.1, 0.2, and so on, with the last solutions computed at time 7.9. To see the values in <c>t_range</c>, you can add a new line of code: <c>print(t_range)</c>. Running the Python block with the command <c>print(t_range)</c> shows the list of all <c>t_range</c> values. 
                 </p>
               </li>
               <li>
