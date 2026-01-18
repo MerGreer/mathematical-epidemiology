@@ -366,13 +366,24 @@
                 <ol>
                   <li>
                     <p>
-                      Line 20 tells Python to compute <c>sol</c>, which is the array of values of Susceptibles and Infectious at all times in <c>t_range</c>. Line 18 establishes <c>t_range</c> as the times from 0.0 to 6.9 using the command <c>t_range = np.arange(0.0, 7.0, 0.1)</c>. Here, <c>np.arange(0.0, 7.0, 0.1)</c> indicates that the range of time values in <c>t_range</c> should start at time 0.0 and end at time 7.0, moving in time increments of 0.1. This means we compute solutions at times 0.0, 0.1, 0.2, and so on, with the last solutions computed at time 6.9. To see the values in <c>t_range</c>, you can run the Python block with the added command <c>print(t_range)</c>. 
+                      Line 20 tells Python to compute <c>sol</c>, which is the array of values of Susceptibles and Infectious at all times in <c>t_range</c>. Line 18 establishes <c>t_range</c> as the times from 0.0 to 6.9 using the command <c>t_range = np.arange(0.0, 7.0, 0.1)</c>. Here, <c>np.arange(0.0, 7.0, 0.1)</c> indicates that the range of time values in <c>t_range</c> should start at time 0.0 and end at time 7.0, moving in time increments of 0.1. This means we compute solutions at times 0.0, 0.1, 0.2, and so on, with the last solutions computed at time 6.9. To see the values in <c>t_range</c>, you can run the Python block with the added command <c>print(t_range)</c>. (We discussed these commands in <xref ref="exer-first-odeint-code"/> and are refreshing our memory on them here.)
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      In line 25, the code <c>I_data[x] - sol[10*x, 1]</c> starts with the Data Value given in line 8 by <c>I_data[x]</c> and subtracts the Model Output given by <c>sol[10*x, 1]</c>.
+                    </p>
+                    <p>
+                      We multiply <c>x</c> by <c>10</c> when writing <c>sol[10*x, 1]</c> so that we select Model Output values only at integer-valued time steps. Recall that the array <c>sol</c> contains Model Output for <m>S(t)</m> and <m>I(t)</m> for <m>t=0.0, 0.1, 0.2, 0.3, ..., 6.9</m>. We select Model Output at times <m>t=0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0</m> to correspond to the times at which Data Values exist for comparison. Since <c>x</c> takes on values from <m>0.0</m> to <m>6.9</m>, and since Python counts starting at <m>0</m>, then <c>sol[10*0, 1]</c> tells us the Model Output at time <m>0</m>, <c>sol[10*1, 1]</c> tells us the Model Output at time <m>1</m>, and so on, until <c>sol[10*6, 1]</c> tells us the Model Output at time <m>6</m>, where <m>6</m> is the last time for which we have a Data Value. 
+                      REDO THIS, putting it with the commands in the FOR loop, so that it comes after the question about the range command
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      The command <c>x in range(0,7)</c> specifies the values <m>x=0,1,2,3,4,5,6</m>. In general, Python begins with, and includes, the first number in a <c>range</c> command, and then stops at, but does not include, the last number in the <c>range</c> command. This is why <m>0</m> is included, but <m>7</m> is not. To see the values in <c>range(0,7)</c>, you can run the Python block with the added command <c>for x in range(0,7):</c> followed by the line <c>print(x)</c>. The second line needs to be indented.
                     </p>
                   </li>
                 </ol>
-                <p>
-                  In line 25, the code <c>I_data[x] - sol[10*x, 1]</c> starts with the data value given in line 8 by <c>I_data[x]</c> and subtracts the model value given by <c>sol[10*x, 1]</c>. 
-                </p>
                 <p>
                   The <c>x</c> in <c>I_data[x]</c> is determined by the range of <c>x</c> values shown in line 24: <c>range(0,7)</c> tells Python to allow <c>x</c> to equal 0, 1, 2, 3, 4, 5, and 6. Python ranges do not include the last number shown, so 7 is not included in <c>range(0,7)</c>. 
                 </p>
