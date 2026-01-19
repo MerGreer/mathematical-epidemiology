@@ -281,22 +281,17 @@
                   </li>
                   <li>
                     <p>
-                      On which line of code do we subtract each Model Output from its corresponding Data Value and then square the result? Within this line, how do we specify that we seek Model Output at times 0, 1, 2, and so on, but not the Model Output at non-integer times such as 0.3? Why do we need to specify that we seek Model Output only at integer-valued times?
-                    </p>
-                  </li>
-                  <li>
-                    <p>
                       When we say to complete a command for <c>x in range(0,7)</c>, which values of <m>x</m> are we specifying? 
                     </p>
                   </li>
                   <li>
                     <p>
-                      Line 24 begins with <c>for</c> and then, in Lines 25, 26, and 27, gives three commands. The word <c>for</c> means to complete these commands repeatedly, as many times as specified in the <c>x in range(0,7)</c> command you focused on in part (c) above. What happens in each of the three commands following <c>for</c>? 
+                      Line 24 begins with <c>for</c> and then, in lines 25, 26, and 27, gives three commands. The word <c>for</c> means to complete these commands repeatedly, as many times as specified in the <c>x in range(0,7)</c> command you focused on in part (b) above. What happens in each of the three commands following <c>for</c>? For line 27, connect your answer back to the command <c>RSS = 0</c> in line 22. 
                     </p>
                   </li>
                   <li>
                     <p>
-                      How does setting <c>RSS = 0</c> in Line 22 relate to the results from <c>RSS = RSS + new_square</c> in Line 27? 
+                      Within line 25, how do we specify that we seek Model Output at times 0, 1, 2, and so on, but not the Model Output at non-integer times such as 0.3? Why do we need to specify that we seek Model Output only at integer-valued times? 
                     </p>
                   </li>
                 </ol>
@@ -371,28 +366,26 @@
                   </li>
                   <li>
                     <p>
-                      In line 25, the code <c>I_data[x] - sol[10*x, 1]</c> starts with the Data Value given in line 8 by <c>I_data[x]</c> and subtracts the Model Output given by <c>sol[10*x, 1]</c>.
-                    </p>
-                    <p>
-                      We multiply <c>x</c> by <c>10</c> when writing <c>sol[10*x, 1]</c> so that we select Model Output values only at integer-valued time steps. Recall that the array <c>sol</c> contains Model Output for <m>S(t)</m> and <m>I(t)</m> for <m>t=0.0, 0.1, 0.2, 0.3, ..., 6.9</m>. We select Model Output at times <m>t=0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0</m> to correspond to the times at which Data Values exist for comparison. Since <c>x</c> takes on values from <m>0.0</m> to <m>6.9</m>, and since Python counts starting at <m>0</m>, then <c>sol[10*0, 1]</c> tells us the Model Output at time <m>0</m>, <c>sol[10*1, 1]</c> tells us the Model Output at time <m>1</m>, and so on, until <c>sol[10*6, 1]</c> tells us the Model Output at time <m>6</m>, where <m>6</m> is the last time for which we have a Data Value. 
-                      REDO THIS, putting it with the commands in the FOR loop, so that it comes after the question about the range command
+                      The command <c>x in range(0,7)</c> specifies the values <m>x=0,1,2,3,4,5,6</m>. In general, Python begins with, and includes, the first number in a <c>range</c> command, and then stops at, but does not include, the last number in the <c>range</c> command. This is why <m>0</m> is included, but <m>7</m> is not. To see the values in <c>range(0,7)</c>, you can run the Python block with the added command <c>for x in range(0,7):</c> followed by the line <c>print(x)</c>. The second line needs to be indented.
                     </p>
                   </li>
                   <li>
                     <p>
-                      The command <c>x in range(0,7)</c> specifies the values <m>x=0,1,2,3,4,5,6</m>. In general, Python begins with, and includes, the first number in a <c>range</c> command, and then stops at, but does not include, the last number in the <c>range</c> command. This is why <m>0</m> is included, but <m>7</m> is not. To see the values in <c>range(0,7)</c>, you can run the Python block with the added command <c>for x in range(0,7):</c> followed by the line <c>print(x)</c>. The second line needs to be indented.
+                      The command in line 25 starts with the Data Value given in line 8 by <c>I_data[x]</c> and subtracts the Model Output given by <c>sol[10*x, 1]</c>.
+                    </p>
+                    <p>
+                      The command in line 26 prints the squared distance computed in line 25. Printing pieces of output can help us make sure the code is doing what we expect and want it to do.
+                    </p>
+                    <p>
+                      The command in line 27 updates the RSS value, always adding in the new squared distance. Earlier in the code, in line 22, we set the value of RSS to 0. This makes certain that we always being with <m>RSS=0</m> and add only the squared distances for our current comparison of Data Values with Model Outputs.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      We select Model Output values only at integer-valued time steps by multiplying <c>x</c> by <c>10</c> when writing <c>sol[10*x, 1]</c>. Recall that the array <c>sol</c> contains Model Output for <m>S(t)</m> and <m>I(t)</m> for <m>t=0.0, 0.1, 0.2, 0.3, ..., 6.9</m>. We select Model Output at times <m>t=0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0</m> to correspond to the times at which Data Values exist for comparison. Since <c>x</c> takes on values from <m>0.0</m> to <m>6.9</m>, and since Python counts starting at <m>0</m>, then <c>sol[10*0, 1]</c> tells us the Model Output at time <m>0</m>, <c>sol[10*1, 1]</c> tells us the Model Output at time <m>1</m>, and so on, until <c>sol[10*6, 1]</c> tells us the Model Output at time <m>6</m>, where <m>6</m> is the last time for which we have a Data Value. 
                     </p>
                   </li>
                 </ol>
-                <p>
-                  The <c>x</c> in <c>I_data[x]</c> is determined by the range of <c>x</c> values shown in line 24: <c>range(0,7)</c> tells Python to allow <c>x</c> to equal 0, 1, 2, 3, 4, 5, and 6. Python ranges do not include the last number shown, so 7 is not included in <c>range(0,7)</c>. 
-                </p>
-                <p>
-                  When <c>x</c> equals 0, <c>I_data[0]</c> equals the initial value of the <c>I_data</c> list in line 8, that is, <c>I_data[0]</c> equals 1. Then <c>I_data[1]</c> equals 2, <c>I_data[2]</c> equals 4, and so on, continuing until <c>I_data[6]</c> equals 50.
-                </p>
-                <p>
-                  The code <c>sol[10*x, 1]</c> examines Python's list of model solutions, which we have named <c>sol</c> in line 20. To see the full list <c>sol</c>, try adding a new line of code at the end of the Python block, and in that line, type <c>print(sol)</c>. Running the Python block with the <c>print(sol)</c> command shows that the list <c>sol</c> is arranged into rows and columns. Each row shows the value of both <m>S(t)</m> and <m>I(t)</m> at a specific time value. The initial column, which Python labels column <c>0</c>, shows the values of <m>S(t)</m> at all times we computed. The next column, which Python labels column <c>1</c>, shows the values of <m>I(t)</m> at all times we computed. 
-                </p>
               </li>
               <li>
                 <p>
