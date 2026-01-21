@@ -529,7 +529,7 @@
                   new_square = (I_data[x] - sol[10*x, 1])**2
                   #print("Squared distance at time", x, "=", new_square)
                   RSS = RSS + new_square
-                print("RSS when beta equals", round(beta,4), ":", round(RSS,4))
+                print("When beta =", round(beta,4), ", RSS =", round(RSS,4))
             </input>
             <output>
               
@@ -538,7 +538,22 @@
           <ol>
             <li>
               <p>
-                Describe how we gave a value to <m>\beta</m> in <xref ref="activity-rss-intro"/>, compared with how we give values to <m>\beta</m> now in <xref ref="activity-rss-beta-loop"/>. State the lines of code in which <m>\beta</m> is given its values, and compare the commands used to give <m>\beta</m> its values, explaining how each command works.
+                Describe how we gave a value to <m>\beta</m> in the code within <xref ref="activity-rss-intro"/>, compared with how we give values to <m>\beta</m> now in the code for <xref ref="activity-rss-beta-loop"/>. State the lines of code in which <m>\beta</m> is given its values, and compare the commands used to give <m>\beta</m> its values, explaining how each command works.
+              </p>
+            </li>
+            <li>
+              <p>
+                In <xref ref="activity-rss-intro"/> we run the command <c>sol = odeint(hz, y0, t_range)</c> and give <c>RSS</c> its initial value of <m>0</m> outside any <c>for</c> loop. Now, in <xref ref="activity-rss-beta-loop"/>, we run <c>odeint</c> and reset <m>RSS=0</m> inside the new <c>for</c> loop, but before running the inner <c>for</c> loop to compute RSS for a specific value of <m>\beta</m>. Explain the reasoning for where in the code we run <c>odeint</c> and set <m>RSS=0</m>. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Discuss how indenting works for the nested <c>for</c> loops. Python requires correct indenting. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Discuss the commented-out <c>print</c> command in line 25. Why might we choose not to see these results in this code, whereas we wanted to see these results in <xref ref="activity-rss-intro"/>, where this command appeared on line 26? Then discuss the <c>print</c> command in line 27, and explain why the information it shows is especially helpful to us as we cycle through values of <m>\beta</m>.
               </p>
             </li>
           </ol>
@@ -547,15 +562,18 @@
           <ol>
             <li>
               <p>
-                In <xref ref="activity-rss-intro"/> we give <m>\beta</m> just one value, in line 16, by writing <c>beta = 0.03</c>, that is, by naming <m>\beta</m> and using the <c>=</c> sign to assign a value to <m>\beta</m>. The default code gives <m>\beta</m> the value <m>0.03</m>, but we can change this value by changing <m>0.03</m> to a different number.
+                In <xref ref="activity-rss-intro"/> we give <m>\beta</m> just one value, in line 16, by writing <c>beta = 0.03</c>, that is, by naming <m>\beta</m> and using the <c>=</c> sign to assign a value to <m>\beta</m>. The default code gives <m>\beta</m> the value <m>0.03</m>, and we can change this value by changing <m>0.03</m> to a different number.
               </p>
               <p>
-                In <xref ref="activity-rss-beta-loop"/> we 
+                In <xref ref="activity-rss-beta-loop"/> we state in line 19 that we will give <m>\beta</m> the values <m>0.01, 0.02, 0.03, 0.04,</m> and <m>0.05</m>, one at a time. The first time the <c>for</c> loop runs, <m>\beta</m> is given the first of this list of values, that is, <m>\beta = 0.01</m>. Each time the <c>for</c> loop runs, <m>\beta</m> is given the next value, as shown in line 20 of the code. In all, the loop will run five times, once for each value of <m>\beta</m>, and <m>\beta</m> will take on each value one time.
               </p>
             </li>
             <li>
               <p>
-                The  
+                For each value of <m>\beta</m>, we solve the system of differential equations anew. This means we need to recompute the array <c>sol</c> by running <c>odeint</c>, so <c>odeint</c> needs to appear within the <c>for</c> loop that cycles through different values of <m>\beta</m>.  
+              </p>
+              <p>
+                For each value of <m>\beta</m>, we want to compute the RSS value that goes with that value of <m>\beta</m>. To do this, we need to reset so that RSS will start over at a value of <m>0</m> and then add up only the squared differences for that specific value of <m>\beta</m>. This is the reason we include <c>RSS = 0</c> within the <c>for</c> loop that begins on line 19, that is, the <c>for</c> loop that cycles through values of <m>\beta</m>.  
               </p>
             </li>
           </ol>
