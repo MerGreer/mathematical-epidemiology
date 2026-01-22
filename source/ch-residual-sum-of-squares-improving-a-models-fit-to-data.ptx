@@ -543,7 +543,7 @@
             </li>
             <li>
               <p>
-                In <xref ref="activity-rss-intro"/> we run the command <c>sol = odeint(hz, y0, t_range)</c> and give <c>RSS</c> its initial value of <m>0</m> outside any <c>for</c> loop. Now, in <xref ref="activity-rss-beta-loop"/>, we run <c>odeint</c> and reset <m>RSS=0</m> inside the new <c>for</c> loop, but before running the inner <c>for</c> loop to compute RSS for a specific value of <m>\beta</m>. Explain the reasoning for where in the code we run <c>odeint</c> and set <m>RSS=0</m>. 
+                In <xref ref="activity-rss-intro"/> we run the command <c>sol = odeint(hz, y0, t_range)</c> and give <c>RSS</c> its initial value of <m>0</m> outside any <c>for</c> loop. Now, in <xref ref="activity-rss-beta-loop"/>, we run <c>odeint</c> and reset <m>RSS=0</m> inside the new outer <c>for</c> loop, but before running the inner <c>for</c> loop to compute RSS for a specific value of <m>\beta</m>. Explain the reasoning for where in the code we run <c>odeint</c> and set <m>RSS=0</m>. 
               </p>
             </li>
             <li>
@@ -570,10 +570,20 @@
             </li>
             <li>
               <p>
-                For each value of <m>\beta</m>, we solve the system of differential equations anew. This means we need to recompute the array <c>sol</c> by running <c>odeint</c>, so <c>odeint</c> needs to appear within the <c>for</c> loop that cycles through different values of <m>\beta</m>.  
+                For each value of <m>\beta</m>, we use Python to do two things: solve the system of differential equations for that value of <m>\beta</m>, and compute the resulting RSS value comparing our Data Values with the Model Output from the solved differential equations. The outer <c>for</c> loop cycles through different values of <m>\beta</m>. For each, we recompute the array <c>sol</c> by running <c>odeint</c> on line 21, and we reset <c>RSS = 0</c> on line 22. We are then ready to run the inner <c>for</c> loop, starting on line 23, where we compute the specific RSS value for the current value of <m>\beta</m>.   
+              </p>
+            </li>
+            <li>
+              <p>
+                Python syntax requires that we indent the commands within a <c>for</c> loop. Indenting also serves as a visual signal to us, indicating which <c>for</c> loop each command is part of. The commands within the outer <c>for</c> loop, including the first line of the inner <c>for</c> loop,  are indented the same amount. The commands within the inner <c>for</c> loop are indented further. Notice that the <c>print</c> command on line 27 is not as indented as commands on lines 24, 25, and 26. This tells us that line 27 is part of the outer <c>for</c> loop rather than the inner <c>for</c> loop.   
+              </p>
+            </li>
+            <li>
+              <p>
+                The <c>print</c> command from line 25 was especially helpful in <xref ref="activity-rss-intro"/> when we were learning, and perhaps troubleshooting, the code for computing RSS for a specific value of <m>\beta</m>. In <xref ref="activity-rss-intro"/> this print command appeared in line 26, and it showed us the step-by-step squared distances computed in Python that would be added together to produce the total RSS value. We compared some of these squared distances with values we computed by hand, both to make sure Python was doing what we wanted, and to build student understanding of the meaning of the RSS value.  
               </p>
               <p>
-                For each value of <m>\beta</m>, we want to compute the RSS value that goes with that value of <m>\beta</m>. To do this, we need to reset so that RSS will start over at a value of <m>0</m> and then add up only the squared differences for that specific value of <m>\beta</m>. This is the reason we include <c>RSS = 0</c> within the <c>for</c> loop that begins on line 19, that is, the <c>for</c> loop that cycles through values of <m>\beta</m>.  
+                Once we understand how this <c>for</c> loop works when computing RSS, we do not usually need to print all the squared distances. This is the reason why the <c>print</c> command in line 25 of the code for <xref ref="activity-rss-beta-loop"/> is commented out. We can use this code if we want by removing the <c>#</c> at the start of the line, but now we are more focused on seeing the RSS results for each value of <m>\beta</m>. These RSS results appear due to the <c>print</c> command in line 27, and we compare them to determine which <m>\beta</m> values produce the smallest values for RSS.
               </p>
             </li>
           </ol>
