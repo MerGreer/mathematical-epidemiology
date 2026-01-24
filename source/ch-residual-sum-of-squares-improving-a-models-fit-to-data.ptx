@@ -543,7 +543,7 @@
             </li>
             <li>
               <p>
-                In <xref ref="activity-rss-intro"/> we run the command <c>sol = odeint(hz, y0, t_range)</c> and give <c>RSS</c> its initial value of <m>0</m> outside any <c>for</c> loop. Now, in <xref ref="activity-rss-beta-loop"/>, we run <c>odeint</c> and reset <m>RSS=0</m> inside the new outer <c>for</c> loop, but before running the inner <c>for</c> loop to compute RSS for a specific value of <m>\beta</m>. Explain the reasoning for where in the code we run <c>odeint</c> and set <m>RSS=0</m>. 
+                In <xref ref="activity-rss-intro"/> we run the command <c>sol = odeint(hz, y0, t_range)</c> and give RSS its initial value of <m>0</m> outside any <c>for</c> loop. Now, in <xref ref="activity-rss-beta-loop"/>, we run <c>odeint</c> and reset <c>RSS = 0</c> inside the new outer <c>for</c> loop, but before running the inner <c>for</c> loop to compute RSS for a specific value of <m>\beta</m>. Explain the reasoning for where in the code we run <c>odeint</c> and set <c>RSS=0</c>. 
               </p>
             </li>
             <li>
@@ -565,12 +565,12 @@
                 In <xref ref="activity-rss-intro"/> we give <m>\beta</m> just one value, in line 16, by writing <c>beta = 0.03</c>, that is, by naming <m>\beta</m> and using the <c>=</c> sign to assign a value to <m>\beta</m>. The default code gives <m>\beta</m> the value <m>0.03</m>, and we can change this value by changing <m>0.03</m> to a different number.
               </p>
               <p>
-                In <xref ref="activity-rss-beta-loop"/> we state in line 19 that we will give <m>\beta</m> the values <m>0.01, 0.02, 0.03, 0.04,</m> and <m>0.05</m>, one at a time. The first time the <c>for</c> loop runs, <m>\beta</m> is given the first of this list of values, that is, <m>\beta = 0.01</m>. Each time the <c>for</c> loop runs, <m>\beta</m> is given the next value, as shown in line 20 of the code. In all, the loop will run five times, once for each value of <m>\beta</m>, and <m>\beta</m> will take on each value one time.
+                In <xref ref="activity-rss-beta-loop"/> we state in line 19 that we will give <m>\beta</m> the values <m>0.01, 0.02, 0.03, 0.04,</m> and <m>0.05</m>, one at a time. The first time the <c>for</c> loop runs, <m>\beta</m> is given the first of this list of values, that is, <m>\beta = 0.01</m>. Each time the <c>for</c> loop runs, <m>\beta</m> is given the next value, as shown in line 20 of the code. In all, the default loop will run five times, once for each value of <m>\beta</m>, and <m>\beta</m> will take on each value one time. We can change the values in line 19 to run whichever values of <m>\beta</m> we like.
               </p>
             </li>
             <li>
               <p>
-                For each value of <m>\beta</m>, we use Python to do two things: solve the system of differential equations for that value of <m>\beta</m>, and compute the resulting RSS value comparing our Data Values with the Model Output from the solved differential equations. The outer <c>for</c> loop cycles through different values of <m>\beta</m>. For each, we recompute the array <c>sol</c> by running <c>odeint</c> on line 21, and we reset <c>RSS = 0</c> on line 22. We are then ready to run the inner <c>for</c> loop, starting on line 23, where we compute the specific RSS value for the current value of <m>\beta</m>.   
+                For each value of <m>\beta</m>, we use Python to do two things: solve the system of differential equations for that value of <m>\beta</m>, and compute the resulting RSS value comparing our Data Values with the Model Output from the solved differential equations. The outer <c>for</c> loop cycles through different values of <m>\beta</m>. For each, we recompute the solution array <c>sol</c> by running <c>odeint</c> on line 21, and we reset <c>RSS = 0</c> on line 22. We are then ready to run the inner <c>for</c> loop, starting on line 23, where we compute the specific RSS value for the current value of <m>\beta</m>. It is important for computing this RSS value that we have reset <c>RSS = 0</c> so that we do not add new squared differences to a past (non-zero) RSS value.  
               </p>
             </li>
             <li>
