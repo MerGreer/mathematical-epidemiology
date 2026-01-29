@@ -599,7 +599,7 @@
       <!-- <p>Use Bates flu data? Introduce RSS. Discuss improving model fit and show how to do it. Emphasize (!!!!!!!) biological suitability of parameter choices, noise in data, etc. Consider developing a range of very good parameters, rather than imagining there is some set of "best" parameters.</p> -->
 
       <p>
-        Now try computing RSS using the influenza prevalence data. The data are already written into the code block below. Time 0 is the same as October 6.
+        Now try computing RSS using the 5-day influenza prevalence data computed in <xref ref="activity-h1n1-data-fall-2009"/>. The data are already written into the code block below. Time 0 is the same as October 6.
       </p>
 
       <!-- <p>
