@@ -756,7 +756,7 @@ plt.show()
           </li>
           <li>
             <p>
-              Adjust <m>\beta</m> so that the Susceptible population is approximately 100 on day 10. Notice that this update requires you to change not just <m>\beta</m>, but also the length of time the model runs. State the value of <m>\beta</m> you determine. 
+              Adjust <m>\beta</m> so that the Susceptible population is approximately 100 on day 10. Notice that this update requires you to change not just <m>\beta</m>, but also the length of time the model runs. When changing how long the model runs, keep <m>t=0</m> as the start time. State the value of <m>\beta</m> you determine. 
             </p>
           </li>
           <li>
