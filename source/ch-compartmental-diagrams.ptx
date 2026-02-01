@@ -453,7 +453,7 @@
   <exercises xml:id="exercises-ch-compartmental-diagrams">
     <exercise number="1">
       <p>
-        Use the ideas and website suggestions of <xref ref="ch-prelude-diseases-in-popular-news"/> to determine how long individuals are infectious with measles, in the sense used for our SIR model, where <q>infectious</q> signifies <q>contagious</q>. Cite your source(s).<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn> Then suppose you are creating an SIR model for the spread of measles. What value would you use for <m>\gamma</m>? Explain your reasoning.
+        Use the ideas and website suggestions of <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data"/> to determine how long individuals are infectious with measles, in the sense used for our SIR model, where <q>infectious</q> signifies <q>contagious</q>. Cite your source(s).<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn> Then suppose you are creating an SIR model for the spread of measles. What value would you use for <m>\gamma</m>? Explain your reasoning.
       </p>
     </exercise>
     <exercise number="2">
@@ -463,7 +463,7 @@
     </exercise>
     <exercise number="3">
       <p>
-        Use the ideas and website suggestions of <xref ref="ch-prelude-diseases-in-popular-news"/> to determine how long individuals are infectious (here, meaning <q>contagious</q>) with RSV. Cite your source(s).<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn> Then suppose you are creating an SIR model for the spread of RSV. What value would you use for <m>\gamma</m>? Explain your reasoning.
+        Use the ideas and website suggestions of <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data"/> to determine how long individuals are infectious (here, meaning <q>contagious</q>) with RSV. Cite your source(s).<fn>Include links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.</fn> Then suppose you are creating an SIR model for the spread of RSV. What value would you use for <m>\gamma</m>? Explain your reasoning.
       </p>
     </exercise>
   </exercises>

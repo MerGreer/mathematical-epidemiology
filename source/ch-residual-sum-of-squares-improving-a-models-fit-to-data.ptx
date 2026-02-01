@@ -206,7 +206,8 @@
         <title>Residual Sum of Squares: An Introductory Example</title>
 
         <p>
-          One way to compare data with the output of a model is by computing the Residual Sum of Squares, often abbreviated as RSS. When we work with a single model to try to improve the fit of the model to a data set, RSS is a commonly used option. <xref ref="activity-rss-intro"/> shows the steps for computing RSS for a model with one choice for a value of <m>\beta</m>. Then, <xref ref="sec-underlying-math-rss"/> provides more mathematical context for how RSS works. After that, <xref ref="sec-residual-sum-of-squares-quickly-comparing-multiple-parameter-values"/> shows how to compare RSS for different values of <m>\beta</m> used in the same model. Last, <xref ref="sec-influenza-data-and-rss"/> demonstrates the use of RSS with a real-world data set, where we need to take extra care to ensure that our work is not just correct mathematically, but also makes sense biologically.
+          One way to compare data with the output of a model is by computing the Residual Sum of Squares, often abbreviated as RSS. When we work with a single model to try to improve the fit of the model to a data set, RSS is a commonly used option. <xref ref="activity-rss-intro"/> shows the steps for computing RSS for a model with one choice for a value of <m>\beta</m>. Then, <xref ref="sec-underlying-math-rss"/> provides more mathematical context for how RSS works. After that, <xref ref="sec-residual-sum-of-squares-quickly-comparing-multiple-parameter-values"/> shows how to compare RSS for different values of <m>\beta</m> used in the same model. 
+          <!-- Last, <xref ref="sec-influenza-data-and-rss"/> demonstrates the use of RSS with a real-world data set, where we need to take extra care to ensure that our work is not just correct mathematically, but also makes sense biologically. -->
         </p>
 
         <activity xml:id="activity-rss-intro">
@@ -593,14 +594,14 @@
       
     </section>
 
-    <section xml:id="sec-influenza-data-and-rss">
-      <title>Influenza Data and RSS</title>
+    <!-- <section xml:id="sec-influenza-data-and-rss">
+      <title>Influenza Data and RSS</title> -->
 
       <!-- <p>Use Bates flu data? Introduce RSS. Discuss improving model fit and show how to do it. Emphasize (!!!!!!!) biological suitability of parameter choices, noise in data, etc. Consider developing a range of very good parameters, rather than imagining there is some set of "best" parameters.</p> -->
 
-      <p>
+      <!-- <p>
         Now try computing RSS using the 5-day influenza prevalence data computed in <xref ref="activity-h1n1-data-fall-2009"/>. The data are already written into the code block below. Time 0 is the same as October 6.
-      </p>
+      </p> -->
 
       <!-- <p>
         Notice in the line <c>RSS = RSS + (I_prevalence_data[x] - sol[0 + 10 * x, 1])**2</c> that instead of writing <c>sol[0 + 10 * x, 0]</c> we write <c>sol[0 + 10 * x, 1]</c>. Changing the <c>0</c> to a <c>1</c> tells Python to use the next column of model values from the array of S, I, and R values, that is, to use column 1 of Infectious values rather than column 0 of Susceptible values. It is important to choose the correct column of model values when comparing with data values.
@@ -608,7 +609,7 @@
 
       
 
-      <sage>
+      <!-- <sage>
         <input>
           #Import packages
           import numpy as np
@@ -654,10 +655,10 @@
         <output>
         
         </output>
-        </sage>
+        </sage> -->
 
     
-  </section>
+  <!-- </section> -->
 
   <exercises xml:id="exercises-ch-rss">
     <exercise number="1">
