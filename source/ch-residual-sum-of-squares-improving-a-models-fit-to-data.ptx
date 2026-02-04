@@ -484,8 +484,10 @@
           This formula allows us to compute RSS for each choice of <m>\beta</m> in our model. We then compare values of RSS for different choices of <m>\beta</m>, seeking the smallest RSS value among values of <m>\beta</m> that make sense biologically.
         </p>
         <p>
-          That last sentence deserves extra emphasis: it is crucial that <m>\beta</m> make sense biologically! Many modelers are tempted to minimize the RSS value in any way they can, losing sight of the biological importance of parameter values. We emphasize, throughout this book, that our model parameters have biological meaning, and therefore the values we choose for those parameters need to make real-world sense. In <xref ref="sec-influenza-data-and-rss"/>, we discuss parameter values, RSS, and biological meaning in the context of influenza data.
+          That last sentence deserves extra emphasis: it is crucial that <m>\beta</m> make sense biologically! Many modelers are tempted to minimize the RSS value in any way they can, losing sight of the biological importance of parameter values. We emphasize, throughout this book, that our model parameters have biological meaning, and therefore the values we choose for those parameters need to make real-world sense. 
         </p>
+
+        <!-- In <xref ref="sec-influenza-data-and-rss"/>, we discuss parameter values, RSS, and biological meaning in the context of influenza data. -->
 
       
     </section>
@@ -601,9 +603,9 @@
 
       <!-- <p>
         Now try computing RSS using the 5-day influenza prevalence data computed in <xref ref="activity-h1n1-data-fall-2009"/>. The data are already written into the code block below. Time 0 is the same as October 6.
-      </p> -->
+      </p>
 
-      <!-- <p>
+      <p>
         Notice in the line <c>RSS = RSS + (I_prevalence_data[x] - sol[0 + 10 * x, 1])**2</c> that instead of writing <c>sol[0 + 10 * x, 0]</c> we write <c>sol[0 + 10 * x, 1]</c>. Changing the <c>0</c> to a <c>1</c> tells Python to use the next column of model values from the array of S, I, and R values, that is, to use column 1 of Infectious values rather than column 0 of Susceptible values. It is important to choose the correct column of model values when comparing with data values.
       </p> -->
 
@@ -662,6 +664,115 @@
 
   <exercises xml:id="exercises-ch-rss">
     <exercise number="1">
+      <p>
+      The paper <em>Outbreak of 2009 Pandemic Influenza A (H1N1) at a New York City School</em> describes a high school outbreak from April 2009.<fn>The article appears in the New England Journal of Medicine in Volume 361, published in 2009, pages 2628-2636. The authors are Justin Lessler, Nicholas G. Reich, Derek A.T. Cummings, and the New York City Department of Health and Mental Hygiene Swine Influenza Investigation Team. Here is a link to the article: <url href="https://www.nejm.org/doi/full/10.1056/NEJMoa0906089">https://www.nejm.org/doi/full/10.1056/NEJMoa0906089.</url></fn> Data from the outbreak, along with 5-day prevalence data computed as in <xref ref="ch-preparing-influenza-data-to-compare-with-a-model"/>, appear in <xref ref="table-H1N1-NYC-HS"/>. There were 2686 high school students and 248 employees. 
+      </p>         
+      <table xml:id="table-H1N1-NYC-HS">
+        <title>H1N1 Influenza Data from a New York City High School, 2009</title>
+        <tabular halign="center">
+          <row header="yes">
+            <cell>Date (Day) </cell>
+            <cell>New Cases </cell>
+            <cell>5-day Prevalence</cell>
+          </row>
+          <row>
+            <cell>April 18 (Day 0)</cell>
+            <cell>23</cell>
+            <cell>23</cell>
+          </row>
+          <row>
+            <cell>April 19 (Day 1)</cell>
+            <cell>10</cell>
+            <cell>33</cell>
+          </row>
+          <row>
+            <cell>April 20 (Day 2)</cell>
+            <cell>17</cell>
+            <cell>50</cell>
+          </row>
+          <row>
+            <cell>April 21 (Day 3)</cell>
+            <cell>23</cell>
+            <cell>73</cell>
+          </row>
+          <row>
+            <cell>April 22 (Day 4)</cell>
+            <cell>103</cell>
+            <cell>176</cell>
+          </row>
+          <row>
+            <cell>April 23 (Day 5)</cell>
+            <cell>267</cell>
+            <cell>420</cell>
+          </row>
+          <row>
+            <cell>April 24 (Day 6)</cell>
+            <cell>147</cell>
+            <cell>557</cell>
+          </row>
+          <row>
+            <cell>April 25 (Day 7)</cell>
+            <cell>100</cell>
+            <cell>640</cell>
+          </row>
+          <row>
+            <cell>April 26 (Day 8)</cell>
+            <cell>50</cell>
+            <cell>667</cell>
+          </row>
+          <row>
+            <cell>April 27 (Day 9)</cell>
+            <cell>17</cell>
+            <cell>581</cell>
+          </row>
+          <row>
+            <cell>April 28 (Day 10)</cell>
+            <cell>7</cell>
+            <cell>321</cell>
+          </row>
+          <row>
+            <cell>April 29 (Day 11)</cell>
+            <cell>7</cell>
+            <cell>181</cell>
+          </row>
+          <row>
+            <cell>April 30 (Day 12)</cell>
+            <cell>7</cell>
+            <cell>88</cell>
+          </row>
+          <row>
+            <cell>May 1 (Day 13)</cell>
+            <cell>3</cell>
+            <cell>41</cell>
+          </row>
+        </tabular>
+      </table> 
+      <ol>
+        <li>
+          <p>
+            Use Python to plot these data.
+          </p>
+        </li>
+        <li>
+          <p>
+            Then, use the information that we start with a population of 250 people, the infectious period was 11 days, and <m>\mathcal{R}_0</m> has been estimated to be between 1.6 and 1.9, to construct an SIR model for this outbreak.
+          </p>
+        </li>
+        <li>
+          <p>
+            Then use an RSS approach, along with the data and your SIR model, to select a preferred value of <m>\beta</m> for this SIR model. You may choose to compute <m>(\mbox{Data Value} - \mbox{Model Output})^2</m> separately for each day on which population values are available, or you can use a Python <c>for</c> loop for the six consecutive data points, and then add in <m>(\mbox{Data Value} - \mbox{Model Output})^2</m> for the October 20 data, in order to complete each total RSS value. Additionally, be sure that Python selects the correct value from its model output: this will require changing the <c>10</c> in the <c>sol[10*x, 1]</c> part of the code.
+          </p>
+          <p>
+            (NOTE for the Bates Mathematical Models in Biology course in Fall 2024: you may compute RSS for comparing the model with just the first six data points, rather than needing to include the last data point, and rather than needing to figure out how to skip over the "Unknown" data point. However, if you can find a way to include the last data point, go ahead and include it!)
+          </p>
+          <p>
+            In your homework, show your Python code, and show at least three different values of <m>\beta</m> that you tried, along with the corresponding RSS value for each value of <m>\beta</m>. Which value of <m>\beta</m> leads to the smallest RSS value? Confirm that this value of <m>\beta</m> makes biological sense, based on the numbers or ranges of numbers we know for <m>N</m>, <m>\mathcal{R}_0</m>, and <m>\gamma</m>.
+          </p>
+        </li>
+      </ol>
+    </exercise>
+
+    <exercise number="2">
       <p>
       As described starting on page 356 of Mathematical Models in Population Biology and Epidemiology, second edition, by Fred Brauer and Carlos Castillo-Chavez, the village of Eyam, in England, was affected by bubonic plague in 1665-1666. There were two separate plague outbreaks, and <xref ref="table-rss-eyam"/> shows data for the second of these outbreaks. 
       </p>         
