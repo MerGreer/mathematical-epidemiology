@@ -755,20 +755,25 @@
         </li>
         <li>
           <p>
-            Use the following information to construct an SIR model with parameter values for this outbreak: we start with a population of 2934 people (2686 high school students and 248 employees); the infectious period was 2 days (to match the 2-day prevalence assumption); and <m>\mathcal{R}_0</m> for H1N1 has been estimated to be between 1.4 and 1.6.
+            Construct an SIR model with parameter values for this outbreak, where the <m>I(t)</m> compartment recognizes that people self-isolate by not going to school for some of the time when they are Infectious. Use in your model the information that the population is 2934 people (students plus employees) and the infectious period was 2 days (to match the 2-day prevalence assumption). Implement an RSS approach to select a preferred value of <m>\beta</m>.
+          </p>
+          <p>
+            Include your Python code, and show at least three different values of <m>\beta</m> that you tried, along with the corresponding RSS value for each value of <m>\beta</m>. Then state your selected value of <m>\beta</m> and graph the 2-day prevalence Data Values on the same axes as the Model Output, that is, the <m>I(t)</m> graph produced by using your selected value of <m>\beta</m>. 
           </p>
         </li>
         <li>
           <p>
-            Use an RSS approach, along with the 2-day prevalence data and your SIR model, to select a preferred value of <m>\beta</m> for this SIR model. 
-          </p>
-          <p>
-            In your homework, show your Python code, and show at least three different values of <m>\beta</m> that you tried, along with the corresponding RSS value for each value of <m>\beta</m>. Which value of <m>\beta</m> leads to the smallest RSS value? Confirm that this value of <m>\beta</m> makes biological sense, based on the numbers or ranges of numbers we know for <m>N</m>, <m>\mathcal{R}_0</m>, and <m>\gamma</m>.
+            Discuss your results from part (b). Qualitatively, how well does the <m>I(t)</m> curve fit the Data Values when you use your selected value of <m>\beta</m>? Consider how rapidly the <m>I(t)</m> curve increases and decreases, and the height and timing of when the 2-day prevalence curve peaks.
           </p>
         </li>
         <li>
           <p>
-            For the <m>\beta</m> value you selected in part (c), compare <m>\beta</m> with the values of <m>N</m>, <m>\mathcal{R}_0</m>, and <m>\gamma</m> for this model, using <xref ref="eq-R0-sir"/>. How close is the value of <m>\beta</m> you selected using RSS to the range of values of <m>\beta</m> that make sense in <xref ref="eq-R0-sir"/>? Discuss possible reasons for the outcome you found, whether you found that the <m>\beta</m> values are close or not very close.
+            The value of <m>\mathcal{R}_0</m> for H1N1 has been estimated to be between 1.4 and 1.6, and a typical length of infectiousness for H1N1 is 5 days. Using <xref ref="eq-R0-sir"/> and <m>N=2934</m>, what value of <m>\beta</m> would result from this information? How close is the value of <m>\beta</m> you selected using RSS to the range of values of <m>\beta</m> that make sense in <xref ref="eq-R0-sir"/>? Discuss possible reasons for the outcome you found, whether you found that the <m>\beta</m> values are close or not very close.
+
+            In your homework, show your Python code, and show at least three different values of <m>\beta</m> that you tried, along with the corresponding RSS value for each value of <m>\beta</m>. Which value of <m>\beta</m> leads to the smallest RSS value? 
+          </p>
+          <p>
+            Compare the value of <m>\beta</m> you selected in part (b) with this value of <m>\beta</m> computed using <xref ref="eq-R0-sir"/>. They are likely different. The model in this exercise assumes a level of isolation that is not considered when using <xref ref="eq-R0-sir"/>. Discuss the ways that this change, as well as other aspects of the model and outbreak in this exercise, result in a different value of <m>\beta</m>.
           </p>
         </li>
       </ol>
