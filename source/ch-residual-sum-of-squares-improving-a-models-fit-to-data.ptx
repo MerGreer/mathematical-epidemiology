@@ -1,9 +1,5 @@
 <chapter xml:id="ch-residual-sum-of-squares-improving-a-models-fit-to-data" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>* Residual Sum of Squares: Improving a Model's Fit to Data</title>
-
-    <p>
-      <term>***This chapter is under construction.***</term>
-    </p>
+    <title>Residual Sum of Squares: Improving a Model's Fit to Data</title>
 
     <introduction xml:id="intro-RSS">
       <objectives>
@@ -755,7 +751,7 @@
         </li>
         <li>
           <p>
-            Construct an SIR model with parameter values for this outbreak, where the <m>I(t)</m> compartment recognizes that people self-isolate by not going to school for some of the time when they are Infectious. Use in your model the information that the population is 2934 people (students plus employees) and the infectious period was 2 days (to match the 2-day prevalence assumption). Implement an RSS approach to select a preferred value of <m>\beta</m>.
+            Construct an SIR model with isolation, in the style of <xref ref="fig-SIR-complete-isolation-2"/>, with parameter values for this outbreak. Use in your model the information that the population is 2934 people (students plus employees) and the infectious period was 2 days (to match the 2-day prevalence assumption). Implement an RSS approach to select a preferred value of <m>\beta</m>.
           </p>
           <p>
             Include your Python code, and show at least three different values of <m>\beta</m> that you tried, along with the corresponding RSS value for each value of <m>\beta</m>. Then state your selected value of <m>\beta</m> and graph the 2-day prevalence Data Values on the same axes as the Model Output, that is, the <m>I(t)</m> graph produced by using your selected value of <m>\beta</m>. 
@@ -768,18 +764,22 @@
         </li>
         <li>
           <p>
-            The value of <m>\mathcal{R}_0</m> for H1N1 has been estimated to be between 1.4 and 1.6, and a typical length of infectiousness for H1N1 is 5 days. Using <xref ref="eq-R0-sir"/> and <m>N=2934</m>, what value of <m>\beta</m> would result from this information? How close is the value of <m>\beta</m> you selected using RSS to the range of values of <m>\beta</m> that make sense in <xref ref="eq-R0-sir"/>? Discuss possible reasons for the outcome you found, whether you found that the <m>\beta</m> values are close or not very close.
-
-            In your homework, show your Python code, and show at least three different values of <m>\beta</m> that you tried, along with the corresponding RSS value for each value of <m>\beta</m>. Which value of <m>\beta</m> leads to the smallest RSS value? 
-          </p>
-          <p>
-            Compare the value of <m>\beta</m> you selected in part (b) with this value of <m>\beta</m> computed using <xref ref="eq-R0-sir"/>. They are likely different. The model in this exercise assumes a level of isolation that is not considered when using <xref ref="eq-R0-sir"/>. Discuss the ways that this change, as well as other aspects of the model and outbreak in this exercise, result in a different value of <m>\beta</m>.
+            The value of <m>\mathcal{R}_0</m> for H1N1 has been estimated to be between 1.4 and 1.6, and a typical length of infectiousness for H1N1 is 5 days. Using <xref ref="eq-R0-sir"/> and <m>N=2934</m>, what value of <m>\beta</m> would result from this information? How close is the value of <m>\beta</m> you selected using RSS to the range of values of <m>\beta</m> that make sense in <xref ref="eq-R0-sir"/>? Discuss possible reasons for the outcome you find, whether you found that the <m>\beta</m> values are close or not very close. 
           </p>
         </li>
       </ol>
     </exercise>
 
     <exercise number="2">
+      <p>
+        Work through Exercise 1, above, one more time, supposing instead that people come to school just one day during the time they are infectious with influenza. This means setting up a model using the New Cases values in <xref ref="table-H1N1-NYC-HS"/> rather than the 2-day Prevalence values. 
+      </p>         
+      <p>
+        Then compare your results with what you found in Exercise 1. Based on what you found in your models, and also based on any real-life experience you may have with flu outbreaks, what do you see as the advantages and disadvantages in each version of the model?
+      </p>
+    </exercise>
+
+    <exercise number="3">
       <p>
       As described starting on page 356 of Mathematical Models in Population Biology and Epidemiology, second edition, by Fred Brauer and Carlos Castillo-Chavez, the village of Eyam, in England, was affected by bubonic plague in 1665-1666. There were two separate plague outbreaks, and <xref ref="table-rss-eyam"/> shows data for the second of these outbreaks. 
       </p>         
@@ -846,14 +846,20 @@
         </li>
         <li>
           <p>
-            Then use an RSS approach, along with the data and your SIR model, to select a preferred value of <m>\beta</m> for this SIR model. You may choose to compute <m>(\mbox{Data Value} - \mbox{Model Output})^2</m> separately for each day on which population values are available, or you can use a Python <c>for</c> loop for the six consecutive data points, and then add in <m>(\mbox{Data Value} - \mbox{Model Output})^2</m> for the October 20 data, in order to complete each total RSS value. Additionally, be sure that Python selects the correct value from its model output: this will require changing the <c>10</c> in the <c>sol[10*x, 1]</c> part of the code.
+            Then use an RSS approach, along with the data and your SIR model, to select a preferred value of <m>\beta</m> for this SIR model. There are two new and different details to attend to. 
           </p>
-          <p>
-            (NOTE for the Bates Mathematical Models in Biology course in Fall 2024: you may compute RSS for comparing the model with just the first six data points, rather than needing to include the last data point, and rather than needing to figure out how to skip over the "Unknown" data point. However, if you can find a way to include the last data point, go ahead and include it!)
-          </p>
-          <p>
-            In your homework, show your Python code, and show at least three different values of <m>\beta</m> that you tried, along with the corresponding RSS value for each value of <m>\beta</m>. Which value of <m>\beta</m> leads to the smallest RSS value? Confirm that this value of <m>\beta</m> makes biological sense, based on the numbers or ranges of numbers we know for <m>N</m>, <m>\mathcal{R}_0</m>, and <m>\gamma</m>.
-          </p>
+          <ol>
+            <li>
+              <p>
+                The data from October 4/5 are Unknown. You may choose to address only the six preceding dates, or to also include the data from October 20. State which data points you are including in your RSS calculation.
+              </p>
+            </li>
+            <li>
+              <p>
+                The dates in this example are 15.5 days apart, rather than 1 day apart. This requires changing the <c>10</c> in the <c>sol[10*x, 1]</c> part of the Python code.
+              </p>
+            </li>
+          </ol>
         </li>
       </ol>
     </exercise>
