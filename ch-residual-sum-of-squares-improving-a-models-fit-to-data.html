@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>* Residual Sum of Squares: Improving a Model’s Fit to Data</title>
+<title>Residual Sum of Squares: Improving a Model’s Fit to Data</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -349,9 +349,12 @@ sagecell.makeSagecell({
 #exercises-ch-rss-1-3 { counter-set: exercises-ch-rss-1-3 0; }
 #exercises-ch-rss-1-3 > li::marker { content: "("counter(exercises-ch-rss-1-3,lower-alpha)")"; }
 #exercises-ch-rss-1-3 > li { counter-increment: exercises-ch-rss-1-3; }
-#exercises-ch-rss-2-3 { counter-set: exercises-ch-rss-2-3 0; }
-#exercises-ch-rss-2-3 > li::marker { content: "("counter(exercises-ch-rss-2-3,lower-alpha)")"; }
-#exercises-ch-rss-2-3 > li { counter-increment: exercises-ch-rss-2-3; }
+#exercises-ch-rss-3-3 { counter-set: exercises-ch-rss-3-3 0; }
+#exercises-ch-rss-3-3 > li::marker { content: "("counter(exercises-ch-rss-3-3,lower-alpha)")"; }
+#exercises-ch-rss-3-3 > li { counter-increment: exercises-ch-rss-3-3; }
+#exercises-ch-rss-3-3-3-2 { counter-set: exercises-ch-rss-3-3-3-2 0; }
+#exercises-ch-rss-3-3-3-2 > li::marker { content: ""counter(exercises-ch-rss-3-3-3-2,lower-roman)"."; }
+#exercises-ch-rss-3-3-3-2 > li { counter-increment: exercises-ch-rss-3-3-3-2; }
 #expl-activity-next-generation-method-3-1-2 { counter-set: expl-activity-next-generation-method-3-1-2 0; }
 #expl-activity-next-generation-method-3-1-2 > li::marker { content: ""counter(expl-activity-next-generation-method-3-1-2,decimal)"."; }
 #expl-activity-next-generation-method-3-1-2 > li { counter-increment: expl-activity-next-generation-method-3-1-2; }
@@ -528,7 +531,7 @@ sagecell.makeSagecell({
 </ul>
 </li>
 <li class="toc-item toc-chapter active">
-<div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">* Residual Sum of Squares: Improving a Model’s Fit to Data</span></a></div>
+<div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal"><span class="codenumber">10</span> <span class="title">Residual Sum of Squares: Improving a Model’s Fit to Data</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-residual-sum-of-squares-introductory-example" class="internal"><span class="codenumber">10.1</span> <span class="title">Residual Sum of Squares: An Introductory Example</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#sec-underlying-math-rss" class="internal"><span class="codenumber">10.2</span> <span class="title">The Underlying Math of RSS</span></a></div></li>
@@ -618,9 +621,8 @@ sagecell.makeSagecell({
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="ch-residual-sum-of-squares-improving-a-models-fit-to-data"><h2 class="heading">
-<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">10</span><span class="space"> </span><span class="title">* Residual Sum of Squares: Improving a Model’s Fit to Data</span>
+<span class="type">Chapter</span><span class="space"> </span><span class="codenumber">10</span><span class="space"> </span><span class="title">Residual Sum of Squares: Improving a Model’s Fit to Data</span>
 </h2>
-<div class="para" id="ch-residual-sum-of-squares-improving-a-models-fit-to-data-2"><dfn class="terminology">***This chapter is under construction.***</dfn></div>
 <section class="introduction" id="intro-RSS"><article class="objectives goal-like" id="intro-RSS-1"><h3 class="heading"><span class="type">Goals</span></h3>
 <ul class="disc" id="intro-RSS-1-1">
 <li id="intro-RSS-1-1-1"><div class="para" id="intro-RSS-1-1-1-1">Use data from case reports to implement a method for estimating the value of the transmission parameter <span class="process-math">\(\beta\)</span>
@@ -980,19 +982,17 @@ for beta_value in (0.01, 0.02, 0.03, 0.04, 0.05):
 </table></div></figure><ol class="lower-alpha" id="exercises-ch-rss-1-3">
 <li id="exercises-ch-rss-1-3-1"><div class="para" id="exercises-ch-rss-1-3-1-1">Use Python to plot the 2-day prevalence data.</div></li>
 <li id="exercises-ch-rss-1-3-2">
-<div class="para" id="exercises-ch-rss-1-3-2-1">Construct an SIR model with parameter values for this outbreak, where the <span class="process-math">\(I(t)\)</span> compartment recognizes that people self-isolate by not going to school for some of the time when they are Infectious. Use in your model the information that the population is 2934 people (students plus employees) and the infectious period was 2 days (to match the 2-day prevalence assumption). Implement an RSS approach to select a preferred value of <span class="process-math">\(\beta\text{.}\)</span>
+<div class="para" id="exercises-ch-rss-1-3-2-1">Construct an SIR model with isolation, in the style of <a href="ch-isolation.html#fig-SIR-complete-isolation-2" class="xref" data-knowl="./knowl/xref/fig-SIR-complete-isolation-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.2">Figure 8.2</a>, with parameter values for this outbreak. Use in your model the information that the population is 2934 people (students plus employees) and the infectious period was 2 days (to match the 2-day prevalence assumption). Implement an RSS approach to select a preferred value of <span class="process-math">\(\beta\text{.}\)</span>
 </div>
 <div class="para" id="exercises-ch-rss-1-3-2-2">Include your Python code, and show at least three different values of <span class="process-math">\(\beta\)</span> that you tried, along with the corresponding RSS value for each value of <span class="process-math">\(\beta\text{.}\)</span> Then state your selected value of <span class="process-math">\(\beta\)</span> and graph the 2-day prevalence Data Values on the same axes as the Model Output, that is, the <span class="process-math">\(I(t)\)</span> graph produced by using your selected value of <span class="process-math">\(\beta\text{.}\)</span>
 </div>
 </li>
 <li id="exercises-ch-rss-1-3-3"><div class="para" id="exercises-ch-rss-1-3-3-1">Discuss your results from part (b). Qualitatively, how well does the <span class="process-math">\(I(t)\)</span> curve fit the Data Values when you use your selected value of <span class="process-math">\(\beta\text{?}\)</span> Consider how rapidly the <span class="process-math">\(I(t)\)</span> curve increases and decreases, and the height and timing of when the 2-day prevalence curve peaks.</div></li>
-<li id="exercises-ch-rss-1-3-4">
-<div class="para" id="exercises-ch-rss-1-3-4-1">The value of <span class="process-math">\(\mathcal{R}_0\)</span> for H1N1 has been estimated to be between 1.4 and 1.6, and a typical length of infectiousness for H1N1 is 5 days. Using <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-13" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a> and <span class="process-math">\(N=2934\text{,}\)</span> what value of <span class="process-math">\(\beta\)</span> would result from this information? How close is the value of <span class="process-math">\(\beta\)</span> you selected using RSS to the range of values of <span class="process-math">\(\beta\)</span> that make sense in <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-13" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a>? Discuss possible reasons for the outcome you found, whether you found that the <span class="process-math">\(\beta\)</span> values are close or not very close. In your homework, show your Python code, and show at least three different values of <span class="process-math">\(\beta\)</span> that you tried, along with the corresponding RSS value for each value of <span class="process-math">\(\beta\text{.}\)</span> Which value of <span class="process-math">\(\beta\)</span> leads to the smallest RSS value?</div>
-<div class="para" id="exercises-ch-rss-1-3-4-2">Compare the value of <span class="process-math">\(\beta\)</span> you selected in part (b) with this value of <span class="process-math">\(\beta\)</span> computed using <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-13" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a>. They are likely different. The model in this exercise assumes a level of isolation that is not considered when using <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-13" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a>. Discuss the ways that this change, as well as other aspects of the model and outbreak in this exercise, result in a different value of <span class="process-math">\(\beta\text{.}\)</span>
-</div>
-</li>
+<li id="exercises-ch-rss-1-3-4"><div class="para" id="exercises-ch-rss-1-3-4-1">The value of <span class="process-math">\(\mathcal{R}_0\)</span> for H1N1 has been estimated to be between 1.4 and 1.6, and a typical length of infectiousness for H1N1 is 5 days. Using <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-13" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a> and <span class="process-math">\(N=2934\text{,}\)</span> what value of <span class="process-math">\(\beta\)</span> would result from this information? How close is the value of <span class="process-math">\(\beta\)</span> you selected using RSS to the range of values of <span class="process-math">\(\beta\)</span> that make sense in <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#sec-the-basic-reproduction-number-R0-13" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a>? Discuss possible reasons for the outcome you find, whether you found that the <span class="process-math">\(\beta\)</span> values are close or not very close.</div></li>
 </ol></article><article class="exercise exercise-like" id="exercises-ch-rss-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para" id="exercises-ch-rss-2-1">As described starting on page 356 of Mathematical Models in Population Biology and Epidemiology, second edition, by Fred Brauer and Carlos Castillo-Chavez, the village of Eyam, in England, was affected by bubonic plague in 1665-1666. There were two separate plague outbreaks, and <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-rss-eyam" class="xref" data-knowl="./knowl/xref/table-rss-eyam.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.5: Plague Data from Eyam, 1666">Table 10.5</a> shows data for the second of these outbreaks.</div>
+<div class="para" id="exercises-ch-rss-2-1">Work through Exercise 1, above, one more time, supposing instead that people come to school just one day during the time they are infectious with influenza. This means setting up a model using the New Cases values in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-H1N1-NYC-HS" class="xref" data-knowl="./knowl/xref/table-H1N1-NYC-HS.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.4: H1N1 Influenza Data from a New York City High School, 2009">Table 10.4</a> rather than the 2-day Prevalence values.</div>
+<div class="para" id="exercises-ch-rss-2-2">Then compare your results with what you found in Exercise 1. Based on what you found in your models, and also based on any real-life experience you may have with flu outbreaks, what do you see as the advantages and disadvantages in each version of the model?</div></article><article class="exercise exercise-like" id="exercises-ch-rss-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="exercises-ch-rss-3-1">As described starting on page 356 of Mathematical Models in Population Biology and Epidemiology, second edition, by Fred Brauer and Carlos Castillo-Chavez, the village of Eyam, in England, was affected by bubonic plague in 1665-1666. There were two separate plague outbreaks, and <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-rss-eyam" class="xref" data-knowl="./knowl/xref/table-rss-eyam.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.5: Plague Data from Eyam, 1666">Table 10.5</a> shows data for the second of these outbreaks.</div>
 <figure class="table table-like" id="table-rss-eyam"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">10.5<span class="period">.</span></span><span class="space"> </span>Plague Data from Eyam, 1666</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b0 r0 l0 t0 lines">Date (Day)</th>
@@ -1039,14 +1039,15 @@ for beta_value in (0.01, 0.02, 0.03, 0.04, 0.05):
 <td class="c m b0 r0 l0 t0 lines">83</td>
 <td class="c m b0 r0 l0 t0 lines">0</td>
 </tr>
-</table></div></figure><ol class="lower-alpha" id="exercises-ch-rss-2-3">
-<li id="exercises-ch-rss-2-3-1"><div class="para" id="exercises-ch-rss-2-3-1-1">Use Python to plot these data.</div></li>
-<li id="exercises-ch-rss-2-3-2"><div class="para" id="exercises-ch-rss-2-3-2-1">Then, use the information that we start with a population of 250 people, the infectious period was 11 days, and <span class="process-math">\(\mathcal{R}_0\)</span> has been estimated to be between 1.6 and 1.9, to construct an SIR model for this outbreak.</div></li>
-<li id="exercises-ch-rss-2-3-3">
-<div class="para" id="exercises-ch-rss-2-3-3-1">Then use an RSS approach, along with the data and your SIR model, to select a preferred value of <span class="process-math">\(\beta\)</span> for this SIR model. You may choose to compute <span class="process-math">\((\mbox{Data Value} - \mbox{Model Output})^2\)</span> separately for each day on which population values are available, or you can use a Python <code class="code-inline tex2jax_ignore">for</code> loop for the six consecutive data points, and then add in <span class="process-math">\((\mbox{Data Value} - \mbox{Model Output})^2\)</span> for the October 20 data, in order to complete each total RSS value. Additionally, be sure that Python selects the correct value from its model output: this will require changing the <code class="code-inline tex2jax_ignore">10</code> in the <code class="code-inline tex2jax_ignore">sol[10*x, 1]</code> part of the code.</div>
-<div class="para" id="exercises-ch-rss-2-3-3-2">(NOTE for the Bates Mathematical Models in Biology course in Fall 2024: you may compute RSS for comparing the model with just the first six data points, rather than needing to include the last data point, and rather than needing to figure out how to skip over the "Unknown" data point. However, if you can find a way to include the last data point, go ahead and include it!)</div>
-<div class="para" id="exercises-ch-rss-2-3-3-3">In your homework, show your Python code, and show at least three different values of <span class="process-math">\(\beta\)</span> that you tried, along with the corresponding RSS value for each value of <span class="process-math">\(\beta\text{.}\)</span> Which value of <span class="process-math">\(\beta\)</span> leads to the smallest RSS value? Confirm that this value of <span class="process-math">\(\beta\)</span> makes biological sense, based on the numbers or ranges of numbers we know for <span class="process-math">\(N\text{,}\)</span> <span class="process-math">\(\mathcal{R}_0\text{,}\)</span> and <span class="process-math">\(\gamma\text{.}\)</span>
-</div>
+</table></div></figure><ol class="lower-alpha" id="exercises-ch-rss-3-3">
+<li id="exercises-ch-rss-3-3-1"><div class="para" id="exercises-ch-rss-3-3-1-1">Use Python to plot these data.</div></li>
+<li id="exercises-ch-rss-3-3-2"><div class="para" id="exercises-ch-rss-3-3-2-1">Then, use the information that we start with a population of 250 people, the infectious period was 11 days, and <span class="process-math">\(\mathcal{R}_0\)</span> has been estimated to be between 1.6 and 1.9, to construct an SIR model for this outbreak.</div></li>
+<li id="exercises-ch-rss-3-3-3">
+<div class="para" id="exercises-ch-rss-3-3-3-1">Then use an RSS approach, along with the data and your SIR model, to select a preferred value of <span class="process-math">\(\beta\)</span> for this SIR model. There are two new and different details to attend to.</div>
+<ol class="lower-roman" id="exercises-ch-rss-3-3-3-2">
+<li id="exercises-ch-rss-3-3-3-2-1"><div class="para" id="exercises-ch-rss-3-3-3-2-1-1">The data from October 4/5 are Unknown. You may choose to address only the six preceding dates, or to also include the data from October 20. State which data points you are including in your RSS calculation.</div></li>
+<li id="exercises-ch-rss-3-3-3-2-2"><div class="para" id="exercises-ch-rss-3-3-3-2-2-1">The dates in this example are 15.5 days apart, rather than 1 day apart. This requires changing the <code class="code-inline tex2jax_ignore">10</code> in the <code class="code-inline tex2jax_ignore">sol[10*x, 1]</code> part of the Python code.</div></li>
+</ol>
 </li>
 </ol></article></section></section></div>
 <div class="ptx-content-footer">
