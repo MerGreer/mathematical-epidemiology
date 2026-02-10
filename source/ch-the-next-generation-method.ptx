@@ -290,196 +290,15 @@
       <title>The Next Generation Method: Steps to Follow</title>   
 
       <p>
-        We now go through the steps of the Next Generation Method. 
-        <!-- After walking through the steps for the SEIR model, two activities provide the chance to try the steps for other models. -->
+        We now go through the steps of the Next Generation Method. The concept of a next-generation matrix comes from Diekmann and Heesterbeek.<fn>A good source to read on this is the book <em>Mathematical Epidemiology of Infectious Diseases: Model Building, Analysis and Interpretation</em> by O. Diekmann and J.A.P. Heesterbeek, published in the Wiley Series in Mathematical and Computational Biology in 2000.</fn> The steps below appear in the paper <q>Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission</q> by van den Driessche and Watmough.<fn>The authors are P. van den Driessche and James Watmough, and the article was published by the journal <em>Mathematical Biosciences</em> in 2002.</fn>
+        
       </p>
-      <!-- <p>
-        Begin with the SEIR model, shown below, and follow the steps described.
-      </p>
-      <md>
-        <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
-        <mrow>\frac{dE}{dt} \amp =  \beta S I - \kappa E </mrow>
-        <mrow>\frac{dI}{dt} \amp =  \kappa E - \gamma I </mrow>
-        <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-      </md>
-      <ol>
-        <li>
-          <p>
-            Decide which compartments of the SEIR model involve individuals experiencing some stage of infection. If a person has contracted an illness, they are in some stage of infection throughout the time they are incubating, whether contagious or not, and whether showing symptoms or not. They stop being in a stage of infection when they are completely done with the illness.
-          </p>
-          <answer>
-            <p>
-              For the SEIR model, the E and I compartments are stages of infection. The S and R compartments are not stages of infection. 
-            </p>
-          </answer>
-        </li>
-        <li>
-          <p>
-            For the equation(s) selected in Step 1, write the equation(s) in matrix form. To do so, place the derivatives on the left-hand side into a vector. On the right-hand side, write the equations in a vector. 
-          </p>
-          <answer>
-            <md>
-              <mrow>\begin{pmatrix}
-                \frac{dE}{dt} \\
-                \frac{dI}{dt}
-                \end{pmatrix} = 
-                \begin{pmatrix}
-                \beta S I - \kappa E \\
-                \kappa E - \gamma I
-                \end{pmatrix} </mrow>
-            </md>
-          </answer>
-        </li>
-        <li>
-          <p>
-            Separate the right-hand side into two vectors, <m>\widehat{F}</m> and <m>\widehat{V}</m>, so that 
-          </p>
-          <ul>
-            <li>
-              <p>
-                The right-hand side can be written as <m>\widehat{F}-\widehat{V}</m>;
-              </p>
-            </li>
-            <li>
-              <p>
-                Vector <m>\widehat{F}</m> includes all <em>new infection</em> terms, that is, the terms within the model that indicate when individuals who were not at any stage of infection newly enter a compartment in which they are at some stage of infection; and
-              </p>
-            </li>
-            <li>
-              <p>
-                Vector <m>\widehat{V}</m> is the vector of <em>all other movement between compartments</em>.
-              </p>
-            </li>
-          </ul>
-          <answer>
-            <md>
-              <mrow>\begin{pmatrix}
-                \frac{dE}{dt} \\
-                \frac{dI}{dt}
-                \end{pmatrix} = 
-                \begin{pmatrix}
-                \beta S I  \\
-                0
-                \end{pmatrix} -
-                \begin{pmatrix}
-                \kappa E \\
-                -\kappa E + \gamma I
-                \end{pmatrix}</mrow>
-            </md>
-            <p>
-              That is:
-            </p>
-            <md>
-              <mrow>\widehat{F} = 
-                \begin{pmatrix}
-                \beta S I  \\
-                0
-                \end{pmatrix} </mrow>
-            </md>
-            <p>
-              and
-            </p>
-            <md>
-              <mrow>\widehat{V} = 
-                \begin{pmatrix}
-                \kappa E \\
-                -\kappa E + \gamma I
-                \end{pmatrix}</mrow>
-            </md>
-          </answer> 
-        </li>
-        <li>
-          <p> 
-            Compute the disease-free equilibrium for your compartmental model.
-          </p>
-          <answer>
-            <p>
-              We did this for the SEIR model in <xref ref="activity-equilibrium-values"/>. The disease-free equilibrium is <m>(S, E, I, R)=(N, 0, 0, 0)</m>, where <m>N=S+E+I+R</m> is the entire population being studied.
-            </p>
-          </answer>
-        </li>
-        <li> 
-          <p>
-            Compute matrices <m>F</m> and <m>V</m> (notice these do not have <q>hats</q>: they are different from <m>\widehat{F}</m> and <m>\widehat{V}</m>) by computing partial derivatives of each of the terms in <m>\widehat{F}</m> and <m>\widehat{V}</m>, with respect to each of the populations of compartments experiencing infection, following the pattern shown below in the case of the SEIR model, and then evaluating your results at the disease-free equilibrium: 
-          </p>
-          <md>
-            <mrow> F = \left. \begin{pmatrix}
-              \frac{\partial (\beta SI)}{\partial E} \amp \frac{\partial (\beta SI)}{\partial I} \\
-              \frac{\partial (0)}{\partial E} \amp \frac{\partial (0)}{\partial I}
-              \end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
-            </mrow>
-          </md>
-          <md>
-            <mrow> V = \left. \begin{pmatrix}
-              \frac{\partial (\kappa E)}{\partial E} \amp \frac{\partial (\kappa E)}{\partial I} \\
-              \frac{\partial (-\kappa E + \gamma I)}{\partial E} \amp \frac{\partial (-\kappa E + \gamma I)}{\partial I}
-              \end{pmatrix}  \right| _{(S, E, I, R) = (N, 0, 0, 0)} .
-            </mrow>
-          </md>
-          <answer>
-            <md>
-              <mrow> F = \left. \begin{pmatrix}
-                0 \amp \beta S \\
-                0 \amp 0
-                \end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
-                = \begin{pmatrix}
-                0 \amp \beta N \\
-                0 \amp 0
-                \end{pmatrix} 
-              </mrow>
-            </md>
-            <md>
-              <mrow> V = \left. \begin{pmatrix}
-                \kappa \amp 0 \\
-                -\kappa \amp \gamma
-                \end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
-                = \begin{pmatrix}
-                \kappa \amp 0 \\
-                -\kappa \amp \gamma
-                \end{pmatrix} 
-              </mrow>
-            </md>
-          </answer>
-        </li>
-        <li>
-          <p>
-            Compute the Next Generation Matrix, which is the matrix
-          </p>
-          <md>
-            <mrow> K = F \, V^{-1}
-            </mrow>
-          </md> 
-          <p>
-            and determine the largest positive eigenvalue of <m>K</m>.
-          </p>
-          <p>
-            To do this: first compute <m>V^{-1}</m>. Then compute <m>F \,V^{-1}</m>. Then determine the eigenvalues of <m>F \,V^{-1}</m>.
-          </p>
-          <p>
-            The largest possible eigenvalue of <m>F \,V^{-1}</m> is <m>\mathcal{R}_0</m>.
-          </p>
-          <answer> 
-            <p>
-              Compute matrix <m>V^{-1}=\begin{pmatrix}
-                \frac{1}{\kappa} \amp 0 \\
-                \frac{1}{\gamma} \amp \frac{1}{\gamma} 
-                \end{pmatrix}.</m> 
-
-              Then compute matrix <m>FV^{-1}=\begin{pmatrix}
-                \frac{\beta  N}{\gamma} \amp \frac{\beta N}{\gamma} \\
-                0 \amp 0 
-                \end{pmatrix}.</m> 
-
-              The eigenvalues of <m>FV^{-1}</m> are <m>0</m> and <m>\frac{\beta  N}{\gamma}</m>. Of these, the largest eigenvalue is <m>\frac{\beta  N}{\gamma}</m>, and therefore <m>\mathcal{R}_0 = \frac{\beta  N}{\gamma}</m>.
-            </p>
-          </answer>
-        </li>
-      </ol> -->
+      
 
       <activity xml:id="activity-learning-next-generation-seir">
         <statement>
           <p>
-            Begin with the SEIR model, shown below, and follow the steps described. While in many activities it is good to try all the steps before checking the answer, in this activity you may wish to compare your results after each step with the <q>Answer</q> link at the bottom of the activity. There will then be additional chances to practice the Next Generation Method, so that you will have the chance to try the Next Generation Method without checking answers at each step.
+            Begin with the SEIR model, shown below, and follow the steps described. While in many activities it is good to try all the steps before checking the answer, in this activity you may wish to compare your results after each step with the <q>Answer</q> link given at the bottom of the step. There will then be additional chances to practice the Next Generation Method, so that you will have the chance to try this process without checking answers at each step.
           </p>
           <md>
             <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
@@ -492,11 +311,28 @@
               <p>
                 Decide which compartments of the SEIR model involve individuals experiencing some stage of infection. If a person has contracted an illness, they are in some stage of infection throughout the time they are incubating, whether contagious or not, and whether showing symptoms or not. They stop being in a stage of infection when they are completely done with the illness.
               </p>
+              <answer>
+                <p>
+                  For the SEIR model, the E and I compartments are stages of infection. The S and R compartments are not stages of infection. 
+                </p>
+              </answer>
             </li>
             <li>
               <p>
                 For the equation(s) selected in Step 1, write the equation(s) in matrix form. To do so, place the derivatives on the left-hand side into a vector. On the right-hand side, write the equations in a vector. 
               </p>
+              <answer>
+                <md>
+                  <mrow>\begin{pmatrix}
+                    \frac{dE}{dt} \\
+                    \frac{dI}{dt}
+                    \end{pmatrix} = 
+                    \begin{pmatrix}
+                    \beta S I - \kappa E \\
+                    \kappa E - \gamma I
+                    \end{pmatrix} </mrow>
+                </md>
+              </answer>
             </li>
             <li>
               <p>
@@ -519,71 +355,7 @@
                   </p>
                 </li>
               </ul> 
-            </li>
-            <li>
-              <p> 
-                Compute the disease-free equilibrium for your compartmental model.
-              </p>
-            </li>
-            <li> 
-              <p>
-                Compute matrices <m>F</m> and <m>V</m> (notice these do not have <q>hats</q>: they are different from <m>\widehat{F}</m> and <m>\widehat{V}</m>) by computing partial derivatives of each of the terms in <m>\widehat{F}</m> and <m>\widehat{V}</m>, with respect to each of the populations of compartments experiencing infection, following the pattern shown below in the case of the SEIR model, and then evaluating your results at the disease-free equilibrium: 
-              </p>
-              <md>
-                <mrow> F = \left. \begin{pmatrix}
-                  \frac{\partial (\beta SI)}{\partial E} \amp \frac{\partial (\beta SI)}{\partial I} \\
-                  \frac{\partial (0)}{\partial E} \amp \frac{\partial (0)}{\partial I}
-                  \end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
-                </mrow>
-              </md>
-              <md>
-                <mrow> V = \left. \begin{pmatrix}
-                  \frac{\partial (\kappa E)}{\partial E} \amp \frac{\partial (\kappa E)}{\partial I} \\
-                  \frac{\partial (-\kappa E + \gamma I)}{\partial E} \amp \frac{\partial (-\kappa E + \gamma I)}{\partial I}
-                  \end{pmatrix}  \right| _{(S, E, I, R) = (N, 0, 0, 0)} .
-                </mrow>
-              </md>
-            </li>
-            <li>
-              <p>
-               Compute the Next Generation Matrix, which is the matrix
-              </p>
-              <md>
-                <mrow> K = F \, V^{-1}
-                </mrow>
-              </md> 
-              <p>
-                and determine the largest positive eigenvalue of <m>K</m>.
-              </p>
-              <p>
-                To do this: first compute <m>V^{-1}</m>. Then compute <m>F \,V^{-1}</m>. Then determine the eigenvalues of <m>F \,V^{-1}</m>.
-              </p>
-              <p>
-                The largest possible eigenvalue of <m>F \,V^{-1}</m> is the value of <m>\mathcal{R}_0</m>.
-              </p>
-            </li>
-          </ol>     
-        </statement>
-        <answer>
-          <ol>
-            <li>
-            <p>
-              For the SEIR model, the E and I compartments are stages of infection. The S and R compartments are not stages of infection. 
-            </p>
-            </li>
-            <li>
-                <md>
-                  <mrow>\begin{pmatrix}
-                    \frac{dE}{dt} \\
-                    \frac{dI}{dt}
-                    \end{pmatrix} = 
-                    \begin{pmatrix}
-                    \beta S I - \kappa E \\
-                    \kappa E - \gamma I
-                    \end{pmatrix} </mrow>
-                </md>
-            </li>
-            <li>
+              <answer>
                 <md>
                   <mrow>\begin{pmatrix}
                     \frac{dE}{dt} \\
@@ -617,15 +389,39 @@
                     \kappa E \\
                     -\kappa E + \gamma I
                     \end{pmatrix}</mrow>
-                </md> 
+                </md>
+              </answer>
             </li>
             <li>
-              <p>
-               We did this for the SEIR model in <xref ref="activity-equilibrium-values"/>. The disease-free equilibrium is <m>(S, E, I, R)=(N, 0, 0, 0)</m>, where <m>N</m> is the total number of people in the entire population being studied.
+              <p> 
+                Compute the disease-free equilibrium for your compartmental model.
               </p>
+              <answer>
+                <p>
+                  The disease-free equilibrium is <m>(S, E, I, R)=(N, 0, 0, 0)</m>, where <m>N=S+E+I+R</m> is the entire population being studied, as discussed in <xref ref="activity-equilibrium-values"/> and in the text shortly after this activity.
+                </p>
+              </answer>
             </li>
             <li> 
-               <md>
+              <p>
+                Compute matrices <m>F</m> and <m>V</m> (notice these do not have <q>hats</q>: they are different from <m>\widehat{F}</m> and <m>\widehat{V}</m>) by computing partial derivatives of each of the terms in <m>\widehat{F}</m> and <m>\widehat{V}</m>, with respect to each of the populations of compartments experiencing infection, following the pattern shown below in the case of the SEIR model, and then evaluating your results at the disease-free equilibrium: 
+              </p>
+              <md>
+                <mrow> F = \left. \begin{pmatrix}
+                  \frac{\partial (\beta SI)}{\partial E} \amp \frac{\partial (\beta SI)}{\partial I} \\
+                  \frac{\partial (0)}{\partial E} \amp \frac{\partial (0)}{\partial I}
+                  \end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
+                </mrow>
+              </md>
+              <md>
+                <mrow> V = \left. \begin{pmatrix}
+                  \frac{\partial (\kappa E)}{\partial E} \amp \frac{\partial (\kappa E)}{\partial I} \\
+                  \frac{\partial (-\kappa E + \gamma I)}{\partial E} \amp \frac{\partial (-\kappa E + \gamma I)}{\partial I}
+                  \end{pmatrix}  \right| _{(S, E, I, R) = (N, 0, 0, 0)} .
+                </mrow>
+              </md>
+              <answer>
+                <md>
                   <mrow> F = \left. \begin{pmatrix}
                     0 \amp \beta S \\
                     0 \amp 0
@@ -647,8 +443,26 @@
                     \end{pmatrix} 
                   </mrow>
                 </md>
+              </answer>
             </li>
             <li>
+              <p>
+               Compute the Next Generation Matrix, which is the matrix
+              </p>
+              <md>
+                <mrow> K = F \, V^{-1}
+                </mrow>
+              </md> 
+              <p>
+                and determine the largest positive eigenvalue of <m>K</m>.
+              </p>
+              <p>
+                To do this: first compute <m>V^{-1}</m>. Then compute <m>F \,V^{-1}</m>. Then determine the eigenvalues of <m>F \,V^{-1}</m>.
+              </p>
+              <p>
+                The largest possible eigenvalue of <m>F \,V^{-1}</m> is the value of <m>\mathcal{R}_0</m>.
+              </p>
+              <answer> 
                 <p>
                   Compute matrix <m>V^{-1}=\begin{pmatrix}
                     \frac{1}{\kappa} \amp 0 \\
@@ -662,9 +476,10 @@
 
                   The eigenvalues of <m>FV^{-1}</m> are <m>0</m> and <m>\frac{\beta  N}{\gamma}</m>. Of these, the largest eigenvalue is <m>\frac{\beta  N}{\gamma}</m>, and therefore <m>\mathcal{R}_0 = \frac{\beta  N}{\gamma}</m>.
                 </p>
+              </answer>
             </li>
-          </ol>
-        </answer>
+          </ol>     
+        </statement>
       </activity>
 
 
