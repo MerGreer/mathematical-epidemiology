@@ -391,9 +391,6 @@ sagecell.makeSagecell({
 #activity-learning-next-generation-seir-1-3 { counter-set: activity-learning-next-generation-seir-1-3 0; }
 #activity-learning-next-generation-seir-1-3 > li::marker { content: ""counter(activity-learning-next-generation-seir-1-3,decimal)"."; }
 #activity-learning-next-generation-seir-1-3 > li { counter-increment: activity-learning-next-generation-seir-1-3; }
-#activity-learning-next-generation-seir-2-1 { counter-set: activity-learning-next-generation-seir-2-1 0; }
-#activity-learning-next-generation-seir-2-1 > li::marker { content: ""counter(activity-learning-next-generation-seir-2-1,decimal)"."; }
-#activity-learning-next-generation-seir-2-1 > li { counter-increment: activity-learning-next-generation-seir-2-1; }
 #activity-learning-next-generation-python-seir-1-4 { counter-set: activity-learning-next-generation-python-seir-1-4 0; }
 #activity-learning-next-generation-python-seir-1-4 > li::marker { content: ""counter(activity-learning-next-generation-python-seir-1-4,decimal)"."; }
 #activity-learning-next-generation-python-seir-1-4 > li { counter-increment: activity-learning-next-generation-python-seir-1-4; }
@@ -748,12 +745,13 @@ c \amp d
 </ol></div></details></div></article></section><section class="section" id="sec-the-next-generation-method-steps-to-follow"><h3 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">14.2</span><span class="space"> </span><span class="title">The Next Generation Method: Steps to Follow</span>
 </h3>
-<div class="para" id="sec-the-next-generation-method-steps-to-follow-2">We now go through the steps of the Next Generation Method. </div>
+<div class="para" id="sec-the-next-generation-method-steps-to-follow-2">We now go through the steps of the Next Generation Method. The concept of a next-generation matrix comes from Diekmann and Heesterbeek.<details class="ptx-footnote" aria-live="polite" id="sec-the-next-generation-method-steps-to-follow-2-1"><summary class="ptx-footnote__number" title="Footnote 14.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="sec-the-next-generation-method-steps-to-follow-2-1">A good source to read on this is the book <em class="emphasis">Mathematical Epidemiology of Infectious Diseases: Model Building, Analysis and Interpretation</em> by O. Diekmann and J.A.P. Heesterbeek, published in the Wiley Series in Mathematical and Computational Biology in 2000.</div></details> The steps below appear in the paper “Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission” by van den Driessche and Watmough.<details class="ptx-footnote" aria-live="polite" id="sec-the-next-generation-method-steps-to-follow-2-3"><summary class="ptx-footnote__number" title="Footnote 14.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="sec-the-next-generation-method-steps-to-follow-2-3">The authors are P. van den Driessche and James Watmough, and the article was published by the journal <em class="emphasis">Mathematical Biosciences</em> in 2002.</div></details>
+</div>
 <article class="activity project-like" id="activity-learning-next-generation-seir"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">14.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="activity-learning-next-generation-seir-1-1">Begin with the SEIR model, shown below, and follow the steps described. While in many activities it is good to try all the steps before checking the answer, in this activity you may wish to compare your results after each step with the “Answer” link at the bottom of the activity. There will then be additional chances to practice the Next Generation Method, so that you will have the chance to try the Next Generation Method without checking answers at each step.</div>
-<div class="displaymath process-math" id="activity-learning-next-generation-seir-1-2">
+<div class="para" id="activity-learning-next-generation-seir-1-1">Begin with the SEIR model, shown below, and follow the steps described. While in many activities it is good to try all the steps before checking the answer, in this activity you may wish to compare your results after each step with the “Answer” link given at the bottom of the step. There will then be additional chances to practice the Next Generation Method, so that you will have the chance to try this process without checking answers at each step.</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/activity-equilibrium-values.html" id="activity-learning-next-generation-seir-1-2">
 \begin{align*}
 \frac{dS}{dt} \amp = - \beta S I \\
 \frac{dE}{dt} \amp =  \beta S I - \kappa E \\
@@ -762,8 +760,25 @@ c \amp d
 \end{align*}
 </div>
 <ol class="decimal" id="activity-learning-next-generation-seir-1-3">
-<li id="activity-learning-next-generation-seir-1-3-1"><div class="para" id="activity-learning-next-generation-seir-1-3-1-1">Decide which compartments of the SEIR model involve individuals experiencing some stage of infection. If a person has contracted an illness, they are in some stage of infection throughout the time they are incubating, whether contagious or not, and whether showing symptoms or not. They stop being in a stage of infection when they are completely done with the illness.</div></li>
-<li id="activity-learning-next-generation-seir-1-3-2"><div class="para" id="activity-learning-next-generation-seir-1-3-2-1">For the equation(s) selected in Step 1, write the equation(s) in matrix form. To do so, place the derivatives on the left-hand side into a vector. On the right-hand side, write the equations in a vector.</div></li>
+<li id="activity-learning-next-generation-seir-1-3-1">
+<div class="para" id="activity-learning-next-generation-seir-1-3-1-1">Decide which compartments of the SEIR model involve individuals experiencing some stage of infection. If a person has contracted an illness, they are in some stage of infection throughout the time they are incubating, whether contagious or not, and whether showing symptoms or not. They stop being in a stage of infection when they are completely done with the illness.</div>
+<details id="activity-learning-next-generation-seir-1-3-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="activity-learning-next-generation-seir-1-3-1-2-1">For the SEIR model, the E and I compartments are stages of infection. The S and R compartments are not stages of infection.</div></div></details>
+</li>
+<li id="activity-learning-next-generation-seir-1-3-2">
+<div class="para" id="activity-learning-next-generation-seir-1-3-2-1">For the equation(s) selected in Step 1, write the equation(s) in matrix form. To do so, place the derivatives on the left-hand side into a vector. On the right-hand side, write the equations in a vector.</div>
+<details id="activity-learning-next-generation-seir-1-3-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="displaymath process-math" id="activity-learning-next-generation-seir-1-3-2-2-1">
+\begin{gather*}
+\begin{pmatrix}
+\frac{dE}{dt} \\
+\frac{dI}{dt}
+\end{pmatrix} = 
+\begin{pmatrix}
+\beta S I - \kappa E \\
+\kappa E - \gamma I
+\end{pmatrix} 
+\end{gather*}
+</div></div></details>
+</li>
 <li id="activity-learning-next-generation-seir-1-3-3">
 <div class="para" id="activity-learning-next-generation-seir-1-3-3-1">Separate the right-hand side into two vectors, <span class="process-math">\(\widehat{F}\)</span> and <span class="process-math">\(\widehat{V}\text{,}\)</span> so that all of the following are true:</div>
 <ul class="disc" id="activity-learning-next-generation-seir-1-3-3-2">
@@ -772,8 +787,49 @@ c \amp d
 <li id="activity-learning-next-generation-seir-1-3-3-2-2"><div class="para" id="activity-learning-next-generation-seir-1-3-3-2-2-1">vector <span class="process-math">\(\widehat{F}\)</span> includes all <em class="emphasis">new infection</em> terms, that is, the terms within the model that indicate when individuals who were not at any stage of infection newly enter a compartment in which they are at some stage of infection; and</div></li>
 <li id="activity-learning-next-generation-seir-1-3-3-2-3"><div class="para" id="activity-learning-next-generation-seir-1-3-3-2-3-1">vector <span class="process-math">\(\widehat{V}\)</span> is the vector of <em class="emphasis">all other movement between compartments</em>.</div></li>
 </ul>
+<details id="activity-learning-next-generation-seir-1-3-3-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="displaymath process-math" id="activity-learning-next-generation-seir-1-3-3-3-1">
+\begin{gather*}
+\begin{pmatrix}
+\frac{dE}{dt} \\
+\frac{dI}{dt}
+\end{pmatrix} = 
+\begin{pmatrix}
+\beta S I  \\
+0
+\end{pmatrix} -
+\begin{pmatrix}
+\kappa E \\
+-\kappa E + \gamma I
+\end{pmatrix}
+\end{gather*}
+</div>
+<div class="para" id="activity-learning-next-generation-seir-1-3-3-3-2">That is:</div>
+<div class="displaymath process-math" id="activity-learning-next-generation-seir-1-3-3-3-3">
+\begin{gather*}
+\widehat{F} = 
+\begin{pmatrix}
+\beta S I  \\
+0
+\end{pmatrix} 
+\end{gather*}
+</div>
+<div class="para" id="activity-learning-next-generation-seir-1-3-3-3-4">and</div>
+<div class="displaymath process-math" id="activity-learning-next-generation-seir-1-3-3-3-5">
+\begin{gather*}
+\widehat{V} = 
+\begin{pmatrix}
+\kappa E \\
+-\kappa E + \gamma I
+\end{pmatrix}
+\end{gather*}
+</div>
+</div></details>
 </li>
-<li id="activity-learning-next-generation-seir-1-3-4"><div class="para" id="activity-learning-next-generation-seir-1-3-4-1">Compute the disease-free equilibrium for your compartmental model.</div></li>
+<li id="activity-learning-next-generation-seir-1-3-4">
+<div class="para" id="activity-learning-next-generation-seir-1-3-4-1">Compute the disease-free equilibrium for your compartmental model.</div>
+<details id="activity-learning-next-generation-seir-1-3-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="activity-learning-next-generation-seir-1-3-4-2-1">The disease-free equilibrium is <span class="process-math">\((S, E, I, R)=(N, 0, 0, 0)\text{,}\)</span> where <span class="process-math">\(N=S+E+I+R\)</span> is the entire population being studied, as discussed in <a href="ch-the-next-generation-method.html#activity-equilibrium-values" class="xref" data-knowl="./knowl/xref/activity-equilibrium-values.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 14.2">Activity 14.2</a> and in the text shortly after this activity.</div></div></details>
+</li>
 <li id="activity-learning-next-generation-seir-1-3-5">
 <div class="para" id="activity-learning-next-generation-seir-1-3-5-1">Compute matrices <span class="process-math">\(F\)</span> and <span class="process-math">\(V\)</span> (notice these do not have “hats”: they are different from <span class="process-math">\(\widehat{F}\)</span> and <span class="process-math">\(\widehat{V}\)</span>) by computing partial derivatives of each of the terms in <span class="process-math">\(\widehat{F}\)</span> and <span class="process-math">\(\widehat{V}\text{,}\)</span> with respect to each of the populations of compartments experiencing infection, following the pattern shown below in the case of the SEIR model, and then evaluating your results at the disease-free equilibrium:</div>
 <div class="displaymath process-math" id="activity-learning-next-generation-seir-1-3-5-2">
@@ -792,6 +848,32 @@ V = \left. \begin{pmatrix}
 \end{pmatrix}  \right| _{(S, E, I, R) = (N, 0, 0, 0)} .
 \end{align*}
 </div>
+<details id="activity-learning-next-generation-seir-1-3-5-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="displaymath process-math" id="activity-learning-next-generation-seir-1-3-5-4-1">
+\begin{align*}
+F = \left. \begin{pmatrix}
+0 \amp \beta S \\
+0 \amp 0
+\end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
+= \begin{pmatrix}
+0 \amp \beta N \\
+0 \amp 0
+\end{pmatrix} 
+\end{align*}
+</div>
+<div class="displaymath process-math" id="activity-learning-next-generation-seir-1-3-5-4-2">
+\begin{align*}
+V = \left. \begin{pmatrix}
+\kappa \amp 0 \\
+-\kappa \amp \gamma
+\end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
+= \begin{pmatrix}
+\kappa \amp 0 \\
+-\kappa \amp \gamma
+\end{pmatrix} 
+\end{align*}
+</div>
+</div></details>
 </li>
 <li id="activity-learning-next-generation-seir-1-3-6">
 <div class="para" id="activity-learning-next-generation-seir-1-3-6-1">Compute the Next Generation Matrix, which is the matrix</div>
@@ -806,96 +888,16 @@ K = F \, V^{-1}
 </div>
 <div class="para" id="activity-learning-next-generation-seir-1-3-6-5">The largest possible eigenvalue of <span class="process-math">\(F \,V^{-1}\)</span> is the value of <span class="process-math">\(\mathcal{R}_0\text{.}\)</span>
 </div>
-</li>
-</ol>
-<div class="solutions"><details id="activity-learning-next-generation-seir-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ol class="decimal" id="activity-learning-next-generation-seir-2-1">
-<li id="activity-learning-next-generation-seir-2-1-1"><div class="para" id="activity-learning-next-generation-seir-2-1-1-1">For the SEIR model, the E and I compartments are stages of infection. The S and R compartments are not stages of infection.</div></li>
-<li id="activity-learning-next-generation-seir-2-1-2"><div class="para" id="p-derived-activity-learning-next-generation-seir-2-1-2"><div class="displaymath process-math" id="activity-learning-next-generation-seir-2-1-2-1">
-\begin{gather*}
-\begin{pmatrix}
-\frac{dE}{dt} \\
-\frac{dI}{dt}
-\end{pmatrix} = 
-\begin{pmatrix}
-\beta S I - \kappa E \\
-\kappa E - \gamma I
-\end{pmatrix} 
-\end{gather*}
-</div></div></li>
-<li id="activity-learning-next-generation-seir-2-1-3">
-<div class="displaymath process-math" id="activity-learning-next-generation-seir-2-1-3-1">
-\begin{gather*}
-\begin{pmatrix}
-\frac{dE}{dt} \\
-\frac{dI}{dt}
-\end{pmatrix} = 
-\begin{pmatrix}
-\beta S I  \\
-0
-\end{pmatrix} -
-\begin{pmatrix}
-\kappa E \\
--\kappa E + \gamma I
-\end{pmatrix}
-\end{gather*}
-</div>
-<div class="para" id="activity-learning-next-generation-seir-2-1-3-2">That is:</div>
-<div class="displaymath process-math" id="activity-learning-next-generation-seir-2-1-3-3">
-\begin{gather*}
-\widehat{F} = 
-\begin{pmatrix}
-\beta S I  \\
-0
-\end{pmatrix} 
-\end{gather*}
-</div>
-<div class="para" id="activity-learning-next-generation-seir-2-1-3-4">and</div>
-<div class="displaymath process-math" id="activity-learning-next-generation-seir-2-1-3-5">
-\begin{gather*}
-\widehat{V} = 
-\begin{pmatrix}
-\kappa E \\
--\kappa E + \gamma I
-\end{pmatrix}
-\end{gather*}
-</div>
-</li>
-<li id="activity-learning-next-generation-seir-2-1-4"><div class="para" id="activity-learning-next-generation-seir-2-1-4-1">We did this for the SEIR model in <a href="ch-the-next-generation-method.html#activity-equilibrium-values" class="xref" data-knowl="./knowl/xref/activity-equilibrium-values.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 14.2">Activity 14.2</a>. The disease-free equilibrium is <span class="process-math">\((S, E, I, R)=(N, 0, 0, 0)\text{,}\)</span> where <span class="process-math">\(N\)</span> is the total number of people in the entire population being studied.</div></li>
-<li id="activity-learning-next-generation-seir-2-1-5"><div class="para" id="p-derived-activity-learning-next-generation-seir-2-1-5">
-<div class="displaymath process-math" id="activity-learning-next-generation-seir-2-1-5-1">
-\begin{align*}
-F = \left. \begin{pmatrix}
-0 \amp \beta S \\
-0 \amp 0
-\end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
-= \begin{pmatrix}
-0 \amp \beta N \\
-0 \amp 0
-\end{pmatrix} 
-\end{align*}
-</div>
-<div class="displaymath process-math" id="activity-learning-next-generation-seir-2-1-5-2">
-\begin{align*}
-V = \left. \begin{pmatrix}
-\kappa \amp 0 \\
--\kappa \amp \gamma
-\end{pmatrix} \right| _{(S, E, I, R) = (N, 0, 0, 0)}
-= \begin{pmatrix}
-\kappa \amp 0 \\
--\kappa \amp \gamma
-\end{pmatrix} 
-\end{align*}
-</div>
-</div></li>
-<li id="activity-learning-next-generation-seir-2-1-6"><div class="para" id="activity-learning-next-generation-seir-2-1-6-1">Compute matrix <span class="process-math">\(V^{-1}=\begin{pmatrix}
+<details id="activity-learning-next-generation-seir-1-3-6-6" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="activity-learning-next-generation-seir-1-3-6-6-1">Compute matrix <span class="process-math">\(V^{-1}=\begin{pmatrix}
 \frac{1}{\kappa} \amp 0 \\
 \frac{1}{\gamma} \amp \frac{1}{\gamma} 
 \end{pmatrix}.\)</span> Then compute matrix <span class="process-math">\(FV^{-1}=\begin{pmatrix}
 \frac{\beta  N}{\gamma} \amp \frac{\beta N}{\gamma} \\
 0 \amp 0 
 \end{pmatrix}.\)</span> The eigenvalues of <span class="process-math">\(FV^{-1}\)</span> are <span class="process-math">\(0\)</span> and <span class="process-math">\(\frac{\beta  N}{\gamma}\text{.}\)</span> Of these, the largest eigenvalue is <span class="process-math">\(\frac{\beta  N}{\gamma}\text{,}\)</span> and therefore <span class="process-math">\(\mathcal{R}_0 = \frac{\beta  N}{\gamma}\text{.}\)</span>
-</div></li>
-</ol></div></details></div></article><article class="activity project-like" id="activity-next-generation-practice-sirs"><h4 class="heading">
+</div></div></details>
+</li>
+</ol></article><article class="activity project-like" id="activity-next-generation-practice-sirs"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">14.5</span><span class="period">.</span>
 </h4>
 <div class="para" id="activity-next-generation-practice-sirs-1-1">Now that we have shown all the steps for computing a formula for <span class="process-math">\(\mathcal{R}_0\)</span> in the SEIR model, try again for the SIRS model, shown in <a href="ch-the-next-generation-method.html#fig-SIRS-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SIRS-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 14.1">Figure 14.1</a>.</div> <figure class="figure figure-like" id="fig-SIRS-compartmental-diagram"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/fig-SIRS-compartmental-diagram-2.svg" role="img" class="contained" alt="(Write this)"></div>
@@ -973,7 +975,7 @@ print("The eigenvalues and their multiplicities are: ", R0eval)
 <article class="activity project-like" id="activity-next-generation-practice-seiar"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">14.7</span><span class="period">.</span>
 </h4>
-<div class="para" id="activity-next-generation-practice-seiar-1-1">The book <em class="emphasis">Mathematical Epidemiology</em><details class="ptx-footnote" aria-live="polite" id="activity-next-generation-practice-seiar-1-1-2"><summary class="ptx-footnote__number" title="Footnote 14.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="activity-next-generation-practice-seiar-1-1-2">
+<div class="para" id="activity-next-generation-practice-seiar-1-1">The book <em class="emphasis">Mathematical Epidemiology</em><details class="ptx-footnote" aria-live="polite" id="activity-next-generation-practice-seiar-1-1-2"><summary class="ptx-footnote__number" title="Footnote 14.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="activity-next-generation-practice-seiar-1-1-2">
 <em class="emphasis">Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 12, which was written by Fred Brauer, and is labeled SLIAR. Our version is labeled SEIAR to stay consistent with notation we have used in other chapters.</div></details> introduces a model of influenza having five compartments. This model has a Susceptibles (S) compartment that is similar to what we have seen before. There is then an Exposed-and-incubating (E) compartment for people incubating influenza who are not yet able to spread influenza to others. After that, people may be Infectious (I), meaning they have symptoms and can spread influenza, or they may be Asymptomatic (A), meaning they do not have symptoms but can still spread influenza to others. In this model, Asymptomatic (A) people are less able to spread influenza than Infectious (I) people. Many people then move into a Recovered (R) compartment, but those who die depart the model rather than moving into the R compartment. The compartmental diagram for this model appears in <a href="ch-the-next-generation-method.html#fig-SEIAR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SEIAR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 14.2">Figure 14.2</a>. In this activity, we explore the SEIAR model and investigate Python code that can help us determine <span class="process-math">\(\mathcal{R}_0\)</span> for this model using the Next Generation Method.</div> <figure class="figure figure-like" id="fig-SEIAR-compartmental-diagram"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="generated/latex-image/fig-SEIAR-compartmental-diagram-2.svg" role="img" class="contained" alt="(Write this)"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.2<span class="period">.</span></span><span class="space"> </span>The compartmental diagram for one possible SEIAR model for influenza, where “S”stands for “Susceptible”, “E” stands for “Exposed-and-incubating”, “I” stands for “Infectious”, “A” stands for “Asymptomatic” and “R” stands for “Recovered”. In this model, Asymptomatic individuals have no symptoms but can spread influenza, though they are not as contagious as individuals in the Infectious compartment.</figcaption></figure> <ol class="decimal" id="activity-next-generation-practice-seiar-1-3">
 <li id="activity-next-generation-practice-seiar-1-3-1">
@@ -1077,7 +1079,7 @@ print("The eigenvalues and their multiplicities are: ", R0eval)
 <span class="type">For Further Thought</span><span class="space"> </span><span class="codenumber">14.4</span><span class="space"> </span><span class="title">For Further Thought</span>
 </h3>
 <article class="exercise exercise-like" id="exercises-ch-next-generation-method-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="exercises-ch-next-generation-method-1-1">Consider the SEIR model with births and deaths, shown in <a href="ch-the-next-generation-method.html#fig-SEIR-births-and-deaths-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SEIR-births-and-deaths-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 14.3">Figure 14.3</a>, which includes a constant term <span class="process-math">\(\Pi\)</span> representing births per time unit, as well as a death rate <span class="process-math">\(\mu\)</span> from each compartment. This model comes from the book <em class="emphasis">Mathematical Epidemiology</em>.<details class="ptx-footnote" aria-live="polite" id="exercises-ch-next-generation-method-1-1-5"><summary class="ptx-footnote__number" title="Footnote 14.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="exercises-ch-next-generation-method-1-1-5">
+<div class="para" id="exercises-ch-next-generation-method-1-1">Consider the SEIR model with births and deaths, shown in <a href="ch-the-next-generation-method.html#fig-SEIR-births-and-deaths-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SEIR-births-and-deaths-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 14.3">Figure 14.3</a>, which includes a constant term <span class="process-math">\(\Pi\)</span> representing births per time unit, as well as a death rate <span class="process-math">\(\mu\)</span> from each compartment. This model comes from the book <em class="emphasis">Mathematical Epidemiology</em>.<details class="ptx-footnote" aria-live="polite" id="exercises-ch-next-generation-method-1-1-5"><summary class="ptx-footnote__number" title="Footnote 14.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="exercises-ch-next-generation-method-1-1-5">
 <em class="emphasis">Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 6, which was written by James Watmough and Pauline van den Driessche.</div></details>
 </div>
 <div class="para logical" id="exercises-ch-next-generation-method-1-2">
