@@ -225,7 +225,7 @@
                   </p>
                 </li>
               </ol>
-            </li>
+            </li> 
             <li>
               <p>
                 Next, we introduce <em>partial derivatives</em>. Whereas in part (1) we computed derivatives with respect to <m>x</m>, we now allow ourselves to compute derivatives with respect to other variables in a formula. 
