@@ -880,7 +880,7 @@
           Consider the SEIR model with births and deaths, shown in <xref ref="fig-SEIR-births-and-deaths-compartmental-diagram"/>, which includes a constant term <m>\Pi</m> representing births per time unit, as well as a death rate <m>\mu</m> from each compartment. This model comes from the book <em>Mathematical Epidemiology</em>.<fn><em>Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 6, which was written by James Watmough and Pauline van den Driessche.</fn>  
         </p> 
         <p>
-          Complete all steps of the Next Generation Method to show how to determine the value of <m>\mathcal{R}_0</m> for this model. As a hint: you should get 
+          Complete all steps of the Next Generation Method to show how to determine the value of <m>\mathcal{R}_0</m> for this model, numbering the steps 1 through 6, as shown in <xref ref="activity-learning-next-generation-seir"/>. As a hint: you should get 
           <md>
             <mrow>\mathcal{R}_0 \amp = \frac{\kappa \beta N}{(\mu + \kappa)(\mu + \gamma)} </mrow>
           </md>
@@ -969,7 +969,7 @@
 
       <exercise number="3">
         <p>
-          Revisit the SIRS model from <xref ref="activity-next-generation-practice-sirs"/> and introduce birth and death terms in a similar way as is shown in the model in <xref ref="fig-SEIR-births-and-deaths-compartmental-diagram"/>. Then use the steps of the Next Generation Method to compute <m>\mathcal{R}_0</m> for the resulting SIRS model with births and deaths. Show all your steps.
+          Revisit the SIRS model from <xref ref="activity-next-generation-practice-sirs"/> and introduce birth and death terms in a similar way as is shown in the model in <xref ref="fig-SEIR-births-and-deaths-compartmental-diagram"/>. Then use the steps of the Next Generation Method to compute <m>\mathcal{R}_0</m> for the resulting SIRS model with births and deaths, numbering the steps 1 through 6, as shown in <xref ref="activity-learning-next-generation-seir"/>. Demonstrate fully how you complete each step of the Next Generation Method.
         </p>     
       </exercise>
     </exercises>
