@@ -533,7 +533,10 @@
           </li>
           <li>
             <p>
-              Do some online research to determine the percentage of children in your area, or percentage of all people in your area, who are vaccinated against pertussis. <q>Your area</q> can refer to your city, state, province, country, or whatever other region you choose. Run the Python code again, using this percentage for vaccination, and citing the resources in which you found the percentage. Adjust the code as needed so you can best see the results, and describe your findings.
+              Do some online research to determine the percentage of children in your area, or percentage of all people in your area, who are vaccinated against pertussis. <q>Your area</q> can refer to your city, state, province, country, or whatever other region you choose. Cite your source(s), including links to any web pages, the title of each web page used, the name of the publisher of each web page, and the date you most recently accessed the web page.
+            </p>
+            <p>              
+              Then run the Python code again, using the percentage you determined for vaccination. Adjust the code as needed so you can best see the results, and describe your findings.
             </p>
           </li>
         </ol>   
