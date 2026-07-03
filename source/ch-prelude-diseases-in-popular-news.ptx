@@ -57,7 +57,7 @@
             </li>
             <li>
               <p>
-                <url href="https://www.wfla.com/news/florida/cruise-ship-out-of-florida-hit-by-norovirus-outbreak-94-affected/">Cruise ship out of Florida hit by norovirus outbreak; 94 affected,</url> published January 12, 2026, by People. 
+                <url href="https://www.wfla.com/news/florida/cruise-ship-out-of-florida-hit-by-norovirus-outbreak-94-affected/">Cruise ship out of Florida hit by norovirus outbreak; 94 affected,</url> published January 12, 2026, by WFLA News Channel 8. 
               </p>
             </li>
           </ul>
@@ -133,12 +133,18 @@
         For these and other diseases or outbreaks we may read about, we can add to our knowledge of underlying disease biology by gathering additional data. We will find, when modeling diseases, that it can help to know the lengths of time for each disease stage, such as incubation period, how long a person is typically sick, and how long any immunity to the disease lasts. Vaccine data is also helpful, including whether a vaccine exists at all, how effective the vaccine is on average, and what percentage of people are vaccinated against a particular disease. Some of the data we collect may depend on time or place: vaccines may be newer, or different percentages of people may be vaccinated in different locations. 
       </p>
       <p> 
-        One place to look up data is the <url href="https://www.cdc.gov/">Centers for Disease Control and Prevention (CDC).</url> As one example, a web search can take us to the <url href="https://www.cdc.gov/measles/index.html">CDC's information page about measles.</url> Not every disease is presented in an identical manner on the CDC's web pages, but there are typically page titles including the words <q>Transmission</q> or <q>How It Spreads</q> that help us, as well as page titles including the word <q>Symptoms</q>. These pages contain lots of information about how diseases spread and how long each stage takes. Such information helps us build our models.
+        Two places to look up data are the <url href="https://www.cdc.gov/">Centers for Disease Control and Prevention (CDC)</url> and the <url href="https://www.who.int/">World Health Organization (WHO).</url> Once you go to these pages, search for <q>measles</q> or for whatever other disease interests you. The key information about each disease may be spread over multiple pages that contain lots of information about how diseases spread and how long each stage takes. Such information helps us build our models.
+      </p>
+      <p>
+        <em>Be careful:</em> seeking disease information by a more general web search or AI search is risky. Sometimes the information is correct, and sometimes it is not. For the most complete and accurate results, go straight to the source of known and scientifically researched information, such as to the CDC and WHO sites listed above.
+      </p>
+      <p>
+        If you do need information beyond what you can find at the CDC or WHO, there are three best options. The first is to search for government or professional medical websites, such as state or country health agencies. The second is to seek highly rated hospitals or medical centers, such as the Mayo Clinic. The third is to read peer-reviewed articles in professional journals, making sure you can find the necessary information directly in those articles. A web or AI search may help you find any of these sources, but summaries within web or AI searches may misrepresent or misinterpret the contents of an article, so be sure to read the sources themselves and not just the summaries.
       </p>
       <activity>
         <statement>
           <p>
-            Take a look at the CDC's online information pages for measles. Putting together the information on these pages, construct a timeline of measles contagion in a single person, starting at the time the person is first infected. Include the following, and include whatever other information appears important.
+            Take a look at online information pages for measles at the CDC and/or WHO. Putting together the information on these pages, construct a timeline of measles contagion in a single person, starting at the time the person is first infected. Include the following, and include whatever other information appears important.
             <ol>
               <li>
                 <p>
@@ -169,17 +175,17 @@
   <exercises xml:id="exercises-prelude-diseases-in-popular-news">
     <exercise number="1">
       <p>
-        Look up the lengths of time for key phases of how measles unfolds. Include the length of time of any incubation period, meaning the length of time from when a person is first infected with the virus until the time when the person shows symptoms. Also include how long a person is contagious (also referred to as infectious) with measles. There may be additional disease phases to include. Use official sources, as described in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />. Cite your sources, including links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.  
+        Using the research guidelines specified in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />, look up the lengths of time for key phases of how measles unfolds. Include the length of time of any incubation period, meaning the length of time from when a person is first infected with the virus until the time when the person shows symptoms. Also include how long a person is contagious (also referred to as infectious) with measles. There may be additional disease phases to include. Cite your sources, including links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.  
       </p>
     </exercise>
     <exercise number="2">
       <p>
-        Look up the lengths of time for key phases of how RSV (respiratory syncytial virus) unfolds. Include the length of time of any incubation period, meaning the length of time from when a person is first infected with the virus until the time when the person shows symptoms. Also include how long a person is contagious (also referred to as infectious) with RSV. There may be additional disease phases to include. Use official sources, as described in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />. Cite your sources, including links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.
+        Using the research guidelines specified in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />, look up the lengths of time for key phases of how RSV (respiratory syncytial virus) unfolds. Include the length of time of any incubation period, meaning the length of time from when a person is first infected with the virus until the time when the person shows symptoms. Also include how long a person is contagious (also referred to as infectious) with RSV. There may be additional disease phases to include. Cite your sources, including links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.
       </p>
     </exercise>
     <exercise number="3">
       <p>
-        Look up additional information about measles and RSV. How does each spread? What are governmental recommendations for people who think they may have measles or RSV? And so on: read more about each disease, and write several pieces of information that you find interesting. Does anything you find surprise you? Cite your sources, including links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.
+        Using the research guidelines specified in <xref ref="sec-Follow-Up-By-Seeking-More-Precise-Data" />, look up additional information about measles and RSV, beyond the information requested in Exercises 1 and 2 in this section. How do measles and RSV spread? What are governmental recommendations for people who think they may have measles or RSV? And so on: read more about each disease, and write several pieces of information that you find interesting. Does anything you find surprise you? Cite your sources, including links to any web pages, the title of each web page used, the name of the government agency or other publisher of each web page, and the date you most recently accessed the web page.
       </p>
     </exercise>
   </exercises>
