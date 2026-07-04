@@ -589,7 +589,7 @@
     <exercises xml:id="exercises-ch-vaccines">
        <exercise number="1">
         <p>
-          A vaccine for measles was first licensed in the United States in 1963. Before that, nearly all U.S. children got measles by the time they were 15 years old. Due to the vaccine, by the year 2000, the U.S. eliminated measles as a disease that could spread continuously. Since then, measles in the U.S. occurs only occasionally, typically when a person travels elsewhere, gets measles, and returns to the U.S. with the ability to infect others.<fn>These facts are from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/about/history-of-measles.html">History of Measles</url>.</fn>
+          A vaccine for measles was first licensed in the United States in 1963. Before that, nearly all U.S. children got measles by the time they were 15 years old. Due to the vaccine, by the year 2000, the U.S. eliminated measles as a disease that could spread continuously. Since then, measles in the U.S. occurs only occasionally, typically when a person travels elsewhere, gets measles, and returns to the U.S. with the ability to infect others.<fn>These facts are from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/about/history-of-measles.html">History of Measles</url>, last accessed July 2026.</fn>
         </p> 
         <p>
           Measles lends itself to especially demonstrative mathematical models for two reasons: (1) measles is exceptionally contagious, and (2) the vaccine for measles has very high efficacy and effectiveness, with immunity that lasts a lifetime. 
@@ -598,7 +598,7 @@
         <ol>
           <li>
             <p>
-              As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is contagious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>These numbers come from the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/measles/causes/index.html">How Measles Spreads</url>.</fn> For this reason, set <m>\gamma = 1/8</m>. Let us suppose this outbreak occurs in a small, close-knit community of 500 people, where some percentage <m>p</m> of people have been vaccinated and one person initially has the measles. Therefore <m>S(0)=499(1-p)</m>, <m>I(0)=1</m>, <m>R(0)=499p</m>. Set up an SIR model, as shown below, for this outbreak:
+              As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is contagious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>The length of contagion comes from the World Health Organization (WHO) <url href="https://www.who.int/news-room/fact-sheets/detail/measles">fact sheet on measles</url>, last accessed July 2026.</fn> For this reason, set <m>\gamma = 1/8</m>. Let us suppose this outbreak occurs in a small, close-knit community of 500 people, where some percentage <m>p</m> of people have been vaccinated and one person initially has the measles. Therefore <m>S(0)=499(1-p)</m>, <m>I(0)=1</m>, <m>R(0)=499p</m>. Set up an SIR model, as shown below, for this outbreak:
             </p>              
             <md>
               <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
@@ -632,11 +632,12 @@
           Explore further the measles model from For Further Thought, Exercise 1, in this chapter. Use the same values for <m>\mathcal{R}_0</m>, <m>\gamma</m>, and <m>\beta</m> as you computed in Exercise 1. Use the same system of differential equations as well, and continue to set <m>S(0)=499(1-p)</m>, <m>I(0)=1</m>, <m>R(0)=499p</m>.
         </p>   
         <ol>
-          <li>
+          <li> 
             <p>
-              In many communities in the U.S., the percentage of vaccinated people is around <m>91\%</m> or <m>92\%</m>.<fn>See the Centers for Disease Control and Prevention (CDC) page on <url href="https://www.cdc.gov/nchs/fastats/measles.htm">Measles, Mumps, and Rubella</url>.</fn> At each of these levels, how many people will get measles in the long run, according to your model? 
+              As of 2023 in the U.S., the percentage of children in kindergarten who had received two doses of measles vaccine was <m>92.7\%</m>.<fn>This vaccination statistic comes from the World Health Organization (WHO) page <url href="https://www.who.int/emergencies/disease-outbreak-news/item/2025-DON561">Measles - United States of America</url>, last accessed July 2026.</fn> At this vaccination level, how many people will get measles in the long run, according to your model? 
             </p>
-            <p>Be sure, in each case, to run your model long enough that the number of Infectious people has dropped close to <m>0</m>, so that the long-term number of people in the Removed compartment seems to remain constant. 
+            <p>
+              Be sure to run your model long enough that the number of Infectious people has dropped very close to <m>0</m>, so that the long-term number of people in the Removed compartment seems to remain constant. 
             </p>
           </li>            
           <li>
@@ -662,7 +663,7 @@
       
       <exercise number="3">
         <p>
-          Now use an SVIR model to represent measles. Your goal is to work with outcomes to compute Vaccine Effectiveness, abbreviated VE. Two doses of the measles vaccine has been found to have 97% effectiveness.<fn>The Centers for Disease Control provides the value of 97%, along with more information about the <url href="https://www.cdc.gov/measles/vaccines/index.html">MMR and MMRV vaccines</url>, which both protect against measles, mumps, and rubella. The MMRV vaccine provides additional protection against varicella, also called chickenpox.</fn>
+          Now use an SVIR model to represent measles. Your goal is to work with outcomes to compute Vaccine Effectiveness, abbreviated VE. Two doses of the measles vaccine has been found to have 97% effectiveness.<fn>The Centers for Disease Control provides the value of 97%, along with more information about the <url href="https://www.cdc.gov/measles/vaccines/index.html">MMR and MMRV vaccines</url>, which both protect against measles, mumps, and rubella. The MMRV vaccine provides additional protection against varicella, also called chickenpox. Last accessed June 2026.</fn>
         </p>   
         <ol>
           <li>
