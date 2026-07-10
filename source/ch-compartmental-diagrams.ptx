@@ -43,7 +43,11 @@
     <figure xml:id="fig-SI-compartmental-diagram">
       <caption>The compartmental diagram for one possible SI model, where <q>S</q>stands for <q>Susceptible</q> and <q>I</q> stands for <q>Infectious</q></caption>
         <image width="50%">
-        <description>(Write this)</description>
+        <description>
+          <p>
+            The compartmental model for one possible SI model. There is a square with the letter S written in the middle. To its right is a square with the letter I written in the middle. Connecting these is an arrow pointing from the square on the left to the square on the right. Above the arrow is the term beta times S times I. Here, S stands for Susceptible and I stands for Infectious.
+          </p>
+        </description>
           <latex-image>
           \begin{tikzpicture}
           \draw [thick] [black] (0,0) -- (2,0);
@@ -119,7 +123,11 @@
           <figure width="90%" xml:id="fig-zombie-app-mortality">
             <caption>Checking the box for <q>Zombie Mortality</q> and setting a value for <q>Zombie Lifespan (days)</q></caption>
             <image source="ZombieApp_Mortality.png" width="60%">
-                <description>Screen image from the Zombie Game App, showing the checked box for <q>Zombie Mortality</q> and the <q>Zombie Lifespan (days)</q> that appears</description>
+                <description>
+                  <p>
+                    Screen image from the Zombie Game App, showing the checked box for <q>Zombie Mortality</q> and the <q>Zombie Lifespan (days)</q> that appears
+                  </p>
+                </description>
             </image>
           </figure>
         </statement>
@@ -223,7 +231,11 @@
       <figure xml:id="fig-SIR-compartmental-diagram">
       <caption>One possible <m>SIR</m> (Susceptible, Infectious, Removed) compartmental diagram</caption>
         <image width="70%">
-        <description>(Write this)</description>
+        <description>
+          <p>
+            This figure consists of three squares. The first, on the left, has the letter S in its middle. The next, in the center, has the letter I in its middle. The last, on the right, has the letter R in the middle. The letter S stands for Susceptible, I stands for Infectious, and R stands for Removed. An arrow points from the left square to the center square, and above this arrow appears the formula beta times S times I. Another arrow points from the center square to the right square, and above this arrow appears the formula gamma times I.
+          </p>
+        </description>
           <latex-image>
           \begin{tikzpicture}
             \draw [thick] [black] (0,0) -- (2,0);

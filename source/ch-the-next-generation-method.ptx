@@ -491,7 +491,11 @@
           <figure xml:id="fig-SIRS-compartmental-diagram">
             <caption>The compartmental diagram for one possible SIRS model, where <q>S</q>stands for <q>Susceptible</q>, <q>I</q> stands for <q>Infectious</q>, and <q>R</q> stands for <q>Recovered</q>. In this model, individuals lose immunity some time after recovering. They then return to the S compartment.</caption>
               <image width="80%">
-              <description>(Write this)</description>
+              <description>
+                <p>
+                  This diagram shows three squares in a horizontal line. The left square has a letter S in its middle, standing for Susceptible. The center square has a letter I in its middle, standing for Infectious. The right square has a letter R in its middle, standing for Removed. There is an arrow pointing from the S square to the I square, and the formula above the arrow is beta times S times I. There is an arrow pointing from the I square to the R square, and the formula above the arrow is gamma times I. There is an arrow starting at the R square and reaching up, then left, then down to the S square, and the formula above the arrow is alpha times R.
+                </p>
+              </description>
                 <latex-image>
                 \begin{tikzpicture}
                 \draw [thick] [black] (0,0) -- (2,0);

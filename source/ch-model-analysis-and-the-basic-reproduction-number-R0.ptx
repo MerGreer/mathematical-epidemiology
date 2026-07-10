@@ -87,7 +87,11 @@
             <figure width="90%" xml:id="fig-SIR-graph-unlabeled">
               <caption>One set of solution curves for the SIR model</caption>
               <image source="SIR_Graph_Unlabeled_Curves.png" width="80%">
-                  <description>Solution curves for the SIR model, unlabeled, for an exercise asking students to identify which curve represents which compartment in the model</description>
+                  <description>
+                    <p>
+                      Solution curves for the SIR model, unlabeled, for an exercise asking students to identify which curve represents which compartment in the model
+                    </p>
+                  </description>
               </image>
             </figure>
           </statement>

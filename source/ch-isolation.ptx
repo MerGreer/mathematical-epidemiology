@@ -95,7 +95,11 @@
           <figure xml:id="fig-SIR-complete-isolation-1">
             <caption>A compartmental diagram showing one possible approach to modeling complete isolation. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. Parameters <m>\epsilon</m> and <m>\eta</m> have values determined by how long people typically remain in each of the compartments I and J, respectively.</caption>
               <image width="80%">
-              <description>A compartmental diagram showing one possible approach to modeling complete isolation. The compartments are S, I, J, and R. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. The parameters epsilon and eta replace gamma, and the times associated with the values of epsilon and eta represent how long people typically remain in each of the compartments I and J, respectively. </description>
+              <description>
+                <p>
+                  A compartmental diagram showing one possible approach to modeling complete isolation. The compartments are S, I, J, and R. Infectious people move to a new compartment, labeled J for Isolation, since I is already used for Infectious. The parameters epsilon and eta replace gamma, and the times associated with the values of epsilon and eta represent how long people typically remain in each of the compartments I and J, respectively.
+                </p> 
+              </description>
                 <latex-image>
                 \begin{tikzpicture}
                 \draw [thick] [black] (0,0) -- (2,0);
@@ -131,7 +135,11 @@
           <figure xml:id="fig-SIR-complete-isolation-2">
             <caption>A compartmental diagram showing a second possible approach to modeling complete isolation. Here, people move directly to compartment R when they isolate, since they can no longer spread disease due to complete isolation. The value of <m>\gamma</m> is adjusted compared to an SIR model with no isolation, and is labeled <m>\widetilde{\gamma}</m>, to indicate that the transition time from compartment I to compartment R is likely different than the time indicated by parameter <m>\gamma</m> in an SIR model with no isolation.</caption>
               <image width="70%">
-              <description>A compartmental diagram showing a second possible approach to modeling complete isolation. The compartments are S, I, and R. Here, people move directly to compartment R when they isolate, since they can no longer spread disease due to complete isolation. The value of gamma is adjusted compared to an SIR model with no isolation, and is relabeled as gamma with a tilde over it, to indicate a more rapid transition from compartment I to compartment R.</description>
+              <description>
+                <p>
+                  A compartmental diagram showing a second possible approach to modeling complete isolation. The compartments are S, I, and R. Here, people move directly to compartment R when they isolate, since they can no longer spread disease due to complete isolation. The value of gamma is adjusted compared to an SIR model with no isolation, and is relabeled as gamma with a tilde over it, to indicate a more rapid transition from compartment I to compartment R.
+                </p>
+              </description>
                 <latex-image>
                 \begin{tikzpicture}
                 \draw [thick] [black] (0,0) -- (2,0);
@@ -268,7 +276,11 @@
           <figure xml:id="fig-SIR-incomplete-isolation-1">
             <caption>A compartmental diagram showing one possible approach to modeling incomplete isolation. In this model, all Infectious people pass through an Isolation compartment, labeled J, before moving to the Removed compartment. Notice that the arrow from compartment S to compartment I, representing transmission of the illness, depends on both I and J, in contrast to the transmission terms shown in <xref ref="activity-two-complete-isolation-models"/>.</caption>
               <image width="80%">
-              <description>A compartmental diagram showing one possible approach to modeling incomplete isolation. In this model, all Infectious people pass through an Isolation compartment, labeled J, before moving to the Removed compartment. Notice that the arrow from compartment S to compartment I, representing transmission of the illness, depends on both I and J, in contrast to the transmission terms shown in <xref ref="activity-two-complete-isolation-models"/>. The arrow from compartment S to compartment I is labeled with the formula <m>\beta S(I+\delta J)</m>. The arrow from compartment I to compartment J is labeled epsilon I. The arrow from compartment J to compartment R is labeled eta J.</description>
+              <description>
+                <p>
+                  A compartmental diagram showing one possible approach to modeling incomplete isolation. In this model, all Infectious people pass through an Isolation compartment, labeled J, before moving to the Removed compartment. Notice that the arrow from compartment S to compartment I, representing transmission of the illness, depends on both I and J, in contrast to the transmission terms shown in <xref ref="activity-two-complete-isolation-models"/>. The arrow from compartment S to compartment I is labeled with the formula <m>\beta S(I+\delta J)</m>. The arrow from compartment I to compartment J is labeled epsilon I. The arrow from compartment J to compartment R is labeled eta J.
+                </p>
+              </description>
                 <latex-image>
                 \begin{tikzpicture}
                 \draw [thick] [black] (0,0) -- (2,0);
@@ -304,7 +316,11 @@
           <figure xml:id="fig-SIR-incomplete-isolation-2">
             <caption>A compartmental diagram showing a second possible approach to modeling incomplete isolation. This model allows Infectious people to move either directly to the Removed compartment or first to an Isolation compartment, labeled J, and then to the Removed compartment. As in the first approach shown in this activity, transmission depends on both I and J.</caption>
               <image width="70%">
-              <description>A compartmental diagram showing a second possible approach to modeling incomplete isolation. This model allows Infectious people to move either directly to the Removed compartment or first to an Isolation compartment, labeled J, and then to the Removed compartment. As in the first approach shown in this activity, transmission depends on both I and J. The arrow from compartment S to compartment I is labeled with the formula <m>\beta S(I+\delta J)</m>. The arrow from compartment I to compartment R is labeled gamma I. The arrow from compartment I to compartment J is labeled epsilon I. The arrow from compartment J to compartment R is labeled eta J. </description>
+              <description>
+                <p>
+                  A compartmental diagram showing a second possible approach to modeling incomplete isolation. This model allows Infectious people to move either directly to the Removed compartment or first to an Isolation compartment, labeled J, and then to the Removed compartment. As in the first approach shown in this activity, transmission depends on both I and J. The arrow from compartment S to compartment I is labeled with the formula <m>\beta S(I+\delta J)</m>. The arrow from compartment I to compartment R is labeled gamma I. The arrow from compartment I to compartment J is labeled epsilon I. The arrow from compartment J to compartment R is labeled eta J. 
+                </p>
+              </description>
                 <latex-image>
                 \begin{tikzpicture}
                 \draw [thick] [black] (0,0) -- (2,0);

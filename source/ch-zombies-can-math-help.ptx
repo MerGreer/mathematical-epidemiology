@@ -49,13 +49,21 @@
             <figure width="40%" xml:id="fig-standard-hex-board">
               <caption>Full hex grid, not filled in</caption>
               <image source="StandardHexBoard.png" width="40%">
-              <description>Hex grid of 100 hexagons, in a ten-by-ten arrangement</description>
+              <description>
+                <p>
+                  Hex grid of 100 hexagons, in a ten-by-ten arrangement
+                </p>
+              </description>
               </image>
             </figure>
             <figure width="40%" xml:id="fig-zombie-board-detail">
               <caption>Representing humans (blue X marks) and zombies (red dots and lines, representing a head and two arms) on the hex grid</caption>
               <image source="ZombieBoardDetail.png" width="40%">
-              <description>Detail of hex grid, showing placement of zombies and humans</description>
+              <description>
+                <p>
+                  Detail of hex grid, showing placement of zombies and humans
+                </p>
+              </description>
               </image>
             </figure> 
           </sidebyside>
@@ -71,7 +79,11 @@
           <figure width="90%" xml:id="fig-zombie-app-49-susceptibles">
             <caption>Changing <q>Human Start Count</q> to 49 in the Zombie Game App</caption>
               <image source="ZombieApp_49Susceptibles.png" width="40%">
-                  <description>Screen image from the Zombie Game App, showing the <q>Human Start Count</q></description>
+                  <description>
+                    <p>
+                      Screen image from the Zombie Game App, showing the <q>Human Start Count</q>
+                    </p>
+                  </description>
               </image>
           </figure>
         </statement>
@@ -84,13 +96,21 @@
           <figure width="100%" xml:id="fig-zombie-app-one-day">
             <caption>Sample output for Round 1 from the Zombie Game App</caption>
               <image source="ZombieApp_OneDay.png" width="100%">
-                  <description>Sample output for Round 1 from the Zombie Game App, including the grid of humans and zombies, plus a table and a graph of data for Rounds 0 and 1</description>
+                  <description>
+                    <p>
+                      Sample output for Round 1 from the Zombie Game App, including the grid of humans and zombies, plus a table and a graph of data for Rounds 0 and 1
+                    </p>
+                  </description>
               </image>
           </figure>
           <figure width="50%" xml:id="fig-human-zombie-data-day1">
             <caption>Table of sample data from Round 1 of a human<ndash />zombie simulation</caption>
             <image source="SampleHumanZombieData_Day1.png" width="70%">
-                <description>Sample data for one round of a simulation from the Zombie Game App, viewed as a table</description>
+                <description>
+                  <p>
+                    Sample data for one round of a simulation from the Zombie Game App, viewed as a table
+                  </p>
+                </description>
             </image>
           </figure>
           <p>
@@ -200,13 +220,21 @@
       <figure width="90%" xml:id="fig-human-zombie-data-table">
         <caption>Table of sample data from a human<ndash />zombie simulation</caption>
         <image source="SampleHumanZombieData.png" width="80%">
-            <description>Sample data for a full simulation from the Zombie Game App, viewed as a table</description>
+            <description>
+              <p>
+                Sample data for a full simulation from the Zombie Game App, viewed as a table
+              </p>
+            </description>
         </image>
       </figure>
       <figure width="90%" xml:id="fig-human-zombie-data-graph">
         <caption>Graph of sample data from a human<ndash />zombie simulation</caption>
         <image source="SampleHumanZombieGraph.png" width="80%">
-            <description>Sample data for a full simulation from the Zombie Game App, viewed as a graph</description>
+            <description>
+              <p>
+                Sample data for a full simulation from the Zombie Game App, viewed as a graph
+              </p>
+            </description>
         </image>
       </figure>
 
@@ -346,7 +374,11 @@
           <figure width="90%" xml:id="fig-first-si-graph">
             <caption>A sample graph of the SI model, drawn using Equations <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />.</caption>
             <image source="Ch2_SampleSImodel.png" width="80%">
-                <description>Sample SI graph, showing Susceptibles starting at 49 and dropping toward 0, and Infectious starting at 1 and rising toward 50</description>
+                <description>
+                  <p>
+                    Sample SI graph, showing Susceptibles starting at 49 and dropping toward 0, and Infectious starting at 1 and rising toward 50
+                  </p>
+                </description>
             </image>
           </figure>
           <ol>

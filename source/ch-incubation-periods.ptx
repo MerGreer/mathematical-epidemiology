@@ -48,7 +48,11 @@
         <figure width="90%" xml:id="fig-mumps-data-with-SIR">
           <caption>Data, and an SIR model solution, for the Removed students (those who have recovered from mumps) in a campus outbreak</caption>
           <image source="MumpsDataWithSIR.png" width="80%">
-              <description>Data points showing students recovering from mumps across time, and a curve showing the solution for the Removed compartment of an SIR model for mumps</description>
+              <description>
+                <p>
+                  Data points showing students recovering from mumps across time, and a curve showing the solution for the Removed compartment of an SIR model for mumps
+                </p>
+              </description>
           </image>
         </figure>
       </introduction>
@@ -82,7 +86,11 @@
           <figure width="90%" xml:id="fig-mumps-data-with-SEIR">
             <caption>Data, and a model solution that includes an incubation period, for the Removed students (those who have recovered from mumps) in a campus outbreak</caption>
             <image source="Mumps_Data_With_SEIR.png" width="80%">
-                <description>Data points showing students recovering from mumps across time, and a curve showing the solution for the Removed compartment of a mumps model that includes an incubation period</description>
+                <description>
+                  <p>
+                    Data points showing students recovering from mumps across time, and a curve showing the solution for the Removed compartment of a mumps model that includes an incubation period
+                  </p>
+                </description>
             </image>
           </figure>
         <ol>
@@ -152,9 +160,13 @@
                 One possible compartmental diagram appears below. 
               </p>
               <figure xml:id="fig-SEIR-model">
-              <caption>Compartmental diagram of a model of HIV/AIDS, using descriptions instead of formulas for each arrow</caption>
+              <caption>A possible diagram for the SEIR model</caption>
               <image width="100%">
-              <description>(Write this)</description>
+              <description>
+                <p>
+                  This diagram shows four squares in a horizontal row. At the left, the square is labeled S in its middle, meaning Susceptible. The next square is labeled E for Exposed-and-incubating. The next square is labeled I for Infectious. The square to the right is labeled R for Removed. An arrow points from the S square to the E square and is labeled beta times S times I. Another arrow points from the E square to the I square and is labeled kappa times E. A third arrow points from the I square to the R square and is labeled gamma times I.
+                </p>
+              </description>
               <latex-image>
               \begin{tikzpicture}
                 \draw [thick] [black] (0,0) -- (2,0);
@@ -334,7 +346,11 @@
               <figure width="90%" xml:id="fig-SEIR-Ecurve-varying-kappa">
               <caption>Possible <m>E(t)</m> curves for the SEIR model, with <m>\kappa</m> varying</caption>
               <image source="SEIR_Ecurve_varying_kappa.png" width="90%">
-                  <description>Solution curves for the E compartment in the SEIR model, each with a different value of kappa, ranging from kappa = 0.1 to kappa = 1.0. As kappa increases, the curves have lower peaks, and the peaks occur at earlier times</description>
+                  <description>
+                    <p>
+                      Solution curves for the E compartment in the SEIR model, each with a different value of kappa, ranging from kappa = 0.1 to kappa = 1.0. As kappa increases, the curves have lower peaks, and the peaks occur at earlier times
+                    </p>
+                  </description>
               </image>
             </figure>
             </li>

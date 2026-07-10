@@ -772,19 +772,31 @@ plt.show()
           <figure width="90%" xml:id="fig-visualize-1a">
             <caption>A possible outcome from setting <m>S(0)=200</m>.</caption>
             <image source="Visualize_HW_1a.png" width="80%">
-                <description>Sample solution graph for setting <m>S(0)</m> to 200.</description>
+                <description>
+                  <p>
+                    Sample solution graph for setting <m>S(0)</m> to 200.
+                  </p>
+                </description>
             </image>
           </figure>
           <figure width="90%" xml:id="fig-visualize-1b">
             <caption>A possible outcome when adjusting <m>\beta</m> so that <m>S(10) \approx 100</m>. The graph includes a grid, and it extends time to <m>t=15</m>.</caption>
             <image source="Visualize_HW_1b.png" width="80%">
-                <description>Sample solution graph for setting <m>\beta</m> so that <m>S(100) \approx 10</m>. The graph includes a grid, and it extends time to <m>t=15</m>.</description>
+                <description>
+                  <p>
+                    Sample solution graph for setting <m>\beta</m> so that <m>S(100) \approx 10</m>. The graph includes a grid, and it extends time to <m>t=15</m>.
+                  </p>
+                </description>
             </image>
           </figure>
           <figure width="90%" xml:id="fig-visualize-1c">
             <caption>A possible outcome when setting <m>I(0)=10</m>.</caption>
             <image source="Visualize_HW_1c.png" width="80%">
-                <description>Sample solution graph for setting <m>I(0)</m> to 10.</description>
+                <description>
+                  <p>
+                    Sample solution graph for setting <m>I(0)</m> to 10.
+                  </p>
+                </description>
             </image>
           </figure>
         </hint>
