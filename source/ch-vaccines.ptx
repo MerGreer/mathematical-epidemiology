@@ -164,12 +164,12 @@
         <!-- Initially, we will think of vaccination as being <m>100\%</m> effective. -->
         <!-- <fn>In the last exercise of <xref ref="exercises-ch-vaccines"/>, we update our models to include vaccines that are less than <m>100\%</m> effective.</fn> -->
         When the fraction <m>p</m> of people are vaccinated, the remaining fraction <m>(1-p)</m> are not vaccinated. Since <m>\mathcal{R}_0</m> refers to an entirely susceptible population, but only the fraction <m>(1-p)</m> of the population is susceptible, we see that the average number of new infections caused by one infectious person in the vaccinated population is <m>(1-p)\mathcal{R}_0</m>. In other words:
+      </p>      
+      <p>
+        <mdn>
+          <mrow xml:id="eq-Reff-define">\mathcal{R}_{\text{eff}} \amp = (1-p)\mathcal{R}_0. </mrow>
+        </mdn>
       </p>
-      
-      <mdn>
-        <mrow xml:id="eq-Reff-define">\mathcal{R}_{\text{eff}} \amp = (1-p)\mathcal{R}_0. </mrow>
-      </mdn>
-
       <p>
         Our goal in the next few mathematical steps is to use <xref ref="eq-Reff-define"/> to determine a value of <m>p</m> for which <m>\mathcal{R}_{\text{eff}} \lt 1</m>.<fn>The goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m> was set out in the 1983 paper  <q>Parasitic Infections as Regulators of Animal Populations</q> by Robert M. May, published in <em>American Scientist</em> in the January-February issue. Additional details and explanation appear in the 1988 textbook <q>Mathematical Models in Biology</q> by Leah Edelstein-Keshet, published by McGraw-Hill.</fn> Such a value of <m>p</m> corresponds to a vaccination rate high enough that a disease cannot become an outbreak because <m>\mathcal{R}_{\text{eff}} \lt 1</m> means that the overall numbers in the Infectious population are not expected to rise. Read carefully through the following mathematical steps to see how this value of <m>p</m> is computed:
       </p>
@@ -191,9 +191,11 @@
         We now note a particular, special value of <m>p</m> that is the threshold between two outcomes, which makes it a <term>critical value</term>. The two outcomes are having, or not having, an outbreak. We therefore name this critical value of <m>p</m> to be <m>p_{\text{crit}}</m>:
       </p>
 
-      <mdn>
-        <mrow xml:id="eq-pcrit">p_{\text{crit}} \amp = 1- \frac{1}{\mathcal{R}_0}. </mrow> 
-      </mdn>
+      <p>
+        <md number="yes">
+          <mrow xml:id="eq-pcrit">p_{\text{crit}} \amp = 1- \frac{1}{\mathcal{R}_0}. </mrow> 
+        </md>
+      </p>
 
       <p>
         Investigate the critical value <m>p_{\text{crit}}</m>, and the accompanying threshold between outbreak and no outbreak, in <xref ref="activity-pcrit"/>.

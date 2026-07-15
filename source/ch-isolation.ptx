@@ -378,6 +378,7 @@
                      
         </statement>
         <answer>
+          <p>
           <ol>
             <li>
               <p>
@@ -404,6 +405,7 @@
               </p>
             </li>
           </ol>
+          </p>
           
         </answer>
       </activity>
@@ -475,27 +477,28 @@
         </statement>
 
         <answer>
-          <ol>
-            <li>
-              <p>
-                There truly is no right or wrong decision here. Influenza is often modeled using the SIR model because the incubation period can be relatively short: the linked CDC page says influenza is most contagious for three days. However, the incubation period is not zero, and may be important to include when modeling a real campus outbreak and trying to estimate the timeline of the outbreak's trajectory, and the CDC page also tells us that influenza can be contagious from one day before symptoms appear until five to seven days after symptoms appear, meaning a total of six to eight days. In summary: either model is a reasonable choice, and the decision rests on the modeler's goals and the questions being asked when modeling.
-              </p>
-              <p>
-                The contagion numbers listed above suggest that, without isolation, we may choose from a range of possible <m>\gamma</m> values for our model, with <m>1/8 \leq \gamma \leq 1/3</m>. The Virginia Department of Health tells us that <m>1 \leq \mathcal{R}_0 \leq 2</m>. Putting these ranges of values and our population size of 2500 into our formula for <m>\mathcal{R}_0</m> tells us that <m>0.00005 \leq \beta \leq 0.000267</m>. (Be sure to confirm these numbers, using the correct <m>\mathcal{R}_0</m> for the model you are using, and showing with <m>\gamma</m> and <m>\mathcal{R}_0</m> values used to compute the least and greatest values for <m>\beta</m>.)
-              </p>              
-            </li>
-            <li>
-              <p>
-                If everyone knows they are sick, and everyone isolates perfectly after one day of illness, then we should set <m>1/2 \leq \gamma \leq 1/1</m> or, more succinctly, <m>1/2 \leq \gamma \leq 1</m>, for a complete isolation model in which the time unit is <em>days</em>. The range of <m>\gamma</m> values is due to the possibility that flu can be contagious one day before symptoms begin, which would mean <m>\gamma = 1/2</m>, or the possibility that contagion can begin close to when symptoms begin, which would mean <m>\gamma = 1</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                This is open-ended. Explore in Python, and make as many observations as you can.
-              </p>
-            </li>
-          </ol>
-          
+          <p>
+            <ol>
+              <li>
+                <p>
+                  There truly is no right or wrong decision here. Influenza is often modeled using the SIR model because the incubation period can be relatively short: the linked CDC page says influenza is most contagious for three days. However, the incubation period is not zero, and may be important to include when modeling a real campus outbreak and trying to estimate the timeline of the outbreak's trajectory, and the CDC page also tells us that influenza can be contagious from one day before symptoms appear until five to seven days after symptoms appear, meaning a total of six to eight days. In summary: either model is a reasonable choice, and the decision rests on the modeler's goals and the questions being asked when modeling.
+                </p>
+                <p>
+                  The contagion numbers listed above suggest that, without isolation, we may choose from a range of possible <m>\gamma</m> values for our model, with <m>1/8 \leq \gamma \leq 1/3</m>. The Virginia Department of Health tells us that <m>1 \leq \mathcal{R}_0 \leq 2</m>. Putting these ranges of values and our population size of 2500 into our formula for <m>\mathcal{R}_0</m> tells us that <m>0.00005 \leq \beta \leq 0.000267</m>. (Be sure to confirm these numbers, using the correct <m>\mathcal{R}_0</m> for the model you are using, and showing with <m>\gamma</m> and <m>\mathcal{R}_0</m> values used to compute the least and greatest values for <m>\beta</m>.)
+                </p>              
+              </li>
+              <li>
+                <p>
+                  If everyone knows they are sick, and everyone isolates perfectly after one day of illness, then we should set <m>1/2 \leq \gamma \leq 1/1</m> or, more succinctly, <m>1/2 \leq \gamma \leq 1</m>, for a complete isolation model in which the time unit is <em>days</em>. The range of <m>\gamma</m> values is due to the possibility that flu can be contagious one day before symptoms begin, which would mean <m>\gamma = 1/2</m>, or the possibility that contagion can begin close to when symptoms begin, which would mean <m>\gamma = 1</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  This is open-ended. Explore in Python, and make as many observations as you can.
+                </p>
+              </li>
+            </ol>
+          </p> 
         </answer>
       </activity>
 

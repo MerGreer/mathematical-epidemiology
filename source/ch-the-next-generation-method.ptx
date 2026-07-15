@@ -683,9 +683,13 @@
             The book <em>Mathematical Epidemiology</em><fn><em>Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 12, which was written by Fred Brauer, and is labeled SLIAR. Our version is labeled SEIAR to stay consistent with notation we have used in other chapters.</fn> introduces a model of influenza having five compartments. This model has a Susceptibles (S) compartment that is similar to what we have seen before. There is then an Exposed-and-incubating (E) compartment for people incubating influenza who are not yet able to spread influenza to others. After that, people may be Infectious (I), meaning they have symptoms and can spread influenza, or they may be Asymptomatic (A), meaning they do not have symptoms but can still spread influenza to others. In this model, Asymptomatic (A) people are less able to spread influenza than Infectious (I) people. Many people then move into a Recovered (R) compartment, but those who die depart the model rather than moving into the R compartment. The compartmental diagram for this model appears in <xref ref="fig-SEIAR-compartmental-diagram"/>. In this activity, we explore the SEIAR model and investigate Python code that can help us determine <m>\mathcal{R}_0</m> for this model using the Next Generation Method.
           </p>
           <figure xml:id="fig-SEIAR-compartmental-diagram">
-            <caption>The compartmental diagram for one possible SEIAR model for influenza, where <q>S</q>stands for <q>Susceptible</q>, <q>E</q> stands for <q>Exposed-and-incubating</q>, <q>I</q> stands for <q>Infectious</q>, <q>A</q> stands for <q>Asymptomatic</q> and <q>R</q> stands for <q>Recovered</q>. In this model, Asymptomatic individuals have no symptoms but can spread influenza, though they are not as contagious as individuals in the Infectious compartment.</caption>
+            <caption>The compartmental diagram for one possible SEIAR model for influenza, where <q>S</q>stands for <q>Susceptible</q>, <q>E</q> stands for <q>Exposed-and-incubating</q>, <q>I</q> stands for <q>Infectious</q>, <q>A</q> stands for <q>Asymptomatic</q>, and <q>R</q> stands for <q>Recovered</q>. In this model, Asymptomatic individuals have no symptoms but can spread influenza, though they are not as contagious as individuals in the Infectious compartment.</caption>
               <image width="80%">
-              <description>(Write this)</description>
+              <description>
+              <p>
+                This figure shows the compartmental diagram for one possible SEIAR model for influenza, where S stands for Susceptible, E stands for Exposed-and-incubating, I stands for Infectious, A stands for Asymptomatic, and R stands for Recovered. There is one square for each compartment, with the appropriate letter in the middle of the square. Arrows point from the S square to the E square, from E to I, from E to A, from I to R, and from A to R. There are formulas with each of these arrows, as well as an arrow and formula pointing away from the I square.
+              </p>
+              </description>
                 <latex-image>
                 \begin{tikzpicture}
                 \draw [thick] [black] (0,3) -- (2,3);
@@ -893,7 +897,11 @@
         <figure xml:id="fig-SEIR-births-and-deaths-compartmental-diagram">
             <caption>The compartmental diagram for one possible SEIR model with births and deaths, where <q>S</q>stands for <q>Susceptible</q>, <q>E</q> stands for <q>Exposed-and-incubating</q>, <q>I</q> stands for <q>Infectious</q>, and <q>R</q> stands for <q>Recovered</q>. Births enter the Susceptible compartment at a constant quantity <m>\Pi</m> per time step, and deaths from each compartment occur at a rate <m>\mu</m> of that population, per time step.</caption>
               <image width="60%">
-              <description>(Write this)</description>
+              <description>
+              <p>
+                The compartmental diagram for one possible SEIR model with births and deaths, with squares containing the letters S for Susceptible, E for Exposed-and-incubating, I for Infectious, and R for Recovered. An arrow points into the S compartment to represent births. Arrows point out from each compartment to represent deaths. There also are arrows from S to E, from E to I, and from I to R. Each arrow has a formula written with it to account for movement into and out of the compartments.
+              </p>
+              </description>
                 <latex-image>
                 \begin{tikzpicture}
                 \draw [thick] [->] (-2,5) to (-0.1,5); 
