@@ -45,7 +45,7 @@
         <image width="50%">
         <description>
           <p>
-            The compartmental model for one possible SI model. There is a square with the letter S written in the middle. To its right is a square with the letter I written in the middle. Connecting these is an arrow pointing from the square on the left to the square on the right. Above the arrow is the term beta times S times I. Here, S stands for Susceptible and I stands for Infectious.
+            The compartmental diagram for one possible SI model. There is a square with the letter S written in the middle. To its right is a square with the letter I written in the middle. Connecting these is an arrow pointing from the square on the left to the square on the right. Above the arrow is the term beta times S times I. Here, S stands for Susceptible and I stands for Infectious.
           </p>
         </description>
           <latex-image>
