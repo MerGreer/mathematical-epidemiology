@@ -314,43 +314,50 @@
                </image>
           </figure>
           <figure xml:id="fig-SIR-incomplete-isolation-2">
-            <caption>A compartmental diagram showing a second possible approach to modeling incomplete isolation. This model allows Infectious people to move either directly to the Removed compartment or first to an Isolation compartment, labeled J, and then to the Removed compartment. As in the first approach shown in this activity, transmission depends on both I and J.</caption>
+            <caption>A compartmental diagram showing a second possible approach to modeling incomplete isolation. Here, Infectious people are initially labeled I<m>_1</m>. A fraction <m>p</m> does not isolate, which this model portrays as moving to the I<m>_2</m> compartment. The rest, the fraction <m>1-p</m>, isolates, which moves them to the J compartment.The parameter <m>\epsilon</m> indicates the typical amount of time people spend deciding to isolate or not, and <m>\eta</m> shows the remaining amount of time before people move to the Removed compartment R. Transmission in this model is based on the initial infectious population I<m>_1</m> and the population I<m>_2</m> who choose not to isolate.</caption>
               <image width="70%">
               <description>
                 <p>
-                  A compartmental diagram showing a second possible approach to modeling incomplete isolation. This model allows Infectious people to move either directly to the Removed compartment or first to an Isolation compartment, labeled J, and then to the Removed compartment. As in the first approach shown in this activity, transmission depends on both I and J. The arrow from compartment S to compartment I is labeled with the formula <m>\beta S(I+\delta J)</m>. The arrow from compartment I to compartment R is labeled gamma I. The arrow from compartment I to compartment J is labeled epsilon I. The arrow from compartment J to compartment R is labeled eta J. 
+                  A compartmental diagram showing a second possible approach to modeling incomplete isolation. Here, Infectious people are initially labeled I<m>_1</m>. A fraction <m>p</m> does not isolate, which this model portrays as moving to the I<m>_2</m> compartment. The rest, the fraction <m>1-p</m>, isolates, which moves them to the J compartment. The parameter <m>\epsilon</m> indicates the typical amount of time people spend deciding to isolate or not, and <m>\eta</m> shows the remaining amount of time before people move to the Removed compartment R. Transmission in this model is based on the initial infectious population I<m>_1</m> and the population I<m>_2</m> who choose not to isolate. 
                 </p>
               </description>
                 <latex-image>
                 \begin{tikzpicture}
-                \draw [thick] [black] (0,0) -- (2,0);
-                \draw [thick] [black] (2,0) -- (2,2);
-                \draw [thick] [black] (2,2) -- (0,2);
-                \draw [thick] [black] (0,2) -- (0,0);
-                \node [black] at (1,1) {\Huge $S$};
-                \draw [thick] [->] (2.1,1) to (5.1,1); 
-                \node at (3.6,1.5) {\Large $\beta S(I+\delta J)$};
-                \draw [thick] [black] (5.2,0) -- (7.2,0);
-                \draw [thick] [black] (7.2,0) -- (7.2,2);
-                \draw [thick] [black] (7.2,2) -- (5.2,2);
-                \draw [thick] [black] (5.2,2) -- (5.2,0);
-                \node [black] at (6.2,1) {\Huge $I$};
-                \draw [thick] [->] (7.3,1) to (9.1,1); 
-                \node at (8.2,1.5) {\Large $\gamma I$};
-                \draw [thick] [black] (9.2,4) -- (11.2,4);
-                \draw [thick] [black] (11.2,4) -- (11.2,6);
-                \draw [thick] [black] (11.2,6) -- (9.2,6);
-                \draw [thick] [black] (9.2,6) -- (9.2,4);
-                \node [black] at (10.2,5) {\Huge $J$};
-                \draw [thick] [->] (7.3,2) to (9.1,4); 
-                \node at (7.8,3.2) {\Large $\epsilon I$};
-                \draw [thick] [->] (10.2,3.9) to (10.2,2.1);
-                \node at (10.7,3) {\Large $\eta J$};
-                \draw [thick] [black] (9.2,0) -- (11.2,0);
-                \draw [thick] [black] (11.2,0) -- (11.2,2);
-                \draw [thick] [black] (11.2,2) -- (9.2,2);
-                \draw [thick] [black] (9.2,2) -- (9.2,0);
-                \node [black] at (10.2,1) {\Huge $R$};
+                \draw [thick] [black] (0,3) -- (2,3);
+                \draw [thick] [black] (2,3) -- (2,5);
+                \draw [thick] [black] (2,5) -- (0,5);
+                \draw [thick] [black] (0,5) -- (0,3);
+                \node [black] at (1,4) {\Huge $S$};
+                \draw [thick] [->] (2.1,4) to (4.65,4); 
+                \node at (3.35,4.4) {\large $\beta S (I_1 + I_2)$};
+                \draw [thick] [black] (4.75,3) -- (6.75,3);
+                \draw [thick] [black] (6.75,3) -- (6.75,5);
+                \draw [thick] [black] (6.75,5) -- (4.75,5);
+                \draw [thick] [black] (4.75,5) -- (4.75,3);
+                \node [black] at (5.75,4) {\Huge $I_1$};
+                \draw [thick] [->] (6.85,4.7) to (9.15,6); 
+                \node at (7.6,5.65) {\large $p \epsilon I_1$};
+                \draw [thick] [->] (6.85,3.3) to (9.15,2); 
+                \node at (7.3,2.1) {\large $(1-p) \epsilon I_1$};
+                \draw [thick] [black] (9.25,5) -- (11.25,5);
+                \draw [thick] [black] (11.25,5) -- (11.25,7);
+                \draw [thick] [black] (11.25,7) -- (9.25,7);
+                \draw [thick] [black] (9.25,7) -- (9.25,5);
+                \node [black] at (10.25,6) {\Huge $I_2$};
+                \draw [thick] [->] (11.35,6) to (13.65,4.7); 
+                \node at (12.7,5.8) {\large $\eta I_2$};
+                \draw [thick] [black] (9.25,1) -- (11.25,1);
+                \draw [thick] [black] (11.25,1) -- (11.25,3);
+                \draw [thick] [black] (11.25,3) -- (9.25,3);
+                \draw [thick] [black] (9.25,3) -- (9.25,1);
+                \node [black] at (10.25,2) {\Huge $J$};
+                \draw [thick] [->] (11.35,2) to (13.65,3.3); 
+                \node at (12.7,2.3) {\large $\eta J$};
+                \draw [thick] [black] (13.75,3) -- (15.75,3);
+                \draw [thick] [black] (15.75,3) -- (15.75,5);
+                \draw [thick] [black] (15.75,5) -- (13.75,5);
+                \draw [thick] [black] (13.75,5) -- (13.75,3);
+                \node [black] at (14.75,4) {\Huge $R$};
                 \end{tikzpicture}
                 </latex-image>
                </image>
@@ -371,7 +378,12 @@
             </li>
             <li>
               <p>
-                Discuss the transmission term <m>\beta S (I + \delta J)</m>. Explain why both <m>I</m> and <m>J</m> appear in this term. Then decide what values for <m>\delta</m> make the most sense. The role of <m>\delta</m> is to scale the effect of <m>J</m>, since people in the Isolated compartment typically have less chance to transmit illness than people in the Infectious compartment. This information should help you identify possible values for <m>\delta</m>.
+                Discuss the transmission term <m>\beta S (I + \delta J)</m> in <xref ref="fig-SIR-incomplete-isolation-1" />. Explain why both <m>I</m> and <m>J</m> appear in this term. Then decide what values for <m>\delta</m> make the most sense. The role of <m>\delta</m> is to scale the effect of <m>J</m>, since people in the Isolated compartment typically have less chance to transmit illness than people in the Infectious compartment. This information should help you identify possible values for <m>\delta</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Discuss the transmission term <m>\beta S (I_1 + I_2)</m> in <xref ref="fig-SIR-incomplete-isolation-2" />. Explain why both <m>I_1</m> and <m>I_2</m> appear in this term. Then consider including <m>J</m>, as we did in <xref ref="fig-SIR-incomplete-isolation-1" />. How might you change the transmission term in <xref ref="fig-SIR-incomplete-isolation-2" /> to include <m>J</m>?
               </p>
             </li>
           </ol>
@@ -402,6 +414,11 @@
             <li>
               <p>
                 The transmission term can also be written <m>\beta S I + \delta (\beta S J)</m>. (Check the algebra to confirm this yourself.) The <m>\beta S I</m> portion is the same transmission term from our underlying SIR model. The other term has a similar form, <m>\beta S J</m>, indicating transmission from the J compartment to the S compartment, but it is multiplied by a scaling factor <m>\delta</m>. The value of <m>\delta</m> is typically between <m>0</m> and <m>1</m>. A value of <m>\delta = 0</m> would indicate no transmission from J to S, which was the case in our complete isolation model shown in <xref ref="fig-SIR-complete-isolation-1"/>. A value of <m>\delta = 1</m> would indicate that transmission from the Isolation compartment is as likely as from the Infectious compartment, in which case we may have no reason to include an Isolation compartment. For values of <m>\delta</m> between <m>0</m> and <m>1</m>, the larger the value of <m>\delta</m>, the more likely it is for people in isolation to transmit the disease, yet it is still less likely than if they were not isolating at all. (In theory, <m>\delta</m> could be larger than <m>1</m>, meaning people in compartment J would be <em>more</em> likely to transmit disease. While this seems unlikely when J means isolation, there could perhaps be a different outbreak and a different model in which some group of people is more contagious than those in the regular Infectious compartment, or there could be a behavior-based reason why one group is more more likely to transmit an illness than others.)
+              </p>
+            </li>
+            <li>
+              <p>
+                In this model, both <m>I_1</m> and <m>I_2</m> represent infectious people who are not isolating, so both compartments contribute to new infections. This model represents incomplete isolation because the population <m>I_1</m> chooses not to isolate. Alternatively, we could a similar model in which the people isolating in the J compartment are unable to fully isolate. In this case, we could write the transmission formula as <m>\beta S (I_1 + I_2 + \delta J)</m>, using our ideas about <m>\delta</m> from the previous part of this activity.
               </p>
             </li>
           </ol>
