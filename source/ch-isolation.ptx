@@ -329,30 +329,30 @@
                 \draw [thick] [black] (0,5) -- (0,3);
                 \node [black] at (1,4) {\Huge $S$};
                 \draw [thick] [->] (2.1,4) to (4.65,4); 
-                \node at (3.35,4.4) {\large $\beta S (I_1 + I_2)$};
+                \node at (3.35,4.4) {\Large $\beta S (I_1 + I_2)$};
                 \draw [thick] [black] (4.75,3) -- (6.75,3);
                 \draw [thick] [black] (6.75,3) -- (6.75,5);
                 \draw [thick] [black] (6.75,5) -- (4.75,5);
                 \draw [thick] [black] (4.75,5) -- (4.75,3);
                 \node [black] at (5.75,4) {\Huge $I_1$};
                 \draw [thick] [->] (6.85,4.7) to (9.15,6); 
-                \node at (7.6,5.65) {\large $p \epsilon I_1$};
+                \node at (7.6,5.65) {\Large $p \epsilon I_1$};
                 \draw [thick] [->] (6.85,3.3) to (9.15,2); 
-                \node at (7.3,2.1) {\large $(1-p) \epsilon I_1$};
+                \node at (7.3,2.1) {\Large $(1-p) \epsilon I_1$};
                 \draw [thick] [black] (9.25,5) -- (11.25,5);
                 \draw [thick] [black] (11.25,5) -- (11.25,7);
                 \draw [thick] [black] (11.25,7) -- (9.25,7);
                 \draw [thick] [black] (9.25,7) -- (9.25,5);
                 \node [black] at (10.25,6) {\Huge $I_2$};
                 \draw [thick] [->] (11.35,6) to (13.65,4.7); 
-                \node at (12.7,5.8) {\large $\eta I_2$};
+                \node at (12.7,5.8) {\Large $\eta I_2$};
                 \draw [thick] [black] (9.25,1) -- (11.25,1);
                 \draw [thick] [black] (11.25,1) -- (11.25,3);
                 \draw [thick] [black] (11.25,3) -- (9.25,3);
                 \draw [thick] [black] (9.25,3) -- (9.25,1);
                 \node [black] at (10.25,2) {\Huge $J$};
                 \draw [thick] [->] (11.35,2) to (13.65,3.3); 
-                \node at (12.7,2.3) {\large $\eta J$};
+                \node at (12.7,2.3) {\Large $\eta J$};
                 \draw [thick] [black] (13.75,3) -- (15.75,3);
                 \draw [thick] [black] (15.75,3) -- (15.75,5);
                 \draw [thick] [black] (15.75,5) -- (13.75,5);
@@ -383,7 +383,7 @@
             </li>
             <li>
               <p>
-                Discuss the transmission term <m>\beta S (I_1 + I_2)</m> in <xref ref="fig-SIR-incomplete-isolation-2" />. Explain why both <m>I_1</m> and <m>I_2</m> appear in this term. Then consider including <m>J</m>, as we did in <xref ref="fig-SIR-incomplete-isolation-1" />. How might you change the transmission term in <xref ref="fig-SIR-incomplete-isolation-2" /> to include <m>J</m>?
+                Discuss the transmission term <m>\beta S (I_1 + I_2)</m> in <xref ref="fig-SIR-incomplete-isolation-2" />. Explain why both <m>I_1</m> and <m>I_2</m> appear in this term, and state what form of incomplete isolation this model shows. Then consider including <m>J</m>, as we did in <xref ref="fig-SIR-incomplete-isolation-1" />. How might you change the transmission term in <xref ref="fig-SIR-incomplete-isolation-2" /> to include <m>J</m>? If <m>J</m> is included, then the model shows two forms of incomplete isolation, represented by compartment <m>I_2</m> and the transmission term involving <m>J</m>. Identify what the real-world interpretation is for each of these types of incomplete isolation.
               </p>
             </li>
           </ol>
@@ -418,7 +418,7 @@
             </li>
             <li>
               <p>
-                In this model, both <m>I_1</m> and <m>I_2</m> represent infectious people who are not isolating, so both compartments contribute to new infections. This model represents incomplete isolation because the population <m>I_1</m> chooses not to isolate. Alternatively, we could a similar model in which the people isolating in the J compartment are unable to fully isolate. In this case, we could write the transmission formula as <m>\beta S (I_1 + I_2 + \delta J)</m>, using our ideas about <m>\delta</m> from the previous part of this activity.
+                In this model, both <m>I_1</m> and <m>I_2</m> represent infectious people who are not isolating, so both compartments contribute to new infections. This model represents incomplete isolation because the population <m>I_2</m> does not isolate. Alternatively, we could create a model in which the people isolating in the J compartment are unable to fully isolate. In this case, we could write the transmission formula as <m>\beta S (I_1 + I_2 + \delta J)</m>, using our ideas about <m>\delta</m> from the previous part of this activity. Such a model contains two forms of incomplete isolation: the population <m>I_2</m> does not isolate at all, and the population <m>J</m> can still spread the disease, though perhaps to a lesser extent than the population <m>I_2</m>.
               </p>
             </li>
           </ol>
@@ -428,9 +428,8 @@
       </activity>
 
       <p>
-        Notice that both models shown in <xref ref="activity-two-incomplete-isolation-models"/> could be described as SIJR models, but they are distinct models with different uses and different pathways that people can take when moving through compartments. 
-        Thinking further about comparing models: the interpretation of the Isolation compartment J is notably different in the models of <xref ref="activity-two-complete-isolation-models"/>, compared with the models of <xref ref="activity-two-incomplete-isolation-models"/>. 
-        These are all reasons why we should be careful, whenever building a model, to describe the meaning of each compartment, and to define precisely each population variable and each parameter.
+        Notice that the interpretation of the Isolation compartment J is changes throughout the models in <xref ref="activity-two-complete-isolation-models"/> and <xref ref="activity-two-incomplete-isolation-models"/>. 
+        This is an example showing why we should be careful, whenever building a model, to describe the meaning of each compartment, and to define precisely each population variable and each parameter.
       </p>
       <p>
         You have now worked with two different models for complete isolation, in <xref ref="activity-two-complete-isolation-models"/>, and two different models for incomplete isolation, in <xref ref="activity-two-incomplete-isolation-models"/>. 
@@ -466,7 +465,7 @@
             Each academic year, many college campuses experience one or more outbreaks of influenza, also referred to as flu. According to the <url href="https://www.cdc.gov/flu/signs-symptoms/index.html">Centers for Disease Control and Prevention (CDC),</url> flu symptoms may include fever, chills, cough, aches, runny or stuffy nose, and more. Also according to the <url href="https://www.cdc.gov/flu/spread/index.html">CDC,</url> influenza spreads via tiny droplets when people sneeze or cough or talk, as well as when people touch surfaces that have the virus on them and then touch parts of their face such as the mouth, nose, and eyes.  
           </p>
           <p>
-            Search online for information about the incubation period of flu, how long flu is contagious, and typical <m>\mathcal{R}_0</m> values for past flu outbreaks. At the time of this writing, <url href="https://www.cdc.gov/flu/about/index.html">this ``About Influenza'' page from the CDC</url> and <url href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4169819/">this article from the National Institutes of Health (NIH)</url> are helpful sources. The NIH article distinguishes between the basic reproduction number <m>\mathcal{R}_0</m> and the effective reproduction number <m>\mathcal{R}</m>. Similar to our work with <m>\mathcal{R}_{\text{eff}}</m> in <xref ref="ch-vaccines"/>, <m>\mathcal{R}</m> refers to the average number of new infections caused by a single infectious individual in a population that has some underlying level of immunity.
+            Search online for information about the incubation period of flu, how long flu is contagious, and typical <m>\mathcal{R}_0</m> values for past flu outbreaks. At the time of this writing, <url href="https://www.cdc.gov/flu/about/index.html">this ``About Influenza'' page from the CDC</url> and <url href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4169819/">this article from the National Institutes of Health (NIH)</url> are helpful sources. The NIH article distinguishes between the basic reproduction number <m>\mathcal{R}_0</m> and the effective reproduction number, which the NIH article designates as <m>\mathcal{R}</m>. Similar to our work with <m>\mathcal{R}_{\text{eff}}</m> in <xref ref="ch-vaccines"/>, <m>\mathcal{R}</m> refers to the average number of new infections caused by a single infectious individual in a population that has some underlying level of immunity.
           </p>
           <p>
             Use the idea of a campus outbreak to think about (at least) two ways to model isolation, guided by the prompts below.
@@ -474,7 +473,7 @@
           <ol>
             <li>
               <p>
-                Choose either the SIR or SEIR model for the spread of flu. Use the online facts you have gathered to decide whether or not to include an incubation period in your model. Be sure to explain your reasoning. (There is not a right or wrong answer here: either choice can make sense, yet it is important to justify your decision using facts about the flu.) Provide the range of parameter values for each parameter in your model, and cite your sources. Remember to use a model without isolation, along with the basic reproduction number <m>\mathcal{R}_0</m>, when computing <m>\beta</m>. Then use this value of <m>\beta</m> when building a mathematical model that includes isolation.
+                To model the spread of flu, choose either the SIR model as described in <xref ref="ch-compartmental-diagrams"/> or the SEIR model as described in <xref ref="ch-incubation-periods"/>. Use the online facts you have gathered to decide whether or not to include an incubation period in your model. Be sure to explain your reasoning. (There is not a right or wrong answer here: either choice can make sense, yet it is important to justify your decision using facts about the flu.) Provide the range of parameter values for each parameter in your model, and cite your sources. Remember to use a model without isolation, along with the basic reproduction number <m>\mathcal{R}_0</m>, when computing <m>\beta</m> via formula <xref ref="eq-R0-sir"/> or <xref ref="eq-R0-seir"/>. Then, in the steps that follow, use this value of <m>\beta</m> when building a mathematical model that includes isolation.
               </p>     
             </li>
             <li>
