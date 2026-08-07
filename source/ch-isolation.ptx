@@ -1,14 +1,16 @@
 <chapter xml:id="ch-isolation" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Isolation</title>
 
-    <introduction xml:id="intro-isolation">
+    <section xml:id="intro-isolation">
+      <title>Introduction</title>
+      <p>
         <objectives>
           <ul>
             <li>
               <p>
                 Learn strategies for modeling <em>isolation</em>, that is, the separation of Infectious people from the rest of the population, in order to prevent them from spreading the disease to others
-              </p>
-            </li>
+             </p>
+           </li>
             <li>
               <p>
                 Revisit how to use a model's parameter-based formula for <m>\mathcal{R}_0</m> when computing biologically-feasible values for the transmission parameter <m>\beta</m>, as this computation requires additional thought when isolation is part of the model
@@ -19,8 +21,10 @@
                 Consider that isolation may be complete or incomplete, and develop modeling methods for each scenario
               </p>
             </li>
-          </ul>
+          </ul>  
         </objectives>
+      </p>
+        
     
         <p>
           This chapter functions, along with <xref ref="ch-vaccines"/> and <xref ref="ch-incubation-periods"/>, as a sort of trilogy of methods for making models more realistic and for building public health interventions into models. As with vaccines, isolation of the infected is a public health approach used widely for the reduction of disease spread. As with incubation periods, isolation in a model can help that model to better fit data because the model more fully replicates what is happening in the world. 
@@ -43,19 +47,23 @@
               <p>
                 First, consider <q>Town A</q>, which has 6,000 residents, and imagine a scenario of complete isolation. That is, suppose that as soon as people know they are sick with Disease X, they isolate completely, having no contact with anyone else. Fortunately, Town A has found a way to deliver food and supplies, and to otherwise care for, people who are sick. Unfortunately, people are contagious with Disease X two days before they know they are sick, so they cannot isolate yet during those two days.
               </p>
+
+              <p>
+                <ol>
+                  <li>
+                    <p>
+                      Write an SIR model for this outbreak, without (yet) including isolation. (Do not include vaccine or incubation period in your model.) Determine all parameter values for your model.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Adjust your SIR model to incorporate isolation, which in Town A is complete as soon as Infectious individuals know they are sick. Show both the differential equations and compartmental diagram for your adjusted model. Determine all parameter values for this adjusted model.
+                    </p>
+                  </li>
+                </ol>
+              </p>
               
-            <ol>
-              <li>
-                  <p>
-                    Write an SIR model for this outbreak, without (yet) including isolation. (Do not include vaccine or incubation period in your model.) Determine all parameter values for your model.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Adjust your SIR model to incorporate isolation, which in Town A is complete as soon as Infectious individuals know they are sick. Show both the differential equations and compartmental diagram for your adjusted model. Determine all parameter values for this adjusted model.
-                  </p>
-                </li>
-            </ol>
+            
             </statement>
           </task>
           <task>
@@ -63,25 +71,28 @@
               <p>
                 Next, consider <q>Town B</q>, which has 8,000 residents, and think of ways to model incomplete isolation. Suppose that Disease X appears in Town B, but Town B's people do not have a way to care for or deliver supplies to people who are sick. This means that friends, family members, care workers, or others interact somewhat with the Infectious who know they are sick. Therefore, isolation is not complete, though individuals do reduce their interactions with others as soon as they know they are sick, that is, typically two days after first becoming contagious.
               </p>
+              <p>
+                <ol>
+                  <li>
+                    <p>
+                      Adjust your original SIR model, which did not have isolation, to incorporate the incomplete isolation described for Town B. (Do not include vaccine or incubation period in your model.) Show both the differential equations and a compartmental diagram for your adjusted model. Determine all parameter values for this adjusted model.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Discuss the differences between your models for complete and incomplete isolation, and discuss the reasons for your modeling choices.
+                    </p>
+                  </li>
+                </ol>
+              </p>
               
-            <ol>
-              <li>
-                <p>
-                  Adjust your original SIR model, which did not have isolation, to incorporate the incomplete isolation described for Town B. (Do not include vaccine or incubation period in your model.) Show both the differential equations and a compartmental diagram for your adjusted model. Determine all parameter values for this adjusted model.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Discuss the differences between your models for complete and incomplete isolation, and discuss the reasons for your modeling choices.
-                </p>
-              </li>
-            </ol>
+            
             </statement>
           </task>
           
         </exploration>
     
-      </introduction>
+      </section>
 
     <section xml:id="sec-complete-isolation-models-and-parameter-estimation">
       <title>Complete Isolation: Models and Parameter Estimation</title>
@@ -478,15 +489,15 @@
             </li>
             <li>
               <p>
-                In many cases, people with the flu know they are sick and have the opportunity to isolate. Let us suppose that every person in an outbreak isolates after they have been sick for one day, and that they isolate perfectly. (This is unlikely in reality, but we can model this  to see the outcome.) Update your model accordingly, changing only the value of <m>\gamma</m> (which relates to the time spent in the <m>I(t)</m> population) so that people move more rapidly from compartment I to compartment R.
+                In many cases, people with the flu know they are sick and have the opportunity to isolate. Let us suppose that every person in an outbreak isolates after they have been sick for one day, and that they isolate perfectly. (This is unlikely in reality, but we can model this  to see the outcome.) Update your model from step 1 accordingly, changing only the value of <m>\gamma</m> (which relates to the time spent in the <m>I(t)</m> population) so that people move more rapidly from compartment I to compartment R.
               </p>
             </li>
             <li>
               <p>
-                Try your model in Python, using either the Python code for an SIR model, as in <xref ref="activity-formula-for-i-of-t-turning-around"/>, or the Python code for an SEIR model, as in <xref ref="activity-seir-model-play-with-kappa"/>. Suppose there are 2500 students on campus, and update all parameters and time ranges in the model as needed. Feel free to try just one initial Infectious case, or a few (perhaps 2-10) initial Infectious cases, as it is possible for multiple people to become Infectious simultaneously in an influenza outbreak, perhaps because they all encountered the same Infectious person off-campus, or perhaps because some social event led to multiple initial infections within a very short time frame. 
+                Try your model from step 2 in Python, using either the Python code for an SIR model, as in <xref ref="activity-formula-for-i-of-t-turning-around"/>, or the Python code for an SEIR model, as in <xref ref="activity-seir-model-play-with-kappa"/>. Suppose there are 2500 students on campus, and update all parameters and time ranges in the model as needed. Feel free to try just one initial Infectious case, or a few (perhaps 2-10) initial Infectious cases, as it is possible for multiple people to become Infectious simultaneously in an influenza outbreak, perhaps because they all encountered the same Infectious person off-campus, or perhaps because some social event led to multiple initial infections within a very short time frame. 
               </p>
               <p>
-                First try your baseline model for influenza without isolation, and then try your influenza model with its updated <m>\gamma</m> value to represent the complete isolation of Infectious people beginning one day after symptoms appear. Describe your results. 
+                First try your baseline model (from step 1) for influenza without isolation, and then try your influenza model with its updated <m>\gamma</m> value (from step 2) to represent the complete isolation of Infectious people beginning one day after symptoms appear. Describe your results. 
               </p>
             </li>
           </ol>                     
@@ -524,7 +535,7 @@
     <exercises xml:id="exercises-ch-isolation">
       <exercise number="1">
        <p>
-         Revisit <xref ref="activity-sir-model-flu"/>, starting with an SIR model and introducing incomplete isolation. Incomplete isolation can take multiple forms, some of which we described in <xref ref="sec-incomplete-isolation-and-quarantine-vs-isolation"/>.  
+         Revisit <xref ref="activity-sir-model-flu"/>, starting with an SIR model of the type described in <xref ref="ch-compartmental-diagrams"/> and introducing incomplete isolation. Incomplete isolation can take multiple forms; for this exercise, use one of the forms described in <xref ref="sec-incomplete-isolation-and-quarantine-vs-isolation"/>.  
        </p>   
        <ol>
          <li>
@@ -534,7 +545,7 @@
          </li>
          <li>
            <p>
-             Determine all parameter values or ranges for your model. Cite official sources wherever possible. (Since you are deciding the kind of incomplete isolation, and since this is a fictional outbreak, there may be one or more parameter values that are based on your decisions and not on official sources. Indicate this wherever it is relevant.)
+             Determine all parameter values or ranges for your model. Cite official sources wherever possible, including links to any web pages, the title of each web page used, the name of the publisher of each web page, and the date you most recently accessed the web page. Since you are deciding the kind of incomplete isolation, and since this is a fictional outbreak, there may be one or more parameter values that are based on your decisions and not on official sources. Indicate this wherever it is relevant.
            </p>
          </li>
          <li>
@@ -547,7 +558,7 @@
 
      <exercise number="2">
       <p>
-        Revisit <xref ref="activity-sir-model-flu"/>, starting with an SEIR model and introducing incomplete isolation. Incomplete isolation can take multiple forms, some of which we described in <xref ref="sec-incomplete-isolation-and-quarantine-vs-isolation"/>. (If you are also completing exercise 1 in <xref ref="exercises-ch-isolation"/>, use the same form of incomplete isolation.)  
+        Revisit <xref ref="activity-sir-model-flu"/>, starting with an SEIR model of the form described in <xref ref="ch-incubation-periods"/> and introducing incomplete isolation. Incomplete isolation can take multiple forms; for this exercise, use one of the forms described in <xref ref="sec-incomplete-isolation-and-quarantine-vs-isolation"/>. If you are also completing exercise 1 in <xref ref="exercises-ch-isolation"/>, use the same form of incomplete isolation. 
       </p>   
       <ol>
         <li>
@@ -557,7 +568,7 @@
         </li>
         <li>
           <p>
-            Determine all parameter values or ranges for your model. Cite official sources wherever possible. (Since you are deciding the kind of incomplete isolation, and since this is a fictional outbreak, there may be one or more parameter values that are based on your decisions and not on official sources. Indicate this wherever it is relevant.)
+            Determine all parameter values or ranges for your model. Cite official sources wherever possible, including links to any web pages, the title of each web page used, the name of the publisher of each web page, and the date you most recently accessed the web page. Since you are deciding the kind of incomplete isolation, and since this is a fictional outbreak, there may be one or more parameter values that are based on your decisions and not on official sources. Indicate this wherever it is relevant.
           </p>
         </li>
         <li>
