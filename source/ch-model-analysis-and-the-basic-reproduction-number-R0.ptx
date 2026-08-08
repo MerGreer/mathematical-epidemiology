@@ -1,8 +1,7 @@
 <chapter xml:id="ch-model-analysis-and-the-basic-reproduction-number-R0" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Model Analysis and the Basic Reproduction Number <m>\mathcal{R}_0</m></title>
 
-    <introduction xml:id="intro-model-analysis-and-the-basic-reproduction-number-R0">
-      <objectives>
+    <objectives>
         <ul>
           <li>
             <p>
@@ -22,6 +21,7 @@
         </ul>
       </objectives>
 
+    <introduction xml:id="intro-model-analysis-and-the-basic-reproduction-number-R0">
       <p>
         By now, we have studied models from several perspectives. In <xref ref="ch-zombies-can-math-help"/> and the Zombie Game App, we generated data for an outbreak, constructed tables and graphs of data, and thought through how all these pieces of information fit together. <xref ref="ch-zombies-can-math-help"/> then introduced using a system of differential equations for describing the relationships. The Python code in <xref ref="ch-visualization-graphing-model-results-and-data"/> generated images of data points and solution curves for systems of differential equations. Finally, and crucially, we began drawing compartmental diagrams in <xref ref="ch-compartmental-diagrams"/>. 
       </p>
@@ -38,11 +38,13 @@
           <p>
             We first saw the SIR model in <xref ref="ch-compartmental-diagrams"/>. The compartmental diagram appears in <xref ref="fig-SIR-compartmental-diagram"/> and the system of differential equations is the following:
           </p>
-          <md>
-            <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-            <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
-            <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-          </md>
+          <p>
+            <md>
+              <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+              <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
+              <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+            </md>.
+          </p>
           <p>
             Throughout this Exploration, continue to connect the model, graphs of its solution curves, and real-world meaning.
           </p>
@@ -53,18 +55,21 @@
             <p>
               Look at the expressions on the right-hand sides of the differential equations for the SIR model.  
             </p>
-            <ul>
-              <li>
-                <p>
-                  Which terms are positive? Which terms are negative? What does this tell you about how each population can flow through the compartments? 
-                </p>
-              </li>
-              <li>
-                <p>
-                  For each differential equation, what signs (<m>+</m>, <m>-</m>, or <m>0</m>) are possible on the right-hand side? What does this tell you about the solution curves for the model? 
-                </p>
-              </li>
-            </ul>
+            <p>
+              <ul>
+                <li>
+                  <p>
+                    Which terms are positive? Which terms are negative? What does this tell you about how each population can flow through the compartments? 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    For each differential equation, what signs (<m>+</m>, <m>-</m>, or <m>0</m>) are possible on the right-hand side? What does this tell you about the solution curves for the model? 
+                  </p>
+                </li>
+              </ul>
+            </p>
+            
           </statement>
         </task>
         <task>
@@ -72,19 +77,21 @@
             <p>
               For the graph in <xref ref="fig-SIR-graph-unlabeled"/>, which curve goes with which compartment of the SIR model? Justify your reasoning in two ways: 
             </p>
-            <ul>
-              <li>
-                <p>
-                  Use your <term>sign analysis</term>, that is, the work you just did on describing solution curves based on the sign (<m>+</m>, <m>-</m>, or <m>0</m>) of the right-hand side of that compartment's differential equation in the SIR model. 
-                </p>
-              </li>
-              <li>
-                <p>
-                  Describe what happens in the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> when we run a simulation including zombie mortality, and confirm that these curves make sense in that context. 
-                </p>
-              </li>
-            </ul>
-            <figure width="90%" xml:id="fig-SIR-graph-unlabeled">
+            <p>
+              <ul>
+                <li>
+                  <p>
+                    Use your <term>sign analysis</term>, that is, the work you just did on describing solution curves based on the sign (<m>+</m>, <m>-</m>, or <m>0</m>) of the right-hand side of that compartment's differential equation in the SIR model. 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Describe what happens in the <url href="https://nelsong1997.github.io/zombie_game/">Zombie Game App</url> when we run a simulation including zombie mortality, and confirm that these curves make sense in that context. 
+                  </p>
+                </li>
+              </ul>
+            </p>
+            <figure xml:id="fig-SIR-graph-unlabeled">
               <caption>One set of solution curves for the SIR model</caption>
               <image source="SIR_Graph_Unlabeled_Curves.png" width="80%">
                   <description>
@@ -115,11 +122,13 @@
           <p>
             Consider the SIR model:
           </p>
-          <md>
-            <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-            <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
-            <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
-          </md>
+          <p>
+            <md>
+              <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+              <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
+              <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+            </md>
+          </p>
           <p>
             and define <m>N(t)=S(t)+I(t)+R(t)</m> to be the <term>total population</term> being modeled, at time <m>t</m>. 
           </p>
@@ -139,18 +148,22 @@
           <p>
             On the left-hand side:
           </p>
-          <md>
-            <mrow>\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt} \amp = \frac{d(S+I+R)}{dt} = \frac{dN}{dt}.</mrow>
-          </md>
+          <p>
+            <md>
+              \frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt} = \frac{d(S+I+R)}{dt} = \frac{dN}{dt}
+            </md>.
+          </p>          
           <p>
             Therefore, summing the three differential equations determines the change over time of the total population.
           </p>
           <p>
             On the right-hand side:
           </p>
-          <md>
-            <mrow>(-\beta S I)+(\beta S I - \gamma I)+(\gamma I) \amp = 0.</mrow>
-          </md> 
+          <p>
+            <md>
+              (-\beta S I)+(\beta S I - \gamma I)+(\gamma I) \amp = 0
+            </md>.
+          </p>
           <p>
             Since the three differential equations sum to zero, the change in total population is <m>0</m>. This tells us that the total population in our model does not change. In other words, the size of the total population <m>N(t)</m> remains constant.
           </p>
@@ -160,18 +173,20 @@
       <p>
         The analysis in <xref ref="activity-total-population"/> includes the following calculus concepts.
       </p>
-      <ul>
-        <li>
-          <p>
-            The sum of derivatives equals the derivative of the sum: <m>\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt} = \frac{d(S+I+R)}{dt}</m>. Therefore <m>\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt} = \frac{dN}{dt}</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            When the derivative of a function equals <m>0</m>, the function is unchanging: <m>\frac{dN}{dt}=0</m> indicates that <m>N(t)</m> is unchanging. 
-          </p>
-        </li>
-      </ul>
+      <p>
+        <ul>
+          <li>
+            <p>
+              The sum of derivatives equals the derivative of the sum: <m>\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt} = \frac{d(S+I+R)}{dt}</m>. Therefore <m>\frac{dS}{dt}+\frac{dI}{dt}+\frac{dR}{dt} = \frac{dN}{dt}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              When the derivative of a function equals <m>0</m>, the function is unchanging: <m>\frac{dN}{dt}=0</m> indicates that <m>N(t)</m> is unchanging. 
+            </p>
+          </li>
+        </ul>
+      </p>
       <p>
         In an outbreak that occurs over a relatively short time, it may make complete sense to say that the population is unchanging. It may be that the population truly does not change at all, or it may be that the population is changing so little that we decide not to include population change in a model of the outbreak. Noticing when population change is <m>0</m>, or close to <m>0</m>, allows us to write relatively simple models that do not try to incorporate births, deaths, immigration, emigration, or other population changes. Models that represent a longer span of time may need to account for changes in population.
       </p>
@@ -190,23 +205,25 @@
           <p>
             Use the code below to create three different graphs of solution curves to an SIR model in which <m>S(0)=75</m>, <m>I(0)=25</m>, <m>R(0)=0</m>, and <m>0 \leq t \leq 20</m>. The first set of values for <m>\beta</m> and <m>\gamma</m> appear in the code block; change the code to get the other two sets of values. It may help you to save screenshots of each of the three graphs, so you can more easily see all three at the same time.
           </p>
-          <ul>
-            <li>
-              <p>
-                In the first graph, let <m>\beta = 0.03</m> and <m>\gamma = 0.25</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                In the second graph, let <m>\beta = 0.01</m> and <m>\gamma = 0.4</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                In the third graph, let <m>\beta = 0.005</m> and <m>\gamma = 0.5</m>.
-              </p>
-            </li>
-          </ul>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  In the first graph, let <m>\beta = 0.03</m> and <m>\gamma = 0.25</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In the second graph, let <m>\beta = 0.01</m> and <m>\gamma = 0.4</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In the third graph, let <m>\beta = 0.005</m> and <m>\gamma = 0.5</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
           <p>
             Then respond to the prompts below the code block.
           </p>
@@ -247,61 +264,65 @@
             </output>
             </sage>
 
+            <p>
+              <ol>
+                <li>
+                  <p>
+                    What observations can you make, overall, about the three graphs? Take time with this question, and think expansively, before moving on to the next questions.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Discuss the similarities and differences in the <m>I(t)</m> curves in each of your three graphs. Include observations using our sign analysis from <xref ref="expl-rise-and-fall-of-an-epidemic"/>: when is <m>I(t)</m> rising or falling, and what does this have to do with the sign (<m>+</m>, <m>-</m>, or <m>0</m>) of <m>dI/dt</m>? 
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Compare the long-term outcomes for <m>S(t)</m> and <m>R(t)</m> across the three graphs. What do you notice about the total number of people who ever became sick in each case?
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Explore the role that changes to <m>\beta</m> make to the outcome in each graph. Similarly, think through how changes to <m>\gamma</m> contribute to graph outcomes. For each parameter, decide first how you <em>think</em> changing the parameter will change the solution curves. Then use the code block to make several changes to that parameter, and compare what you see with what you thought you would see.
+                  </p>
+                </li>
+              </ol>
+            </p>
+        </statement>
+        <hint>
+          <p>
             <ol>
               <li>
                 <p>
-                  What observations can you make, overall, about the three graphs? Take time with this question, and think expansively, before moving on to the next questions.
+                  This is open-ended.
                 </p>
               </li>
               <li>
                 <p>
-                  Discuss the similarities and differences in the <m>I(t)</m> curves in each of your three graphs. Include observations using our sign analysis from <xref ref="expl-rise-and-fall-of-an-epidemic"/>: when is <m>I(t)</m> rising or falling, and what does this have to do with the sign (<m>+</m>, <m>-</m>, or <m>0</m>) of <m>dI/dt</m>? 
+                  In the first two graphs, <m>I(t)</m> rises, then falls. For a sign analysis, first write out the differential equation for <m>dI/dt</m>. Then substitute in the values of <m>\beta</m> and <m>\gamma</m> and the initial values <m>S(0)=75</m> and <m>I(0)=25</m> to see that <m>\beta S I - \gamma I \gt 0</m>. Yet <m>S(t)</m> decreases rapidly, until <m>\beta S I - \gamma I \lt 0</m>, and at this time the <m>I(t)</m> curve falls. 
+                </p>
+                <p>
+                  In the third graph, the <m>I(t)</m> graph has a negative slope from the very beginning. A sign analysis shows why this makes sense, based on the initial value of <m>dI/dt</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Compare the long-term outcomes for <m>S(t)</m> and <m>R(t)</m> across the three graphs. What do you notice about the total number of people who ever became sick in each case?
+                  In the first graph, everyone eventually gets sick. One way to see this is that the long-term value of <m>S(t)</m> appears to be <m>0</m> and the long-term value of <m>R(t)</m> appears to be <m>100</m>, which is the total population.
+                </p>
+                <p>
+                  In the second graph, not everyone gets sick in the outbreak. The <m>S(t)</m> curve appears to level out at a value of approximately <m>8</m>. Extending <c>t_range</c> beyond <m>t=20</m> can help for confirming this.
+                </p>
+                <p>
+                  In the third graph, quite a few people avoid illness. Estimates for long-term values of <m>S(t)</m> and <m>R(t)</m> can confirm this.
                 </p>
               </li>
               <li>
                 <p>
-                  Explore the role that changes to <m>\beta</m> make to the outcome in each graph. Similarly, think through how changes to <m>\gamma</m> contribute to graph outcomes. For each parameter, decide first how you <em>think</em> changing the parameter will change the solution curves. Then use the code block to make several changes to that parameter, and compare what you see with what you thought you would see.
+                  There is much to say here. In general, increasing <m>\beta</m> makes more people become sick, and makes infection happen more rapidly. Decreasing <m>\gamma</m> leads to more infections. The <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> graphs are all affected by these changes, and the answer to this prompt should include descriptions of these changes.
                 </p>
               </li>
             </ol>
-        </statement>
-        <hint>
-          <ol>
-            <li>
-              <p>
-                This is open-ended.
-              </p>
-            </li>
-            <li>
-              <p>
-                In the first two graphs, <m>I(t)</m> rises, then falls. For a sign analysis, first write out the differential equation for <m>dI/dt</m>. Then substitute in the values of <m>\beta</m> and <m>\gamma</m> and the initial values <m>S(0)=75</m> and <m>I(0)=25</m> to see that <m>\beta S I - \gamma I \gt 0</m>. Yet <m>S(t)</m> decreases rapidly, until <m>\beta S I - \gamma I \lt 0</m>, and at this time the <m>I(t)</m> curve falls. 
-              </p>
-              <p>
-                In the third graph, the <m>I(t)</m> graph has a negative slope from the very beginning. A sign analysis shows why this makes sense, based on the initial value of <m>dI/dt</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                In the first graph, everyone eventually gets sick. One way to see this is that the long-term value of <m>S(t)</m> appears to be <m>0</m> and the long-term value of <m>R(t)</m> appears to be <m>100</m>, which is the total population.
-              </p>
-              <p>
-                In the second graph, not everyone gets sick in the outbreak. The <m>S(t)</m> curve appears to level out at a value of approximately <m>8</m>. Extending <c>t_range</c> beyond <m>t=20</m> can help for confirming this.
-              </p>
-              <p>
-                In the third graph, quite a few people avoid illness. Estimates for long-term values of <m>S(t)</m> and <m>R(t)</m> can confirm this.
-              </p>
-            </li>
-            <li>
-              <p>
-                There is much to say here. In general, increasing <m>\beta</m> makes more people become sick, and makes infection happen more rapidly. Decreasing <m>\gamma</m> leads to more infections. The <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> graphs are all affected by these changes, and the answer to this prompt should include descriptions of these changes.
-              </p>
-            </li>
-          </ol>
+          </p>
         </hint>
       </activity>
 
@@ -309,43 +330,45 @@
         Both <xref ref="activity-three-sets-of-parameters"/> and <xref ref="expl-rise-and-fall-of-an-epidemic"/> use <em>sign analysis</em>. This usage of the signs (<m>+</m>, <m>-</m>, or <m>0</m>) of a derivative can inform us about circumstances in which a population is increasing, decreasing, or remaining constant. Such knowledge about the relationship between signs and derivatives comes from calculus and is tremendously powerful for understanding epidemics through compartmental modeling.
       </p>
       <p>
-        Let us take a moment to emphasize an assumption we make about signs when writing compartmental models. In many applications of mathematics, variables and parameters can take on the values of any real number. However, in compartmental models, we specify that variables and parameters cannot be negative because negative values would not make biological sense. For instance, populations of people cannot be negative, and length of time sick with a disease cannot be negative. Therefore, what we see is what we get: if no negative sign (<m>-</m>) is visible, then a term cannot be negative.
+        Let us take a moment to emphasize an assumption we make about signs when writing compartmental models. In many applications of mathematics, variables and parameters can take on the values of any real number. However, in compartmental models, we specify that variables and parameters cannot be negative because negative values would not make biological sense. For instance, populations of people cannot be negative, and length of time sick with a disease cannot be negative. Therefore, what we see is what we get: if no negative sign <m>(-)</m> is visible, then a term cannot be negative.
       </p>
       <p>
         Here is a summary of some of the key outcomes in the SIR model from our sign analysis so far. Notice that all these observations arise from calculus concepts.
       </p>
-      <ul>
-        <li>
-          <p>
-            Sign analysis tells us that <m>S(t)</m> cannot increase: since <m>dS/dt \leq 0</m>, then <m>S(t)</m> can only decrease or remain constant.
-          </p>
-        </li>
-        <li>
-          <p>
-            Sign analysis tells us that <m>R(t)</m> cannot decrease: since <m>dR/dt \geq 0</m>, then <m>R(t)</m> can only increase or remain constant.
-          </p>
-        </li>
-        <li>
-          <p>
-            Sign analysis tells us that <m>I(t)</m> has the ability to increase, decrease, or remain constant because the formula for <m>dI/dt</m> can take on values that are positive, negative, or zero.
-          </p>
-        </li>
-        <li>
-          <p>
-            When <m>dI/dt = 0</m>, the graph of <m>I(t)</m> has a slope of <m>0</m>. In many simulations, there is a single value of <m>t</m> at which <m>dI/dt = 0</m> and the graph of <m>I(t)</m> turns from increasing to decreasing.
-          </p>
-        </li>
-        <li>
-          <p>
-            Eventually, in this model, the value of <m>I(t)</m> will approach <m>0</m>, and then the values of <m>S(t)</m> and <m>R(t)</m> will level out because <m>dS/dt</m> and <m>dR/dt</m> will approach <m>0</m>. 
-          </p>
-        </li>
-        <li>
-          <p>
-            You may have found yet other ways to connect derivative signs (<m>+</m>, <m>-</m>, or <m>0</m>) with model outcomes. 
-          </p>
-        </li>
-      </ul>
+      <p>
+        <ul>
+          <li>
+            <p>
+              Sign analysis tells us that <m>S(t)</m> cannot increase: since <m>dS/dt \leq 0</m>, then <m>S(t)</m> can only decrease or remain constant.
+            </p>
+          </li>
+          <li>
+            <p>
+              Sign analysis tells us that <m>R(t)</m> cannot decrease: since <m>dR/dt \geq 0</m>, then <m>R(t)</m> can only increase or remain constant.
+            </p>
+          </li>
+          <li>
+            <p>
+              Sign analysis tells us that <m>I(t)</m> has the ability to increase, decrease, or remain constant because the formula for <m>dI/dt</m> can take on values that are positive, negative, or zero.
+            </p>
+          </li>
+          <li>
+            <p>
+              When <m>dI/dt = 0</m>, the graph of <m>I(t)</m> has a slope of <m>0</m>. In many simulations, there is a single value of <m>t</m> at which <m>dI/dt = 0</m> and the graph of <m>I(t)</m> turns from increasing to decreasing.
+            </p>
+          </li>
+          <li>
+            <p>
+              Eventually, in this model, the value of <m>I(t)</m> will approach <m>0</m>, and then the values of <m>S(t)</m> and <m>R(t)</m> will level out because <m>dS/dt</m> and <m>dR/dt</m> will approach <m>0</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              You may have found yet other ways to connect derivative signs (<m>+</m>, <m>-</m>, or <m>0</m>) with model outcomes. 
+            </p>
+          </li>
+        </ul>
+      </p>
       <p>
          In addition to looking at signs, we examined long-term outcomes in <xref ref="activity-three-sets-of-parameters"/>. This is a moment to wonder: what can mathematical approaches tell us about limiting the impact of an outbreak? We explore this question in depth in <xref ref="sec-the-basic-reproduction-number-R0"/>.
       </p>
@@ -370,7 +393,8 @@
           <p>
             This activity examines the <em>boundary</em> between rising and falling <m>I(t)</m> numbers in the SIR model we have been studying. We will see that this boundary relates to important information about the basic reproduction number <m>\mathcal{R}_0</m>. 
           </p>
-          <ol>
+          <p>
+            <ol>
               <li>
                 <p>
                   Begin by using the code below to try different values of <m>\beta</m> and <m>\gamma</m>. Your goal is to find values for which the <m>I(t)</m> curve does not rise at first: instead, it stays level or falls. Keep the initial conditions the same, that is, <m>S(0)=1900</m>, <m>I(0)=100</m>, and <m>R(0)=0</m>. If changing the range of <m>t</m> values helps you see the outcome better, then change the end time to a smaller or larger value. However, keep the initial time <m>t=0</m>. 
@@ -390,6 +414,7 @@
                 </p>
               </li>
             </ol>
+          </p>
           
           <sage>
             <input>
@@ -429,83 +454,93 @@
             </sage>
         </statement>
         <hint>
-          <ol>
-            <li>
-              <p>
-                This is open-ended. There are many combinations of <m>\beta</m> and <m>\gamma</m> for which the <m>I(t)</m> curve falls from the start.
-              </p>
-            </li>
-            <li>
-              <p>
-                While this is also open-ended, it is important to extend the end time in <c>t_range</c> enough so that the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> curves are essentially horizontal near the end of the model's time range. The population values for S, I, and R after the curves have leveled to horizontal indicate how many people never got sick (S), how many people got sick and then eventually moved to the Removed compartment (R), and how many people are still sick (I, which should be at 0 if the outbreak is complete).
-              </p>
-            </li>
-            <li>
-              <p>
-                Set the right-hand side of the <m>dI/dt</m> equation equal to 0 and factor:
-              </p>
-              <md>
-                <mrow>\beta SI - \gamma I \amp = 0 </mrow>
-                <mrow>(\beta S - \gamma ) I \amp = 0. </mrow>
-              </md>
-              <p>
-                This results in two possibilities: either <m>\beta S - \gamma = 0</m> or <m>I=0</m>. There are multiple biological interpretations of each possibility.
-              </p> 
-            </li>
-          </ol>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  This is open-ended. There are many combinations of <m>\beta</m> and <m>\gamma</m> for which the <m>I(t)</m> curve falls from the start.
+                </p>
+              </li>
+              <li>
+                <p>
+                  While this is also open-ended, it is important to extend the end time in <c>t_range</c> enough so that the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> curves are essentially horizontal near the end of the model's time range. The population values for S, I, and R after the curves have leveled to horizontal indicate how many people never got sick (S), how many people got sick and then eventually moved to the Removed compartment (R), and how many people are still sick (I, which should be at 0 if the outbreak is complete).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Set the right-hand side of the <m>dI/dt</m> equation equal to 0 and factor:
+                </p>
+                <p>
+                  <md>
+                    <mrow>\beta SI - \gamma I \amp = 0 </mrow>
+                    <mrow>(\beta S - \gamma ) I \amp = 0 </mrow>
+                  </md>.
+                </p>
+                <p>
+                  This results in two possibilities: either <m>\beta S - \gamma = 0</m> or <m>I=0</m>. There are multiple biological interpretations of each possibility.
+                </p> 
+              </li>
+            </ol>
+          </p>
         </hint>
       </activity>  
 
       <p>
         Both <xref ref="activity-three-sets-of-parameters"/> and <xref ref="activity-formula-for-i-of-t-turning-around"/> should be leading you to the following conclusions.
       </p>
-      <ul>
-        <li>
-          <p>
-            Smaller values of <m>\beta</m> lead to less growth of the <m>I(t)</m> curve and can help contribute to fewer total people ever becoming Infectious. Smaller <m>\beta</m> corresponds to less infectivity.
-          </p>
-        </li>
-        <li>
-          <p>
-            Larger values of <m>\gamma</m> also lead to less growth of the <m>I(t)</m> curve and can help contribute to fewer total people ever becoming Infectious. Larger <m>\gamma</m> corresponds to a higher rate of people moving from compartment I to compartment R. 
-          </p>
-        </li>
-        <li>
-          <p>
-            Another way to think of the previous bullet point: smaller values of <m>1/\gamma</m> lead to less growth of the <m>I(t)</m> curve and can help contribute to fewer total people ever becoming Infectious. Given the relationship in <xref ref="eq-gamma-estimate"/>, we see that smaller <m>1/\gamma</m> corresponds to a shorter length of time that people are Infectious.
-          </p>
-        </li>
-        <li>
-          <p>
-            If <m>\beta</m> and <m>1/\gamma</m> combine into a small enough value, the <m>I(t)</m> curve does not grow, even at the start of a model simulation.
-          </p>
-        </li>
-        <li>
-          <p>
-            We find that <m>I(t)</m> never grows if <m>dI/dt \leq 0</m> at the start of a simulation, that is, when <m>t=0</m>. This means  
-          </p>
-          <md>
-            <mrow>\beta S I - \gamma I \amp \leq 0 </mrow>
-            <mrow>(\beta S - \gamma) I \amp \leq 0. </mrow>
-          </md>
-          <p>
-            Since <m>I \geq 0</m>, the only way to achieve <m>(\beta S - \gamma) I \lt 0</m> is to have <m>(\beta S - \gamma) \lt 0</m>. 
-          </p>
-        </li>
-        <li>
-          <p>
-            It would also be possible to have <m>(\beta S - \gamma) I = 0</m> if <m>I=0</m>, but once an outbreak begins, we no longer have <m>I=0</m>.
-          </p>
-        </li>
-      </ul>
+      <p>
+        <ul>
+          <li>
+            <p>
+              Smaller values of <m>\beta</m> lead to less growth of the <m>I(t)</m> curve and can help contribute to fewer total people ever becoming Infectious. Smaller <m>\beta</m> corresponds to less infectivity.
+            </p>
+          </li>
+          <li>
+            <p>
+              Larger values of <m>\gamma</m> also lead to less growth of the <m>I(t)</m> curve and can help contribute to fewer total people ever becoming Infectious. Larger <m>\gamma</m> corresponds to a higher rate of people moving from compartment I to compartment R. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Another way to think of the previous bullet point: smaller values of <m>1/\gamma</m> lead to less growth of the <m>I(t)</m> curve and can help contribute to fewer total people ever becoming Infectious. Given the relationship in <xref ref="eq-gamma-estimate"/>, we see that smaller <m>1/\gamma</m> corresponds to a shorter length of time that people are Infectious.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>\beta</m> and <m>1/\gamma</m> combine into a small enough value, the <m>I(t)</m> curve does not grow, even at the start of a model simulation.
+            </p>
+          </li>
+          <li>
+            <p>
+              We find that <m>I(t)</m> never grows if <m>dI/dt \leq 0</m> at the start of a simulation, that is, when <m>t=0</m>. This means  
+            </p>
+            <p>
+              <md>
+                <mrow>\beta S I - \gamma I \amp \leq 0 </mrow>
+                <mrow>(\beta S - \gamma) I \amp \leq 0 </mrow>
+              </md>.
+            </p>
+            <p>
+              Since <m>I \geq 0</m>, the only way to achieve <m>(\beta S - \gamma) I \lt 0</m> is to have <m>(\beta S - \gamma) \lt 0</m>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              It would also be possible to have <m>(\beta S - \gamma) I = 0</m> if <m>I=0</m>, but once an outbreak begins, we no longer have <m>I=0</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
       <p>
         As a reminder, we said that the basic reproduction number <m>\mathcal{R}_0</m> is the average number of new infections caused by one infectious person <em>in an otherwise entirely susceptible population</em>. We are nearly ready to present the formula for <m>\mathcal{R}_0</m> in the SIR model
       </p>
-      <md>
-        <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-        <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
-        <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-      </md>
+      <p>
+        <md>
+          <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+          <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
+          <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+        </md>.
+      </p>
       <p>
         However, we first emphasize that <m>\mathcal{R}_0</m> describes a phenomenon that occurs in an entirely susceptible population. When <m>\mathcal{R}_0</m> is described in the news or popular culture, as happened in many reports on COVID-19, the <q>entirely susceptible population</q> part of the <m>\mathcal{R}_0</m> definition is usually left out. 
       </p>
@@ -515,9 +550,11 @@
       <p>
         We now have all the pieces we need to assemble a formula for <m>\mathcal{R}_0</m> in the SIR model <xref ref="eq-SIR-model-S"/>, <xref ref="eq-SIR-model-I"/>, and <xref ref="eq-SIR-model-R"/>:
       </p>
-      <mdn>
-        <mrow xml:id="eq-R0-sir">\mathcal{R}_0 \amp = \frac{\beta N}{\gamma} \mbox{ for our SIR model}. </mrow>
-      </mdn>
+      <p>
+        <md number="yes" xml:id="eq-R0-sir">
+          \mathcal{R}_0 = \frac{\beta N}{\gamma} \mbox{ for our SIR model} 
+        </md>.
+      </p>
       <p>
         It is possible to compute the formula for <m>\mathcal{R}_0</m> from the equations in a compartmental model. The most common way to do this is called the Next Generation Method. Because the Next Generation Method uses partial derivatives and techniques from linear algebra, it is described in the optional <xref ref="ch-the-next-generation-method"/>. In particular, <xref ref="ch-the-next-generation-method"/> teaches the process in a way that can be used by students who are new to matrix operations and partial derivatives: there are a few math techniques to learn, and Python does the rest. Readers who include <xref ref="ch-the-next-generation-method"/> will be able to solve for the formula for <m>\mathcal{R}_0</m> in their own models. As an alternative, the <m>\mathcal{R}_0</m> formulas for several commonly used compartmental models are provided directly throughout this text.  
       </p>
@@ -533,29 +570,33 @@
           <p>
             Start with the following result from <xref ref="activity-formula-for-i-of-t-turning-around"/>: in order to have <m>dI/dt=0</m> when <m>I \neq 0</m>, it must be that <m>\beta S - \gamma = 0</m>. Show how to rearrange the equation <m>\beta S - \gamma = 0</m> algebraically to get 
           </p>
-          <md>
-            <mrow>\frac{\beta S}{\gamma} \amp = 1. </mrow>
-          </md>
+          <p>
+            <md>
+              \frac{\beta S}{\gamma} = 1
+            </md>.
+          </p>
           <p>
             Then answer the following questions.   
           </p>
-          <ul>
-            <li>
-              <p>
-                When <m>\frac{\beta S}{\gamma} \gt 1</m>, is <m>I(t)</m> rising or falling?
-              </p>
-            </li>
-            <li>
-              <p>
-                When <m>\frac{\beta S}{\gamma} \lt 1</m>, is <m>I(t)</m> rising or falling?
-              </p>
-            </li>
-            <li>
-              <p>
-                In a typical outbreak, what change causes <m>\frac{\beta S}{\gamma}</m> to transition among being less than <m>1</m>, or equal to <m>1</m>, or greater than <m>1</m>? What is the expected order of these cases, that is, in an outbreak where all three cases <m>\frac{\beta S}{\gamma} \lt 1</m>, <m> \frac{\beta S}{\gamma}=1</m>, and <m> \frac{\beta S}{\gamma}\gt 1</m> happen at some time, which of these cases happens first, which happens second, and which happens third? Why is this the order? 
-              </p>
-            </li>
-          </ul>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  When <m>\frac{\beta S}{\gamma} \gt 1</m>, is <m>I(t)</m> rising or falling?
+                </p>
+              </li>
+              <li>
+                <p>
+                  When <m>\frac{\beta S}{\gamma} \lt 1</m>, is <m>I(t)</m> rising or falling?
+                </p>
+              </li>
+              <li>
+                <p>
+                  In a typical outbreak, what change causes <m>\frac{\beta S}{\gamma}</m> to transition among being less than <m>1</m>, or equal to <m>1</m>, or greater than <m>1</m>? What is the expected order of these cases, that is, in an outbreak where all three cases <m>\frac{\beta S}{\gamma} \lt 1</m>, <m> \frac{\beta S}{\gamma}=1</m>, and <m> \frac{\beta S}{\gamma}\gt 1</m> happen at some time, which of these cases happens first, which happens second, and which happens third? Why is this the order? 
+                </p>
+              </li>
+            </ul>
+          </p>
           <p>
             After completing the above questions, next consider the formula from <xref ref="eq-R0-sir"/>, which says that <m>\mathcal{R}_0 = \frac{\beta N}{\gamma}</m>. Use the work you have already done in this activity, along with the definition of <m>\mathcal{R}_0</m> as being the average number of new infections caused by one infectious person <em>in an otherwise entirely susceptible population</em>, to describe what <m>\mathcal{R}_0</m> tells us about the behavior of <m>I(t)</m> early in an outbreak. 
           </p>
@@ -592,10 +633,12 @@
         <p>
           Do some mathematical analysis of this SI model: 
         </p>
-        <md>
-          <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-          <mrow>\frac{dI}{dt} \amp = \beta S I. </mrow>
-        </md>
+        <p>
+          <md>
+            <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+            <mrow>\frac{dI}{dt} \amp = \beta S I </mrow>
+          </md>.
+        </p>
         <p>
           In particular,
         </p>

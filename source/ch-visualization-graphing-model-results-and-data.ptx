@@ -1,8 +1,7 @@
 <chapter xml:id="ch-visualization-graphing-model-results-and-data" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Visualization: Graphing Model Results and Data</title>
 
-    <introduction xml:id="intro-visualization-graphing-model-results-and-data">
-      <objectives>
+    <objectives>
         <ul>
           <li>
             <p>
@@ -22,26 +21,23 @@
         </ul>
       </objectives>
 
+    <introduction xml:id="intro-visualization-graphing-model-results-and-data">
+
       <p>
         In <xref ref="ch-zombies-can-math-help" /> we simulated a simple outbreak. This outbreak can be modeled using the <em>system of ordinary differential equations</em> appearing in <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />. Here is the system, also called an SI model, again:  
       </p>
-
-      <md>
-        <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-        <mrow>\frac{dI}{dt} \amp = \beta S I. </mrow> 
-      </md>
-
+      <p>
+        <md>
+          <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+          <mrow>\frac{dI}{dt} \amp = \beta S I </mrow> 
+        </md>.
+      </p>
       <p>
         We began to explore the differences between the discrete data, collected round-by-round in the Zombie Game App, and the continuous model, which uses a system of differential equations to produce smooth curves. In this chapter, we continue that exploration visually, by producing graphs of data and graphs of model results. We also see a first, very visual, way to estimate the value of <m>\beta</m> in our model. (There will be other, more detailed, ways to estimate <m>\beta</m>, as we continue in this text.) To do all this, we employ visualization tools. This text uses cells that run both Python and <url href="https://www.sagemath.org/">SageMath,</url> which <q>is a free open-source mathematics software system</q>,<fn><url href="https://www.sagemath.org/">https://www.sagemath.org/</url></fn> for visualization. The Python code here can be used in any setting where you use Python.<fn>The Python-related goal of this text is to make it as easy and intuitive as possible for readers to jump into using Python, so that we can better explore disease models. Some readers may prefer different Python syntax, or using a different program altogether, and these alternative approaches are welcome.</fn> 
-        
       </p>
-
       <p>
         Begin by reading and seeking to understand the Python code in <xref ref="expl-creating-graphs-in-python-from-the-human-zombie-game"/>. In addition to thinking through what the Python code does, this textbook focuses attention on producing output that best showcases our modeling results and that is readable by a wide audience.
       </p>
-
-    
-
     
     <exploration xml:id="expl-creating-graphs-in-python-from-the-human-zombie-game">
       <title>Creating Graphs in Python from the Human<ndash />Zombie Game</title>
@@ -71,51 +67,55 @@
             
             </output>
             </sage>
-          <ul>
-            <li>
-              <p>
-                Explain where and how in the code we enter the data from <xref ref="fig-human-zombie-data-table"/> and give names in Python to the data.
-              </p>
-            </li>
-            <li>
-              <p>
-                Which lines of code produce the blue dots on the output graph, and what information from <xref ref="fig-human-zombie-data-table"/> do these dots represent?
-              </p>
-            </li>
-            <li>
-              <p>
-                Which lines of code produce the orange stars on the output graph, and what information from <xref ref="fig-human-zombie-data-table"/> do these dots represent? 
-              </p>
-            </li>
-          </ul>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  Explain where and how in the code we enter the data from <xref ref="fig-human-zombie-data-table"/> and give names in Python to the data.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which lines of code produce the blue dots on the output graph, and what information from <xref ref="fig-human-zombie-data-table"/> do these dots represent?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Which lines of code produce the orange stars on the output graph, and what information from <xref ref="fig-human-zombie-data-table"/> do these dots represent? 
+                </p>
+              </li>
+            </ul>
+          </p>
         </statement>
         <answer>
-          <ul>
-            <li>
-              <p>
-                In Line 3, we enter the time data and name it <q>t_steps</q>. In the human<ndash/>zombie game, time is listed in rounds of game play.
-              </p>
-              <p>
-                In Lines 4 and 5, we enter the human and zombie data, that is, Susceptible and Infectious, named <q>S_data</q> and <q>I_data</q>, respectively. 
-              </p>
-              <p>
-                To enter a list of data, we type the name and the <q>=</q> sign. We then place the data inside square brackets, and we separate the data using commas. (The data, as listed, are separated by commas and also spaces. The spaces are optional.) 
-              </p>
-              <p>
-                We are not entering the data for New Infections. Instead, we enter only the data we need for graphing the Susceptible and Infectious populations.
-              </p>
-            </li>
-            <li>
-              <p>
-                Lines 3 and 4 enter the data: the inputs (time, in terms of rounds of game play, shown by tick marks on the horizontal axis and entered in Line 3) and the outputs (values of the Human population, also called the Susceptible population, shown by tick marks on the vertical axis and entered in Line 4). Line 6 creates, but does not show, the plot of data from Lines 3 and 4. Line 8 shows the plot of data.
-              </p>
-            </li>
-            <li>
-              <p>
-                Lines 3 and 5 enter the data: the inputs (time, in terms of rounds of game play, shown by tick marks on the horizontal axis and entered in Line 3) and the outputs (values of the Zombie population, also called the Infectious population, shown by tick marks on the vertical axis and entered in Line 5). Line 7 creates, but does not show, the plot of data from Lines 3 and 5. Line 8 shows the plot of data. 
-              </p>
-            </li>
-          </ul>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  In Line 3, we enter the time data and name it <q>t_steps</q>. In the human<ndash/>zombie game, time is listed in rounds of game play.
+                </p>
+                <p>
+                  In Lines 4 and 5, we enter the human and zombie data, that is, Susceptible and Infectious, named <q>S_data</q> and <q>I_data</q>, respectively. 
+                </p>
+                <p>
+                  To enter a list of data, we type the name and the <q>=</q> sign. We then place the data inside square brackets, and we separate the data using commas. (The data, as listed, are separated by commas and also spaces. The spaces are optional.) 
+                </p>
+                <p>
+                  We are not entering the data for New Infections. Instead, we enter only the data we need for graphing the Susceptible and Infectious populations.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Lines 3 and 4 enter the data: the inputs (time, in terms of rounds of game play, shown by tick marks on the horizontal axis and entered in Line 3) and the outputs (values of the Human population, also called the Susceptible population, shown by tick marks on the vertical axis and entered in Line 4). Line 6 creates, but does not show, the plot of data from Lines 3 and 4. Line 8 shows the plot of data.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Lines 3 and 5 enter the data: the inputs (time, in terms of rounds of game play, shown by tick marks on the horizontal axis and entered in Line 3) and the outputs (values of the Zombie population, also called the Infectious population, shown by tick marks on the vertical axis and entered in Line 5). Line 7 creates, but does not show, the plot of data from Lines 3 and 5. Line 8 shows the plot of data. 
+                </p>
+              </li>
+            </ul>
+          </p>
         </answer>
       </task>
 
@@ -124,19 +124,20 @@
           <p>
             Go back to the Python code and begin to play with it: make some changes. You can always start anew by refreshing the browser window. Address the following questions, and experiment freely beyond that.
           </p>
-          
-          <ul>
-            <li>
-              <p>
-                What data marker shapes do you like? To experiment with other shapes, see <url href="https://matplotlib.org/stable/api/markers_api.html">the library of marker shapes</url> available in the online documentation for <c>matplotlib</c>.
-              </p>
-            </li>
-            <li>
-              <p>
-                Try different colors for the data markers. One way to do this quickly is to go to <url href="https://matplotlib.org/stable/gallery/color/named_colors.html">this page about colors</url> from the online documentation for <c>matplotlib</c>, and scroll down to the header <q>CSS Colors</q>. Replace <q>blue</q> and <q>orange</q> with colors you choose from the CSS Colors list, and view the resulting graph. (There are many other ways to choose colors in Python, and you can search online examples and documentation to learn about these.)
-              </p>
-            </li>
-          </ul>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  What data marker shapes do you like? To experiment with other shapes, see <url href="https://matplotlib.org/stable/api/markers_api.html">the library of marker shapes</url> available in the online documentation for <c>matplotlib</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Try different colors for the data markers. One way to do this quickly is to go to <url href="https://matplotlib.org/stable/gallery/color/named_colors.html">this page about colors</url> from the online documentation for <c>matplotlib</c>, and scroll down to the header <q>CSS Colors</q>. Replace <q>blue</q> and <q>orange</q> with colors you choose from the CSS Colors list, and view the resulting graph. (There are many other ways to choose colors in Python, and you can search online examples and documentation to learn about these.)
+                </p>
+              </li>
+            </ul>
+          </p>
         </statement>
       </task>
 
@@ -169,14 +170,13 @@
           </p>
 
           <p>
-            Solving a differential equation often means finding a way to write an equivalent relationship, without including a derivative. Using this interpretation of <q>solving</q>: solve  
+            Solving a differential equation often means finding a way to write an equivalent relationship, without including a derivative. Using this interpretation of <q>solving</q>, solve  
           </p>
-
-          <md>
-            <mrow>\frac{dy}{dt}=\cos t + 3.
-            </mrow>
-            </md>
-           
+          <p>
+            <md>
+              \frac{dy}{dt}=\cos t + 3
+            </md>.
+          </p>
         </statement>
         <answer>
           <p>
@@ -190,16 +190,15 @@
           <p>
             Now consider the SI model: 
           </p>
-
-          <md>
-            <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-            <mrow>\frac{dI}{dt} \amp = \beta S I. </mrow>
-          </md>
-
+          <p>
+            <md>
+              <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+              <mrow>\frac{dI}{dt} \amp = \beta S I </mrow>
+            </md>.
+          </p>
           <p>
             What are the challenges to solving this system of equations, where <q>solving</q> means determining formulas that do not involve derivatives for <m>S(t)</m> and <m>I(t)</m>? 
-          </p>
-           
+          </p> 
         </statement>
         <hint>
           <p>
@@ -217,49 +216,46 @@
       <p>
         As discussed in <xref ref="exer-cannot-easily-solve-de-system"/>, solving a system of differential equations is challenging. As we include more than two compartments, finding solution formulas for <m>S(t)</m>, <m>I(t)</m>, and additional populations becomes yet more challenging, and is often impossible. Even when we can determine solution formulas, they are typically quite complicated to work with.
       </p>
-
       <p>
         Instead, our approach is to compute <term>numerical solutions</term>, which are solutions in the form of numbers. 
         <!-- More mathematical details appear in <xref ref="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs"/>, but  -->
         The main idea is that Python starts at the initial population values, then uses the system of differential equations to <q>step through</q> the full range of time, computing population values step-by-step at later times by using information about how the population values change throughout. The system of differential equations is made up of derivatives, which are rates of change, so they exactly describe how the populations change at all times <m>t</m>. The population values computed in the numerical solution can be printed, or more often, graphed, to see the results in the form of a graphical solution.
       </p>
-
       <p>
         We noted earlier that graphical solutions may be called simply <em>solutions</em>. Similarly, numerical solutions are sometimes called simply <em>solutions</em>. And we have seen that formula-based solutions can be called simply <em>solutions</em>. It is important to use context to determine which kind of solution is being discussed, in this text or in other reading.
       </p>
-
       <p>
         Here is an outline of the numerical solution process.
       </p>
-
-      <ol>
-        <li>
-          <p>
-            Tell Python the formulas for the system of differential equations.
-          </p>
-        </li>
-        <li>
-          <p>
-            Tell Python which numbers to use for any parameters in the model. We select the numbers for a particular numerical solution, and we can use different numbers to create a different numerical solution.
-          </p>
-        </li>
-        <li>
-          <p>
-            Tell Python the <term>initial conditions</term> for each population, that is, the size of each population at the starting time of the model (which is usually <m>t=0</m>).
-          </p>
-        </li>
-        <li>
-          <p>
-            Tell Python when to start and stop the model, that is, the starting and ending values for time <m>t</m>. Also tell Python what time steps to use as Python <q>steps through</q> from the starting to the ending time.
-          </p>
-        </li>
-        <li>
-          <p>
-            Ask Python to use all this information to numerically solve the model and plot graphical solution curves. 
-          </p>
-        </li>
-      </ol>
-
+      <p>
+        <ol>
+          <li>
+            <p>
+              Tell Python the formulas for the system of differential equations.
+            </p>
+          </li>
+          <li>
+            <p>
+              Tell Python which numbers to use for any parameters in the model. We select the numbers for a particular numerical solution, and we can use different numbers to create a different numerical solution.
+            </p>
+          </li>
+          <li>
+            <p>
+              Tell Python the <term>initial conditions</term> for each population, that is, the size of each population at the starting time of the model (which is usually <m>t=0</m>).
+            </p>
+          </li>
+          <li>
+            <p>
+              Tell Python when to start and stop the model, that is, the starting and ending values for time <m>t</m>. Also tell Python what time steps to use as Python <q>steps through</q> from the starting to the ending time.
+            </p>
+          </li>
+          <li>
+            <p>
+              Ask Python to use all this information to numerically solve the model and plot graphical solution curves. 
+            </p>
+          </li>
+        </ol>
+      </p>
       <p>
         In <xref ref="exer-first-odeint-code"/>, compare this outline with Python code.
       </p>
@@ -442,28 +438,31 @@
           </output>
           </sage>
 
-          <ul>
-            <li>
-              <p>
-                Change the value of <m>\beta</m>. Identify where in the Python code to make this change, and comment on how the output graph changes when <m>\beta</m> increases or decreases. (While you can change <m>\beta</m> to any value you like, recall that a realistic outbreak model requires <m>\beta > 0</m>.)
-              </p>
-            </li>
-            <li>
-              <p>
-                Change the initial conditions so that <m>S(0) \neq 49</m>, <m>I(0) \neq 1</m>, or both. Comment on how these changes affect the resulting graph. (To stay in the realm of biologically feasible outbreaks, keep <m>S(0) > 0</m> and <m>I(0) > 0</m>.)
-              </p>
-            </li>
-            <li>
-              <p>
-                Change the time range. Continue to begin at <m>t=0</m>, but change the end time to something different than <m>t=8</m>. Discuss reasons why a modeler may want to change the time range, and identify ways in which changing the time range causes the output graph to change. 
-              </p>
-            </li>
-            <li>
-              <p>
-                Change the step size for time <m>t</m> so that Python steps forward in increments of 1.0 instead of 0.1. Identify where in the Python code to make this change, and observe any ways in which the output graph looks different after the change. 
-              </p>
-            </li>
-          </ul>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  Change the value of <m>\beta</m>. Identify where in the Python code to make this change, and comment on how the output graph changes when <m>\beta</m> increases or decreases. (While you can change <m>\beta</m> to any value you like, recall that a realistic outbreak model requires <m>\beta > 0</m>.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Change the initial conditions so that <m>S(0) \neq 49</m>, <m>I(0) \neq 1</m>, or both. Comment on how these changes affect the resulting graph. (To stay in the realm of biologically feasible outbreaks, keep <m>S(0) > 0</m> and <m>I(0) > 0</m>.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  Change the time range. Continue to begin at <m>t=0</m>, but change the end time to something different than <m>t=8</m>. Discuss reasons why a modeler may want to change the time range, and identify ways in which changing the time range causes the output graph to change. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Change the step size for time <m>t</m> so that Python steps forward in increments of 1.0 instead of 0.1. Identify where in the Python code to make this change, and observe any ways in which the output graph looks different after the change. 
+                </p>
+              </li>
+            </ul>
+          </p>
+          
       </statement>
         
       </activity>
@@ -600,53 +599,58 @@ plt.show()
             </output>
             </sage>
 
-            <ul>
+            <p>
+              <ul>
+                <li>
+                  <p>
+                    This code block includes an additional optional command in each of the lines starting with <c>plt.plot</c>. This command begins with <c>label</c> in each line. Where do you find these labels, <m>S(t)</m> and <m>I(t)</m>, on the plot produced below the code?
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Line 19 says <c>plt.legend()</c>. What does this mean? You can check by turning this line off, then on again. To turn it off, type <c>#</c> at the start of Line 19, and run the code again. To turn it back on, remove the <c>#</c>. Starting a line with <c>#</c> turns the line into a <em>comment</em> rather than code. This means that Python does not execute the rest of the line after the <c>#</c>.  
+                  </p>
+              </li>
               <li>
-                <p>
-                  This code block includes an additional optional command in each of the lines starting with <c>plt.plot</c>. This command begins with <c>label</c> in each line. Where do you find these labels, <m>S(t)</m> and <m>I(t)</m>, on the plot produced below the code?
-                </p>
-              </li><li>
-                <p>
-                  Line 19 says <c>plt.legend()</c>. What does this mean? You can check by turning this line off, then on again. To turn it off, type <c>#</c> at the start of Line 19, and run the code again. To turn it back on, remove the <c>#</c>. Starting a line with <c>#</c> turns the line into a <em>comment</em> rather than code. This means that Python does not execute the rest of the line after the <c>#</c>.  
-                </p>
-              </li><li>
                 <p>
                   Line 20 states <c>plt.xlabel('time')</c>. Do you see where this label appears in the resulting plot? If so: can you figure out how to label the vertical axis as <q>populations</q>, to represent the combination of populations <m>S(t)</m> and <m>I(t)</m>?
                 </p>
-              </li><li>
+              </li>
+              <li>
                 <p>
                   Uncomment Line 21 by removing the <c>#</c> symbol and evaluate the code again. How does this change the resulting plot? What advantages or disadvantages do you see in this change?
                 </p>
               </li>
             </ul>
+            </p>
         </statement>
 
         <answer>
-          <ul>
-            <li>
-              <p>
-                The labels <m>S(t)</m> and <m>I(t)</m> appear in the box on the graph, next to the line color of their associated plot. That is, label <m>S(t)</m> appears next to a blue line, and <m>S(t)</m> is plotted in blue. Label <m>I(t)</m> appears next to an orange line, and <m>I(t)</m> is plotted in orange. 
-              </p>
-            </li>
-            <li>
-              <p>
-                The legend is the box mentioned in the previous bullet point. Legends can be very helpful when multiple plots appear on a shared set of axes.
-              </p>
-            </li>
-            <li>
-              <p>
-                The label appears below the horizontal axis. To label the vertical axis, include this new line in the code: <c>plt.ylabel('populations')</c>.
-              </p>
-            </li>
-            <li>
-              <p>
-                A grid appears throughout the plot. This may be an advantage for better pinpointing what the values of <m>S(t)</m> and <m>I(t)</m> are at various times <m>t</m>. It may be a disadvantage if it makes the plot seem cluttered. There may be other advantages and disadvantages.
-              </p>
-            </li>
-          </ul>
-
+          <p>
+            <ul>
+              <li>
+                <p>
+                  The labels <m>S(t)</m> and <m>I(t)</m> appear in the box on the graph, next to the line color of their associated plot. That is, label <m>S(t)</m> appears next to a blue line, and <m>S(t)</m> is plotted in blue. Label <m>I(t)</m> appears next to an orange line, and <m>I(t)</m> is plotted in orange. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  The legend is the box mentioned in the previous bullet point. Legends can be very helpful when multiple plots appear on a shared set of axes.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The label appears below the horizontal axis. To label the vertical axis, include this new line in the code: <c>plt.ylabel('populations')</c>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  A grid appears throughout the plot. This may be an advantage for better pinpointing what the values of <m>S(t)</m> and <m>I(t)</m> are at various times <m>t</m>. It may be a disadvantage if it makes the plot seem cluttered. There may be other advantages and disadvantages.
+                </p>
+              </li>
+            </ul>
+          </p>
         </answer>
-        
       </activity>
 
       <p>
@@ -705,36 +709,35 @@ plt.show()
             </output>
             </sage>
             
-            <ul>
-              <li>
-                <p>
-                  What do the <c>linestyle</c> commands do? Include them in Lines 26 and 27, when plotting <c>S_data</c> and <c>I_data</c>, to connect the markers from the Zombie Game App data points with the same style lines as those that solve the SI model.
-                </p>
-              </li>
-              <li>
-                <p>
-                  What do the <c>markersize</c> commands do? Try different numerical values to find what you like.
-                </p>
-              </li>
-              <li>
-                <p>
-                  What do the <c>linewidth</c> commands do? Try different numerical values to find what you like.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Label the data points from the Zombie Game App so that they appear in the legend.
-                </p>
-              </li>                
-              <li>
-                <p>
-                  Change the label on the horizontal axis to say <q>time (rounds)</q> to make the units of time more clear.
-                </p>
-              </li>
-            </ul>
-
-
-
+            <p>
+              <ul>
+                <li>
+                  <p>
+                    What do the <c>linestyle</c> commands do? Include them in Lines 26 and 27, when plotting <c>S_data</c> and <c>I_data</c>, to connect the markers from the Zombie Game App data points with the same style lines as those that solve the SI model.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    What do the <c>markersize</c> commands do? Try different numerical values to find what you like.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    What do the <c>linewidth</c> commands do? Try different numerical values to find what you like.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Label the data points from the Zombie Game App so that they appear in the legend.
+                  </p>
+                </li>                
+                <li>
+                  <p>
+                    Change the label on the horizontal axis to say <q>time (rounds)</q> to make the units of time more clear.
+                  </p>
+                </li>
+              </ul>
+            </p>
             <!-- Linestyles: https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html#linestyles -->
         </statement>
       </activity>
@@ -769,7 +772,7 @@ plt.show()
           <p>
             The following figures, in order, are possible results.
           </p>
-          <figure width="90%" xml:id="fig-visualize-1a">
+          <figure xml:id="fig-visualize-1a">
             <caption>A possible outcome from setting <m>S(0)=200</m>.</caption>
             <image source="Visualize_HW_1a.png" width="80%">
                 <description>
@@ -779,7 +782,7 @@ plt.show()
                 </description>
             </image>
           </figure>
-          <figure width="90%" xml:id="fig-visualize-1b">
+          <figure xml:id="fig-visualize-1b">
             <caption>A possible outcome when adjusting <m>\beta</m> so that <m>S(10) \approx 100</m>. The graph includes a grid, and it extends time to <m>t=15</m>.</caption>
             <image source="Visualize_HW_1b.png" width="80%">
                 <description>
@@ -789,7 +792,7 @@ plt.show()
                 </description>
             </image>
           </figure>
-          <figure width="90%" xml:id="fig-visualize-1c">
+          <figure xml:id="fig-visualize-1c">
             <caption>A possible outcome when setting <m>I(0)=10</m>.</caption>
             <image source="Visualize_HW_1c.png" width="80%">
                 <description>

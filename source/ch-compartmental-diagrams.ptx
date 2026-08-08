@@ -1,7 +1,6 @@
 <chapter xml:id="ch-compartmental-diagrams" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Compartmental Diagrams</title>
 
-    <introduction xml:id="intro-compartmental-diagrams">
     <objectives>
       <ul>
         <li>
@@ -27,15 +26,17 @@
       </ul>
     </objectives>
 
+    <introduction xml:id="intro-compartmental-diagrams">
+
     <p>
       In <xref ref="ch-zombies-can-math-help" /> we simulated a simple outbreak. This outbreak can be modeled using the <em>system of ordinary differential equations</em> appearing in <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />. Here is the system again:  
     </p>
-
-    <md>
-      <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-      <mrow>\frac{dI}{dt} \amp = \beta S I. </mrow>
-    </md>
-
+    <p>
+      <md>
+        <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+        <mrow>\frac{dI}{dt} \amp = \beta S I </mrow>
+      </md>.
+    </p>
     <p>
       This style of model is called a <term>compartmental model</term> because the individuals in our model are designated by categories called <term>compartments</term>; in this case, the compartments are <q>Susceptibles</q> and <q>Infectious</q>. In <xref ref="ch-zombies-can-math-help" /> we made calculus-based observations of the differential equations in this model. We can draw the dynamics of the model in a <term>compartmental diagram</term>, as shown in <xref ref="fig-SI-compartmental-diagram" />. 
     </p>
@@ -90,23 +91,25 @@
           <p>
             <em>Before trying this scenario in the app</em>, think through how zombie death, and different zombie lifespans, would change the outcomes of the simulation. In particular, think carefully about these questions:
           </p>
-          <ul>
-            <li>
-              <p>
-                What do you <em>expect</em> will happen if Zombies die, that is, they become inactive and unable to spread infection? Whether you feel very certain, or somewhat uncertain, articulate some outcomes that you think will occur with this game variation.
-              </p>
-            </li>
-            <li>
-              <p>
-                How might your expected outcomes differ from those in the original model?
-              </p>
-            </li>
-            <li>
-              <p>
-                Outcomes might be measured by the table of data, by the graphs, by the timing of how infection spreads, by the numbers of survivors, or in other ways. For each of your expectations about how the outcomes may change, what support can you show for why this expectation makes sense?
-              </p>
-            </li>
-          </ul>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  What do you <em>expect</em> will happen if Zombies die, that is, they become inactive and unable to spread infection? Whether you feel very certain, or somewhat uncertain, articulate some outcomes that you think will occur with this game variation.
+                </p>
+              </li>
+              <li>
+                <p>
+                  How might your expected outcomes differ from those in the original model?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Outcomes might be measured by the table of data, by the graphs, by the timing of how infection spreads, by the numbers of survivors, or in other ways. For each of your expectations about how the outcomes may change, what support can you show for why this expectation makes sense?
+                </p>
+              </li>
+            </ul>
+          </p>
           <p>
             This exercise is not about right or wrong ideas, but instead is about building hypotheses, comparing the hypotheses with data, and developing deeper understanding of what the model shows.
           </p>
@@ -120,7 +123,7 @@
           <p>
             To set up this variation in the Zombie Game app, check the box for <q>Zombie Mortality</q>, shown by the lower red arrow in  <xref ref="fig-zombie-app-mortality" />. A box then appears for <q>Zombie Lifespan (days)</q>, shown by the upper red arrow in <xref ref="fig-zombie-app-mortality" />. Try setting Zombie Lifespan to 1, then 2, then 3. For each length of time, run several simulations, save your data sets, and compare the outcomes.
           </p>
-          <figure width="90%" xml:id="fig-zombie-app-mortality">
+          <figure xml:id="fig-zombie-app-mortality">
             <caption>Checking the box for <q>Zombie Mortality</q> and setting a value for <q>Zombie Lifespan (days)</q></caption>
             <image source="ZombieApp_Mortality.png" width="60%">
                 <description>
@@ -187,23 +190,25 @@
       <p>
         The letters <m>S</m>, <m>I</m>, and <m>t</m> are variables in the model. The Greek letter <m>\beta</m> is a parameter. We use the following conventions for letters in most of the models we study: 
       </p>
-      <ul>
-        <li>
-          <p>
-            Time is denoted as the <em>lowercase letter</em> <m>t</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            We use <em>capital letters</em> such as <m>S</m> and <m>I</m> to indicate populations of people, which are typically functions of time, so that <m>S=S(t)</m>, <m>I=I(t)</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            <em>Greek letters</em> such as <m>\beta</m> represent some aspect of how a disease progresses and are called <term>parameters</term>.
-          </p>
-        </li>
-      </ul>
+      <p>
+        <ul>
+          <li>
+            <p>
+              Time is denoted as the <em>lowercase letter</em> <m>t</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We use <em>capital letters</em> such as <m>S</m> and <m>I</m> to indicate populations of people, which are typically functions of time, so that <m>S=S(t)</m>, <m>I=I(t)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Greek letters</em> such as <m>\beta</m> represent some aspect of how a disease progresses and are called <term>parameters</term>.
+            </p>
+          </li>
+        </ul>
+      </p>
       <p>
         A parameter may seem to behave a bit like a variable, since it can take on different values. However, parameters play a different role than variables in our models. In a given simulation, <em>we use biological information to set all parameter values</em>. 
         By contrast, we choose only the initial values of our variables, that is, the values when <m>t=0</m>, and then the simulation reveals the values of each variable at later points in time. 
@@ -270,69 +275,59 @@
         <p>
           Take time to think through the compartmental diagram in <xref ref="fig-SIR-compartmental-diagram"/>. 
         </p>
-        <ol>
-          <li>
-            <p>
-              Does <xref ref="fig-SIR-compartmental-diagram"/> match your sense of how individuals progress through the simulation? Are all individuals always in exactly one compartment, that is, in <em>at least one</em> compartment and also <em>no more than one</em> compartment at any given time?
-            </p>
-          </li>
-          <li>
-            <p>
-              Using the information in the compartmental diagram, write the differential equations for this SIR model.
-            </p>
-          </li>
-        </ol>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Does <xref ref="fig-SIR-compartmental-diagram"/> match your sense of how individuals progress through the simulation? Are all individuals always in exactly one compartment, that is, in <em>at least one</em> compartment and also <em>no more than one</em> compartment at any given time?
+              </p>
+            </li>
+            <li>
+              <p>
+                Using the information in the compartmental diagram, write the differential equations for this SIR model.
+              </p>
+            </li>
+          </ol>
+        </p>
       </statement>
       <hint>
-        <ol>
-          <li>
-            <p>
-              Have you considered whether all individuals must pass through all three compartments?
-            </p>
-          </li>
-          <li>
-            <p>
-              We saw in <xref ref="sec-a-first-model"/> that the term named on an arrow appears twice in the differential equations: once as a negative term, in the equation for the compartment the arrow is exiting, and once as a positive term, in the equation for the compartment the arrow is entering.
-            </p>
-          </li>
-        </ol>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Have you considered whether all individuals must pass through all three compartments?
+              </p>
+            </li>
+            <li>
+              <p>
+                We saw in <xref ref="sec-a-first-model"/> that the term named on an arrow appears twice in the differential equations: once as a negative term, in the equation for the compartment the arrow is exiting, and once as a positive term, in the equation for the compartment the arrow is entering.
+              </p>
+            </li>
+          </ol>
+        </p>
       </hint>
       <answer>
-        <ol>
-          <li>
-            <p>
-              It should be true that individuals are in exactly one compartment at a time, but with all claims such as this, you should convince yourself or else ask questions about it. It should also be true that individuals cannot progress in any order other than what the compartmental diagram shows. However, in some simulations, some individuals may not leave compartment S. By contrast, with <xref ref="expl-activity-zombie-game"/> and the SI model, all individuals progress from the S compartment to the I compartment.
-            </p>
-          </li>
-          <li>
-            <p>
-              The differential equations for this SIR model are:
-                <md>
-                  <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-                  <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
-                  <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-                </md>
-            </p>
-          </li>
-        </ol>
+        <p>
+          <ol>
+            <li>
+              <p>
+                It should be true that individuals are in exactly one compartment at a time, but with all claims such as this, you should convince yourself or else ask questions about it. It should also be true that individuals cannot progress in any order other than what the compartmental diagram shows. However, in some simulations, some individuals may not leave compartment S. By contrast, with <xref ref="expl-activity-zombie-game"/> and the SI model, all individuals progress from the S compartment to the I compartment.
+              </p>
+            </li>
+            <li>
+              <p>
+                The differential equations for this SIR model are:
+                  <md>
+                    <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+                    <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
+                    <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+                  </md>.
+              </p>
+            </li>
+          </ol>
+        </p>
       </answer>
     </activity>
-
-    <!-- <p>
-      Be sure to talk about gamma and how to estimate it, here or in Ch 4!!!
-    </p> -->
-    
-
-<!-- NAME THE SECTION HERE !!!!! AS DESCRIBED IN PRIOR PARAGRAPH -->
-
-    <!-- <p>
-      (MOVE THIS TO CHAPTER 13!!! OR ELSEWHERE....) For the <q>Introduce an incubation period</q> variation in (subsec no longer exists), we do not include the compartment R, but we do include a compartment for individuals who are in an incubation period. A typical way to label this compartment is E, which stands for Exposed. (Notice that we already are using I for Infectious, so we cannot use I for Incubating.) The word Exposed may be misleading, since in daily life, we tend to think of being exposed to illness as meaning that a person may or may not become sick. Instead, in our model, the Exposed individuals will definitely become sick. For this reason, in this text, we will refer to the E compartment as <term>Exposed-and-incubating</term>. This model then includes the S, E, and I compartments, so we call it SEI. A compartmental diagram representing the dynamics of this simulation appears in <xref ref="fig-SEI-compartmental-diagram" />.
-    </p> -->
-    
-    <!-- <p>
-      In this diagram, after a human comes into contact with a zombie, the human moves out of the Susceptible compartment and into the Exposed-and-incubating compartment. The formula on the arrow from S to E is <m>\beta S I</m>, since the movement out of S depends on an interaction between S and I. The mathematical formula for movement from E to I is <m>\kappa E</m>. The parameter <m>\kappa </m> (the Greek letter <em>kappa</em>) represents the rate at which individuals leave E and enter I.
-    </p> -->
-
     </section>
 
     <section xml:id="sec-estimating-gamma-and-other-rates">
@@ -368,15 +363,20 @@
       <p>
         We begin to see in <xref ref="activity-understanding-gamma-pt2"/> that we can understand <m>\gamma</m> intuitively in relationship to how long an individual is in the I compartment. A compartmental model does not track individuals directly, and the responses in <xref ref="activity-understanding-gamma-pt2"/> do not suggest that every individual in an outbreak is sick for a precise amount of time that is shown by <m>\gamma</m>. Instead, the relationship between <m>\gamma</m> and length of time in compartment I shows how long <em>on average</em> individuals stay in compartment I. We can write this relationship mathematically:
       </p>
-      <mdn>
-        <mrow xml:id="eq-gamma-estimate">\frac{1}{\gamma} \amp \approx \mbox{average length of time an individual spends in compartment I.} </mrow>
-      </mdn>
+      <p>
+        <md number="yes" xml:id="eq-gamma-estimate">
+          \frac{1}{\gamma} \approx \mbox{average length of time an individual spends in compartment I} 
+        </md>.
+      </p>
+      
       <p>
         Another way to phrase this, when being in the I compartment corresponds to a person being infectious (however <q>infectious</q> is defined in a given model) is:
       </p>
-      <mdn>
-        <mrow xml:id="eq-gamma-estimate-2">\frac{1}{\gamma} \amp \approx \mbox{average length of time an individual is infectious.} </mrow>
-      </mdn>
+      <p>
+        <md number="yes" xml:id="eq-gamma-estimate-2">
+          \frac{1}{\gamma} \approx \mbox{average length of time an individual is infectious} 
+        </md>.
+      </p>
       <p>
         In <xref ref="exercises-ch-compartmental-diagrams"/> we use the ideas in <xref ref="eq-gamma-estimate"/> and <xref ref="eq-gamma-estimate-2"/> to estimate <m>\gamma</m> for specific outbreaks.
       </p>
@@ -394,65 +394,71 @@
           <p>
             In <xref ref="activity-sir-diagram-and-des"/>, we developed the following system of differential equations for the SIR model shown in <xref ref="fig-SIR-compartmental-diagram"/>:
           </p>
-          <mdn>
-            <mrow xml:id="eq-SIR-model-S">\frac{dS}{dt} \amp = -\beta S I </mrow>
-            <mrow xml:id="eq-SIR-model-I">\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
-            <mrow xml:id="eq-SIR-model-R">\frac{dR}{dt} \amp = \gamma I. </mrow>
-          </mdn>
+          <p>
+            <md number="yes">
+              <mrow xml:id="eq-SIR-model-S">\frac{dS}{dt} \amp = -\beta S I </mrow>
+              <mrow xml:id="eq-SIR-model-I">\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
+              <mrow xml:id="eq-SIR-model-R">\frac{dR}{dt} \amp = \gamma I </mrow>
+            </md>.
+          </p>
           <p>
             Recall that each of the variables <m>S</m>, <m>I</m>, and <m>R</m> represents some average number of individuals. This means that the units for each of <m>S</m>, <m>I</m>, and <m>R</m> are <em>population</em>.<fn>Alternatively, we could call these units <em>people</em> or <em>individuals</em>.</fn> We also just saw from the discussion of <xref ref="eq-gamma-estimate"/> that the units of <m>\gamma</m> are <m>1/\mbox{time}</m>. 
           </p>
-          <ol>
-            <li>
-              <p>
-                Consider the equation <m>\frac{dR}{dt} = \gamma I</m> from the SIR model. What are the units of the term <m>\frac{dR}{dt}</m> on the left-hand side, and what are the units of the term <m>\gamma I</m> on the right-hand side? Can you confirm that these two terms have the same units?
-              </p>
-            </li>
-            <li>
-              <p>
-                Next, consider the equation <m>\frac{dI}{dt} = \beta S I - \gamma I</m> from the SIR model. Start by using the first part of this activity to determine the units of <m>\frac{dI}{dt}</m> and <m>\gamma I</m>. Next, in order for the units to be the same for all three terms, what should the units be for <m>\beta S I</m>? Finally, knowing the units of <m>\beta S I</m>, what must be the units for <m>\beta</m>?
-              </p>
-            </li>
-            <li>
-              <p>
-                Use your results from the first two parts of this activity to confirm that the units are the same on both sides of the equation <m>\frac{dS}{dt} = -\beta S I</m> in the SIR model.
-              </p>
-            </li>
-          </ol>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Consider the equation <m>\frac{dR}{dt} = \gamma I</m> from the SIR model. What are the units of the term <m>\frac{dR}{dt}</m> on the left-hand side, and what are the units of the term <m>\gamma I</m> on the right-hand side? Can you confirm that these two terms have the same units?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Next, consider the equation <m>\frac{dI}{dt} = \beta S I - \gamma I</m> from the SIR model. Start by using the first part of this activity to determine the units of <m>\frac{dI}{dt}</m> and <m>\gamma I</m>. Next, in order for the units to be the same for all three terms, what should the units be for <m>\beta S I</m>? Finally, knowing the units of <m>\beta S I</m>, what must be the units for <m>\beta</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use your results from the first two parts of this activity to confirm that the units are the same on both sides of the equation <m>\frac{dS}{dt} = -\beta S I</m> in the SIR model.
+                </p>
+              </li>
+            </ol>
+          </p>
         </statement>
         <answer>
-          <ol>
-            <li>
-              <p>
-                The term <m>\frac{dR}{dt}</m> has units <m>\mbox{(population)} / \mbox{(time)}</m> because the units of <m>R</m> in the numerator are <em>population</em> and the units of <m>t</m> in the denominator are <em>time</em>.
-              </p>
-              <p>
-                The term <m>\gamma I</m> has units <m>\mbox{(population)} / \mbox{(time)}</m> because <m>\gamma</m> has units <m>1/\mbox{time}</m> and <m>I</m> has units (population).
-              </p>
-              <p>
-                Both sides have the same units, namely <m>\mbox{(population)} / \mbox{(time)}</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                The terms <m>\frac{dI}{dt}</m> and <m>\gamma I</m> have units <m>\mbox{(population)} / \mbox{(time)}</m>, for similar reasons to those described in the first part of this activity.
-              </p>
-              <p>
-                The term <m>\beta S I</m> should therefore also have units <m>\mbox{(population)} / \mbox{(time)}</m>. Since there are two populations, <m>S</m> and <m>I</m>, multiplied in the numerator, this means that <m>\beta</m> must have units <m>1/(\mbox{population} \cdot \mbox{time})</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                The term <m>\frac{dS}{dt}</m> has units <m>\mbox{(population)} / \mbox{(time)}</m>, for similar reasons to those described in the first part of this activity.
-              </p>
-              <p>
-                Within the term <m>-\beta S I</m>, we saw in the second part of this activity that <m>\beta</m> has units <m>1/(\mbox{population} \cdot \mbox{time})</m>. Both <m>S</m> and <m>I</m> have units (population). Multiplying together the three terms <m>\beta</m>, <m>S</m>, and <m>I</m>, the resulting units are <m>\mbox{(population)} / \mbox{(time)}</m>. 
-              </p>
-              <p>
-                These observations confirm that the units are the same on both sides of the equation <m>\frac{dS}{dt} = -\beta S I</m>.
-              </p>
-            </li>
-          </ol>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  The term <m>\frac{dR}{dt}</m> has units <m>\mbox{(population)} / \mbox{(time)}</m> because the units of <m>R</m> in the numerator are <em>population</em> and the units of <m>t</m> in the denominator are <em>time</em>.
+                </p>
+                <p>
+                  The term <m>\gamma I</m> has units <m>\mbox{(population)} / \mbox{(time)}</m> because <m>\gamma</m> has units <m>1/\mbox{time}</m> and <m>I</m> has units (population).
+                </p>
+                <p>
+                  Both sides have the same units, namely <m>\mbox{(population)} / \mbox{(time)}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The terms <m>\frac{dI}{dt}</m> and <m>\gamma I</m> have units <m>\mbox{(population)} / \mbox{(time)}</m>, for similar reasons to those described in the first part of this activity.
+                </p>
+                <p>
+                  The term <m>\beta S I</m> should therefore also have units <m>\mbox{(population)} / \mbox{(time)}</m>. Since there are two populations, <m>S</m> and <m>I</m>, multiplied in the numerator, this means that <m>\beta</m> must have units <m>1/(\mbox{population} \cdot \mbox{time})</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The term <m>\frac{dS}{dt}</m> has units <m>\mbox{(population)} / \mbox{(time)}</m>, for similar reasons to those described in the first part of this activity.
+                </p>
+                <p>
+                  Within the term <m>-\beta S I</m>, we saw in the second part of this activity that <m>\beta</m> has units <m>1/(\mbox{population} \cdot \mbox{time})</m>. Both <m>S</m> and <m>I</m> have units (population). Multiplying together the three terms <m>\beta</m>, <m>S</m>, and <m>I</m>, the resulting units are <m>\mbox{(population)} / \mbox{(time)}</m>. 
+                </p>
+                <p>
+                  These observations confirm that the units are the same on both sides of the equation <m>\frac{dS}{dt} = -\beta S I</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
         </answer>
       </activity>
       <p>

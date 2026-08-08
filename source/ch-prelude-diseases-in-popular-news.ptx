@@ -1,7 +1,6 @@
 <chapter xml:id="ch-prelude-diseases-in-popular-news" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Prelude: Diseases in Popular News</title>
 
-  <introduction xml:id="intro-prelude">
     <objectives>
       <ul>
         <li>
@@ -27,6 +26,9 @@
       </ul>
     </objectives>
 
+  <introduction xml:id="intro-prelude">
+  
+
     <p>
       Disease outbreaks have been a topic of widespread discussion for a very long time. In this course, we will discuss the scientific study of outbreaks, data sets collected and curated by government officials, and policy ideas for improving public health outcomes. To begin, however, we examine writing in news and popular culture articles about diseases, starting in <xref ref="expl-reading-about-disease-in-the-news-and-popular-media"/>.
     </p>
@@ -44,23 +46,25 @@
           <p>
             Read one or more of these suggested articles, which come from the outlets described above.
           </p>
-          <ul>
-            <li>
-              <p>
-                <url href="https://www.cnn.com/2022/10/26/health/rsv-immunity-gap">Pandemic <q>immunity gap</q> is probably behind surge in RSV cases, scientists say,</url> published October 28, 2022, by CNN;
-              </p>
-            </li>
-            <li>
-              <p>
-                <url href="https://people.com/health/measles-outbreak-spreads-21-states-dc/">Vaccinations a Priority as Measles Cases in the U.S. Number 107 in the First 7 Months of 2018,</url> published August 16, 2018, by People. 
-              </p>
-            </li>
-            <li>
-              <p>
-                <url href="https://www.wfla.com/news/florida/cruise-ship-out-of-florida-hit-by-norovirus-outbreak-94-affected/">Cruise ship out of Florida hit by norovirus outbreak; 94 affected,</url> published January 12, 2026, by WFLA News Channel 8. 
-              </p>
-            </li>
-          </ul>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  <url href="https://www.cnn.com/2022/10/26/health/rsv-immunity-gap">Pandemic <q>immunity gap</q> is probably behind surge in RSV cases, scientists say,</url> published October 28, 2022, by CNN;
+                </p>
+              </li>
+              <li>
+                <p>
+                  <url href="https://people.com/health/measles-outbreak-spreads-21-states-dc/">Vaccinations a Priority as Measles Cases in the U.S. Number 107 in the First 7 Months of 2018,</url> published August 16, 2018, by People. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  <url href="https://www.wfla.com/news/florida/cruise-ship-out-of-florida-hit-by-norovirus-outbreak-94-affected/">Cruise ship out of Florida hit by norovirus outbreak; 94 affected,</url> published January 12, 2026, by WFLA News Channel 8. 
+                </p>
+              </li>
+            </ul>
+          </p>
         </statement>
       </task>
       <task>
@@ -68,46 +72,45 @@
           <p>
             While reading each article, think through the answers to as many of the following questions as you can.
           </p>
-          <ol>
-            <li>
-              <p>
-                What illness is involved?
-              </p>
-            </li>
-            <li>
-              <p>
-                How does it spread?
-              </p>
-            </li>
-            <li>
-              <p>
-                How quickly does it proceed? Consider incubation time, meaning the length of time from when a person is first infected with the virus until the time when the person shows symptoms. Also include length of sickness, as well as any other stages of the illness that seem important.
-              </p>
-            </li>
-            <li>
-              <p>
-                Is it more prominent in some parts of the world than others?
-              </p>
-            </li>
-            <li>
-              <p>
-                What does the article say about vaccines, quarantines, isolation, testing, or other approaches to managing this illness?
-              </p>
-            </li>
-            <li>
-              <p>
-                What mathematical concepts can you find in your article?
-              </p>
-            </li>
-          </ol>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  What illness is involved?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How does it spread?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How quickly does it proceed? Consider incubation time, meaning the length of time from when a person is first infected with the virus until the time when the person shows symptoms. Also include length of sickness, as well as any other stages of the illness that seem important.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Is it more prominent in some parts of the world than others?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What does the article say about vaccines, quarantines, isolation, testing, or other approaches to managing this illness?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What mathematical concepts can you find in your article?
+                </p>
+              </li>
+            </ol>
+          </p>
           <p>
             The question about mathematical concepts is very open-ended. List any ideas that seem to make sense to you.
           </p>
         </statement>
       </task>
-      <p>
-        hi
-      </p>
     </exploration>
 
   </introduction>
