@@ -1,30 +1,28 @@
 <chapter xml:id="ch-isolation" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Isolation</title>
 
+    <objectives>
+      <ul>
+        <li>
+          <p>
+            Learn strategies for modeling <em>isolation</em>, that is, the separation of Infectious people from the rest of the population, in order to prevent them from spreading the disease to others
+          </p>
+       </li>
+        <li>
+          <p>
+            Revisit how to use a model's parameter-based formula for <m>\mathcal{R}_0</m> when computing biologically-feasible values for the transmission parameter <m>\beta</m>, as this computation requires additional thought when isolation is part of the model
+          </p>
+        </li>
+        <li>
+          <p>
+            Consider that isolation may be complete or incomplete, and develop modeling methods for each scenario
+          </p>
+        </li>
+      </ul>  
+    </objectives>
+
     <section xml:id="intro-isolation">
-      <title>Introduction</title>
-      <p>
-        <objectives>
-          <ul>
-            <li>
-              <p>
-                Learn strategies for modeling <em>isolation</em>, that is, the separation of Infectious people from the rest of the population, in order to prevent them from spreading the disease to others
-             </p>
-           </li>
-            <li>
-              <p>
-                Revisit how to use a model's parameter-based formula for <m>\mathcal{R}_0</m> when computing biologically-feasible values for the transmission parameter <m>\beta</m>, as this computation requires additional thought when isolation is part of the model
-              </p>
-            </li>
-            <li>
-              <p>
-                Consider that isolation may be complete or incomplete, and develop modeling methods for each scenario
-              </p>
-            </li>
-          </ul>  
-        </objectives>
-      </p>
-        
+      <title>Introduction</title>    
     
         <p>
           This chapter functions, along with <xref ref="ch-vaccines"/> and <xref ref="ch-incubation-periods"/>, as a sort of trilogy of methods for making models more realistic and for building public health interventions into models. As with vaccines, isolation of the infected is a public health approach used widely for the reduction of disease spread. As with incubation periods, isolation in a model can help that model to better fit data because the model more fully replicates what is happening in the world. 
@@ -179,64 +177,70 @@
           <p>
             Use these two models to respond to the prompts below.
           </p>
-          <ol>
-            <li>
-              <p>
-                Compare and contrast the two models. Identify and describe any advantages or disadvantages you perceive for either model. 
-              </p>     
-            </li>
-            <li>
-              <p>
-                Write the system of differential equations for each model. 
-              </p>     
-            </li>
-            <li>
-              <p>
-                Suppose that an outbreak without isolation would use a standard SIR model having parameter values <m>\beta = 0.005</m> and <m>\gamma = 1/10</m>. Further suppose that for that same outbreak, with isolation, people isolate three days after becoming Infectious. What would be the values of <m>\beta</m>, <m>\epsilon</m>, and <m>\eta</m> for the model in <xref ref="fig-SIR-complete-isolation-1"/>? And what would be the values of <m>\beta</m> and <m>\widetilde{\gamma}</m> in <xref ref="fig-SIR-complete-isolation-2"/>?
-              </p>
-            </li>
-          </ol>
-                     
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Compare and contrast the two models. Identify and describe any advantages or disadvantages you perceive for either model. 
+                </p>     
+              </li>
+              <li>
+                <p>
+                  Write the system of differential equations for each model. 
+                </p>     
+              </li>
+              <li>
+                <p>
+                  Suppose that an outbreak without isolation would use a standard SIR model having parameter values <m>\beta = 0.005</m> and <m>\gamma = 1/10</m>. Further suppose that for that same outbreak, with isolation, people isolate three days after becoming Infectious. What would be the values of <m>\beta</m>, <m>\epsilon</m>, and <m>\eta</m> for the model in <xref ref="fig-SIR-complete-isolation-1"/>? And what would be the values of <m>\beta</m> and <m>\widetilde{\gamma}</m> in <xref ref="fig-SIR-complete-isolation-2"/>?
+                </p>
+              </li>
+            </ol>
+          </p>                   
         </statement>
         <answer>
-          <ol>
-            <li>
-              <p>
-                This is an open-ended question. Possible answers may include preferring the simplicity of the second model, or preferring the detail in the first model of tracking how many people are isolating rather than removed. Responses may also refer to preferences for computing <m>\epsilon</m> and <m>\eta</m> separately, or for computing only <m>\widetilde{\gamma}</m>. There are many additional possible responses.
-              </p>
-            </li>
-            <li>
-              <p>
-                For the model in <xref ref="fig-SIR-complete-isolation-1"/>, here is the system of differential equations:
-              </p>
-              <md>
-                <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-                <mrow>\frac{dI}{dt} \amp = \beta S I - \epsilon I </mrow>
-                <mrow>\frac{dJ}{dt} \amp = \epsilon I - \eta J </mrow>
-                <mrow>\frac{dR}{dt} \amp = \eta J. </mrow>
-              </md>
-              <p>
-                For the model in <xref ref="fig-SIR-complete-isolation-2"/>, here is the system of differential equations:
-              </p>
-              <md>
-                <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-                <mrow>\frac{dI}{dt} \amp = \beta S I - \widetilde{\gamma} I </mrow>
-                <mrow>\frac{dR}{dt} \amp = \widetilde{\gamma} I. </mrow>
-              </md>
-            </li>
-            <li>
-              <p>
-                For both models, the value of <m>\beta</m> should not change. 
-              </p>
-              <p>
-                For the model in <xref ref="fig-SIR-complete-isolation-1"/>, we notice that <m>\gamma = 1/10</m> indicates a ten-day contagious period for the disease. We split up this time into the Infectious and Isolated compartments. Since people stay in the Infectious compartment for three days, we set <m>\epsilon = 1/3</m>, using the ideas from <xref ref="eq-gamma-estimate"/>, <xref ref="eq-gamma-estimate-2"/>, <xref ref="eq-kappa-estimate"/>, and <xref ref="eq-kappa-estimate-2"/>. This leaves seven days for people to stay in the Isolated compartment, to add up to their total of ten days, and so we set <m>\eta = 1/7</m>.
-              </p>
-              <p>
-                For the model in <xref ref="fig-SIR-complete-isolation-2"/>, set <m>\widetilde{\gamma} = 1/3</m>, for a similar reason to setting <m>\epsilon = 1/3</m> for the model in <xref ref="fig-SIR-complete-isolation-1"/>. This reduces the length of time people spend in the Infectious compartment, and we consider these people to be Removed for the rest of the time they are contagious.
-              </p>
-            </li>
-          </ol>
-          
+          <p>
+            <ol>
+              <li>
+                <p>
+                  This is an open-ended question. Possible answers may include preferring the simplicity of the second model, or preferring the detail in the first model of tracking how many people are isolating rather than removed. Responses may also refer to preferences for computing <m>\epsilon</m> and <m>\eta</m> separately, or for computing only <m>\widetilde{\gamma}</m>. There are many additional possible responses.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For the model in <xref ref="fig-SIR-complete-isolation-1"/>, here is the system of differential equations:
+                </p>
+                <p>
+                  <md>
+                    <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+                    <mrow>\frac{dI}{dt} \amp = \beta S I - \epsilon I </mrow>
+                    <mrow>\frac{dJ}{dt} \amp = \epsilon I - \eta J </mrow>
+                    <mrow>\frac{dR}{dt} \amp = \eta J. </mrow>
+                  </md>
+                </p>
+                <p>
+                  For the model in <xref ref="fig-SIR-complete-isolation-2"/>, here is the system of differential equations:
+                </p>
+                <p>
+                  <md>
+                    <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+                    <mrow>\frac{dI}{dt} \amp = \beta S I - \widetilde{\gamma} I </mrow>
+                    <mrow>\frac{dR}{dt} \amp = \widetilde{\gamma} I. </mrow>
+                  </md>
+                </p>                
+              </li>
+              <li>
+                <p>
+                  For both models, the value of <m>\beta</m> should not change. 
+                </p>
+                <p>
+                  For the model in <xref ref="fig-SIR-complete-isolation-1"/>, we notice that <m>\gamma = 1/10</m> indicates a ten-day contagious period for the disease. We split up this time into the Infectious and Isolated compartments. Since people stay in the Infectious compartment for three days, we set <m>\epsilon = 1/3</m>, using the ideas from <xref ref="eq-gamma-estimate"/>, <xref ref="eq-gamma-estimate-2"/>, <xref ref="eq-kappa-estimate"/>, and <xref ref="eq-kappa-estimate-2"/>. This leaves seven days for people to stay in the Isolated compartment, to add up to their total of ten days, and so we set <m>\eta = 1/7</m>.
+                </p>
+                <p>
+                  For the model in <xref ref="fig-SIR-complete-isolation-2"/>, set <m>\widetilde{\gamma} = 1/3</m>, for a similar reason to setting <m>\epsilon = 1/3</m> for the model in <xref ref="fig-SIR-complete-isolation-1"/>. This reduces the length of time people spend in the Infectious compartment, and we consider these people to be Removed for the rest of the time they are contagious.
+                </p>
+              </li>
+            </ol>
+          </p>          
         </answer>
       </activity>
 
@@ -250,28 +254,31 @@
       <p>
         We also address the expectation that real-life biological information about a disease outbreak should correspond with the parameter-based formula for <m>\mathcal{R}_0</m> that we first studied in <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>. Historical values of <m>\mathcal{R}_0</m> take into account that people may have interacted less with others while sick, but do not include widespread intervention, such as coordinated isolation campaigns. Here are steps you can take when determining all parameter values in a model with such intervention, with help from the <m>\mathcal{R}_0</m> formula.
       </p>
-      <ol>
-        <li>
-          <p>
-            When using the parameter-based formula for <m>\mathcal{R}_0</m> to compute the value of parameter <m>\beta</m> for an outbreak, start with a model that does not include intervention by large numbers of individuals or by an entire community. For instance, to model an outbreak using either of the strategies in <xref ref="activity-two-complete-isolation-models"/>, start with a standard SIR model, shown in <xref ref="eq-SIR-model-S"/>, <xref ref="eq-SIR-model-I"/>, and <xref ref="eq-SIR-model-R"/>, for computing <m>\beta</m>. The parameter-based formula corresponding to this model is <xref ref="eq-R0-sir"/>. 
-          </p>
-        </li>
-        <li>
-          <p>
-            The reason for starting with a model without intervention is this: <m>\mathcal{R}_0</m> is, as we learned, <em>the average number of new infections caused by one infectious person in an otherwise entirely susceptible population</em>. Interventions, such as vaccines or widespread isolation, change the ability of a disease to infect large numbers of people. Historical values of <m>\mathcal{R}_0</m> computed from past outbreaks do not include such interventions.
-          </p>
-        </li> 
-        <li>
-          <p>
-            Once you have computed a biologically sound value or range of values for <m>\beta</m> using an intervention-free version of your model, along with that model's parameter-based formula for <m>\mathcal{R}_0</m>, you can then incorporate isolation in your model. Possible models include those shown in <xref ref="fig-SIR-complete-isolation-1" /> and <xref ref="fig-SIR-complete-isolation-2" />. Do not change the value of <m>\beta</m> you have already computed, but do incorporate appropriate values of <m>\widetilde{\gamma}</m> or <m>\epsilon</m> and <m>\eta</m>. Computing parameter values in this way will allow your models to show the effects of isolation as intervention. 
-          </p>
-        </li>
-        <li>
-          <p>
-            In <xref ref="sec-incomplete-isolation-and-quarantine-vs-isolation"/>, we will show other ways to model isolation. In those models too, estimate <m>\beta</m> first, in an appropriate corresponding model without intervention. Then adjust that model to include intervention, but do not change <m>\beta</m>.
-          </p>
-        </li>
-      </ol>
+      <p>
+        <ol>
+          <li>
+            <p>
+              When using the parameter-based formula for <m>\mathcal{R}_0</m> to compute the value of parameter <m>\beta</m> for an outbreak, start with a model that does not include intervention by large numbers of individuals or by an entire community. For instance, to model an outbreak using either of the strategies in <xref ref="activity-two-complete-isolation-models"/>, start with a standard SIR model, shown in <xref ref="eq-SIR-model-S"/>, <xref ref="eq-SIR-model-I"/>, and <xref ref="eq-SIR-model-R"/>, for computing <m>\beta</m>. The parameter-based formula corresponding to this model is <xref ref="eq-R0-sir"/>. 
+            </p>
+          </li>
+          <li>
+            <p>
+              The reason for starting with a model without intervention is this: <m>\mathcal{R}_0</m> is, as we learned, <em>the average number of new infections caused by one infectious person in an otherwise entirely susceptible population</em>. Interventions, such as vaccines or widespread isolation, change the ability of a disease to infect large numbers of people. Historical values of <m>\mathcal{R}_0</m> computed from past outbreaks do not include such interventions.
+            </p>
+          </li> 
+          <li>
+            <p>
+              Once you have computed a biologically sound value or range of values for <m>\beta</m> using an intervention-free version of your model, along with that model's parameter-based formula for <m>\mathcal{R}_0</m>, you can then incorporate isolation in your model. Possible models include those shown in <xref ref="fig-SIR-complete-isolation-1" /> and <xref ref="fig-SIR-complete-isolation-2" />. Do not change the value of <m>\beta</m> you have already computed, but do incorporate appropriate values of <m>\widetilde{\gamma}</m> or <m>\epsilon</m> and <m>\eta</m>. Computing parameter values in this way will allow your models to show the effects of isolation as intervention. 
+            </p>
+          </li>
+          <li>
+            <p>
+              In <xref ref="sec-incomplete-isolation-and-quarantine-vs-isolation"/>, we will show other ways to model isolation. In those models too, estimate <m>\beta</m> first, in an appropriate corresponding model without intervention. Then adjust that model to include intervention, but do not change <m>\beta</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+      
 
     </section>
 
@@ -376,29 +383,30 @@
           <p>
             Use the questions below to explain your thoughts about the models in <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-2" />. 
           </p>
-          <ol>
-            <li>
-              <p>
-                Imagine an illness primarily affects children, who require hands-on care and may be near siblings or other people despite being sick.  Suppose that everyone who gets this illness experiences symptoms, and the symptoms are distinctive in a way that makes it clear the person has this illness. (Measles is an example of this kind of illness.) In this example, suppose everyone tries to isolate when their symptoms appear, but given the nature of the illness, there are still interactions with some relatives or other caregivers. Which of the models in <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-2" /> might you prefer for representing this situation? Why is this your choice?
-              </p>     
-            </li>
-            <li>
-              <p>
-                Suppose a residential campus experiences an outbreak of influenza. Some students experience high fevers, severe achiness, and other relatively extreme symptoms. These students rest and mostly isolate, but may have roommates or may need to interact with others while acquiring food or medicine. Other students have only a low fever and mild symptoms. These students continue with their daily routines, not resting much more than usual and not isolating. Which of the models in <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-2" /> might you prefer for representing this situation? Why is this your choice?
-              </p>
-            </li>
-            <li>
-              <p>
-                Discuss the transmission term <m>\beta S (I + \delta J)</m> in <xref ref="fig-SIR-incomplete-isolation-1" />. Explain why both <m>I</m> and <m>J</m> appear in this term. Then decide what values for <m>\delta</m> make the most sense. The role of <m>\delta</m> is to scale the effect of <m>J</m>, since people in the Isolated compartment typically have less chance to transmit illness than people in the Infectious compartment. This information should help you identify possible values for <m>\delta</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                Discuss the transmission term <m>\beta S (I_1 + I_2)</m> in <xref ref="fig-SIR-incomplete-isolation-2" />. Explain why both <m>I_1</m> and <m>I_2</m> appear in this term, and state what form of incomplete isolation this model shows. Then consider including <m>J</m>, as we did in <xref ref="fig-SIR-incomplete-isolation-1" />. How might you change the transmission term in <xref ref="fig-SIR-incomplete-isolation-2" /> to include <m>J</m>? If <m>J</m> is included, then the model shows two forms of incomplete isolation, represented by compartment <m>I_2</m> and the transmission term involving <m>J</m>. Identify what the real-world interpretation is for each of these types of incomplete isolation.
-              </p>
-            </li>
-          </ol>
-                     
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Imagine an illness primarily affects children, who require hands-on care and may be near siblings or other people despite being sick.  Suppose that everyone who gets this illness experiences symptoms, and the symptoms are distinctive in a way that makes it clear the person has this illness. (Measles is an example of this kind of illness.) In this example, suppose everyone tries to isolate when their symptoms appear, but given the nature of the illness, there are still interactions with some relatives or other caregivers. Which of the models in <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-2" /> might you prefer for representing this situation? Why is this your choice?
+                </p>     
+              </li>
+              <li>
+                <p>
+                  Suppose a residential campus experiences an outbreak of influenza. Some students experience high fevers, severe achiness, and other relatively extreme symptoms. These students rest and mostly isolate, but may have roommates or may need to interact with others while acquiring food or medicine. Other students have only a low fever and mild symptoms. These students continue with their daily routines, not resting much more than usual and not isolating. Which of the models in <xref ref="fig-SIR-incomplete-isolation-1" /> and <xref ref="fig-SIR-incomplete-isolation-2" /> might you prefer for representing this situation? Why is this your choice?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Discuss the transmission term <m>\beta S (I + \delta J)</m> in <xref ref="fig-SIR-incomplete-isolation-1" />. Explain why both <m>I</m> and <m>J</m> appear in this term. Then decide what values for <m>\delta</m> make the most sense. The role of <m>\delta</m> is to scale the effect of <m>J</m>, since people in the Isolated compartment typically have less chance to transmit illness than people in the Infectious compartment. This information should help you identify possible values for <m>\delta</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Discuss the transmission term <m>\beta S (I_1 + I_2)</m> in <xref ref="fig-SIR-incomplete-isolation-2" />. Explain why both <m>I_1</m> and <m>I_2</m> appear in this term, and state what form of incomplete isolation this model shows. Then consider including <m>J</m>, as we did in <xref ref="fig-SIR-incomplete-isolation-1" />. How might you change the transmission term in <xref ref="fig-SIR-incomplete-isolation-2" /> to include <m>J</m>? If <m>J</m> is included, then the model shows two forms of incomplete isolation, represented by compartment <m>I_2</m> and the transmission term involving <m>J</m>. Identify what the real-world interpretation is for each of these types of incomplete isolation.
+                </p>
+              </li>
+            </ol>
+          </p>                    
         </statement>
         <answer>
           <p>
@@ -481,26 +489,28 @@
           <p>
             Use the idea of a campus outbreak to think about (at least) two ways to model isolation, guided by the prompts below.
           </p>
-          <ol>
-            <li>
-              <p>
-                To model the spread of flu, choose either the SIR model as described in <xref ref="ch-compartmental-diagrams"/> or the SEIR model as described in <xref ref="ch-incubation-periods"/>. Use the online facts you have gathered to decide whether or not to include an incubation period in your model. Be sure to explain your reasoning. (There is not a right or wrong answer here: either choice can make sense, yet it is important to justify your decision using facts about the flu.) Provide the range of parameter values for each parameter in your model, and cite your sources. Remember to use a model without isolation, along with the basic reproduction number <m>\mathcal{R}_0</m>, when computing <m>\beta</m> via formula <xref ref="eq-R0-sir"/> or <xref ref="eq-R0-seir"/>. Then, in the steps that follow, use this value of <m>\beta</m> when building a mathematical model that includes isolation. 
-              </p>     
-            </li>
-            <li>
-              <p>
-                In many cases, people with the flu know they are sick and have the opportunity to isolate. Let us suppose that every person in an outbreak isolates after they have been sick for one day, and that they isolate perfectly. (This is unlikely in reality, but we can model this  to see the outcome.) Update your model from step 1 accordingly, changing only the value of <m>\gamma</m> (which relates to the time spent in the <m>I(t)</m> population) so that people move more rapidly from compartment I to compartment R.
-              </p>
-            </li>
-            <li>
-              <p>
-                Try your model from step 2 in Python, using either the Python code for an SIR model, as in <xref ref="activity-formula-for-i-of-t-turning-around"/>, or the Python code for an SEIR model, as in <xref ref="activity-seir-model-play-with-kappa"/>. Suppose there are 2500 students on campus, and update all parameters and time ranges in the model as needed. Feel free to try just one initial Infectious case, or a few (perhaps 2-10) initial Infectious cases, as it is possible for multiple people to become Infectious simultaneously in an influenza outbreak, perhaps because they all encountered the same Infectious person off-campus, or perhaps because some social event led to multiple initial infections within a very short time frame. 
-              </p>
-              <p>
-                First try your baseline model (from step 1) for influenza without isolation, and then try your influenza model with its updated <m>\gamma</m> value (from step 2) to represent the complete isolation of Infectious people beginning one day after symptoms appear. Describe your results. 
-              </p>
-            </li>
-          </ol>                     
+          <p>
+            <ol>
+              <li>
+                <p>
+                  To model the spread of flu, choose either the SIR model as described in <xref ref="ch-compartmental-diagrams"/> or the SEIR model as described in <xref ref="ch-incubation-periods"/>. Use the online facts you have gathered to decide whether or not to include an incubation period in your model. Be sure to explain your reasoning. (There is not a right or wrong answer here: either choice can make sense, yet it is important to justify your decision using facts about the flu.) Provide the range of parameter values for each parameter in your model, and cite your sources. Remember to use a model without isolation, along with the basic reproduction number <m>\mathcal{R}_0</m>, when computing <m>\beta</m> via formula <xref ref="eq-R0-sir"/> or <xref ref="eq-R0-seir"/>. Then, in the steps that follow, use this value of <m>\beta</m> when building a mathematical model that includes isolation. 
+                </p>     
+              </li>
+              <li>
+                <p>
+                  In many cases, people with the flu know they are sick and have the opportunity to isolate. Let us suppose that every person in an outbreak isolates after they have been sick for one day, and that they isolate perfectly. (This is unlikely in reality, but we can model this  to see the outcome.) Update your model from step 1 accordingly, changing only the value of <m>\gamma</m> (which relates to the time spent in the <m>I(t)</m> population) so that people move more rapidly from compartment I to compartment R.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Try your model from step 2 in Python, using either the Python code for an SIR model, as in <xref ref="activity-formula-for-i-of-t-turning-around"/>, or the Python code for an SEIR model, as in <xref ref="activity-seir-model-play-with-kappa"/>. Suppose there are 2500 students on campus, and update all parameters and time ranges in the model as needed. Feel free to try just one initial Infectious case, or a few (perhaps 2-10) initial Infectious cases, as it is possible for multiple people to become Infectious simultaneously in an influenza outbreak, perhaps because they all encountered the same Infectious person off-campus, or perhaps because some social event led to multiple initial infections within a very short time frame. 
+                </p>
+                <p>
+                  First try your baseline model (from step 1) for influenza without isolation, and then try your influenza model with its updated <m>\gamma</m> value (from step 2) to represent the complete isolation of Infectious people beginning one day after symptoms appear. Describe your results. 
+                </p>
+              </li>
+            </ol>
+          </p>                               
         </statement>
 
         <answer>
