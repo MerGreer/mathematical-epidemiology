@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -9,10 +16,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+<script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
+  "inputLocation": "div.sagecell-sage",
   "linked": true,
   "linkKey": "linked-sage",
   "autoeval": false,
@@ -24,14 +31,21 @@ sagecell.makeSagecell({
 </script>
 </head>
 <body class="ignore-math">
-<article class="activity project-like"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.4</span><span class="period">.</span>
-</h4>
-<div class="para">One way to model vaccine effectiveness is to include a compartment for vaccinated individuals. We call this the V compartment. One such model appears in <a href="ch-vaccines.html#fig-SVIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SVIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.1">Figure 6.1</a> and in the differential equations below.<details class="ptx-footnote" aria-live="polite" id="activity-vaccine-effectiveness-1-1-2"><summary class="ptx-footnote__number" title="Footnote 6.6"><sup> 6 </sup></summary><div class="ptx-footnote__contents" id="activity-vaccine-effectiveness-1-1-2">This is a simplified version of a model from the paper “A Vaccination Model for Transmission Dynamics of Influenza” by M. E. Alexander, C. Bowman, S. M. Moghadas, R. Summers, A. B. Gumel, and B. M. Sahai, published in the SIAM Journal of Applied Dynamical Systems in 2004.</div></details>
-</div> <figure class="figure figure-like"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
-<img src="generated/latex-image/fig-SVIR-compartmental-diagram-2.svg" role="img" class="contained" alt="described in detail following the image" aria-describedby="fig-SVIR-compartmental-diagram-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-SVIR-compartmental-diagram-2-description"><div class="para" id="fig-SVIR-compartmental-diagram-2-1-1">This diagram includes four squares. The left top square has the letter S in its middle, standing for Susceptible. The left bottom square has the letter V in its middle, standing for Vaccinated. The center square has the letter I in its middle, standing for Infectious. The right square has the letter R in its middle, standing for Removed. There is an arrow from the S square to the I square, with the formula beta times S times I above. There is an arrow from the V square to the I square, with the formula beta V times V times I next to it, where beta V is the letter beta with subscript V. There is an arrow from the I square to the R square with the formula gamma times I above it.</div></div></details>
+<article class="activity project-like"><h2 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h2>
+<div class="para">One way to model vaccine effectiveness is to include a compartment for vaccinated individuals. We call this the V compartment. One such model appears in <a href="ch-vaccines.html#fig-SVIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SVIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.5">Figure 6.5</a> and in the differential equations below.<details class="ptx-footnote" aria-live="polite" id="activity-vaccine-effectiveness-1-1-2"><summary class="ptx-footnote__number" title="Footnote 6.5"><sup> 5 </sup></summary>
+<div class="ptx-footnote__contents" id="activity-vaccine-effectiveness-1-1-2">This is a simplified version of a model from the paper “A Vaccination Model for Transmission Dynamics of Influenza” by M. E. Alexander, C. Bowman, S. M. Moghadas, R. Summers, A. B. Gumel, and B. M. Sahai, published in the SIAM Journal of Applied Dynamical Systems in 2004.
+</div></details><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<figure class="figure figure-like"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="generated/latex-image/fig-SVIR-compartmental-diagram-2.svg" role="img" class="contained" alt="described in detail following the image" aria-describedby="fig-SVIR-compartmental-diagram-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-SVIR-compartmental-diagram-2-description">
+<div class="para" id="fig-SVIR-compartmental-diagram-2-1-1">This diagram includes four squares. The left top square has the letter S in its middle, standing for Susceptible. The left bottom square has the letter V in its middle, standing for Vaccinated. The center square has the letter I in its middle, standing for Infectious. The right square has the letter R in its middle, standing for Removed. There is an arrow from the S square to the I square, with the formula beta times S times I above. There is an arrow from the V square to the I square, with the formula beta V times V times I next to it, where beta V is the letter beta with subscript V. There is an arrow from the I square to the R square with the formula gamma times I above it.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#fig-SVIR-compartmental-diagram-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1<span class="period">.</span></span><span class="space"> </span>One possible <span class="process-math">\(SVIR\)</span> (Susceptible, Vaccinated, Infectious, Removed) compartmental diagram</figcaption></figure><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-SVIR-compartmental-diagram.html ./knowl/xref/ch-compartmental-diagrams.html ./knowl/xref/ch-model-analysis-and-the-basic-reproduction-number-R0.html ./knowl/xref/fig-SVIR-compartmental-diagram.html">
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>One possible <span class="process-math">\(SVIR\)</span> (Susceptible, Vaccinated, Infectious, Removed) compartmental diagram<div class="autopermalink" aria-hidden="true" data-description="Figure 6.5"><a tabindex="-1" href="#fig-SVIR-compartmental-diagram" title="Copy heading and permalink for Figure 6.5" aria-label="Copy heading and permalink for Figure 6.5">🔗</a></div></figcaption>
+</figure><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-SVIR-compartmental-diagram.html ./knowl/xref/ch-compartmental-diagrams.html ./knowl/xref/ch-model-analysis-and-the-basic-reproduction-number-R0.html ./knowl/xref/fig-SVIR-compartmental-diagram.html">
 \begin{align*}
 \frac{dS}{dt} \amp = - \beta S I \\
 \frac{dV}{dt} \amp = - \beta_V V I\\
@@ -39,7 +53,8 @@ sagecell.makeSagecell({
 \frac{dR}{dt} \amp = \gamma I. 
 \end{align*}
 </div>
-<div class="para">You will notice that this model has four compartments. The Infectious and Removed compartments are similar to those we have worked with before, such as in <a href="ch-compartmental-diagrams.html" class="internal" title="Chapter 4: Compartmental Diagrams">Chapter 4</a> and <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal" title="Chapter 5: Model Analysis and the Basic Reproduction Number \mathcal{R}_0">Chapter 5</a>. The Susceptibles compartment now includes everyone who could become sick <em class="emphasis">and has not been vaccinated</em>. The Vaccinated compartment includes everyone who could become sick <em class="emphasis">but has been vaccinated</em>. This model can be used to represent outcomes with a vaccine that reduces the risk of becoming Infectious but does not completely prevent infection.</div> <pre id="activity-vaccine-effectiveness-1-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+<div class="para">You will notice that this model has four compartments. The Infectious and Removed compartments are similar to those we have worked with before, such as in <a href="ch-compartmental-diagrams.html" class="internal" title="Chapter 4: Compartmental Diagrams">Chapter 4</a> and <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html" class="internal" title="Chapter 5: Model Analysis and the Basic Reproduction Number \mathcal{R}_0">Chapter 5</a>. The Susceptibles compartment now includes everyone who could become sick <em class="emphasis">and has not been vaccinated</em>. The Vaccinated compartment includes everyone who could become sick <em class="emphasis">but has been vaccinated</em>. This model can be used to represent outcomes with a vaccine that reduces the risk of becoming Infectious but does not completely prevent infection.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div id="activity-vaccine-effectiveness-1-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
@@ -82,33 +97,75 @@ plt.grid()
 plt.xlabel('time')
 plt.ylabel('populations')
 plt.show()
-</script></pre> <ol class="decimal" id="activity-vaccine-effectiveness-1-6">
-<li><div class="para logical">
-<div class="para">First, take time to explore with the model.</div>
-<ol class="lower-alpha" id="activity-vaccine-effectiveness-1-6-1-1-1">
-<li><div class="para">The default Python code uses a total population of <span class="process-math">\(6001\text{,}\)</span> split into <span class="process-math">\(S(0)=3000\)</span> initial Susceptibles, <span class="process-math">\(V(0)=3000\)</span> initial Vaccinated, and <span class="process-math">\(I(0)=1\)</span> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings using tables and/or graphs.</div></li>
-<li><div class="para">The default Python code sets <span class="process-math">\(\beta = 0.0002\)</span> and <span class="process-math">\(\beta_V = 0.0001\text{,}\)</span> making <span class="process-math">\(\beta_V\)</span> equal to half the value of <span class="process-math">\(\beta\text{.}\)</span> Try different relationships between <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\beta_V\text{.}\)</span> (It is a good idea to keep <span class="process-math">\(\beta_V \lt \beta\text{,}\)</span> as vaccination leads to a smaller chance of becoming infected.) Make planned and systematic changes to these parameter values, and report your findings using tables and/or graphs.</div></li>
-</ol>
-</div></li>
+</script></div> 
+<ol class="decimal" id="activity-vaccine-effectiveness-1-6">
 <li>
-<div class="para">Next, explore the concept of a <em class="emphasis">control reproduction number</em>, which we can label <span class="process-math">\(\mathcal{R}_c\text{.}\)</span> Whereas the basic reproduction number <span class="process-math">\(\mathcal{R}_0\)</span> supposes we have one Infectious person, and everyone else Susceptible, the control reproduction number <span class="process-math">\(\mathcal{R}_c\)</span> supposes we have attempted to control the outbreak to some extent, such as by vaccination or other public health measures.</div>
-<div class="para">For the SVIR model in <a href="ch-vaccines.html#fig-SVIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SVIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.1">Figure 6.1</a>, the formula for <span class="process-math">\(\mathcal{R}_c\)</span> is</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-SVIR-compartmental-diagram.html">
-\begin{align}
-\mathcal{R}_c \amp = \frac{\beta S(0) + \beta_V V(0)}{\gamma} . \tag{6.2}
-\end{align}
+<div class="para logical">
+<div class="para">First, take time to explore with the model.</div>
+<ol class="lower-alpha lower-alpha-level-1" id="activity-vaccine-effectiveness-1-6-1-1-1">
+<li>
+<div class="para">The default Python code uses a total population of <span class="process-math">\(6001\text{,}\)</span> split into <span class="process-math">\(S(0)=3000\)</span> initial Susceptibles, <span class="process-math">\(V(0)=3000\)</span> initial Vaccinated, and <span class="process-math">\(I(0)=1\)</span> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings using tables and/or graphs.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-6-1-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para">By contrast, the basic reproduction number for this model is the same as for the SIR model without vaccination, that is, <span class="process-math">\(\mathcal{R}_0=\beta N / \gamma\text{,}\)</span> where <span class="process-math">\(N\)</span> represents the total population, and we assume no vaccination occurs.</div>
-<div class="para">Develop some scenarios in which <span class="process-math">\(\mathcal{R}_0\)</span> would be larger than 1, yet due to vaccination, <span class="process-math">\(\mathcal{R}_c \lt 1\text{.}\)</span> Report on your findings for long-term outcomes in each case, using tables and/or graphs.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.a"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-6-1-1-1-1" title="Copy heading and permalink for Item 1.a" aria-label="Copy heading and permalink for Item 1.a">🔗</a></div>
+</li>
+<li>
+<div class="para">The default Python code sets <span class="process-math">\(\beta = 0.0002\)</span> and <span class="process-math">\(\beta_V = 0.0001\text{,}\)</span> making <span class="process-math">\(\beta_V\)</span> equal to half the value of <span class="process-math">\(\beta\text{.}\)</span> Try different relationships between <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\beta_V\text{.}\)</span> (It is a good idea to keep <span class="process-math">\(\beta_V \lt \beta\text{,}\)</span> as vaccination leads to a smaller chance of becoming infected.) Make planned and systematic changes to these parameter values, and report your findings using tables and/or graphs.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-6-1-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.b"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-6-1-1-1-2" title="Copy heading and permalink for Item 1.b" aria-label="Copy heading and permalink for Item 1.b">🔗</a></div>
 </li>
 </ol>
-<div class="solutions"><details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><ol class="decimal" id="activity-vaccine-effectiveness-2-1">
-<li><div class="para"><ol class="lower-alpha" id="activity-vaccine-effectiveness-2-1-1-1">
-<li><div class="para">This is an open-ended question. As you work through it, think about how to be systematic. This could involve putting specific percentages of the initial population into <span class="process-math">\(V(0)\text{,}\)</span> such as <span class="process-math">\(50\%\text{,}\)</span> <span class="process-math">\(75\%\text{,}\)</span> <span class="process-math">\(90\%\text{,}\)</span> <span class="process-math">\(95\%\text{,}\)</span> and <span class="process-math">\(99\%\text{,}\)</span> and listing long-term outcomes in the form of a table of values and/or as graphs. There can be other approaches as well.</div></li>
-<li><div class="para">This, too, is an open-ended question that will be helped by a systematic approach. One idea is to set <span class="process-math">\(\beta_V = 0.5\beta\text{,}\)</span> <span class="process-math">\(\beta_V = 0.25\beta\text{,}\)</span> <span class="process-math">\(\beta_V = 0.1\beta\text{,}\)</span> and so on, and then to display the resulting long-term outcomes in a table of values and/or as graphs. This is just one of many ways to explore combinations of the values of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\beta_V\text{.}\)</span>
-</div></li>
-</ol></div></li>
-<li><div class="para">This exercise is set up so that the default values of <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(\gamma\text{,}\)</span> and <span class="process-math">\(N\)</span> cause <span class="process-math">\(\mathcal{R}_0\)</span> to be larger than 1. Compute this value of <span class="process-math">\(\mathcal{R}_0\)</span> and then, by changing <span class="process-math">\(\beta_V\)</span> and the model’s initial conditions <span class="process-math">\(S(0)\)</span> and <span class="process-math">\(V(0)\text{,}\)</span> create multiple ways to ensure <span class="process-math">\(\mathcal{R}_c \lt 1\text{.}\)</span> Display long-term results as a table of values and/or as graphs.</div></li>
-</ol></div></details></div></article><span class="incontext"><a class="internal" href="ch-vaccines.html#activity-vaccine-effectiveness">in-context</a></span>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-6-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">Next, explore the concept of a <em class="emphasis">control reproduction number</em>, which we can label <span class="process-math">\(\mathcal{R}_c\text{.}\)</span> Whereas the basic reproduction number <span class="process-math">\(\mathcal{R}_0\)</span> supposes we have one Infectious person, and everyone else Susceptible, the control reproduction number <span class="process-math">\(\mathcal{R}_c\)</span> supposes we have attempted to control the outbreak to some extent, such as by vaccination or other public health measures.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">For the SVIR model in <a href="ch-vaccines.html#fig-SVIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SVIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.5">Figure 6.5</a>, the formula for <span class="process-math">\(\mathcal{R}_c\)</span> is<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-6-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-SVIR-compartmental-diagram.html">
+\begin{align}
+\mathcal{R}_c \amp = \frac{\beta S(0) + \beta_V V(0)}{\gamma} . \tag{6.3}
+\end{align}
+</div>
+<div class="para">By contrast, the basic reproduction number for this model is the same as for the SIR model without vaccination, that is, <span class="process-math">\(\mathcal{R}_0=\beta N / \gamma\text{,}\)</span> where <span class="process-math">\(N\)</span> represents the total population, and we assume no vaccination occurs.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-6-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">Develop some scenarios in which <span class="process-math">\(\mathcal{R}_0\)</span> would be larger than 1, yet due to vaccination, <span class="process-math">\(\mathcal{R}_c \lt 1\text{.}\)</span> Report on your findings for long-term outcomes in each case, using tables and/or graphs.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-6-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#activity-vaccine-effectiveness-1-6-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<ol class="decimal" id="activity-vaccine-effectiveness-2-1">
+<li>
+<div class="para">
+<ol class="lower-alpha lower-alpha-level-1" id="activity-vaccine-effectiveness-2-1-1-1">
+<li>
+<div class="para">This is an open-ended question. As you work through it, think about how to be systematic. This could involve putting specific percentages of the initial population into <span class="process-math">\(V(0)\text{,}\)</span> such as <span class="process-math">\(50\%\text{,}\)</span> <span class="process-math">\(75\%\text{,}\)</span> <span class="process-math">\(90\%\text{,}\)</span> <span class="process-math">\(95\%\text{,}\)</span> and <span class="process-math">\(99\%\text{,}\)</span> and listing long-term outcomes in the form of a table of values and/or as graphs. There can be other approaches as well.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-2-1-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.a"><a tabindex="-1" href="#activity-vaccine-effectiveness-2-1-1-1-1" title="Copy heading and permalink for Item 1.a" aria-label="Copy heading and permalink for Item 1.a">🔗</a></div>
+</li>
+<li>
+<div class="para">This, too, is an open-ended question that will be helped by a systematic approach. One idea is to set <span class="process-math">\(\beta_V = 0.5\beta\text{,}\)</span> <span class="process-math">\(\beta_V = 0.25\beta\text{,}\)</span> <span class="process-math">\(\beta_V = 0.1\beta\text{,}\)</span> and so on, and then to display the resulting long-term outcomes in a table of values and/or as graphs. This is just one of many ways to explore combinations of the values of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\beta_V\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-2-1-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1.b"><a tabindex="-1" href="#activity-vaccine-effectiveness-2-1-1-1-2" title="Copy heading and permalink for Item 1.b" aria-label="Copy heading and permalink for Item 1.b">🔗</a></div>
+</li>
+</ol>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1"><a tabindex="-1" href="#activity-vaccine-effectiveness-2-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">This exercise is set up so that the default values of <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(\gamma\text{,}\)</span> and <span class="process-math">\(N\)</span> cause <span class="process-math">\(\mathcal{R}_0\)</span> to be larger than 1. Compute this value of <span class="process-math">\(\mathcal{R}_0\)</span> and then, by changing <span class="process-math">\(\beta_V\)</span> and the model’s initial conditions <span class="process-math">\(S(0)\)</span> and <span class="process-math">\(V(0)\text{,}\)</span> create multiple ways to ensure <span class="process-math">\(\mathcal{R}_c \lt 1\text{.}\)</span> Display long-term results as a table of values and/or as graphs.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-vaccine-effectiveness-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#activity-vaccine-effectiveness-2-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" aria-hidden="true" data-description="Hint 6.4.1"><a tabindex="-1" href="#activity-vaccine-effectiveness-2" title="Copy heading and permalink for Hint 6.4.1" aria-label="Copy heading and permalink for Hint 6.4.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Activity 6.4"><a tabindex="-1" href="#activity-vaccine-effectiveness" title="Copy heading and permalink for Activity 6.4" aria-label="Copy heading and permalink for Activity 6.4">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="ch-vaccines.html#activity-vaccine-effectiveness">In Context</a></span>
 </body>
 </html>

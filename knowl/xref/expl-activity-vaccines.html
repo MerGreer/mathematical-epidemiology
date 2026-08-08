@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -9,10 +16,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+<script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
+  "inputLocation": "div.sagecell-sage",
   "linked": true,
   "linkKey": "linked-sage",
   "autoeval": false,
@@ -24,11 +31,12 @@ sagecell.makeSagecell({
 </script>
 </head>
 <body class="ignore-math">
-<article class="exploration project-like"><h3 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">6.1</span><span class="period">.</span><span class="space"> </span><span class="title">Reducing New Infections.</span>
-</h3>
+<article class="exploration project-like"><h2 class="heading">
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Reducing New Infections.</span>
+</h2>
 <div class="introduction">
-<div class="para">This exploration seeks to reduce the number of new infections in the SIR model from <a href="ch-compartmental-diagrams.html#activity-introducing-units" class="xref" data-knowl="./knowl/xref/activity-introducing-units.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.5">Activity 4.5</a> by changing the initial numbers of people in the Susceptible and Removed compartments. For reference, here are the equations of the model:</div>
+<div class="para">This exploration seeks to reduce the number of new infections in the SIR model from <a href="ch-compartmental-diagrams.html#activity-introducing-units" class="xref" data-knowl="./knowl/xref/activity-introducing-units.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 4.8">Activity 4.8</a> by changing the initial numbers of people in the Susceptible and Removed compartments. For reference, here are the equations of the model:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-activity-vaccines-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/activity-introducing-units.html">
 \begin{align*}
 \frac{dS}{dt} \amp = - \beta S I \\
@@ -36,12 +44,16 @@ sagecell.makeSagecell({
 \frac{dR}{dt} \amp = \gamma I. 
 \end{align*}
 </div>
-<div class="para">This change to the model reflects a concept we have observed in multiple chapters so far, from the Zombie Game to the definition of <span class="process-math">\(\mathcal{R}_0\)</span> as applying to a population that is nearly entirely Susceptible. In these contexts, we have seen that as the number of Susceptible people falls over the course of an outbreak, the outbreak can slow down and eventually stop. We therefore try starting our model simulation by using the terms <span class="process-math">\(p\)</span> and <span class="process-math">\((1-p)\)</span> to split the initial population across the S and R compartments.</div> <div class="para">Work through the parts of this exploration to build understanding of <span class="process-math">\(p\)</span> and <span class="process-math">\((1-p)\)</span> and to determine the possible numerical values for <span class="process-math">\(p\)</span> and <span class="process-math">\((1-p)\text{.}\)</span>
+<div class="para">This change to the model reflects a concept we have observed in multiple chapters so far, from the Zombie Game to the definition of <span class="process-math">\(\mathcal{R}_0\)</span> as applying to a population that is nearly entirely Susceptible. In these contexts, we have seen that as the number of Susceptible people falls over the course of an outbreak, the outbreak can slow down and eventually stop. We therefore try starting our model simulation by using the terms <span class="process-math">\(p\)</span> and <span class="process-math">\((1-p)\)</span> to split the initial population across the S and R compartments.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-activity-vaccines-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">Work through the parts of this exploration to build understanding of <span class="process-math">\(p\)</span> and <span class="process-math">\((1-p)\)</span> and to determine the possible numerical values for <span class="process-math">\(p\)</span> and <span class="process-math">\((1-p)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-activity-vaccines-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="para">Read the Python code below. In line 17, the initial conditions <span class="process-math">\(S(0)\text{,}\)</span> <span class="process-math">\(I(0)\text{,}\)</span> and <span class="process-math">\(R(0)\)</span> set <span class="process-math">\(I(0)=1\)</span> but use <span class="process-math">\((1-p)\)</span> and <span class="process-math">\(p\)</span> to split up the rest of the population between the S and R compartments. We restrict the possible values of <span class="process-math">\(p\)</span> so that it must be true that <span class="process-math">\(0 \leq p \leq 1\text{.}\)</span>
-</div> <div class="para">After reading and evaluating the Python code, respond to the questions that follow.</div> <pre id="expl-activity-vaccines-3-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(a)</span></h3>
+<div class="para">Read the Python code below. In line 17, the initial conditions <span class="process-math">\(S(0)\text{,}\)</span> <span class="process-math">\(I(0)\text{,}\)</span> and <span class="process-math">\(R(0)\)</span> set <span class="process-math">\(I(0)=1\)</span> but use <span class="process-math">\((1-p)\)</span> and <span class="process-math">\(p\)</span> to split up the rest of the population between the S and R compartments. We restrict the possible values of <span class="process-math">\(p\)</span> so that it must be true that <span class="process-math">\(0 \leq p \leq 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-activity-vaccines-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para">After reading and evaluating the Python code, respond to the questions that follow.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-activity-vaccines-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div id="expl-activity-vaccines-3-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Import packages
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
@@ -71,18 +83,43 @@ plt.grid()
 plt.xlabel('time')
 plt.ylabel('populations')
 plt.show()
-</script></pre> <ol class="decimal" id="expl-activity-vaccines-3-1-4">
-<li><div class="para">Given the restriction that <span class="process-math">\(0 \leq p \leq 1\text{,}\)</span> what is the range of possible values for the term <span class="process-math">\((1-p)\text{?}\)</span>
-</div></li>
-<li><div class="para">Notice that we set <span class="process-math">\(S(0)=1999*(1-p)\)</span> and <span class="process-math">\(R(0)=1999*p\text{.}\)</span> Try letting <span class="process-math">\(p=0.2\)</span> and <span class="process-math">\(p=0.5\text{.}\)</span> In each case, compute how many Susceptible and Removed people we would have at the start of the simulation. For each of these values of <span class="process-math">\(p\text{,}\)</span> what is the value of <span class="process-math">\(S(0)+R(0)\text{?}\)</span>
-</div></li>
-</ol></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="para">These questions help us see trends in the model’s behavior when we change <span class="process-math">\(p\text{.}\)</span> Think logically and mathematically about your answers, and use the Python code freely to experiment with <span class="process-math">\(p\text{.}\)</span> To see the full scope of model behavior as you change <span class="process-math">\(p\)</span> in the SIR model, you may wish to change the time range, remove the <code class="code-inline tex2jax_ignore">#</code> sign in lines 23 or 25 so you can see the graphs of the Susceptible or Removed populations, or make other changes to the code.</div> <ol class="decimal" id="expl-activity-vaccines-4-1-2">
-<li><div class="para">Compared with starting the model with <span class="process-math">\(S(0)=1999\)</span> and <span class="process-math">\(R(0)=0\text{,}\)</span> what sorts of effects do you see when the value of <span class="process-math">\(p\)</span> is relatively small, that is, <span class="process-math">\(p\)</span> is just above <span class="process-math">\(0\text{?}\)</span> In contrast, what sorts of effects do you see when the value of <span class="process-math">\(p\)</span> is relatively large, that is, <span class="process-math">\(p\)</span> is just below <span class="process-math">\(1\text{?}\)</span>
-</div></li>
-<li><div class="para">What can you say about the boundary values of <span class="process-math">\(p\text{?}\)</span> That is, what sorts of effects do you see on the SIR model when <span class="process-math">\(p=0\)</span> or when <span class="process-math">\(p=1\text{?}\)</span>
-</div></li>
-<li><div class="para">As the value of <span class="process-math">\(p\)</span> increases from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{,}\)</span> passing through several values in between, what observations can you make about the output of the SIR model?</div></li>
-</ol></article></article><span class="incontext"><a class="internal" href="ch-vaccines.html#expl-activity-vaccines">in-context</a></span>
+</script></div> 
+<ol class="decimal" id="expl-activity-vaccines-3-1-4">
+<li>
+<div class="para">Given the restriction that <span class="process-math">\(0 \leq p \leq 1\text{,}\)</span> what is the range of possible values for the term <span class="process-math">\((1-p)\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-activity-vaccines-3-1-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1"><a tabindex="-1" href="#expl-activity-vaccines-3-1-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">Notice that we set <span class="process-math">\(S(0)=1999*(1-p)\)</span> and <span class="process-math">\(R(0)=1999*p\text{.}\)</span> Try letting <span class="process-math">\(p=0.2\)</span> and <span class="process-math">\(p=0.5\text{.}\)</span> In each case, compute how many Susceptible and Removed people we would have at the start of the simulation. For each of these values of <span class="process-math">\(p\text{,}\)</span> what is the value of <span class="process-math">\(S(0)+R(0)\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-activity-vaccines-3-1-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#expl-activity-vaccines-3-1-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" aria-hidden="true" data-description="Task 6.1.a"><a tabindex="-1" href="#expl-activity-vaccines-3" title="Copy heading and permalink for Task 6.1.a" aria-label="Copy heading and permalink for Task 6.1.a">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(b)</span></h3>
+<div class="para">These questions help us see trends in the model’s behavior when we change <span class="process-math">\(p\text{.}\)</span> Think logically and mathematically about your answers, and use the Python code freely to experiment with <span class="process-math">\(p\text{.}\)</span> To see the full scope of model behavior as you change <span class="process-math">\(p\)</span> in the SIR model, you may wish to change the time range, remove the <code class="code-inline tex2jax_ignore">#</code> sign in lines 23 or 25 so you can see the graphs of the Susceptible or Removed populations, or make other changes to the code.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-activity-vaccines-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal" id="expl-activity-vaccines-4-1-2">
+<li>
+<div class="para">Compared with starting the model with <span class="process-math">\(S(0)=1999\)</span> and <span class="process-math">\(R(0)=0\text{,}\)</span> what sorts of effects do you see when the value of <span class="process-math">\(p\)</span> is relatively small, that is, <span class="process-math">\(p\)</span> is just above <span class="process-math">\(0\text{?}\)</span> In contrast, what sorts of effects do you see when the value of <span class="process-math">\(p\)</span> is relatively large, that is, <span class="process-math">\(p\)</span> is just below <span class="process-math">\(1\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-activity-vaccines-4-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 1"><a tabindex="-1" href="#expl-activity-vaccines-4-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">What can you say about the boundary values of <span class="process-math">\(p\text{?}\)</span> That is, what sorts of effects do you see on the SIR model when <span class="process-math">\(p=0\)</span> or when <span class="process-math">\(p=1\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-activity-vaccines-4-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#expl-activity-vaccines-4-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li>
+<div class="para">As the value of <span class="process-math">\(p\)</span> increases from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{,}\)</span> passing through several values in between, what observations can you make about the output of the SIR model?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-activity-vaccines-4-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 3"><a tabindex="-1" href="#expl-activity-vaccines-4-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" aria-hidden="true" data-description="Task 6.1.b"><a tabindex="-1" href="#expl-activity-vaccines-4" title="Copy heading and permalink for Task 6.1.b" aria-label="Copy heading and permalink for Task 6.1.b">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exploration 6.1: Reducing New Infections"><a tabindex="-1" href="#expl-activity-vaccines" title="Copy heading and permalink for Exploration 6.1: Reducing New Infections" aria-label="Copy heading and permalink for Exploration 6.1: Reducing New Infections">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="ch-vaccines.html#expl-activity-vaccines">In Context</a></span>
 </body>
 </html>

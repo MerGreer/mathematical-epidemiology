@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,31 +18,72 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<article class="exploration project-like"><h3 class="heading">
-<span class="type">Exploration</span><span class="space"> </span><span class="codenumber">5.1</span><span class="period">.</span><span class="space"> </span><span class="title">Rise and Fall of an Epidemic.</span>
-</h3>
+<article class="exploration project-like"><h2 class="heading">
+<span class="type">Exploration</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Rise and Fall of an Epidemic.</span>
+</h2>
 <div class="introduction">
-<div class="para">We first saw the SIR model in <a href="ch-compartmental-diagrams.html" class="internal" title="Chapter 4: Compartmental Diagrams">Chapter 4</a>. The compartmental diagram appears in <a href="ch-compartmental-diagrams.html#fig-SIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.3">Figure 4.3</a> and the system of differential equations is the following:</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ch-compartmental-diagrams.html ./knowl/xref/fig-SIR-compartmental-diagram.html">
+<div class="para">We first saw the SIR model in <a href="ch-compartmental-diagrams.html" class="internal" title="Chapter 4: Compartmental Diagrams">Chapter 4</a>. The compartmental diagram appears in <a href="ch-compartmental-diagrams.html#fig-SIR-compartmental-diagram" class="xref" data-knowl="./knowl/xref/fig-SIR-compartmental-diagram.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4">Figure 4.4</a> and the system of differential equations is the following:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="displaymath process-math">
 \begin{align*}
 \frac{dS}{dt} \amp = -\beta S I \\
 \frac{dI}{dt} \amp = \beta S I - \gamma I \\
-\frac{dR}{dt} \amp = \gamma I. 
+\frac{dR}{dt} \amp = \gamma I \text{.}
 \end{align*}
 </div>
-<div class="para">Throughout this Exploration, continue to connect the model, graphs of its solution curves, and real-world meaning.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="task exercise-like"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="para">Look at the expressions on the right-hand sides of the differential equations for the SIR model.</div> <ul class="disc" id="expl-rise-and-fall-of-an-epidemic-3-1-2">
-<li><div class="para">Which terms are positive? Which terms are negative? What does this tell you about how each population can flow through the compartments?</div></li>
-<li><div class="para">For each differential equation, what signs (<span class="process-math">\(+\text{,}\)</span> <span class="process-math">\(-\text{,}\)</span> or <span class="process-math">\(0\)</span>) are possible on the right-hand side? What does this tell you about the solution curves for the model?</div></li>
-</ul></article><article class="task exercise-like"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="para">For the graph in <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#fig-SIR-graph-unlabeled" class="xref" data-knowl="./knowl/xref/fig-SIR-graph-unlabeled.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.1">Figure 5.1</a>, which curve goes with which compartment of the SIR model? Justify your reasoning in two ways:</div> <ul class="disc" id="expl-rise-and-fall-of-an-epidemic-4-1-2">
-<li><div class="para">Use your <dfn class="terminology">sign analysis</dfn>, that is, the work you just did on describing solution curves based on the sign (<span class="process-math">\(+\text{,}\)</span> <span class="process-math">\(-\text{,}\)</span> or <span class="process-math">\(0\)</span>) of the right-hand side of that compartment’s differential equation in the SIR model.</div></li>
-<li><div class="para">Describe what happens in the <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a><details class="ptx-footnote" aria-live="polite" id="expl-rise-and-fall-of-an-epidemic-4-1-2-2-1-2"><summary class="ptx-footnote__number" title="Footnote 5.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="expl-rise-and-fall-of-an-epidemic-4-1-2-2-1-2"><code class="code-inline tex2jax_ignore">nelsong1997.github.io/zombie_game/</code></div></details> when we run a simulation including zombie mortality, and confirm that these curves make sense in that context.</div></li>
-</ul> <figure class="figure figure-like"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;">
-<img src="external/SIR_Graph_Unlabeled_Curves.png" class="contained" alt="described in detail following the image" aria-describedby="fig-SIR-graph-unlabeled-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-SIR-graph-unlabeled-2-description"><div class="para" id="fig-SIR-graph-unlabeled-2-1-1">Solution curves for the SIR model, unlabeled, for an exercise asking students to identify which curve represents which compartment in the model</div></div></details>
+<div class="para">Throughout this Exploration, continue to connect the model, graphs of its solution curves, and real-world meaning.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.1<span class="period">.</span></span><span class="space"> </span>One set of solution curves for the SIR model</figcaption></figure></article></article><span class="incontext"><a class="internal" href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#expl-rise-and-fall-of-an-epidemic">in-context</a></span>
+</div>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(a)</span></h3>
+<div class="para">Look at the expressions on the right-hand sides of the differential equations for the SIR model.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical">
+<ul class="disc" id="expl-rise-and-fall-of-an-epidemic-3-1-2-1">
+<li>
+<div class="para">Which terms are positive? Which terms are negative? What does this tell you about how each population can flow through the compartments?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-3-1-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-3-1-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li>
+<div class="para">For each differential equation, what signs (<span class="process-math">\(+\text{,}\)</span> <span class="process-math">\(-\text{,}\)</span> or <span class="process-math">\(0\)</span>) are possible on the right-hand side? What does this tell you about the solution curves for the model?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-3-1-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-3-1-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.1.a"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-3" title="Copy heading and permalink for Task 5.1.a" aria-label="Copy heading and permalink for Task 5.1.a">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(b)</span></h3>
+<div class="para">For the graph in <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#fig-SIR-graph-unlabeled" class="xref" data-knowl="./knowl/xref/fig-SIR-graph-unlabeled.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 5.2">Figure 5.2</a>, which curve goes with which compartment of the SIR model? Justify your reasoning in two ways:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para logical">
+<ul class="disc" id="expl-rise-and-fall-of-an-epidemic-4-1-2-1">
+<li>
+<div class="para">Use your <dfn class="terminology">sign analysis</dfn>, that is, the work you just did on describing solution curves based on the sign (<span class="process-math">\(+\text{,}\)</span> <span class="process-math">\(-\text{,}\)</span> or <span class="process-math">\(0\)</span>) of the right-hand side of that compartment’s differential equation in the SIR model.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-4-1-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-4-1-2-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li>
+<div class="para">Describe what happens in the <a class="external" href="https://nelsong1997.github.io/zombie_game/" target="_blank">Zombie Game App</a> when we run a simulation including zombie mortality, and confirm that these curves make sense in that context.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-4-1-2-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-4-1-2-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-4-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<figure class="figure figure-like"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;">
+<img src="external/SIR_Graph_Unlabeled_Curves.png" class="contained" alt="described in detail following the image" aria-describedby="fig-SIR-graph-unlabeled-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-SIR-graph-unlabeled-2-description">
+<div class="para" id="fig-SIR-graph-unlabeled-2-1-1">Solution curves for the SIR model, unlabeled, for an exercise asking students to identify which curve represents which compartment in the model<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#fig-SIR-graph-unlabeled-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>One set of solution curves for the SIR model<div class="autopermalink" aria-hidden="true" data-description="Figure 5.2"><a tabindex="-1" href="#fig-SIR-graph-unlabeled" title="Copy heading and permalink for Figure 5.2" aria-label="Copy heading and permalink for Figure 5.2">🔗</a></div></figcaption>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Task 5.1.b"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic-4" title="Copy heading and permalink for Task 5.1.b" aria-label="Copy heading and permalink for Task 5.1.b">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exploration 5.1: Rise and Fall of an Epidemic"><a tabindex="-1" href="#expl-rise-and-fall-of-an-epidemic" title="Copy heading and permalink for Exploration 5.1: Rise and Fall of an Epidemic" aria-label="Copy heading and permalink for Exploration 5.1: Rise and Fall of an Epidemic">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#expl-rise-and-fall-of-an-epidemic">In Context</a></span>
 </body>
 </html>
