@@ -548,7 +548,7 @@
         To incorporate the idea of an entirely susceptible population, we refer back to our definition of <em>total population</em> <m>N(t)</m>, which appeared in <xref ref="activity-total-population"/>. In that activity, we showed that <m>N(t)</m> remains constant in this SIR model. We can therefore write <m>N(t)</m> more simply as <m>N</m>, since the value of <m>N</m> does not change over time.
       </p>
       <p>
-        We now have all the pieces we need to assemble a formula for <m>\mathcal{R}_0</m> in the SIR model <xref ref="eq-SIR-model-S"/>, <xref ref="eq-SIR-model-I"/>, and <xref ref="eq-SIR-model-R"/>:
+        We now have all the pieces we need to assemble a formula for <m>\mathcal{R}_0</m> in the SIR model <xref ref="eq-SIR-model-S"/>, <xref ref="eq-SIR-model-I"/>, and <xref ref="eq-SIR-model-R"/>:  
       </p>
       <p>
         <md number="yes" xml:id="eq-R0-sir">
