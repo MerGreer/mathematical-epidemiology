@@ -1,8 +1,6 @@
 <chapter xml:id="ch-vaccines" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>Vaccines</title>
-    
 
-    <introduction xml:id="intro-vaccines">
     <objectives>
       <ul>
         <li>
@@ -21,16 +19,15 @@
           </p>
         </li>
       </ul>
-    </objectives>
+    </objectives>    
 
+    <introduction xml:id="intro-vaccines">   
     <p>
       In the first few chapters of this text, we have introduced the basic <q>hows</q> for compartmental modeling, as well as a few of the <q>whys</q>. Now, we explore the <q>whys</q> even further.  
     </p>  
-
     <p>
       One of the most significant ways to use models is for trying and comparing possible public health strategies <em>in simulations</em> before actually carrying them out with real people. Professional-level models can be quite detailed and depend on large amounts of data, and compartmental models are just one of the many types of models implemented. In this chapter, we work with one commonly used strategy: vaccination.<fn>Vaccination is a widely used public health strategy. Yet the author of this text recognizes that reader thoughts on vaccines may vary for many reasons. As mentioned way back in the <q>To Students</q> preface, <q>I will not tell you how to think.</q> Instead, the goal of showing vaccines in models is to demonstrate some of the ways we can use models to try different scenarios. Readers can and should continue to think about their own ethics and experiences when interpreting and discussing models</fn> 
     </p>
-
     <p>
       Begin in <xref ref="expl-activity-vaccines"/> by adjusting the initial number of Susceptibles in a model, with the goal of reducing the occurrence of new infections.
     </p>
@@ -41,11 +38,13 @@
         <p>
           This exploration seeks to reduce the number of new infections in the SIR model from <xref ref="activity-introducing-units"/> by changing the initial numbers of people in the Susceptible and Removed compartments. For reference, here are the equations of the model:  
         </p>
-        <md>
-          <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
-          <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
-          <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-        </md>
+        <p>
+          <md>
+            <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+            <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
+            <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+          </md>.
+        </p>
         <p> 
           This change to the model reflects a concept we have observed in multiple chapters so far, from the Zombie Game to the definition of <m>\mathcal{R}_0</m> as applying to a population that is nearly entirely Susceptible. In these contexts, we have seen that as the number of Susceptible people falls over the course of an outbreak, the outbreak can slow down and eventually stop. We therefore try starting our model simulation by using the terms <m>p</m> and <m>(1-p)</m> to split the initial population across the S and R compartments.
         </p> 
@@ -101,20 +100,20 @@
             </output>
             </sage>
 
-          <ol>
-            <li>
-              <p>
-                Given the restriction that <m>0 \leq p \leq 1</m>, what is the range of possible values for the term <m>(1-p)</m>?
-              </p>
-            </li>
-            <li>
-              <p>
-                Notice that we set <m>S(0)=1999*(1-p)</m> and <m>R(0)=1999*p</m>. Try letting <m>p=0.2</m> and <m>p=0.5</m>. In each case, compute how many Susceptible and Removed people we would have at the start of the simulation. For each of these values of <m>p</m>, what is the value of <m>S(0)+R(0)</m>?
-              </p>
-            </li>              
-          </ol>
-
-          
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Given the restriction that <m>0 \leq p \leq 1</m>, what is the range of possible values for the term <m>(1-p)</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Notice that we set <m>S(0)=1999*(1-p)</m> and <m>R(0)=1999*p</m>. Try letting <m>p=0.2</m> and <m>p=0.5</m>. In each case, compute how many Susceptible and Removed people we would have at the start of the simulation. For each of these values of <m>p</m>, what is the value of <m>S(0)+R(0)</m>?
+                </p>
+              </li>              
+            </ol>
+          </p>
         </statement>
       </task>
 
@@ -123,23 +122,25 @@
           <p>
             These questions help us see trends in the model's behavior when we change <m>p</m>. Think logically and mathematically about your answers, and use the Python code freely to experiment with <m>p</m>. To see the full scope of model behavior as you change <m>p</m> in the SIR model, you may wish to change the time range, remove the <c>#</c> sign in lines 23 or 25 so you can see the graphs of the Susceptible or Removed populations, or make other changes to the code. 
           </p>
-        <ol>
-          <li>
-              <p>
-                Compared with starting the model with <m>S(0)=1999</m> and <m>R(0)=0</m>, what sorts of effects do you see when the value of <m>p</m> is relatively small, that is, <m>p</m> is just above <m>0</m>? In contrast, what sorts of effects do you see when the value of <m>p</m> is relatively large, that is, <m>p</m> is just below <m>1</m>?
-              </p>
-            </li>
-            <li>
-              <p>
-                What can you say about the boundary values of <m>p</m>? That is, what sorts of effects do you see on the SIR model when <m>p=0</m> or when <m>p=1</m>?
-              </p>
-            </li>
-            <li>
-              <p>
-                As the value of <m>p</m> increases from <m>0</m> to <m>1</m>, passing through several values in between, what observations can you make about the output of the SIR model?
-              </p>
-            </li>
-        </ol>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Compared with starting the model with <m>S(0)=1999</m> and <m>R(0)=0</m>, what sorts of effects do you see when the value of <m>p</m> is relatively small, that is, <m>p</m> is just above <m>0</m>? In contrast, what sorts of effects do you see when the value of <m>p</m> is relatively large, that is, <m>p</m> is just below <m>1</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What can you say about the boundary values of <m>p</m>? That is, what sorts of effects do you see on the SIR model when <m>p=0</m> or when <m>p=1</m>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  As the value of <m>p</m> increases from <m>0</m> to <m>1</m>, passing through several values in between, what observations can you make about the output of the SIR model?
+                </p>
+              </li>
+            </ol>
+          </p>
         </statement>
       </task>
       
@@ -160,29 +161,26 @@
         We cannot change the intrinsic value of <m>\mathcal{R}_0</m>, but with vaccination, we can work toward the goal of having <m>\mathcal{R}_{\text{eff}} \lt 1</m>. If <m>\mathcal{R}_{\text{eff}} \lt 1</m> in a model that includes vaccines or other public health interventions, then overall numbers of Infectious people do not rise over time. With a few lines of algebra, we can build a relationship between <m>\mathcal{R}_0</m>, <m>p</m>, and <m>\mathcal{R}_{\text{eff}}</m>. 
       </p> 
       <p>
-        First, we should state a definition for <m>p</m>. We define <m>p</m> to be the fraction of people vaccinated against a disease, noting that the values of <m>p</m> are therefore restricted to <m>0 \leq p \leq 1</m>, where <m>p=0</m> means no one is vaccinated, and <m>p=1</m> means <m>100\%</m> of the population is vaccinated. 
-        <!-- Initially, we will think of vaccination as being <m>100\%</m> effective. -->
-        <!-- <fn>In the last exercise of <xref ref="exercises-ch-vaccines"/>, we update our models to include vaccines that are less than <m>100\%</m> effective.</fn> -->
-        When the fraction <m>p</m> of people are vaccinated, the remaining fraction <m>(1-p)</m> are not vaccinated. Since <m>\mathcal{R}_0</m> refers to an entirely susceptible population, but only the fraction <m>(1-p)</m> of the population is susceptible, we see that the average number of new infections caused by one infectious person in the vaccinated population is <m>(1-p)\mathcal{R}_0</m>. In other words:
+        First, we should state a definition for <m>p</m>. We define <m>p</m> to be the fraction of people vaccinated against a disease, noting that the values of <m>p</m> are therefore restricted to <m>0 \leq p \leq 1</m>, where <m>p=0</m> means no one is vaccinated, and <m>p=1</m> means <m>100\%</m> of the population is vaccinated. When the fraction <m>p</m> of people are vaccinated, the remaining fraction <m>(1-p)</m> are not vaccinated. Since <m>\mathcal{R}_0</m> refers to an entirely susceptible population, but only the fraction <m>(1-p)</m> of the population is susceptible, we see that the average number of new infections caused by one infectious person in the vaccinated population is <m>(1-p)\mathcal{R}_0</m>. In other words:
       </p>      
       <p>
-        <mdn>
-          <mrow xml:id="eq-Reff-define">\mathcal{R}_{\text{eff}} \amp = (1-p)\mathcal{R}_0. </mrow>
-        </mdn>
+        <md number="yes" xml:id="eq-Reff-define">
+          \mathcal{R}_{\text{eff}} = (1-p)\mathcal{R}_0
+        </md>.
       </p>
       <p>
         Our goal in the next few mathematical steps is to use <xref ref="eq-Reff-define"/> to determine a value of <m>p</m> for which <m>\mathcal{R}_{\text{eff}} \lt 1</m>.<fn>The goal of <m>\mathcal{R}_{\text{eff}} \lt 1</m> was set out in the 1983 paper  <q>Parasitic Infections as Regulators of Animal Populations</q> by Robert M. May, published in <em>American Scientist</em> in the January-February issue. Additional details and explanation appear in the 1988 textbook <q>Mathematical Models in Biology</q> by Leah Edelstein-Keshet, published by McGraw-Hill.</fn> Such a value of <m>p</m> corresponds to a vaccination rate high enough that a disease cannot become an outbreak because <m>\mathcal{R}_{\text{eff}} \lt 1</m> means that the overall numbers in the Infectious population are not expected to rise. Read carefully through the following mathematical steps to see how this value of <m>p</m> is computed:
       </p>
-
-      <md>
-        <mrow> \mathcal{R}_{\text{eff}} \amp \lt 1 </mrow>
-        <mrow> (1-p)\mathcal{R}_0 \amp \lt 1 </mrow>
-        <mrow> \mathcal{R}_0 - p \mathcal{R}_0 \amp \lt 1 </mrow>
-        <mrow> p \mathcal{R}_0 \amp \gt \mathcal{R}_0 - 1 </mrow>
-        <mrow> p \amp \gt \frac{\mathcal{R}_0 - 1}{\mathcal{R}_0} </mrow>
-        <mrow>p \amp \gt 1- \frac{1}{\mathcal{R}_0}. </mrow>
-      </md>
-
+      <p>
+        <md>
+          <mrow> \mathcal{R}_{\text{eff}} \amp \lt 1 </mrow>
+          <mrow> (1-p)\mathcal{R}_0 \amp \lt 1 </mrow>
+          <mrow> \mathcal{R}_0 - p \mathcal{R}_0 \amp \lt 1 </mrow>
+          <mrow> p \mathcal{R}_0 \amp \gt \mathcal{R}_0 - 1 </mrow>
+          <mrow> p \amp \gt \frac{\mathcal{R}_0 - 1}{\mathcal{R}_0} </mrow>
+          <mrow>p \amp \gt 1- \frac{1}{\mathcal{R}_0} </mrow>
+        </md>.
+      </p>
       <p>
         In the lines above, we started with our goal of causing <m>\mathcal{R}_{\text{eff}}</m> to be less than one. We then made a substitution using <xref ref="eq-Reff-define"/> and rearranged algebraically until we found a formula showing values of <m>p</m> that satisfied our goal. Notice that to compute the next-to-last line, we divided by <m>\mathcal{R}_0</m> without changing the direction of the inequality, which assumed that <m>\mathcal{R}_0 \gt 0</m>. This assumption makes biological sense, and is important to point out mathematically, as biology and mathematics should support each other throughout the modeling process.        
       </p>
@@ -206,48 +204,46 @@
           <p>
             In this activity, we explore <m>p_{\text{crit}}</m> through the comparison of two historically widespread diseases: smallpox and measles.
           </p>
-          <ol>              
-            <li>
-              <p>
-                We begin by examining smallpox. Estimates for the value of <m>\mathcal{R}_0</m> for smallpox range from 3.5 to 6.<fn>Estimates that <m>\mathcal{R}_0 \approx 3.5-6</m> come from the paper <q>Transmission potential of smallpox in contemporary populations</q> by Raymond Gani and Steve Leach, published in the journal <em>Nature</em> on 13 December 2001.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for smallpox so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
-                <!-- Suppose that a <m>100\%</m> effective vaccine is available.  -->
-                What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a smallpox outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
-              </p>
-            </li>              
-            <li>
-              <p>
-                Next, we examine measles. Many estimates for the value of <m>\mathcal{R}_0</m> for measles range from 12 to 18.<fn>The paper <q>The basic reproduction number (R0) of measles: a systematic review</q>, by Fiona M Guerra, Shelly Bolotin, Gillian Lim, Jane Heffernan, Shelley L Deeks, Ye Li, and Natasha S Crowcroft, states that <m>\mathcal{R}_0</m> is often approximated as <m>12-18</m>, while also stating that the actual range of <m>\mathcal{R}_0</m> for measles varies even more. This paper was published in <em>The Lancet Infectious Diseases</em> on 27 July 2017.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for measles so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
-                <!-- Suppose that a <m>100\%</m> effective vaccine is available.  -->
-                What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a measles outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
-              </p>
-            </li>              
-            <li>
-              <p>
-                Smallpox has been eliminated: the last natural occurrence was in 1977, and in 1980, the World Health Organization stated that smallpox had been globally eradicated. Measles has not been eliminated: widespread vaccination has reduced cases drastically in many parts of the world, but measles continues to circulate. Given your results in parts 1 and 2 of this activity about the values of <m>p_{\text{crit}}</m> for smallpox and measles, write a few sentences about how the value of <m>\mathcal{R}_0</m> increases or decreases the feasibility of vaccinating enough people to eliminate a disease.   
-              </p>
-            </li>
-          </ol>
-          
+          <p>
+            <ol>              
+              <li>
+                <p>
+                  We begin by examining smallpox. Estimates for the value of <m>\mathcal{R}_0</m> for smallpox range from 3.5 to 6.<fn>Estimates that <m>\mathcal{R}_0 \approx 3.5-6</m> come from the paper <q>Transmission potential of smallpox in contemporary populations</q> by Raymond Gani and Steve Leach, published in the journal <em>Nature</em> on 13 December 2001.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for smallpox so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a smallpox outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
+                </p>
+              </li>              
+              <li>
+                <p>
+                  Next, we examine measles. Many estimates for the value of <m>\mathcal{R}_0</m> for measles range from 12 to 18.<fn>The paper <q>The basic reproduction number (R0) of measles: a systematic review</q>, by Fiona M Guerra, Shelly Bolotin, Gillian Lim, Jane Heffernan, Shelley L Deeks, Ye Li, and Natasha S Crowcroft, states that <m>\mathcal{R}_0</m> is often approximated as <m>12-18</m>, while also stating that the actual range of <m>\mathcal{R}_0</m> for measles varies even more. This paper was published in <em>The Lancet Infectious Diseases</em> on 27 July 2017.</fn> Given this range of <m>\mathcal{R}_0</m> values, what is the range of <m>p_{\text{crit}}</m> values required in order to reduce the value of <m>\mathcal{R}_{\text{eff}}</m> for measles so that <m>\mathcal{R}_{\text{eff}} \lt 1</m>? What percentage of people would need to be vaccinated, using the values of <m>p_{\text{crit}}</m> you computed, to prevent a measles outbreak, that is, to cause <m>\mathcal{R}_{\text{eff}} \lt 1</m>? 
+                </p>
+              </li>              
+              <li>
+                <p>
+                  Smallpox has been eliminated: the last natural occurrence was in 1977, and in 1980, the World Health Organization stated that smallpox had been globally eradicated. Measles has not been eliminated: widespread vaccination has reduced cases drastically in many parts of the world, but measles continues to circulate. Given your results in parts 1 and 2 of this activity about the values of <m>p_{\text{crit}}</m> for smallpox and measles, write a few sentences about how the value of <m>\mathcal{R}_0</m> increases or decreases the feasibility of vaccinating enough people to eliminate a disease.   
+                </p>
+              </li>
+            </ol>
+          </p>
         </statement>
         <answer>
-          <ol>
-            <li>
-              <p>
-                For smallpox, <m>0.71 \lt p_{\text{crit}} \lt 0.83</m>, meaning approximately <m>71\% - 83\%</m> of people need to be vaccinated to prevent an outbreak.
-              </p>
-            </li>
-            <li>
-              <p>
-                For measles, <m>0.92 \lt p_{\text{crit}} \lt 0.94</m>, meaning approximately <m>92\% - 94\%</m> of people need to be vaccinated to prevent an outbreak.
-              </p>
-            </li>
-            <li>
-              <p>
-                This is open-ended. A typical answer may state that higher values of <m>\mathcal{R}_0</m> mean we need higher levels of vaccination. Answers may also investigate the reasons why it becomes so much more difficult to achieve higher levels of vaccination, especially on a global scale.
-              </p>
-            </li>
-          </ol>
-          
+          <p>
+            <ol>
+              <li>
+                <p>
+                  For smallpox, <m>0.71 \lt p_{\text{crit}} \lt 0.83</m>, meaning approximately <m>71\% - 83\%</m> of people need to be vaccinated to prevent an outbreak.
+                </p>
+              </li>
+              <li>
+                <p>
+                  For measles, <m>0.92 \lt p_{\text{crit}} \lt 0.94</m>, meaning approximately <m>92\% - 94\%</m> of people need to be vaccinated to prevent an outbreak.
+                </p>
+              </li>
+              <li>
+                <p>
+                  This is open-ended. A typical answer may state that higher values of <m>\mathcal{R}_0</m> mean we need higher levels of vaccination. Answers may also investigate the reasons why it becomes so much more difficult to achieve higher levels of vaccination, especially on a global scale.
+                </p>
+              </li>
+            </ol>
+          </p>
         </answer>
       </activity>
 
@@ -269,11 +265,13 @@
           <p> 
             Investigate different outcomes for the following SIR model when the number of initial Susceptible and initial Removed people varies according to the value <m>p</m>, where <m>0 \leq p \leq 1</m>:  
           </p>
-          <md>
-            <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
-            <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
-            <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-          </md>
+          <p>
+            <md>
+              <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+              <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
+              <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+            </md>.
+          </p>
           <p>
             In the default Python code shown below, <m>\beta = 0.0003</m>, <m>\gamma = 0.3</m>, <m>p=0</m>, the initial population values are <m>S(0)=2999</m>, <m>I(0)=1</m>, and <m>R(0)=0</m>, and time runs from <m>t=0</m> to <m>t=50</m> days. When the value of <m>p</m> changes in line 16, then the initial values <m>S(0)</m> and <m>R(0)</m> change accordingly, with <m>S(0)=2999(1-p)</m> and <m>R(0)=2999p</m>.
           </p>
@@ -329,63 +327,66 @@
             </output>
           </sage>
 
-          <ol>              
-            <li>
-              <p>
-                When <m>p=0</m>, how many people get this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment, but was not there at the start, must have been sick at some time. We therefore subtract the initial number of people in the R compartment from the long-term value of <m>R(t)</m> to reach our answer. Also notice that we need to make sure to run the model long enough that <m>I(t)</m> becomes very close to <m>0</m>. Only then will long-term <m>R(t)</m> be evaluated at a large enough value of <m>t</m> for us to know the total number of people who become ill.  
-              </p> 
-              <p>
-                Observe that there is a difference in this question between the exact outcome of an outbreak ending with <m>0</m> infectious people and the approximated outcome of running the model simulation long enough for <m>I(t)</m> to get very close to <m>0</m>. Since the <m>I(t)</m> curve approaches <m>0</m> as an asymptote, we see when viewing the value of <m>I(t)</m> out to many decimal places that <m>I(t)</m> remains slightly above <m>0</m> for a long while.
-              </p>
-            </li>              
-            <li>
-              <p>
-                Compute the value <m>p_{\text{crit}}</m> for this model, showing your work. Then run the Python code above, replacing the value of <m>p</m> in line 16 with the value you computed for <m>p_{\text{crit}}</m>, and determine how many people get the illness at some point in time, according to this model, when <m>p=p_{\text{crit}}</m>. 
-              </p>
-              <p>
-                As part of your response, show how you determined the long-term value of <m>R(t)</m> by demonstrating at least three different estimates for <m>R(t)</m> at different values of <m>t</m>. For each of these estimates, state the value of <m>I(t)</m> as well, to give a sense of how small <m>I(t)</m> is becoming as you estimate the long-term total number of people in the Removed compartment.
-              </p>
-            </li>              
-            <li>
-              <p>
-                Now think about how many people from the S compartment get the illness, even though <m>p=p_{\text{crit}}</m>. To answer this, subtract the long-term value of <m>S(t)</m> from the initial value <m>S(0)</m>. (You may even wish to have Python do this for you: try adapting the <c>print</c> commands from code lines 22-30 to achieve this.) Notice that your answer tells you that that even when <m>\mathcal{R}_{\text{eff}} \approx 1</m>, it is possible that additional people can contract the illness being studied. However, the Infectious population curve <m>I(t)</m> does not rise: it instead appears as level or decreasing. 
-              </p>
-            </li>
-            <li>
-              <p>
-                Be sure to check, and be able to demonstrate to others, that the Infectious curve is truly not rising when <m>p=p_{\text{crit}}</m>. The default graph in the Python code for this activity makes it challenging to see the details of the <m>I(t)</m> curve because <m>S(0)</m> is so large relative to <m>I(0)</m>. To see <em>just</em> the <m>I(t)</m> curve, then, we can comment out the lines of code that show the <m>S(t)</m> and <m>R(t)</m> curves. Do this: place the symbol <c>#</c> at the start of each of those lines. Then evaluate the code and display a graph showing just the <m>I(t)</m> curve.
-              </p>
-            </li>
-          </ol>
+          <p>
+            <ol>              
+              <li>
+                <p>
+                  When <m>p=0</m>, how many people get this illness at some point in time, according to this model with its default values? To answer this: notice that everyone who reaches the R compartment, but was not there at the start, must have been sick at some time. We therefore subtract the initial number of people in the R compartment from the long-term value of <m>R(t)</m> to reach our answer. Also notice that we need to make sure to run the model long enough that <m>I(t)</m> becomes very close to <m>0</m>. Only then will long-term <m>R(t)</m> be evaluated at a large enough value of <m>t</m> for us to know the total number of people who become ill.  
+                </p> 
+                <p>
+                  Observe that there is a difference in this question between the exact outcome of an outbreak ending with <m>0</m> infectious people and the approximated outcome of running the model simulation long enough for <m>I(t)</m> to get very close to <m>0</m>. Since the <m>I(t)</m> curve approaches <m>0</m> as an asymptote, we see when viewing the value of <m>I(t)</m> out to many decimal places that <m>I(t)</m> remains slightly above <m>0</m> for a long while.
+                </p>
+              </li>              
+              <li>
+                <p>
+                  Compute the value <m>p_{\text{crit}}</m> for this model, showing your work. Then run the Python code above, replacing the value of <m>p</m> in line 16 with the value you computed for <m>p_{\text{crit}}</m>, and determine how many people get the illness at some point in time, according to this model, when <m>p=p_{\text{crit}}</m>. 
+                </p>
+                <p>
+                  As part of your response, show how you determined the long-term value of <m>R(t)</m> by demonstrating at least three different estimates for <m>R(t)</m> at different values of <m>t</m>. For each of these estimates, state the value of <m>I(t)</m> as well, to give a sense of how small <m>I(t)</m> is becoming as you estimate the long-term total number of people in the Removed compartment.
+                </p>
+              </li>              
+              <li>
+                <p>
+                  Now think about how many people from the S compartment get the illness, even though <m>p=p_{\text{crit}}</m>. To answer this, subtract the long-term value of <m>S(t)</m> from the initial value <m>S(0)</m>. (You may even wish to have Python do this for you: try adapting the <c>print</c> commands from code lines 22-30 to achieve this.) Notice that your answer tells you that that even when <m>\mathcal{R}_{\text{eff}} \approx 1</m>, it is possible that additional people can contract the illness being studied. However, the Infectious population curve <m>I(t)</m> does not rise: it instead appears as level or decreasing. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Be sure to check, and be able to demonstrate to others, that the Infectious curve is truly not rising when <m>p=p_{\text{crit}}</m>. The default graph in the Python code for this activity makes it challenging to see the details of the <m>I(t)</m> curve because <m>S(0)</m> is so large relative to <m>I(0)</m>. To see <em>just</em> the <m>I(t)</m> curve, then, we can comment out the lines of code that show the <m>S(t)</m> and <m>R(t)</m> curves. Do this: place the symbol <c>#</c> at the start of each of those lines. Then evaluate the code and display a graph showing just the <m>I(t)</m> curve.
+                </p>
+              </li>
+            </ol>
+          </p>
           
         </statement>
         <answer>
-          <ol>
-            <li>
-              <p>
-                The given Python model, with <m>p=0</m>, says the long-term value of <m>R(t)</m> is <m>2821</m>, and we have set the initial value <m>R(0)</m> to equal <m>0</m>. At <m>t=50</m>, the value of <m>I(t)</m> is approximately <m>0.326</m>, so it is a good idea to let the simulation run longer to see how much <m>R(t)</m> is still changing. We therefore increase the value <c>50.0</c> in line 18. Trying <m>t=100</m>, we see that <m>I(100) \approx 1.45 \times 10^{-6}</m>, which is a quite small value for <m>I(t)</m>. At this time, <m>R(100)=2822</m>. We therefore estimate that <m>2822</m> total people get this illness.
-              </p>
-              <p>
-                It is worth mentioning that there may be different estimated values for the number of people who get an illness, due to using different lengths of time for running the model simulation. There is not a universal standard for the length of the simulation's time span, or for what value of <m>I(t)</m> is considered <q>close enough</q> to zero. It is therefore helpful and important to state the start and end times used, along with other information about how you, as a modeler, believe you have determined a solid estimate.
-              </p>
-            </li>
-            <li>
-              <p>
-                The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>, using <xref ref="eq-R0-sir"/> to compute <m>\mathcal{R}_0</m> and then <xref ref="eq-pcrit"/> to compute <m>p_{\text{crit}}</m>. One option is to approximate <m>p_{\text{crit}}</m> as <m>0.67</m>. The initial value <m>R(0)=2009</m> means 2009 people start in the Removed compartment, due to being vaccinated. Making the value of <m>t</m> larger may lead to estimates larger than 2040 for the long-term value of <m>R(t)</m>. Using one such estimate: if there are 2045 people eventually in the R compartment, then <m>2045-2009=36</m> people got the illness. (Your answer should include at least three values of <m>t</m> and <m>R(t)</m>, which will help to show a trend of how <m>R(t)</m> changes as <m>t</m> becomes larger.)
-              </p>
-            </li>
-            <li>
-              <p>
-                In a model simulation where <m>R(0)=2009</m>, we see that <m>S(0)=990</m>. Carrying out this simulation long enough that the long-term value <m>R(t)</m> is <m>2045</m>, we see that the long-term value of <m>S(t)</m> is <m>955</m>. This means that <m>990-955=35</m> people began in the S compartment but did not stay there. In other words, 35 people acquired the illness.
-              </p>
-            </li>
-            <li>
-              <p>
-                The first and third lines after <c>#Plotting commands are below</c> should be commented out, that is, the symbol <c>#</c> should be placed at the start of lines 33 and 35. Then run the code block again to produce just the <m>I(t)</m> graph. 
-              </p>
-            </li>
-          </ol>
-          
+          <p>
+            <ol>
+              <li>
+                <p>
+                  The given Python model, with <m>p=0</m>, says the long-term value of <m>R(t)</m> is <m>2821</m>, and we have set the initial value <m>R(0)</m> to equal <m>0</m>. At <m>t=50</m>, the value of <m>I(t)</m> is approximately <m>0.326</m>, so it is a good idea to let the simulation run longer to see how much <m>R(t)</m> is still changing. We therefore increase the value <c>50.0</c> in line 18. Trying <m>t=100</m>, we see that <m>I(100) \approx 1.45 \times 10^{-6}</m>, which is a quite small value for <m>I(t)</m>. At this time, <m>R(100)=2822</m>. We therefore estimate that <m>2822</m> total people get this illness.
+                </p>
+                <p>
+                  It is worth mentioning that there may be different estimated values for the number of people who get an illness, due to using different lengths of time for running the model simulation. There is not a universal standard for the length of the simulation's time span, or for what value of <m>I(t)</m> is considered <q>close enough</q> to zero. It is therefore helpful and important to state the start and end times used, along with other information about how you, as a modeler, believe you have determined a solid estimate.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The value of <m>p_{\text{crit}}</m> is <m>0.\overline{6}</m>, using <xref ref="eq-R0-sir"/> to compute <m>\mathcal{R}_0</m> and then <xref ref="eq-pcrit"/> to compute <m>p_{\text{crit}}</m>. One option is to approximate <m>p_{\text{crit}}</m> as <m>0.67</m>. The initial value <m>R(0)=2009</m> means 2009 people start in the Removed compartment, due to being vaccinated. Making the value of <m>t</m> larger may lead to estimates larger than 2040 for the long-term value of <m>R(t)</m>. Using one such estimate: if there are 2045 people eventually in the R compartment, then <m>2045-2009=36</m> people got the illness. (Your answer should include at least three values of <m>t</m> and <m>R(t)</m>, which will help to show a trend of how <m>R(t)</m> changes as <m>t</m> becomes larger.)
+                </p>
+              </li>
+              <li>
+                <p>
+                  In a model simulation where <m>R(0)=2009</m>, we see that <m>S(0)=990</m>. Carrying out this simulation long enough that the long-term value <m>R(t)</m> is <m>2045</m>, we see that the long-term value of <m>S(t)</m> is <m>955</m>. This means that <m>990-955=35</m> people began in the S compartment but did not stay there. In other words, 35 people acquired the illness.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The first and third lines after <c>#Plotting commands are below</c> should be commented out, that is, the symbol <c>#</c> should be placed at the start of lines 33 and 35. Then run the code block again to produce just the <m>I(t)</m> graph. 
+                </p>
+              </li>
+            </ol>
+          </p>
         </answer>
       </activity>
 
@@ -456,12 +457,14 @@
               </latex-image>
             </image>
           </figure>
-          <md>
-            <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
-            <mrow>\frac{dV}{dt} \amp = - \beta_V V I</mrow>
-            <mrow>\frac{dI}{dt} \amp =  \beta S I + \beta_V V I - \gamma I </mrow>
-            <mrow>\frac{dR}{dt} \amp = \gamma I. </mrow>
-          </md>
+          <p>
+            <md>
+              <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+              <mrow>\frac{dV}{dt} \amp = - \beta_V V I</mrow>
+              <mrow>\frac{dI}{dt} \amp =  \beta S I + \beta_V V I - \gamma I </mrow>
+              <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+            </md>.
+          </p>
           <p>
             You will notice that this model has four compartments. The Infectious and Removed compartments are similar to those we have worked with before, such as in <xref ref="ch-compartmental-diagrams"/> and <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>. The Susceptibles compartment now includes everyone who could become sick <em>and has not been vaccinated</em>. The Vaccinated compartment includes everyone who could become sick <em>but has been vaccinated</em>. This model can be used to represent outcomes with a vaccine that reduces the risk of becoming Infectious but does not completely prevent infection.  
           </p>
@@ -517,67 +520,72 @@
             </output>
           </sage>
 
-          <ol>              
-            <li>
-              <p>
-                First, take time to explore with the model. 
-                <ol>
-                  <li>
-                    <p>
-                      The default Python code uses a total population of <m>6001</m>, split into <m>S(0)=3000</m> initial Susceptibles, <m>V(0)=3000</m> initial Vaccinated, and <m>I(0)=1</m> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings using tables and/or graphs.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      The default Python code sets <m>\beta = 0.0002</m> and <m>\beta_V = 0.0001</m>, making <m>\beta_V</m> equal to half the value of <m>\beta</m>. Try different relationships between <m>\beta</m> and <m>\beta_V</m>. (It is a good idea to keep <m>\beta_V \lt \beta</m>, as vaccination leads to a smaller chance of becoming infected.) Make planned and systematic changes to these parameter values, and report your findings using tables and/or graphs.
-                    </p>
-                  </li>
-                </ol>
-              </p> 
-            </li>              
-            <li>
-              <p>
-                Next, explore the concept of a <em>control reproduction number</em>, which we can label <m>\mathcal{R}_c</m>. Whereas the basic reproduction number <m>\mathcal{R}_0</m> supposes we have one Infectious person, and everyone else Susceptible, the control reproduction number <m>\mathcal{R}_c</m> supposes we have attempted to control the outbreak to some extent, such as by vaccination or other public health measures.   
-              </p>
-              <p>
-                For the SVIR model in <xref ref="fig-SVIR-compartmental-diagram"/>, the formula for <m>\mathcal{R}_c</m> is
-              </p>
-              <mdn>
-                <mrow xml:id="eq-Rc-define">\mathcal{R}_c \amp = \frac{\beta S(0) + \beta_V V(0)}{\gamma} . </mrow>
-              </mdn>
-              <p>
-                By contrast, the basic reproduction number for this model is the same as for the SIR model without vaccination, that is, <m>\mathcal{R}_0=\beta N / \gamma</m>, where <m>N</m> represents the total population, and we assume no vaccination occurs.
-              </p>
-              <p>
-                Develop some scenarios in which <m>\mathcal{R}_0</m> would be larger than 1, yet due to vaccination, <m>\mathcal{R}_c \lt 1</m>. Report on your findings for long-term outcomes in each case, using tables and/or graphs.
-              </p>
-            </li> 
-          </ol>
+          <p>
+            <ol>              
+              <li>
+                <p>
+                  First, take time to explore with the model. 
+                  <ol>
+                    <li>
+                      <p>
+                        The default Python code uses a total population of <m>6001</m>, split into <m>S(0)=3000</m> initial Susceptibles, <m>V(0)=3000</m> initial Vaccinated, and <m>I(0)=1</m> initial Infectious. Try distributing the initial numbers of Susceptible and Vaccinated people in different ways. Make planned and systematic changes to these initial values, and report your findings using tables and/or graphs.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        The default Python code sets <m>\beta = 0.0002</m> and <m>\beta_V = 0.0001</m>, making <m>\beta_V</m> equal to half the value of <m>\beta</m>. Try different relationships between <m>\beta</m> and <m>\beta_V</m>. (It is a good idea to keep <m>\beta_V \lt \beta</m>, as vaccination leads to a smaller chance of becoming infected.) Make planned and systematic changes to these parameter values, and report your findings using tables and/or graphs.
+                      </p>
+                    </li>
+                  </ol>
+                </p> 
+              </li>              
+              <li>
+                <p>
+                  Next, explore the concept of a <em>control reproduction number</em>, which we can label <m>\mathcal{R}_c</m>. Whereas the basic reproduction number <m>\mathcal{R}_0</m> supposes we have one Infectious person, and everyone else Susceptible, the control reproduction number <m>\mathcal{R}_c</m> supposes we have attempted to control the outbreak to some extent, such as by vaccination or other public health measures.   
+                </p>
+                <p>
+                  For the SVIR model in <xref ref="fig-SVIR-compartmental-diagram"/>, the formula for <m>\mathcal{R}_c</m> is
+                </p>
+                <p>
+                  <md number="yes" xml:id="eq-Rc-define">
+                    \mathcal{R}_c = \frac{\beta S(0) + \beta_V V(0)}{\gamma} 
+                  </md>.
+                </p>
+                <p>
+                  By contrast, the basic reproduction number for this model is the same as for the SIR model without vaccination, that is, <m>\mathcal{R}_0=\beta N / \gamma</m>, where <m>N</m> represents the total population, and we assume no vaccination occurs.
+                </p>
+                <p>
+                  Develop some scenarios in which <m>\mathcal{R}_0</m> would be larger than 1, yet due to vaccination, <m>\mathcal{R}_c \lt 1</m>. Report on your findings for long-term outcomes in each case, using tables and/or graphs.
+                </p>
+              </li> 
+            </ol>
+          </p>
           
         </statement>
         <hint>
-          <ol>
-            <li>
-              <ol>
-                <li>
-                  <p>
-                    This is an open-ended question. As you work through it, think about how to be systematic. This could involve putting specific percentages of the initial population into <m>V(0)</m>, such as <m>50\%</m>, <m>75\%</m>, <m>90\%</m>, <m>95\%</m>, and <m>99\%</m>, and listing long-term outcomes in the form of a table of values and/or as graphs. There can be other approaches as well.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    This, too, is an open-ended question that will be helped by a systematic approach. One idea is to set <m>\beta_V = 0.5\beta</m>, <m>\beta_V = 0.25\beta</m>, <m>\beta_V = 0.1\beta</m>, and so on, and then to display the resulting long-term outcomes in a table of values and/or as graphs. This is just one of many ways to explore combinations of the values of <m>\beta</m> and <m>\beta_V</m>.
-                  </p>
-                </li>
-              </ol>
-            </li>
-            <li>
-              <p>
-                This exercise is set up so that the default values of <m>\beta</m>, <m>\gamma</m>, and <m>N</m> cause <m>\mathcal{R}_0</m> to be larger than 1. Compute this value of <m>\mathcal{R}_0</m> and then, by changing <m>\beta_V</m> and the model's initial conditions <m>S(0)</m> and <m>V(0)</m>, create multiple ways to ensure <m>\mathcal{R}_c \lt 1</m>. Display long-term results as a table of values and/or as graphs.  
-              </p>
-            </li>
-          </ol>
-          
+          <p>
+            <ol>
+              <li>
+                <ol>
+                  <li>
+                    <p>
+                      This is an open-ended question. As you work through it, think about how to be systematic. This could involve putting specific percentages of the initial population into <m>V(0)</m>, such as <m>50\%</m>, <m>75\%</m>, <m>90\%</m>, <m>95\%</m>, and <m>99\%</m>, and listing long-term outcomes in the form of a table of values and/or as graphs. There can be other approaches as well.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      This, too, is an open-ended question that will be helped by a systematic approach. One idea is to set <m>\beta_V = 0.5\beta</m>, <m>\beta_V = 0.25\beta</m>, <m>\beta_V = 0.1\beta</m>, and so on, and then to display the resulting long-term outcomes in a table of values and/or as graphs. This is just one of many ways to explore combinations of the values of <m>\beta</m> and <m>\beta_V</m>.
+                    </p>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <p>
+                  This exercise is set up so that the default values of <m>\beta</m>, <m>\gamma</m>, and <m>N</m> cause <m>\mathcal{R}_0</m> to be larger than 1. Compute this value of <m>\mathcal{R}_0</m> and then, by changing <m>\beta_V</m> and the model's initial conditions <m>S(0)</m> and <m>V(0)</m>, create multiple ways to ensure <m>\mathcal{R}_c \lt 1</m>. Display long-term results as a table of values and/or as graphs.  
+                </p>
+              </li>
+            </ol>
+          </p>
         </hint>
       </activity>
 
@@ -599,72 +607,75 @@
         </p> 
         <p>
           Measles lends itself to especially demonstrative mathematical models for two reasons: (1) measles is exceptionally contagious, and (2) the vaccine for measles has very high efficacy and effectiveness, with immunity that lasts a lifetime. 
-          <!-- In our modeling for this exercise, we will think of the measles vaccine as being <m>100\%</m> effective. (In reality, two doses of measles vaccine are about <m>97\%</m> effective. Exercise 3 in this section shows how to model both effectiveness and the level of vaccination across a population.) -->
-        </p>  
-        <ol>
-          <li>
-            <p>
-              As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is contagious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>The length of contagion comes from the World Health Organization (WHO) <url href="https://www.who.int/news-room/fact-sheets/detail/measles">fact sheet on measles</url>, last accessed July 2026.</fn> For this reason, set <m>\gamma = 1/8</m>. Let us suppose this outbreak occurs in a small, close-knit community of 500 people, where some percentage <m>p</m> of people have been vaccinated and one person initially has the measles. Therefore <m>S(0)=499(1-p)</m>, <m>I(0)=1</m>, <m>R(0)=499p</m>. Set up an SIR model, as shown below, for this outbreak:
-            </p>              
-            <md>
-              <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
-              <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
-              <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
-            </md>
-            <p>
-              Compute all parameter values for the model, using the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute the value of <m>\beta</m> for this model. 
-              <!-- Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<m>p=0</m>), and what happens if everyone in the community is vaccinated (<m>p=1</m>)? -->
-               <!-- If including edge cases: state how many people, total, got sick. -->
-            </p>
-          </li>
-          <li>
-            <p>
-              Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<m>p=0</m>), and what happens if everyone in the community is vaccinated (<m>p=1</m>)? Determine how many people ultimately get measles in each modeling scenario. Indicate, also, how much time the model needs to run in order to determine how many people get measles in each scenario. The model may need to run for different lengths of time at different vaccination levels.
-            </p>            
-            <p>
-              Notice that there is not a unique answer to how long to run the model. Different people may use different final times. The key here is to demonstrate your process for determining a final time. Your process should include supporting the values you compute as long-term outcomes by showing evidence that the simulation values are not changing dramatically after the amount of time you have run the simulation.
-            </p>
-          </li>
-          <li>
-            <p>
-              Now investigate varying levels of vaccination. What happens if <m>p=.25</m>, <m>p=.5</m>, <m>p=.75</m>, or <m>p=.9</m>? Determine long-term outcomes in each case, that is, determine how many people ultimately get measles in each modeling scenario. Indicate, also, how much time the model needs to run in order to determine how many people get measles in each scenario. The model may need to run longer when a greater percentage of the population is vaccinated.
-            </p>
-          </li> 
-        </ol>       
+        </p> 
+        <p>
+          <ol>
+            <li>
+              <p>
+                As described in <xref ref="activity-pcrit"/>, the value of <m>\mathcal{R}_0</m> for measles is approximately 12 to 18. Let's suppose a specific outbreak of measles has <m>\mathcal{R}_0 = 15</m>. The CDC says that measles is contagious from four days before symptoms appear until four days after, meaning about 8 total days.<fn>The length of contagion comes from the World Health Organization (WHO) <url href="https://www.who.int/news-room/fact-sheets/detail/measles">fact sheet on measles</url>, last accessed July 2026.</fn> For this reason, set <m>\gamma = 1/8</m>. Let us suppose this outbreak occurs in a small, close-knit community of 500 people, where some percentage <m>p</m> of people have been vaccinated and one person initially has the measles. Therefore <m>S(0)=499(1-p)</m>, <m>I(0)=1</m>, <m>R(0)=499p</m>. Set up an SIR model, as shown below, for this outbreak:
+              </p> 
+              <p>
+                <md>
+                  <mrow>\frac{dS}{dt} \amp = - \beta S I </mrow>
+                  <mrow>\frac{dI}{dt} \amp =  \beta S I - \gamma I </mrow>
+                  <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+                </md>.
+              </p>             
+              <p>
+                Compute all parameter values for the model, using the information provided in this exercise, along with equation <xref ref="eq-R0-sir"/>, to compute the value of <m>\beta</m> for this model. 
+              </p>
+            </li>
+            <li>
+              <p>
+                Use your model to test the edge cases of vaccination: what happens to the population if there is no vaccination at all (<m>p=0</m>), and what happens if everyone in the community is vaccinated (<m>p=1</m>)? Determine how many people ultimately get measles in each modeling scenario. Indicate, also, how much time the model needs to run in order to determine how many people get measles in each scenario. The model may need to run for different lengths of time at different vaccination levels.
+              </p>            
+              <p>
+                Notice that there is not a unique answer to how long to run the model. Different people may use different final times. The key here is to demonstrate your process for determining a final time. Your process should include supporting the values you compute as long-term outcomes by showing evidence that the simulation values are not changing dramatically after the amount of time you have run the simulation.
+              </p>
+            </li>
+            <li>
+              <p>
+                Now investigate varying levels of vaccination. What happens if <m>p=.25</m>, <m>p=.5</m>, <m>p=.75</m>, or <m>p=.9</m>? Determine long-term outcomes in each case, that is, determine how many people ultimately get measles in each modeling scenario. Indicate, also, how much time the model needs to run in order to determine how many people get measles in each scenario. The model may need to run longer when a greater percentage of the population is vaccinated.
+              </p>
+            </li> 
+          </ol>
+        </p>      
       </exercise>
 
       <exercise number="2">
         <p>
           Explore further the measles model from For Further Thought, Exercise 1, in this chapter. Use the same values for <m>\mathcal{R}_0</m>, <m>\gamma</m>, and <m>\beta</m> as you computed in Exercise 1. Use the same system of differential equations as well, and continue to set <m>S(0)=499(1-p)</m>, <m>I(0)=1</m>, <m>R(0)=499p</m>.
-        </p>   
-        <ol>
-          <li> 
-            <p>
-              As of 2023 in the U.S., the percentage of children in kindergarten who had received two doses of measles vaccine was <m>92.7\%</m>.<fn>This vaccination statistic comes from the World Health Organization (WHO) page <url href="https://www.who.int/emergencies/disease-outbreak-news/item/2025-DON561">Measles - United States of America</url>, last accessed July 2026.</fn> At this vaccination level, how many people will get measles in the long run, according to your model? 
-            </p>
-            <p>
-              Be sure to run your model long enough that the number of Infectious people has dropped very close to <m>0</m>, so that the long-term number of people in the Removed compartment seems to remain constant. 
-            </p>
-          </li>            
-          <li>
-            <p>
-              Compute <m>p_{\text{crit}}</m> for this model of measles, showing your steps. Simulate the model using at least two values of <m>p</m> above <m>p_{\text{crit}}</m> and at least two values of <m>p</m> below <m>p_{\text{crit}}</m>. (Be sure that all values of <m>p</m> are between <m>0</m> and <m>1</m>.) For each value of <m>p</m> comment on the number of people who begin in the S compartment and remain in the S compartment after the number of Infectious people has dropped to zero (or very close to zero in a simulation).  
-            </p>
-          </li>
-          <li>
-            <p>
-              At each value of <m>p</m> for which you simulated the model in part (b), compute the fraction of the initial Susceptible population that acquires the illness. To do this, first determine how many of the initial Susceptible population eventually got the illness by subtracting the long-term number of Susceptibles from the initial number of Susceptibles, and then divide by the initial number of Susceptible people. Here is a formula to help you do this:
-              <md>
-                <mrow>\frac{S(0)- \mbox{Long term number of Susceptibles}}{S(0)} . </mrow>
-              </md>
-            </p>
-          </li>
-          <li>
-            <p>
-              Write about your results when changing the vaccination rate. Describe how much the number of measles cases, or the fraction of people who get measles, can change in response to what may appear to be small changes in the vaccination rate, especially when the vaccination rate is close to the value of <m>p_{\text{crit}}</m>.
-            </p>
-          </li>
-        </ol>       
+        </p> 
+        <p>
+          <ol>
+            <li> 
+              <p>
+                As of 2023 in the U.S., the percentage of children in kindergarten who had received two doses of measles vaccine was <m>92.7\%</m>.<fn>This vaccination statistic comes from the World Health Organization (WHO) page <url href="https://www.who.int/emergencies/disease-outbreak-news/item/2025-DON561">Measles - United States of America</url>, last accessed July 2026.</fn> At this vaccination level, how many people will get measles in the long run, according to your model? 
+              </p>
+              <p>
+                Be sure to run your model long enough that the number of Infectious people has dropped very close to <m>0</m>, so that the long-term number of people in the Removed compartment seems to remain constant. 
+              </p>
+            </li>            
+            <li>
+              <p>
+                Compute <m>p_{\text{crit}}</m> for this model of measles, showing your steps. Simulate the model using at least two values of <m>p</m> above <m>p_{\text{crit}}</m> and at least two values of <m>p</m> below <m>p_{\text{crit}}</m>. (Be sure that all values of <m>p</m> are between <m>0</m> and <m>1</m>.) For each value of <m>p</m> comment on the number of people who begin in the S compartment and remain in the S compartment after the number of Infectious people has dropped to zero (or very close to zero in a simulation).  
+              </p>
+            </li>
+            <li>
+              <p>
+                At each value of <m>p</m> for which you simulated the model in part (b), compute the fraction of the initial Susceptible population that acquires the illness. To do this, first determine how many of the initial Susceptible population eventually got the illness by subtracting the long-term number of Susceptibles from the initial number of Susceptibles, and then divide by the initial number of Susceptible people. Here is a formula to help you do this:
+                  <md>
+                    \frac{S(0)- \mbox{Long term number of Susceptibles}}{S(0)} 
+                  </md>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Write about your results when changing the vaccination rate. Describe how much the number of measles cases, or the fraction of people who get measles, can change in response to what may appear to be small changes in the vaccination rate, especially when the vaccination rate is close to the value of <m>p_{\text{crit}}</m>.
+              </p>
+            </li>
+          </ol> 
+        </p>        
       </exercise> 
       
       <exercise number="3">
@@ -675,70 +686,74 @@
           <li>
             <p>
               The formula for vaccine effectiveness requires computing the attack rate for both the vaccinated and unvaccinated populations. The <term>attack rate</term> is the proportion of a population of a population that contracts an illness within a specified time range.<fn>One place to find this formula is through the archive of the <url href="https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson3/section2.html">Centers for Disease Control and Prevention</url>, last accessed July 2026.</fn> For our purposes in this question, we define two attack rates. The first is the Susceptible Attack Rate, abbreviated SAR:
-              <md>
-                <mrow>\mbox{SAR } = \frac{\mbox{Number of new cases among Susceptibles during an outbreak}}{\mbox{Number of Susceptibles at the start of the outbreak}}. </mrow>
-              </md> 
+                <md>
+                  \mbox{SAR } = \frac{\mbox{Number of new cases among Susceptibles during an outbreak}}{\mbox{Number of Susceptibles at the start of the outbreak}}
+                </md>.
               The second is the Vaccinated Attack Rate, abbreviated VAR:
-              <md>
-                <mrow>\mbox{VAR } = \frac{\mbox{Number of new cases among Vaccinated during an outbreak}}{\mbox{Number of Vaccinated at the start of the outbreak}}. </mrow>
-              </md> 
+                <md>
+                  \mbox{VAR } = \frac{\mbox{Number of new cases among Vaccinated during an outbreak}}{\mbox{Number of Vaccinated at the start of the outbreak}}
+                </md>.
             </p>
             <p>
-              As one example, using the default Python code in <xref ref="activity-vaccine-effectiveness"/>, we compute  
-              <md>
-                <mrow>\mbox{SAR } = \frac{3000-80}{3000} = \frac{2920}{3000} \approx 0.973 </mrow>
-              </md> 
+              As one example, using the default Python code in <xref ref="activity-vaccine-effectiveness"/>, we compute
+                <md>
+                  \mbox{SAR } = \frac{3000-80}{3000} = \frac{2920}{3000} \approx 0.973 
+                </md> 
               and 
-              <md>
-                <mrow>\mbox{VAR } = \frac{3000-491}{3000} = \frac{2509}{3000} \approx 0.837 .</mrow>
-              </md>
+                <md>
+                  \mbox{VAR } = \frac{3000-491}{3000} = \frac{2509}{3000} \approx 0.837 
+                </md>
               This means that about <m>97.3\%</m> of Susceptibles get the measles in this scenario, compared with about <m>83.7\%</m> of Vaccinated individuals.
             </p>
             <p>
               Compute SAR and VAR in the measles model from <xref ref="activity-vaccine-effectiveness"/>, in the following two situations.
             </p>
-            <ol>
-              <li>
-                <p>
-                  First, let <m>S(0)=V(0)=3000</m>, <m>\beta=0.0002</m>, and <m>\beta_V=(1-0.97)\beta = 0.03\beta</m>. That is, <m>\beta_V</m> in this exercise is only 3% of the default <m>\beta_V</m> value in <xref ref="activity-vaccine-effectiveness"/>, trying to build into the model the idea that the measles vaccine is 97% effective.
-                </p>
-                <p>
-                  Comment on the resulting values for SAR and VAR. How do these values differ from those computed in the example above, with the default parameters and initial values in <xref ref="activity-vaccine-effectiveness"/>? Include a comment about the change in SAR, even though the values of <m>\beta </m> and <m>S(0)</m> have not changed.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Next, use the formula for <m>\mathcal{R}_c</m> in <xref ref="eq-Rc-define"/> to develop a combination of values of <m>\beta</m>, <m>\beta_V</m>, <m>S(0)</m>, and <m>V(0)</m> for which <m>\mathcal{R}_c \lt 1</m>. Do not change <m>\gamma</m>. Run the model from <xref ref="activity-vaccine-effectiveness"/> using the values you have determined, and compute the resulting SAR and VAR. Comment on your results.               
-                </p>
-              </li>
-            </ol>
+            <p>
+              <ol>
+                <li>
+                  <p>
+                    First, let <m>S(0)=V(0)=3000</m>, <m>\beta=0.0002</m>, and <m>\beta_V=(1-0.97)\beta = 0.03\beta</m>. That is, <m>\beta_V</m> in this exercise is only 3% of the default <m>\beta_V</m> value in <xref ref="activity-vaccine-effectiveness"/>, trying to build into the model the idea that the measles vaccine is 97% effective.
+                  </p>
+                  <p>
+                    Comment on the resulting values for SAR and VAR. How do these values differ from those computed in the example above, with the default parameters and initial values in <xref ref="activity-vaccine-effectiveness"/>? Include a comment about the change in SAR, even though the values of <m>\beta </m> and <m>S(0)</m> have not changed.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Next, use the formula for <m>\mathcal{R}_c</m> in <xref ref="eq-Rc-define"/> to develop a combination of values of <m>\beta</m>, <m>\beta_V</m>, <m>S(0)</m>, and <m>V(0)</m> for which <m>\mathcal{R}_c \lt 1</m>. Do not change <m>\gamma</m>. Run the model from <xref ref="activity-vaccine-effectiveness"/> using the values you have determined, and compute the resulting SAR and VAR. Comment on your results.               
+                  </p>
+                </li>
+              </ol>
+            </p>
           </li>            
           <li>
             <p>
               Now, you will compute vaccine effectiveness for the measles model in each of the scenarios you developed in part (a). Rewording our definition of effectiveness from earlier in <xref ref="sec-vaccine-efficacy-and-effectiveness"/>, vaccine effectiveness measures the percentage by which the attack rate is reduced in the vaccinated population, when compared with the attack rate in the unvaccinated population.<fn><url href="https://medicalguidelines.msf.org/en/viewport/mme/english/7-6-vaccine-effectiveness-32408146.html">M&#233;decins Sans Fronti&#232;res</url>, also known as Doctors Without Borders, provides a nice description of vaccine effectiveness, along with information about how to compute its value. Last accessed July 2026.</fn> In our model, then, the formula for vaccine effectiveness (abbreviated VE) is:  
-              <md>
-                <mrow>\mbox{VE } = \frac{\mbox{SAR } - \mbox{ VAR}}{\mbox{SAR}} .</mrow>
-              </md>  
+                <md>
+                  \mbox{VE } = \frac{\mbox{SAR } - \mbox{ VAR}}{\mbox{SAR}} 
+                </md>.
             </p>
             <p>
               Continuing the example from part (a), using the default Python code in <xref ref="activity-vaccine-effectiveness"/>, we compute  
-              <md>
-                <mrow>\mbox{VE } = \frac{0.973-0.837}{0.973} \approx 0.14 .</mrow>
-              </md> 
+                <md>
+                  \mbox{VE } = \frac{0.973-0.837}{0.973} \approx 0.14 
+                </md>.
               This means that vaccine effectiveness is about <m>14\%</m> in this case.
             </p>
-            <ol>
-              <li>
-                <p>
-                  Now compute vaccine effectiveness for each of the other sets of parameter values you worked with in part (a). You can use the values of SAR and VAR that you have already computed.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Write comments on your results. Include a comment on the actual vaccine effectiveness (VE) value you compute in part (a)(i) when <m>\beta_V = 0.03\beta</m>, compared with the idea of trying to build 97% vaccine effectiveness into the model from the start.
-                </p>
-              </li>
-            </ol>
+            <p>
+              <ol>
+                <li>
+                  <p>
+                    Now compute vaccine effectiveness for each of the other sets of parameter values you worked with in part (a). You can use the values of SAR and VAR that you have already computed.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Write comments on your results. Include a comment on the actual vaccine effectiveness (VE) value you compute in part (a)(i) when <m>\beta_V = 0.03\beta</m>, compared with the idea of trying to build 97% vaccine effectiveness into the model from the start.
+                  </p>
+                </li>
+              </ol>
+            </p>
           </li>
         </ol>       
       </exercise>
