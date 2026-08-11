@@ -19,197 +19,200 @@
     Varicella is also known as chickenpox. <xref ref="activity-varicella-example-with-vaccination" /> describes a 2016 outbreak and the biological info about varicella that we need to help build a model. In addition, this activity asks students to use Google Colab or some other form of Python, in order to  read in a data set provided externally. Instructions for how to do this are provided.
   </p>
 
-   <activity xml:id="activity-varicella-example-with-vaccination">
+  <activity xml:id="activity-varicella-example-with-vaccination">
      
-     <introduction>
-       <p>
-         In 2016, a varicella outbreak occurred in a kindergarten in Suzhou, China. The population consisted of 738 children, of whom 664 had no prior history of varicella. Those who had a previous history of varicella were not considered susceptible. Among the susceptible children, 364 had received a single dose of the varicella vaccine before the outbreak. One dose of the vaccine is approximately <m>82\%</m> effective (CDC).
-       </p>
-     </introduction>
-     <task>
-       <statement>
-         <p>
-           Construct an SEIR model, complete with differential equations (including vaccination) and parameter values. You must do research to find sufficient values for <m>\mathcal{R}_0</m>, <m>\gamma</m>, etc.
-         </p>
-       </statement>
-     </task>
-     <task>
-       <statement>
-         <p>
-           Graph your model using Python:
-           <sage>
-             <input>
-               #Import packages
-               import numpy as np
-               import matplotlib.pyplot as plt
-               from scipy.integrate import odeint
+    <introduction>
+      <p>
+        In 2016, a varicella outbreak occurred in a kindergarten in Suzhou, China. The population consisted of 738 children, of whom 664 had no prior history of varicella. Those who had a previous history of varicella were not considered susceptible. Among the susceptible children, 364 had received a single dose of the varicella vaccine before the outbreak. One dose of the vaccine is approximately <m>82\%</m> effective (CDC).
+      </p>
+    </introduction>
+    <task>
+      <statement>
+        <p>
+          Construct an SEIR model, complete with differential equations (including vaccination) and parameter values. You must do research to find sufficient values for <m>\mathcal{R}_0</m>, <m>\gamma</m>, etc.
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          Graph your model using Python:
+        </p>
+        <sage>
+          <input>
+            #Import packages
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from scipy.integrate import odeint
               
-               plt.cla() #Clear (delete) any past plots
+            plt.cla() #Clear (delete) any past plots
               
-               #Define the system of differential equations, and call it "model"
-               def model(y, t):
-                 S, E, I, R = y #Define y as consisting of S, I, and R, in that order
-                 dydt = [- (1-p*q) * beta * S * I, (1-p*q) * beta * S * I - kappa * E, kappa*E - gamma*I, gamma * I] #Provide the right-hand sides of the SIR model
-                 return dydt
+            #Define the system of differential equations, and call it "model"
+            def model(y, t):
+              S, E, I, R = y #Define y as consisting of S, I, and R, in that order
+              dydt = [- (1-p*q) * beta * S * I, (1-p*q) * beta * S * I - kappa * E, kappa*E - gamma*I, gamma * I] #Provide the right-hand sides of the SIR model
+              return dydt
               
-               beta =  #Give a value to beta
-               kappa =  #Give a value to kappa
-               gamma =  #Give a value to gamma
-               p =  #Give a value to p
-               q =  #Give a value to q
-               y0 = [ , , , ] #Set initial conditions for S, I, and R, in that order
-               t_range = np.arange(0.0, 60.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
+            beta =  #Give a value to beta
+            kappa =  #Give a value to kappa
+            gamma =  #Give a value to gamma
+            p =  #Give a value to p
+            q =  #Give a value to q
+            y0 = [ , , , ] #Set initial conditions for S, I, and R, in that order
+            t_range = np.arange(0.0, 60.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
               
-               sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+            sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
               
-               # Tell Python to print the last values produced of S, E, I, and R, to help show long-range outcomes of the model
-               print("Long-term value of S = ", round(sol[-1,0]))
-               print("Long-term value of E = ", round(sol[-1,1]))
-               print("Long-term value of I = ", round(sol[-1,2]))
-               print("Long-term value of R = ", round(sol[-1,3]))
-              
-              
-               # Plotting commands are below
-               plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
-               plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='E(t)')
-               plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='I(t)')
-               plt.plot(t_range, sol[:, 3], color='green', linestyle='dashdot', linewidth=2, label='R(t)')
-               plt.legend()
-               plt.grid()
-               plt.xlabel('time')
-               plt.ylabel('populations')
-               plt.show() 
-              
-             </input>
-             <output>
-             </output>
-           </sage>
-         </p>
-       </statement>
-     </task>
-     <task>
-       <statement>  
-         <p>
-           Using <url href="https://colab.research.google.com/">Google Colab,</url> import the actual data from the outbreak and compare the accuracy of your model. The answer below gives instructions on how to import your data.
-           <answer xml:id="colabinst-import-data">
-             <p>
-               Here's how to import data into Google Colab:
-               <ul>
-                 <li>
-                   <p>
-                     Make sure the “pandas” package is imported at the beginning of the code:
-                     <sage>
-                       <input>
-                         import pandas as pd
-                       </input>
-                       <output>
-                       </output>
-                     </sage>
-                   </p>
-                 </li>
-                 <li>
-                   <p>
-                     Mount Google Drive to access data files:
-                     <sage>
-                       <input>
-                         from google.colab import drive
-                         drive.mount("/content/drive")
-                       </input>
-                       <output>
-                       </output>
-                     </sage>
-                   </p>
-                 </li>
-                 <li>
-                   <p>
-                     Load data from the file located in Google Drive:
-                   <sage>
-                     <input>
-                       data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv')
-                     </input>
-                     <output>
-                     </output>
-                   </sage>
-                   After /content/drive/MyDrive, continue adding backslashes with the necessary folder names to complete the file path. For example, if your file ‘SmallpoxData.csv’ was located in a folder ‘Modeling’, your file path would be content/drive/MyDrive/Modeling/SmallpoxData.csv
-                   </p>
-                 </li>
-                 <li>
-                   <p>
-                     Extract the column from your data representing time, as a list:
-                     <sage>
-                       <input>
-                         t_steps = data['Day'].tolist()
-                       </input>
-                       <output>
-                       </output>
-                     </sage>
-                     Replace ‘Day’ with whatever your column is labeled.
-                   </p>
-                 </li>
-                 <li>
-                   <p>
-                     Extract the column representing the infected population, as a list:
-                     <sage>
-                       <input>
-                         I_prevalence_data = data['Infected'].tolist()
-                       </input>
-                       <output>
-                       </output>
-                     </sage>
-                     Replace 'infected' with whatever your column is labeled.
-                   </p>
-                 </li>
-                 <li>
-                   <p>
-                     All together, the code looks like this (also importing additional necessary packages):
-                     <sage>
-                       <input>
-                         import numpy as np
-                         import pandas as pd
-                         import matplotlib.pyplot as plt
-                         from scipy.integrate import odeint
+            # Tell Python to print the last values produced of S, E, I, and R, to help show long-range outcomes of the model
+            print("Long-term value of S = ", round(sol[-1,0]))
+            print("Long-term value of E = ", round(sol[-1,1]))
+            print("Long-term value of I = ", round(sol[-1,2]))
+            print("Long-term value of R = ", round(sol[-1,3]))
+                
+            # Plotting commands are below
+            plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+            plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='E(t)')
+            plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='I(t)')
+            plt.plot(t_range, sol[:, 3], color='green', linestyle='dashdot', linewidth=2, label='R(t)')
+            plt.legend()
+            plt.grid()
+            plt.xlabel('time')
+            plt.ylabel('populations')
+            plt.show() 
+          </input>
+          <output>
+          </output>
+        </sage>
+      </statement>
+    </task>
+    <task>
+      <statement>  
+        <p>
+          Using <url href="https://colab.research.google.com/">Google Colab,</url> import the actual data from the outbreak and compare the accuracy of your model. The answer below gives instructions on how to import your data.
+        </p>
+        <p>
+          Describe the similarites and differences between your model and the data of the outbreak. What are some possible changes that you could implement into your model do better fit it to the data?
+        </p>
+      </statement>
+      <answer xml:id="colabinst-import-data">
+        <p>
+          Here's how to import data into Google Colab:
+            <ul>
+              <li>
+                <p>
+                  Make sure the “pandas” package is imported at the beginning of the code:
+                </p>
+                <sage>
+                  <input>
+                    import pandas as pd
+                  </input>
+                  <output>
+                  </output>
+                </sage>
+              </li>
+              <li>
+                <p>
+                  Mount Google Drive to access data files:
+                </p>
+                <sage>
+                  <input>
+                    from google.colab import drive
+                    drive.mount("/content/drive")
+                  </input>
+                  <output>
+                  </output>
+                </sage>
+              </li>
+              <li>
+                <p>
+                  Load data from the file located in Google Drive:
+                </p>
+                <sage>
+                  <input>
+                    data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv')
+                  </input>
+                  <output>
+                  </output>
+                </sage>
+                <p>
+                  After /content/drive/MyDrive, continue adding backslashes with the necessary folder names to complete the file path. For example, if your file ‘SmallpoxData.csv’ was located in a folder ‘Modeling’, your file path would be content/drive/MyDrive/Modeling/SmallpoxData.csv
+                </p>
+              </li>
+              <li>
+                <p>
+                  Extract the column from your data representing time, as a list:
+                </p>
+                <sage>
+                  <input>
+                    t_steps = data['Day'].tolist()
+                  </input>
+                  <output>
+                  </output>
+                </sage>
+                <p>
+                  Replace '`'Day'’' with whatever your column is labeled.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Extract the column representing the infected population, as a list:
+                </p>
+                <sage>
+                  <input>
+                    I_prevalence_data = data['Infected'].tolist()
+                  </input>
+                  <output>
+                  </output>
+                </sage>
+                <p>
+                  Replace 'infected' with whatever your column is labeled.
+                </p>
+              </li>
+              <li>
+                <p>
+                  All together, the code looks like this (also importing additional necessary packages):
+                </p>
+                <sage>
+                  <input>
+                    import numpy as np
+                    import pandas as pd
+                    import matplotlib.pyplot as plt
+                    from scipy.integrate import odeint
   
+                    from google.colab import drive
+                    drive.mount("/content/drive")
   
-                         from google.colab import drive
-                         drive.mount("/content/drive")
-  
-  
-                         data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv'
-                         t_steps = data['Day'].tolist()
-                         I_prevalence_data = data['Infected'].tolist()
-                        
-                       </input>
-                       <output>
-                       </output>
-                     </sage>
-                   </p>
-                 </li>
-               </ul>
-             </p>
-           </answer>
-           Describe the similarites and differences between your model and the data of the outbreak. What are some possible changes that you could implement into your model do better fit it to the data?
-         </p>
-       </statement>
-     </task>
-     <task>
-       <statement>
-         <p>
-           How would the model change if the students who had received one shot of vaccination had instead received two? Research the effectiveness of two shots of the varicella vaccine and implement that into the model. How different would the outbreak have gone?
-         </p>
-       </statement>
-     </task>
-     <task>
-       <statement>
-         <p>
-           How might strict isolation policies have decreased the spread of the disease. Talk specifically about the movement between compartments within the model.
-         </p>
-       </statement>
-     </task>
-   </activity>
-  </section>
+                    data = pd.read_csv('/content/drive/MyDrive/MeaslesData.csv'
+                    t_steps = data['Day'].tolist()
+                    I_prevalence_data = data['Infected'].tolist()    
+                  </input>
+                  <output>
+                  </output>
+                </sage>
+              </li>
+            </ul>
+        </p>
+      </answer>
+    </task>
+    <task>
+      <statement>
+        <p>
+          How would the model change if the students who had received one shot of vaccination had instead received two? Research the effectiveness of two shots of the varicella vaccine and implement that into the model. How different would the outbreak have gone?
+        </p>
+      </statement>
+    </task>
+    <task>
+      <statement>
+        <p>
+          How might strict isolation policies have decreased the spread of the disease. Talk specifically about the movement between compartments within the model.
+        </p>
+      </statement>
+    </task>
+  </activity>
+</section>
 
   <section>
-   <exploration xml:id="sec-example-strict-isolation">
+   <activity xml:id="sec-example-strict-isolation">
      <title>An Example with Strict Isolation</title>
      <introduction>
        <p>
@@ -304,11 +307,11 @@
          </p>
        </statement>
      </task>
-   </exploration>
+   </activity>
   </section>
 
   <section>
-   <exploration xml:id="expl-example-vaccine-campaign">
+   <activity xml:id="expl-example-vaccine-campaign">
      <title>An Example with a Vaccine Campaign</title>
      <introduction>
      <p>
@@ -565,7 +568,7 @@ plt.show()
          </p>
        </statement>
      </task>
-   </exploration>
+   </activity>
   
   </section>
 
