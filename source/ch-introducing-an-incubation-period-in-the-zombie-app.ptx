@@ -59,7 +59,7 @@
           <image source="Zombie_SEI_Simulation_Day2.png" width="60%">
             <description><p>Table of data from one day of a simulation in the human-zombie game, using the outcome of Day 1 to determine new infections on Day 2. There is one new infection on Day 2.</p></description>
           </image>
-        </figure>
+        </figure> 
         <p>
           The next step is where we begin to re-introduce the individuals who were infected on Day 0 but still incubating the zombie disease on Day 1. From <xref ref="fig-zombie-SEI-Day-2" /> we see that we should have 46 humans and 1 incubating individual on Day 2. We also have 3 zombies: the initial zombie, plus the 2 incubating individuals from Day 1. We therefore restart the model, entering a Human Start Count of 46 and a Zombie Start Count of 3. A possible outcome appears in <xref ref="fig-zombie-SEI-Day-3" />.
         </p>

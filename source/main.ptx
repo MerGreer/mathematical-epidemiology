@@ -192,7 +192,7 @@
     
     <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
     
-    <xi:include href="ch-more-advanced-vaccine-models.ptx" />
+    <!-- <xi:include href="ch-more-advanced-vaccine-models.ptx" /> -->
 
     <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" />
 
