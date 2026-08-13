@@ -22,18 +22,40 @@
     <subtitle>A Course on Compartmental Models</subtitle>
 
     <frontmatter xml:id="frontmatter">
-      <titlepage> 
+      <bibinfo>
         <author>
           <personname>Meredith L. Greer</personname>
-          <department>Mathematics</department>
+          <department>Department of Mathematics</department>
           <institution>Bates College</institution>
         </author>
         <date>
           <today />
         </date>
+        <!-- <website>
+          <url href="https://example.com">Course Page</url>
+        </website> -->
+        <copyright>
+          <year>2020<ndash />present</year>
+          <holder>Meredith L. Greer</holder>
+          <shortlicense> 
+            This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, CC BY-NC-SA. To view a copy of this license, visit <url href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CreativeCommons.org.</url>
+          </shortlicense>
+        </copyright>
+      </bibinfo>
+      <titlepage> 
+        <titlepage-items/>
+        <!-- <author>
+          <personname>Meredith L. Greer</personname>
+          <department>Mathematics</department>
+          <institution>Bates College</institution>
+        </author> -->
+        <!-- <date>
+          <today />
+        </date> -->
       </titlepage>
 
       <colophon>
+        <colophon-items/>
 
         <!-- <website>
           <name><copyright></copyright>
@@ -42,15 +64,15 @@
           <address>https://example.org</address>
         </website> -->
 
-        <copyright>
+        <!-- <copyright>
           <year>2020<ndash />present</year>
           <holder>Meredith L. Greer</holder>
           <shortlicense> 
             This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License, CC BY-NC-SA. To view a copy of this license, visit <url href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CreativeCommons.org.</url>
           </shortlicense>
-        </copyright> 
+        </copyright>  -->
 
-        <p> This book was authored in <pretext />. </p>
+        <!-- <p> This book was authored in <pretext />. </p> -->
       </colophon> 
 
       <acknowledgement>
@@ -83,28 +105,30 @@
         <p>
           The chapters in this text are typically structured in a consistent way.     
         </p>
-        <ul>
-          <li>
-            <p>
-              The <em>Goals</em> of the chapter appear at the very start.
-            </p>
-          </li>
-          <li>
-            <p>
-              After a brief introduction, an <em>Exploration</em> activity asks you to engage with questions that motivate the rest of the chapter.
-            </p>
-          </li>
-          <li>
-            <p>
-              The sections within the chapter include some reading for you to do, and <em>Activities</em> appear frequently. It is best if you do these activities when they appear: many activities contain new information, rather than just examples, and later reading will assume you have already completed the activities. Some activities include hints or answers, and you will learn the most by completing as much of the activity as you can before checking the hints or reading the answers.
-            </p>
-          </li>
-          <li>
-            <p>
-              At the end of each chapter, there are questions <em>For Further Thought</em> that provide deeper insights or additional examples of the chapter's ideas.
-            </p>
-          </li>
-        </ul>
+        <p>
+          <ul>
+            <li>
+              <p>
+                The <em>Goals</em> of the chapter appear at the very start.
+              </p>
+            </li>
+            <li>
+              <p>
+                After a brief introduction, an <em>Exploration</em> activity asks you to engage with questions that motivate the rest of the chapter.
+              </p>
+            </li>
+            <li>
+              <p>
+                The sections within the chapter include some reading for you to do, and <em>Activities</em> appear frequently. It is best if you do these activities when they appear: many activities contain new information, rather than just examples, and later reading will assume you have already completed the activities. Some activities include hints or answers, and you will learn the most by completing as much of the activity as you can before checking the hints or reading the answers.
+              </p>
+            </li>
+            <li>
+              <p>
+                At the end of each chapter, there are questions <em>For Further Thought</em> that provide deeper insights or additional examples of the chapter's ideas.
+              </p>
+            </li>
+          </ul>
+        </p>
         <p>
           The <xref ref="backmatter"/> near the end of the book includes descriptions of key terms, along with the chapter in which each term first appears.
         </p>
@@ -140,107 +164,103 @@
     </frontmatter>
 
 
-  <part xml:id="part-core-modeling-concepts">
-    <title>Core Modeling Concepts</title>
+    <part xml:id="part-core-modeling-concepts">
+      <title>Core Modeling Concepts</title>
      
-    <xi:include href="ch-prelude-diseases-in-popular-news.ptx" />
+      <xi:include href="ch-prelude-diseases-in-popular-news.ptx" />
 
-    <xi:include href="ch-zombies-can-math-help.ptx" />
+      <xi:include href="ch-zombies-can-math-help.ptx" />
 
-    <xi:include href="ch-visualization-graphing-model-results-and-data.ptx" />
+      <xi:include href="ch-visualization-graphing-model-results-and-data.ptx" />
 
-    <xi:include href="ch-compartmental-diagrams.ptx" />
+      <xi:include href="ch-compartmental-diagrams.ptx" />
 
-    <xi:include href="ch-model-analysis-and-the-basic-reproduction-number-R0.ptx" />
+      <xi:include href="ch-model-analysis-and-the-basic-reproduction-number-R0.ptx" />
 
-    <xi:include href="ch-vaccines.ptx" />
+      <xi:include href="ch-vaccines.ptx" />
 
-    <xi:include href="ch-incubation-periods.ptx" />
+      <xi:include href="ch-incubation-periods.ptx" />
 
-    <xi:include href="ch-isolation.ptx" />
+      <xi:include href="ch-isolation.ptx" />
 
-    <xi:include href="ch-preparing-influenza-data-to-compare-with-a-model.ptx" />
+      <xi:include href="ch-preparing-influenza-data-to-compare-with-a-model.ptx" />
 
-    <xi:include href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.ptx" />
+      <xi:include href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.ptx" />
 
-    <xi:include href="ch-akaike-information-criterion-comparing-different-models.ptx" />
+      <xi:include href="ch-akaike-information-criterion-comparing-different-models.ptx" />
 
-    <xi:include href="ch-epidemic-vs-endemic-models.ptx" />
+      <xi:include href="ch-epidemic-vs-endemic-models.ptx" />
 
-    <xi:include href="ch-modeling-the-spread-of-an-idea.ptx" />
+      <xi:include href="ch-modeling-the-spread-of-an-idea.ptx" />
 
-  </part>
+    </part>
 
-  <part xml:id="part-digging-deeper-mathematically">
-    <title>Digging Deeper Mathematically</title>
+    <part xml:id="part-digging-deeper-mathematically">
+      <title>Digging Deeper Mathematically</title>
 
-    <!-- <xi:include href="ch-model-analysis-total-population-and-equilibrium-values.ptx" /> -->
+      <!-- <xi:include href="ch-model-analysis-total-population-and-equilibrium-values.ptx" /> -->
 
-    <xi:include href="ch-the-next-generation-method.ptx" />
+      <xi:include href="ch-the-next-generation-method.ptx" />
 
-    <!-- <xi:include href="ch-the-next-generation-method-connecting-theory-with-practice.ptx" /> -->
+      <!-- <xi:include href="ch-the-next-generation-method-connecting-theory-with-practice.ptx" /> -->
 
-    <!-- <xi:include href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.ptx" /> -->
+      <!-- <xi:include href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.ptx" /> -->
 
-    <!-- <xi:include href="ch-kermack-mckendrick-the-1927-paper.ptx" /> -->
+      <!-- <xi:include href="ch-kermack-mckendrick-the-1927-paper.ptx" /> -->
   
-  </part>
+    </part>
 
-  <part xml:id="part-additional-modeling-examples"> 
-    <title>Additional Modeling Examples</title>
-
+    <part xml:id="part-additional-modeling-examples"> 
+      <title>Additional Modeling Examples</title>
     
-    <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
+      <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
     
-    <!-- <xi:include href="ch-more-advanced-vaccine-models.ptx" /> -->
+      <!-- <xi:include href="ch-more-advanced-vaccine-models.ptx" /> -->
 
-    <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" />
+      <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" />
 
-    <!-- <xi:include href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.ptx" /> -->
+      <!-- <xi:include href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.ptx" /> -->
     
-    <!-- <xi:include href="ch-modeling-viral-videos.ptx" /> -->
+      <!-- <xi:include href="ch-modeling-viral-videos.ptx" /> -->
 
-    <!-- <xi:include href="ch-modeling-conspiracy-theories.ptx" /> -->
+      <!-- <xi:include href="ch-modeling-conspiracy-theories.ptx" /> -->
 
-    <!-- <xi:include href="ch-periodic-forcing.ptx" /> -->
-
-    
+      <!-- <xi:include href="ch-periodic-forcing.ptx" /> -->    
      
-    <!-- <xi:include href="ch-vector-based-models-of-disease-spread.ptx" /> -->
+      <!-- <xi:include href="ch-vector-based-models-of-disease-spread.ptx" /> -->
     
-    <!-- <xi:include href="ch-modeling-spatial-variation-using-patches.ptx" /> -->
+      <!-- <xi:include href="ch-modeling-spatial-variation-using-patches.ptx" /> -->
     
-    <!-- <xi:include href="ch-an-hiv-model-where-the-infected-are-cells-rather-than-people.ptx" /> -->
+      <!-- <xi:include href="ch-an-hiv-model-where-the-infected-are-cells-rather-than-people.ptx" /> -->
 
-    <!-- <xi:include href="ch-a-peek-at-agent-based-models.ptx" /> -->
+      <!-- <xi:include href="ch-a-peek-at-agent-based-models.ptx" /> -->
 
-    <!-- <xi:include href="ch-connecting-with-network-models.ptx" /> -->
+      <!-- <xi:include href="ch-connecting-with-network-models.ptx" /> -->
 
-    <xi:include href="ch-articles-showing-further-examples.ptx" />
+      <xi:include href="ch-articles-showing-further-examples.ptx" />
 
-  </part> 
+    </part> 
 
+    <part xml:id="part-supplemental-materials">
+      <title>Supplemental Materials</title> 
 
-  <part xml:id="part-supplemental-materials">
-    <title>Supplemental Materials</title> 
-
-    <xi:include href="ch-tips-on-reading-a-scientific-paper.ptx" />
+      <xi:include href="ch-tips-on-reading-a-scientific-paper.ptx" />
     
-    <!-- <xi:include href="ch-linear-algebra-for-compartmental-modeling.ptx" /> -->
+      <!-- <xi:include href="ch-linear-algebra-for-compartmental-modeling.ptx" /> -->
 
-    <!-- <xi:include href="ch-data-sets.ptx" /> -->
+      <!-- <xi:include href="ch-data-sets.ptx" /> -->
 
-    <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
+      <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
     
-    <!-- <xi:include href="ch-writing-tips-for-math-and-planning-for-peer-review.ptx" /> -->
+      <!-- <xi:include href="ch-writing-tips-for-math-and-planning-for-peer-review.ptx" /> -->
 
-    <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
+      <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
     
-    <xi:include href="ch-greek-letters.ptx" />
+      <xi:include href="ch-greek-letters.ptx" />
 
-    <!-- <xi:include href="ch-other-resources.ptx" /> -->
+      <!-- <xi:include href="ch-other-resources.ptx" /> -->
 
-  </part> 
+    </part> 
 
 
 
@@ -367,13 +387,6 @@
           </p>
         </gi>
 
-<!--         
-        <gi>
-          <title>Mathematical Modeling</title>
-          <p>
-            Mathematical modeling is a process by which we represent real-world dynamics using mathematical formulas. In this text, we typically use differential equations in our models. The process of mathematical modeling can require many steps, such as choosing which equations to use, comparing the results of a model with data, updating a model as needed to respond to different goals, and considering multiple models to best answer the questions we are asking. (Chapter 7)
-          </p>
-        </gi> -->
 
 
         <gi>

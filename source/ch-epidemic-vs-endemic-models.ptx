@@ -1,12 +1,17 @@
 <chapter xml:id="ch-epidemic-vs-endemic-models" xmlns:xi="http://www.w3.org/2001/XInclude">
     <title>* Epidemic vs. Endemic Models</title>
 
-    <p>
-      <term>***This chapter is under construction.***</term>
-    </p>
+    <introduction>
+      <p>
+        <term>***This chapter is under construction.***</term>
+      </p>
+    </introduction>
 
     <section xml:id="sec-ee">
       <title>Defining Endemic</title>
+      <p>
+        Here we define how endemic illness differs from epidemic illness.
+      </p>
 
       
 
