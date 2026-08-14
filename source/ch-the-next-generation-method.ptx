@@ -342,7 +342,7 @@
         <task>
           <statement>
             <p>
-              For the equation(s) selected in Step 1, write the equation(s) in matrix form. To do so, place the derivatives on the left-hand side into a vector. On the right-hand side, write the equations in a vector.
+              For the equation(s) selected in Step (a), write the equation(s) in matrix form. To do so, place the derivatives on the left-hand side into a vector. On the right-hand side, write the equations in a vector.
             </p>
           </statement>
           <answer>
@@ -363,7 +363,7 @@
         <task>
           <statement>
             <p>
-              Separate the right-hand side into two vectors, <m>\widehat{F}</m> and <m>\widehat{V}</m>, so that all of the following are true:
+              Separate the right-hand side obtained in Step (b) into two vectors, <m>\widehat{F}</m> and <m>\widehat{V}</m>, so that all of the following are true:
               <ul>
                 <li>
                   <p>
@@ -426,19 +426,19 @@
         <task>
           <statement>
             <p>
-              Compute the disease-free equilibrium for your compartmental model.
+              Compute the disease-free equilibrium, as described within and just after <xref ref="activity-equilibrium-values"/>, for your compartmental model.
             </p>
           </statement>
           <answer>
             <p>
-              The disease-free equilibrium is <m>(S, E, I, R)=(N, 0, 0, 0)</m>, where <m>N=S+E+I+R</m> is the entire population being studied, as discussed in <xref ref="activity-equilibrium-values"/> and in the text shortly after this activity.
+              The disease-free equilibrium is <m>(\overline{S}, \overline{E}, \overline{I}, \overline{R})=(N, 0, 0, 0)</m>, where <m>N=S+E+I+R</m> is the entire population being studied.
             </p>
           </answer>
         </task>
         <task>
           <statement>
             <p>
-              Compute matrices <m>F</m> and <m>V</m> (notice these do not have <q>hats</q>: they are different from <m>\widehat{F}</m> and <m>\widehat{V}</m>) by computing partial derivatives of each of the terms in <m>\widehat{F}</m> and <m>\widehat{V}</m>, with respect to each of the populations of compartments experiencing infection, following the pattern shown below in the case of the SEIR model, and then evaluating your results at the disease-free equilibrium:
+              Compute matrices <m>F</m> and <m>V</m>, noticing these are different from <m>\widehat{F}</m> and <m>\widehat{V}</m>, by computing partial derivatives of each of the terms in <m>\widehat{F}</m> and <m>\widehat{V}</m>, with respect to each of the populations of compartments experiencing infection, following the pattern shown below in the case of the SEIR model, and then evaluating your results at the disease-free equilibrium:
               <md>
                 <mrow> F = \left. \begin{pmatrix}
                   \frac{\partial (\beta SI)}{\partial E} \amp \frac{\partial (\beta SI)}{\partial I} \\
@@ -489,32 +489,38 @@
               <md>
                 K = F \, V^{-1}
               </md>
-              <md>
-                <mrow> K = F \, V^{-1}
-                </mrow>
-              </md>
               and determine the largest positive eigenvalue of <m>K</m>.
             </p>
             <p>
               To do this: first compute <m>V^{-1}</m>. Then compute <m>F \,V^{-1}</m>. Then determine the eigenvalues of <m>F \,V^{-1}</m>.
             </p>
             <p>
-              The largest possible eigenvalue of <m>F \,V^{-1}</m> is the value of <m>\mathcal{R}_0</m>.
+              The largest positive eigenvalue of <m>F \,V^{-1}</m> is the value of <m>\mathcal{R}_0</m>.
             </p>
           </statement>
           <answer>
             <p>
-              Compute matrix <m>V^{-1}=\begin{pmatrix}
+              Compute matrix 
+              
+              <md>V^{-1}=\begin{pmatrix}
                 \frac{1}{\kappa} \amp 0 \\
                 \frac{1}{\gamma} \amp \frac{1}{\gamma} 
-                \end{pmatrix}.</m> 
+                \end{pmatrix}
+              </md>. 
 
-              Then compute matrix <m>FV^{-1}=\begin{pmatrix}
+              Then compute matrix 
+              
+              <md>FV^{-1}=\begin{pmatrix}
                 \frac{\beta  N}{\gamma} \amp \frac{\beta N}{\gamma} \\
                 0 \amp 0 
-                \end{pmatrix}.</m> 
+                \end{pmatrix}
+              </md>. 
 
-              The eigenvalues of <m>FV^{-1}</m> are <m>0</m> and <m>\frac{\beta  N}{\gamma}</m>. Of these, the largest eigenvalue is <m>\frac{\beta  N}{\gamma}</m>, and therefore <m>\mathcal{R}_0 = \frac{\beta  N}{\gamma}</m>.
+              The eigenvalues of <m>FV^{-1}</m> are <m>0</m> and <m>\frac{\beta  N}{\gamma}</m>. Of these, the largest eigenvalue is <m>\frac{\beta  N}{\gamma}</m>, and therefore 
+              
+              <md>
+                \mathcal{R}_0 = \frac{\beta  N}{\gamma}
+              </md>.
             </p>
           </answer>
         </task>      
@@ -565,18 +571,39 @@
         </statement>
         <hint>
           <p>
-            Only one compartment of the SIR model involves individuals experiencing some stage of infection, namely, the I compartment. This means that when we write the equations in matrix form, we use a <m>1 \times 1</m> matrix. Then <m>\widehat{F}= \begin{pmatrix}
+            Only one compartment of the SIR model involves individuals experiencing some stage of infection, namely, the I compartment. This means that when we write the equations in matrix form, we use a <m>1 \times 1</m> matrix. Then 
+            
+            <md>
+              \widehat{F}= \begin{pmatrix}
               \beta SI
-              \end{pmatrix}</m> and 
-              <m>\widehat{V}= \begin{pmatrix}
+              \end{pmatrix}
+            </md> 
+            and 
+            <md>
+              \widehat{V}= \begin{pmatrix}
               \gamma I
-              \end{pmatrix}.</m> Computing partial derivatives with respect to <m>I</m>, and evaluating at the disease-free equilibrium <m>(S, I, R)=(N, 0, 0)</m>, results in <m>F = \begin{pmatrix}
+              \end{pmatrix}
+            </md>. 
+            Computing partial derivatives with respect to <m>I</m>, and evaluating at the disease-free equilibrium <m>(S, I, R)=(N, 0, 0)</m>, results in 
+            <md>
+              F = \begin{pmatrix}
               \beta N
-              \end{pmatrix}</m> and <m>V = \begin{pmatrix}
+              \end{pmatrix}
+            </md> 
+            and 
+            <md>V = \begin{pmatrix}
               \gamma
-              \end{pmatrix}.</m> Computing <m>FV^{-1}</m> results in <m>FV^{-1} = \begin{pmatrix}
+              \end{pmatrix}
+            </md>. 
+            Computing <m>FV^{-1}</m> results in 
+            <md>FV^{-1} = \begin{pmatrix}
               \frac{\beta N}{\gamma}
-              \end{pmatrix}</m>, and the one eigenvalue of <m>FV^{-1}</m> tells us that <m>\mathcal{R}_0 = \frac{\beta  N}{\gamma}</m>. 
+              \end{pmatrix}
+            </md> 
+            and the one eigenvalue of <m>FV^{-1}</m> tells us that 
+            <md>
+              \mathcal{R}_0 = \frac{\beta  N}{\gamma}
+            </md>. 
           </p>
         </hint>
       </activity>
@@ -592,10 +619,10 @@
       <title>Python Code for the Next Generation Method</title>
 
       <p>
-        For the most part, steps 1 through 4 of the Next Generation Method cannot be automated, as they require human judgment. In particular, Step 1 requires determining which compartments involve some stage of infection, and in Step 3, we must distinguish new infections from all other stages of infection. In Step 4, we use logical thinking to help us write down the population distribution in a situation where there has not been an outbreak previously.
+        For the most part, steps (a) through (d) of the Next Generation Method cannot be automated, as they require human judgment. In particular, Step (a) requires determining which compartments involve some stage of infection, and in Step (c), we must distinguish new infections from all other stages of infection. In Step (d), we use logical thinking to help us write down the population distribution in a situation where there has not been an outbreak previously.
       </p>
       <p>
-        For the later steps of the Next Generation Method, especially computing matrix inverses and eigenvalues, technology can be extremely helpful. These are doable using linear algebra, yet they are not the focus of this course. For this textbook, students are asked to complete by hand Step 5 of the Next Generation Method, and then we use Python for the grand finale in Step 6.
+        For the later steps of the Next Generation Method, especially computing matrix inverses and eigenvalues, technology can be extremely helpful. These are doable using linear algebra, yet they are not the focus of this course. For this textbook, students are asked to complete by hand Step (e) of the Next Generation Method, and then we use Python for the grand finale in Step (f).
       </p>
       <p>
         <xref ref="activity-learning-next-generation-python-seir"/> provides one possible set of Python commands for computing the value of <m>\mathcal{R}_0</m> in the SEIR model shown in <xref ref="activity-learning-next-generation-seir"/>.
@@ -604,7 +631,7 @@
       <activity xml:id="activity-learning-next-generation-python-seir">
         <statement>
           <p>
-            The code block below produces the eigenvalues for the SEIR model. In other words, this code does the computation in Step 6 of the Next Generation Method as described in <xref ref="activity-learning-next-generation-seir"/>. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix. 
+            The code block below produces the eigenvalues for the SEIR model. In other words, this code does the computation in Step (f) of the Next Generation Method as described in <xref ref="activity-learning-next-generation-seir"/>. This code can also be used as a template for producing eigenvalues when the Next Generation Method produces a <m>2\times 2</m> matrix. 
           </p>
           <p>
             Use the code to answer the questions below.
@@ -930,6 +957,10 @@
         </answer>
       </activity>
 
+      <!-- <p>
+        When using the Next Generation Method and to work with real-world values of <m>\mathcal{R}_0</m>, be sure to focus your attention on models representing disease spread without human interventions such as vaccines and isolation. The quantity <m>\mathcal{R}_0</m> does not apply in these cases.  
+      </p> -->
+
         
     </section>
 
@@ -939,14 +970,14 @@
           Consider the SEIR model with births and deaths, shown in <xref ref="fig-SEIR-births-and-deaths-compartmental-diagram"/>, which includes a constant term <m>\Pi</m> representing births per time unit, as well as a death rate <m>\mu</m> from each compartment. This model comes from the book <em>Mathematical Epidemiology</em>.<fn><em>Mathematical Epidemiology</em> was edited by Fred Brauer, Pauline van den Driessche, and Jianhong Wu, and published by Springer in 2008. The model we describe comes from Chapter 6, which was written by James Watmough and Pauline van den Driessche.</fn>  
         </p> 
         <p>
-          Complete all steps of the Next Generation Method to show how to determine the value of <m>\mathcal{R}_0</m> for this model, numbering the steps 1 through 6, as shown in <xref ref="activity-learning-next-generation-seir"/>. As a hint: you should get 
+          Complete all steps of the Next Generation Method to show how to determine the value of <m>\mathcal{R}_0</m> for this model, numbering the steps (a) through (f), as shown in <xref ref="activity-learning-next-generation-seir"/>. As a hint: you should get 
           <md>
             <mrow>\mathcal{R}_0 \amp = \frac{\kappa \beta N}{(\mu + \kappa)(\mu + \gamma)} </mrow>
           </md>
           as your result. Demonstrate fully how you complete each step of the Next Generation Method in order to achieve this result.
         </p> 
         <figure xml:id="fig-SEIR-births-and-deaths-compartmental-diagram">
-            <caption>The compartmental diagram for one possible SEIR model with births and deaths, where <q>S</q>stands for <q>Susceptible</q>, <q>E</q> stands for <q>Exposed-and-incubating</q>, <q>I</q> stands for <q>Infectious</q>, and <q>R</q> stands for <q>Recovered</q>. Births enter the Susceptible compartment at a constant quantity <m>\Pi</m> per time step, and deaths from each compartment occur at a rate <m>\mu</m> of that population, per time step.</caption>
+            <caption>The compartmental diagram for one possible SEIR model with births and deaths, where <q>S</q> stands for <q>Susceptible</q>, <q>E</q> stands for <q>Exposed-and-incubating</q>, <q>I</q> stands for <q>Infectious</q>, and <q>R</q> stands for <q>Recovered</q>. Births enter the Susceptible compartment at a constant quantity <m>\Pi</m> per time step, and deaths from each compartment occur at a rate <m>\mu</m> of that population, per time step.</caption>
               <image width="60%">
               <description>
               <p>
@@ -1032,7 +1063,7 @@
 
       <exercise number="3">
         <p>
-          Revisit the SIRS model from <xref ref="activity-next-generation-practice-sirs"/> and introduce birth and death terms in a similar way as is shown in the model in <xref ref="fig-SEIR-births-and-deaths-compartmental-diagram"/>. Then use the steps of the Next Generation Method to compute <m>\mathcal{R}_0</m> for the resulting SIRS model with births and deaths, numbering the steps 1 through 6, as shown in <xref ref="activity-learning-next-generation-seir"/>. Demonstrate fully how you complete each step of the Next Generation Method.
+          Revisit the SIRS model from <xref ref="activity-next-generation-practice-sirs"/> and introduce birth and death terms in a similar way as is shown in the model in <xref ref="fig-SEIR-births-and-deaths-compartmental-diagram"/>. Then use the steps of the Next Generation Method to compute <m>\mathcal{R}_0</m> for the resulting SIRS model with births and deaths, numbering the steps (a) through (f), as shown in <xref ref="activity-learning-next-generation-seir"/>. Demonstrate fully how you complete each step of the Next Generation Method.
         </p>     
       </exercise>
     </exercises>
