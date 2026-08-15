@@ -195,12 +195,29 @@
 
     </part>
 
-    <part xml:id="part-digging-deeper-mathematically">
-      <title>Digging Deeper Mathematically</title>
+    <part xml:id="part-bonus-topics">
+      <title>Bonus Topics</title>
+
+      <xi:include href="ch-the-next-generation-method.ptx" />
+
+      <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
+
+      <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" />
+
+      <xi:include href="ch-articles-showing-further-examples.ptx" />
+
+      <xi:include href="ch-tips-on-reading-a-scientific-paper.ptx" />
+
+      <xi:include href="ch-greek-letters.ptx" />
+      
+    </part>
+
+    <!-- <part xml:id="part-digging-deeper-mathematically">
+      <title>Digging Deeper Mathematically</title> -->
 
       <!-- <xi:include href="ch-model-analysis-total-population-and-equilibrium-values.ptx" /> -->
 
-      <xi:include href="ch-the-next-generation-method.ptx" />
+      <!-- <xi:include href="ch-the-next-generation-method.ptx" /> -->
 
       <!-- <xi:include href="ch-the-next-generation-method-connecting-theory-with-practice.ptx" /> -->
 
@@ -208,16 +225,16 @@
 
       <!-- <xi:include href="ch-kermack-mckendrick-the-1927-paper.ptx" /> -->
   
-    </part>
+    <!-- </part> -->
 
-    <part xml:id="part-additional-modeling-examples"> 
+    <!-- <part xml:id="part-additional-modeling-examples"> 
       <title>Additional Modeling Examples</title>
     
-      <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
+      <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" /> -->
     
       <!-- <xi:include href="ch-more-advanced-vaccine-models.ptx" /> -->
 
-      <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" />
+      <!-- <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" /> -->
 
       <!-- <xi:include href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.ptx" /> -->
     
@@ -237,14 +254,14 @@
 
       <!-- <xi:include href="ch-connecting-with-network-models.ptx" /> -->
 
-      <xi:include href="ch-articles-showing-further-examples.ptx" />
+      <!-- <xi:include href="ch-articles-showing-further-examples.ptx" /> -->
 
-    </part> 
+    <!-- </part>  -->
 
-    <part xml:id="part-supplemental-materials">
+    <!-- <part xml:id="part-supplemental-materials">
       <title>Supplemental Materials</title> 
 
-      <xi:include href="ch-tips-on-reading-a-scientific-paper.ptx" />
+      <xi:include href="ch-tips-on-reading-a-scientific-paper.ptx" /> -->
     
       <!-- <xi:include href="ch-linear-algebra-for-compartmental-modeling.ptx" /> -->
 
@@ -256,11 +273,11 @@
 
       <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
     
-      <xi:include href="ch-greek-letters.ptx" />
+      <!-- <xi:include href="ch-greek-letters.ptx" /> -->
 
       <!-- <xi:include href="ch-other-resources.ptx" /> -->
 
-    </part> 
+    <!-- </part>  -->
 
 
 
