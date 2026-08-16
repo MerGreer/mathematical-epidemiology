@@ -18,11 +18,6 @@
             Gain practice combining multiple variations, such as both vaccines and incubation periods, into a single model of disease spread.
           </p>
         </li>
-        <!-- <li>
-          <p>
-            Introduce a new model compartment, often called <em>Isolated</em>, to reduce disease transmission by reducing the interaction of the Infectious and Susceptible populations 
-          </p>
-        </li> -->
       </ul>
     </objectives>
 

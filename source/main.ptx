@@ -189,7 +189,7 @@
 
       <xi:include href="ch-akaike-information-criterion-comparing-different-models.ptx" />
 
-      <xi:include href="ch-epidemic-vs-endemic-models.ptx" />
+      <xi:include href="ch-epidemic-vs-endemic-illness.ptx" />
 
       <xi:include href="ch-modeling-the-spread-of-an-idea.ptx" />
 
@@ -202,7 +202,7 @@
 
       <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
 
-      <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" />
+      <!-- <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" /> -->
 
       <xi:include href="ch-articles-showing-further-examples.ptx" />
 
@@ -369,6 +369,14 @@
           <title>Efficacy</title>
           <p>
             A measure of how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease, <em>in a clinical trial</em>. For instance, if in trials <m>70\%</m> fewer people in the vaccinated group get a virus than do those in the unvaccinated group, then the vaccine is said to have an efficacy of <m>70\%</m>.  (<xref ref="ch-vaccines"/>)
+          </p>
+        </gi>
+
+
+        <gi>
+          <title>Endemic Illness</title>
+          <p>
+            An illness that persists long-term within a population. Endemic illness is a contrast to epidemic illness, in which an illness peaks and then eventually disappears from the population. (<xref ref="ch-epidemic-vs-endemic-illness"/>)
           </p>
         </gi>
 
