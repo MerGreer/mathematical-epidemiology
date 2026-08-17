@@ -29,7 +29,7 @@
         This textbook has focused, so far, on models of outbreaks. In each model, a disease has emerged, then peaked, then faded away. Yet many diseases remain in a population over a long period of time, passing from person to person in such a way that the disease remains in the population across many years. This chapter addresses such diseases. 
       </p> 
       <p>
-        Begin in <xref ref="expl-activity-endemic-illness" /> by using the skills you have been building to think about how you might construct two different types of model showing <term>endemic illness</term>, that is, an illness that remains in a population long-term rather than peaking and fading.
+        Begin in <xref ref="expl-activity-endemic-illness" /> by using the skills you have been developing to think about how you might construct two different types of model showing <term>endemic illness</term>, that is, an illness that remains in a population long-term rather than peaking and fading.
       </p>
 
       <exploration xml:id="expl-activity-endemic-illness">
@@ -43,25 +43,136 @@
         <task>
           <statement>
             <p>
-              Assume a disease has Susceptible, Infectious, and Removed phases, and that people in the Removed compartment lose immunity over time. These people then go back to the Susceptible compartment, thus allowing the disease to last beyond just an initial peak of infectious people. Draw a compartmental diagram and differential equations for how such a model might look, and make your best guess for how the long-term population values could possibly appear on a graph. 
+              Assume a disease has Susceptible, Infectious, and Removed phases, and that people in the Removed compartment lose immunity over time. These people then go back to the Susceptible compartment. This renewal of the Susceptible population allows the disease to last beyond just an initial peak of infectious people. Draw a compartmental diagram and differential equations for how such a model might look, and draw a graph sketching how the long-term population values might look. This exploration is not asking you to develop Python code to draw the graph, but instead to hand-draw your best guess. 
             </p>            
           </statement>
         </task>
         <task>
           <statement>
             <p>
-              Next, assume a disease has Susceptible, Infectious, and Removed phases, and that people in the Removed compartment <em>do not</em> lose immunity over time. Instead, new people enter the Susceptible compartment due to births or immigration, and people depart all three compartments due to deaths or emigration. Draw a compartmental diagram and differential equations for how such a model might look, and make your best guess for how the long-term population values could possibly appear on a graph. 
+              Next, assume a disease has Susceptible, Infectious, and Removed phases, and that people in the Removed compartment <em>do not</em> lose immunity over time. Instead, new people enter the Susceptible compartment due to births or immigration, and people depart all three compartments due to deaths or emigration. Draw a compartmental diagram and differential equations for how such a model might look, and draw a graph sketching how the long-term population values might look. This exploration is not asking you to develop Python code to draw the graph, but instead to hand-draw your best guess. 
             </p>
           </statement>
         </task>
       </exploration>
     </introduction>
 
-    <section xml:id="sec-ee">
-      <title>Defining Endemic</title>
+    <section xml:id="sec-comparing-endemic-illnesses-with-epidemics">
+      <title>Comparing Endemic Illnesses with Epidemics</title>
       <p>
-        Here we define how endemic illness differs from epidemic illness.
+        This chapter focuses on models of endemic illness. By contrast, so far this semester, we have studied epidemic illnesses, also called epidemics or outbreaks. With epidemics, the Infectious population reaches its peak, drops to 0, and then the epidemic ends. With endemic illness, the illness persists over time in the population.
       </p>
+      <p>
+        A wording note: while we may refer to <q>an epidemic</q>, we never refer to <q>an endemic</q>. Instead, we can talk about <q>endemic illness</q> or <q>endemic disease</q>: the word <q>endemic</q> always describes something, but <q>endemic</q> does not refer to the event itself. 
+      </p>
+      <p>
+        Begin in <xref ref="activity-endemic-illness-examples"/> by examining a model of one possible form of endemic illness.
+      </p>
+      <activity xml:id="activity-endemic-illness-examples"> 
+        <statement>
+          <p>
+            Consider the compartmental diagram shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>, depicting an illness in which people in the Removed compartment can lose immunity and return to the Susceptible compartment. Use the questions below the diagram to think through the details of this model. 
+          </p>
+          <figure xml:id="fig-SIRS-compartmental-diagram-endemic-illness">
+            <caption>A possible diagram for the SIRS model</caption>
+              <image width="100%">
+                <description>
+                  <p>
+                    The compartmental diagram for an SIRS model, having compartments for populations of Susceptible, Infectious, and Removed or Recovered people. Arrows point from S to I, from I to R, and from R to S.
+                  </p>
+                </description>
+                <latex-image>
+                  \begin{tikzpicture}
+                    \draw [thick] [black] (0,0) -- (2,0);
+                    \draw [thick] [black] (2,0) -- (2,2);
+                    \draw [thick] [black] (2,2) -- (0,2);
+                    \draw [thick] [black] (0,2) -- (0,0);
+                    \node [black] at (1,1) {\Huge $S$};
+                    \draw [thick] [->] (2.1,1) to (3.9,1); 
+                    \node at (3,1.5) {\Large $\beta SI$};
+                    \draw [thick] [black] (4,0) -- (6,0);
+                    \draw [thick] [black] (6,0) -- (6,2);
+                    \draw [thick] [black] (6,2) -- (4,2);
+                    \draw [thick] [black] (4,2) -- (4,0);
+                    \node [black] at (5,1) {\Huge $I$};
+                    \draw [thick] [->] (6.1,1) to (7.9,1); 
+                    \node at (7,1.5) {\Large $\gamma I$};
+                    \draw [thick] [black] (8,0) -- (10,0);
+                    \draw [thick] [black] (10,0) -- (10,2);
+                    \draw [thick] [black] (10,2) -- (8,2);
+                    \draw [thick] [black] (8,2) -- (8,0);
+                    \node [black] at (9,1) {\Huge $R$};
+                    \draw [thick] [black] (9,2.1) -- (9,2.5);
+                    \draw [thick] [black] (9,2.5) -- (1,2.5);
+                    \draw [thick] [->] (1,2.5) to (1,2.1); 
+                    \node at (5,3) {\Large $\alpha R$};
+                  \end{tikzpicture}
+                </latex-image>
+              </image>
+          </figure>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Write out your interpretation of the <m>\alpha R</m> formula and its accompanying arrow.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In what way does this model represent an endemic illness rather than an epidemic?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Sometimes the R compartment in a model includes only people who have recovered from illness, meaning the R could stand for Recovered. Alternatively, sometimes the R compartment includes recovered people as well as others, such as those who have died, in which case we typically say that R stands for Removed. Write a reasonable interpretation for the R compartment shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>.  
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write out the differential equations for the compartmental model shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+        <!-- <hint>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Have you considered whether all individuals must pass through all three compartments?
+                </p>
+              </li>
+              <li>
+                <p>
+                  We saw in <xref ref="sec-a-first-model"/> that the term named on an arrow appears twice in the differential equations: once as a negative term, in the equation for the compartment the arrow is exiting, and once as a positive term, in the equation for the compartment the arrow is entering.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </hint>
+      <answer>
+        <p>
+          <ol>
+            <li>
+              <p>
+                It should be true that individuals are in exactly one compartment at a time, but with all claims such as this, you should convince yourself or else ask questions about it. It should also be true that individuals cannot progress in any order other than what the compartmental diagram shows. However, in some simulations, some individuals may not leave compartment S. By contrast, with <xref ref="expl-activity-zombie-game"/> and the SI model, all individuals progress from the S compartment to the I compartment.
+              </p>
+            </li>
+            <li>
+              <p>
+                The differential equations for this SIR model are:
+                  <md>
+                    <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+                    <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
+                    <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+                  </md>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </answer> -->
+    </activity>
 
       
 

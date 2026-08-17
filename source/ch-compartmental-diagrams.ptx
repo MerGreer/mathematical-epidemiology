@@ -29,7 +29,7 @@
     <introduction xml:id="intro-compartmental-diagrams">
 
     <p>
-      In <xref ref="ch-zombies-can-math-help" /> we simulated a simple outbreak. This outbreak can be modeled using the <em>system of ordinary differential equations</em> appearing in <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />. Here is the system again:  
+      In <xref ref="ch-zombies-can-math-help" /> and <xref ref="ch-visualization-graphing-model-results-and-data"/> we built the SI model and showed how to visualize its behavior using graphs. This outbreak can be modeled using the <em>system of ordinary differential equations</em> appearing in <xref ref="eq-S-in-SImodel" /> and <xref ref="eq-I-in-SImodel" />. Here is the system again:  
     </p>
     <p>
       <md>
