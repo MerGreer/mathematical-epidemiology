@@ -43,14 +43,14 @@
         <task>
           <statement>
             <p>
-              Assume a disease has Susceptible, Infectious, and Removed phases, and that people in the Removed compartment lose immunity over time. These people then go back to the Susceptible compartment. This renewal of the Susceptible population allows the disease to last beyond just an initial peak of infectious people. Draw a compartmental diagram and differential equations for how such a model might look, and draw a graph sketching how the long-term population values might look. This exploration is not asking you to develop Python code to draw the graph, but instead to hand-draw your best guess. 
+              Assume a disease has Susceptible, Infectious, and Removed phases, and that people in the Removed compartment lose immunity over time. These people then go back to the Susceptible compartment. This ongoing renewal of the Susceptible population allows the disease to last beyond just an initial peak of infectious people. Draw a possible compartmental diagram and differential equations for such a model, and draw a graph sketching how the long-term population values might look. This exploration is not asking you to develop Python code to draw the graph, but instead to hand-draw your best guess. 
             </p>            
           </statement>
         </task>
         <task>
           <statement>
             <p>
-              Next, assume a disease has Susceptible, Infectious, and Removed phases, and that people in the Removed compartment <em>do not</em> lose immunity over time. Instead, new people enter the Susceptible compartment due to births or immigration, and people depart all three compartments due to deaths or emigration. Draw a compartmental diagram and differential equations for how such a model might look, and draw a graph sketching how the long-term population values might look. This exploration is not asking you to develop Python code to draw the graph, but instead to hand-draw your best guess. 
+              Next, assume a disease has Susceptible, Infectious, and Removed phases, and that people in the Removed compartment <em>do not</em> lose immunity over time. Instead, new people enter the Susceptible compartment due to births or immigration, and people depart all three compartments due to deaths or emigration. Draw a possible compartmental diagram and differential equations for such a model, and draw a graph sketching how the long-term population values might look. This exploration is not asking you to develop Python code to draw the graph, but instead to hand-draw your best guess. 
             </p>
           </statement>
         </task>
@@ -60,15 +60,15 @@
     <section xml:id="sec-comparing-endemic-illnesses-with-epidemics">
       <title>Comparing Endemic Illnesses with Epidemics</title>
       <p>
-        This chapter focuses on models of endemic illness. By contrast, so far this semester, we have studied epidemic illnesses, also called epidemics or outbreaks. With epidemics, the Infectious population reaches its peak, drops to 0, and then the epidemic ends. With endemic illness, the illness persists over time in the population.
+        This chapter focuses on models of endemic illness. By contrast, so far this semester, we have studied epidemic illnesses, also called epidemics or outbreaks. With epidemics, the Infectious population reaches its peak, drops to 0, and the epidemic ends. With endemic illness, the illness persists over time in the population.
       </p>
       <p>
         A wording note: while we may refer to <q>an epidemic</q>, we never refer to <q>an endemic</q>. Instead, we can talk about <q>endemic illness</q> or <q>endemic disease</q>: the word <q>endemic</q> always describes something, but <q>endemic</q> does not refer to the event itself. 
       </p>
       <p>
-        Begin in <xref ref="activity-endemic-illness-examples"/> by examining a model of one possible form of endemic illness.
+        Begin in <xref ref="activity-endemic-illness-example-1"/> by examining a model of one possible form of endemic illness.
       </p>
-      <activity xml:id="activity-endemic-illness-examples"> 
+      <activity xml:id="activity-endemic-illness-example-1"> 
         <statement>
           <p>
             Consider the compartmental diagram shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>, depicting an illness in which people in the Removed compartment can lose immunity and return to the Susceptible compartment. Use the questions below the diagram to think through the details of this model. 
@@ -135,44 +135,142 @@
             </ol>
           </p>
         </statement>
-        <!-- <hint>
+        <answer>
           <p>
             <ol>
               <li>
                 <p>
-                  Have you considered whether all individuals must pass through all three compartments?
+                  The formula <m>\alpha R</m> describes movement from the R compartment to the S compartment. The value of <m>\alpha</m> indicates how quickly people move from R to S.
                 </p>
               </li>
               <li>
                 <p>
-                  We saw in <xref ref="sec-a-first-model"/> that the term named on an arrow appears twice in the differential equations: once as a negative term, in the equation for the compartment the arrow is exiting, and once as a positive term, in the equation for the compartment the arrow is entering.
+                  In this model, people enter the S compartment from the R compartment, unlike in, say, the SIR model from <xref ref="fig-SIR-compartmental-diagram"/>, where people can only depart the S compartment. This means the S population may decrease less quickly, or can remain at some nonzero population value, or can increase. These possibilities mean we may not run out of Susceptibles as a way of ending the illness, so it is possible for the Infectious compartment to never reduce to 0 people.
+                </p>
+              </li>
+              <li>
+                <p>
+                  While we could still call the R compartment <q>Removed</q>, it may be more precise to say that R here means <q>Recovered</q>. This indicates that everyone in the R compartment has recovered from illness and is still alive, which is important when we say that people in the R compartment are able to move to the Susceptible compartment where they may be infected again.
+                </p>
+              </li>
+              <li>
+                <p>
+                  These differential equations go with the compartmental diagram in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>:
+                  <md>
+                    <mrow>\frac{dS}{dt} \amp = \alpha R - \beta S I</mrow>
+                    <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I</mrow>
+                    <mrow>\frac{dR}{dt} \amp = \gamma I - \alpha R</mrow>
+                  </md>.
                 </p>
               </li>
             </ol>
           </p>
-        </hint>
-      <answer>
-        <p>
-          <ol>
-            <li>
-              <p>
-                It should be true that individuals are in exactly one compartment at a time, but with all claims such as this, you should convince yourself or else ask questions about it. It should also be true that individuals cannot progress in any order other than what the compartmental diagram shows. However, in some simulations, some individuals may not leave compartment S. By contrast, with <xref ref="expl-activity-zombie-game"/> and the SI model, all individuals progress from the S compartment to the I compartment.
-              </p>
-            </li>
-            <li>
-              <p>
-                The differential equations for this SIR model are:
+        </answer> 
+      </activity>
+
+      <activity xml:id="activity-endemic-illness-example-2"> 
+        <statement>
+          <p>
+            Now consider the compartmental diagram shown in <xref ref="fig-SIR-with-demographics-compartmental-diagram-endemic-illness"/>, depicting an infectious illness in a population where people enter and exit the population. Use the questions below the diagram to think through the details of this model. 
+          </p>
+          <figure xml:id="fig-SIR-with-demographics-compartmental-diagram-endemic-illness">
+            <caption>A possible diagram for the SIR model with demographics, that is, people entering and exiting the population</caption>
+              <image width="100%">
+                <description>
+                  <p>
+                    The compartmental diagram for an SIR model with demographics, having compartments for populations of Susceptible, Infectious, and Removed or Recovered people. Arrows point from S to I and from I to R. An arrow points into S from the outside, and arrows point out from all three compartments.
+                  </p>
+                </description>
+                <latex-image>
+                  \begin{tikzpicture}
+                    \draw [thick] [->] (-1.9,1) to (-0.1,1);
+                    \node at (-1,1.5) {\Large $\Pi$};
+                    \draw [thick] [black] (0,0) -- (2,0);
+                    \draw [thick] [black] (2,0) -- (2,2);
+                    \draw [thick] [black] (2,2) -- (0,2);
+                    \draw [thick] [black] (0,2) -- (0,0);
+                    \node [black] at (1,1) {\Huge $S$};
+                    \draw [thick] [->] (2.1,1) to (3.9,1); 
+                    \node at (3,1.5) {\Large $\beta SI$};
+                    \draw [thick] [->] (1,-0.1) to (1,-1.9);
+                    \node at (1.75,-1) {\Large $\mu S$};
+                    \draw [thick] [black] (4,0) -- (6,0);
+                    \draw [thick] [black] (6,0) -- (6,2);
+                    \draw [thick] [black] (6,2) -- (4,2);
+                    \draw [thick] [black] (4,2) -- (4,0);
+                    \node [black] at (5,1) {\Huge $I$};
+                    \draw [thick] [->] (6.1,1) to (7.9,1); 
+                    \node at (7,1.5) {\Large $\gamma I$};
+                    \draw [thick] [->] (5,-0.1) to (5,-1.9);
+                    \node at (5.75,-1) {\Large $\mu I$};
+                    \draw [thick] [black] (8,0) -- (10,0);
+                    \draw [thick] [black] (10,0) -- (10,2);
+                    \draw [thick] [black] (10,2) -- (8,2);
+                    \draw [thick] [black] (8,2) -- (8,0);
+                    \node [black] at (9,1) {\Huge $R$};
+                    \draw [thick] [->] (9,-0.1) to (9,-1.9);
+                    \node at (9.75,-1) {\Large $\mu R$};
+                  \end{tikzpicture}
+                </latex-image>
+              </image>
+          </figure>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Write out your interpretation of the formulas <m>\Pi</m>, <m>\mu S</m>, <m>\mu I</m>, and <m>\mu R</m> and their accompanying arrows.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In what way does this model represent an endemic illness rather than an epidemic?
+                </p>
+              </li>
+              <li>
+                <p>
+                  This model allows people to enter the population by births or immigration, and allows people to leave the population by deaths or emigration. Comment on what it may mean for the timespan of such a model, in comparison with the timespan of an outbreak model in which we leave out these options for people to enter or exit the population.  
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write out the differential equations for the compartmental model shown in <xref ref="fig-SIR-with-demographics-compartmental-diagram-endemic-illness"/>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+        <answer>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  The formula <m>\Pi</m> indicates that people enter the S compartment at some constant rate. The formulas <m>\mu S</m>, <m>\mu I</m>, and <m>\mu R</m> indicate the people leave the S, I, and R compartments at a rate proportional to how many people are in those compartments. These formulas also show that the proportion of people leaving each compartment is the same proportion, rather than different proportions for different compartments.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In this model, people enter the S compartment due to births or immigration, unlike in, say, the SIR model from <xref ref="fig-SIR-compartmental-diagram"/>, where people can only depart the S compartment. This means the S population may decrease less quickly, or can remain at some nonzero population value, or can increase. These possibilities mean we may not run out of Susceptibles as a way of ending the illness, so it is possible for the Infectious compartment to never reduce to 0 people.
+                </p>
+              </li>
+              <li>
+                <p>
+                  While we could still call the R compartment <q>Removed</q>, it may be more precise to say that R here means <q>Recovered</q>. This indicates that everyone in the R compartment has recovered from illness and is still alive. This distinguishes people in the R compartment from those people who leave the R compartment through the formula <m>\mu R</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  These differential equations go with the compartmental diagram in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>:
                   <md>
-                    <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-                    <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
-                    <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+                    <mrow>\frac{dS}{dt} \amp = \Pi - \beta S I - \mu S</mrow>
+                    <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I - \mu I</mrow>
+                    <mrow>\frac{dR}{dt} \amp = \gamma I - \mu R</mrow>
                   </md>.
-              </p>
-            </li>
-          </ol>
-        </p>
-      </answer> -->
-    </activity>
+                </p>
+              </li>
+            </ol>
+          </p>
+        </answer> 
+      </activity>
 
       
 
