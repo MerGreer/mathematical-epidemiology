@@ -36,7 +36,7 @@
         <title>A Disease that Remains Long-term in a Population</title>
         <introduction>
           <p>
-            Think through each of the following scenarios. Use your experience building compartmental models to develop a new compartmental model for each of the new scenarios described.
+            Think through each of the following scenarios. Use your experience building compartmental models to develop a compartmental model for each of the new scenarios described.
           </p>
         </introduction>
 
@@ -132,8 +132,63 @@
                   Write out the differential equations for the compartmental model shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>.
                 </p>
               </li>
+              <li>
+                <p>
+                  Graph each model’s solution curves <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> in Python. Start with the default parameter and initial values in the Python code below, including time ending at <m>t=30</m>.
+                </p>
+                <p>
+                  <ol>
+                    <li>
+                      <p>
+                        What seems to be happening when you stop at <m>t=30</m>? In order to better understand the long-term behavior of the system, what is a good end time <m>t</m>? When responding to this question, change just the end time, not any other values.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Try different parameter values, different initial conditions, and different end times. Report on the results you find.
+                      </p>
+                    </li>
+                  </ol>
+                </p>
+              </li>
             </ol>
           </p>
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla()  #Clear (delete) any past plots
+
+              #Define the system of differential equations, and call it "sirs"
+              def sirs(y, t):
+                s, i, r = y #Define y as consisting of s, i, and r, in that order
+                dydt = [-beta * s * i + alpha * r, beta * s * i - gamma * i, gamma * i - alpha * r] #These formulas are the right-hand sides of the SIRS model
+                return dydt
+
+              beta = 0.00007 #Give a value to beta
+              gamma = 0.2 #Give a value to gamma
+              alpha = 0.1
+              y0 = [9900, 100, 0] #Set initial conditions for Susceptibles, Infectious, and Removed
+              t_range = np.arange(0.0, 30.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+
+              sol = odeint(sirs, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.xlabel('Time')
+              plt.ylabel('Populations')
+              plt.show()
+            </input>
+            <output>
+              
+            </output>
+          </sage>
         </statement>
         <answer>
           <p>
@@ -163,10 +218,36 @@
                   </md>.
                 </p>
               </li>
+              <li>
+                <p>
+                  <ol>
+                    <li>
+                      <p>
+                        At <m>t=30</m>, <m>S(t)</m> has dipped but is rising, whereas <m>I(t)</m> and <m>R(t)</m> have risen and appear to be falling. Running the model for a longer time shows that the curves appear to level out to horizontal by about <m>t=40</m>. It helps to show the model for longer than this, to <m>t=50</m> or somewhat longer, to be sure the curves stay horizontal.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        This is open-ended and is an excellent place for group and class discussions.
+                      </p>
+                    </li>
+                  </ol>
+                </p>
+              </li>
             </ol>
           </p>
         </answer> 
       </activity>
+
+      <p>
+        The primary change in <xref ref="activity-endemic-illness-example-1"/>, as compared with the SIR model we have studied previously, is that people from the R compartment can return to S. This change to the model can mean that we never run out of people in the S compartment or in the I compartment. For this reason, the illness can last forever in the population.
+      </p>
+      <p>
+        The value of <m>\alpha</m> can be determined by how long people typically stay in the R compartment. This is similar to how we have determined the value of <m>\gamma</m>, such as in <xref ref="eq-gamma-estimate"/> and <xref ref="eq-gamma-estimate-2"/>, and the value of <m>\kappa</m>, such as in  <xref ref="eq-kappa-estimate"/> and <xref ref="eq-kappa-estimate-2"/>.
+      </p>
+      <p>
+        There is another typical way for an illness to remain endemic in a population. Continue on to <xref ref="activity-endemic-illness-example-2"/> to learn about and experiment with such a model.
+      </p>
 
       <activity xml:id="activity-endemic-illness-example-2"> 
         <statement>
@@ -236,7 +317,64 @@
                   Write out the differential equations for the compartmental model shown in <xref ref="fig-SIR-with-demographics-compartmental-diagram-endemic-illness"/>.
                 </p>
               </li>
+              <li>
+                <p>
+                  Graph each model’s solution curves <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> in Python. Start with the default parameter and initial values in the Python code below, including time ending at <m>t=30</m>.
+                </p>
+                <p>
+                  <ol>
+                    <li>
+                      <p>
+                        What seems to be happening when you stop at <m>t=30</m>? What if you go to <m>t=300</m>? What if you go to <m>t=3000</m>? In order to better understand the long-term behavior of the system, what is a good end time <m>t</m>? When responding to this question, change just the end time, not any other values.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Try different parameter values, different initial conditions, and different end times. Report on the results you find.
+                      </p>
+                    </li>
+                  </ol>
+                </p>
+              </li>
             </ol>
+            <sage>
+              <input>
+                #Import packages
+                import numpy as np
+                import matplotlib.pyplot as plt
+                from scipy.integrate import odeint
+
+                plt.cla()  #Clear (delete) any past plots
+
+                #Define the system of differential equations, and call it "sirs"
+                def sir(y, t):
+                  s, i, r = y #Define y as consisting of s, i, and r, in that order
+                  dydt = [Pi - beta * s * i - mu * s, beta * s * i - gamma * i - mu * i, gamma * i - mu * r] #These formulas are the right-hand sides of the SIR model
+                  return dydt
+
+                Pi = 1 #Give a value to Pi
+                beta = 0.00008 #Give a value to beta
+                gamma = 0.2 #Give a value to gamma
+                alpha = 0.1 #Give a value to alpha
+                mu = 0.0001 #Give a value to mu
+                y0 = [9950, 50, 0] #Set initial conditions for Susceptibles, Infectious, and Removed
+                t_range = np.arange(0.0, 30.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+
+                sol = odeint(sir, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+                # Plotting commands are below
+                plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+                plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+                plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+                plt.legend()
+                plt.xlabel('Time')
+                plt.ylabel('Populations')
+                plt.show()
+              </input>
+              <output>
+                
+              </output>
+            </sage>
           </p>
         </statement>
         <answer>
@@ -265,6 +403,25 @@
                     <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I - \mu I</mrow>
                     <mrow>\frac{dR}{dt} \amp = \gamma I - \mu R</mrow>
                   </md>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <ol>
+                    <li>
+                      <p>
+                        At <m>t=30</m>, the results appear similar to those in many SIR models we have seen. The <m>I(t)</m> curve has peaked and fallen to nearly 0. The <m>S(t)</m> curve has dropped to nearly 0, and the <m>R(t)</m> curve has risen to nearly the value of the entire population.
+                      </p>
+                      <p>
+                        However, when we extend the time to 300, it appears as though <m>R(t)</m> may be falling and <m>S(t)</m> may be rising. Extending to <m>t=3000</m>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        This is open-ended and is an excellent place for group and class discussions.
+                      </p>
+                    </li>
+                  </ol>
                 </p>
               </li>
             </ol>

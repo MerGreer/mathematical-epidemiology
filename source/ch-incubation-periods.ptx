@@ -244,16 +244,16 @@
         Now that you have built an SEIR model in <xref ref="activity-seir-model-intro"/>, you can explore its compartmental diagram and differential equations. To start, notice that we can estimate the value of <m>\kappa</m> similarly to how we estimated the value of <m>\gamma</m> in <xref ref="eq-gamma-estimate"/> and <xref ref="eq-gamma-estimate-2"/>, using the average incubation time for a disease:         
       </p>
       <p>
-        <md number="yes">
-          <mrow xml:id="eq-kappa-estimate">\frac{1}{\kappa} \amp \approx \mbox{average length of time an individual spends in compartment E} </mrow>
+        <md number="yes" xml:id="eq-kappa-estimate">
+          \frac{1}{\kappa} \approx \mbox{average length of time an individual spends in compartment E} 
         </md>
       </p>      
       <p>
         or:
       </p>
       <p>
-        <md number="yes">
-          <mrow xml:id="eq-kappa-estimate-2">\frac{1}{\kappa} \amp \approx \mbox{average incubation time for a disease.} </mrow>
+        <md number="yes" xml:id="eq-kappa-estimate-2">
+          \frac{1}{\kappa} \approx \mbox{average incubation time for a disease.} 
         </md>
       </p>
       <p>
