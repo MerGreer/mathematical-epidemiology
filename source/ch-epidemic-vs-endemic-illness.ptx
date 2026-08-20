@@ -319,13 +319,13 @@
               </li>
               <li>
                 <p>
-                  Graph each model’s solution curves <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> in Python. Start with the default parameter and initial values in the Python code below, including time ending at <m>t=30</m>.
+                  Graph each model’s solution curves <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> in Python. Start with the default parameter and initial values in the Python code below, including time ending at <m>t=50</m>. The values for <m>\Pi</m> and <m>\mu</m>
                 </p>
                 <p>
                   <ol>
                     <li>
                       <p>
-                        What seems to be happening when you stop at <m>t=30</m>? What if you go to <m>t=300</m>? What if you go to <m>t=3000</m>? In order to better understand the long-term behavior of the system, what is a good end time <m>t</m>? When responding to this question, change just the end time, not any other values.
+                        What seems to be happening when you stop at <m>t=50</m>? What if you go to <m>t=500</m>? What if you go to <m>t=5000</m>? In order to better understand the long-term behavior of the system, what is a good end time <m>t</m>? When responding to this question, change just the end time, not any other values.
                       </p>
                     </li>
                     <li>
@@ -352,13 +352,13 @@
                   dydt = [Pi - beta * s * i - mu * s, beta * s * i - gamma * i - mu * i, gamma * i - mu * r] #These formulas are the right-hand sides of the SIR model
                   return dydt
 
-                Pi = 1 #Give a value to Pi
-                beta = 0.00008 #Give a value to beta
+                Pi = 8.3 #Give a value to Pi
+                beta = 0.00006 #Give a value to beta
                 gamma = 0.2 #Give a value to gamma
                 alpha = 0.1 #Give a value to alpha
-                mu = 0.0001 #Give a value to mu
+                mu = 0.0005 #Give a value to mu
                 y0 = [9950, 50, 0] #Set initial conditions for Susceptibles, Infectious, and Removed
-                t_range = np.arange(0.0, 30.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+                t_range = np.arange(0.0, 50.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
 
                 sol = odeint(sir, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
 
@@ -382,7 +382,7 @@
             <ol>
               <li>
                 <p>
-                  The formula <m>\Pi</m> indicates that people enter the S compartment at some constant rate. The formulas <m>\mu S</m>, <m>\mu I</m>, and <m>\mu R</m> indicate the people leave the S, I, and R compartments at a rate proportional to how many people are in those compartments. These formulas also show that the proportion of people leaving each compartment is the same proportion, rather than different proportions for different compartments.
+                  The formula <m>\Pi</m> indicates that people enter the S compartment at some constant rate. The formulas <m>\mu S</m>, <m>\mu I</m>, and <m>\mu R</m> indicate that people leave the S, I, and R compartments at a rate proportional to how many people are in those compartments. These formulas also show that in this model, the proportion of people leaving each compartment is the same proportion, rather than different proportions for different compartments.
                 </p>
               </li>
               <li>
@@ -392,7 +392,7 @@
               </li>
               <li>
                 <p>
-                  While we could still call the R compartment <q>Removed</q>, it may be more precise to say that R here means <q>Recovered</q>. This indicates that everyone in the R compartment has recovered from illness and is still alive. This distinguishes people in the R compartment from those people who leave the R compartment through the formula <m>\mu R</m>.
+                  While we could still call the R compartment <q>Removed</q>, it may be more precise to say that R here means <q>Recovered</q>. This indicates that everyone in the R compartment has recovered from illness and is still alive. The word <q>Recovered</q> distinguishes people in the R compartment from those people who leave the R compartment through the formula <m>\mu R</m>.
                 </p>
               </li>
               <li>
@@ -410,10 +410,16 @@
                   <ol>
                     <li>
                       <p>
-                        At <m>t=30</m>, the results appear similar to those in many SIR models we have seen. The <m>I(t)</m> curve has peaked and fallen to nearly 0. The <m>S(t)</m> curve has dropped to nearly 0, and the <m>R(t)</m> curve has risen to nearly the value of the entire population.
+                        At <m>t=50</m>, the results appear similar to those in many SIR models we have seen. The <m>I(t)</m> curve has peaked and fallen to nearly 0, the <m>S(t)</m> curve has dropped, and the <m>R(t)</m> curve has risen. It is worth noticing, though, that the <m>S(t)</m> curve has not fallen to 0, but seems to end in a nearly horizontal line at a value of approximately 800 people.
                       </p>
                       <p>
-                        However, when we extend the time to 300, it appears as though <m>R(t)</m> may be falling and <m>S(t)</m> may be rising. Extending to <m>t=3000</m>
+                        When we extend the time to <m>t=500</m>, we see that <m>R(t)</m> is falling and <m>S(t)</m> is rising. 
+                      </p>
+                      <p>
+                        Extending to <m>t=5000</m>, things get very interesting. The <m>S(t)</m> and <m>R(t)</m> populations oscillate over time, while <m>I(t)</m> shows occasional brief peaks. It appears that the populations may be leveling out near the end of the time shown in the graph. Letting the graph run until <m>t=8000</m> or <m>t=10000</m> further suggests that the populations reach long-term equilibrium values at which none of the populations goes to 0. (The scale of the graph may make it seem as though <m>I(t)</m> approaches 0, but we can print long-term population values to see that <m>I(t)</m> approaches approximately 33.)
+                      </p>
+                      <p>
+                        (The scale of the graph may make it seem as though <m>I(t)</m> approaches 0, but we can print long-term population values to see that <m>I(t)</m> approaches approximately 33. To print this value, add a line near the bottom of the Python code saying <c>print("Long-term value of I = ", round(sol[-1,1]))</c>.)
                       </p>
                     </li>
                     <li>
