@@ -309,7 +309,7 @@
               </li>
               <li>
                 <p>
-                  This model allows people to enter the population by births or immigration, and allows people to leave the population by deaths or emigration. Comment on what it may mean for the timespan of such a model, in comparison with the timespan of an outbreak model in which we leave out these options for people to enter or exit the population.  
+                  This model allows people to enter the population by births or immigration, and allows people to leave the population by deaths or emigration. Comment on what it may mean for the timespan of such a model, in comparison with the timespan of an outbreak model in which we leave out these options for people to enter or exit the population. That is: how long, in terms of weeks, months, or years, might you expect this sort of model to last, compared with an outbreak model lacking demographic changes?
                 </p>
               </li>
               <li>
@@ -319,7 +319,7 @@
               </li>
               <li>
                 <p>
-                  Graph each model’s solution curves <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> in Python. Start with the default parameter and initial values in the Python code below, including time ending at <m>t=50</m>. The values for <m>\Pi</m> and <m>\mu</m>
+                  Graph each model’s solution curves <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> in Python. Start with the default parameter and initial values in the Python code below, including time ending at <m>t=50</m>. 
                 </p>
                 <p>
                   <ol>
@@ -392,7 +392,7 @@
               </li>
               <li>
                 <p>
-                  While we could still call the R compartment <q>Removed</q>, it may be more precise to say that R here means <q>Recovered</q>. This indicates that everyone in the R compartment has recovered from illness and is still alive. The word <q>Recovered</q> distinguishes people in the R compartment from those people who leave the R compartment through the formula <m>\mu R</m>.
+                  A model involving births and deaths, or immigration and emigration, has the capacity to last much longer than a model lacking these terms. For an outbreak lasting a few weeks or months, we typically leave these terms out because any changes from them are negligible over a short time. Including them usually means our timeframe is longer, so that we cannot meaningfully leave them out.
                 </p>
               </li>
               <li>
@@ -435,12 +435,50 @@
         </answer> 
       </activity>
 
-      
-
-      <!-- <p>Talk about demographic effects. Emphasize here that this is why we aren't normalizing total population to 1. Also: put herd immunity in this chapter.</p> -->
-
-      <!-- Include fuller SVIR model from same paper as in Vaccines section -->
+      <p>
+        We have now seen two distinct ways to model endemic illness. In <xref ref="activity-endemic-illness-example-1"/> the Susceptible population is replenished as people leave the R compartment and return to S. This allows the illness to continue, cycling through the population, meaning that individuals can become sick more than once. In <xref ref="activity-endemic-illness-example-2"/> the Susceptible compartment gains people through births or immigration, which is a different way to maintain a population that can be infected. Indeed, many so-called <q>childhood illnesses</q> in history lasted so long because there were always new children in the population who had not yet contracted the illness and therefore were not yet immune. This is why these illnesses nearly always occurred in children, often very young children.
+      </p>
+      <p>
+        It is also possible to have a model combining the concepts from <xref ref="activity-endemic-illness-example-1"/> and <xref ref="activity-endemic-illness-example-2"/>, that is, a model can have demographic changes and also allow Recovered people to lose immunity and return to the Susceptible compartment. Yet another change could be to set a different death rate in the Infectious compartment, if an illness can lead to death. In this case, the death rate for the I compartment should be larger than the death rates for the S and R compartments. 
+      </p>
+      <p>
+        Mathematically, models of endemic illness have the interesting outcome that we can compute equilbrium values other than the disease-free equilibrium. As the models become very complicated, we may not try to compute these equilbrium values as algebraic formulas, but instead we see them in simulations. This appeared, for example, in <xref ref="activity-endemic-illness-example-1"/> and <xref ref="activity-endemic-illness-example-2"/> as the solution curves became horizontal, at nonzero values, when the model ran for a long time.
+      </p>
+      <p>
+        In <xref ref="sec-equilibrium-values-in-endemic-illness-models"/> we show how to compute equilbrium values for the relatively simple models of endemic illness that we have been exploring in this section.
+      </p>
 
     </section>
+
+    <section xml:id="sec-equilibrium-values-in-endemic-illness-models">
+      <title>Equilibrium Values in Endemic Illness Models</title>
+
+      <p>
+        This section focuses on equilibrium values. In a compartmental model, equilibrium occurs when each compartment maintains an unchanging population. For an SIR model, equilibrium means that <m>dS/dt = 0</m>, <m>dI/dt = 0</m>, and <m>dR/dt = 0</m>. 
+        <!-- In an endemic model such as that shown in <xref ref="activity-endemic-illness-example-1"/>, any individual represented in the model may continue to cycle through the Susceptible, Infectious, and Recovered compartments. However, at equilbrium -->
+      </p>
+      <p>
+        You may notice any compartmental model could be at equilibrium if the total population size were 0. Consider, for instance, the <xref ref="activity-endemic-illness-example-1"/> model
+      </p>
+      <p>
+        <md number="yes">
+          <mrow>\frac{dS}{dt} \amp =  \alpha R - \beta SI</mrow>
+          <mrow>\frac{dI}{dt} \amp =  \beta SI - \gamma I</mrow>
+          <mrow>\frac{dR}{dt} \amp =  \gamma I - \alpha R</mrow>
+        </md>.
+      </p>
+      <p>
+        In this model, if we had <m>S=0</m>, <m>I=0</m>, and <m>R=0</m>, then the right-hand sides of each equation would equal 0, which means that each derivative would equal 0. It is completely accurate to notice this form of equilbrium, yet it does not tell us much about disease spread in a population containing any people. So, we note it and move on.
+      </p>
+      <p>
+        It is also true that there is a <term>disease-free equilibrium</term>. We imagine this as having a model for what would happen if disease began in a population where the disease had never been before. Prior to disease arrival, <m>I=0</m> and <m>R=0</m>. In this case, using our models for <xref ref="activity-endemic-illness-example-1"/> and <xref ref="activity-endemic-illness-example-2"/>, disease-free equilibrium means that the entire population is in the S compartment. When we define <m>N=S+I+R</m>, meaning that <m>N</m> represents the entire population, then the disease-free equilibrium has <m>S=N</m>, <m>I=0</m>, <m>R=0</m>.
+      </p>
+      <p>
+        The activities below focus on yet another equilibrium, namely the <term>endemic equilibrium</term>. Our earlier epidemic models did not have such an equilibrium because disease would peak and then recede. With endemic illness, there can be a long-term state in which <m>I \neq 0</m> and <m>R \neq 0</m>. This is the type of equilibrium we will solve for algebraically and then study.
+      </p>
+      
+    </section>
+
+  
 
   </chapter>
