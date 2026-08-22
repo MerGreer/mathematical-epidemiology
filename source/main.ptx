@@ -350,6 +350,14 @@
         
 
         <gi>
+          <title>Disease-Free Equilibrium</title>
+          <p>
+            A set of values for each compartment of a model at which every differential equation in the model equals 0 and having the property that the number of Infectious people is zero. Because this type of equilibrium supposes there has not previously been disease in the population, there are also zero people in any Removed or Recovered compartment, and zero people in any other compartment that refers to people who are currently ill or who have previously had the illness being modeled. (<xref ref="ch-epidemic-vs-endemic-illness"/>)
+          </p>
+        </gi>
+
+
+        <gi>
           <title>Effective Reproduction Number</title>
           <p>
             The effective reproduction number is the average number of new infections caused by one infectious person in a population that is not entirely susceptible. The most common reason for a population to not be entirely susceptible is when some of the people have some form of immunity. Reasons for immunity may include vaccination and/or some of the people in the population previously having the disease being studied. The symbol <m>\mathcal{R}_{\text{eff}}</m> represents the effective reproduction number. (<xref ref="ch-vaccines"/>)
@@ -369,6 +377,14 @@
           <title>Efficacy</title>
           <p>
             A measure of how many people within a population of vaccinated individuals get a disease, compared with how many people within a comparable population of unvaccinated individuals get the same disease, <em>in a clinical trial</em>. For instance, if in trials <m>70\%</m> fewer people in the vaccinated group get a virus than do those in the unvaccinated group, then the vaccine is said to have an efficacy of <m>70\%</m>.  (<xref ref="ch-vaccines"/>)
+          </p>
+        </gi>
+
+
+        <gi>
+          <title>Endemic Equilibrium</title>
+          <p>
+            A set of values for each compartment of a model at which every differential equation in the model equals 0 and having the property that there is a nonzero (and positive) number of Infectious people. (<xref ref="ch-epidemic-vs-endemic-illness"/>)
           </p>
         </gi>
 
