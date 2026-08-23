@@ -461,11 +461,13 @@
         You may notice that any compartmental model could be at equilibrium if the total population size were 0. Consider, for instance, the <xref ref="activity-endemic-illness-example-1"/> model
       </p>
       <p>
-        <md>
-          <mrow>\frac{dS}{dt} \amp =  \alpha R - \beta SI</mrow>
-          <mrow>\frac{dI}{dt} \amp =  \beta SI - \gamma I</mrow>
-          <mrow>\frac{dR}{dt} \amp =  \gamma I - \alpha R</mrow>
-        </md>.
+        <men xml:id="eq-SIRS-system">
+          \begin{aligned}
+            \frac{dS}{dt} \amp =  \alpha R - \beta SI\\
+            \frac{dI}{dt} \amp =  \beta SI - \gamma I\\
+            \frac{dR}{dt} \amp =  \gamma I - \alpha R.
+          \end{aligned}
+        </men>
       </p>
       <p>
         In this model, if we had <m>S=0</m>, <m>I=0</m>, and <m>R=0</m>, then the right-hand sides of each equation would equal 0, which means that each derivative would equal 0. It is completely accurate to notice this form of equilbrium, yet it does not tell us much about disease spread in a population containing any people. So, we note it and move on.
@@ -480,23 +482,30 @@
       <activity xml:id="activity-endemic-illness-equilibrium-1"> 
         <statement>
           <p>
-            In this activity, we solve algebraically for the endemic equilibrium of the compartmental model shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>. The differential equations for this model are:
+            In this activity, we solve algebraically for the endemic equilibrium of the compartmental model shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>. At equilibrium, all three differential equations from the model in <xref ref="activity-endemic-illness-equilibrium-1"/> are set equal to 0, indicating that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Follow the steps below to determine the combination of algebraic formulas for which this is true.
           </p>
           <p>
-            <md>
-              <mrow>\frac{dS}{dt} \amp =  \alpha R - \beta SI</mrow>
-              <mrow>\frac{dI}{dt} \amp =  \beta SI - \gamma I</mrow>
-              <mrow>\frac{dR}{dt} \amp =  \gamma I - \alpha R</mrow>
-            </md>.
-          </p>
-          <p>
-            At equilibrium, all three differential equations equal 0, indicating that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Follow the steps below to determine the combination of algebraic formulas for which this is true.
+            <md number="yes">
+              <mrow xml:id="eq-Sequals0-SIRSmodel"> \alpha R - \beta SI \amp = 0 </mrow>
+              <mrow xml:id="eq-Iequals0-SIRSmodel"> \beta SI - \gamma I \amp = 0 </mrow>
+              <mrow xml:id="eq-Requals0-SIRSmodel"> \gamma I - \alpha R \amp = 0 </mrow>
+            </md>
           </p>
           <p>
             <ol>
               <li>
                 <p>
-                  Write 
+                  Solve the <m>dI/dt=0</m> equation for <m>S</m>. In other words, rearrange <m>\beta SI - \gamma I=0</m> into an equation beginning with <q><m>S=</m></q> and having only non-<m>S</m> terms on the right-hand side.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Solve the <m>dS/dt=0</m> equation for <m>I</m> and replace <m>R</m> with <m>N-S-I</m>. Explain why this is a permissible substitution. Then group together the <m>I</m> terms and solve for <m>I</m>. Your answer will be in terms of <m>S</m>, which we solved for in part (1).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the <m>dR/dt=0</m> equation, that is, <m>\gamma I - \alpha R=0</m> to solve for <m>R</m>. Your answer will be in terms of <m>I</m>, which we solved for in part (2).
                 </p>
               </li>
             </ol>
