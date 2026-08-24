@@ -482,7 +482,7 @@
       <activity xml:id="activity-endemic-illness-equilibrium-1"> 
         <statement>
           <p>
-            In this activity, we solve algebraically for the endemic equilibrium of the compartmental model shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>. At equilibrium, all three differential equations from the model in <xref ref="activity-endemic-illness-equilibrium-1"/> are set equal to 0, indicating that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Follow the steps below to determine the combination of algebraic formulas for which this is true.
+            In this activity, we solve algebraically for the endemic equilibrium <m>(\overline{S}, \overline{I}, \overline{R} )</m> of the compartmental model shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>. The lines atop <m>S</m>, <m>I</m>, and <m>R</m> indicate that these are the specific values of each compartment's population for which the entire system is at equilibrium. To help us start the algebra needed to compute the formulas we seek, we use the knowledge that at equilibrium all three differential equations from the model in <xref ref="activity-endemic-illness-equilibrium-1"/> are set equal to 0, indicating that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Follow the steps below to determine the combination of algebraic formulas for which this is true.
           </p>
           <p>
             <md number="yes">
@@ -495,12 +495,12 @@
             <ol>
               <li>
                 <p>
-                  Solve the <m>dI/dt=0</m> equation for <m>S</m>. In other words, rearrange <m>\beta SI - \gamma I=0</m> into an equation beginning with <q><m>S=</m></q> and having only non-<m>S</m> terms on the right-hand side.
+                  Solve <xref ref="eq-Iequals0-SIRSmodel"/> for <m>S</m>. In other words, rearrange <m>\beta SI - \gamma I=0</m> into an equation beginning with <q><m>S=</m></q> and having only non-<m>S</m> terms on the right-hand side.
                 </p>
               </li>
               <li>
                 <p>
-                  Solve the <m>dS/dt=0</m> equation for <m>I</m> and replace <m>R</m> with <m>N-S-I</m>. Explain why this is a permissible substitution. Then group together the <m>I</m> terms and solve for <m>I</m>. Your answer will be in terms of <m>S</m>, which we solved for in part (1).
+                  Start with <xref ref="eq-Sequals0-SIRSmodel"/> and replace <m>R</m> with <m>N-S-I</m>. Explain why this is a permissible substitution. Then solve for <m>I</m>. Your answer will be in terms of <m>S</m>, which we solved for in part (1).
                 </p>
               </li>
               <li>
@@ -510,66 +510,75 @@
               </li>
             </ol>
           </p>
+          <p>
+            Your result should be three algebraic formulas giving equilibrium values for the <m>S</m>, <m>I</m>, and <m>R</m> populations, entirely in terms of the parameter values <m>\alpha</m>, <m>\beta</m>, and <m>\gamma</m>, as well as the total population size <m>N</m>. 
+          </p>
         </statement>
-        <!-- <answer>
+        <answer>
           <p>
             <ol>
               <li>
                 <p>
-                  The formula <m>\Pi</m> indicates that people enter the S compartment at some constant rate. The formulas <m>\mu S</m>, <m>\mu I</m>, and <m>\mu R</m> indicate that people leave the S, I, and R compartments at a rate proportional to how many people are in those compartments. These formulas also show that in this model, the proportion of people leaving each compartment is the same proportion, rather than different proportions for different compartments.
+                  <m>\overline{S}=\frac{\gamma}{\beta}</m> 
                 </p>
               </li>
               <li>
                 <p>
-                  In this model, people enter the S compartment due to births or immigration, unlike in, say, the SIR model from <xref ref="fig-SIR-compartmental-diagram"/>, where people can only depart the S compartment. This means the S population may decrease less quickly, or can remain at some nonzero population value, or can increase. These possibilities mean we may not run out of Susceptibles as a way of ending the illness, so it is possible for the Infectious compartment to never reduce to 0 people.
+                  <m>\overline{I}=\frac{\alpha N - \alpha S}{\alpha + \beta S}</m> 
+                </p>
+                <p>
+                  We could substitute in <m>\overline{S}=\gamma / \beta</m> to obtain a formula that is entirely in terms of the model's parameters and the total population value.
                 </p>
               </li>
               <li>
                 <p>
-                  A model involving births and deaths, or immigration and emigration, has the capacity to last much longer than a model lacking these terms. For an outbreak lasting a few weeks or months, we typically leave these terms out because any changes from them are negligible over a short time. Including them usually means our timeframe is longer, so that we cannot meaningfully leave them out.
+                  <m>\overline{R}=\frac{\gamma I}{\alpha}</m> 
                 </p>
-              </li>
-              <li>
                 <p>
-                  These differential equations go with the compartmental diagram in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>:
-                  <md>
-                    <mrow>\frac{dS}{dt} \amp = \Pi - \beta S I - \mu S</mrow>
-                    <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I - \mu I</mrow>
-                    <mrow>\frac{dR}{dt} \amp = \gamma I - \mu R</mrow>
-                  </md>.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <ol>
-                    <li>
-                      <p>
-                        At <m>t=50</m>, the results appear similar to those in many SIR models we have seen. The <m>I(t)</m> curve has peaked and fallen to nearly 0, the <m>S(t)</m> curve has dropped, and the <m>R(t)</m> curve has risen. It is worth noticing, though, that the <m>S(t)</m> curve has not fallen to 0, but seems to end in a nearly horizontal line at a value of approximately 800 people.
-                      </p>
-                      <p>
-                        When we extend the time to <m>t=500</m>, we see that <m>R(t)</m> is falling and <m>S(t)</m> is rising. 
-                      </p>
-                      <p>
-                        Extending to <m>t=5000</m>, things get very interesting. The <m>S(t)</m> and <m>R(t)</m> populations oscillate over time, while <m>I(t)</m> shows occasional brief peaks. It appears that the populations may be leveling out near the end of the time shown in the graph. Letting the graph run until <m>t=8000</m> or <m>t=10000</m> further suggests that the populations reach long-term equilibrium values at which none of the populations goes to 0. (The scale of the graph may make it seem as though <m>I(t)</m> approaches 0, but we can print long-term population values to see that <m>I(t)</m> approaches approximately 33.)
-                      </p>
-                      <p>
-                        (The scale of the graph may make it seem as though <m>I(t)</m> approaches 0, but we can print long-term population values to see that <m>I(t)</m> approaches approximately 33. To print this value, add a line near the bottom of the Python code saying <c>print("Long-term value of I = ", round(sol[-1,1]))</c>.)
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        This is open-ended and is an excellent place for group and class discussions.
-                      </p>
-                    </li>
-                  </ol>
+                  We could substitute in the formulas for <m>\overline{S}</m> and <m>\overline{I}</m> to obtain a formula that is entirely in terms of the model's parameters and the total population value.
                 </p>
               </li>
             </ol>
           </p>
-        </answer>  -->
+        </answer> 
       </activity>
+
+      
+
+      
       
     </section>
+
+    <exercises xml:id="exercises-ch-endemic-illness">
+      <exercise number="1">
+        <p>
+          Show the steps for how to solve algebraically for the endemic equilibrium <m>(\overline{S}, \overline{I}, \overline{R} )</m> of the compartmental model shown in <xref ref="fig-SIR-with-demographics-compartmental-diagram-endemic-illness"/>. Start similarly to how you began <xref ref="activity-endemic-illness-equilibrium-1"/> by setting equal to 0 all three differential equations from the model in <xref ref="activity-endemic-illness-example-2"/>, indicating that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Follow the steps below.
+        </p>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Solve the <m>dI/dt=0</m> equation for <m>S</m>. This result is the equilibrium value <m>\overline{S}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Substitute <m>\overline{S}</m> into the equation <m>dS/dt=0</m> and solve for <m>I</m>. This result is the equilibrium value <m>\overline{I}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Solve the <m>dR/dt=0</m> equation for <m>R</m>. The result contains <m>I</m>. When <m>I=\overline{I}</m>, this formula is the equilibrium value <m>\overline{R}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Your result should be three algebraic formulas giving equilibrium values for the <m>S</m>, <m>I</m>, and <m>R</m> populations, entirely in terms of the parameter values <m>\beta</m>, <m>\gamma</m>, <m>\mu</m>, and <m>\Pi</m>. 
+        </p>
+      </exercise>
+      
+    </exercises>
 
   
 
