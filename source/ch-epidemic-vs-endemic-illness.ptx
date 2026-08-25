@@ -535,40 +535,45 @@
                   <m>\overline{R}=\frac{\gamma I}{\alpha}</m> 
                 </p>
                 <p>
-                  We could substitute in the formulas for <m>\overline{S}</m> and <m>\overline{I}</m> to obtain a formula that is entirely in terms of the model's parameters and the total population value.
+                  We could substitute in the formula for <m>\overline{I}</m>, and within that substitute the formula for <m>\overline{S}</m>, to obtain a formula that is entirely in terms of the model's parameters and the total population value.
                 </p>
               </li>
             </ol>
           </p>
         </answer> 
-      </activity>
-
-      
-
-      
-      
+      </activity>      
     </section>
 
     <exercises xml:id="exercises-ch-endemic-illness">
       <exercise number="1">
         <p>
-          Show the steps for how to solve algebraically for the endemic equilibrium <m>(\overline{S}, \overline{I}, \overline{R} )</m> of the compartmental model shown in <xref ref="fig-SIR-with-demographics-compartmental-diagram-endemic-illness"/>. Start similarly to how you began <xref ref="activity-endemic-illness-equilibrium-1"/> by setting equal to 0 all three differential equations from the model in <xref ref="activity-endemic-illness-example-2"/>, indicating that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Follow the steps below.
+          Show the steps for how to solve algebraically for the endemic equilibrium <m>(\overline{S}, \overline{I}, \overline{R} )</m> of the SIR model with demographics as shown in <xref ref="fig-SIR-with-demographics-compartmental-diagram-endemic-illness"/>. Start by setting equal to 0 the differential equations for the model: 
+        </p>
+        <p>
+          <md number="yes">
+            <mrow xml:id="eq-Sequals0-SIRmodel-with-demographics"> \Pi - \beta SI - \mu S \amp = 0 </mrow>
+            <mrow xml:id="eq-Iequals0-SIRmodel-with-demographics"> \beta SI - \gamma I - \mu I \amp = 0 </mrow>
+            <mrow xml:id="eq-Requals0-SIRmodel-with-demographics"> \gamma I - \mu R \amp = 0 </mrow>
+          </md>.
+        </p>
+        <p>
+          This indicates that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Then follow the steps below.
         </p>
         <p>
           <ol>
             <li>
               <p>
-                Solve the <m>dI/dt=0</m> equation for <m>S</m>. This result is the equilibrium value <m>\overline{S}</m>.
+                Solve <xref ref="eq-Iequals0-SIRmodel-with-demographics"/> for <m>S</m>. This result is the equilibrium value <m>\overline{S}</m>.
               </p>
             </li>
             <li>
               <p>
-                Substitute <m>\overline{S}</m> into the equation <m>dS/dt=0</m> and solve for <m>I</m>. This result is the equilibrium value <m>\overline{I}</m>.
+                Substitute <m>\overline{S}</m> into <xref ref="eq-Sequals0-SIRmodel-with-demographics"/> and solve for <m>I</m>. This result is the equilibrium value <m>\overline{I}</m>.
               </p>
             </li>
             <li>
               <p>
-                Solve the <m>dR/dt=0</m> equation for <m>R</m>. The result contains <m>I</m>. When <m>I=\overline{I}</m>, this formula is the equilibrium value <m>\overline{R}</m>.
+                Solve <xref ref="eq-Requals0-SIRmodel-with-demographics"/> for <m>R</m>. The result contains <m>I</m>. When <m>I=\overline{I}</m>, this formula is the equilibrium value <m>\overline{R}</m>.
               </p>
             </li>
           </ol>
