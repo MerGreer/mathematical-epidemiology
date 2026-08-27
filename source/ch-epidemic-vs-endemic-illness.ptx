@@ -541,7 +541,110 @@
             </ol>
           </p>
         </answer> 
-      </activity>      
+      </activity>   
+
+      <activity xml:id="activity-endemic-illness-equilibrium-experimentation-1"> 
+        <statement>
+          <p>
+            In <xref ref="activity-endemic-illness-equilibrium-1"/> we computed a formula for the endemic equilibrium value of the SIRS compartmental model shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>. Next, we visualize solutions for this model in different conditions, and for different amounts of time, and we compare these solutions with the equilibrium values determined by the formulas found in <xref ref="activity-endemic-illness-equilibrium-1"/>.
+          </p>
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla()  #Clear (delete) any past plots
+
+              #Define the system of differential equations, and call it "sirs"
+              def sirs(y, t):
+                s, i, r = y #Define y as consisting of s, i, and r, in that order
+                dydt = [-beta * s * i + alpha * r, beta * s * i - gamma * i, gamma * i - alpha * r] #These formulas are the right-hand sides of the SIRS model
+                return dydt
+
+              beta = 0.00007 #Give a value to beta
+              gamma = 0.2 #Give a value to gamma
+              alpha = 0.1
+              y0 = [9900, 100, 0] #Set initial conditions for Susceptibles, Infectious, and Removed
+              t_range = np.arange(0.0, 30.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+              S_equilibrium = gamma / beta
+              I_equilibrium = (alpha * N - alpha * S_equilibrium) / (alpha + beta * S_equilibrium)
+              R_equilibrium = gamma * I_equilibrium / alpha
+
+              sol = odeint(sirs, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+              print("End-of-simulation value of S = ", round(sol[-1,0]))
+              print("Equilibrium value of S = ", S_equilibrium)
+              print("End-of-simulation value of I = ", (sol[-1,1]))
+              print("Equilibrium value of S = ", I_equilibrium)
+              print("End-of-simulation value of R = ", round(sol[-1,2]))
+              print("Equilibrium value of S = ", R_equilibrium)
+
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.xlabel('Time')
+              plt.ylabel('Populations')
+              plt.show()
+            </input>
+            <output>
+              
+            </output>
+          </sage>
+          <!-- <p>
+            <ol>
+              <li>
+                <p>
+                  Solve <xref ref="eq-Iequals0-SIRSmodel"/> for <m>S</m>. In other words, rearrange <m>\beta SI - \gamma I=0</m> into an equation beginning with <q><m>S=</m></q> and having only non-<m>S</m> terms on the right-hand side.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Start with <xref ref="eq-Sequals0-SIRSmodel"/> and replace <m>R</m> with <m>N-S-I</m>. Explain why this is a permissible substitution. Then solve for <m>I</m>. Your answer will be in terms of <m>S</m>, which we solved for in part (1).
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the <m>dR/dt=0</m> equation, that is, <m>\gamma I - \alpha R=0</m> to solve for <m>R</m>. Your answer will be in terms of <m>I</m>, which we solved for in part (2).
+                </p>
+              </li>
+            </ol>
+          </p> -->
+          <!-- <p>
+            Your result should be three algebraic formulas giving equilibrium values for the <m>S</m>, <m>I</m>, and <m>R</m> populations, entirely in terms of the parameter values <m>\alpha</m>, <m>\beta</m>, and <m>\gamma</m>, as well as the total population size <m>N</m>. 
+          </p> -->
+        </statement>
+        <!-- <answer>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  <m>\overline{S}=\frac{\gamma}{\beta}</m> 
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\overline{I}=\frac{\alpha N - \alpha S}{\alpha + \beta S}</m> 
+                </p>
+                <p>
+                  We could substitute in <m>\overline{S}=\gamma / \beta</m> to obtain a formula that is entirely in terms of the model's parameters and the total population value.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\overline{R}=\frac{\gamma I}{\alpha}</m> 
+                </p>
+                <p>
+                  We could substitute in the formula for <m>\overline{I}</m>, and within that substitute the formula for <m>\overline{S}</m>, to obtain a formula that is entirely in terms of the model's parameters and the total population value.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </answer>  -->
+      </activity>    
     </section>
 
     <exercises xml:id="exercises-ch-endemic-illness">
