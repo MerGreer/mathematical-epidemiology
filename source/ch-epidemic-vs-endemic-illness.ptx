@@ -495,23 +495,23 @@
             <ol>
               <li>
                 <p>
-                  Solve <xref ref="eq-Iequals0-SIRSmodel"/> for <m>S</m>. In other words, rearrange <m>\beta SI - \gamma I=0</m> into an equation beginning with <q><m>S=</m></q> and having only non-<m>S</m> terms on the right-hand side.
+                  Solve <xref ref="eq-Iequals0-SIRSmodel"/> for <m>S</m>. In other words, rearrange <m>\beta SI - \gamma I=0</m> into an equation beginning with <q><m>S=</m></q> and having only non-<m>S</m> terms on the right-hand side. Your result can also be written as <m>\overline{S}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Start with <xref ref="eq-Sequals0-SIRSmodel"/> and replace <m>R</m> with <m>N-S-I</m>. Explain why this is a permissible substitution. Then solve for <m>I</m>. Your answer will be in terms of <m>S</m>, which we solved for in part (1).
+                  Start with <xref ref="eq-Sequals0-SIRSmodel"/> and replace <m>R</m> with <m>N-S-I</m>. Explain why this is a permissible substitution. Then solve for <m>I</m>. Your answer will be in terms of <m>S</m>, which we solved for in part (1). Your result can also be written as <m>\overline{I}</m>, with <m>S</m> on the right-hand side written as <m>\overline{S}</m>.
                 </p>
               </li>
               <li>
                 <p>
-                  Use the <m>dR/dt=0</m> equation, that is, <m>\gamma I - \alpha R=0</m> to solve for <m>R</m>. Your answer will be in terms of <m>I</m>, which we solved for in part (2).
+                  Use the <m>dR/dt=0</m> equation, that is, <m>\gamma I - \alpha R=0</m> to solve for <m>R</m>. Your answer will be in terms of <m>I</m>, which we solved for in part (2). Your result can also be written as <m>\overline{R}</m>, with <m>I</m> on the right-hand side written as <m>\overline{I}</m>.
                 </p>
               </li>
             </ol>
           </p>
           <p>
-            Your result should be three algebraic formulas giving equilibrium values for the <m>S</m>, <m>I</m>, and <m>R</m> populations, entirely in terms of the parameter values <m>\alpha</m>, <m>\beta</m>, and <m>\gamma</m>, as well as the total population size <m>N</m>. 
+            Your result should be three algebraic formulas giving equilibrium values <m>\overline{S}</m>, <m>\overline{I}</m>, and <m>\overline{R}</m> for the three populations in the model, entirely in terms of the parameter values <m>\alpha</m>, <m>\beta</m>, and <m>\gamma</m>, as well as the total population size <m>N</m>. 
           </p>
         </statement>
         <answer>
@@ -524,7 +524,7 @@
               </li>
               <li>
                 <p>
-                  <m>\overline{I}=\frac{\alpha N - \alpha S}{\alpha + \beta S}</m> 
+                  <m>\overline{I}=\frac{\alpha N - \alpha \overline{S}}{\alpha + \beta \overline{S}}</m> 
                 </p>
                 <p>
                   We could substitute in <m>\overline{S}=\gamma / \beta</m> to obtain a formula that is entirely in terms of the model's parameters and the total population value.
@@ -532,7 +532,7 @@
               </li>
               <li>
                 <p>
-                  <m>\overline{R}=\frac{\gamma I}{\alpha}</m> 
+                  <m>\overline{R}=\frac{\gamma \overline{I}}{\alpha}</m> 
                 </p>
                 <p>
                   We could substitute in the formula for <m>\overline{I}</m>, and within that substitute the formula for <m>\overline{S}</m>, to obtain a formula that is entirely in terms of the model's parameters and the total population value.
@@ -541,12 +541,16 @@
             </ol>
           </p>
         </answer> 
-      </activity>   
+      </activity> 
+
+      <p>
+        Modeling involves many skills, from the algebra in <xref ref="activity-endemic-illness-equilibrium-1"/> to experimenting with simulations and their resulting numbers and graphs that help us build our understanding of how a particular model works. Continue to develop your understanding of the SIRS model from <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/> by completing <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/>.
+      </p>  
 
       <activity xml:id="activity-endemic-illness-equilibrium-experimentation-1"> 
         <statement>
           <p>
-            In <xref ref="activity-endemic-illness-equilibrium-1"/> we computed a formula for the endemic equilibrium value of the SIRS compartmental model shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>. Next, we visualize solutions for this model in different conditions, and for different amounts of time, and we compare these solutions with the equilibrium values determined by the formulas found in <xref ref="activity-endemic-illness-equilibrium-1"/>.
+            In <xref ref="activity-endemic-illness-equilibrium-1"/> we computed a formula for the endemic equilibrium value of the SIRS compartmental model shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>. Next, we visualize solutions for this model using different parameter values, and for different amounts of time, and we compare these solutions with the equilibrium values determined by the formulas found in <xref ref="activity-endemic-illness-equilibrium-1"/>.
           </p>
           <sage>
             <input>
@@ -566,7 +570,11 @@
               beta = 0.00007 #Give a value to beta
               gamma = 0.2 #Give a value to gamma
               alpha = 0.1
-              y0 = [9900, 100, 0] #Set initial conditions for Susceptibles, Infectious, and Removed
+              N = 10000
+              S_start = 0
+              R_start = 0
+              I_start = N - S_start - R_start
+              y0 = [S_start, I_start, R_start] #Set initial conditions for Susceptibles, Infectious, and Removed
               t_range = np.arange(0.0, 30.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
               S_equilibrium = gamma / beta
               I_equilibrium = (alpha * N - alpha * S_equilibrium) / (alpha + beta * S_equilibrium)
@@ -576,8 +584,10 @@
 
               print("End-of-simulation value of S = ", round(sol[-1,0]))
               print("Equilibrium value of S = ", S_equilibrium)
+              print()
               print("End-of-simulation value of I = ", (sol[-1,1]))
               print("Equilibrium value of S = ", I_equilibrium)
+              print()
               print("End-of-simulation value of R = ", round(sol[-1,2]))
               print("Equilibrium value of S = ", R_equilibrium)
 
@@ -594,56 +604,60 @@
               
             </output>
           </sage>
-          <!-- <p>
-            <ol>
-              <li>
-                <p>
-                  Solve <xref ref="eq-Iequals0-SIRSmodel"/> for <m>S</m>. In other words, rearrange <m>\beta SI - \gamma I=0</m> into an equation beginning with <q><m>S=</m></q> and having only non-<m>S</m> terms on the right-hand side.
-                </p>
-              </li>
-              <li>
-                <p>
-                  Start with <xref ref="eq-Sequals0-SIRSmodel"/> and replace <m>R</m> with <m>N-S-I</m>. Explain why this is a permissible substitution. Then solve for <m>I</m>. Your answer will be in terms of <m>S</m>, which we solved for in part (1).
-                </p>
-              </li>
-              <li>
-                <p>
-                  Use the <m>dR/dt=0</m> equation, that is, <m>\gamma I - \alpha R=0</m> to solve for <m>R</m>. Your answer will be in terms of <m>I</m>, which we solved for in part (2).
-                </p>
-              </li>
-            </ol>
-          </p> -->
-          <!-- <p>
-            Your result should be three algebraic formulas giving equilibrium values for the <m>S</m>, <m>I</m>, and <m>R</m> populations, entirely in terms of the parameter values <m>\alpha</m>, <m>\beta</m>, and <m>\gamma</m>, as well as the total population size <m>N</m>. 
-          </p> -->
-        </statement>
-        <!-- <answer>
           <p>
             <ol>
               <li>
                 <p>
-                  <m>\overline{S}=\frac{\gamma}{\beta}</m> 
+                  Begin by reading the code carefully. Lines 17 through 20 define total population size <m>N</m> and starting values for each compartment's population, with the starting value of <m>I</m> depending on the starting values of <m>S</m> and <m>R</m>. Then, on line 21, the vector <c>y0</c> of starting values uses the values defined on lines 17 through 20. Explain how this way of writing initial population values and the vector <c>y0</c> can help us quickly change these initial values as we try different simulations of this SIRS model.
                 </p>
               </li>
               <li>
                 <p>
-                  <m>\overline{I}=\frac{\alpha N - \alpha S}{\alpha + \beta S}</m> 
-                </p>
-                <p>
-                  We could substitute in <m>\overline{S}=\gamma / \beta</m> to obtain a formula that is entirely in terms of the model's parameters and the total population value.
+                  Lines 23-25 of the code define <c>S_equilibrium</c>, <c>I_equilibrium</c>, and <c>R_equilibrium</c>. Explain where these formulas originated. Your answer should refer to <xref ref="activity-endemic-illness-equilibrium-1"/>.
                 </p>
               </li>
               <li>
                 <p>
-                  <m>\overline{R}=\frac{\gamma I}{\alpha}</m> 
+                  In lines 29-36 of the code, we print both end-of-simulation values of each compartment's population, and the equilibrium values for those populations, for the simulation we have just created. With the default Python code provided, these values do not necessarily match very closely. First: explain clearly which three of the six printed values relate directly to the graph produced by Python, and explain the way they relate. Then state at least one reason why the end-of-simulation values do not match closely with the equilibrium values, and describe something you could change in the simulation to improve the match. 
                 </p>
+              </li>
+              <li>
                 <p>
-                  We could substitute in the formula for <m>\overline{I}</m>, and within that substitute the formula for <m>\overline{S}</m>, to obtain a formula that is entirely in terms of the model's parameters and the total population value.
+                  Make the change you described in (3) and report on the outcome. Detail the ways the end-of-simulation values and the equilibrium values match better, or if they do not match better, explain why you believe this is the case.
                 </p>
               </li>
             </ol>
           </p>
-        </answer>  -->
+        </statement>
+        <answer>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  This is in many ways open-ended: there could be several possible answers. One likely answer is that listing initial conditions in this way means we can change just <c>S_start</c> and then <c>I_start</c> and the vector <c>y0</c> change automatically, with the total population size <m>N</m> left (purposefully) unchanged.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Lines 23-25 of the Python code use the formulas we solved for in <xref ref="activity-endemic-illness-equilibrium-1"/> to directly compute equilibrium values for the <m>S</m>, <m>I</m>, and <m>R</m> populations.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The end-of-simulation values are those that relate to the graph. The <c>end-of-simulation value of S</c> gives the height of the <m>S(t)</m> graph at the end of the simulation, that is, at <m>t=30</m>. Similarly, <c>end-of-simulation value of I</c> gives the height of the <m>I(t)</m> graph at <m>t=30</m>, and <c>end-of-simulation value of R</c> gives the height of the <m>R(t)</m> at <m>t=30</m>.
+                </p>
+                <p>
+                  Although the graphs seem to be getting close to long-term equilbrium values, they do not yet appear completely horizontal. This is a likely reason for the end-of-simulation values and the equilibrium values to not quite match. We should try to run the simulation for a longer amount of time to see if the model appears to reach its equilibrium and if, therefore, this match improves.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Running the simulation for a longer amount of time should work. Students should report how long they ran the model, how well the end-of-simulation values and the equilibrium values match, and any other observations that appear relevant.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </answer> 
       </activity>    
     </section>
 
