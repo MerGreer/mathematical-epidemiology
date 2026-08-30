@@ -187,7 +187,7 @@
 
       <xi:include href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.ptx" />
 
-      <xi:include href="ch-akaike-information-criterion-comparing-different-models.ptx" />
+      <!-- <xi:include href="ch-akaike-information-criterion-comparing-different-models.ptx" /> -->
 
       <xi:include href="ch-epidemic-vs-endemic-illness.ptx" />
 
@@ -201,6 +201,8 @@
       <xi:include href="ch-the-next-generation-method.ptx" />
 
       <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
+
+      <xi:include href="ch-simulations-with-time-varying-parameters.ptx" />
 
       <!-- <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" /> -->
 
@@ -247,8 +249,6 @@
       <!-- <xi:include href="ch-vector-based-models-of-disease-spread.ptx" /> -->
     
       <!-- <xi:include href="ch-modeling-spatial-variation-using-patches.ptx" /> -->
-    
-      <!-- <xi:include href="ch-an-hiv-model-where-the-infected-are-cells-rather-than-people.ptx" /> -->
 
       <!-- <xi:include href="ch-a-peek-at-agent-based-models.ptx" /> -->
 

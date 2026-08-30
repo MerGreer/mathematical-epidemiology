@@ -346,7 +346,7 @@
 
                 plt.cla()  #Clear (delete) any past plots
 
-                #Define the system of differential equations, and call it "sirs"
+                #Define the system of differential equations, and call it "sir"
                 def sir(y, t):
                   s, i, r = y #Define y as consisting of s, i, and r, in that order
                   dydt = [Pi - beta * s * i - mu * s, beta * s * i - gamma * i - mu * i, gamma * i - mu * r] #These formulas are the right-hand sides of the SIR model
@@ -571,7 +571,7 @@
               gamma = 0.2 #Give a value to gamma
               alpha = 0.1
               N = 10000
-              S_start = 0
+              S_start = 9900
               R_start = 0
               I_start = N - S_start - R_start
               y0 = [S_start, I_start, R_start] #Set initial conditions for Susceptibles, Infectious, and Removed
@@ -586,10 +586,10 @@
               print("Equilibrium value of S = ", S_equilibrium)
               print()
               print("End-of-simulation value of I = ", (sol[-1,1]))
-              print("Equilibrium value of S = ", I_equilibrium)
+              print("Equilibrium value of I = ", I_equilibrium)
               print()
               print("End-of-simulation value of R = ", round(sol[-1,2]))
-              print("Equilibrium value of S = ", R_equilibrium)
+              print("Equilibrium value of R = ", R_equilibrium)
 
               # Plotting commands are below
               plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
@@ -658,7 +658,124 @@
             </ol>
           </p>
         </answer> 
-      </activity>    
+      </activity> 
+      
+      <p>
+        Finally, return to the SIR model with demographics from <xref ref="fig-SIR-with-demographics-compartmental-diagram-endemic-illness"/>. The steps for computing the endemic equilibrium for this model appear in <xref ref="exercises-ch-endemic-illness"/>. In <xref ref="activity-endemic-illness-equilibrium-experimentation-2"/>, experiment with the graph of long-term solution curves and the printed values of the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values at the end of the simulation. By creating a variety of simulations and thinking through their results, you are building your knowledge and intuition for the dynamics of this model.
+      </p>  
+
+      <activity xml:id="activity-endemic-illness-equilibrium-experimentation-2"> 
+        <statement>
+          <p>
+            In a process similar to what we did in <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/>, we visualize a variety of solutions for a model and compare these solutions with formulas for the equilibrium values of each compartment. Our focus model in this activity is the SIR model with demographics that we first saw in <xref ref="activity-endemic-illness-example-2"/>.
+          </p>
+          <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla()  #Clear (delete) any past plots
+
+              #Define the system of differential equations, and call it "sir"
+              def sir(y, t):
+                s, i, r = y #Define y as consisting of s, i, and r, in that order
+                dydt = [Pi - beta * s * i - mu * s, beta * s * i - gamma * i - mu * i, gamma * i - mu * r] #These formulas are the right-hand sides of the SIR model
+                return dydt
+
+              Pi = 8.3 #Give a value to Pi
+              beta = 0.00006 #Give a value to beta
+              gamma = 0.2 #Give a value to gamma
+              alpha = 0.1 #Give a value to alpha
+              mu = 0.0005 #Give a value to mu
+              N = 10000
+              S_start = 9950
+              R_start = 0
+              I_start = N - S_start - R_start
+              y0 = [S_start, I_start, R_start] #Set initial conditions for Susceptibles, Infectious, and Removed
+              t_range = np.arange(0.0, 50.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+              S_equilibrium = (mu + gamma) / beta
+              I_equilibrium = Pi / (mu + gamma) - mu / beta
+              R_equilibrium = (gamma / mu) * I_equilibrium
+
+              sol = odeint(sir, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+              print("End-of-simulation value of S = ", round(sol[-1,0]))
+              print("Equilibrium value of S = ", S_equilibrium)
+              print()
+              print("End-of-simulation value of I = ", (sol[-1,1]))
+              print("Equilibrium value of I = ", I_equilibrium)
+              print()
+              print("End-of-simulation value of R = ", round(sol[-1,2]))
+              print("Equilibrium value of R = ", R_equilibrium)
+
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.xlabel('Time')
+              plt.ylabel('Populations')
+              plt.show()
+            </input>
+            <output>
+              
+            </output>
+          </sage>
+
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Begin by reading the code carefully. State, by line number, where in the code the initial population values are established. Then state where in the code the formulas for the equilibrium values <m>\overline{S}</m>, <m>\overline{I}</m>, and <m>\overline{R}</m> are written, again using line number. Write, by hand, the equilibrium value formulas, writing the Greek letters rather than spelling them out as the code does. For example, write <m>\beta</m> rather than writing the <q>b</q>, <q>e</q>, <q>t</q>, <q>a</q>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Notice that this model includes people entering and leaving the population, in a way that none of our previous models have done. As a result, population size <m>N</m> may not be constant. Solve here for the equilibrium value <m>\overline{N}</m>, where <m>\overline{N}=\overline{S}+\overline{I}+\overline{R}</m>.
+                </p>
+                <p>
+                  To solve for <m>\overline{N}</m>, start with the differential equations for the SIR model with demographics. You developed these differential equations in <xref ref="activity-endemic-illness-example-2"/>. Add together the three equations, and explain why <m>dS/dt + dI/dt + dR/dt = d(S+I+R)/dt = dN/dt</m>. The right-hand sides of the equations should simplify to a small number of terms. Set this simplified expression equal to <m>0</m>, since <m>dN/dt=0</m> at equilibrium. Then solve for <m>N</m>. The expression you create is the equilibrium value <m>\overline{N}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  In lines 31-38 of the code, we print both end-of-simulation values of each compartment's population, and the equilibrium values for those populations, for the simulation we have just created. With the default Python code provided, these values do not necessarily match very closely. <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/> asks for your explanation for why these values may not match, and the reasons you provided there continue to be true in the SIR model with demographics. Now: state reasoning about <m>\overline{N}</m> differing from the initial value of <m>N</m> to explain why the end-of-simulation values for each population may not match the equilibrium values.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Include the following two lines of code after line 38 to print the end-of-simulation value for <m>N</m> and the equilibrium value <m>\overline{N}</m>. 
+                </p>
+                <p>
+                  <c>print("End-of-simulation value of N = ", round(sol[-1,0]) + round(sol[-1,1]) + round(sol[-1,2]))</c>
+                  <c>print("Equilibrium value of N = ", S_equilibrium + I_equilibrium + R_equilibrium)</c>
+                </p>
+                <p>
+                  Run the code for the default 50 time steps, and for 500, 5000, and 8000 time steps. Use the printed Python output and the graph to demonstrate the long-term trend of the model to approach its equilibrium values <m>\overline{S}</m>, <m>\overline{I}</m>, <m>\overline{R}</m>, and <m>\overline{N}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Try additional experiments in which the starting values <m>N</m> are equal to, larger than, and smaller than the equilibrium value <m>\overline{N}</m>. Report on your results.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+        <!-- <answer>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  This is in many ways open-ended: there could be several possible answers. One likely answer is that listing initial conditions in this way means we can change just <c>S_start</c> and then <c>I_start</c> and the vector <c>y0</c> change automatically, with the total population size <m>N</m> left (purposefully) unchanged.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </answer>  -->
+      </activity>
     </section>
 
     <exercises xml:id="exercises-ch-endemic-illness">
