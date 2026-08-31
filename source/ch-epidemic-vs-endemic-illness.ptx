@@ -689,10 +689,10 @@
               gamma = 0.2 #Give a value to gamma
               alpha = 0.1 #Give a value to alpha
               mu = 0.0005 #Give a value to mu
-              N = 10000
+              N_start = 10000
               S_start = 9950
               R_start = 0
-              I_start = N - S_start - R_start
+              I_start = N_start - S_start - R_start
               y0 = [S_start, I_start, R_start] #Set initial conditions for Susceptibles, Infectious, and Removed
               t_range = np.arange(0.0, 50.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
               S_equilibrium = (mu + gamma) / beta
@@ -736,12 +736,17 @@
                   Notice that this model includes people entering and leaving the population, in a way that none of our previous models have done. As a result, population size <m>N</m> may not be constant. Solve here for the equilibrium value <m>\overline{N}</m>, where <m>\overline{N}=\overline{S}+\overline{I}+\overline{R}</m>.
                 </p>
                 <p>
-                  To solve for <m>\overline{N}</m>, start with the differential equations for the SIR model with demographics. You developed these differential equations in <xref ref="activity-endemic-illness-example-2"/>. Add together the three equations, and explain why <m>dS/dt + dI/dt + dR/dt = d(S+I+R)/dt = dN/dt</m>. The right-hand sides of the equations should simplify to a small number of terms. Set this simplified expression equal to <m>0</m>, since <m>dN/dt=0</m> at equilibrium. Then solve for <m>N</m>. The expression you create is the equilibrium value <m>\overline{N}</m>.
+                  To solve for <m>\overline{N}</m>, start with the differential equations for the SIR model with demographics. You developed these differential equations in <xref ref="activity-endemic-illness-example-2"/>. Add together the three equations, and explain why 
+                  <md>dS/dt + dI/dt + dR/dt = d(S+I+R)/dt = dN/dt</md>. 
+                  The right-hand side of the summed differential equations should simplify to a small number of terms. Set this simplified expression equal to <m>0</m>, since <m>dN/dt=0</m> at equilibrium. Then solve for <m>N</m>. (You will need to use the definition <m>N=S+I+R</m> to introduce <m>N</m> into the equation.) The expression you create is the equilibrium value <m>\overline{N}</m>.
+                </p>
+                <p>
+                  Finally, compute the value of <m>\overline{N}</m> for the default model values shown in the Python code, and compare <m>\overline{N}</m> with the initial population size <m>N</m> shown in the code.
                 </p>
               </li>
               <li>
                 <p>
-                  In lines 31-38 of the code, we print both end-of-simulation values of each compartment's population, and the equilibrium values for those populations, for the simulation we have just created. With the default Python code provided, these values do not necessarily match very closely. <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/> asks for your explanation for why these values may not match, and the reasons you provided there continue to be true in the SIR model with demographics. Now: state reasoning about <m>\overline{N}</m> differing from the initial value of <m>N</m> to explain why the end-of-simulation values for each population may not match the equilibrium values.
+                  In lines 31-38 of the code, we print end-of-simulation values of each compartment's population, as well as the equilibrium values for those populations, for the simulation we have just created. With the default Python code provided, these values do not necessarily match very closely. <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/> asks for your explanation for why these values may not match, and the reasons you provided there continue to be true in the SIR model with demographics. Now: state reasoning about <m>\overline{N}</m> differing from the initial value of <m>N</m> to explain why the end-of-simulation values for each population may not match the equilibrium values.
                 </p>
               </li>
               <li>
@@ -749,11 +754,11 @@
                   Include the following two lines of code after line 38 to print the end-of-simulation value for <m>N</m> and the equilibrium value <m>\overline{N}</m>. 
                 </p>
                 <p>
-                  <c>print("End-of-simulation value of N = ", round(sol[-1,0]) + round(sol[-1,1]) + round(sol[-1,2]))</c>
-                  <c>print("Equilibrium value of N = ", S_equilibrium + I_equilibrium + R_equilibrium)</c>
+                  <c>print("End-of-simulation value of N = ", sol[-1,0] + sol[-1,1] + sol[-1,2])</c>
+                  <c>print("Equilibrium value of N = ", Pi / mu)</c>
                 </p>
                 <p>
-                  Run the code for the default 50 time steps, and for 500, 5000, and 8000 time steps. Use the printed Python output and the graph to demonstrate the long-term trend of the model to approach its equilibrium values <m>\overline{S}</m>, <m>\overline{I}</m>, <m>\overline{R}</m>, and <m>\overline{N}</m>.
+                  Run the code for the default 50 time steps, and for 500, 5000, and 8000 time steps. Use both printed Python output and the graphs you produce to demonstrate the long-term trend of the model to approach its equilibrium values <m>\overline{S}</m>, <m>\overline{I}</m>, <m>\overline{R}</m>, and <m>\overline{N}</m>.
                 </p>
               </li>
               <li>
@@ -764,17 +769,72 @@
             </ol>
           </p>
         </statement>
-        <!-- <answer>
+        <answer>
           <p>
             <ol>
               <li>
                 <p>
-                  This is in many ways open-ended: there could be several possible answers. One likely answer is that listing initial conditions in this way means we can change just <c>S_start</c> and then <c>I_start</c> and the vector <c>y0</c> change automatically, with the total population size <m>N</m> left (purposefully) unchanged.
+                  Initial population values <c>N</c>, <c>S_start</c>, <c>R_start</c>, and <c>I_start</c> are defined in lines 19-22. In line 23, the code forms these values into the vector <c>y0</c> of initial values for the <m>S</m>, <m>I</m>, and <m>R</m> populations.
+                </p>
+                <p>
+                  The equilibrium formulas for each population are as follows:
+                </p>
+                <p>
+                  <md>
+                    \overline{S}=\frac{\mu + \gamma}{\beta}
+                  </md>
+                </p>
+                <p>
+                  <md>
+                    \overline{I}=\frac{\Pi}{\mu + \gamma}-\frac{\mu}{\beta}
+                  </md>
+                </p>
+                <p>
+                  <md>
+                    \overline{R}=\frac{\gamma}{\mu}\overline{I}
+                  </md>
+                </p>
+              </li>
+              <li>
+                <p>
+                  By the rules of calculus and derivatives, the sum of derivatives equals the derivative of a sum. That is, we can add the derivatives <m>dS/dt</m>, <m>dI/dt</m>, and <m>dR/dt</m>, or we can first add <m>S+I+R</m> and then compute the derivative <m>d(S+I+R)/dt</m>, and the answers will be the same. Since <m>S+I+R=N</m>, then we know that both <m>dS/dt+dI/dt+dR/dt</m> and <m>d(S+I+R)/dt</m> equal <m>dN/dt</m>.
+                </p>
+                <p>
+                  Next, sum the right-hand sides of the differential equations developed in <xref ref="activity-endemic-illness-example-2"/>:
+                  <md>
+                    <mrow> \amp (\Pi-\mu S-\beta SI) </mrow>
+                    <mrow> + \amp (\beta SI - \mu I - \gamma I) </mrow>
+                    <mrow> + \amp (\gamma I - \mu R) </mrow>
+                  </md>
+                  to obtain
+                  <md>
+                    \Pi - \mu S - \mu I - \mu R
+                  </md>.
+                  Since this result equals <m>dN/dt</m>, we set it equal to 0, substituting in <m>N=S+I+R</m>. This leads to the result
+                  <md >
+                    N=\frac{\Pi}{\mu}
+                  </md>.
+                  Therefore, the equilibrium value <m>\overline{N}</m> is <m>\Pi /\mu</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the expression <m>\overline{N}=\Pi /\mu</m> from part (2) above to determine what the equilibrium population <m>\overline{N}</m> should be. Compare this with the initial population size <c>N_start</c> and the value of <m>N</m> at the end of the simulation, that is, after 50 time steps. These need not all be the same, or even close. If they are not very close, then we may not be close yet to the model's equilibrium value.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Responses here are somewhat open-ended. Each should show outcomes of multiple simulations, each having a different number of time steps. Solutions should also show a trend that indicates that as the length of time for the simulation increases, the model appears to be reaching an equilibrium. Supporting evidence for reaching equilibrium should include both the numbers Python prints out and the behavior shown in the graphs Python produces.
+                </p>
+              </li>
+              <li>
+                <p>
+                  These responses are open-ended.
                 </p>
               </li>
             </ol>
           </p>
-        </answer>  -->
+        </answer> 
       </activity>
     </section>
 
