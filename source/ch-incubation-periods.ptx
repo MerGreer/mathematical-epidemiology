@@ -154,9 +154,7 @@
                 </p>
               </li>
             </ol>
-          </p>
-          
-          
+          </p> 
         </statement>
         <answer>
           <p>
@@ -235,8 +233,6 @@
               </li>
             </ol>
           </p>
-          
-          
         </answer>
       </activity>
 
@@ -529,7 +525,9 @@
           <li>
             <p>
               Compute the number of weeks for the incubation period of pertussis. This should be 
-              <me>\frac{\mbox{(the number of days of the incubation period)}}{7}</me>. 
+              <md>
+                \frac{\mbox{(the number of days of the incubation period)}}{7}
+              </md>. 
               Then compute <m>\kappa</m> for the model in which the time unit is weeks. This result should be the value of <m>\kappa</m> you obtained in <xref ref="activity-seir-model-pertussis-setup"/>, multiplied by <m>7</m>. 
             </p>
           </li>

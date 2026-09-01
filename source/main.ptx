@@ -130,7 +130,7 @@
           </ul>
         </p>
         <p>
-          The <xref ref="backmatter"/> near the end of the book includes descriptions of key terms, along with the chapter in which each term first appears.
+          The Glossary near the end of the book includes descriptions of key terms, along with the chapter in which each term first appears.
         </p>
         <p>
           There are footnotes in this book, appearing as a raised number.<fn>Here is an example of a footnote!</fn> In the web version of the book, clicking on the raised number shows the footnote in a box that opens below the paragraph. The web version of the book also contains live links. Some of the links, such as to chapters, take you to different pages of the book. Other links, such as to figures or equations that we saw earlier in the text, open a box showing these figures or equations directly where you are reading, so that you can see them without jumping from webpage to webpage. You will also see Python code boxes in this text, with a button after that says <c>Evaluate (Sage)</c>. In the web version of this text, you can click on the <c>Evaluate (Sage)</c> button to evaluate the code directly within the book.  
@@ -187,8 +187,6 @@
 
       <xi:include href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.ptx" />
 
-      <!-- <xi:include href="ch-akaike-information-criterion-comparing-different-models.ptx" /> -->
-
       <xi:include href="ch-epidemic-vs-endemic-illness.ptx" />
 
       <xi:include href="ch-modeling-the-spread-of-an-idea.ptx" />
@@ -204,93 +202,169 @@
 
       <xi:include href="ch-simulations-with-time-varying-parameters.ptx" />
 
-      <!-- <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" /> -->
-
       <xi:include href="ch-articles-showing-further-examples.ptx" />
 
       <xi:include href="ch-tips-on-reading-a-scientific-paper.ptx" />
-
-      <xi:include href="ch-greek-letters.ptx" />
       
     </part>
 
-    <!-- <part xml:id="part-digging-deeper-mathematically">
-      <title>Digging Deeper Mathematically</title> -->
+    <backmatter>
 
-      <!-- <xi:include href="ch-model-analysis-total-population-and-equilibrium-values.ptx" /> -->
+      <appendix xml:id="greek-letters">
+        <title>Greek Letters</title> 
+        <p>
+          Many of our models use Greek letters. Here is a quick place to check what these letters are called.
+        </p> 
+        <p>
+          Typically, we use lowercase letters, but this section contains uppercase letters as well.
+        </p>
+        <table>
+          <title>Greek letters: names and symbols</title>
+          <tabular halign="center">
+            <row header="yes" bottom="minor" >
+              <cell>Letter</cell>
+              <cell>Lowercase</cell>
+              <cell>Uppercase</cell>
+            </row>
+            <row>
+              <cell>Alpha</cell>
+              <cell><m>\alpha</m></cell>
+              <cell><m>A</m></cell>
+            </row>
+            <row>
+              <cell>Beta</cell>
+              <cell><m>\beta</m></cell>
+              <cell><m>B</m></cell>
+            </row>
+            <row>
+              <cell>Gamma</cell>
+              <cell><m>\gamma</m></cell>
+              <cell><m>\Gamma</m></cell>
+            </row>
+            <row>
+              <cell>Delta</cell>
+              <cell><m>\delta</m></cell>
+              <cell><m>\Delta</m></cell>
+            </row>
+            <row>
+              <cell>Epsilon</cell>
+              <cell><m>\varepsilon</m> or <m>\epsilon</m></cell>
+              <cell><m>E</m></cell>
+            </row>
+            <row>
+              <cell>Zeta</cell>
+              <cell><m>\zeta</m></cell>
+              <cell><m>Z</m></cell>
+            </row>
+            <row>
+              <cell>Eta</cell>
+              <cell><m>\eta</m></cell>
+              <cell><m>H</m></cell>
+            </row>
+            <row>
+              <cell>Theta</cell>
+              <cell><m>\theta</m></cell>
+              <cell><m>\Theta</m></cell>
+            </row>
+            <row>
+              <cell>Iota</cell>
+              <cell><m>\iota</m></cell>
+              <cell><m>I</m></cell>
+            </row>
+            <row>
+              <cell>Kappa</cell>
+              <cell><m>\kappa</m></cell>
+              <cell><m>K</m></cell>
+            </row>
+            <row>
+              <cell>Lambda</cell>
+              <cell><m>\lambda</m></cell>
+              <cell><m>\Lambda</m></cell>
+            </row>
+            <row>
+              <cell>Mu</cell>
+              <cell><m>\mu</m></cell>
+              <cell><m>M</m></cell>
+            </row>
+            <row>
+              <cell>Nu</cell>
+              <cell><m>\nu</m></cell>
+              <cell><m>N</m></cell>
+            </row>
+            <row>
+              <cell>Xi</cell>
+              <cell><m>\xi</m></cell>
+              <cell><m>\Xi</m></cell>
+            </row>
+            <row>
+              <cell>Omicron</cell>
+              <cell><m>o</m></cell>
+              <cell><m>O</m></cell>
+            </row>
+            <row>
+              <cell>Pi</cell>
+              <cell><m>\pi</m></cell>
+              <cell><m>\Pi</m></cell>
+            </row>
+            <row>
+              <cell>Rho</cell>
+              <cell><m>\rho</m></cell>
+              <cell><m>P</m></cell>
+            </row>
+            <row>
+              <cell>Sigma</cell>
+              <cell><m>\sigma</m></cell>
+              <cell><m>\Sigma</m></cell>
+            </row>
+            <row>
+              <cell>Tau</cell>
+              <cell><m>\tau</m></cell>
+              <cell><m>T</m></cell>
+            </row>
+            <row>
+              <cell>Upsilon</cell>
+              <cell><m>\upsilon</m></cell>
+              <cell><m>\Upsilon</m></cell>
+            </row>
+            <row>
+              <cell>Phi</cell>
+              <cell><m>\phi</m></cell>
+              <cell><m>\Phi</m></cell>
+            </row>
+            <row>
+              <cell>Chi</cell>
+              <cell><m>\chi</m></cell>
+              <cell><m>X</m></cell>
+            </row>
+            <row>
+              <cell>Psi</cell>
+              <cell><m>\psi</m></cell>
+              <cell><m>\Psi</m></cell>
+            </row>
+            <row>
+              <cell>Omega</cell>
+              <cell><m>\omega</m></cell>
+              <cell><m>\Omega</m></cell>
+            </row>
+          </tabular>
+        </table>
+      </appendix>
 
-      <!-- <xi:include href="ch-the-next-generation-method.ptx" /> -->
-
-      <!-- <xi:include href="ch-the-next-generation-method-connecting-theory-with-practice.ptx" /> -->
-
-      <!-- <xi:include href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.ptx" /> -->
-
-      <!-- <xi:include href="ch-kermack-mckendrick-the-1927-paper.ptx" /> -->
-  
-    <!-- </part> -->
-
-    <!-- <part xml:id="part-additional-modeling-examples"> 
-      <title>Additional Modeling Examples</title>
-    
-      <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" /> -->
-    
-      <!-- <xi:include href="ch-more-advanced-vaccine-models.ptx" /> -->
-
-      <!-- <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" /> -->
-
-      <!-- <xi:include href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.ptx" /> -->
-    
-      <!-- <xi:include href="ch-modeling-viral-videos.ptx" /> -->
-
-      <!-- <xi:include href="ch-modeling-conspiracy-theories.ptx" /> -->
-
-      <!-- <xi:include href="ch-periodic-forcing.ptx" /> -->    
-     
-      <!-- <xi:include href="ch-vector-based-models-of-disease-spread.ptx" /> -->
-    
-      <!-- <xi:include href="ch-modeling-spatial-variation-using-patches.ptx" /> -->
-
-      <!-- <xi:include href="ch-a-peek-at-agent-based-models.ptx" /> -->
-
-      <!-- <xi:include href="ch-connecting-with-network-models.ptx" /> -->
-
-      <!-- <xi:include href="ch-articles-showing-further-examples.ptx" /> -->
-
-    <!-- </part>  -->
-
-    <!-- <part xml:id="part-supplemental-materials">
-      <title>Supplemental Materials</title> 
-
-      <xi:include href="ch-tips-on-reading-a-scientific-paper.ptx" /> -->
-    
-      <!-- <xi:include href="ch-linear-algebra-for-compartmental-modeling.ptx" /> -->
-
-      <!-- <xi:include href="ch-data-sets.ptx" /> -->
-
-      <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
-    
-      <!-- <xi:include href="ch-writing-tips-for-math-and-planning-for-peer-review.ptx" /> -->
-
-      <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
-    
-      <!-- <xi:include href="ch-greek-letters.ptx" /> -->
-
-      <!-- <xi:include href="ch-other-resources.ptx" /> -->
-
-    <!-- </part>  -->
 
 
-
-    <appendix xml:id="backmatter">
+      <glossary xml:id="glossary">
         <title>Glossary of Mathematical Epidemiology Terms</title>
 
         <headnote>
           <p>
             This glossary includes both definitions and, in many cases, examples along with fuller descriptions. The terms are listed in alphabetical order. At the end of each definition, a chapter number in parentheses indicates where the term first appeared in the text. The definitions and descriptions of the terms relate to their usage in the types of models described in this text: readers should know that some of the terms may have more broadly defined meanings in other mathematical contexts.
           </p>
+          <p>
+          
+          </p>
         </headnote>
 
-        
+       
         
         <gi>
           <title>Attack Rate</title>
@@ -509,19 +583,89 @@
             The total population of a compartmental model is the sum of the populations in each compartment. We typically use the variable <m>N</m> to refer to total population, and we write <m>N(t)</m> to mean total population at time <m>t</m>. (First mentioned in <xref ref="ch-zombies-can-math-help"/>, then defined in <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/>)
           </p>
         </gi>
-        
-        
+
+      </glossary>
+
       
 
-      <!-- <colophon>
-        <p> This book was authored in <pretext />. </p>
-      </colophon> -->
+    </backmatter>
 
-    </appendix>
+    
+
+
+
+    
 
   </book>
 
 
-  
-
 </pretext>
+
+<!-- <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" /> -->
+
+<!-- <xi:include href="ch-greek-letters.ptx" /> -->
+
+<!-- <part xml:id="part-digging-deeper-mathematically">
+      <title>Digging Deeper Mathematically</title> -->
+
+      <!-- <xi:include href="ch-model-analysis-total-population-and-equilibrium-values.ptx" /> -->
+
+      <!-- <xi:include href="ch-the-next-generation-method.ptx" /> -->
+
+      <!-- <xi:include href="ch-the-next-generation-method-connecting-theory-with-practice.ptx" /> -->
+
+      <!-- <xi:include href="ch-numerical-simulations-an-overview-of-how-computers-turn-equations-into-graphs.ptx" /> -->
+
+      <!-- <xi:include href="ch-kermack-mckendrick-the-1927-paper.ptx" /> -->
+  
+    <!-- </part> -->
+
+    <!-- <part xml:id="part-additional-modeling-examples"> 
+      <title>Additional Modeling Examples</title>
+    
+      <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" /> -->
+    
+      <!-- <xi:include href="ch-more-advanced-vaccine-models.ptx" /> -->
+
+      <!-- <xi:include href="ch-introducing-an-incubation-period-in-the-zombie-app.ptx" /> -->
+
+      <!-- <xi:include href="ch-preparing-mumps-data-to-compare-with-a-six-compartment-model.ptx" /> -->
+    
+      <!-- <xi:include href="ch-modeling-viral-videos.ptx" /> -->
+
+      <!-- <xi:include href="ch-modeling-conspiracy-theories.ptx" /> -->
+
+      <!-- <xi:include href="ch-periodic-forcing.ptx" /> -->    
+     
+      <!-- <xi:include href="ch-vector-based-models-of-disease-spread.ptx" /> -->
+    
+      <!-- <xi:include href="ch-modeling-spatial-variation-using-patches.ptx" /> -->
+
+      <!-- <xi:include href="ch-a-peek-at-agent-based-models.ptx" /> -->
+
+      <!-- <xi:include href="ch-connecting-with-network-models.ptx" /> -->
+
+      <!-- <xi:include href="ch-articles-showing-further-examples.ptx" /> -->
+
+    <!-- </part>  -->
+
+    <!-- <part xml:id="part-supplemental-materials">
+      <title>Supplemental Materials</title> 
+
+      <xi:include href="ch-tips-on-reading-a-scientific-paper.ptx" /> -->
+    
+      <!-- <xi:include href="ch-linear-algebra-for-compartmental-modeling.ptx" /> -->
+
+      <!-- <xi:include href="ch-data-sets.ptx" /> -->
+
+      <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
+    
+      <!-- <xi:include href="ch-writing-tips-for-math-and-planning-for-peer-review.ptx" /> -->
+
+      <!-- <xi:include href="ch-paper-assignments-and-grading-rubrics.ptx" /> -->
+    
+      <!-- <xi:include href="ch-greek-letters.ptx" /> -->
+
+      <!-- <xi:include href="ch-other-resources.ptx" /> -->
+
+    <!-- </part>  -->
