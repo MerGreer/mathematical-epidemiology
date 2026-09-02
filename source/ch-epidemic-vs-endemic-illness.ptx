@@ -930,15 +930,12 @@
                 </latex-image>
               </image>
           </figure>
-        
-        <p>
-          This indicates that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Then follow the steps below.
-        </p>
+      
         <p>
           <ol>
             <li>
               <p>
-                Solve <xref ref="eq-Iequals0-SIRmodel-with-demographics"/> for <m>S</m>. This result is the equilibrium value <m>\overline{S}</m>.
+                Write out the differential equations for the model shown in <xref ref="fig-SIRS-with-demographics-compartmental-diagram-endemic-illness"/>.
               </p>
             </li>
             <li>
