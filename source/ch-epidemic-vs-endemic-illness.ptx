@@ -661,7 +661,7 @@
       </activity> 
       
       <p>
-        Finally, return to the SIR model with demographics from <xref ref="fig-SIR-with-demographics-compartmental-diagram-endemic-illness"/>. The steps for computing the endemic equilibrium for this model appear in <xref ref="exercises-ch-endemic-illness"/>. In <xref ref="activity-endemic-illness-equilibrium-experimentation-2"/>, experiment with the graph of long-term solution curves and the printed values of the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values at the end of the simulation. By creating a variety of simulations and thinking through their results, you are building your knowledge and intuition for the dynamics of this model.
+        Finally, return to the SIR model with demographics from <xref ref="fig-SIR-with-demographics-compartmental-diagram-endemic-illness"/>. The steps for computing the endemic equilibrium for this model appear in <xref ref="exercises-ch-endemic-illness"/>. In <xref ref="activity-endemic-illness-equilibrium-experimentation-2"/>, experiment with the graph of long-term solution curves and the printed values of the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values at the end of the simulation. By creating a variety of simulations and thinking through their results, you are building your knowledge and intuition for the dynamics of this model, which behaves in notably different ways than the model in <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/>.
       </p>  
 
       <activity xml:id="activity-endemic-illness-equilibrium-experimentation-2"> 
@@ -728,25 +728,25 @@
             <ol>
               <li>
                 <p>
-                  Begin by reading the code carefully. State, by line number, where in the code the initial population values are established. Then state where in the code the formulas for the equilibrium values <m>\overline{S}</m>, <m>\overline{I}</m>, and <m>\overline{R}</m> are written, again using line number. Write, by hand, the equilibrium value formulas, writing the Greek letters rather than spelling them out as the code does. For example, write <m>\beta</m> rather than writing the <q>b</q>, <q>e</q>, <q>t</q>, <q>a</q>.
+                  Begin by reading the code carefully. State, by line number, where in the code the initial population values are established. Then state where in the code the formulas for the equilibrium values <m>\overline{S}</m>, <m>\overline{I}</m>, and <m>\overline{R}</m> are written, again using line number. Write, by hand, the equilibrium value formulas, writing the Greek letters rather than spelling them out as the code does. For example, write <m>\beta</m> rather than writing the letters <q>b</q>, <q>e</q>, <q>t</q>, <q>a</q>.
                 </p>
               </li>
               <li>
                 <p>
-                  Notice that this model includes people entering and leaving the population, in a way that none of our previous models have done. As a result, population size <m>N</m> may not be constant. Solve here for the equilibrium value <m>\overline{N}</m>, where <m>\overline{N}=\overline{S}+\overline{I}+\overline{R}</m>.
+                  Notice that this model includes people entering and leaving the population, in a way that none of our previous models in this textbook have done. As a result, population size <m>N</m> may not be constant. Solve here for the equilibrium value <m>\overline{N}</m>, where <m>\overline{N}=\overline{S}+\overline{I}+\overline{R}</m>.
                 </p>
                 <p>
-                  To solve for <m>\overline{N}</m>, start with the differential equations for the SIR model with demographics. You developed these differential equations in <xref ref="activity-endemic-illness-example-2"/>. Add together the three equations, and explain why 
+                  To solve for <m>\overline{N}</m>, start with the differential equations for the SIR model with demographics. You developed these differential equations in <xref ref="activity-endemic-illness-example-2"/>. Add together the three equations, and use your calculus-based knowledge of derivative rules to explain why, on one side, the sum becomes the following: 
                   <md>dS/dt + dI/dt + dR/dt = d(S+I+R)/dt = dN/dt</md>. 
-                  The right-hand side of the summed differential equations should simplify to a small number of terms. Set this simplified expression equal to <m>0</m>, since <m>dN/dt=0</m> at equilibrium. Then solve for <m>N</m>. (You will need to use the definition <m>N=S+I+R</m> to introduce <m>N</m> into the equation.) The expression you create is the equilibrium value <m>\overline{N}</m>.
+                  The other side of the summed differential equations should simplify to a small number of terms. Set this simplified expression equal to <m>0</m>, since <m>dN/dt=0</m> at equilibrium. Then solve for <m>N</m>, using the definition <m>N=S+I+R</m> to introduce <m>N</m> into the equation. The expression you create is the equilibrium value <m>\overline{N}</m>.
                 </p>
                 <p>
-                  Finally, compute the value of <m>\overline{N}</m> for the default model values shown in the Python code, and compare <m>\overline{N}</m> with the initial population size <m>N</m> shown in the code.
+                  Finally, compute the value of <m>\overline{N}</m> for the default parameter values shown in the Python code, and compare <m>\overline{N}</m> with the initial population size <m>N</m> shown in the code.
                 </p>
               </li>
               <li>
                 <p>
-                  In lines 31-38 of the code, we print end-of-simulation values of each compartment's population, as well as the equilibrium values for those populations, for the simulation we have just created. With the default Python code provided, these values do not necessarily match very closely. <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/> asks for your explanation for why these values may not match, and the reasons you provided there continue to be true in the SIR model with demographics. Now: state reasoning about <m>\overline{N}</m> differing from the initial value of <m>N</m> to explain why the end-of-simulation values for each population may not match the equilibrium values.
+                  In lines 31-38 of the code, we print end-of-simulation values of each compartment's population for the simulation we have just created, as well as the equilibrium values for those populations. With the default Python code provided, these values do not match very closely. <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/> asks for your explanation for why these values may not match, and the reasons you provided there continue to be true in the SIR model with demographics. Now: state reasoning about <m>\overline{N}</m> differing from the initial value of <m>N</m> to explain why the end-of-simulation values for each population do not match the equilibrium values.
                 </p>
               </li>
               <li>
@@ -792,7 +792,7 @@
                 <p>
                   <md>
                     \overline{R}=\frac{\gamma}{\mu}\overline{I}
-                  </md>
+                  </md>.
                 </p>
               </li>
               <li>
@@ -800,7 +800,7 @@
                   By the rules of calculus and derivatives, the sum of derivatives equals the derivative of a sum. That is, we can add the derivatives <m>dS/dt</m>, <m>dI/dt</m>, and <m>dR/dt</m>, or we can first add <m>S+I+R</m> and then compute the derivative <m>d(S+I+R)/dt</m>, and the answers will be the same. Since <m>S+I+R=N</m>, then we know that both <m>dS/dt+dI/dt+dR/dt</m> and <m>d(S+I+R)/dt</m> equal <m>dN/dt</m>.
                 </p>
                 <p>
-                  Next, sum the right-hand sides of the differential equations developed in <xref ref="activity-endemic-illness-example-2"/>:
+                  Next, sum the other sides of the differential equations developed in <xref ref="activity-endemic-illness-example-2"/>:
                   <md>
                     <mrow> \amp (\Pi-\mu S-\beta SI) </mrow>
                     <mrow> + \amp (\beta SI - \mu I - \gamma I) </mrow>
@@ -819,7 +819,7 @@
               </li>
               <li>
                 <p>
-                  Use the expression <m>\overline{N}=\Pi /\mu</m> from part (2) above to determine what the equilibrium population <m>\overline{N}</m> should be. Compare this with the initial population size <c>N_start</c> and the value of <m>N</m> at the end of the simulation, that is, after 50 time steps. These need not all be the same, or even close. If they are not very close, then we may not be close yet to the model's equilibrium value.
+                  Use the expression <m>\overline{N}=\Pi /\mu</m> from part (2) above to determine what the equilibrium population <m>\overline{N}</m> should be. Compare this with the initial population size <c>N_start</c> and the value of <m>N</m> at the end of the simulation, that is, after 50 time steps. You will see that the initial population size <c>N_start</c> is smallest, the population size at <m>t=50</m> is larger, and the equilibrium population <m>\overline{N}</m> is notably larger than both. This means that at <m>t=50</m> we are not yet close to the model's equilibrium value.
                 </p>
               </li>
               <li>
@@ -836,6 +836,10 @@
           </p>
         </answer> 
       </activity>
+
+      <p>
+        This concludes our focus on models of endemic illness. Allowing populations to replenish their Susceptibles, through losing immunity or via people entering and leaving the population, significantly expands the types of illnesses we are able to represent with compartmental models. As we are nearing the end of <xref ref="part-core-modeling-concepts"/>, the Core Modeling Concepts portion of this text, this is a good moment to think through the variety of modeling approaches we have seen and continue to build. Moving forward, we can combine these approaches into yet new models, with compartments and arrows selected to best represent the dynamics of outbreaks for which we develop the models ourselves.
+      </p>
     </section>
 
     <exercises xml:id="exercises-ch-endemic-illness">
@@ -850,6 +854,83 @@
             <mrow xml:id="eq-Requals0-SIRmodel-with-demographics"> \gamma I - \mu R \amp = 0 </mrow>
           </md>.
         </p>
+        <p>
+          This indicates that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Then follow the steps below.
+        </p>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Solve <xref ref="eq-Iequals0-SIRmodel-with-demographics"/> for <m>S</m>. This result is the equilibrium value <m>\overline{S}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Substitute <m>\overline{S}</m> into <xref ref="eq-Sequals0-SIRmodel-with-demographics"/> and solve for <m>I</m>. This result is the equilibrium value <m>\overline{I}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Solve <xref ref="eq-Requals0-SIRmodel-with-demographics"/> for <m>R</m>. The result contains <m>I</m>. When <m>I=\overline{I}</m>, this formula is the equilibrium value <m>\overline{R}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Your result should be three algebraic formulas giving equilibrium values for the <m>S</m>, <m>I</m>, and <m>R</m> populations, entirely in terms of the parameter values <m>\beta</m>, <m>\gamma</m>, <m>\mu</m>, and <m>\Pi</m>. 
+        </p>
+      </exercise>
+
+      <exercise number="2">
+        <p>
+          Follow the steps below to show how to solve algebraically for the endemic equilibrium <m>(\overline{S}, \overline{I}, \overline{R} )</m> of the SIRS model with demographics as shown in <xref ref="fig-SIRS-with-demographics-compartmental-diagram-endemic-illness"/>. 
+        </p>
+        <figure xml:id="fig-SIRS-with-demographics-compartmental-diagram-endemic-illness">
+            <caption>A possible diagram for the SIRS model with demographics, that is, people entering and exiting the population</caption>
+              <image width="100%">
+                <description>
+                  <p>
+                    The compartmental diagram for an SIRS model with demographics, having compartments for populations of Susceptible, Infectious, and Removed or Recovered people. Arrows point from S to I, I to R, and R to S. An arrow points into S from the outside, and arrows point out from all three compartments.
+                  </p>
+                </description>
+                <latex-image>
+                  \begin{tikzpicture}
+                    \draw [thick] [->] (-1.9,1) to (-0.1,1);
+                    \node at (-1,1.5) {\Large $\Pi$};
+                    \draw [thick] [black] (0,0) -- (2,0);
+                    \draw [thick] [black] (2,0) -- (2,2);
+                    \draw [thick] [black] (2,2) -- (0,2);
+                    \draw [thick] [black] (0,2) -- (0,0);
+                    \node [black] at (1,1) {\Huge $S$};
+                    \draw [thick] [->] (2.1,1) to (3.9,1); 
+                    \node at (3,1.5) {\Large $\beta SI$};
+                    \draw [thick] [->] (1,-0.1) to (1,-1.9);
+                    \node at (1.75,-1) {\Large $\mu S$};
+                    \draw [thick] [black] (4,0) -- (6,0);
+                    \draw [thick] [black] (6,0) -- (6,2);
+                    \draw [thick] [black] (6,2) -- (4,2);
+                    \draw [thick] [black] (4,2) -- (4,0);
+                    \node [black] at (5,1) {\Huge $I$};
+                    \draw [thick] [->] (6.1,1) to (7.9,1); 
+                    \node at (7,1.5) {\Large $\gamma I$};
+                    \draw [thick] [->] (5,-0.1) to (5,-1.9);
+                    \node at (5.75,-1) {\Large $\mu I$};
+                    \draw [thick] [black] (8,0) -- (10,0);
+                    \draw [thick] [black] (10,0) -- (10,2);
+                    \draw [thick] [black] (10,2) -- (8,2);
+                    \draw [thick] [black] (8,2) -- (8,0);
+                    \node [black] at (9,1) {\Huge $R$};
+                    \draw [thick] [->] (9,-0.1) to (9,-1.9);
+                    \node at (9.75,-1) {\Large $\mu R$};
+                    \draw [thick] [black] (9,2.1) -- (9,2.5);
+                    \draw [thick] [black] (9,2.5) -- (1,2.5);
+                    \draw [thick] [->] (1,2.5) to (1,2.1); 
+                    \node at (5,3) {\Large $\alpha R$};
+                  \end{tikzpicture}
+                </latex-image>
+              </image>
+          </figure>
+        
         <p>
           This indicates that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Then follow the steps below.
         </p>
