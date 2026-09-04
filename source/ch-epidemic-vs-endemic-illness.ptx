@@ -1,5 +1,5 @@
 <chapter xml:id="ch-epidemic-vs-endemic-illness" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>* Epidemic vs. Endemic Illness</title>
+    <title>Epidemic vs. Endemic Illness</title>
 
     <objectives>
       <ul>
@@ -10,7 +10,7 @@
         </li>
         <li>
           <p>
-            Compute both disesase-free and disease equilibrium values for endemic illness models.
+            Compute both disesase-free and endemic equilibrium values for endemic illness models.
           </p>
         </li>
         <li>
@@ -22,9 +22,6 @@
     </objectives>
     
     <introduction>
-      <p>
-        <term>***This chapter is under construction.***</term>
-      </p>
       <p>
         This textbook has focused, so far, on models of outbreaks. In each model, a disease has emerged, then peaked, then faded away. Yet many diseases remain in a population over a long period of time, passing from person to person in such a way that the disease remains in the population across many years. This chapter addresses such diseases. 
       </p> 
@@ -687,7 +684,6 @@
               Pi = 8.3 #Give a value to Pi
               beta = 0.00006 #Give a value to beta
               gamma = 0.2 #Give a value to gamma
-              alpha = 0.1 #Give a value to alpha
               mu = 0.0005 #Give a value to mu
               N_start = 10000
               S_start = 9950
@@ -728,7 +724,7 @@
             <ol>
               <li>
                 <p>
-                  Begin by reading the code carefully. State, by line number, where in the code the initial population values are established. Then state where in the code the formulas for the equilibrium values <m>\overline{S}</m>, <m>\overline{I}</m>, and <m>\overline{R}</m> are written, again using line number. Write, by hand, the equilibrium value formulas, writing the Greek letters rather than spelling them out as the code does. For example, write <m>\beta</m> rather than writing the letters <q>b</q>, <q>e</q>, <q>t</q>, <q>a</q>.
+                  Begin by reading the code carefully. State, by line number, where in the code the initial population values are established. Then state where in the code the formulas for the equilibrium values <m>\overline{S}</m>, <m>\overline{I}</m>, and <m>\overline{R}</m> are written, again using line number. Write, by hand, the equilibrium value formulas, writing the Greek letters rather than spelling them out as the code does. For example, write <q><m>\beta \,</m></q> rather than writing the letters <q>b</q>, <q>e</q>, <q>t</q>, <q>a</q>.
                 </p>
               </li>
               <li>
@@ -746,12 +742,12 @@
               </li>
               <li>
                 <p>
-                  In lines 31-38 of the code, we print end-of-simulation values of each compartment's population for the simulation we have just created, as well as the equilibrium values for those populations. With the default Python code provided, these values do not match very closely. <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/> asks for your explanation for why these values may not match, and the reasons you provided there continue to be true in the SIR model with demographics. Now: state reasoning about <m>\overline{N}</m> differing from the initial value of <m>N</m> to explain why the end-of-simulation values for each population do not match the equilibrium values.
+                  In lines 30-37 of the code, we print end-of-simulation values of each compartment's population for the simulation we have just created, as well as the equilibrium values for those populations. With the default Python code provided, these values do not match very closely. <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/> asks for your explanation for why these values may not match, and the reasons you provided there continue to be true in the SIR model with demographics. Now: state reasoning about <m>\overline{N}</m> differing from the initial value of <m>N</m> to explain why the end-of-simulation values for each population do not match the equilibrium values.
                 </p>
               </li>
               <li>
                 <p>
-                  Include the following two lines of code after line 38 to print the end-of-simulation value for <m>N</m> and the equilibrium value <m>\overline{N}</m>. 
+                  Include the following two lines of code after line 37 to print the end-of-simulation value for <m>N</m> and the equilibrium value <m>\overline{N}</m>. 
                 </p>
                 <p>
                   <c>print("End-of-simulation value of N = ", sol[-1,0] + sol[-1,1] + sol[-1,2])</c>
@@ -774,10 +770,10 @@
             <ol>
               <li>
                 <p>
-                  Initial population values <c>N</c>, <c>S_start</c>, <c>R_start</c>, and <c>I_start</c> are defined in lines 19-22. In line 23, the code forms these values into the vector <c>y0</c> of initial values for the <m>S</m>, <m>I</m>, and <m>R</m> populations.
+                  Initial population values <c>N</c>, <c>S_start</c>, <c>R_start</c>, and <c>I_start</c> are defined in lines 18-21. In line 22, the code forms these values into the vector <c>y0</c> of initial values for the <m>S</m>, <m>I</m>, and <m>R</m> populations.
                 </p>
                 <p>
-                  The equilibrium formulas for each population are as follows:
+                  The equilibrium formulas for each population, shown in lines 24-26, are as follows:
                 </p>
                 <p>
                   <md>
@@ -793,6 +789,9 @@
                   <md>
                     \overline{R}=\frac{\gamma}{\mu}\overline{I}
                   </md>.
+                </p>
+                <p>
+                  Be sure to show the algebra steps leading to these equilibrium values.
                 </p>
               </li>
               <li>
@@ -815,6 +814,9 @@
                     N=\frac{\Pi}{\mu}
                   </md>.
                   Therefore, the equilibrium value <m>\overline{N}</m> is <m>\Pi /\mu</m>.
+                </p>
+                <p>
+                  Computing <m>\overline{N}=\Pi /\mu</m> gives a larger number than the value of <c>N_start</c>. (State the actual values for each of these.)
                 </p>
               </li>
               <li>
@@ -861,17 +863,17 @@
           <ol>
             <li>
               <p>
-                Solve <xref ref="eq-Iequals0-SIRmodel-with-demographics"/> for <m>S</m>. This result is the equilibrium value <m>\overline{S}</m>.
+                Solve <xref ref="eq-Iequals0-SIRmodel-with-demographics"/> for <m>S</m>, showing your algebra steps along the way. This result is the equilibrium value <m>\overline{S}</m>.
               </p>
             </li>
             <li>
               <p>
-                Substitute <m>\overline{S}</m> into <xref ref="eq-Sequals0-SIRmodel-with-demographics"/> and solve for <m>I</m>. This result is the equilibrium value <m>\overline{I}</m>.
+                Substitute <m>\overline{S}</m> into <xref ref="eq-Sequals0-SIRmodel-with-demographics"/>. Show how you do this. Then solve for <m>I</m>, showing your algebra steps to do so. This result is the equilibrium value <m>\overline{I}</m>.
               </p>
             </li>
             <li>
               <p>
-                Solve <xref ref="eq-Requals0-SIRmodel-with-demographics"/> for <m>R</m>. The result contains <m>I</m>. When <m>I=\overline{I}</m>, this formula is the equilibrium value <m>\overline{R}</m>.
+                Solve <xref ref="eq-Requals0-SIRmodel-with-demographics"/> for <m>R</m>, showing your algebra steps. The result contains <m>I</m>. When <m>I=\overline{I}</m>, this formula is the equilibrium value <m>\overline{R}</m>.
               </p>
             </li>
           </ol>
@@ -886,7 +888,7 @@
           Follow the steps below to show how to solve algebraically for the endemic equilibrium <m>(\overline{S}, \overline{I}, \overline{R} )</m> of the SIRS model with demographics as shown in <xref ref="fig-SIRS-with-demographics-compartmental-diagram-endemic-illness"/>. 
         </p>
         <figure xml:id="fig-SIRS-with-demographics-compartmental-diagram-endemic-illness">
-            <caption>A possible diagram for the SIRS model with demographics, that is, people entering and exiting the population</caption>
+            <caption>A possible diagram for the SIRS model with demographics</caption>
               <image width="100%">
                 <description>
                   <p>
@@ -940,18 +942,103 @@
             </li>
             <li>
               <p>
-                Substitute <m>\overline{S}</m> into <xref ref="eq-Sequals0-SIRmodel-with-demographics"/> and solve for <m>I</m>. This result is the equilibrium value <m>\overline{I}</m>.
+                Write out the equation that results when you set <m>dI/dt=0</m>. Then solve for <m>S</m>, showing your algebra steps along the way. This result is the equilibrium value <m>\overline{S}</m>.
               </p>
             </li>
             <li>
               <p>
-                Solve <xref ref="eq-Requals0-SIRmodel-with-demographics"/> for <m>R</m>. The result contains <m>I</m>. When <m>I=\overline{I}</m>, this formula is the equilibrium value <m>\overline{R}</m>.
+                Write out the equation that results when you set <m>dS/dt=0</m>. Substitute in <m>R=N-S-I</m> and the equilibrium value for <m>S</m> you computed in step (b) above, writing the formula with these substitutions. Then solve for <m>I</m>, showing your algebra steps for doing so. This result is the equilibrium value <m>\overline{I}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Write out the equation that results when you set <m>dR/dt=0</m>. Then solve for <m>R</m>, showing your algebra steps. The result contains <m>I</m>. When <m>I=\overline{I}</m>, this formula is the equilibrium value <m>\overline{R}</m>.
               </p>
             </li>
           </ol>
         </p>
         <p>
-          Your result should be three algebraic formulas giving equilibrium values for the <m>S</m>, <m>I</m>, and <m>R</m> populations, entirely in terms of the parameter values <m>\beta</m>, <m>\gamma</m>, <m>\mu</m>, and <m>\Pi</m>. 
+          Your result should be three algebraic formulas giving equilibrium values for the <m>S</m>, <m>I</m>, and <m>R</m> populations, entirely in terms of total population size <m>N</m> and the parameter values <m>\alpha</m>, <m>\beta</m>, <m>\gamma</m>, <m>\mu</m>, and <m>\Pi</m>. 
+        </p>
+      </exercise>
+
+      <exercise number="3">
+        <p>
+          Using the included Python code and the prompts below, explore the model for the SIRS model with demographics from <xref ref="fig-SIRS-with-demographics-compartmental-diagram-endemic-illness"/>. 
+        </p>
+        <sage>
+            <input>
+              #Import packages
+              import numpy as np
+              import matplotlib.pyplot as plt
+              from scipy.integrate import odeint
+
+              plt.cla()  #Clear (delete) any past plots
+
+              #Define the system of differential equations, and call it "sirs"
+              def sirs(y, t):
+                s, i, r = y #Define y as consisting of s, i, and r, in that order
+                dydt = [Pi - beta * s * i - mu * s + alpha * r, beta * s * i - gamma * i - mu * i, gamma * i - mu * r - alpha * r] #These formulas are the right-hand sides of the SIRS model
+                return dydt
+
+              Pi = 8 #Give a value to Pi
+              beta = 0.00003 #Give a value to beta
+              gamma = 0.2 #Give a value to gamma
+              alpha = 0.9 #Give a value to alpha
+              mu = 0.0007 #Give a value to mu
+              N_start = 10000
+              S_start = 9950
+              R_start = 0
+              I_start = N_start - S_start - R_start
+              y0 = [S_start, I_start, R_start] #Set initial conditions for Susceptibles, Infectious, and Removed
+              t_range = np.arange(0.0, 100.0, 0.1) #Set the time range, then set the size of the time steps to use when "stepping through" to numerically solve
+              S_equilibrium = (mu + gamma) / beta
+              I_equilibrium = (beta * Pi - mu * mu - mu * gamma + beta * alpha * (Pi / mu) - beta * alpha * S_equilibrium) / (beta * (mu + gamma + alpha))
+              R_equilibrium = (gamma / (mu + alpha)) * I_equilibrium
+
+              sol = odeint(sirs, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
+
+              print("End-of-simulation value of S = ", round(sol[-1,0]))
+              print("Equilibrium value of S = ", S_equilibrium)
+              print()
+              print("End-of-simulation value of I = ", (sol[-1,1]))
+              print("Equilibrium value of I = ", I_equilibrium)
+              print()
+              print("End-of-simulation value of R = ", round(sol[-1,2]))
+              print("Equilibrium value of R = ", R_equilibrium)
+
+              # Plotting commands are below
+              plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
+              plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='I(t)')
+              plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='R(t)')
+              plt.legend()
+              plt.xlabel('Time')
+              plt.ylabel('Populations')
+              plt.show()
+            </input>
+            <output>
+              
+            </output>
+          </sage>
+        
+        <p>
+          <ol>
+            <li>
+              <p>
+                Set four or more values of <m>\alpha</m>, keeping <m>\alpha</m> in the range <m>0.001 \lt \alpha \lt 0.9</m>. (It is possible for <m>\alpha</m> values to extend beyond this range in reality, as long as <m>\alpha \geq 0</m>.) Describe the long-term behavior of the model for each of the <m>\alpha</m> values you choose. Be sure to confirm that your simulation runs long enough to approach its equilibrium: if any of the lines <m>S(t)</m>, <m>I(t)</m>, or <m>R(t)</m> do not appear horizontal near the end, or if any of the end-of-simulation population values are not close to their equilibrium values, then run the model for a longer time.
+              </p>
+            </li>
+            <li>
+              <p>
+                In <xref ref="activity-endemic-illness-equilibrium-experimentation-2"/> we determined a formula for the equilibrium value <m>\overline{N}</m> for the total population. The same formula for <m>\overline{N}</m> shows the equilibrium population for the model in this exercise. State this formula, and run the model simulation at least three times, starting with initial population size <m>N</m> (i) <em>smaller than</em>, (ii) <em>equal to</em>, and (iii) <em>larger than</em> the equilbrium value <m>\overline{N}</m>. In each case, run the model for long enough to approach equilibrium. Describe what you see in each of the three cases, and make comparisons across the three cases.
+              </p>
+            </li>
+            <li>
+              <p>
+                Parts (a) and (b) in this exercise each provide experiments to run on the model from <xref ref="fig-SIRS-with-demographics-compartmental-diagram-endemic-illness"/>. In part (c), develop another experiment. State your experiment, run it, and describe your results.
+              </p>
+            </li>
+          </ol>
         </p>
       </exercise>
       
