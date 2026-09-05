@@ -306,7 +306,7 @@
               </li>
               <li>
                 <p>
-                  This model allows people to enter the population by births or immigration, and allows people to leave the population by deaths or emigration. Comment on what it may mean for the timespan of such a model, in comparison with the timespan of an outbreak model in which we leave out these options for people to enter or exit the population. That is: how long, in terms of weeks, months, or years, might you expect this sort of model to last, compared with an outbreak model lacking demographic changes?
+                  This model allows people to enter the population by births or immigration, and allows people to leave the population by deaths or emigration. Comment on what this may mean for the timespan of such a model, in comparison with the timespan of an outbreak model in which we leave out these options for people to enter or exit the population. That is: how long, in terms of weeks, months, or years, might you expect this sort of model to last, compared with an outbreak model lacking demographic changes?
                 </p>
               </li>
               <li>
@@ -470,7 +470,7 @@
         In this model, if we had <m>S=0</m>, <m>I=0</m>, and <m>R=0</m>, then the right-hand sides of each equation would equal 0, which means that each derivative would equal 0. It is completely accurate to notice this form of equilbrium, yet it does not tell us much about disease spread in a population containing any people. So, we note it and move on.
       </p>
       <p>
-        Another type of equilibrium is a <term>disease-free equilibrium</term>. We consider this as the equilibrium for a disease model in a population that has not yet encountered the disease. Prior to disease arrival, <m>I=0</m> and <m>R=0</m>. In this case, using our models for <xref ref="activity-endemic-illness-example-1"/> and <xref ref="activity-endemic-illness-example-2"/>, disease-free equilibrium means that the entire population is in the S compartment. When we define <m>N=S+I+R</m>, meaning that <m>N</m> represents the entire population, then the disease-free equilibrium has <m>S=N</m>, <m>I=0</m>, <m>R=0</m>.
+        Another type of equilibrium is a <term>disease-free equilibrium</term>. We consider this as the equilibrium for a disease model in a population that has not yet encountered the disease. Prior to disease arrival, <m>I=0</m> and <m>R=0</m>. In our models for <xref ref="activity-endemic-illness-example-1"/> and <xref ref="activity-endemic-illness-example-2"/>, disease-free equilibrium means that the entire population is in the S compartment. When we define <m>N=S+I+R</m>, meaning that <m>N</m> represents the entire population, then the disease-free equilibrium has <m>S=N</m>, <m>I=0</m>, <m>R=0</m>.
       </p>
       <p>
         The activities below focus on yet another equilibrium, namely the <term>endemic equilibrium</term>. The epidemic models we have studied could not have such an equilibrium because disease would invariably peak and then recede. With endemic illness, there can be a long-term state in which <m>I \neq 0</m> and <m>R \neq 0</m>. This is the type of equilibrium we will solve for algebraically and then study, beginning with <xref ref="activity-endemic-illness-equilibrium-1"/>.
@@ -479,14 +479,17 @@
       <activity xml:id="activity-endemic-illness-equilibrium-1"> 
         <statement>
           <p>
-            In this activity, we solve algebraically for the endemic equilibrium <m>(\overline{S}, \overline{I}, \overline{R} )</m> of the compartmental model shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>. The lines atop <m>S</m>, <m>I</m>, and <m>R</m> indicate that these are the specific values of each compartment's population for which the entire system is at equilibrium. To help us start the algebra needed to compute the formulas we seek, we use the knowledge that at equilibrium all three differential equations from the model in <xref ref="activity-endemic-illness-equilibrium-1"/> are set equal to 0, indicating that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Follow the steps below to determine the combination of algebraic formulas for which this is true.
+            In this activity, we solve algebraically for the endemic equilibrium <m>(\overline{S}, \overline{I}, \overline{R} )</m> of the compartmental model shown in <xref ref="fig-SIRS-compartmental-diagram-endemic-illness"/>. The lines atop <m>S</m>, <m>I</m>, and <m>R</m> indicate that these are the specific values of each compartment's population for which the entire system is at equilibrium. To help us start the algebra needed to compute the formulas we seek, we use the knowledge that at equilibrium all three differential equations from the model in <xref ref="activity-endemic-illness-example-1"/> are set equal to 0, indicating that the values are unchanging for all three populations <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Here are the expressions that result when we set the derivatives of the model equal to 0:
           </p>
           <p>
             <md number="yes">
               <mrow xml:id="eq-Sequals0-SIRSmodel"> \alpha R - \beta SI \amp = 0 </mrow>
               <mrow xml:id="eq-Iequals0-SIRSmodel"> \beta SI - \gamma I \amp = 0 </mrow>
-              <mrow xml:id="eq-Requals0-SIRSmodel"> \gamma I - \alpha R \amp = 0 </mrow>
+              <mrow xml:id="eq-Requals0-SIRSmodel"> \gamma I - \alpha R \amp = 0. </mrow>
             </md>
+          </p>
+          <p>
+            Follow the steps below to determine the combination of algebraic formulas for which <xref ref="eq-Sequals0-SIRSmodel"/>, <xref ref="eq-Iequals0-SIRSmodel"/>, and <xref ref="eq-Requals0-SIRSmodel"/> are valid.
           </p>
           <p>
             <ol>
@@ -502,7 +505,7 @@
               </li>
               <li>
                 <p>
-                  Use the <m>dR/dt=0</m> equation, that is, <m>\gamma I - \alpha R=0</m> to solve for <m>R</m>. Your answer will be in terms of <m>I</m>, which we solved for in part (2). Your result can also be written as <m>\overline{R}</m>, with <m>I</m> on the right-hand side written as <m>\overline{I}</m>.
+                  Solve <xref ref="eq-Requals0-SIRSmodel"/> for <m>R</m>. Your answer will be in terms of <m>I</m>, which we solved for in part (2). Your result can also be written as <m>\overline{R}</m>, with <m>I</m> on the right-hand side written as <m>\overline{I}</m>.
                 </p>
               </li>
             </ol>
@@ -518,13 +521,16 @@
                 <p>
                   <m>\overline{S}=\frac{\gamma}{\beta}</m> 
                 </p>
+                <p>
+                  Be sure to show your algebra steps.
+                </p>
               </li>
               <li>
                 <p>
                   <m>\overline{I}=\frac{\alpha N - \alpha \overline{S}}{\alpha + \beta \overline{S}}</m> 
                 </p>
                 <p>
-                  We could substitute in <m>\overline{S}=\gamma / \beta</m> to obtain a formula that is entirely in terms of the model's parameters and the total population value.
+                  Be sure to show your algebra steps. Then, we could substitute in <m>\overline{S}=\gamma / \beta</m> to obtain a formula that is entirely in terms of the model's parameters and the total population value.
                 </p>
               </li>
               <li>
@@ -532,7 +538,7 @@
                   <m>\overline{R}=\frac{\gamma \overline{I}}{\alpha}</m> 
                 </p>
                 <p>
-                  We could substitute in the formula for <m>\overline{I}</m>, and within that substitute the formula for <m>\overline{S}</m>, to obtain a formula that is entirely in terms of the model's parameters and the total population value.
+                  Be sure to show your algebra steps. Then, we could substitute in the formula for <m>\overline{I}</m>, and within that substitute the formula for <m>\overline{S}</m>, to obtain a formula that is entirely in terms of the model's parameters and the total population value.
                 </p>
               </li>
             </ol>
@@ -631,7 +637,7 @@
             <ol>
               <li>
                 <p>
-                  This is in many ways open-ended: there could be several possible answers. One likely answer is that listing initial conditions in this way means we can change just <c>S_start</c> and then <c>I_start</c> and the vector <c>y0</c> change automatically, with the total population size <m>N</m> left (purposefully) unchanged.
+                  This is open-ended: there could be several possible answers. One likely answer is that listing initial conditions in this way means we can change just <c>S_start</c> and then <c>I_start</c> and the vector <c>y0</c> change automatically, with the total population size <m>N</m> left (purposefully) unchanged.
                 </p>
               </li>
               <li>
@@ -658,7 +664,7 @@
       </activity> 
       
       <p>
-        Finally, return to the SIR model with demographics from <xref ref="fig-SIR-with-demographics-compartmental-diagram-endemic-illness"/>. The steps for computing the endemic equilibrium for this model appear in <xref ref="exercises-ch-endemic-illness"/>. In <xref ref="activity-endemic-illness-equilibrium-experimentation-2"/>, experiment with the graph of long-term solution curves and the printed values of the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values at the end of the simulation. By creating a variety of simulations and thinking through their results, you are building your knowledge and intuition for the dynamics of this model, which behaves in notably different ways than the model in <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/>.
+        Finally, return to the SIR model with demographics from <xref ref="fig-SIR-with-demographics-compartmental-diagram-endemic-illness"/>. The steps for computing the endemic equilibrium for this model appear in the first exercise of <xref ref="exercises-ch-endemic-illness"/>. In <xref ref="activity-endemic-illness-equilibrium-experimentation-2"/>, experiment with the graph of long-term solution curves and the printed values of the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values at the end of the simulation. By creating a variety of simulations and thinking through their results, you are building your knowledge and intuition for the dynamics of this model, which behaves in notably different ways than the model in <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/>.
       </p>  
 
       <activity xml:id="activity-endemic-illness-equilibrium-experimentation-2"> 
@@ -729,20 +735,20 @@
               </li>
               <li>
                 <p>
-                  Notice that this model includes people entering and leaving the population, in a way that none of our previous models in this textbook have done. As a result, population size <m>N</m> may not be constant. Solve here for the equilibrium value <m>\overline{N}</m>, where <m>\overline{N}=\overline{S}+\overline{I}+\overline{R}</m>.
+                  Notice that this model includes people entering and leaving the population, in a way that none of our previous models in this textbook have done. As a result, total population size <m>N</m> may not be constant. Solve here for the equilibrium value <m>\overline{N}</m>, where <m>\overline{N}=\overline{S}+\overline{I}+\overline{R}</m>.
                 </p>
                 <p>
                   To solve for <m>\overline{N}</m>, start with the differential equations for the SIR model with demographics. You developed these differential equations in <xref ref="activity-endemic-illness-example-2"/>. Add together the three equations, and use your calculus-based knowledge of derivative rules to explain why, on one side, the sum becomes the following: 
                   <md>dS/dt + dI/dt + dR/dt = d(S+I+R)/dt = dN/dt</md>. 
-                  The other side of the summed differential equations should simplify to a small number of terms. Set this simplified expression equal to <m>0</m>, since <m>dN/dt=0</m> at equilibrium. Then solve for <m>N</m>, using the definition <m>N=S+I+R</m> to introduce <m>N</m> into the equation. The expression you create is the equilibrium value <m>\overline{N}</m>.
+                  The other side of the summed differential equations should simplify to a small number of terms. Set this simplified expression equal to <m>0</m>, since <m>dN/dt=0</m> at equilibrium. Then use the definition <m>N=S+I+R</m> to introduce <m>N</m> into the equation and solve for <m>N</m>. The expression you create is the equilibrium value <m>\overline{N}</m>.
                 </p>
                 <p>
-                  Finally, compute the value of <m>\overline{N}</m> for the default parameter values shown in the Python code, and compare <m>\overline{N}</m> with the initial population size <m>N</m> shown in the code.
+                  Finally, compute the value of <m>\overline{N}</m> for the default parameter values shown in the Python code, and compare <m>\overline{N}</m> with the initial population size <c>N_start</c> shown in the code.
                 </p>
               </li>
               <li>
                 <p>
-                  In lines 30-37 of the code, we print end-of-simulation values of each compartment's population for the simulation we have just created, as well as the equilibrium values for those populations. With the default Python code provided, these values do not match very closely. <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/> asks for your explanation for why these values may not match, and the reasons you provided there continue to be true in the SIR model with demographics. Now: state reasoning about <m>\overline{N}</m> differing from the initial value of <m>N</m> to explain why the end-of-simulation values for each population do not match the equilibrium values.
+                  In lines 30-37 of the code, we print end-of-simulation values of each compartment's population for the simulation we have just created, as well as the equilibrium values for those populations. With the default Python code provided, these values do not match very closely. <xref ref="activity-endemic-illness-equilibrium-experimentation-1"/> asks for your explanation for why these values may not match, and the reasons you provided there continue to be true in the SIR model with demographics. Now: state reasoning about <m>\overline{N}</m> differing from the initial total population value <c>N_start</c> to explain why the end-of-simulation values for each population do not match the equilibrium values.
                 </p>
               </li>
               <li>
@@ -964,7 +970,7 @@
 
       <exercise number="3">
         <p>
-          Using the included Python code and the prompts below, explore the model for the SIRS model with demographics from <xref ref="fig-SIRS-with-demographics-compartmental-diagram-endemic-illness"/>. 
+          Using the included Python code and the prompts below, explore the SIRS model with demographics from <xref ref="fig-SIRS-with-demographics-compartmental-diagram-endemic-illness"/>. 
         </p>
         <sage>
             <input>
