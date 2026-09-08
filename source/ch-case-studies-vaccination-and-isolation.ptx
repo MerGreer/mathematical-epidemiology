@@ -8,7 +8,10 @@
    
     <p>
     This supplemental chapter includes three case studies of outbreaks. The first of these gives a new example of modeling using vaccination. The second example provides extra practice modeling isolation. Finally, the third example returns to vaccination, modeling a vaccine campaign that occurs during an outbreak.
-   </p>
+    </p>
+    <p>
+      This chapter assumes students can build on the models, concepts, and coding from <xref ref="part-core-modeling-concepts"/>: Core Modeling Concepts. It is best to do <xref ref="activity-varicella-example-with-vaccination"/> after completing <xref ref="ch-vaccines"/>, <xref ref="activity-strict-isolation"/> after completing <xref ref="ch-isolation"/>, and <xref ref="activity-vaccine-campaign"/> after completing <xref ref="ch-aligning-simulations-with-data"/>.
+    </p>
 
  </introduction>
 
@@ -29,60 +32,15 @@
     <task>
       <statement>
         <p>
-          Construct an SEIR model, complete with differential equations (including vaccination) and parameter values. You must do research to find sufficient values for <m>\mathcal{R}_0</m>, <m>\gamma</m>, etc.
+          Construct an SEIR model, complete with differential equations (including vaccination) and parameter values. Locating valid sources to determine values for <m>\mathcal{R}_0</m>, <m>\gamma</m>, and other parameters used for constructing the model. Cite your sources, including links to any web pages, the title of each web page used, the name of the publisher of each web page, and the date you most recently accessed the web page.
         </p>
       </statement>
     </task>
     <task>
       <statement>
         <p>
-          Graph your model using Python:
+          Graph your model using Python, adapting Python code from earlier chapters as needed.
         </p>
-        <sage>
-          <input>
-            #Import packages
-            import numpy as np
-            import matplotlib.pyplot as plt
-            from scipy.integrate import odeint
-              
-            plt.cla() #Clear (delete) any past plots
-              
-            #Define the system of differential equations, and call it "model"
-            def model(y, t):
-              S, E, I, R = y #Define y as consisting of S, I, and R, in that order
-              dydt = [- (1-p*q) * beta * S * I, (1-p*q) * beta * S * I - kappa * E, kappa*E - gamma*I, gamma * I] #Provide the right-hand sides of the SIR model
-              return dydt
-              
-            beta =  #Give a value to beta
-            kappa =  #Give a value to kappa
-            gamma =  #Give a value to gamma
-            p =  #Give a value to p
-            q =  #Give a value to q
-            y0 = [ , , , ] #Set initial conditions for S, I, and R, in that order
-            t_range = np.arange(0.0, 60.0, 0.1) #Set the time range and increment of time steps to be used for numerically solving
-              
-            sol = odeint(model, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
-              
-            # Tell Python to print the last values produced of S, E, I, and R, to help show long-range outcomes of the model
-            print("Long-term value of S = ", round(sol[-1,0]))
-            print("Long-term value of E = ", round(sol[-1,1]))
-            print("Long-term value of I = ", round(sol[-1,2]))
-            print("Long-term value of R = ", round(sol[-1,3]))
-                
-            # Plotting commands are below
-            plt.plot(t_range, sol[:, 0], color='blue', linewidth=2, label='S(t)')
-            plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='E(t)')
-            plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='I(t)')
-            plt.plot(t_range, sol[:, 3], color='green', linestyle='dashdot', linewidth=2, label='R(t)')
-            plt.legend()
-            plt.grid()
-            plt.xlabel('time')
-            plt.ylabel('populations')
-            plt.show() 
-          </input>
-          <output>
-          </output>
-        </sage>
       </statement>
     </task>
     <task>
@@ -213,7 +171,7 @@
 
   <section>
     <title>H1N1 with Testing and Strict Isolation</title>
-    <activity xml:id="sec-example-strict-isolation">
+    <activity xml:id="activity-strict-isolation">
       <introduction>
         <p>
           This case study takes a look at the impact of strict isolation measures on disease spread. When modeling this outbreak it is important to recognize that the isolation of infected individuals is not in place at day 0 of the outbreak.
@@ -309,7 +267,7 @@
 
   <section>
     <title>A Measles Example with a Vaccine Campaign</title>
-    <activity xml:id="expl-example-vaccine-campaign">    
+    <activity xml:id="activity-vaccine-campaign">    
       <introduction>
         <p>
           This case study includes a vaccine campaign implemented part-way through the outbreak.
