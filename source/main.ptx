@@ -193,14 +193,14 @@
 
     </part>
 
-    <part xml:id="part-bonus-topics">
-      <title>Bonus Topics</title>
+    <part xml:id="part-providing-greater-depth">
+      <title>Providing Greater Depth</title>
 
       <xi:include href="ch-the-next-generation-method.ptx" />
 
-      <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
+      <xi:include href="ch-aligning-simulations-with-data.ptx" />
 
-      <xi:include href="ch-simulations-with-time-varying-parameters.ptx" />
+      <xi:include href="ch-case-studies-vaccination-and-isolation.ptx" />
 
       <xi:include href="ch-articles-showing-further-examples.ptx" />
 

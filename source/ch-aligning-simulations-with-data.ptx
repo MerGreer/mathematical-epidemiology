@@ -1,0 +1,36 @@
+<chapter xml:id="ch-aligning-simulations-with-data" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>* Aligning Simulations with Data</title>
+    
+    <objectives>
+      <ul>
+        <li>
+          <p>
+            Improve the ability to fit models to data while maintaining reasonable expectations for how close that fit should be
+          </p>
+        </li>
+        <li>
+          <p>
+            Experiment with changes to multiple aspects of simulations to learn better how each type of change affects the outcome of the simulation and its relationship with data
+          </p>
+        </li>
+        <li>
+          <p>
+            Devote attention to the peak of an outbreak, considering both the height of the peak and its timing, relative to a data set
+          </p>
+        </li>
+      </ul>
+    </objectives>
+
+    <introduction xml:id="intro-simulations-with-time-varying-parameters">   
+      <p>
+        <term>***This chapter remains under construction.***</term>
+      </p>
+   
+    </introduction>
+
+    <section xml:id="sec-temporary">
+      <title></title>
+      <p>The compartments are stages of cell infection</p>
+    </section>
+
+</chapter>
