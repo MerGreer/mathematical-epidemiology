@@ -668,7 +668,6 @@
               beta_results = []
 
               for beta_value in (0.0005, 0.001, 0.0015, 0.002, 0.0025, 0.003, 0.0035, 0.004):
-              #for beta_value in (0.001, 0.0012, 0.0014, 0.0016, 0.0018, 0.002, 0.0022, 0.0024, 0.0026, 0.0028, 0.003):
                 beta = beta_value
                 sol = odeint(sir, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
                 RSS = 0 #Initialize the value of RSS to be 0
@@ -716,7 +715,22 @@
             <ol>
               <li>
                 <p>
-                  Describe 
+                  Identify the lines of code where we enter the SIR model equations; where we give numbers to each parameter value used to simulate the outcome of the SIR model; where we set the initial values <m>S(0)</m>, <m>I(0)</m>, and <m>R(0)</m>; and where we plot all three curves <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>.  
+                </p>
+              </li>
+              <li>
+                <p>
+                  Run the code. You will see two resulting graphs, each displaying multiple plots. Describe which plots are shown in each graph and give at least one reason for displaying the plots in these two different ways. Then use the plots to comment on how well the model fits the data, in your opinion, discussing both RSS value and the way the plots look in the graphs.  
+                </p>
+              </li>
+              <li>
+                <p>
+                  In the common cold outbreak modeled here, the source article suggests that people displayed symptoms for approximately four days. However, they may have been contagious for a shorter amount of time. Describe changes you can make to <m>\gamma</m> to represent this shorter contagious period, which we can model as spending less time in the Infectious compartment.  
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use your results from part (c) to retry RSS, using a different value of <m>\gamma</m>. Do any of these results result in a smaller RSS value? If any of these look better to you than those you found in part (b), describe the ways in which you perceive that they look better. 
                 </p>
               </li>
             </ol>
