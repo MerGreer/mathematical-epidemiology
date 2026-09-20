@@ -58,15 +58,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.13';
+eBookConfig.runestone_version = '8.3.0';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a45d14e8fc8c534a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.538acb8e671a3b5d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.1bda041f5a098305.css">
+<script src="_static/prefix-runtime.c838822d59bc26bc.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.b9fedab97dee3c2a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
@@ -831,16 +831,16 @@ for beta_value in (0.01, 0.02, 0.03, 0.04, 0.05):
 <h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">RSS With the SIR Model</span>
 </h2>
-<div class="para" id="sec-rss-sir-model-2">So far in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal" title="Chapter 10: Residual Sum of Squares: Improving a Model’s Fit to Data">Chapter 10</a> we have used RSS to estimate <span class="process-math">\(\beta\)</span> for the SI model, but we often use SIR or other models to represent disease spread. In <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#activity-rss-sir-model" class="xref" data-knowl="./knowl/xref/activity-rss-sir-model.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 10.7">Activity 10.7</a> we show how to use RSS with the SIR model, and we offer some possibilities for fine-tuning the two parameters <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-rss-sir-model-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-rss-sir-model-2">So far in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html" class="internal" title="Chapter 10: Residual Sum of Squares: Improving a Model’s Fit to Data">Chapter 10</a> we have used RSS to estimate <span class="process-math">\(\beta\)</span> for the SI model. Next, in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#activity-rss-sir-model" class="xref" data-knowl="./knowl/xref/activity-rss-sir-model.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 10.7">Activity 10.7</a>, we show how to pair RSS with the SIR model, and we offer a first approach for fine-tuning the two parameters <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-rss-sir-model-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="activity project-like" id="activity-rss-sir-model"><h3 class="heading">
 <span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="para" id="activity-rss-sir-model-1-1">The remote island of Tristan da Cunha has experienced several outbreaks of the common cold that have been linked to ships arriving at the island. A 1971 paper<details class="ptx-footnote" aria-live="polite" id="activity-rss-sir-model-1-1-1"><summary class="ptx-footnote__number" title="Footnote 10.1"><sup> 1 </sup></summary>
 <div class="ptx-footnote__contents" id="activity-rss-sir-model-1-1-1">“A mathematical model of common-cold epidemics on Tristan da Cunha” by B.J. Hammond and D.A.J. Tyrrell, published in the <em class="emphasis">Journal of Hygiene</em>
-</div></details> shares multiple datasets for outbreaks in the 1960s and models these outbreaks using a model related to, but different from, the SIR model we have been studying. These datasets helpfully include plots showing how many people are Infectious each day throughout the outbreak.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></details> shares multiple datasets for outbreaks in the 1960s and models these outbreaks with a model related to, but different from, the SIR model we have been studying. These datasets helpfully include plots showing how many people are Infectious each day throughout the outbreak.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<div class="para" id="activity-rss-sir-model-1-2">Study the code below to understand how we adapt our earlier Python code to apply RSS to an SIR model instead of an SI model. Then try the suggestions below to make changes to both <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> to improve the fit of the model to a dataset.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="activity-rss-sir-model-1-2">Study the code below to understand how we adapt our earlier Python code to apply RSS to an SIR model instead of an SI model. Respond to the prompts beneath the code, which first ask about the code itself and the resulting graphs. The prompts then focus on considering the value of <span class="process-math">\(\gamma\)</span> when studying the fit of the model to an outbreak and its dataset.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div id="activity-rss-sir-model-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Tristan da Cunha May 1967, Fig 3(b) in paper, common cold outbreak
 # RSS approach
 # Compare with each day's new cases
@@ -859,12 +859,10 @@ Common_Cold_Infectious = [0, 0, 0, 0, 1, 3, 7, 12, 19, 29, 37, 41, 39, 32, 23, 1
 
 # Define the system of differential equations, and call it "sir"
 def sir(y, t):
-  s, i, r = y #Define y as consisting of s, i, and r, and nc, in that order, where nc stands for New Cases
+  s, i, r = y #Define y as consisting of s, i, and r, in that order
   dydt = [-beta * s * i, beta * s * i - gamma * i, gamma * i] #These formulas are the right-hand sides of the SIR model
   return dydt
 
-# Give a value to beta: we change this regularly as part of our activities
-beta = 0.0033
 # Give gamma a value that is 1/(number of days you consider people to be contagious)
 gamma = 0.25
 # Set initial conditions for Susceptibles, Infectious, and Removed, in that order, with 2934 total people (2686 students, 248 employees) and 23 people sick on day 0
@@ -874,12 +872,10 @@ t_start = 0
 t_finish = 25
 t_range = np.arange(t_start, t_finish + 0.1, 0.1)
 
-# Give the name "sol" to the solution, which consists of lists of numerical values for S, I, and R at different times t, and give the built-in "odeint" the information needed to solve
-sol = odeint(sir, y0, t_range)
-
+# beta_results will be a place to store all the pairs (RSS, beta) that we generate when seeking a best RSS value and the beta value that goes with that RSS value
 beta_results = []
 
-for beta_value in (0.0005, 0.001, 0.0015, 0.002, 0.0025, 0.003, 0.0035, 0.004):
+for beta_value in (0.0005, 0.001, 0.0015, 0.002, 0.0025, 0.003, 0.0035, 0.004): #Assign to beta any values you wish to try
   beta = beta_value
   sol = odeint(sir, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
   RSS = 0 #Initialize the value of RSS to be 0
@@ -887,7 +883,7 @@ for beta_value in (0.0005, 0.001, 0.0015, 0.002, 0.0025, 0.003, 0.0035, 0.004):
     new_square = (Common_Cold_Infectious[x] - sol[10*x, 1])**2
     #print("Squared distance at time", x, "=", new_square)
     RSS = RSS + new_square
-  beta_results.append((RSS, beta))
+  beta_results.append((RSS, beta)) # Keep track of the RSS value you just computed and the corresponding value of beta
   print("When beta =", round(beta,4), ", RSS =", round(RSS,4)) # Print results
 
 # Sort the results to determine the smallest RSS value
@@ -932,12 +928,12 @@ plt.show()
 <div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
 </li>
 <li id="activity-rss-sir-model-1-4-1-3">
-<div class="para" id="activity-rss-sir-model-1-4-1-3-1">In the common cold outbreak modeled here, the source article suggests that people displayed symptoms for approximately four days. However, they may have been contagious for a shorter amount of time. Describe changes you can make to <span class="process-math">\(\gamma\)</span> to represent this shorter contagious period, which we can model as spending less time in the Infectious compartment.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="activity-rss-sir-model-1-4-1-3-1">In the common cold outbreak modeled here, the source article suggests that people displayed symptoms for approximately four days. However, people may have been contagious for a shorter amount of time, or may have isolated in a way that effectively made them contagious for less time. Describe changes you can make to <span class="process-math">\(\gamma\)</span> to represent this shorter contagious period, which we can model as spending less time in the Infectious compartment.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 3"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
 </li>
 <li id="activity-rss-sir-model-1-4-1-4">
-<div class="para" id="activity-rss-sir-model-1-4-1-4-1">Use your results from part (c) to retry RSS, using a different value of <span class="process-math">\(\gamma\text{.}\)</span> Do any of these results result in a smaller RSS value? If any of these look better to you than those you found in part (b), describe the ways in which you perceive that they look better.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="activity-rss-sir-model-1-4-1-4-1">Use your results from part (c) to retry RSS, using different values of <span class="process-math">\(\gamma\text{.}\)</span> Do any of these results result in a smaller RSS value? If any of these look better to you than those you found in part (b), describe the ways in which you perceive that they look better.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 4"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
 </li>
@@ -950,9 +946,26 @@ plt.show()
 <div class="para logical" id="activity-rss-sir-model-2-1">
 <ol class="decimal" id="activity-rss-sir-model-2-1-1">
 <li id="activity-rss-sir-model-2-1-1-1">
-<div class="para" id="activity-rss-sir-model-2-1-1-1-1">In<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="activity-rss-sir-model-2-1-1-1-1">We enter model equations in line 20. We set the value of <span class="process-math">\(\gamma\)</span> in line 24 and multiple possible values of <span class="process-math">\(\beta\)</span> in line 35. We set the initial values <span class="process-math">\(S(0)\text{,}\)</span> <span class="process-math">\(I(0)\text{,}\)</span> and <span class="process-math">\(R(0)\)</span> in line 26. We plot all three curves <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and <span class="process-math">\(R(t)\)</span> in lines 59, 60, and 61.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 1"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="activity-rss-sir-model-2-1-1-2">
+<div class="para" id="activity-rss-sir-model-2-1-1-2-1">The first graph shows curves <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and <span class="process-math">\(R(t)\)</span> along with the data from Tristan da Cunha. This lets us see the overall progress of the model. The second graph shows just <span class="process-math">\(I(t)\)</span> and the data from Tristan da Cunha. This can make it easier to compare <span class="process-math">\(I(t)\)</span> with the dataset because the scale of the graph is determined by just these two plots, meaning the vertical axis goes only as high as needed for <span class="process-math">\(I(t)\)</span> and the dataset. When we include <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(R(t)\)</span> the vertical axis sometimes extends much higher, and this scale can make it difficult to see the details of <span class="process-math">\(I(t)\)</span> and the dataset.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="activity-rss-sir-model-2-1-1-2-2">For how well <span class="process-math">\(I(t)\)</span> fits the dataset: in the default simulation, the dataset peaks sooner and higher than the model’s simulation graph for <span class="process-math">\(I(t)\text{.}\)</span> This may not feel like a very good fit, and it may cause us to think about other combinations of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> that can do better.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="activity-rss-sir-model-2-1-1-3">
+<div class="para" id="activity-rss-sir-model-2-1-1-3-1">To have people stay in the Infectious compartment for less time, we should make <span class="process-math">\(\gamma\)</span> larger.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 3"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="activity-rss-sir-model-2-1-1-4">
+<div class="para" id="activity-rss-sir-model-2-1-1-4-1">This is open-ended. You may wish to consider <span class="process-math">\(\gamma\)</span> values for which <span class="process-math">\(0.3 \leq \gamma \leq 0.5\text{.}\)</span> Other values of <span class="process-math">\(\gamma\)</span> are options as well, and when <span class="process-math">\(\gamma\)</span> changes, it may then be appropriate to change <span class="process-math">\(\beta\text{.}\)</span> In comparison with the initial graph produced by the Python code in this activity, changes to <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> make it possible both to reduce RSS and to produce a graph that visually appears to fit better.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 4"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -968,125 +981,21 @@ plt.show()
 <span class="type">For Further Thought</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">For Further Thought</span>
 </h2>
 <article class="exercise exercise-like" id="exercises-ch-rss-1"><h3 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
-<div class="para" id="exercises-ch-rss-1-1">The paper <em class="emphasis">Outbreak of 2009 Pandemic Influenza A (H1N1) at a New York City School</em> describes a high school outbreak from April 2009.<details class="ptx-footnote" aria-live="polite" id="exercises-ch-rss-1-1-2"><summary class="ptx-footnote__number" title="Footnote 10.2"><sup> 2 </sup></summary>
-<div class="ptx-footnote__contents" id="exercises-ch-rss-1-1-2">The article appears in the New England Journal of Medicine in Volume 361, published in 2009, pages 2628-2636. The authors are Justin Lessler, Nicholas G. Reich, Derek A.T. Cummings, and the New York City Department of Health and Mental Hygiene Swine Influenza Investigation Team. Here is a link to the article: <a class="external" href="https://www.nejm.org/doi/full/10.1056/NEJMoa0906089" target="_blank">https://www.nejm.org/doi/full/10.1056/NEJMoa0906089.</a>
-</div></details> Data from the outbreak, along with 2-day prevalence data computed as in <a href="ch-preparing-influenza-data-to-compare-with-a-model.html" class="internal" title="Chapter 9: Preparing Influenza Data to Compare With a Model">Chapter 9</a>, appear in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-H1N1-NYC-HS" class="xref" data-knowl="./knowl/xref/table-H1N1-NYC-HS.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.8: H1N1 Influenza Data from a New York City High School, 2009">Table 10.8</a>. We use only two days for prevalence because people with flu symptoms typically stay home. This model, therefore, supposes they may go to school briefly while feeling sick, but then they stay home and no longer spread the illness to others at the school.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exercises-ch-rss-1-1">Run the default simulation from <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#activity-rss-sir-model" class="xref" data-knowl="./knowl/xref/activity-rss-sir-model.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 10.7">Activity 10.7</a> and make a copy of the resulting second graph, that is, the graph showing just <span class="process-math">\(I(t)\)</span> and the data points from Tristan da Cunha. Use this graph to describe the process of computing Residual Sum of Squares (RSS). Show the RSS process on your graph in a similar way to what we did in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#fig-RSS-example-1" class="xref" data-knowl="./knowl/xref/fig-RSS-example-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 10.4">Figure 10.4</a> and <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#fig-RSS-example-2" class="xref" data-knowl="./knowl/xref/fig-RSS-example-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 10.5">Figure 10.5</a> and use your own words to explain how RSS works.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="table-H1N1-NYC-HS"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>H1N1 Influenza Data from a New York City High School, 2009<div class="autopermalink" aria-hidden="true" data-description="Table 10.8: H1N1 Influenza Data from a New York City High School, 2009"><a tabindex="-1" href="#table-H1N1-NYC-HS" title="Copy heading and permalink for Table 10.8: H1N1 Influenza Data from a New York City High School, 2009" aria-label="Copy heading and permalink for Table 10.8: H1N1 Influenza Data from a New York City High School, 2009">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
-<tr class="header-horizontal">
-<th scope="col" class="c m b0 r0 l0 t0 lines">Date (Day)</th>
-<th scope="col" class="c m b0 r0 l0 t0 lines">New Cases</th>
-<th scope="col" class="c m b0 r0 l0 t0 lines">2-day Prevalence</th>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">Aril 18 (Day 0)</td>
-<td class="c m b0 r0 l0 t0 lines">23</td>
-<td class="c m b0 r0 l0 t0 lines">23</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 19 (Day 1)</td>
-<td class="c m b0 r0 l0 t0 lines">10</td>
-<td class="c m b0 r0 l0 t0 lines">33</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 20 (Day 2)</td>
-<td class="c m b0 r0 l0 t0 lines">17</td>
-<td class="c m b0 r0 l0 t0 lines">50</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 21 (Day 3)</td>
-<td class="c m b0 r0 l0 t0 lines">23</td>
-<td class="c m b0 r0 l0 t0 lines">73</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 22 (Day 4)</td>
-<td class="c m b0 r0 l0 t0 lines">103</td>
-<td class="c m b0 r0 l0 t0 lines">176</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 23 (Day 5)</td>
-<td class="c m b0 r0 l0 t0 lines">267</td>
-<td class="c m b0 r0 l0 t0 lines">420</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 24 (Day 6)</td>
-<td class="c m b0 r0 l0 t0 lines">147</td>
-<td class="c m b0 r0 l0 t0 lines">557</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 25 (Day 7)</td>
-<td class="c m b0 r0 l0 t0 lines">100</td>
-<td class="c m b0 r0 l0 t0 lines">640</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 26 (Day 8)</td>
-<td class="c m b0 r0 l0 t0 lines">50</td>
-<td class="c m b0 r0 l0 t0 lines">667</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 27 (Day 9)</td>
-<td class="c m b0 r0 l0 t0 lines">17</td>
-<td class="c m b0 r0 l0 t0 lines">581</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 28 (Day 10)</td>
-<td class="c m b0 r0 l0 t0 lines">7</td>
-<td class="c m b0 r0 l0 t0 lines">321</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 29 (Day 11)</td>
-<td class="c m b0 r0 l0 t0 lines">7</td>
-<td class="c m b0 r0 l0 t0 lines">181</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">April 30 (Day 12)</td>
-<td class="c m b0 r0 l0 t0 lines">7</td>
-<td class="c m b0 r0 l0 t0 lines">88</td>
-</tr>
-<tr>
-<td class="c m b0 r0 l0 t0 lines">May 1 (Day 13)</td>
-<td class="c m b0 r0 l0 t0 lines">3</td>
-<td class="c m b0 r0 l0 t0 lines">41</td>
-</tr>
-</table></div>
-</figure>
-<ol class="lower-alpha lower-alpha-level-1" id="exercises-ch-rss-1-3">
-<li id="exercises-ch-rss-1-3-1">
-<div class="para" id="exercises-ch-rss-1-3-1-1">Use Python to plot the 2-day prevalence data.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 10.5.1.a"><a tabindex="-1" href="#exercises-ch-rss-1-3-1" title="Copy heading and permalink for Item 10.5.1.a" aria-label="Copy heading and permalink for Item 10.5.1.a">🔗</a></div>
-</li>
-<li id="exercises-ch-rss-1-3-2">
-<div class="para" id="exercises-ch-rss-1-3-2-1">Construct an SIR model with isolation, in the style of <a href="ch-isolation.html#fig-SIR-complete-isolation-2" class="xref" data-knowl="./knowl/xref/fig-SIR-complete-isolation-2.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 8.4">Figure 8.4</a>, with parameter values for this outbreak. Use in your model the information that the population is 2934 people (students plus employees) and the infectious period was 2 days (to match the 2-day prevalence assumption). Implement an RSS approach to select a preferred value of <span class="process-math">\(\beta\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="exercises-ch-rss-1-3-2-2">Include your Python code, and show at least three different values of <span class="process-math">\(\beta\)</span> that you tried, along with the corresponding RSS value for each value of <span class="process-math">\(\beta\text{.}\)</span> Then state your selected value of <span class="process-math">\(\beta\)</span> and graph the 2-day prevalence Data Values on the same axes as the Model Output, that is, the <span class="process-math">\(I(t)\)</span> graph produced by using your selected value of <span class="process-math">\(\beta\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-1-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 10.5.1.b"><a tabindex="-1" href="#exercises-ch-rss-1-3-2" title="Copy heading and permalink for Item 10.5.1.b" aria-label="Copy heading and permalink for Item 10.5.1.b">🔗</a></div>
-</li>
-<li id="exercises-ch-rss-1-3-3">
-<div class="para" id="exercises-ch-rss-1-3-3-1">Discuss your results from part (b). Qualitatively, how well does the <span class="process-math">\(I(t)\)</span> curve fit the Data Values when you use your selected value of <span class="process-math">\(\beta\text{?}\)</span> Consider how rapidly the <span class="process-math">\(I(t)\)</span> curve increases and decreases, and the height and timing of when the 2-day prevalence curve peaks.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-1-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 10.5.1.c"><a tabindex="-1" href="#exercises-ch-rss-1-3-3" title="Copy heading and permalink for Item 10.5.1.c" aria-label="Copy heading and permalink for Item 10.5.1.c">🔗</a></div>
-</li>
-<li id="exercises-ch-rss-1-3-4">
-<div class="para" id="exercises-ch-rss-1-3-4-1">The value of <span class="process-math">\(\mathcal{R}_0\)</span> for H1N1 has been estimated to be between 1.4 and 1.6, and a typical length of infectiousness for H1N1 is 5 days. Using <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#eq-R0-sir" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a> and <span class="process-math">\(N=2934\text{,}\)</span> what value of <span class="process-math">\(\beta\)</span> would result from this information? How close is the value of <span class="process-math">\(\beta\)</span> you selected using RSS to the range of values of <span class="process-math">\(\beta\)</span> that make sense in <a href="ch-model-analysis-and-the-basic-reproduction-number-R0.html#eq-R0-sir" class="xref" data-knowl="./knowl/xref/eq-R0-sir.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 5.1">(5.1)</a>? Discuss possible reasons for the outcome you find, whether you found that the <span class="process-math">\(\beta\)</span> values are close or not very close.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-1-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 10.5.1.d"><a tabindex="-1" href="#exercises-ch-rss-1-3-4" title="Copy heading and permalink for Item 10.5.1.d" aria-label="Copy heading and permalink for Item 10.5.1.d">🔗</a></div>
-</li>
-</ol>
 <div class="autopermalink" aria-hidden="true" data-description="Exercise 10.5.1"><a tabindex="-1" href="#exercises-ch-rss-1" title="Copy heading and permalink for Exercise 10.5.1" aria-label="Copy heading and permalink for Exercise 10.5.1">🔗</a></div>
 </article>
 <article class="exercise exercise-like" id="exercises-ch-rss-2"><h3 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
-<div class="para" id="exercises-ch-rss-2-1">Work through Exercise 1, above, one more time, supposing instead that people come to school just one day during the time they are infectious with influenza. This means setting up a model using the New Cases values in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-H1N1-NYC-HS" class="xref" data-knowl="./knowl/xref/table-H1N1-NYC-HS.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.8: H1N1 Influenza Data from a New York City High School, 2009">Table 10.8</a> rather than the 2-day Prevalence values.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exercises-ch-rss-2-1">Model the dataset from <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#activity-rss-sir-model" class="xref" data-knowl="./knowl/xref/activity-rss-sir-model.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 10.7">Activity 10.7</a> using the SEIR model from <a href="ch-incubation-periods.html#activity-seir-model-play-with-kappa" class="xref" data-knowl="./knowl/xref/activity-seir-model-play-with-kappa.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 7.6">Activity 7.6</a> rather than the SIR model. Update your Python code and work with different combinations of the parameters <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(\kappa\text{,}\)</span> and <span class="process-math">\(\gamma\text{.}\)</span> For reference: the outbreak shown in <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#activity-rss-sir-model" class="xref" data-knowl="./knowl/xref/activity-rss-sir-model.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 10.7">Activity 10.7</a> appears to have had an incubation period of 5–8 days.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="exercises-ch-rss-2-2">Then compare your results with what you found in Exercise 1. Based on what you found in your models, and also based on any real-life experience you may have with flu outbreaks, what do you see as the advantages and disadvantages in each version of the model?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exercises-ch-rss-2-2">Show the code you produced. Describe your system for comparing RSS results across three different parameters. Show your resulting graphs and RSS values for at least three combinations of <span class="process-math">\(\beta\text{,}\)</span> <span class="process-math">\(\kappa\text{,}\)</span> and <span class="process-math">\(\gamma\text{.}\)</span> Write about how well, or not well, the SEIR model fit the data in comparison with the SIR model.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Exercise 10.5.2"><a tabindex="-1" href="#exercises-ch-rss-2" title="Copy heading and permalink for Exercise 10.5.2" aria-label="Copy heading and permalink for Exercise 10.5.2">🔗</a></div>
 </article>
 <article class="exercise exercise-like" id="exercises-ch-rss-3"><h3 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
-<div class="para" id="exercises-ch-rss-3-1">As described starting on page 356 of Mathematical Models in Population Biology and Epidemiology, second edition, by Fred Brauer and Carlos Castillo-Chavez, the village of Eyam, in England, was affected by bubonic plague in 1665-1666. There were two separate plague outbreaks, and <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-rss-eyam" class="xref" data-knowl="./knowl/xref/table-rss-eyam.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.9: Plague Data from Eyam, 1666">Table 10.9</a> shows data for the second of these outbreaks.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exercises-ch-rss-3-1">As described starting on page 356 of Mathematical Models in Population Biology and Epidemiology, second edition, by Fred Brauer and Carlos Castillo-Chavez, the village of Eyam, in England, was affected by bubonic plague in 1665-1666. There were two separate plague outbreaks, and <a href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.html#table-rss-eyam" class="xref" data-knowl="./knowl/xref/table-rss-eyam.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 10.8: Plague Data from Eyam, 1666">Table 10.8</a> shows data for the second of these outbreaks.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#exercises-ch-rss-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="table-rss-eyam"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plague Data from Eyam, 1666<div class="autopermalink" aria-hidden="true" data-description="Table 10.9: Plague Data from Eyam, 1666"><a tabindex="-1" href="#table-rss-eyam" title="Copy heading and permalink for Table 10.9: Plague Data from Eyam, 1666" aria-label="Copy heading and permalink for Table 10.9: Plague Data from Eyam, 1666">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table-rss-eyam"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Plague Data from Eyam, 1666<div class="autopermalink" aria-hidden="true" data-description="Table 10.8: Plague Data from Eyam, 1666"><a tabindex="-1" href="#table-rss-eyam" title="Copy heading and permalink for Table 10.8: Plague Data from Eyam, 1666" aria-label="Copy heading and permalink for Table 10.8: Plague Data from Eyam, 1666">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="c m b0 r0 l0 t0 lines">Date (Day)</th>
 <th scope="col" class="c m b0 r0 l0 t0 lines">Susceptibles</th>

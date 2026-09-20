@@ -36,9 +36,9 @@ sagecell.makeSagecell({
 </h2>
 <div class="para">The remote island of Tristan da Cunha has experienced several outbreaks of the common cold that have been linked to ships arriving at the island. A 1971 paper<details class="ptx-footnote" aria-live="polite" id="activity-rss-sir-model-1-1-1"><summary class="ptx-footnote__number" title="Footnote 10.1"><sup> 1 </sup></summary>
 <div class="ptx-footnote__contents" id="activity-rss-sir-model-1-1-1">“A mathematical model of common-cold epidemics on Tristan da Cunha” by B.J. Hammond and D.A.J. Tyrrell, published in the <em class="emphasis">Journal of Hygiene</em>
-</div></details> shares multiple datasets for outbreaks in the 1960s and models these outbreaks using a model related to, but different from, the SIR model we have been studying. These datasets helpfully include plots showing how many people are Infectious each day throughout the outbreak.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></details> shares multiple datasets for outbreaks in the 1960s and models these outbreaks with a model related to, but different from, the SIR model we have been studying. These datasets helpfully include plots showing how many people are Infectious each day throughout the outbreak.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<div class="para">Study the code below to understand how we adapt our earlier Python code to apply RSS to an SIR model instead of an SI model. Then try the suggestions below to make changes to both <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> to improve the fit of the model to a dataset.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Study the code below to understand how we adapt our earlier Python code to apply RSS to an SIR model instead of an SI model. Respond to the prompts beneath the code, which first ask about the code itself and the resulting graphs. The prompts then focus on considering the value of <span class="process-math">\(\gamma\)</span> when studying the fit of the model to an outbreak and its dataset.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div id="activity-rss-sir-model-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Tristan da Cunha May 1967, Fig 3(b) in paper, common cold outbreak
 # RSS approach
 # Compare with each day's new cases
@@ -57,12 +57,10 @@ Common_Cold_Infectious = [0, 0, 0, 0, 1, 3, 7, 12, 19, 29, 37, 41, 39, 32, 23, 1
 
 # Define the system of differential equations, and call it "sir"
 def sir(y, t):
-  s, i, r = y #Define y as consisting of s, i, and r, and nc, in that order, where nc stands for New Cases
+  s, i, r = y #Define y as consisting of s, i, and r, in that order
   dydt = [-beta * s * i, beta * s * i - gamma * i, gamma * i] #These formulas are the right-hand sides of the SIR model
   return dydt
 
-# Give a value to beta: we change this regularly as part of our activities
-beta = 0.0033
 # Give gamma a value that is 1/(number of days you consider people to be contagious)
 gamma = 0.25
 # Set initial conditions for Susceptibles, Infectious, and Removed, in that order, with 2934 total people (2686 students, 248 employees) and 23 people sick on day 0
@@ -72,12 +70,10 @@ t_start = 0
 t_finish = 25
 t_range = np.arange(t_start, t_finish + 0.1, 0.1)
 
-# Give the name "sol" to the solution, which consists of lists of numerical values for S, I, and R at different times t, and give the built-in "odeint" the information needed to solve
-sol = odeint(sir, y0, t_range)
-
+# beta_results will be a place to store all the pairs (RSS, beta) that we generate when seeking a best RSS value and the beta value that goes with that RSS value
 beta_results = []
 
-for beta_value in (0.0005, 0.001, 0.0015, 0.002, 0.0025, 0.003, 0.0035, 0.004):
+for beta_value in (0.0005, 0.001, 0.0015, 0.002, 0.0025, 0.003, 0.0035, 0.004): #Assign to beta any values you wish to try
   beta = beta_value
   sol = odeint(sir, y0, t_range) #Give the name "sol" to the lists of numerical values in the solution, and give "odeint" the information needed to solve
   RSS = 0 #Initialize the value of RSS to be 0
@@ -85,7 +81,7 @@ for beta_value in (0.0005, 0.001, 0.0015, 0.002, 0.0025, 0.003, 0.0035, 0.004):
     new_square = (Common_Cold_Infectious[x] - sol[10*x, 1])**2
     #print("Squared distance at time", x, "=", new_square)
     RSS = RSS + new_square
-  beta_results.append((RSS, beta))
+  beta_results.append((RSS, beta)) # Keep track of the RSS value you just computed and the corresponding value of beta
   print("When beta =", round(beta,4), ", RSS =", round(RSS,4)) # Print results
 
 # Sort the results to determine the smallest RSS value
@@ -130,12 +126,12 @@ plt.show()
 <div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
 </li>
 <li>
-<div class="para">In the common cold outbreak modeled here, the source article suggests that people displayed symptoms for approximately four days. However, they may have been contagious for a shorter amount of time. Describe changes you can make to <span class="process-math">\(\gamma\)</span> to represent this shorter contagious period, which we can model as spending less time in the Infectious compartment.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">In the common cold outbreak modeled here, the source article suggests that people displayed symptoms for approximately four days. However, people may have been contagious for a shorter amount of time, or may have isolated in a way that effectively made them contagious for less time. Describe changes you can make to <span class="process-math">\(\gamma\)</span> to represent this shorter contagious period, which we can model as spending less time in the Infectious compartment.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 3"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
 </li>
 <li>
-<div class="para">Use your results from part (c) to retry RSS, using a different value of <span class="process-math">\(\gamma\text{.}\)</span> Do any of these results result in a smaller RSS value? If any of these look better to you than those you found in part (b), describe the ways in which you perceive that they look better.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Use your results from part (c) to retry RSS, using different values of <span class="process-math">\(\gamma\text{.}\)</span> Do any of these results result in a smaller RSS value? If any of these look better to you than those you found in part (b), describe the ways in which you perceive that they look better.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 4"><a tabindex="-1" href="#activity-rss-sir-model-1-4-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
 </li>
@@ -148,9 +144,26 @@ plt.show()
 <div class="para logical">
 <ol class="decimal" id="activity-rss-sir-model-2-1-1">
 <li>
-<div class="para">In<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">We enter model equations in line 20. We set the value of <span class="process-math">\(\gamma\)</span> in line 24 and multiple possible values of <span class="process-math">\(\beta\)</span> in line 35. We set the initial values <span class="process-math">\(S(0)\text{,}\)</span> <span class="process-math">\(I(0)\text{,}\)</span> and <span class="process-math">\(R(0)\)</span> in line 26. We plot all three curves <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and <span class="process-math">\(R(t)\)</span> in lines 59, 60, and 61.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Item 1"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li>
+<div class="para">The first graph shows curves <span class="process-math">\(S(t)\text{,}\)</span> <span class="process-math">\(I(t)\text{,}\)</span> and <span class="process-math">\(R(t)\)</span> along with the data from Tristan da Cunha. This lets us see the overall progress of the model. The second graph shows just <span class="process-math">\(I(t)\)</span> and the data from Tristan da Cunha. This can make it easier to compare <span class="process-math">\(I(t)\)</span> with the dataset because the scale of the graph is determined by just these two plots, meaning the vertical axis goes only as high as needed for <span class="process-math">\(I(t)\)</span> and the dataset. When we include <span class="process-math">\(S(t)\)</span> and <span class="process-math">\(R(t)\)</span> the vertical axis sometimes extends much higher, and this scale can make it difficult to see the details of <span class="process-math">\(I(t)\)</span> and the dataset.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">For how well <span class="process-math">\(I(t)\)</span> fits the dataset: in the default simulation, the dataset peaks sooner and higher than the model’s simulation graph for <span class="process-math">\(I(t)\text{.}\)</span> This may not feel like a very good fit, and it may cause us to think about other combinations of <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> that can do better.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li>
+<div class="para">To have people stay in the Infectious compartment for less time, we should make <span class="process-math">\(\gamma\)</span> larger.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 3"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li>
+<div class="para">This is open-ended. You may wish to consider <span class="process-math">\(\gamma\)</span> values for which <span class="process-math">\(0.3 \leq \gamma \leq 0.5\text{.}\)</span> Other values of <span class="process-math">\(\gamma\)</span> are options as well, and when <span class="process-math">\(\gamma\)</span> changes, it may then be appropriate to change <span class="process-math">\(\beta\text{.}\)</span> In comparison with the initial graph produced by the Python code in this activity, changes to <span class="process-math">\(\beta\)</span> and <span class="process-math">\(\gamma\)</span> make it possible both to reduce RSS and to produce a graph that visually appears to fit better.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item 4"><a tabindex="-1" href="#activity-rss-sir-model-2-1-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
 </li>
 </ol>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-rss-sir-model-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
