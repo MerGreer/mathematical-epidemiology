@@ -778,98 +778,118 @@
 
     <exercise number="2">
       <p>
-        Model the dataset from <xref ref="activity-rss-sir-model"/> using the SEIR model from <xref ref="activity-seir-model-play-with-kappa"/> rather than the SIR model. Update your Python code and work with different combinations of the parameters <m>\beta</m>, <m>\kappa</m>, and <m>\gamma</m>. For reference: the outbreak shown in <xref ref="activity-rss-sir-model"/> appears to have had an incubation period of 5<ndash/>8 days.
+        Model the dataset from <xref ref="activity-rss-sir-model"/> using the SEIR model from <xref ref="activity-seir-model-play-with-kappa"/> rather than the SIR model. Update your Python code and work with different combinations of the parameters <m>\beta</m>, <m>\kappa</m>, and <m>\gamma</m>. For reference: the outbreak shown in <xref ref="activity-rss-sir-model"/> appears to have had an incubation period of approximately three days.
       </p>
       <p>
-        Show the code you produced. Describe your system for comparing RSS results across three different parameters. Show your resulting graphs and RSS values for at least three combinations of <m>\beta</m>, <m>\kappa</m>, and <m>\gamma</m>. Write about how well, or not well, the SEIR model fit the data in comparison with the SIR model.
+        Show the code you produced. Describe your system for comparing RSS results across three different parameters. Show your resulting graphs and RSS values for at least three combinations of <m>\beta</m>, <m>\kappa</m>, and <m>\gamma</m>. Write about how well, or not well, the SEIR model fits the data in comparison with the SIR model.
       </p>
     </exercise>
 
     <exercise number="3">
       <p>
-      As described starting on page 356 of Mathematical Models in Population Biology and Epidemiology, second edition, by Fred Brauer and Carlos Castillo-Chavez, the village of Eyam, in England, was affected by bubonic plague in 1665-1666. There were two separate plague outbreaks, and <xref ref="table-rss-eyam"/> shows data for the second of these outbreaks. 
-      </p>         
+      Tristan da Cunha experienced another outbreak in February 1968. The data are below.<fn><q>A mathematical model of common-cold epidemics on Tristan da Cunha</q> by B.J. Hammond and D.A.J. Tyrrell, published in the <em>Journal of Hygiene</em> in 1971</fn> Use Residual Sum of Squares to fit the SIR model to these data. Assume that the initial value <m>I(0)</m> is 1, 2, 3, or 4. The total population size was approximately 270 people. In this outbreak, people showed symptoms for approximately three days, so it may be that people were contagious for three days, but the number of days people were contagious may be somewhat larger or smaller than three. 
+      </p>    
+      <p>
+        Report on your results. What parameter values worked best in your model? Show one or more resulting graphs, comparing the <m>I(t)</m> curve with the data set. Describe ways in which you found your model to fit the dataset well, and ways in which your model did not fit the dataset as well.
+      </p>     
       <table xml:id="table-rss-eyam">
-        <title>Plague Data from Eyam, 1666</title>
+        <title>Common Cold Data from Tristan da Cunha, February 1968</title>
         <tabular halign="center">
           <row header="yes">
-            <cell>Date (Day) </cell>
-            <cell>Susceptibles </cell>
-            <cell>Infectious</cell>
+            <cell>Day of Outbreak </cell>
+            <cell>Current Infectious Cases</cell>
           </row>
           <row>
-            <cell>July 3/4 (Day 0)</cell>
-            <cell>235</cell>
-            <cell>14.5</cell>
+            <cell>0</cell>
+            <cell>0</cell>
           </row>
           <row>
-            <cell>July 19 (Day 15.5)</cell>
-            <cell>201</cell>
+            <cell>1</cell>
+            <cell>1</cell>
+          </row>
+          <row>
+            <cell>2</cell>
+            <cell>4</cell>
+          </row>
+          <row>
+            <cell>3</cell>
+            <cell>11</cell>
+          </row>
+          <row>
+            <cell>4</cell>
             <cell>22</cell>
           </row>
           <row>
-            <cell>August 3/4 (Day 31)</cell>
-            <cell>153.5</cell>
+            <cell>5</cell>
             <cell>29</cell>
           </row>
           <row>
-            <cell>August 19 (Day 46.5)</cell>
-            <cell>121</cell>
-            <cell>21</cell>
+            <cell>6</cell>
+            <cell>31</cell>
           </row>
           <row>
-            <cell>September 3/4 (Day 62)</cell>
-            <cell>108</cell>
+            <cell>7</cell>
+            <cell>26</cell>
+          </row>
+          <row>
             <cell>8</cell>
+            <cell>13</cell>
           </row>
           <row>
-            <cell>September 19 (Day 77.5)</cell>
-            <cell>97</cell>
-            <cell>8</cell>
+            <cell>9</cell>
+            <cell>5</cell>
           </row>
           <row>
-            <cell>October 4/5 (Day 93)</cell>
-            <cell>Unknown</cell>
-            <cell>Unknown</cell>
+            <cell>10</cell>
+            <cell>3</cell>
           </row>
           <row>
-            <cell>October 20 (Day 108.5)</cell>
-            <cell>83</cell>
-            <cell>0</cell>
+            <cell>11</cell>
+            <cell>4</cell>
+          </row>
+          <row>
+            <cell>12</cell>
+            <cell>5</cell>
+          </row>
+          <row>
+            <cell>13</cell>
+            <cell>6</cell>
+          </row>
+          <row>
+            <cell>14</cell>
+            <cell>7</cell>
+          </row>
+          <row>
+            <cell>15</cell>
+            <cell>6</cell>
+          </row>
+          <row>
+            <cell>16</cell>
+            <cell>5</cell>
+          </row>
+          <row>
+            <cell>17</cell>
+            <cell>3</cell>
+          </row>
+          <row>
+            <cell>18</cell>
+            <cell>2</cell>
+          </row>
+          <row>
+            <cell>19</cell>
+            <cell>1</cell>
           </row>
         </tabular>
       </table> 
-      <ol>
-        <li>
-          <p>
-            Use Python to plot these data.
-          </p>
-        </li>
-        <li>
-          <p>
-            Then, use the information that we start with a population of 250 people, the infectious period was 11 days, and <m>\mathcal{R}_0</m> has been estimated to be between 1.6 and 1.9, to construct an SIR model for this outbreak.
-          </p>
-        </li>
-        <li>
-          <p>
-            Then use an RSS approach, along with the data and your SIR model, to select a preferred value of <m>\beta</m> for this SIR model. There are two new and different details to attend to. 
-          </p>
-          <p>
-            <ol>
-              <li>
-                <p>
-                  The data from October 4/5 are Unknown. You may choose to address only the six preceding dates, or to also include the data from October 20. State which data points you are including in your RSS calculation.
-                </p>
-              </li>
-              <li>
-                <p>
-                  The dates in this example are 15.5 days apart, rather than 1 day apart. This requires changing the <c>10</c> in the <c>sol[10*x, 1]</c> part of the Python code.
-                </p>
-              </li>
-            </ol>
-          </p>
-        </li>
-      </ol>
+    </exercise>
+
+    <exercise number="4">
+      <p>
+      Using the same dataset as in exercise 3 above, use Residual Sum of Squares to fit the SEIR model as shown in <xref ref="activity-seir-model-play-with-kappa"/> to the February 1968 common cold outbreak in Tristan da Cunha. Again assume that the total population size was 270 people and people showed symptoms for approximately three days but may have, on average, spread the illness for a somewhat different amount of time. This outbreak, similar to the outbreak shown in exercise 2, appears to have had an incubation period of approximately three days.<fn><q>A mathematical model of common-cold epidemics on Tristan da Cunha</q> by B.J. Hammond and D.A.J. Tyrrell, published in the <em>Journal of Hygiene</em> in 1971, Figures 3(c) and 3(d)</fn>
+      </p>    
+      <p>
+        Report on your results. What parameter values worked best in your model? Show one or more resulting graphs, comparing the <m>I(t)</m> curve with the data set. Describe ways in which you found your model to fit the dataset well, and ways in which your model did not fit the dataset as well.
+      </p>
     </exercise>
 
    </exercises>
