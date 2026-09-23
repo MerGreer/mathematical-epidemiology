@@ -778,7 +778,7 @@
 
     <exercise number="2">
       <p>
-        Model the dataset from <xref ref="activity-rss-sir-model"/> using the SEIR model from <xref ref="activity-seir-model-play-with-kappa"/> rather than the SIR model. Update your Python code and work with different combinations of the parameters <m>\beta</m>, <m>\kappa</m>, and <m>\gamma</m>. For reference: the outbreak shown in <xref ref="activity-rss-sir-model"/> appears to have had an incubation period of approximately three days.
+        Model the dataset from <xref ref="activity-rss-sir-model"/> using the SEIR model from <xref ref="activity-seir-model-play-with-kappa"/> rather than the SIR model. Update your Python code and work with different combinations of the parameters <m>\beta</m>, <m>\kappa</m>, and <m>\gamma</m>. To help compute <m>\kappa</m>: the outbreak shown in <xref ref="activity-rss-sir-model"/> appears to have had an incubation period of approximately three days.
       </p>
       <p>
         Show the code you produced. Describe your system for comparing RSS results across three different parameters. Show your resulting graphs and RSS values for at least three combinations of <m>\beta</m>, <m>\kappa</m>, and <m>\gamma</m>. Write about how well, or not well, the SEIR model fits the data in comparison with the SIR model.
@@ -787,7 +787,7 @@
 
     <exercise number="3">
       <p>
-      Tristan da Cunha experienced another outbreak in February 1968. The data are below.<fn><q>A mathematical model of common-cold epidemics on Tristan da Cunha</q> by B.J. Hammond and D.A.J. Tyrrell, published in the <em>Journal of Hygiene</em> in 1971</fn> Use Residual Sum of Squares to fit the SIR model to these data. Assume that the initial value <m>I(0)</m> is 1, 2, 3, or 4. The total population size was approximately 270 people. In this outbreak, people showed symptoms for approximately three days, so it may be that people were contagious for three days, but the number of days people were contagious may be somewhat larger or smaller than three. 
+      Tristan da Cunha experienced another outbreak in February 1968. The dataset is below.<fn>The dataset comes from <q>A mathematical model of common-cold epidemics on Tristan da Cunha</q> by B.J. Hammond and D.A.J. Tyrrell, published in the <em>Journal of Hygiene</em> in 1971.</fn> Use Residual Sum of Squares to fit the SIR model to this dataset. Assume that the initial value <m>I(0)</m> is 1, 2, 3, or 4. The total population size was approximately 270 people. In this outbreak, people showed symptoms for approximately three days, so it may be that people were contagious for three days, but the number of days people were contagious may be somewhat larger or smaller than three. 
       </p>    
       <p>
         Report on your results. What parameter values worked best in your model? Show one or more resulting graphs, comparing the <m>I(t)</m> curve with the data set. Describe ways in which you found your model to fit the dataset well, and ways in which your model did not fit the dataset as well.
@@ -885,7 +885,7 @@
 
     <exercise number="4">
       <p>
-      Using the same dataset as in exercise 3 above, use Residual Sum of Squares to fit the SEIR model as shown in <xref ref="activity-seir-model-play-with-kappa"/> to the February 1968 common cold outbreak in Tristan da Cunha. Again assume that the total population size was 270 people and people showed symptoms for approximately three days but may have, on average, spread the illness for a somewhat different amount of time. This outbreak, similar to the outbreak shown in exercise 2, appears to have had an incubation period of approximately three days.<fn><q>A mathematical model of common-cold epidemics on Tristan da Cunha</q> by B.J. Hammond and D.A.J. Tyrrell, published in the <em>Journal of Hygiene</em> in 1971, Figures 3(c) and 3(d)</fn>
+      For the same dataset as in exercise 3 above, use Residual Sum of Squares to fit the SEIR model as shown in <xref ref="activity-seir-model-play-with-kappa"/> to the February 1968 common cold outbreak in Tristan da Cunha. Again assume that the total population size was 270 people and people showed symptoms for approximately three days but may have, on average, spread the illness for a somewhat different amount of time. This outbreak, similar to the outbreak shown in exercise 2, appears to have had an incubation period of approximately three days.<fn><q>A mathematical model of common-cold epidemics on Tristan da Cunha</q> by B.J. Hammond and D.A.J. Tyrrell, published in the <em>Journal of Hygiene</em> in 1971, Figures 3(c) and 3(d)</fn>
       </p>    
       <p>
         Report on your results. What parameter values worked best in your model? Show one or more resulting graphs, comparing the <m>I(t)</m> curve with the data set. Describe ways in which you found your model to fit the dataset well, and ways in which your model did not fit the dataset as well.

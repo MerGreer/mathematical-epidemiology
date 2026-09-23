@@ -183,9 +183,9 @@
 
       <xi:include href="ch-isolation.ptx" />
 
-      <xi:include href="ch-preparing-influenza-data-to-compare-with-a-model.ptx" />
-
       <xi:include href="ch-residual-sum-of-squares-improving-a-models-fit-to-data.ptx" />
+
+      <xi:include href="ch-preparing-influenza-data-to-compare-with-a-model.ptx" />
 
       <xi:include href="ch-epidemic-vs-endemic-illness.ptx" />
 
