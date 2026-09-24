@@ -375,8 +375,11 @@
       <p>
         This model uses differential equations, which think of time as continuous, using every real value for <m>t</m> starting at <m>t=0</m>. By contrast, when we collect data from the zombie game, time is <term>discrete</term>, meaning that time steps forward through values such as <q>Day 0</q>, <q>Day 1</q>, <q>Day 2</q>, and so on. In this course, we mainly use differential equation models, meaning time is thought of as <term>continuous</term>. Continuous time may match well with our intuitive sense of how time works: time does not stop and start. However, the data we collect about disease spread will often be discrete, on time scales such as days or weeks. We will include this knowledge in our work with models.
       </p>
+      <p>
+        Use <xref ref="activity-si-model-continuous" /> to begin investigating the smooth, continuous results of the SI differential equations model, in comparison with the not-smooth, discrete data that we collected from the Zombie Game App.
+      </p>
 
-      <activity>
+      <activity xml:id="activity-si-model-continuous">
         <statement>
           <p>
             <xref ref="fig-first-si-graph" /> shows one possible graph of the SI model, with <m>\beta</m> selected so that the graphs in <xref ref="fig-human-zombie-data-graph" /> and <xref ref="fig-first-si-graph" /> are fairly similar. Compare these two graphs, thinking through the questions below.
@@ -417,6 +420,10 @@
           </p>
         </statement>
       </activity>
+
+      <p>
+        In this chapter we have used the Zombie Game App to collect and visualize discrete data, and we have seen the smooth graphs that result from the continuous SI model. Next, in <xref ref="ch-visualization-graphing-model-results-and-data" />, we learn to build these continuous visualizations and to include discrete data alongside them.
+      </p>
 
       
     </section>

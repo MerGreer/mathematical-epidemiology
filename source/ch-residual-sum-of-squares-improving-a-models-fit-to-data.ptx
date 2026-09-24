@@ -764,7 +764,12 @@
       </activity> 
 
 
-      
+   <p>
+    With RSS, we now have a mathematical-formula-based way to compare a model with a data set and to seek the closest fit possible. We should continue to monitor other indicators of fit as well, such as noticing when a peak of infection occurs, or how high that peak reaches, or other aspects of a model that may be important for representing a disease outbreak. For an alternative mathematical-formula-based approach, jump to <xref ref="ch-the-next-generation-method"/>.
+   </p>   
+   <p>
+    In <xref ref="ch-comparing-new-cases-data-with-a-model"/> we extend the ideas of <xref ref="ch-residual-sum-of-squares-improving-a-models-fit-to-data"/> to datasets that provide new cases but do not show how many people are infected during each day of an outbreak. Datasets about outbreaks very commonly focus on new cases. To gain additional experience aligning models with datasets, jump to <xref ref="ch-aligning-simulations-with-data"/>, where we allow parameter values to vary during the time of an outbreak. Such variation may represent, for example, a change in public response to an outbreak, such as a decrease in <m>\beta</m> due to public health measures meant to reduce disease spread.
+   </p>
 
     
    </section>
@@ -898,7 +903,7 @@
 
 <!-- <exercise number="1">
       <p>
-      The paper <em>Outbreak of 2009 Pandemic Influenza A (H1N1) at a New York City School</em> describes a high school outbreak from April 2009.<fn>The article appears in the New England Journal of Medicine in Volume 361, published in 2009, pages 2628-2636. The authors are Justin Lessler, Nicholas G. Reich, Derek A.T. Cummings, and the New York City Department of Health and Mental Hygiene Swine Influenza Investigation Team. Here is a link to the article: <url href="https://www.nejm.org/doi/full/10.1056/NEJMoa0906089">https://www.nejm.org/doi/full/10.1056/NEJMoa0906089.</url></fn> Data from the outbreak, along with 2-day prevalence data computed as in <xref ref="ch-preparing-influenza-data-to-compare-with-a-model"/>, appear in <xref ref="table-H1N1-NYC-HS"/>. We use only two days for prevalence because people with flu symptoms typically stay home. This model, therefore, supposes they may go to school briefly while feeling sick, but then they stay home and no longer spread the illness to others at the school. 
+      The paper <em>Outbreak of 2009 Pandemic Influenza A (H1N1) at a New York City School</em> describes a high school outbreak from April 2009.<fn>The article appears in the New England Journal of Medicine in Volume 361, published in 2009, pages 2628-2636. The authors are Justin Lessler, Nicholas G. Reich, Derek A.T. Cummings, and the New York City Department of Health and Mental Hygiene Swine Influenza Investigation Team. Here is a link to the article: <url href="https://www.nejm.org/doi/full/10.1056/NEJMoa0906089">https://www.nejm.org/doi/full/10.1056/NEJMoa0906089.</url></fn> Data from the outbreak, along with 2-day prevalence data computed as in <xref ref="ch-comparing-new-cases-data-with-a-model"/>, appear in <xref ref="table-H1N1-NYC-HS"/>. We use only two days for prevalence because people with flu symptoms typically stay home. This model, therefore, supposes they may go to school briefly while feeling sick, but then they stay home and no longer spread the illness to others at the school. 
       </p>         
       <table xml:id="table-H1N1-NYC-HS">
         <title>H1N1 Influenza Data from a New York City High School, 2009</title>

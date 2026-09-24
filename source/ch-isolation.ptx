@@ -539,6 +539,13 @@
         </answer>
       </activity>
 
+      <p>
+        This completes a three-chapter foray into model variations. Vaccines, incubation periods, and isolation can each be a way to represent what happens in an outbreak. Much of <xref ref="ch-vaccines"/>, <xref ref="ch-incubation-periods"/>, and <xref ref="ch-isolation"/> present their topics individually, but models may incorporate more than one of these approaches, or even all of them.
+      </p>
+      <p>
+        In the next two chapters, we use Python and mathematical formulas to compare models with data, seeking a good fit or even a best fit. While a mathematical formula can be helpful in fitting models with data, we will see that it is important to continue to visually examine the fit, as we have done so far, to understand whether the simulation captures important features of the outbreak. 
+      </p>
+
     </section>
 
 
