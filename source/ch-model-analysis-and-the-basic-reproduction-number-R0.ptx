@@ -623,9 +623,10 @@
       <p>
         The value of <m>\mathcal{R}_0</m>, then, tells us whether to expect increasing numbers of Infectious individuals. The specific number <m>1</m> is the boundary between rising and falling values of <m>I(t)</m> when a new infection is first introduced to a susceptible population. We will further see that larger values of <m>\mathcal{R}_0</m> correspond to diseases that are more apt to spread, for a variety of reasons. The concept of <m>\mathcal{R}_0</m> will be central to our study of outbreaks.  
       </p> 
+      <p>
+        At this point we have collected data from the Zombie Game App, learned to use Python to visualize the results of a model alongside a dataset, drawn compartmental diagrams that represent disease spread, and developed multiple methods for mathematically analyzing a model using calculus-based concepts. In <xref ref="ch-vaccines"/>, <xref ref="ch-incubation-periods"/>, and <xref ref="ch-isolation"/> we show how models can demonstrate additional aspects of outbreaks and public health interventions, allowing us to better match our mathematical models with the actual progress of an illness. 
+      </p>
 
-       
-      
     </section> 
 
     <exercises xml:id="exercises-ch-populations-and-R0">

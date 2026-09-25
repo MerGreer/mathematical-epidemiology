@@ -21,8 +21,7 @@
       </ul>  
     </objectives>
 
-    <section xml:id="intro-isolation">
-      <title>Introduction</title>    
+    <introduction xml:id="intro-isolation">    
     
         <p>
           This chapter functions, along with <xref ref="ch-vaccines"/> and <xref ref="ch-incubation-periods"/>, as a sort of trilogy of methods for making models more realistic and for building public health interventions into models. As with vaccines, isolation of the infected is a public health approach used widely for the reduction of disease spread. As with incubation periods, isolation in a model can help that model to better fit data because the model more fully replicates what is happening in the world. 
@@ -90,7 +89,7 @@
           
         </exploration>
     
-      </section>
+      </introduction>
 
     <section xml:id="sec-complete-isolation-models-and-parameter-estimation">
       <title>Complete Isolation: Models and Parameter Estimation</title>

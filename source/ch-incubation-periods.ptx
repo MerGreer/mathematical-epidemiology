@@ -508,10 +508,9 @@
         </answer>
       </activity>
       
-
-      <!-- <p>
-        Now that we have discussed public health intervention in the form of vaccines, as well as SI, SIR, and SEIR models, we have learned enough to be able to mathematically model the primary dynamics of many disease outbreaks. <em>These ideas are the core of this course.</em> In <xref ref="ch-getting-the-answer-right-in-modeling"/> we will think through the big ideas inherent in mathematical modeling. The remaining chapters in <xref ref="part-core-modeling-concepts"/> focus on connecting data with models and working with two additional ways to significantly extend our use of compartmental models: endemic disease, in <xref ref="ch-epidemic-vs-endemic-models"/>, and modeling ideas other than diseases, in <xref ref="ch-modeling-the-spread-of-a-rumor"/>.
-      </p> -->
+      <p>
+        In <xref ref="ch-vaccines"/> and <xref ref="ch-incubation-periods"/> we have made changes to compartmental models, such as introducing a new compartment or changing the interpretation of initial values or parameter values, so that we can represent vaccination or incubation periods. Continue using these model adaptation strategies in <xref ref="ch-isolation"/> as you consider multiple ways to represent the possibility of sick people isolating to help reduce disease spread.        
+      </p>
 
     </section>
 

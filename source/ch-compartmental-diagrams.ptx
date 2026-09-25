@@ -462,7 +462,7 @@
         </answer>
       </activity>
       <p>
-        After completing <xref ref="activity-introducing-units"/>, we recognize that in our SIR model, the units of <m>\beta</m> are not <m>1/\mbox{time}</m>. Therefore <m>\beta</m> is not a rate, and we cannot estimate the value of <m>\beta</m> similarly to how we estimate the value of <m>\gamma</m>. Indeed, estimating the value of <m>\beta</m> will require different methods. In <xref ref="ch-visualization-graphing-model-results-and-data"/> we discuss estimating <m>\beta</m> visually by comparing our model with data. In <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/> and <xref ref="ch-vaccines"/> we introduce another way to estimate <m>\beta</m>, using other parameter values we know, along with a formula involving an epidemiological concept known as the <term>basic reproduction number</term>. 
+        After completing <xref ref="activity-introducing-units"/>, we recognize that in our SIR model, the units of <m>\beta</m> are not <m>1/\mbox{time}</m>. Therefore <m>\beta</m> is not a rate, and we cannot estimate the value of <m>\beta</m> similarly to how we estimate the value of <m>\gamma</m>. Indeed, estimating the value of <m>\beta</m> will require different methods. In <xref ref="ch-visualization-graphing-model-results-and-data"/> we discussed estimating <m>\beta</m> visually by comparing our model with data. In <xref ref="ch-model-analysis-and-the-basic-reproduction-number-R0"/> we introduce another way to estimate <m>\beta</m>, using other parameter values we know, along with a formula involving an epidemiological concept known as the <term>basic reproduction number</term>. 
       </p>
 
     

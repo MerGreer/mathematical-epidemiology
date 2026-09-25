@@ -742,6 +742,13 @@ plt.show()
         </statement>
       </activity>
 
+      <p>
+        Throughout this chapter we have built the ability to use Python to draw the smooth curves the result from a differential equations model and to include data points in the same graph. We then learned how to include extra features such as data markers, different colors or line styles, and a plot legend in order to increase viewability and accessibility of graphs.
+      </p>
+      <p>
+        In <xref ref="ch-compartmental-diagrams"/> we learn to construct a flowchart-like diagram that represents movement through compartments during an outbreak. Such diagrams, in combination with systems of differential equations and the graphs we have been creating in Python, provide multiple ways of describing the dynamics of disease spread.
+      </p>
+
     </section>
 
     <exercises xml:id="exercises-visualization-graphing-model-results-and-data">

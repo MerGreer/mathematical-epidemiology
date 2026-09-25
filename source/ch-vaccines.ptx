@@ -593,7 +593,7 @@
         Vaccine outcomes extend beyond affecting how many people get an illness. One common outcome is reducing the intensity of illness in individuals who have been vaccinated, yet who still become sick. Another common outcome is that people who were vaccinated, yet become sick, are less likely to spread infection to others. These and other outcomes can be included in increasingly detailed models. 
       </p>
       <p>
-        Much of this section has focused on vaccines, which are a valuable element of compartmental models. Another important aspect of disease spread is the incubation period of an illness. The SEIR model, described in <xref ref="ch-incubation-periods"/>, incorporates this incubation period.           
+        Much of this chapter has focused on vaccines, which are a valuable element of compartmental models. Another important aspect of disease spread is the incubation period of an illness. The SEIR model, described in <xref ref="ch-incubation-periods"/>, incorporates this incubation period.           
       </p>
 
 

@@ -422,7 +422,7 @@
       </activity>
 
       <p>
-        In this chapter we have used the Zombie Game App to collect and visualize discrete data, and we have seen the smooth graphs that result from the continuous SI model. Next, in <xref ref="ch-visualization-graphing-model-results-and-data" />, we learn to build these continuous visualizations and to include discrete data alongside them.
+        In this chapter we have used the Zombie Game App to collect and visualize discrete data, and we have seen the smooth plots that result from the continuous SI model. In <xref ref="ch-visualization-graphing-model-results-and-data" />, we learn how to use Python to create graphs of these smooth plots and to include discrete data points alongside them.
       </p>
 
       
