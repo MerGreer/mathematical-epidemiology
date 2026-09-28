@@ -13,11 +13,8 @@
         Scientific papers, also called scientific articles, come directly from active researchers. These papers typically present new research, analyze and compile existing research into a comprehensive review, or comment on trends in a given field. They tend to have a very specific structure, often base their research on data, and may present experiments and results. Because they are peer reviewed and published in academic journals, these articles are notably distinct from general online content. Scientific papers are the main sources for finding new or foundational scientific information.
       </p>
       <p>
-        Once you have completed all or most of the core modeling concepts in <xref ref="part-core-modeling-concepts"/>, you may choose to develop your own projects that require datasets on outbreaks. Or you may find that you would like to keep reading scientific articles describing mathematical models of outbreaks, beyond the articles shared in this textbook. This chapter is here to help. It starts by describing ways to locate and select peer-reviewed research articles. We then discuss the typical sections in a research paper, building understanding of the goals of each of those sections. Next, we discuss possible orders in which to read scientific articles: start-to-finish is not always the most efficient or helpful for our goals. Finally, to pull everything together, we practice different information-gathering strategies by focusing on one specific research article.
+        Once you have completed all or most of the core modeling concepts in <xref ref="part-core-modeling-concepts"/>, you may choose to develop your own projects that require datasets on outbreaks. Or you may find that you would like to keep reading scientific articles describing mathematical models of outbreaks, beyond the articles shared in this textbook. This chapter is here to help. It starts by describing ways to locate and select peer-reviewed research articles. We then discuss the typical sections in a research paper, building understanding of the goals of each of those sections. Next, we discuss possible orders in which to read scientific articles: start-to-finish is not always the most efficient or helpful for our goals. Finally, to pull everything together, we practice different information-gathering strategies by applying them to one specific research article.
       </p>
-      <!-- <p>
-        Throughout this text, many of our key facts and methods come from scientific peer-reviewed papers or books, with footnotes to show the source. As you seek your own data sets and articles about mathematical modeling of outbreaks, you will do
-      </p> -->
       <!-- <p>
         You may find yourself reading scientific papers to develop your own projects, or to learn more about ideas you are learning in class. For instance, many examples in this textbook come from scientific papers or books. You may read those papers or books directly. To find even more information, one option is to check the footnotes or end notes of those papers or books. Footnotes and end notes indicate the original sources used to write a paper or book, both to give credit to those sources, and so that you as a reader can go find those sources if you would like to read them. Another way to build more information on a topic that interests you is to start with a paper you like, and then read later articles that cite that paper. One way to find such articles is to search for the paper, using <url href="https://scholar.google.com/">Google Scholar,</url> and to consult the <q>Cited by</q> link. Alternatively, you may have access to some other search engine focused on academic work.
       </p> -->
@@ -27,22 +24,67 @@
     <section xml:id="sec-finding-and-selecting-articles">
       <title>Finding and Selecting Articles</title>
 
-      <p>
-        As you begin investigating your own projects, it will be very important for you to seek out scientific papers. These may provide you with necessary datasets, they may show you ideas for how other people mathematically modeled outbreaks with features you have not studied before, or they may describe background or history on the subject you are building a model to study. How best can you find these kinds of papers?
-      </p>
-      <p>
-        Most importantly, <em>use quality search tools</em>. Peer-reviewed papers are the place to find professional research, and a generic web search rarely shows these. 
-      </p>
-      <p>
-        If you are connected with a college or university, use the search options provided to you through that campus. Colleges and universities often pay a significant amount of money to gain access to peer-reviewed research articles so that you can use them. You may need to log in to a portal using campus credentials, and you can then access search engines meant to help you find the articles you need. Check with library or information technology (IT) staff to learn how to do this on your campus.
-      </p>
-      <p>
-        Look for articles from government health organizations, or articles published in journals related to public health, mathematical biology, or theoretical biology. Public health venues are likely to provide background, history, and data on diseases. Mathematical biology and theoretical biology journals share models used for studying disease outbreaks or endemic illnesses.
-      </p>
-      <p>
-        If you do not have access to college or university searches, or as another way to search, seek out Open Access peer-reviewed articles. Open Access means that the articles are freely available online. One place to seek such articles is through PLOS, the Public Library of Science, at <url href="https://plos.org/" visual="plos.org">plos.org</url>.
-      </p>
+      <introduction>
+        <p>
+        As you begin investigating your own projects, it will be very important for you to seek out scientific papers. These may provide you with necessary datasets, they may show you ideas for how other people mathematically modeled outbreaks with features you have not studied before, or they may describe background or history on the subject you are building a model to study. How can you best find these kinds of papers?
+        </p>
+        <p>
+          <xref ref="subsec-searching-for-articles"/> describes multiple ways to locate articles of interest. <xref ref="subsec-choosing-an-article"/> suggests strategies for efficiently deciding which articles may be helpful. Later sections in this chapter provide even more detail about reading peer-reviewed papers in ways that help us find the information we seek.
+        </p>
+      </introduction>
+
+      <subsection xml:id="subsec-searching-for-articles">
+        <title>Searching for Articles</title>
+                
+        <p>
+          Most importantly, <em>use quality search tools</em>. Peer-reviewed papers are the place to find professional research, but a generic web search does not prioritize showing peer-reviewed papers. 
+        </p>
+        <p>
+          If you are connected with a college or university, use the search options provided to you through that campus. Colleges and universities often pay a significant amount of money to gain access to peer-reviewed research articles so that you can use them. You may need to log in to a portal using campus credentials, and you can then access search engines meant to help you find the articles you need. Check with library or information technology (IT) staff to learn how to do this on your campus.
+        </p>
+        <p>
+          Look for articles from government health organizations, or articles published in journals related to public health, mathematical biology, or theoretical biology. Government sources and public health journals are likely to provide background, history, and data on diseases. Mathematical biology and theoretical biology journals share models used for studying disease outbreaks or endemic illnesses.
+        </p>
+        <p>
+          If you do not have access to college or university searches, or as another way to search, seek out Open Access peer-reviewed articles. Open Access means that the articles are freely available online. One place to seek such articles is through PLOS, the Public Library of Science, at <url href="https://plos.org/" visual="plos.org">plos.org</url>.
+        </p> 
+        <p>
+          Another helpful search tool is Google Scholar, at <url href="https://scholar.google.com/" visual="scholar.google.com">scholar.google.com</url>. Searching here helps to locate not just article titles, but also ways to read and download the articles. Some articles are available through the journal where they are published; some are not freely available at that journal, but are available in some other format, such as a web post or preprint. A preprint is a version of the article from the author, typically from just before its publication, and typically without the typesetting and other formatting specific to the journal where it was published. Many journals allow authors to share preprints for free.
+        </p>
+        <p>
+          Google Scholar has yet another feature that may help you find more articles: the <q>Cited by</q> list. For each article, the metric <q>Cited by</q> appears underneath, telling you instantly how many other articles used this work. When you find an article that is helpful to you, opening the <q>Cited by</q> list of later articles that cited this work often provides additional, and more recent, information, on precisely your topic of interest. 
+        </p>
+        
+
+      </subsection>
+
+      <subsection xml:id="subsec-choosing-an-article">
+        <title>Choosing an Article</title>
+
+        <p>
+          So when we say to search for articles, what do we mean? First, include important keywords in your search. These may include the name of a disease, the year or years of interest, the part of the world you are studying, or terms such as <q>incubation period</q> or <q>length of contagious period</q>.
+        </p>
+        <p>
+          Then narrow and filter the results you are getting. Some search engines allow you to use Boolean operators, such as <q>and</q> and <q>or</q>, to focus your search terms. You may be able to choose the type of source you want, such as specific journals or types of websites. You may be able to restrict the findings to publications from specific years. Additional filtering tools may also help, and each search engine offers its own options. 
+        </p>
+        <p>
+          As you begin finding candidate articles, start by reading their titles. If the title suggests that the article may be helpful, skim the article's abstract and/or its introduction. Do you seem to be part of its intended audience? Does the article appear to relate to the topic you are studying? If so, then begin reading more of the article. We discuss more about ways to gather the information you seek, later in this chapter.
+        </p>
+        <p>
+          Next, in <xref ref="sec-layout-of-scientific-articles"/>, we discuss the typical sections that appear in many scientific articles.  
+        </p>
+      </subsection>
       
+    </section>
+
+
+    <section xml:id="sec-layout-of-scientific-articles">
+      <title>Layout of Scientific Articles</title>
+
+      <p>
+        Here, we describe each of the sections that may appear in a typical scientific article.
+      </p>
+
     </section>
 
   </chapter>
