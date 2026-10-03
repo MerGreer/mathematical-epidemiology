@@ -1,5 +1,5 @@
-<chapter xml:id="ch-comparing-new-cases-data-with-a-model" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <title>Comparing New Cases Data With a Model</title>
+<chapter xml:id="ch-comparing-new-case-data-with-a-model" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Comparing New Case Data With a Model</title>
 
     <objectives>
         <ul>
@@ -170,9 +170,57 @@
       <section xml:id="sec-translating-a-typical-data-set-into-numbers-we-can-compare-with-a-model">
         <title>Translating a Typical Data Set Into Numbers We Can Compare With a Model </title>
 
-        <p>
+        <!-- <p>
+          In April 2009, a New York City school experienced an outbreak of H1N1 influenza. The school had 2934 people: 2686 students and 248 faculty. Details of the outbreak appear in the 2009 article <q>Outbreak of 2009 pandemic influenza A (H1N1) at a New York City school</q>.<fn>The article appeared in <em>The New England Journal of Medicine</em> and was written by Justin Lessler, Nicholas G. Reich, Derek A.T. Cummings, and the New York City Department of Health & Mental Hygiene Swine Influenza Investigation Team.</fn> The article provides daily new cases of H1N1 influenza during the outbreak. These case numbers appear in .   
+        </p> -->
+        <table xml:id="table-new">
+              <title>H1N1 Influenza Outbreak at a New York City School</title>
+              <tabular halign="center">
+                <row header="yes">
+                  <cell>Date </cell>
+                  <cell>Day of Outbreak </cell>
+                  <cell>New Cases</cell>
+                </row>
+                <row>
+                  <cell>April 18, 2009</cell>
+                  <cell>0</cell>
+                  <cell>23</cell>
+                </row>
+                <row>
+                  <cell>April 19, 2009</cell>
+                  <cell>1</cell>
+                  <cell>10</cell>
+                </row>
+                <row>
+                  <cell>April 20, 2009</cell>
+                  <cell>2</cell>
+                  <cell>17</cell>
+                </row>
+                <row>
+                  <cell>April 21, 2009</cell>
+                  <cell>3</cell>
+                  <cell>23</cell>
+                </row>
+                <row>
+                  <cell>April 22, 2009</cell>
+                  <cell>4</cell>
+                  <cell>103</cell>
+                </row>
+                <row>
+                  <cell>April 23, 2009</cell>
+                  <cell>5</cell>
+                  <cell>267</cell>
+                </row>
+                <row>
+                  <cell>April 24, 2009</cell>
+                  <cell>6</cell>
+                  <cell>147</cell>
+                </row>
+              </tabular>
+            </table>
+        <!-- <p>
           In the fall of 2009, Bates College experienced an outbreak of H1N1 influenza. The initiating event appeared to be Parents' and Families' Weekend, a time when relatives of students were invited to campus for a weekend of events together. Shortly thereafter, the first confirmed cases of H1N1 appeared on campus. There were multiple initial infections, due to several students independently becoming infected after visitors came to campus. 
-        </p>
+        </p> -->
         <p>
           Before the fall 2009 semester, college officials at Bates and elsewhere had been preparing for the newly emerged H1N1 influenza virus. While the specific influenza viruses that circulate each year differ somewhat from those that circulated in previous years, the 2009 H1N1 virus had distinct genetic differences from any influenza viruses that had ever been studied in humans. The <url href="https://www.who.int/emergencies/situations/influenza-a-(h1n1)-outbreak">World Health Organization</url> and the <url href="https://www.cdc.gov/orr/responses/h1n1-influenza-pandemic.html">Centers for Disease Control and Prevention</url> describe more about the differences on their websites. The novelty of the fall 2009 H1N1 virus led to heightened concern about large outbreaks and possible effects on people of all ages.
         </p>
