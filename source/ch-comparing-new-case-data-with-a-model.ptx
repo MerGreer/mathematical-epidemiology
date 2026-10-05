@@ -170,717 +170,110 @@
       <section xml:id="sec-translating-a-typical-data-set-into-numbers-we-can-compare-with-a-model">
         <title>Translating a Typical Data Set Into Numbers We Can Compare With a Model </title>
 
-        <!-- <p>
-          In April 2009, a New York City school experienced an outbreak of H1N1 influenza. The school had 2934 people: 2686 students and 248 faculty. Details of the outbreak appear in the 2009 article <q>Outbreak of 2009 pandemic influenza A (H1N1) at a New York City school</q>.<fn>The article appeared in <em>The New England Journal of Medicine</em> and was written by Justin Lessler, Nicholas G. Reich, Derek A.T. Cummings, and the New York City Department of Health & Mental Hygiene Swine Influenza Investigation Team.</fn> The article provides daily new cases of H1N1 influenza during the outbreak. These case numbers appear in .   
-        </p> -->
-        <table xml:id="table-new">
-              <title>H1N1 Influenza Outbreak at a New York City School</title>
-              <tabular halign="center">
-                <row header="yes">
-                  <cell>Date </cell>
-                  <cell>Day of Outbreak </cell>
-                  <cell>New Cases</cell>
-                </row>
-                <row>
-                  <cell>April 18, 2009</cell>
-                  <cell>0</cell>
-                  <cell>23</cell>
-                </row>
-                <row>
-                  <cell>April 19, 2009</cell>
-                  <cell>1</cell>
-                  <cell>10</cell>
-                </row>
-                <row>
-                  <cell>April 20, 2009</cell>
-                  <cell>2</cell>
-                  <cell>17</cell>
-                </row>
-                <row>
-                  <cell>April 21, 2009</cell>
-                  <cell>3</cell>
-                  <cell>23</cell>
-                </row>
-                <row>
-                  <cell>April 22, 2009</cell>
-                  <cell>4</cell>
-                  <cell>103</cell>
-                </row>
-                <row>
-                  <cell>April 23, 2009</cell>
-                  <cell>5</cell>
-                  <cell>267</cell>
-                </row>
-                <row>
-                  <cell>April 24, 2009</cell>
-                  <cell>6</cell>
-                  <cell>147</cell>
-                </row>
-              </tabular>
-            </table>
-        <!-- <p>
-          In the fall of 2009, Bates College experienced an outbreak of H1N1 influenza. The initiating event appeared to be Parents' and Families' Weekend, a time when relatives of students were invited to campus for a weekend of events together. Shortly thereafter, the first confirmed cases of H1N1 appeared on campus. There were multiple initial infections, due to several students independently becoming infected after visitors came to campus. 
-        </p> -->
         <p>
-          Before the fall 2009 semester, college officials at Bates and elsewhere had been preparing for the newly emerged H1N1 influenza virus. While the specific influenza viruses that circulate each year differ somewhat from those that circulated in previous years, the 2009 H1N1 virus had distinct genetic differences from any influenza viruses that had ever been studied in humans. The <url href="https://www.who.int/emergencies/situations/influenza-a-(h1n1)-outbreak">World Health Organization</url> and the <url href="https://www.cdc.gov/orr/responses/h1n1-influenza-pandemic.html">Centers for Disease Control and Prevention</url> describe more about the differences on their websites. The novelty of the fall 2009 H1N1 virus led to heightened concern about large outbreaks and possible effects on people of all ages.
+          The examples between here and the end of this chapter overlap with those shown in the article <url href="https://scholarship.claremont.edu/codee/vol20/iss2/4/"><q>Beyond the Best Fit: Fitting SIR-style Models to Data While Prioritizing Biological Meaning</q></url> that appeared in the <url href="https://scholarship.claremont.edu/codee/">CODEE Journal</url> in 2026.
         </p>
         <p>
-          In <xref ref="activity-h1n1-data-fall-2009"/> we work with real data collected during the Bates outbreak. Starting with this data set, which is shown in <xref ref="table-h1n1-fall-2009"/>, we think through how to convert data into numbers we can compare with an SIR model for the spread of H1N1 influenza in which the unit of time is days.
+          In April 2009, a New York City school experienced an outbreak of H1N1 influenza. The school had 2934 people: 2686 students and 248 faculty. Details of the outbreak appear in the 2009 article <q>Outbreak of 2009 pandemic influenza A (H1N1) at a New York City school</q>. <fn>The article appeared in <em>The New England Journal of Medicine</em> and was written by Justin Lessler, Nicholas G. Reich, Derek A.T. Cummings, and the New York City Department of Health &amp; Mental Hygiene Swine Influenza Investigation Team.</fn> The article provides daily new cases of H1N1 influenza during the outbreak. These case numbers appear in <xref ref="table-h1n1-cases-nyc-school"/>.
         </p>
-
-        <activity xml:id="activity-h1n1-data-fall-2009">
-          <statement>
-            <p>
-              After the 2009 outbreak of H1N1 influenza virus on the Bates College campus, the Dean of Students and Student Health Services were kind enough to share their data on new infections among students. As is common with data sets for an outbreak: information that could identify specific individuals has been removed, and the data set takes the form of new case reports. The data set appears in <xref ref="table-h1n1-fall-2009"/>.
-            </p>
-            <table xml:id="table-h1n1-fall-2009">
-              <title>Student case reports of H1N1 in fall 2009 at Bates College</title>
-              <tabular halign="center">
-                <row header="yes">
-                  <cell>Day of Week </cell>
-                  <cell>Date </cell>
-                  <cell>New Cases Reported</cell>
-                </row>
-                <row>
-                  <cell>Tuesday</cell>
-                  <cell>October 6</cell>
-                  <cell>5</cell>
-                </row>
-                <row>
-                  <cell>Wednesday</cell>
-                  <cell>October 7</cell>
-                  <cell>8</cell>
-                </row>
-                <row>
-                  <cell>Thursday</cell>
-                  <cell>October 8</cell>
-                  <cell>2</cell>
-                </row>
-                <row>
-                  <cell>Friday</cell>
-                  <cell>October 9</cell>
-                  <cell>6</cell>
-                </row>
-                <row>
-                  <cell>Saturday</cell>
-                  <cell>October 10</cell>
-                  <cell>6</cell>
-                </row>
-                <row>
-                  <cell>Sunday</cell>
-                  <cell>October 11</cell>
-                  <cell>15</cell>
-                </row>
-                <row>
-                  <cell>Monday</cell>
-                  <cell>October 12</cell>
-                  <cell>28</cell>
-                </row>
-                <row>
-                  <cell>Tuesday</cell>
-                  <cell>October 13</cell>
-                  <cell>53</cell>
-                </row>
-                <row>
-                  <cell>Wednesday</cell>
-                  <cell>October 14</cell>
-                  <cell>44</cell>
-                </row>
-                <row>
-                  <cell>Thursday</cell>
-                  <cell>October 15</cell>
-                  <cell>20</cell>
-                </row>
-                <row>
-                  <cell>Friday</cell>
-                  <cell>October 16</cell>
-                  <cell>12</cell>
-                </row>
-                <row>
-                  <cell>Saturday</cell>
-                  <cell>October 17</cell>
-                  <cell>9</cell>
-                </row>
-                <row>
-                  <cell>Sunday</cell>
-                  <cell>October 18</cell>
-                  <cell>17</cell>
-                </row>
-                <row>
-                  <cell>Monday</cell>
-                  <cell>October 19</cell>
-                  <cell>21</cell>
-                </row>
-                <row>
-                  <cell>Tuesday</cell>
-                  <cell>October 20</cell>
-                  <cell>7</cell>
-                </row>
-              </tabular>
-            </table>
-    
-            <p>
-              Influenza moves quickly. The incubation period is short, often just two days or even shorter, and people can become contagious before showing symptoms.<fn>Two articles to support this are <q>2009 H1N1 Influenza</q> by Seth J. Sullivan, Robert M. Jacobson, Walter R. Dowdle, and Gregory A. Poland, published January 2010 in the <em>Mayo Clinic Proceedings</em>, and <q>Outbreak of 2009 pandemic influenza A (H1N1) at a New York City school</q> by Justin Lessler, Nicholas G. Reich, and Derek A. T. Cummings, published in 2009 in the New England Journal of Medicine.</fn> For this reason, we use an SIR model instead of an SEIR model. 
-              There are multiple estimates for how long people remain contagious, with five days as a commonly provided number, though for some people the contagious period may be a little shorter or a few days longer. <fn>The European Centre for Disease Prevention and Control includes the estimate of five days for adults and seven days for children on their web page <q>Questions and answers on the pandemic (H1N1) 2009</q>, last accessed 16 September 2024, available at <url href="https://www.ecdc.europa.eu/en/seasonal-influenza/2009-influenza-h1n1-faq" />.
-              </fn>  
-            </p>
-            <p>
-              Given this information about the incubation period and contagious period of H1N1, follow the steps below to convert the incidence data in <xref ref="table-h1n1-fall-2009"/> to prevalence numbers that can be compared with the I compartment of an SIR model in which the time unit is days.
-              <!-- There were 1714 students in residence at Bates during the fall 2009 semester. -->
-            </p>
-            <p>
-              <ol>
-                <li>
-                  <p>
-                    Create your own editable table of data by opening <url href="https://docs.google.com/spreadsheets/d/1M3-G-t22ibUqKmEOMhmeK99T0iKIWefUzI9G0jXjg0g/edit?usp=sharing">this publicly shared spreadsheet</url> and making your own copy. Alternatively, create your table by opening a blank spreadsheet and copying into it the data from <xref ref="table-h1n1-fall-2009"/>.  
-                  </p>     
-                </li>
-                <li>
-                  <p>
-                    Create a new column in your table and give this new column the title <q>Prevalence</q>. Compute the H1N1 prevalence for each day by supposing that people are contagious for five days. Measuring prevalence, the number of contagious people, and the number of people in the <m>I(t)</m> compartment are essentially the same for H1N1, as people become contagious very close to the time when they begin showing symptoms, and they stop being contagious approximately when they stop showing symptoms. This means, for instance, that the five initial cases from October 6 remain in the Prevalence column, and hence in <m>I(t)</m>, for October 6, 7, 8, 9, and 10. Then, on October 11, the five cases from October 6 should no longer be in the Prevalence column.
-                  </p>     
-                </li>
-                <li>
-                  <p>
-                    Extend the length of your Prevalence column so that it represents the full five days of contagion for all the New Cases Reported. To extend the length of the Prevalence column, add extra rows at the bottom of the table. The last row should have a Prevalence value of <m>0</m> (and should be the first row in which Prevalence equals <m>0</m>). 
-                  </p>     
-                </li>
-                <li>
-                  <p>
-                    Create a plot showing New Cases Reported on the vertical axis, with time on the horizontal axis. The horizontal axis in your chart should show the dates. On the same axes, create a plot showing Prevalence on the vertical axis, with time again on the horizontal axis.   
-                  </p> 
-                  <p>
-                    To create this type of spreadsheet plot in Google Sheets, choose menu item <c>Insert</c>, then choose <c>Chart</c>, and then in the Chart Editor, select <c>Line chart</c>. The Chart Editor provides several ways to edit the chart. 
-                  </p> 
-                  <p>
-                    Alternatively, in Microsoft Excel, choose menu item <c>Insert</c>, and then from the <c>Chart</c> menu, select one of the <c>Scatter</c> options.
-                  </p>   
-                </li>
-                <li>
-                  <p>
-                    Discuss with your group: how does each of the two plots compare (or not) with typical <m>I(t)</m> curves in outbreaks? Make three or more observations.
-                  </p>     
-                </li>
-                <li>
-                  <p>
-                    Bonus spreadsheet work, if time permits: go back to the Prevalence column you created. If you have not yet used spreadsheet formulas to determine the column entries, try to do so. Formulas let you refer to other cells in the spreadsheet, rather than re-typing their numbers every time you re-use the same numbers.
-                  </p>     
-                </li>
-              </ol>
-            </p>                       
-          </statement>
-          <answer>
-            <p>
-              <xref ref="table-h1n1-fall-2009-including-prevalence"/> shows the H1N1 data along with the prevalence values, including extra rows to display prevalence for all cases of H1N1.
-            </p>
-            <table xml:id="table-h1n1-fall-2009-including-prevalence">
-              <title>Student case reports of H1N1 in fall 2009 at Bates College</title>
-              <tabular halign="center">
-                <row header="yes">
-                  <cell>Day of Week </cell>
-                  <cell>Date </cell>
-                  <cell>New Cases Reported</cell>
-                  <cell>Prevalence</cell>
-                </row>
-                <row>
-                  <cell>Tuesday</cell>
-                  <cell>October 6</cell>
-                  <cell>5</cell>
-                  <cell>5</cell>
-                </row>
-                <row>
-                  <cell>Wednesday</cell>
-                  <cell>October 7</cell>
-                  <cell>8</cell>
-                  <cell>13</cell>
-                </row>
-                <row>
-                  <cell>Thursday</cell>
-                  <cell>October 8</cell>
-                  <cell>2</cell>
-                  <cell>15</cell>
-                </row>
-                <row>
-                  <cell>Friday</cell>
-                  <cell>October 9</cell>
-                  <cell>6</cell>
-                  <cell>21</cell>
-                </row>
-                <row>
-                  <cell>Saturday</cell>
-                  <cell>October 10</cell>
-                  <cell>6</cell>
-                  <cell>27</cell>
-                </row>
-                <row>
-                  <cell>Sunday</cell>
-                  <cell>October 11</cell>
-                  <cell>15</cell>
-                  <cell>37</cell>
-                </row>
-                <row>
-                  <cell>Monday</cell>
-                  <cell>October 12</cell>
-                  <cell>28</cell>
-                  <cell>57</cell>
-                </row>
-                <row>
-                  <cell>Tuesday</cell>
-                  <cell>October 13</cell>
-                  <cell>53</cell>
-                  <cell>108</cell>
-                </row>
-                <row>
-                  <cell>Wednesday</cell>
-                  <cell>October 14</cell>
-                  <cell>44</cell>
-                  <cell>146</cell>
-                </row>
-                <row>
-                  <cell>Thursday</cell>
-                  <cell>October 15</cell>
-                  <cell>20</cell>
-                  <cell>160</cell>
-                </row>
-                <row>
-                  <cell>Friday</cell>
-                  <cell>October 16</cell>
-                  <cell>12</cell>
-                  <cell>157</cell>
-                </row>
-                <row>
-                  <cell>Saturday</cell>
-                  <cell>October 17</cell>
-                  <cell>9</cell>
-                  <cell>138</cell>
-                </row>
-                <row>
-                  <cell>Sunday</cell>
-                  <cell>October 18</cell>
-                  <cell>17</cell>
-                  <cell>102</cell>
-                </row>
-                <row>
-                  <cell>Monday</cell>
-                  <cell>October 19</cell>
-                  <cell>21</cell>
-                  <cell>79</cell>
-                </row>
-                <row>
-                  <cell>Tuesday</cell>
-                  <cell>October 20</cell>
-                  <cell>7</cell>
-                  <cell>66</cell>
-                </row>
-                <row>
-                  <cell>Wednesday</cell>
-                  <cell>October 21</cell>
-                  <cell>0</cell>
-                  <cell>54</cell>
-                </row>
-                <row>
-                  <cell>Thursday</cell>
-                  <cell>October 22</cell>
-                  <cell>0</cell>
-                  <cell>45</cell>
-                </row>
-                <row>
-                  <cell>Friday</cell>
-                  <cell>October 23</cell>
-                  <cell>0</cell>
-                  <cell>28</cell>
-                </row>
-                <row>
-                  <cell>Saturday</cell>
-                  <cell>October 24</cell>
-                  <cell>0</cell>
-                  <cell>7</cell>
-                </row>
-                <row>
-                  <cell>Sunday</cell>
-                  <cell>October 25</cell>
-                  <cell>0</cell>
-                  <cell>0</cell>
-                </row>
-              </tabular>
-            </table>
-            <p>
-              Here is one possible graph of the results.
-            </p>
-            <figure xml:id="fig-bates-H1N1-new-cases-and-prevalence">
-              <caption>This is a graph showing two plots of the H1N1 outbreak at Bates College in 2009. The plot in black shows new cases, as reported by Student Health Services. The plot in orange shows estimated prevalence, assuming influenza is infectious for five days. The horizontal axis shows days since the start of the outbreak, starting at Day 0, where Day 0 is October 6, 2009, the first day cases began to be reported.</caption>
-              <image source="Bates_2009_Influenza_5day_Prevalence.png" width="80%">
-                  <description>
-                    <p>
-                      This is a graph showing two plots of the H1N1 outbreak at Bates College in 2009. The plot in black shows new cases, as reported by Student Health Services. The plot in orange shows estimated prevalence, assuming influenza is infectious for five days. The horizontal axis shows days since the start of the outbreak, starting at Day 0, where Day 0 is October 6, 2009, the first day cases began to be reported.
-                    </p> 
-                  </description>
-              </image>
-            </figure>
-            <p>
-              <em>Observations.</em> Observations about the plots may be wide-ranging: this is open-ended. One possible observation is that the New Cases Reported plot has two mini-peaks, compared with the single, more-obvious, peak in the Prevalence plot. 
-              Another possible observation is to compare with a typical <m>I(t)</m> curve and notice that the Prevalence plot is more similar in appearance than the New Cases Reported plot. 
-              Another possible observation is that the Prevalence plot includes higher numbers of students than the New Cases Reported plot, which makes sense, since we count students across each day they are sick, rather than just once when they report that they are sick. 
-              These are a few common observations, but to emphasize: there are many more possible. Keep seeking more.
-            </p>
-            <p>
-              <em>Spreadsheet Formulas.</em> For the Prevalence column, rather than compute values ourself, we can let the spreadsheet do this for us. If you copied the shared spreadsheet, the data values begin in row 5, and Prevalence appears in column D. 
-            </p>
-            <p>
-              <ul>
-                <li>
-                  <p>
-                    To compute prevalence on October 6, rather than type in the number 5, you can type in <c>=C5</c> to bring in the value 5 from cell C5.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    In cell D6, for prevalence on October 7, rather than add 5 and 8 to obtain 13, you can type <c>=C5+C6</c>.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Similarly, for cell D7, have the spreadsheet add the numbers for cells C5, C6, and C7. For cell D8, have the spreadsheet add the numbers for cells C5, C6, C7, and C8.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Here (along with the next step) is where we start to see how a spreadsheet can automate work for us. For cell D9, use the <c>sum</c> function. Type <c>=sum(C5:C9)</c> to have the spreadsheet add the numbers for all the cells from C5 to C9, that is: C5, C6, C7, C8, and C9.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    Now we can stop typing so much. Copy what you typed in cell D9, and paste it into the rest of your prevalence cells in column D. To match the table in <xref ref="table-h1n1-fall-2009-including-prevalence"/>, this means pasting into cells D10 through D24. Notice that the spreadsheet does not always add the values in cells C5 through C9: instead, the spreadsheet adds the values in the five cells that are in similar locations, <em>relative to the prevalence cell being computed</em>. To see which cells are being added to obtain each prevalence value, click on that cell in the prevalence column and view the formula.
-                  </p>
-                </li>
-              </ul>
-            </p> 
-            <p>
-              There is more than one way to compute the formulas for the Prevalence column. If you used spreadsheet formulas but found a different approach (such as starting with the prevalence value the day before, adding the new cases for that day, and subtracting the cases from five days earlier), and if your approach resulted in the same values, then well done!
-            </p>           
-          </answer>
-        </activity>
-
+        <table xml:id="table-h1n1-cases-nyc-school">
+          <title>H1N1 Influenza Outbreak at a New York City School</title>
+            <tabular halign="center">
+              <row header="yes">
+                <cell>Date </cell>
+                <cell>Day of Outbreak </cell>
+                <cell>New Cases</cell>
+              </row>
+              <row>
+                <cell>April 18, 2009</cell>
+                <cell>0</cell>
+                <cell>23</cell>
+              </row>
+              <row>
+                <cell>April 19, 2009</cell>
+                <cell>1</cell>
+                <cell>10</cell>
+              </row>
+              <row>
+                <cell>April 20, 2009</cell>
+                <cell>2</cell>
+                <cell>17</cell>
+              </row>
+              <row>
+                <cell>April 21, 2009</cell>
+                <cell>3</cell>
+                <cell>23</cell>
+              </row>
+              <row>
+                <cell>April 22, 2009</cell>
+                <cell>4</cell>
+                <cell>103</cell>
+              </row>
+              <row>
+                <cell>April 23, 2009</cell>
+                <cell>5</cell>
+                <cell>267</cell>
+              </row>
+              <row>
+                <cell>April 24, 2009</cell>
+                <cell>6</cell>
+                <cell>147</cell>
+              </row>
+              <row>
+                <cell>April 25, 2009</cell>
+                <cell>7</cell>
+                <cell>100</cell>
+              </row>
+              <row>
+                <cell>April 26, 2009</cell>
+                <cell>8</cell>
+                <cell>50</cell>
+              </row>
+              <row>
+                <cell>April 27, 2009</cell>
+                <cell>9</cell>
+                <cell>17</cell>
+              </row>
+              <row>
+                <cell>April 28, 2009</cell>
+                <cell>10</cell>
+                <cell>7</cell>
+              </row>
+              <row>
+                <cell>April 29, 2009</cell>
+                <cell>11</cell>
+                <cell>7</cell>
+              </row>
+              <row>
+                <cell>April 30, 2009</cell>
+                <cell>12</cell>
+                <cell>7</cell>
+              </row>
+              <row>
+                <cell>May 1, 2009</cell>
+                <cell>13</cell>
+                <cell>3</cell>
+              </row>
+              <row>
+                <cell>May 2, 2009</cell>
+                <cell>14</cell>
+                <cell>0</cell>
+              </row>
+              <row>
+                <cell>May 3, 2009</cell>
+                <cell>15</cell>
+                <cell>0</cell>
+              </row>
+              <row>
+                <cell>May 4, 2009</cell>
+                <cell>16</cell>
+                <cell>0</cell>
+              </row>
+            </tabular>
+        </table>
         <p>
-          <xref ref="activity-h1n1-data-fall-2009"/> is lengthy! There is a lot to work through. Mathematically, we are mostly adding numbers, but we must make sure to do so in a way that correctly represents real data from a real outbreak. 
+          The datasets for many outbreaks are presented in terms of new case appearance. This makes sense, as it is easier to see when a person begins showing symptoms of a disease than it is to see when a person is first infected. Datasets may appear as a table of data, as shown above, or as a bar chart, from which we need to read the values and turn them into a table of data.
         </p>
-        <p>
-          Completing <xref ref="activity-h1n1-data-fall-2009"/> is adequate for comparing influenza prevalence data with the <m>I(t)</m> compartment of a model. However, at times we may want to compare another compartment of a model to the appropriate data. In <xref ref="activity-h1n1-data-fall-2009-S-I-R"/>, continue your work from <xref ref="activity-h1n1-data-fall-2009"/> to convert the Bates 2009 H1N1 data set into values that can be compared with the <m>S(t)</m> and <m>R(t)</m> compartments.
-        </p>
-
-        <activity xml:id="activity-h1n1-data-fall-2009-S-I-R">
-          <statement>
-            <p>
-              Start over with the New Cases Reported data provided in <xref ref="table-h1n1-fall-2009"/>. You may  type in the data from <xref ref="table-h1n1-fall-2009"/>, or download a copy of the data in <url href="https://docs.google.com/spreadsheets/d/1M3-G-t22ibUqKmEOMhmeK99T0iKIWefUzI9G0jXjg0g/edit?usp=sharing">this starter spreadsheet.</url> Then follow the steps below to convert New Cases Reported data into data points that can be compared with an SIR model in which the time unit is days. 
-            </p>
-            <p>
-              <ol>
-                <li>
-                  <p>
-                    To the right of the New Cases Reported column, create columns for <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. 
-                  </p>     
-                </li>
-                <li>
-                  <p>
-                    In the <m>I(t)</m> column, enter the numbers or formulas you developed in <xref ref="activity-h1n1-data-fall-2009"/> to represent the prevalence values for this H1N1 outbreak. In other words: replicate your work from <xref ref="activity-h1n1-data-fall-2009"/>, this time placing those values in the <m>I(t)</m> column.
-                  </p>     
-                </li>
-                <li>
-                  <p>
-                    Similarly to what you did in <xref ref="activity-h1n1-data-fall-2009"/>, extend the number of rows in the spreadsheet so that the prevalence values, shown here as the <m>I(t)</m> column, continue until no one remains in the  Infectious compartment.
-                  </p>     
-                </li>
-                <li>
-                  <p>
-                    Next, fill in the <m>S(t)</m> column, using the knowledge that there were a total of 1714 students on campus that semester. On October 6, then, there should be <m>1714-5=1709</m> Susceptible people. For each day following that, determine that day's <m>S(t)</m> value by subtracting the New Cases Reported from the previous day's number of Susceptibles.
-                  </p>     
-                </li>
-                <li>
-                  <p>
-                    Then, fill in the <m>R(t)</m> column. To do this, fill in zeroes for the first few days. Continue to think of the contagious period, and the time in the Infectious compartment, as lasting five days. This means that the New Cases Reported on October 6 are in <m>I(t)</m> for the days October 6, 7, 8, 9, and 10, and then move into <m>R(t)</m> on October 11, so <m>R(t)=5</m> on October 11. On October 12, the New Cases Reported from October 7 move into <m>R(t)</m>, so <m>R(t)=5+8=13</m> on October 12. Continue similarly: on each day, update the <m>R(t)</m> column by adding the New Cases Reported from five days earlier. 
-                  </p>     
-                </li>
-                <li>
-                  <p>
-                    Check your work: create one more column titled <q>Check Total</q>. For each row, add the three values in the  <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> columns. The resulting numbers should be the same every day, since compartmental models require that every person be in exactly one compartment at each time step. This column is one way to check your work and find possible mistakes: if the numbers do not add up to 1714 on any day(s), there must be an error.
-                  </p>     
-                </li>
-                <li>
-                  <p>
-                    Bonus spreadsheet work: if you added and subtracted cases on your own and entered those numbers in the spreadsheet cells, go back and do all the steps from this activity using formulas.
-                  </p>     
-                </li>
-              </ol>
-            </p>                      
-          </statement>
-          <answer>
-            <p>
-              <xref ref="table-h1n1-fall-2009-S-I-R"/> shows the H1N1 data along with the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values for the full outbreak.
-            </p>
-            <table xml:id="table-h1n1-fall-2009-S-I-R">
-              <title>Student case reports of H1N1 in fall 2009 at Bates College</title>
-              <tabular halign="center">
-                <row header="yes">
-                  <cell>Day of Week </cell>
-                  <cell>Date </cell>
-                  <cell>New Cases Reported</cell>
-                  <cell><m>S(t)</m></cell>
-                  <cell><m>I(t)</m></cell>
-                  <cell><m>R(t)</m></cell>
-                  <cell>Check Total</cell>
-                </row>
-                <row>
-                  <cell>Tuesday</cell>
-                  <cell>October 6</cell>
-                  <cell>5</cell>
-                  <cell>1709</cell>
-                  <cell>5</cell>
-                  <cell>0</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Wednesday</cell>
-                  <cell>October 7</cell>
-                  <cell>8</cell>
-                  <cell>1701</cell>
-                  <cell>13</cell>
-                  <cell>0</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Thursday</cell>
-                  <cell>October 8</cell>
-                  <cell>2</cell>
-                  <cell>1699</cell>
-                  <cell>15</cell>
-                  <cell>0</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Friday</cell>
-                  <cell>October 9</cell>
-                  <cell>6</cell>
-                  <cell>1693</cell>
-                  <cell>21</cell>
-                  <cell>0</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Saturday</cell>
-                  <cell>October 10</cell>
-                  <cell>6</cell>
-                  <cell>1687</cell>
-                  <cell>27</cell>
-                  <cell>0</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Sunday</cell>
-                  <cell>October 11</cell>
-                  <cell>15</cell>
-                  <cell>1672</cell>
-                  <cell>37</cell>
-                  <cell>5</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Monday</cell>
-                  <cell>October 12</cell>
-                  <cell>28</cell>
-                  <cell>1644</cell>
-                  <cell>57</cell>
-                  <cell>13</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Tuesday</cell>
-                  <cell>October 13</cell>
-                  <cell>53</cell>
-                  <cell>1591</cell>
-                  <cell>108</cell>
-                  <cell>15</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Wednesday</cell>
-                  <cell>October 14</cell>
-                  <cell>44</cell>
-                  <cell>1547</cell>
-                  <cell>146</cell>
-                  <cell>21</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Thursday</cell>
-                  <cell>October 15</cell>
-                  <cell>20</cell>
-                  <cell>1527</cell>
-                  <cell>160</cell>
-                  <cell>27</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Friday</cell>
-                  <cell>October 16</cell>
-                  <cell>12</cell>
-                  <cell>1515</cell>
-                  <cell>157</cell>
-                  <cell>42</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Saturday</cell>
-                  <cell>October 17</cell>
-                  <cell>9</cell>
-                  <cell>1506</cell>
-                  <cell>138</cell>
-                  <cell>70</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Sunday</cell>
-                  <cell>October 18</cell>
-                  <cell>17</cell>
-                  <cell>1489</cell>
-                  <cell>102</cell>
-                  <cell>123</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Monday</cell>
-                  <cell>October 19</cell>
-                  <cell>21</cell>
-                  <cell>1468</cell>
-                  <cell>79</cell>
-                  <cell>167</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Tuesday</cell>
-                  <cell>October 20</cell>
-                  <cell>7</cell>
-                  <cell>1461</cell>
-                  <cell>66</cell>
-                  <cell>187</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Wednesday</cell>
-                  <cell>October 21</cell>
-                  <cell>0</cell>
-                  <cell>1461</cell>
-                  <cell>54</cell>
-                  <cell>199</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Thursday</cell>
-                  <cell>October 22</cell>
-                  <cell>0</cell>
-                  <cell>1461</cell>
-                  <cell>45</cell>
-                  <cell>208</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Friday</cell>
-                  <cell>October 23</cell>
-                  <cell>0</cell>
-                  <cell>1461</cell>
-                  <cell>28</cell>
-                  <cell>225</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Saturday</cell>
-                  <cell>October 24</cell>
-                  <cell>0</cell>
-                  <cell>1461</cell>
-                  <cell>7</cell>
-                  <cell>246</cell>
-                  <cell>1714</cell>
-                </row>
-                <row>
-                  <cell>Sunday</cell>
-                  <cell>October 25</cell>
-                  <cell>0</cell>
-                  <cell>1461</cell>
-                  <cell>0</cell>
-                  <cell>253</cell>
-                  <cell>1714</cell>
-                </row>
-              </tabular>
-            </table>
-            <p>
-              <em>Spreadsheet Formulas.</em> If you copied the shared spreadsheet, the <m>S(t)</m> values begin in row 5, column D, and the <m>R(t)</m> values begin in row 5, column F. 
-            </p>
-            <p>
-              First compute the <m>S(t)</m> values.
-            </p>
-            <p>
-              <ul>
-                <li>
-                  <p>
-                    To compute <m>S(t)</m> on October 6, rather than type in the number 1709, you can type in <c>=1714-C5</c> to start with the 1714 students on campus and subtract the five New Cases Reported shown in cell C5.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    In cell D6, for <m>S(t)</m> on October 7, you can type <c>=D5-C6</c>. This starts with the 1709 Susceptibles from cell D5 and subtracts the eight New Cases Reported in cell C6.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    You can then copy the formula from cell D6 and paste the formula into the rest of column D. The spreadsheet formulas are <em>relative</em> rather than <em>absolute</em>. For our specific formulas, this means that each cell from D6 to D24 starts with the number in the cell directly above, and subtracts the number in the cell directly to the left. (If the formulas were <em>absolute</em>, we would always compute <c>=D5-C6</c>, but this would not compute correct values for <m>S(t)</m> at each day of the outbreak.) 
-                  </p>
-                </li>
-              </ul>
-            </p>
-            <p>
-              Next compute the <m>R(t)</m> values.
-            </p>
-            <p>
-              <ul>
-                <li>
-                  <p>
-                    Enter <m>0</m> for <m>R(t)</m> on October 6, 7, 8, 9, and 10, that is, in cells F5, F6, F7, F8, and F9.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    In cell F10, for <m>R(t)</m> on October 11, you can type <c>=F9+C5</c>. This starts with the Removed population of 0 in cell F9 and adds the New Cases Reported in cell C5. These New Cases Reported have just moved from the Infectious compartment to the Removed compartment.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    You can then copy the formula from cell F10 and paste the formula into the rest of column F. As described for computing the <m>S(t)</m> column: the formulas in the cells are relative, meaning that each day's <m>R(t)</m> value is based on the previous day's <m>R(t)</m> value and the number of New Cases Reported from five days earlier.
-                  </p>
-                </li>
-              </ul>
-            </p>
-            <p>
-              Finally, compute the <q>Check Total</q> values.
-            </p>
-            <p>
-              <ul>
-                <li>
-                  <p>
-                    In cell G5, type <c>=sum(D5:F5)</c> or type <c>=D5+E5+F5</c>. Either of these formulas adds the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values for this row, and the result should be 1714.
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    You can then copy the formula from cell G5 and paste this formula into the rest of column G. Yet again: the formulas in the cells are relative, meaning that each day's <q>Check Total</q> value is the sum of that day's <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values. Click on multiple cells in column G to confirm this. Then use this column to confirm that your result is 1714 in all of column G, from cell G5 down to cell G24. <em>If any of your results do not equal 1714, this indicates an error somewhere in your spreadsheet. Take time to track down and fix any such errors.</em>
-                  </p>
-                </li>
-              </ul>
-            </p>
-            <p>
-              There may be other ways to compute these formulas. If you used spreadsheet formulas but found a different approach, and if your approach resulted in the same values, then well done!
-            </p>         
-          </answer>
-        </activity>
-
         
     </section>
 
@@ -888,16 +281,13 @@
         <exercises xml:id="exercises-ch-influenza-data">
           <exercise number="1">
            <p>
-             Use your completed work from <xref ref="activity-h1n1-data-fall-2009-S-I-R"/> to create plots of the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> data that can be constructed from the Bates H1N1 New Cases Reported data set. Describe three observations about the three plots you create and how they compare with the kinds of curves you have seen in Python solutions for SIR models. (If you did not complete <xref ref="activity-h1n1-data-fall-2009-S-I-R"/>, transfer the results in <xref ref="table-h1n1-fall-2009-S-I-R"/> to a spreadsheet so that you can create the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> graphs.)  
+              
            </p>          
          </exercise>
     
          <exercise number="2">
           <p>
-            Recreate prevalence data for the data set in <xref ref="table-h1n1-fall-2009"/>, but using different assumptions than in <xref ref="activity-h1n1-data-fall-2009"/>. Here, instead of assuming a 5-day Infectious period, create prevalence data with the assumption that there is a 4-day Infectious period. Separately, create prevalence data with the assumption that there is a 6-day Infectious period.   
-          </p>   
-          <p>
-            On a single set of axes, plot the graphs of both 4-day prevalence and 6-day prevalence, that is, plot <m>I(t)</m> in the two cases when we think of influenza as contagious for four days and when we think of influenza as contagious for six days. Write at least three observations about these plots. At least two of your observations should directly compare the plots with each other.
+            
           </p>   
          </exercise>
     
