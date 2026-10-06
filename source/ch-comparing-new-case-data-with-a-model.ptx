@@ -162,13 +162,13 @@
       </activity>
 
       <p>
-        It turns out that datasets for outbreaks typically take a format similar to the numbers shown in the <em>New Infections</em> column of data in the Zombie Game App. These numbers may be shared as a table of values, or in a graphical format, such as a histogram. In order to compare the number of new cases in an outbreak with the <m>I(t)</m> curve in an SIR model (or other compartmental model), we need to use what we know about the outbreak to convert the numbers of new cases into the number of people in the I compartment at each time step of the outbreak. This is our goal in <xref ref="sec-translating-a-typical-data-set-into-numbers-we-can-compare-with-a-model"/>.
+        It turns out that datasets for outbreaks typically take a format similar to the numbers shown in the <em>New Infections</em> column of data in the Zombie Game App. These numbers may be shared as a table of values, or in a graphical format such as a histogram. Recognizing that these numbers show incidence rather than prevalence, we cannot compare them directly with the <m>I(t)</m> curve in an SIR model (or other compartmental model). In <xref ref="sec-comparing-new-case-data-with-the-SIR-model"/> we show how to compare new case data with new cases produced in a simulation of the SIR model. 
       </p>
-
+      
       </section>
 
-      <section xml:id="sec-translating-a-typical-data-set-into-numbers-we-can-compare-with-a-model">
-        <title>Translating a Typical Data Set Into Numbers We Can Compare With a Model </title>
+      <section xml:id="sec-comparing-new-case-data-with-the-SIR-model">
+        <title>Comparing New Case Data with the SIR Model </title>
 
         <p>
           The examples between here and the end of this chapter overlap with those shown in the article <url href="https://scholarship.claremont.edu/codee/vol20/iss2/4/"><q>Beyond the Best Fit: Fitting SIR-style Models to Data While Prioritizing Biological Meaning</q></url> that appeared in the <url href="https://scholarship.claremont.edu/codee/">CODEE Journal</url> in 2026.
@@ -272,7 +272,23 @@
             </tabular>
         </table>
         <p>
-          The datasets for many outbreaks are presented in terms of new case appearance. This makes sense, as it is easier to see when a person begins showing symptoms of a disease than it is to see when a person is first infected. Datasets may appear as a table of data, as shown above, or as a bar chart, from which we need to read the values and turn them into a table of data.
+          The datasets for many outbreaks are presented in terms of new case appearance. This makes sense, as it is easier to see when a person begins showing symptoms of a disease than it is to know for certain when a person is first infected. Datasets may appear as a table of data, as shown in <xref ref="table-h1n1-cases-nyc-school"/>, or as a bar chart, as shown in <xref ref="fig-h1n1-new-cases"/>, from which we need to read the values from the chart and convert them into a table of data.
+        </p>
+        <figure xml:id="fig-h1n1-new-cases">
+          <caption>Bar chart of new H1N1 influenza cases, from the paper <q>Outbreak of 2009 pandemic influenza A (H1N1) at a New York City school</q></caption>
+          <image source="H1N1-new-cases.png" width="100%">
+            <description>
+              <p>
+                Bar chart of new H1N1 influenza cases for the 2009 outbreak, showing number of cases per day
+              </p>
+            </description>
+          </image>
+        </figure>
+        <p>
+          The key to comparing new case data with the SIR model is to identify where in the model new cases are recorded, and then to determine how to isolate in Python the number of new cases produced by the model. For the data set in <xref ref="table-h1n1-cases-nyc-school"/>, new cases are shown daily, so we will need to write Python code to create daily numbers of new cases in the SIR model. 
+        </p>
+        <p>
+          Use Activity (?) to work through these setup details.
         </p>
         
     </section>
