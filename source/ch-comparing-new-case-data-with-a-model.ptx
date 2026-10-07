@@ -288,9 +288,63 @@
           The key to comparing new case data with the SIR model is to identify where in the model new cases are recorded, and then to determine how to isolate in Python the number of new cases produced by the model. For the data set in <xref ref="table-h1n1-cases-nyc-school"/>, new cases are shown daily, so we will need to write Python code to create daily numbers of new cases in the SIR model. 
         </p>
         <p>
-          Use Activity (?) to work through these setup details.
+          Use <xref ref="activity-comparing-new-case-data-with-SIR"/> to work through these setup details.
         </p>
         
+        <activity xml:id="activity-comparing-new-case-data-with-SIR">
+        <statement>
+          <p>
+            In this activity, we identify where in the model new cases occur. We then show Python code that counts new cases, making sure to understand the steps by which Python does this counting.
+          </p>
+                    
+          <p>
+            <ol>
+              <li>
+                <p>
+                  Consider the SIR model with the equations
+                  <md>
+                    <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+                    <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
+                    <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+                  </md>.
+                  Which mathematical term in this model represents new cases within one unit of time in the model?
+                </p>     
+              </li>
+              <li>
+                <p>
+                  Next, review the paragraph in <xref ref="ch-visualization-graphing-model-results-and-data"/> that discusses computing <em>numerical solutions</em> to a system of differential equations. Summarize what information Python uses to compute these solutions.
+                </p>     
+              </li>
+              <li>
+                <p>
+                  Now compare <xref ref="fig-zombies-incidence-prevalence"/> with graphs you have seen for SIR models, when we plot solution curves for <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Which of the data plots in <xref ref="fig-zombies-incidence-prevalence"/><mdash/>the New Infections plot, or the # Zombies plot<mdash/>seems better for comparing with the <m>I(t)</m> curve we would generate in an SIR model of an outbreak?
+                </p>
+              </li>
+            </ol>
+          </p>           
+        </statement>
+        <answer>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  The term <m>\beta SI</m> represents new infections. 
+                </p>
+              </li>
+              <li>
+                <p>
+                  Summaries should refer to initial conditions, the system of differential equations, and derivatives, which are rates of change. The summaries may also refer to a step-by-step approach through time.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The <m>I(t)</m> curve often describes all active infections at a given time <m>t</m>. This compares best with the data for # Zombies vs. time. (This is not a perfect comparison for every outbreak, as sometimes <m>I(t)</m> means a person is contagious but does not yet show symptoms. However, in the basic zombie game, where is a person is contagious exactly when they are a zombie, the <m>I(t)</m> curve is well matched with data for # Zombies.)
+                </p>
+              </li>
+            </ol>
+          </p>
+        </answer>
+      </activity>
     </section>
 
 
