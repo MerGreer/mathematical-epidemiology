@@ -272,7 +272,7 @@
             </tabular>
         </table>
         <p>
-          The datasets for many outbreaks are presented in terms of new case appearance. This makes sense, as it is easier to see when a person begins showing symptoms of a disease than it is to know for certain when a person is first infected. Datasets may appear as a table of data, as shown in <xref ref="table-h1n1-cases-nyc-school"/>, or as a bar chart, as shown in <xref ref="fig-h1n1-new-cases"/>, from which we need to read the values from the chart and convert them into a table of data.
+          The datasets for many outbreaks are presented in terms of new case appearance. This makes sense, as it is easier to see when a person begins showing symptoms of a disease than it is to know for certain when a person is first infected. Datasets may appear as a table of data, as shown in <xref ref="table-h1n1-cases-nyc-school"/>, or as a bar chart, as shown in <xref ref="fig-h1n1-new-cases"/>. When datasets appear as bar charts, we need to read the values from the chart and convert them into a table of data.
         </p>
         <figure xml:id="fig-h1n1-new-cases">
           <caption>Bar chart of new H1N1 influenza cases, from the paper <q>Outbreak of 2009 pandemic influenza A (H1N1) at a New York City school</q></caption>
@@ -317,8 +317,93 @@
               </li>
               <li>
                 <p>
-                  Now compare <xref ref="fig-zombies-incidence-prevalence"/> with graphs you have seen for SIR models, when we plot solution curves for <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m>. Which of the data plots in <xref ref="fig-zombies-incidence-prevalence"/><mdash/>the New Infections plot, or the # Zombies plot<mdash/>seems better for comparing with the <m>I(t)</m> curve we would generate in an SIR model of an outbreak?
+                  Now view the Python code below, focusing on lines 41<ndash/>49. Notice that in line 42, we define a list named <c>New_Cases_Model</c>, and the first term in that list is our initial number of Infectious cases. Then, for each remaining day in our simulation, we use the <c>for</c> loop in lines 44<ndash/>49 to compute the number of new cases according to our model, and we include that value in the <c>New_Cases_Model</c> list. 
                 </p>
+                <p>
+                  Describe how lines 44<ndash/>49 compute the new cases at the end of Day 1, Day 2, and so on, up through Day 14, the last day of the model. It will help to recall that on line 36, we set <c>t_range</c> to start at time 0 and end at time 14, stepping through time in increments of 0.1 days.
+                </p>
+                <sage>
+                  <input>
+                    # NYC school flu outbreak 2009
+                    # RSS approach to compare dataset with each day's new cases in the model
+
+                    # Import packages
+                    import numpy as np
+                    import matplotlib.pyplot as plt
+                    from scipy.integrate import odeint
+
+                    # Clear (delete) any past plots
+                    plt.cla()
+
+                    # Include data from NYC school
+                    t_steps = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+                    New_Cases_NYC_Data = [23, 10, 17, 23, 103, 267, 147, 100, 50, 17, 7, 7, 7, 3, 0]
+
+                    # Define the system of differential equations, and call it "sir"
+                    # Notice we now include a count of new cases
+                    def sir(y, t):
+                      s, i, r, nc = y #Define y as consisting of s, i, and r, and nc, in that order, where nc stands for New Cases
+                      dydt = [-beta * s * i, beta * s * i - gamma * i, gamma * i, beta * s * i] #These formulas are the right-hand sides of the SIR model
+                      return dydt
+
+                    # Give a value to beta: we change this regularly as part of our activities
+                    beta = 0.0005
+                    # Give gamma a value that is 1/(number of days you consider people to be contagious)
+                    gamma = 0.5
+                    # Set initial conditions for Susceptibles, Infectious, Removed, and New Cases, with 2934 total people (2686 students, 248 employees) and 23 people sick on day 0
+                    I_init = 23
+                    R_init = 0
+                    NC_init = 0
+                    S_init = 2934 - I_init - R_init
+                    y0 = [S_init, I_init, R_init, NC_init]
+                    # Set the time range. Always start at 0. Then enter the last number in your selected "t_steps" list from above, but add 1 to that number. Leave the last number as 0.1.
+                    t_start = 0
+                    t_finish = 14
+                    t_range = np.arange(t_start, t_finish + 0.1, 0.1)
+
+                    # Give the name "sol" to the solution, which consists of lists of numerical values for S, I, and R at different times t, and give the built-in "odeint" the information needed to solve
+                    sol = odeint(sir, y0, t_range)
+
+                    # Add up cases, day by day, to have model values to fit with New Cases data
+                    New_Cases_Model = [I_init]
+
+                    for day in range(0, t_finish):
+                      modeled_new_cases = 0;
+                      for timestep in range(0,10):
+                        modeled_new_cases = modeled_new_cases + (sol[day * 10 + timestep, 0] - sol[day * 10 + timestep + 1, 0])
+                      #print("modeled new cases at time", day + 1, "=", modeled_new_cases)
+                      New_Cases_Model.append(modeled_new_cases)
+
+                    #Initialize the value of RSS to be 0
+                    RSS = 0;
+
+                    for x in range(0,15):
+                        new_square = (New_Cases_NYC_Data[x] - New_Cases_Model[x])**2
+                        #print("Squared distance at time", x, "=", new_square)
+                        RSS = RSS + new_square
+
+                    print("RSS = ", RSS)
+
+                    # Plotting commands are below
+                    plt.plot(t_steps, New_Cases_Model,'s-', linewidth=2, markersize=4, color='limegreen', label='Modeled New Cases')
+                    plt.plot(t_steps, New_Cases_NYC_Data,'o', markersize=6, color='darkviolet', label='NYC New Cases Data')
+                    plt.legend()
+                    plt.xlabel('Time (Days)')
+                    plt.ylabel('Infectious Population')
+                    plt.show()
+                    plt.cla()
+                    plt.plot(t_range, sol[:, 0], color='blue', linestyle='solid', linewidth=2, label='Modeled S(t)')
+                    plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='Modeled I(t)')
+                    plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='Modeled R(t)')
+                    plt.legend()
+                    plt.xlabel('Time (Days)')
+                    plt.ylabel('Populations')
+                    plt.show()
+                  </input>
+                  <output>
+                  
+                  </output>
+                </sage>
               </li>
             </ol>
           </p>           
@@ -328,7 +413,7 @@
             <ol>
               <li>
                 <p>
-                  The term <m>\beta SI</m> represents new infections. 
+                  The term <m>\beta SI</m> represents new infections, so this is the term we will use to count new cases. 
                 </p>
               </li>
               <li>
@@ -338,7 +423,32 @@
               </li>
               <li>
                 <p>
-                  The <m>I(t)</m> curve often describes all active infections at a given time <m>t</m>. This compares best with the data for # Zombies vs. time. (This is not a perfect comparison for every outbreak, as sometimes <m>I(t)</m> means a person is contagious but does not yet show symptoms. However, in the basic zombie game, where is a person is contagious exactly when they are a zombie, the <m>I(t)</m> curve is well matched with data for # Zombies.)
+                  <ul>
+                    <li>
+                      <p>
+                        The <c>for</c> loop starts at Day 0, setting the model value for New Cases equal to 0.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        For each day of our model simulation, we initially set the modeled number of new cases equal to 0. This happens in line 45.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Our timesteps are 0.1, so there are 10 of them per 1 unit of time. Lines 46 and 47 say that for each of these 10 timesteps (seen as <c>range(0,10)</c> in line 46), we compute <m>\beta SI</m> (more detail on this is below) and add together all these <m>\beta SI</m> values at every 0.1 step to compute the total value <m>\beta SI</m> across an entire day.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        We compute <m>\beta SI</m> for each 0.1 timestep by subtracting: (<m>S(t)</m> at the current timestep) <m>-</m> (<m>S(t)</m> at the subsequent timestep). Remembering that <m>dS/dt = -\beta SI</m>, subtraction in this order results in the approximate value of <m>\beta SI</m>. If we subtracted in the opposite order, we would be computing the approximate value of <m>-\beta SI</m>.
+                      </p>
+                      <p>
+                        To see that this is what we are computing, remember that <c>sol</c> stores all the numbers computed by Python for <m>S(t)</m>, <m>I(t)</m>, <m>R(t)</m>, and New Cases values. To see these values, include <c>print(sol)</c> in the Python code and evaluate the code. The first row of <c>sol</c> is at time 0, and Python calls this row 0. The next row of <c>sol</c> is at time 0.1, and Python calls this row 1. The code <c>sol[day * 10 + timestep, 0]</c> calls for the element of <c>sol</c> appearing in row <c>day * 10 + timestep</c>, where <c>day</c> and <c>timestep</c> are determined by the <c>for</c> loop. The <c>0</c> at the end of <c>sol[day * 10 + timestep, 0]</c> means column 0, which holds the <m>S(t)</m> values produced by the model at each timestep.
+                      </p>
+                    </li>
+                  </ul>
+                     
                 </p>
               </li>
             </ol>
