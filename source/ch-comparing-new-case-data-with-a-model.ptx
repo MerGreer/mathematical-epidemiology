@@ -294,7 +294,7 @@
         <activity xml:id="activity-comparing-new-case-data-with-SIR">
         <statement>
           <p>
-            In this activity, we identify where in the model new cases occur. We then show Python code that counts new cases, making sure to understand the steps by which Python does this counting.
+            In this activity, we identify where in the model new cases occur. We then work with Python code that counts new cases, making sure to understand the steps by which Python does this counting.
           </p>
                     
           <p>
@@ -307,7 +307,7 @@
                     <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
                     <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
                   </md>.
-                  Which mathematical term in this model represents new cases within one unit of time in the model?
+                  Which mathematical term in this model represents new cases?
                 </p>     
               </li>
               <li>
@@ -320,7 +320,7 @@
                   Now view the Python code below, focusing on lines 41<ndash/>49. Notice that in line 42, we define a list named <c>New_Cases_Model</c>, and the first term in that list is our initial number of Infectious cases. Then, for each remaining day in our simulation, we use the <c>for</c> loop in lines 44<ndash/>49 to compute the number of new cases according to our model, and we include that value in the <c>New_Cases_Model</c> list. 
                 </p>
                 <p>
-                  Describe how lines 44<ndash/>49 compute the new cases at the end of Day 1, Day 2, and so on, up through Day 14, the last day of the model. It will help to recall that on line 36, we set <c>t_range</c> to start at time 0 and end at time 14, stepping through time in increments of 0.1 days.
+                  Describe how lines 44<ndash/>49 compute the new cases at the end of Day 1, Day 2, and so on, up through Day 14, the last day of the model. It will help to recall that on line 35, we set <c>t_range</c> to start at time 0 and end at time 14, stepping through time in increments of 0.1 days.
                 </p>
                 <sage>
                   <input>
@@ -342,20 +342,19 @@
                     # Define the system of differential equations, and call it "sir"
                     # Notice we now include a count of new cases
                     def sir(y, t):
-                      s, i, r, nc = y #Define y as consisting of s, i, and r, and nc, in that order, where nc stands for New Cases
-                      dydt = [-beta * s * i, beta * s * i - gamma * i, gamma * i, beta * s * i] #These formulas are the right-hand sides of the SIR model
+                      s, i, r = y #Define y as consisting of s, i, and r, in that order
+                      dydt = [-beta * s * i, beta * s * i - gamma * i, gamma * i] #These formulas are the right-hand sides of the SIR model
                       return dydt
 
                     # Give a value to beta: we change this regularly as part of our activities
                     beta = 0.0005
                     # Give gamma a value that is 1/(number of days you consider people to be contagious)
                     gamma = 0.5
-                    # Set initial conditions for Susceptibles, Infectious, Removed, and New Cases, with 2934 total people (2686 students, 248 employees) and 23 people sick on day 0
+                    # Set initial conditions for Susceptibles, Infectious, and Removed, with 2934 total people (2686 students, 248 employees) and 23 people sick on day 0
                     I_init = 23
                     R_init = 0
-                    NC_init = 0
                     S_init = 2934 - I_init - R_init
-                    y0 = [S_init, I_init, R_init, NC_init]
+                    y0 = [S_init, I_init, R_init]
                     # Set the time range. Always start at 0. Then enter the last number in your selected "t_steps" list from above, but add 1 to that number. Leave the last number as 0.1.
                     t_start = 0
                     t_finish = 14
@@ -363,6 +362,7 @@
 
                     # Give the name "sol" to the solution, which consists of lists of numerical values for S, I, and R at different times t, and give the built-in "odeint" the information needed to solve
                     sol = odeint(sir, y0, t_range)
+                    # print(sol)
 
                     # Add up cases, day by day, to have model values to fit with New Cases data
                     New_Cases_Model = [I_init]
@@ -371,7 +371,7 @@
                       modeled_new_cases = 0;
                       for timestep in range(0,10):
                         modeled_new_cases = modeled_new_cases + (sol[day * 10 + timestep, 0] - sol[day * 10 + timestep + 1, 0])
-                      #print("modeled new cases at time", day + 1, "=", modeled_new_cases)
+                      print("modeled new cases at time", day + 1, "=", modeled_new_cases)
                       New_Cases_Model.append(modeled_new_cases)
 
                     #Initialize the value of RSS to be 0
@@ -404,6 +404,11 @@
                   
                   </output>
                 </sage>
+              </li>
+              <li>
+                <p>
+                  Finally, evaluate the Python code above, and compare the graph of Modeled New Cases shown along with the actual New York City New Cases dataset. In what ways does the model relate well to the data? Or not so well? Try different values of <m>\beta</m> and compare the fit of model with data in terms of RSS value, timing of the model peak, and height of the model peak.
+                </p>     
               </li>
             </ol>
           </p>           
@@ -441,10 +446,15 @@
                     </li>
                     <li>
                       <p>
-                        We compute <m>\beta SI</m> for each 0.1 timestep by subtracting: (<m>S(t)</m> at the current timestep) <m>-</m> (<m>S(t)</m> at the subsequent timestep). Remembering that <m>dS/dt = -\beta SI</m>, subtraction in this order results in the approximate value of <m>\beta SI</m>. If we subtracted in the opposite order, we would be computing the approximate value of <m>-\beta SI</m>.
+                        We compute <m>\beta SI</m> for each 0.1 timestep by subtracting: (<m>S(t)</m> at the current timestep) <m>-</m> (<m>S(t)</m> at the subsequent timestep). Remembering that <m>dS/dt = -\beta SI</m>, subtraction in this order results in the model's value of <m>\beta SI</m>. If we subtracted in the opposite order, we would be computing the model's value of <m>-\beta SI</m>.
                       </p>
                       <p>
-                        To see that this is what we are computing, remember that <c>sol</c> stores all the numbers computed by Python for <m>S(t)</m>, <m>I(t)</m>, <m>R(t)</m>, and New Cases values. To see these values, include <c>print(sol)</c> in the Python code and evaluate the code. The first row of <c>sol</c> is at time 0, and Python calls this row 0. The next row of <c>sol</c> is at time 0.1, and Python calls this row 1. The code <c>sol[day * 10 + timestep, 0]</c> calls for the element of <c>sol</c> appearing in row <c>day * 10 + timestep</c>, where <c>day</c> and <c>timestep</c> are determined by the <c>for</c> loop. The <c>0</c> at the end of <c>sol[day * 10 + timestep, 0]</c> means column 0, which holds the <m>S(t)</m> values produced by the model at each timestep.
+                        To see that this is what we are computing, remember that <c>sol</c> stores all the numbers computed by Python for <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values. To see these values, uncomment <c>print(sol)</c> in line 39 of the Python code and evaluate the code. The first row of <c>sol</c> is at time 0, and Python calls this row 0. The next row of <c>sol</c> is at time 0.1, and Python calls this row 1. And so on, through all the rows. The code <c>sol[day * 10 + timestep, 0]</c> calls for the element of <c>sol</c> appearing in row <c>day * 10 + timestep</c>, where <c>day</c> and <c>timestep</c> are determined by the <c>for</c> loop. The <c>0</c> at the end of <c>sol[day * 10 + timestep, 0]</c> means column 0, which holds the <m>S(t)</m> values produced by the model at each timestep.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        These are open-ended questions. The main goals are to understand the graphs and to include RSS in our thinking, yet to also think about timing and height of the model's peak compared with the dataset's peak.
                       </p>
                     </li>
                   </ul>
