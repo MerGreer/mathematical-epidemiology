@@ -476,47 +476,40 @@
         <title>Comparing New Case Data with the SEIR Model </title>
 
         <p>
-          Intro text
-        </p>
-        <p>
-          Use <xref ref="activity-comparing-new-case-data-with-SEIR"/> to work through these setup details.
+          As we build models with more compartments, different arrows, and other features, there may be no existing differential equation that exactly equals the term used to sum the new cases per day (or per other time unit) in the model. We therefore employ an alternative strategy of creating an extra differential equation that will count just the new cases. The formula for this extra differential equation will depend on the model being used and on the way we define new cases in the model. <xref ref="activity-comparing-new-case-data-with-SEIR"/> shows an example in the case of the SEIR model from <xref ref="activity-seir-model-pertussis-setup"/>, in which we consider new cases to be people just entering the <m>I(t)</m> population.
         </p>
         
         <activity xml:id="activity-comparing-new-case-data-with-SEIR">
         <statement>
           <p>
-            In this activity,
+            The Python code in this activity is largely similar to the Python code in <xref ref="activity-comparing-new-case-data-with-SIR"/>. One notable difference is that the code in this activity involves the SEIR model rather than the SIR model, so we focus on the differential equations
+            <md>
+              <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
+              <mrow>\frac{dE}{dt} \amp = \beta S I - \kappa E </mrow>
+              <mrow>\frac{dI}{dt} \amp = \kappa E - \gamma I </mrow>
+              <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
+            </md>.
+            Another notable difference is the newly added differential equation 
+            <md>
+              \frac{dC}{dt} = \kappa E
+            </md>
+            which keeps count of the population newly entering the Infectious compartment. We consider these to be the new cases, in this activity, as people typically become contagious with influenza approximately at the time they begin to show symptoms, and our data set counts new infections at the time when symptoms become apparent.
+          </p>
+          <p>
+            Work through the prompts below.
           </p>
                     
           <p>
             <ol>
               <li>
                 <p>
-                  Consider the SIR model with the equations
-                  <md>
-                    <mrow>\frac{dS}{dt} \amp = -\beta S I </mrow>
-                    <mrow>\frac{dI}{dt} \amp = \beta S I - \gamma I </mrow>
-                    <mrow>\frac{dR}{dt} \amp = \gamma I </mrow>
-                  </md>.
-                  Which mathematical term in this model represents new cases?
+                  Identify all the places in the Python code where we make changes from the code in <xref ref="activity-comparing-new-case-data-with-SIR"/> so that we can include a new differential equation counting new cases.
                 </p>     
-              </li>
-              <li>
-                <p>
-                  Next, review the paragraph in <xref ref="ch-visualization-graphing-model-results-and-data"/> that discusses computing <em>numerical solutions</em> to a system of differential equations. Summarize what information Python uses to compute these solutions.
-                </p>     
-              </li>
-              <li>
-                <p>
-                  Now view the Python code below, focusing on lines 41<ndash/>49. Notice that in line 42, we define a list named <c>New_Cases_Model</c>, and the first term in that list is our initial number of Infectious cases. Then, for each remaining day in our simulation, we use the <c>for</c> loop in lines 44<ndash/>49 to compute the number of new cases according to our model, and we include that value in the <c>New_Cases_Model</c> list. 
-                </p>
-                <p>
-                  Describe how lines 44<ndash/>49 compute the new cases at the end of Day 1, Day 2, and so on, up through Day 14, the last day of the model. It will help to recall that on line 35, we set <c>t_range</c> to start at time 0 and end at time 14, stepping through time in increments of 0.1 days.
-                </p>
                 <sage>
                   <input>
                     # NYC school flu outbreak 2009
-                    # RSS approach to compare dataset with each day's new cases in the model
+                    # SEIR Model Variation: compute new cases when people enter the I compartment
+                    # Compare with each day's new cases
 
                     # Import packages
                     import numpy as np
@@ -530,42 +523,47 @@
                     t_steps = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
                     New_Cases_NYC_Data = [23, 10, 17, 23, 103, 267, 147, 100, 50, 17, 7, 7, 7, 3, 0]
 
-                    # Define the system of differential equations, and call it "sir"
-                    # Notice we now include a count of new cases
-                    def sir(y, t):
-                      s, i, r = y #Define y as consisting of s, i, and r, in that order
-                      dydt = [-beta * s * i, beta * s * i - gamma * i, gamma * i] #These formulas are the right-hand sides of the SIR model
+                    # Define the system of differential equations, and call it "seir_c"
+                    # Here, "c" means "cases"
+                    def seir_c(y, t):
+                      s, e, i, r, c = y #Define y as consisting of s, e, i, r, and c, in that order
+                      dydt = [-beta * s * i, beta * s * i - kappa * e, kappa * e - gamma * i, gamma * i, kappa * e] #These formulas are the right-hand sides of the SEIR model, plus the term kappa * e for new cases entering I(t)
                       return dydt
 
                     # Give a value to beta: we change this regularly as part of our activities
                     beta = 0.0005
+                    # Give kappa a value that is 1/(number of days you consider people to be exposed-and-incubating)
+                    kappa = 0.714 # The value 0.714 correspondes to 1/1.4 days
                     # Give gamma a value that is 1/(number of days you consider people to be contagious)
                     gamma = 0.5
-                    # Set initial conditions for Susceptibles, Infectious, and Removed, with 2934 total people (2686 students, 248 employees) and 23 people sick on day 0
+                    # Set initial conditions for Susceptibles, Exposed-and-incubating, Infectious, Removed, and New Cases, in that order, with 2934 total people (2686 students, 248 employees), 23 people sick on day 0, no initial people in the E or R compartments, and New Cases initially set to 0
+                    E_init = 0
                     I_init = 23
                     R_init = 0
-                    S_init = 2934 - I_init - R_init
-                    y0 = [S_init, I_init, R_init]
+                    S_init = 2934 - E_init - I_init - R_init
+                    C_init = 0
+                    y0 = [S_init, E_init, I_init, R_init, C_init]
                     # Set the time range. Always start at 0. Then enter the last number in your selected "t_steps" list from above, but add 1 to that number. Leave the last number as 0.1.
                     t_start = 0
-                    t_finish = 14
+                    t_finish = 15
                     t_range = np.arange(t_start, t_finish + 0.1, 0.1)
 
-                    # Give the name "sol" to the solution, which consists of lists of numerical values for S, I, and R at different times t, and give the built-in "odeint" the information needed to solve
-                    sol = odeint(sir, y0, t_range)
-                    # print(sol)
+                    # Give the name "sol" to the solution, which consists of lists of numerical values for S, E, I, and R at different times t, and give the built-in "odeint" the information needed to solve
+                    sol = odeint(seir_c, y0, t_range)
 
                     # Add up cases, day by day, to have model values to fit with New Cases data
                     New_Cases_Model = [I_init]
 
-                    for day in range(0, t_finish):
+                    for day in range(0, 14):
                       modeled_new_cases = 0;
                       for timestep in range(0,10):
-                        modeled_new_cases = modeled_new_cases + (sol[day * 10 + timestep, 0] - sol[day * 10 + timestep + 1, 0])
-                      print("modeled new cases at time", day + 1, "=", modeled_new_cases)
+                        modeled_new_cases = modeled_new_cases + (sol[day * 10 + timestep + 1, 4] - sol[day * 10 + timestep, 4])
+                      #print("modeled new cases at time", day, "=", modeled_new_cases)
                       New_Cases_Model.append(modeled_new_cases)
 
-                    #Initialize the value of RSS to be 0
+                    # print(New_Cases_Model)
+
+                    # Initialize the value of RSS to be 0
                     RSS = 0;
 
                     for x in range(0,15):
@@ -580,12 +578,20 @@
                     plt.plot(t_steps, New_Cases_NYC_Data,'o', markersize=6, color='darkviolet', label='NYC New Cases Data')
                     plt.legend()
                     plt.xlabel('Time (Days)')
-                    plt.ylabel('Infectious Population')
+                    plt.ylabel('New Cases')
                     plt.show()
                     plt.cla()
                     plt.plot(t_range, sol[:, 0], color='blue', linestyle='solid', linewidth=2, label='Modeled S(t)')
-                    plt.plot(t_range, sol[:, 1], color='orange', linestyle='dashed', linewidth=2, label='Modeled I(t)')
-                    plt.plot(t_range, sol[:, 2], color='teal', linestyle='dashdot', linewidth=2, label='Modeled R(t)')
+                    plt.plot(t_range, sol[:, 1], color='magenta', linestyle='dotted', linewidth=2, label='Modeled E(t)')
+                    plt.plot(t_range, sol[:, 2], color='orange', linestyle='dashed', linewidth=2, label='Modeled I(t)')
+                    plt.plot(t_range, sol[:, 3], color='teal', linestyle='dashdot', linewidth=2, label='Modeled R(t)')
+                    plt.legend()
+                    plt.xlabel('Time (Days)')
+                    plt.ylabel('Populations')
+                    plt.show()
+                    plt.cla()
+                    plt.plot(t_range, sol[:, 4], color='gray', linestyle='solid', linewidth=2, label='Modeled Equation C(t)')
+                    plt.plot(t_steps, New_Cases_Model,'s-', linewidth=2, markersize=4, color='limegreen', label='Modeled New Cases')
                     plt.legend()
                     plt.xlabel('Time (Days)')
                     plt.ylabel('Populations')
@@ -598,10 +604,7 @@
               </li>
               <li>
                 <p>
-                  Finally, evaluate the Python code above. You will see two graphs, one showing Modeled New Cases and the NYC New Cases data, and the other showing the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> graphs. It is helpful to see the plots of the <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> populations, yet this chapter differs from  <xref ref="ch-residual-sum-of-squares-improving-a-models-fit-to-data"/> by focusing on comparisons of new cases in the model and new cases in a dataset.
-                </p> 
-                <p>
-                  Compare the plot of Modeled New Cases with the plot of actual New York City New Cases data. In what ways does the model relate well to the data? Or not so well? Try different values of <m>\beta</m> and compare the fit of model with data in terms of RSS value, timing of the model peak, and height of the model peak.
+                  Evaluate the Python code above. Use the two plots in the third graph to explain the difference between the <m>dC/dt</m> differential equation, newly created for this activity, and the Modeled New Cases list of numbers first created in <xref ref="activity-comparing-new-case-data-with-SIR"/>. 
                 </p>    
               </li>
             </ol>
@@ -612,46 +615,12 @@
             <ol>
               <li>
                 <p>
-                  The term <m>\beta SI</m> represents new infections, so this is the term we will use to count new cases. 
+                  T 
                 </p>
               </li>
               <li>
                 <p>
-                  Summaries should refer to initial conditions, the system of differential equations, and derivatives, which are rates of change. The summaries may also refer to a step-by-step approach through time.
-                </p>
-              </li>
-              <li>
-                <p>
-                  <ul>
-                    <li>
-                      <p>
-                        The <c>for</c> loop starts at Day 0, setting the model value for New Cases equal to 0.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        For each day of our model simulation, we initially set the modeled number of new cases equal to 0. This happens in line 45.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        Our timesteps are 0.1, so there are 10 of them per 1 unit of time. Lines 46 and 47 say that for each of these 10 timesteps (seen as <c>range(0,10)</c> in line 46), we compute <m>\beta SI</m> (more detail on this is below) and add together all these <m>\beta SI</m> values at every 0.1 step to compute the total value <m>\beta SI</m> across an entire day.
-                      </p>
-                    </li>
-                    <li>
-                      <p>
-                        We compute <m>\beta SI</m> for each 0.1 timestep by subtracting: (<m>S(t)</m> at the current timestep) <m>-</m> (<m>S(t)</m> at the subsequent timestep). Remembering that <m>dS/dt = -\beta SI</m>, subtraction in this order results in the model's value of <m>\beta SI</m>. If we subtracted in the opposite order, we would be computing the model's value of <m>-\beta SI</m>.
-                      </p>
-                      <p>
-                        To see that this is what we are computing, remember that <c>sol</c> stores all the numbers computed by Python for <m>S(t)</m>, <m>I(t)</m>, and <m>R(t)</m> values. To see these values, uncomment <c>print(sol)</c> in line 39 of the Python code and evaluate the code. The first row of <c>sol</c> is at time 0, and Python calls this row 0. The next row of <c>sol</c> is at time 0.1, and Python calls this row 1. And so on, through all the rows. The code <c>sol[day * 10 + timestep, 0]</c> calls for the element of <c>sol</c> appearing in row <c>day * 10 + timestep</c>, where <c>day</c> and <c>timestep</c> are determined by the <c>for</c> loop. The <c>0</c> at the end of <c>sol[day * 10 + timestep, 0]</c> means column 0, which holds the <m>S(t)</m> values produced by the model at each timestep.
-                      </p>
-                    </li>
-                  </ul>  
-                </p>
-              </li>
-              <li>
-                <p>
-                  These are open-ended questions. The main goals are to understand the graphs and to include RSS in our thinking, yet to also think about timing and height of the model's peak compared with the dataset's peak.
+                  S
                 </p>
               </li>
             </ol>
@@ -659,7 +628,7 @@
         </answer>
       </activity>
       <p>
-        <xref ref="activity-comparing-new-case-data-with-SIR"/> provides thought processes and Python code for comparing a New Cases dataset with the new cases in an SIR model of the type studied in <xref ref="ch-compartmental-diagrams"/>. This SIR model had the advantage that the formula for <m>dS/dt</m> was exactly equal to the number of new infections, with a negative sign rather than a positive sign. In many models, though, there may be no differential equation that has a formula equal to the number of people entering a compartment describing new cases in the way a dataset describes new cases, which typically means the time when a person begins to show symptoms. In ??? we show an alternative way to create Python code to address such situations.
+        Wrap up chapter
       </p>
     </section>
 
