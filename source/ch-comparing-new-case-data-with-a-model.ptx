@@ -620,10 +620,10 @@
             <ol>
               <li>
                 <p>
-                  This answer focuses on including <m>dC/dt = \kappa E</m>. It is important to note that there are additional changes to the code from <xref ref="activity-comparing-new-case-data-with-SIR"/> in order to include the E compartment and its differential equation.
+                  This answer focuses on including <m>dC/dt = \kappa E</m>. We see that there are additional changes to the code from <xref ref="activity-comparing-new-case-data-with-SIR"/> in order to include the E compartment and its differential equation.
                 </p>
                 <p>
-                  In line 19 we give the name <c>seir_c</c> to the system of differential equations. This is not strictly necessary, as we can name the system whatever we want. In line 20 we list our equations as <c>s</c>, <c>e</c>, <c>i</c>, <c>r</c>, and <c>c</c>, making sure to include the <c>c</c> differential equation. In line 21 we provide the right-hand sides of all five differential equations, in order. Since the <c>c</c> equation is last, the expression <c>kappa * e</c> is last in the list of equations.
+                  In line 19 we give the name <c>seir_c</c> to the system of differential equations. Renaming is not strictly necessary, as we can name the system whatever we want. In line 20 we list our equations as <c>s</c>, <c>e</c>, <c>i</c>, <c>r</c>, and <c>c</c>, making sure to include the <c>c</c> differential equation. In line 21 we provide the right-hand sides of all five differential equations, in order. Since the <c>c</c> equation is last, the expression <c>kappa * e</c> is last in the list of equations.
                 </p>
                 <p>
                   Line 35 includes an initial value <c>C_init</c> for the <m>dC/dt</m> differential equation. Line 36 lists all the initial conditions, including <c>C_init</c>. Line 43 refers to the system <c>seir_c</c> of differential equations that we named in line 19.
@@ -653,43 +653,245 @@
         </answer>
       </activity>
       <p>
-        Wrap up chapter
+        The techniques of <xref ref="activity-comparing-new-case-data-with-SEIR"/> can be adapted to many other models in order to compare the model's new cases with a dataset of new cases. Some datasets collect new case information at a time scale other than daily. The <c>for</c> loop in lines 48<ndash/>53 can be adapted for an alternative time scale, with line 48 reflecting how many new case data points exist, and with line 50 counting all the incremental modeled new cases from the model for the times between new case data points. Some models have different compartments and arrows, which can mean using a term other than <m>\kappa E</m> to represent new cases. 
+      </p>
+      <p>
+        At this stage, you have learned many styles of model, especially through <xref ref="ch-vaccines"/>, <xref ref="ch-incubation-periods"/>, and <xref ref="ch-isolation"/>. These model styles can be combined and adapted. In <xref ref="ch-residual-sum-of-squares-improving-a-models-fit-to-data"/> and <xref ref="ch-comparing-new-case-data-with-a-model"/> you have learned ways to compare models with data. Next, in <xref ref="ch-epidemic-vs-endemic-illness"/>, we expand our existing modeling ideas to allow people to enter and leave a population. This permits us to model longer-term illnesses and to consider non-constant populations. This is a significant set of changes in comparison with the models we have created so far. These modeling approaches prepare us to work with an even wider collection of disease scenarios.
       </p>
     </section>
 
 
-        <exercises xml:id="exercises-ch-influenza-data">
-          <exercise number="1">
-           <p>
-              
-           </p>          
-         </exercise>
+    <exercises xml:id="exercises-ch-influenza-data">
+      <exercise number="1">
+        <p>
+          Revisit the dataset from <xref ref="table-h1n1-cases-nyc-school"/> to create a new model, as described below, and compare modeled new cases with the dataset.
+        </p>         
+        <ol>
+          <li>
+            <p>
+              Construct an SIR model with isolation, in the style of <xref ref="fig-SIR-complete-isolation-2"/>, with parameter values for this outbreak. State possible values for <m>\widetilde{\gamma}</m> and write a justification for why these are reasonable values. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Implement an RSS approach to select a preferred combination of values of <m>\beta</m> and <m>\widetilde{\gamma}</m>. Show your Python code, and name at least three different combinations of <m>\beta</m> and <m>\widetilde{\gamma}</m> that you tried, along with the corresponding RSS value for each combination. Then state your selected values of <m>\beta</m> and <m>\widetilde{\gamma}</m> and graph the resulting Modeled New Cases on the same axes as the NYC New Cases Data. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Discuss your results from part (b). Qualitatively, how well do the Modeled New Cases match the NYC New Cases Data when you use your selected values of <m>\beta</m> and <m>\widetilde{\gamma}</m>? Consider the height and timing of the peak of new cases as part of your answer.
+            </p>
+          </li>
+          <li>
+            <p>
+              The value of <m>\mathcal{R}_0</m> for H1N1 has been estimated to be between 1.4 and 1.6, and a typical length of infectiousness for H1N1 is 5 days. Using <xref ref="eq-R0-sir"/> and <m>N=2934</m>, what value of <m>\beta</m> would result from this information? How close is the value of <m>\beta</m> you selected using RSS to the range of values of <m>\beta</m> that make sense in <xref ref="eq-R0-sir"/>? Discuss possible reasons for the outcome you find, whether you found that the <m>\beta</m> values are close or not very close. 
+            </p>
+          </li>
+        </ol>
+      </exercise>
+
+      <exercise number="2">
+        <p>
+          Consider the following set of data from a Bates College outbreak of H1N1 influenza in Fall 2009. The total population of students was 1714. 
+        </p>       
+        <table xml:id="table-h1n1-bates-2009">
+          <title>H1N1 Influenza Data from Bates College, 2009</title>
+          <tabular halign="center">
+            <row header="yes">
+              <cell>Date</cell>
+              <cell>Day of Outbreak </cell>
+              <cell>New Cases</cell>
+            </row>
+            <row>
+              <cell>October 6</cell>
+              <cell>0</cell>
+              <cell>5</cell>
+            </row>
+            <row>
+              <cell>October 7</cell>
+              <cell>1</cell>
+              <cell>8</cell>
+            </row>
+            <row>
+              <cell>October 8</cell>
+              <cell>2</cell>
+              <cell>2</cell>
+            </row>
+            <row>
+              <cell>October 9</cell>
+              <cell>3</cell>
+              <cell>6</cell>
+            </row>
+            <row>
+              <cell>October 10</cell>
+              <cell>4</cell>
+              <cell>6</cell>
+            </row>
+            <row>
+              <cell>October 11</cell>
+              <cell>5</cell>
+              <cell>15</cell>
+            </row>
+            <row>
+              <cell>October 12</cell>
+              <cell>6</cell>
+              <cell>28</cell>
+            </row>
+            <row>
+              <cell>October 13</cell>
+              <cell>7</cell>
+              <cell>53</cell>
+            </row>
+            <row>
+              <cell>October 14</cell>
+              <cell>8</cell>
+              <cell>44</cell>
+            </row>
+            <row>
+              <cell>October 15</cell>
+              <cell>9</cell>
+              <cell>20</cell>
+            </row>
+            <row>
+              <cell>October 16</cell>
+              <cell>10</cell>
+              <cell>12</cell>
+            </row>
+            <row>
+              <cell>October 17</cell>
+              <cell>11</cell>
+              <cell>9</cell>
+            </row>
+            <row>
+              <cell>October 18</cell>
+              <cell>12</cell>
+              <cell>17</cell>
+            </row>
+            <row>
+              <cell>October 19</cell>
+              <cell>13</cell>
+              <cell>21</cell>
+            </row>
+            <row>
+              <cell>October 20</cell>
+              <cell>14</cell>
+              <cell>7</cell>
+            </row>
+          </tabular>
+        </table>   
+        <ol>
+          <li>
+            <p>
+              Construct a model to compare with the data. Name the type of model you choose to use, and provide justification for your choice. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Use published information about influenza, along with an RSS approach, to estimate the parameter values in your model. Show the Python code you use. 
+            </p>
+          </li>
+          <li>
+            <p>
+              Display one or more graphs showing the results of your model in comparison with the dataset. 
+            </p>
+          </li>
+        </ol>
+      </exercise>
+
+      <exercise number="3">
+        <p>
+        As described starting on page 356 of Mathematical Models in Population Biology and Epidemiology, second edition, by Fred Brauer and Carlos Castillo-Chavez, the village of Eyam, in England, was affected by bubonic plague in 1665-1666. There were two separate plague outbreaks, and <xref ref="table-rss-eyam"/> shows data for the second of these outbreaks. 
+        </p>         
+        <table xml:id="table-rss-eyam">
+          <title>Plague Data from Eyam, 1666</title>
+          <tabular halign="center">
+            <row header="yes">
+              <cell>Date (Day) </cell>
+              <cell>Susceptibles </cell>
+              <cell>Infectious</cell>
+            </row>
+            <row>
+              <cell>July 3/4 (Day 0)</cell>
+              <cell>235</cell>
+              <cell>14.5</cell>
+            </row>
+            <row>
+              <cell>July 19 (Day 15.5)</cell>
+              <cell>201</cell>
+              <cell>22</cell>
+            </row>
+            <row>
+              <cell>August 3/4 (Day 31)</cell>
+              <cell>153.5</cell>
+              <cell>29</cell>
+            </row>
+            <row>
+              <cell>August 19 (Day 46.5)</cell>
+              <cell>121</cell>
+              <cell>21</cell>
+            </row>
+            <row>
+              <cell>September 3/4 (Day 62)</cell>
+              <cell>108</cell>
+              <cell>8</cell>
+            </row>
+            <row>
+              <cell>September 19 (Day 77.5)</cell>
+              <cell>97</cell>
+              <cell>8</cell>
+            </row>
+            <row>
+              <cell>October 4/5 (Day 93)</cell>
+              <cell>Unknown</cell>
+              <cell>Unknown</cell>
+            </row>
+            <row>
+              <cell>October 20 (Day 108.5)</cell>
+              <cell>83</cell>
+              <cell>0</cell>
+            </row>
+          </tabular>
+        </table> 
+        <ol>
+          <li>
+            <p>
+              Use Python to plot these data.
+            </p>
+          </li>
+          <li>
+            <p>
+              Then, use the information that we start with a population of 250 people, the infectious period was approximately 11 days, and <m>\mathcal{R}_0</m> has been estimated to be between 1.6 and 1.9, to construct an SIR model for this outbreak.
+            </p>
+          </li>
+          <li>
+            <p>
+              Then use an RSS approach, along with the data and your SIR model, to select a preferred value of <m>\beta</m> for this SIR model. Attend to the following details while you work. 
+            </p>
+            <p>
+              <ol>
+                <li>
+                  <p>
+                    The dataset lists a value for Infectious at each provided date, rather than New Cases. This suggests using techniques from <xref ref="ch-residual-sum-of-squares-improving-a-models-fit-to-data"/>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The data from October 4/5 are Unknown. You may choose to address only the six preceding dates, or to also include the data from October 20. State which data points you are including in your RSS calculation.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    The dates in this example are 15.5 days apart, rather than 1 day apart. This requires changing the <c>10</c> in the <c>sol[10*x, 1]</c> part of the Python code.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </li>
+        </ol>
+      </exercise>
     
-         <exercise number="2">
-          <p>
-            
-          </p>   
-         </exercise>
-    
-         <!-- <exercise number="3">
-           <p>
-             Dongguan from Sam's "Intro Write Ups for Case Studies"
-           </p>   
-           <ol>
-             <li>
-               <p>
-                 Re 
-               </p>
-               
-             </li>
-             <li>
-               <p>
-                 In
-               </p>
-             </li>
-           </ol>     
-         </exercise> -->
-       </exercises>
+         
+    </exercises>
 
       
 
