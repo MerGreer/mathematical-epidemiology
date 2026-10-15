@@ -10,7 +10,7 @@
           </li>
           <li>
             <p>
-              Recognize ways to compare the output of a model with the numbers in a typical dataset from an outbreak
+              Develop ways to compare the output of a model with the numbers in a typical dataset from an outbreak
             </p>
           </li>
           <li>
@@ -476,7 +476,7 @@
         <title>Comparing New Case Data with the SEIR Model </title>
 
         <p>
-          As we build models with more compartments, different arrows, and other features, there may be no existing differential equation that exactly equals the term used to sum the new cases per day (or per other time unit) in the model. We therefore employ an alternative strategy of creating an extra differential equation that will count just the new cases. The formula for this extra differential equation will depend on the model being used and on the way we define new cases in the model. <xref ref="activity-comparing-new-case-data-with-SEIR"/> shows an example in the case of the SEIR model from <xref ref="activity-seir-model-pertussis-setup"/>, in which we consider new cases to be people entering the <m>I(t)</m> population.
+          As we build models with more compartments, different arrows, and other features, there may be no existing differential equation that exactly equals the term used to sum the new cases per day (or per other time unit) in the model. We therefore employ an alternative strategy of creating an extra differential equation that will count just the new cases. The formula for this extra differential equation will depend on the model being used and on the way we define new cases in the model. <xref ref="activity-comparing-new-case-data-with-SEIR"/> shows an example involving the SEIR model from <xref ref="activity-seir-model-pertussis-setup"/>, in which we consider new cases to be people entering the <m>I(t)</m> population.
         </p>
         
         <activity xml:id="activity-comparing-new-case-data-with-SEIR">
@@ -493,7 +493,7 @@
             <md>
               \frac{dC}{dt} = \kappa E
             </md>
-            which keeps count of the population newly entering the Infectious compartment. We consider these to be the new cases, in this activity, as people typically become contagious with influenza approximately at the time they begin to show symptoms, and our dataset counts new infections at the time when symptoms become apparent. It is important to note that we are not introducing a new compartment <q>C</q> to the model when writing the <m>dC/dt</m> equation, but instead are developing a new differential equation solely to allow us to count new cases.
+            which keeps count of the population entering the Infectious compartment. We consider these to be the new cases, in this activity, as people typically become contagious with influenza approximately at the time they begin to show symptoms, and our dataset counts new infections at the time when symptoms become apparent. It is important to note that we are not introducing a compartment <q>C</q> to the model when writing the <m>dC/dt</m> equation, but instead are developing a new differential equation solely to allow us to count new cases.
           </p>
           <p>
             Work through the prompts below.
@@ -782,7 +782,7 @@
         <ol>
           <li>
             <p>
-              Construct a model to compare with the data. Name the type of model you choose to use, and provide justification for your choice. 
+              Construct a compartmental model to compare with the data, using a model in the style we have studied so far in this text. Name the type of model you choose to use (such as SIR, SEIR, etc.) and provide justification for your choice. 
             </p>
           </li>
           <li>
@@ -855,12 +855,12 @@
         <ol>
           <li>
             <p>
-              Use Python to plot these data.
+              Plot these data, using Python.
             </p>
           </li>
           <li>
             <p>
-              Then, use the information that we start with a population of 250 people, the infectious period was approximately 11 days, and <m>\mathcal{R}_0</m> has been estimated to be between 1.6 and 1.9, to construct an SIR model for this outbreak.
+              Use the information that we start with a population of 250 people, the infectious period was approximately 11 days, and <m>\mathcal{R}_0</m> has been estimated to be between 1.6 and 1.9, to construct an SIR model for this outbreak.
             </p>
           </li>
           <li>

@@ -25,12 +25,35 @@
       <p>
         <term>***This chapter remains under construction.***</term>
       </p>
+      <p>
+        This chapter provides a variety of ideas for comparing models with datasets. Such comparisons should always, ultimately, address real-life happenings, rather than focusing solely on trying to find parameter values with which a model most closely fits the dataset. The discussion below builds ways to improve the fit of models to data, while always keeping in mind real-world events.
+      </p>
+      <p>
+        The activities of this chapter refer back to the New York City school outbreak of H1N1 influenza first studied in <xref ref="ch-comparing-new-case-data-with-a-model"/> and having the dataset shown in <xref ref="table-h1n1-cases-nyc-school"/>.
+      </p>
    
     </introduction>
 
-    <section xml:id="sec-temporary">
-      <title></title>
-      <p>The compartments are stages of cell infection</p>
+    <section xml:id="sec-changing-initial-conditions-or-revisiting-datasets">
+      <title>Changing Initial Conditions or Revisiting Datasets</title>
+      <p>
+        In the first activity of this section, experiment with alternative initial conditions.
+      </p>
+      <activity xml:id="activity-change-initial-conditions">
+        <statement>
+          <p>
+            In the models of <xref ref="ch-comparing-new-case-data-with-a-model"/> we consistently began with 23 Infectious people and the rest of the population, 2911 people, as Susceptible. What if we instead consider that some people may already be immune, and therefore they begin in the Removed compartment? Or what if some people begin in the Exposed-and-incubating compartment because they have already begun to incubate the disease when the first 23 cases are recognized?
+          </p>       
+          <p>
+            Use the SIR model and Python code from <xref ref="activity-comparing-new-case-data-with-SIR"/> or the SEIR model and Python code from <xref ref="activity-comparing-new-case-data-with-SEIR"/> to explore alternative initial conditions.  
+          </p>
+          <p>
+            Report your results. Do you think any alternative initial conditions make more sense than those used in <xref ref="ch-comparing-new-case-data-with-a-model"/>? Do any of your alternative initial conditions lead to a better match between new cases and the NYC school dataset than the matches you were able to achieve in <xref ref="ch-comparing-new-case-data-with-a-model"/>? If you believe you can achieve a better match with alternative initial conditions, state whether the match is improved in terms of RSS value, or qualitative considerations such as timing and height of the peak of new cases, or some other way of measuring match.
+          </p>             
+        </statement>
+      </activity>
+        
+
     </section>
 
 </chapter>
