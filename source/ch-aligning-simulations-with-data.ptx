@@ -26,7 +26,10 @@
         <term>***This chapter remains under construction.***</term>
       </p>
       <p>
-        This chapter provides a variety of ideas for comparing models with datasets. Such comparisons should always, ultimately, address real-life happenings, rather than focusing solely on trying to find parameter values with which a model most closely fits the dataset. The discussion below builds ways to improve the fit of models to data, while always keeping in mind real-world events.
+        This chapter provides a variety of ideas for comparing models with datasets. Such comparisons should alwaysbe sure to connect to real-life happenings, rather than focusing solely on trying to find parameter values with which a model most closely fits the dataset. The discussion below builds ways to improve the fit of models to data, while always keeping in mind real-world events.
+      </p>
+      <p>
+        These are good activities to do in a Python environment outside this textbook. Suggestions include copying the code directly into the box at the top of the page at <url href="https://sagecell.sagemath.org/">sagecell.sagemath.org</url>, using Google Colab at <url href="https://colab.research.google.com/">colab.research.google.com</url>, or downloading an installation of Python directly from <url href="https://www.python.org/">python.org</url>. The reason for using an outside environment is that code changes cannot be saved within the textbook's Python environment. You may make several changes to datasets or Python code in this chapter, and it will help to be able to save changes as you experiment. 
       </p>
       <p>
         The activities of this chapter refer back to the New York City school outbreak of H1N1 influenza first studied in <xref ref="ch-comparing-new-case-data-with-a-model"/> and having the dataset shown in <xref ref="table-h1n1-cases-nyc-school"/>.
@@ -34,21 +37,49 @@
    
     </introduction>
 
-    <section xml:id="sec-changing-initial-conditions-or-revisiting-datasets">
-      <title>Changing Initial Conditions or Revisiting Datasets</title>
+    <section xml:id="sec-changing-initial-conditions">
+      <title>Changing Initial Conditions</title>
       <p>
-        In the first activity of this section, experiment with alternative initial conditions.
+        In this activity, experiment with alternative initial conditions.
       </p>
       <activity xml:id="activity-change-initial-conditions">
         <statement>
           <p>
-            In the models of <xref ref="ch-comparing-new-case-data-with-a-model"/> we consistently began with 23 Infectious people and the rest of the population, 2911 people, as Susceptible. What if we instead consider that some people may already be immune, and therefore they begin in the Removed compartment? Or what if some people begin in the Exposed-and-incubating compartment because they have already begun to incubate the disease when the first 23 cases are recognized?
+            In the models of <xref ref="ch-comparing-new-case-data-with-a-model"/> we consistently started with 23 Infectious people and considered the rest of the population, 2911 people, to be Susceptible. What if we instead determine that some people may already be immune, and therefore they begin in the Removed compartment? Or what if some people begin in the Exposed-and-incubating compartment rather than the Susceptible compartment because we find it likely that they have already begun to incubate the disease when the first 23 cases appear?
           </p>       
           <p>
             Use the SIR model and Python code from <xref ref="activity-comparing-new-case-data-with-SIR"/> or the SEIR model and Python code from <xref ref="activity-comparing-new-case-data-with-SEIR"/> to explore alternative initial conditions.  
           </p>
           <p>
-            Report your results. Do you think any alternative initial conditions make more sense than those used in <xref ref="ch-comparing-new-case-data-with-a-model"/>? Do any of your alternative initial conditions lead to a better match between new cases and the NYC school dataset than the matches you were able to achieve in <xref ref="ch-comparing-new-case-data-with-a-model"/>? If you believe you can achieve a better match with alternative initial conditions, state whether the match is improved in terms of RSS value, or qualitative considerations such as timing and height of the peak of new cases, or some other way of measuring match.
+            Report your results. Do you think any alternative initial conditions make more sense, biologically and in terms of real-world events, than those used in <xref ref="ch-comparing-new-case-data-with-a-model"/>? Do any of your alternative initial conditions lead to a better match between new cases and the NYC school dataset than the matches you were able to achieve in <xref ref="ch-comparing-new-case-data-with-a-model"/>? If you believe you can achieve a better match with alternative initial conditions, state whether the match is improved in terms of RSS value, or qualitative considerations such as timing and height of the peak of new cases, or some other way of measuring the match.
+          </p>             
+        </statement>
+      </activity>
+      <p>
+        <xref ref="activity-change-initial-conditions"/> took the perspective that something about our model could change in order to better represent real-world conditions, and therefore could lead to a better fit between Modeled New Cases and the new cases values from our NYC School dataset. Next, in <xref ref="sec-revisiting-datasets"/> we look anew at the dataset itself. 
+      </p>
+      
+    </section>
+
+    <section xml:id="sec-revisiting-datasets">
+      <title>Revisiting Datasets</title>
+      
+      <p>
+        What if not all people who knew they were sick reported their cases of influenza? What if some people were asymptomatic, or mildly symptomatic and did not recognize their symptoms as influenza, and did not report illness for that reason? In either of these situations, or a combination of both, the dataset underreports the number of cases. Experiment with this idea in <xref ref="activity-change-dataset"/>.
+      </p>
+      <activity xml:id="activity-change-dataset">
+        <statement>
+          <p>
+            It sometimes appears that our models result in a larger number of Infectious people, or a larger number of New Cases, than we see in our datasets. One contributing reason to this can be that the dataset does not report all the people who have become infected with the disease. The two most common reasons are (1) asymptomatic illness, in which a person does not know they have the disease, and (2) underreporting, in which not all known cases are reported, which leads to them not appearing in the dataset. Related to these, some people experience mild symptoms but do not recognize them as being related to an illness such as influenza. This is yet another reason these cases may not be reported.
+          </p>       
+          <p>
+            Use the SIR model and Python code from <xref ref="activity-comparing-new-case-data-with-SIR"/> or the SEIR model and Python code from <xref ref="activity-comparing-new-case-data-with-SEIR"/> to explore comparing the model with an altered dataset. For this activity, change the dataset of New Cases by making an assumption about how many more cases there may be than what have been reported. A scientific paper in the journal <em>Epidemiology</em><fn>The paper is <q>The fraction of influenza virus infections that are asymptomatic: a systematic review and meta-analysis</q> by Nancy H. L. Leung, Cuiling Xu, Dennis K. M. Ip, and Benjamin J. Cowling. It was published in the 2015 November issue, volume 26, pages 862<ndash/>872.</fn> has determined that <m>4\%</m><ndash/><m>28\%</m> are asymptomatic, and that on average <m>16\%</m> are asymptomatic, though there is a wide range of possible values, given different strains of flu, different levels of asymptomatic illness across age groups, and other variations. Numbers of unreported cases vary widely by influenza outbreak, though given the close watch on students and staff at the NYC school, underreporting in this specific outbreak may not be vast. 
+          </p>
+          <p>
+            One way to change the dataset is to choose a multiplier and to apply the multiplier to every New Case data point. For instance, multiplying every New Case by 1.5 results in a list of New Cases that is <m>50\%</m> larger than the original reported data on New Cases.
+          </p>          
+          <p>
+            Report your results. What level of multiplier makes sense to you with the NYC School outbreak, and what is your justification for this? How well do your modeling results match your adjusted New Cases dataset after you apply a multiplier to the data? Report on your resulting match of Modeled New Cases and adjusted dataset in terms of RSS value, or qualitative considerations such as timing and height of the peak of new cases, or some other way of measuring the match.
           </p>             
         </statement>
       </activity>
